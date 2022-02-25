@@ -1,0 +1,39 @@
+<script lang="ts">
+	import Preview from '$lib/PageComponents/ComponentPreview.svelte'
+
+	let clicked: boolean = false
+
+	let primary: string =
+		'rounded cursor-pointer select-none text-sm font-medium inline-flex items-center justify-center px-4 py-2 text-gray-200 bg-orange-400 border border-orange-400 hover:bg-orange-500 focus:bg-orange-600 focus:outline outline-1 outline-orange-400 outline-offset-[3px]';
+
+</script>
+
+# Button
+
+The button component can be used to launch an action but also to link to other pages.
+
+<Preview>
+	<button 
+	 	class={primary}
+	 	on:click={() => clicked = true}
+	>
+	Click Me
+	</button>
+	<p>I am {clicked ? 'clicked' : 'not clicked'}</p>
+</Preview>
+
+## Basic Example
+
+```html
+<script>
+	import { count } from '$lib';
+
+	const increment = () => {
+		count++;
+	};
+</script>
+
+<div>
+	<button on:click="{increment}">Increment</button>
+</div>
+```

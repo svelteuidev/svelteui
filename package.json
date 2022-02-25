@@ -1,0 +1,53 @@
+{
+	"name": "svelteui",
+	"version": "0.3.1",
+	"description": "SvelteUI Components Monorepo.",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"lint": "turbo run lint"
+	},
+	"devDependencies": {
+		"turbo": "latest",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.4.0"
+	},
+	"keywords": [
+		"Svelte",
+		"Mantine",
+		"UI",
+		"Component Library"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Brisklemonade/svelteui.git"
+	},
+	"author": "Kamell Perry",
+	"license": "MIT",
+	"turbo": {
+		"baseBranch": "origin/main",
+		"npmClient": "npm",
+		"pipeline": {
+			"build": {
+				"dependsOn": [
+					"^build"
+				],
+				"outputs": [
+					"dist/**",
+					".build/**"
+				]
+			},
+			"lint": {
+				"outputs": []
+			},
+			"dev": {
+				"cache": false
+			}
+		}
+	},
+	"type": "module"
+}

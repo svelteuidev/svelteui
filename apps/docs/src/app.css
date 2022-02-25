@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	tab-size: 2;
+}
+
+/* for codeblock syntax highlighting in markdown */
+pre .token.tag {
+	@apply text-indigo-400;
+}
+pre .token.attr-name {
+	@apply text-emerald-400;
+}
+pre .token.attr-value {
+	@apply text-emerald-200;
+}
+pre .token.namespace {
+	@apply text-emerald-400;
+}
+pre .token.keyword,
+pre .token.operator {
+	@apply text-purple-400;
+}
+pre .token.string {
+	@apply text-emerald-300;
+}
+pre .token.function {
+	@apply text-sky-400;
+}
+pre .token.comment {
+	@apply text-gray-600;
+}

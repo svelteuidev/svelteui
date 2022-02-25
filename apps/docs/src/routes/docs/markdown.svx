@@ -1,0 +1,41 @@
+# Category
+
+## Markdown Cheatsheet
+
+### Basic Syntax
+
+| Element         | Markdown Syntax                                      |
+| --------------- | ---------------------------------------------------- |
+| Heading         | # H1 <br> ## H2 <br> ### H3                          |
+| Bold            | **bold text**                                        |
+| Italic          | _italicized text_                                    |
+| Blockquote      | > blockquote                                         |
+| Ordered List    | 1. First item <br> 2. Second item <br> 3. Third item |
+| Unordered List  | - First item <br>- Second item <br> - Third item     |
+| Code            | `code`                                               |
+| Horizontal Rule | ---                                                  |
+| Link            | [title](https://www.example.com)                     |
+| Image           | ![alt text](image.jpg)                               |
+
+### Extended Syntax
+
+**Table**
+
+| Syntax    | Description |
+| --------- | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |
+
+## Other
+
+#### Thing 4
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas minus, voluptatum unde libero maxime sint corrupti itaque est non! Eos.
+
+#### Thing 5
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas minus, voluptatum unde libero maxime sint corrupti itaque est non! Eos.
+
+#### Thing 6
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas minus, voluptatum unde libero maxime sint corrupti itaque est non! Eos.
