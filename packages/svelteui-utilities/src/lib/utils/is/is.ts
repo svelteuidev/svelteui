@@ -1,14 +1,8 @@
 /**
  * Type guards to define whether a value is of a specific type
  */
-
-import { browser } from '$app/env';
-let isClient;
-if (browser) {
-	isClient = typeof window !== undefined;
-}
-
 const toString = Object.prototype.toString;
+export const isClient = typeof window !== undefined;
 export const isBoolean = (val: any): val is boolean => typeof val === 'boolean';
 export const isFunction = <T extends Function>(val: any): val is T => typeof val === 'function';
 export const isNumber = (val: any): val is number => typeof val === 'number';
@@ -24,5 +18,3 @@ export const rand = (min: number, max: number) => {
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
-export { isClient };

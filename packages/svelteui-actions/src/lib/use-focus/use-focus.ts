@@ -1,4 +1,4 @@
-import type { Action, FocusableElement } from '../_types';
+import type { Action, FocusableElement } from '../types/_types';
 
 /**
  *

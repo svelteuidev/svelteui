@@ -1,12 +1,11 @@
-import type { Action } from '../_types';
+import type { Action } from '../types/_types';
 
 /**
  *
  * Call callback when user clicks outside a given element
  *
- * Usage: <div use:clickOutside={{ enabled: open, callback: () => open = false }}>
+ * Usage: <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
  *
- * Demo: https://svelte.dev/repl/dae848c2157e48ab932106779960f5d5?version=3.19.2
  *
  */
 export function clickoutside(

@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/utilities",
-	"version": "0.2.5",
+	"version": "0.2.6",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
