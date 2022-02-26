@@ -1,5 +1,5 @@
 {
-	"name": "sveltekit-package-template",
+	"name": "@svelteuidev/core",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -7,14 +7,19 @@
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"package": "svelte-kit package"
+		"package": "svelte-kit package",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"coverage": "vitest run --coverage",
+		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
+		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
+		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",
 		"postcss": "^8.3.11",
-		"micromatch": "^4.0.4",
 		"sass": "^1.43.4",
 		"svelte": "^3.42.6",
 		"svelte-check": "^2.2.6",
@@ -23,5 +28,8 @@
 		"tslib": "^2.3.1",
 		"typescript": "^4.4.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@stitches/core": "^1.2.7"
+	}
 }

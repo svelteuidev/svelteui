@@ -12,9 +12,12 @@
 		"lint": "turbo run lint"
 	},
 	"devDependencies": {
-		"turbo": "latest",
+		"micromatch": "^4.0.4",
 		"prettier": "^2.4.1",
-		"prettier-plugin-svelte": "^2.4.0"
+		"prettier-plugin-svelte": "^2.4.0",
+		"turbo": "latest",
+		"vitest": "^0.5.5",
+		"vitest-svelte-kit": "^0.0.6"
 	},
 	"keywords": [
 		"Svelte",

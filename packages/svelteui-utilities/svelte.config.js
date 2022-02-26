@@ -13,8 +13,20 @@ const config = {
 	}),
 
 	kit: {
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
+		package: {
+			exports: (filepath) => {
+				if (filepath.endsWith('.d.ts')) return false;
+				return !mm.contains(filepath, '**_');
+			},
+			files: mm.matcher('!**/*.test.{ts, js}')
+		},
+		/** @type {import('vite').UserConfig} */
+		vite: {
+			test: {
+				globals: true,
+				environment: 'jsdom'
+			}
+		}
 	}
 };
 
