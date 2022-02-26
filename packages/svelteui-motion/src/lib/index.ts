@@ -1,1 +1,2 @@
-export { default as Counter } from './Counter/Counter.svelte';
+export { typewriter } from './transitions/typewriter';
+export { flipboard } from './transitions/flipboard';

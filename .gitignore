@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/bin
+/coverage
 /turbosvelte-cli
 build
 /build
