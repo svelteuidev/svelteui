@@ -1,1 +1,2 @@
-export { default as Counter } from './Counter/Counter.svelte';
+export { useOs } from './use-os/use-os';
+export * from './utils/index';
