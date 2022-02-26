@@ -6,6 +6,26 @@ html {
 	tab-size: 2;
 }
 
+.animate-text {
+	animation: flow 8s ease-in-out infinite;
+	background: linear-gradient(52deg, rgb(51, 154, 240) 3%, #ff91af 97%);
+	background-size: 200%;
+	background-clip: inherit;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+@keyframes flow {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 80% 40%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}
+
 /* for codeblock syntax highlighting in markdown */
 pre .token.tag {
 	@apply text-indigo-400;

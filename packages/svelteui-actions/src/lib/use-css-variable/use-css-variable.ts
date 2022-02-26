@@ -1,4 +1,4 @@
-import type { Action, UnknownKeyString } from '../_types';
+import type { Action, UnknownKeyString } from '../types/_types';
 
 /**
  *

@@ -1,4 +1,4 @@
-import type { Action } from '../_types';
+import type { Action } from '../types/_types';
 
 /**
  *
