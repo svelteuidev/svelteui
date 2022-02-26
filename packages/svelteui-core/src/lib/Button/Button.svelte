@@ -99,16 +99,6 @@
 	});
 </script>
 
-<!-- 
-    @component
-    
-	[View Docs](https://example.com)
-    - Usage:
-        ```tsx
-        <Button>Click</Button>
-        ```
- -->
-
 <!--
 @component
 A user can perform an immediate action by pressing a button. It's frequently used to start an action, but it can also be used to link to other pages.
