@@ -1,45 +1,42 @@
 <script lang="ts">
+	// @ts-ignore
+	import { version } from '../../package.json';
 	import { page } from '$app/stores';
-	import { version } from '../../../package.json';
-	import '../../app.css';
-	export let dark;
+	import '../app.css';
+
+	export let dark: boolean;
 
 	$: path = $page.url.pathname.split('/')[1];
 
 	function toggleTheme() {
 		dark = !dark;
-		if (dark === false) {
-			document.documentElement.classList.remove('dark');
-		} else {
-			document.documentElement.classList.add('dark');
-		}
 	}
 </script>
 
-<header
-	class="fixed top-0 left-0 w-full z-20 h-20 flex items-center {dark ? 'bg-[#282C31]' : 'bg-white'}"
->
+<header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center backdrop-blur-md">
 	<nav class="max-w-screen-xl h-full w-full mx-auto px-5">
-		<div class="flex items-center justify-between h-full border-b border-gray-800">
-			<a href="/" class="text-gray-200 text-2xl font-black">
-				Title
-				<span class="text-sm text-gray-600">v{version}</span>
+		<div
+			class="flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
+		>
+			<a href="/" class="text-black dark:text-gray-200 text-2xl font-black">
+				Svelte<span class="text-primary-500">UI</span>
+				<span class="text-base text-gray-600">v{version}</span>
 			</a>
 			<div class="flex items-center gap-4">
 				<a
 					href="/changelog"
 					class="text-sm font-medium py-2 px-3 rounded {path === 'changelog'
-						? 'text-white bg-orange-500'
+						? 'text-white bg-primary-500'
 						: 'hover:bg-gray-800 hover:text-white'}"
 				>
 					Changelog
 				</a>
 				<button
 					class="hover:bg-gray-800 hover:text-white text-sm font-medium py-2 px-3 rounded"
-					on:click={toggleTheme}>{dark ? 'Dark' : 'Light'} Mode</button
+					on:click|preventDefault={toggleTheme}>{dark ? 'Dark' : 'Light'} Mode</button
 				>
 				<a
-					href="https://github.com/user/repository"
+					href="https://github.com/Brisklemonade/svelteui"
 					target="_blank"
 					rel="noreferrer"
 					class="hover:text-white py-4"

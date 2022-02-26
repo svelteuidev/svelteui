@@ -1,29 +1,29 @@
 {
-  "name": "@svelteuidev/actions",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "package": "svelte-kit package",
-    "build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
+	"name": "@svelteuidev/actions",
+	"version": "0.2.5",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"package": "svelte-kit package",
+		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
 		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
 		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
-  },
-  "devDependencies": {
-    "@sveltejs/kit": "next",
-    "autoprefixer": "^10.4.0",
-    "cssnano": "^5.0.10",
-    "postcss": "^8.3.11",
-    "sass": "^1.43.4",
-    "svelte": "^3.42.6",
-    "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.9.4",
-    "svelte2tsx": "^0.4.8",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
-  },
-  "type": "module"
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.4.0",
+		"cssnano": "^5.0.10",
+		"postcss": "^8.3.11",
+		"sass": "^1.43.4",
+		"svelte": "^3.42.6",
+		"svelte-check": "^2.2.6",
+		"svelte-preprocess": "^4.9.4",
+		"svelte2tsx": "^0.4.8",
+		"tslib": "^2.3.1",
+		"typescript": "^4.4.3"
+	},
+	"type": "module"
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Navbar from '$lib/PageComponents/Navbar.svelte';
+	import Navbar from '$components/Navbar.svelte';
 	import '../app.css';
 
 	let dark: boolean = true;
