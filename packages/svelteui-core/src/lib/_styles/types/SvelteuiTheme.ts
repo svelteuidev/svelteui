@@ -1,9 +1,14 @@
 import type { SvelteuiSize, SvelteuiSizes, SvelteuiNumberSize } from './SvelteuiSize';
 import type { ColorScheme } from './ColorScheme';
 import type { SvelteuiColor } from './SvelteuiColor';
+import type { CSS } from '@stitches/core';
 
 export type SvelteuiThemeOther = Record<string, any>;
 export type LoaderType = 'bars' | 'circle' | 'dots';
+
+export interface Override {
+	props: CSS;
+}
 
 export interface HeadingStyle {
 	fontSize: number | string | undefined;

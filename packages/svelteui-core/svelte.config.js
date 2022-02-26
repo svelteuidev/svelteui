@@ -15,7 +15,7 @@ const config = {
 		}
 	}),
 	compilerOptions: {
-		generate: 'dom',
+		generate: 'ssr',
 		hydratable: true
 	},
 	kit: {

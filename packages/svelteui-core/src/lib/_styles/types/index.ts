@@ -8,5 +8,6 @@ export type {
 	SvelteuiThemeOther,
 	SvelteuiTheme,
 	HeadingStyle,
-	SvelteuiThemeBase
+	SvelteuiThemeBase,
+	Override
 } from './SvelteuiTheme';
