@@ -1,6 +1,7 @@
 <script lang="ts">
-    import {Counter} from '$lib'
+	//
 </script>
 
-<h1>Use this Route to test core package</h1>
-<Counter />
+<h1>Welcome to a svelteui package!</h1>
+<p>This is a test route to test the core package</p>
+<hr />
