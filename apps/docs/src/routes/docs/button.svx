@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Preview from '$lib/PageComponents/ComponentPreview.svelte'
+	import Preview from '$components/ComponentPreview.svelte'
 
 	let clicked: boolean = false
 
