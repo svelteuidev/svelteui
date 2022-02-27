@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/motion",
-	"version": "0.2.7",
+	"version": "0.3.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",

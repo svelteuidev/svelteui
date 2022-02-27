@@ -2,15 +2,10 @@
 	// @ts-ignore
 	import { version } from '../../package.json';
 	import { page } from '$app/stores';
+	import Toggle from './utils/Toggle.svelte';
 	import '../app.css';
 
-	export let dark: boolean;
-
 	$: path = $page.url.pathname.split('/')[1];
-
-	function toggleTheme() {
-		dark = !dark;
-	}
 </script>
 
 <header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center backdrop-blur-md">
@@ -25,16 +20,13 @@
 			<div class="flex items-center gap-4">
 				<a
 					href="/changelog"
-					class="text-sm font-medium py-2 px-3 rounded {path === 'changelog'
+					class="text-sm font-medium py-2 px-2 rounded {path === 'changelog'
 						? 'text-white bg-primary-500'
 						: 'hover:bg-gray-800 hover:text-white'}"
 				>
 					Changelog
 				</a>
-				<button
-					class="hover:bg-gray-800 hover:text-white text-sm font-medium py-2 px-3 rounded"
-					on:click|preventDefault={toggleTheme}>{dark ? 'Dark' : 'Light'} Mode</button
-				>
+				<Toggle />
 				<a
 					href="https://github.com/Brisklemonade/svelteui"
 					target="_blank"
