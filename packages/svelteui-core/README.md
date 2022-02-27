@@ -15,22 +15,6 @@ npm install @svelteuidev/core
 
 ## Usage
 
-First add this to your `svelte.config.js` file
-
-```tsx
-kit: {
-    adapter: adapter(),
-
-    vite: {
-        ssr: {
-            noExternal: ['@svelteuidev/core']
-        }
-    },
-},
-```
-
-Now you can import and use any component from @svelteuidev/core:
-
 ```tsx
 import { Button } from '@svelteuidev/core';
 

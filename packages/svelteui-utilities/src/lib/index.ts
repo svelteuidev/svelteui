@@ -1,2 +1,2 @@
-export { useOs } from './use-os/use-os';
-export * from './utils/index';
+export { useOs } from './use-os/use-os.js';
+export * from './utils/index.js';

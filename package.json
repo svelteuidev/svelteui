@@ -1,6 +1,7 @@
 {
 	"name": "svelteui",
-	"version": "0.3.1",
+	"version": "0.4.0",
+	"private": true,
 	"description": "SvelteUI Components Monorepo.",
 	"workspaces": [
 		"apps/*",
@@ -53,6 +54,11 @@
 			},
 			"dev": {
 				"cache": false
+			},
+			"package": {
+				"outputs": [
+					"package"
+				]
 			}
 		}
 	},
