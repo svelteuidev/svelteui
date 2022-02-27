@@ -1,23 +1,19 @@
 <script lang="ts">
-	// import { Button, Code } from '@svelteuidev/core/package';
+	import { Button } from '@svelteuidev/core/package';
 	import SvelteUI from '$components/svgs/SvelteUI/SvelteUI.svelte';
 	import Github from '$components/svgs/icons/Github.svelte';
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
+	/** Variable to play animation on mount*/
 	let visible;
-
 	onMount(() => {
-		let screenW = window.innerWidth;
 		visible = true;
-		if (screenW < 770) {
-			setTimeout(() => (visible = false), 3500);
-		}
 	});
 </script>
 
-<main class="flex flex-col-reverse max-w-screen-xl mx-auto px-5 md:flex-row md:gap-40">
-	<section transition:slide class="flex flex-col justify-center items-start sm:mt-20 md:w-1/2">
+<main class="flex flex-col max-w-screen-xl mx-auto px-5 md:flex-row md:gap-40">
+	<section transition:slide class="flex flex-col justify-center items-start mt-20 md:w-1/2">
 		<h1 class="text-left text-4xl tracking-tighter font-sans font-bold sm:text-4xl lg:text-5xl">
 			Create <span class="animate-text">fully functional</span> and accessible web applications in
 			less time than ever before.
