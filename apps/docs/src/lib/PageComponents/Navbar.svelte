@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { version } from '../../../package.json';
 	import '../../app.css';
 	export let dark;
 
@@ -23,7 +22,7 @@
 		<div class="flex items-center justify-between h-full border-b border-gray-800">
 			<a href="/" class="text-gray-200 text-2xl font-black">
 				Title
-				<span class="text-sm text-gray-600">v{version}</span>
+				<span class="text-sm text-gray-600">v0.4.0</span>
 			</a>
 			<div class="flex items-center gap-4">
 				<a
