@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { theme } from '@svelteuidev/core/package';
-	import Navbar from '$components/Navbar.svelte';
-	import '../app.css';
 	import { browser } from '$app/env';
+	import Navbar from '$lib/PageComponents/Navbar.svelte';
+	import '../app.css';
 
 	if (browser && document.documentElement.classList.contains('dark')) {
 		$theme.colorScheme = 'dark';

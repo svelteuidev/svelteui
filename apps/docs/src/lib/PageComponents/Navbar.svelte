@@ -1,21 +1,20 @@
 <script lang="ts">
 	// @ts-ignore
-	import { version } from '../../package.json';
 	import { page } from '$app/stores';
-	import Toggle from './utils/Toggle.svelte';
-	import '../app.css';
+	import Toggle from '../../components/utils/Toggle.svelte';
+	import '../../app.css';
 
 	$: path = $page.url.pathname.split('/')[1];
 </script>
 
 <header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center backdrop-blur-md">
-	<nav class="max-w-screen-xl h-full w-full mx-auto px-5">
+	<nav class="h-full w-full mx-auto">
 		<div
-			class="flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
+			class="sm:px-10 flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
 		>
 			<a href="/" class="text-black dark:text-gray-200 text-2xl font-black">
 				Svelte<span class="text-primary-500">UI</span>
-				<span class="text-base text-gray-600">v{version}</span>
+				<span class="text-base text-gray-600">v0.4.0</span>
 			</a>
 			<div class="flex items-center gap-4">
 				<a
@@ -31,7 +30,7 @@
 					href="https://github.com/Brisklemonade/svelteui"
 					target="_blank"
 					rel="noreferrer"
-					class="hover:text-white py-4"
+					class="hover:text-gray-500 py-4"
 				>
 					<svg viewBox="0 0 16 16" fill="currentColor" class="w-5 h-5"
 						><path

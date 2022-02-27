@@ -1,6 +1,6 @@
 import { mdsvex } from 'mdsvex';
 import path from 'path';
-import vercel from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import slug from 'rehype-slug';
 
@@ -21,7 +21,7 @@ const config = {
 	],
 
 	kit: {
-		adapter: vercel(),
+		adapter: adapter(),
 
 		package: {
 			exports: (file) => file === 'index.js'
