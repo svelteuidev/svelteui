@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from '@svelteuidev/core/package';
+	import { theme } from '@svelteuidev/core';
 	import { browser } from '$app/env';
 	import Navbar from '$lib/PageComponents/Navbar.svelte';
 	import '../app.css';
