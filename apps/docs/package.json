@@ -42,5 +42,8 @@
 		"tslib": "^2.3.1",
 		"typescript": "^4.4.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@svelteuidev/core": "*"
+	}
 }
