@@ -3,8 +3,10 @@
 	"version": "0.4.0",
 	"private": true,
 	"description": "SvelteUI Components Monorepo.",
+	"author": "Kamells Perry",
 	"workspaces": [
-		"packages/*"
+		"packages/*",
+		"configuration/*"
 	],
 	"scripts": {
 		"build": "turbo run build",
@@ -33,33 +35,6 @@
 		"type": "git",
 		"url": "https://github.com/Brisklemonade/svelteui.git"
 	},
-	"author": "Kamell Perry",
 	"license": "MIT",
-	"turbo": {
-		"baseBranch": "origin/main",
-		"npmClient": "npm",
-		"pipeline": {
-			"build": {
-				"dependsOn": [
-					"^build"
-				],
-				"outputs": [
-					"dist/**",
-					".build/**"
-				]
-			},
-			"lint": {
-				"outputs": []
-			},
-			"dev": {
-				"cache": false
-			},
-			"package": {
-				"outputs": [
-					"package"
-				]
-			}
-		}
-	},
 	"type": "module"
 }

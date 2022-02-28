@@ -13,6 +13,8 @@
 		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
 	},
 	"devDependencies": {
+		"eslint-preset-svelteui": "*",
+		"@svelteuidev/tsconfig": "*",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",

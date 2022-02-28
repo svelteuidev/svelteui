@@ -1,0 +1,12 @@
+{
+	"name": "@svelteuidev/tsconfig",
+	"version": "1.0.0",
+	"main": "index.js",
+	"files": [
+		"base.json",
+		"svelte.json"
+	],
+	"publishConfig": {
+		"access": "public"
+	}
+}
