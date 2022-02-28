@@ -1,6 +1,6 @@
 import { mdsvex } from 'mdsvex';
 import path from 'path';
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import slug from 'rehype-slug';
 
