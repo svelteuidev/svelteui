@@ -2,7 +2,6 @@
 	"name": "@svelteuidev/core",
 	"version": "0.4.2",
 	"sideEffects": false,
-	"main": "./package/index.js",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
