@@ -4,7 +4,6 @@
 	"private": true,
 	"description": "SvelteUI Components Monorepo.",
 	"workspaces": [
-		"apps/*",
 		"packages/*"
 	],
 	"scripts": {
