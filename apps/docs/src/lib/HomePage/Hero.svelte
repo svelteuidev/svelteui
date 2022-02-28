@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '@svelteuidev/core/package';
+	import { Button } from '@svelteuidev/core';
 	import SvelteUI from '$components/svgs/SvelteUI/SvelteUI.svelte';
 	import Github from '$components/svgs/icons/Github.svelte';
 	import { slide } from 'svelte/transition';
