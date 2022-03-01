@@ -53,10 +53,10 @@
 					<li class="mb-1 last:mb-0">
 						<a
 							href="/docs/{href}"
-							class="px-3 py-2 rounded block -mx-3 text-sm font-medium select-none hover:bg-gray-800 {active(
+							class="px-3 py-2 rounded block -mx-3 text-sm font-medium select-none hover:text-white hover:bg-primary-600 dark:hover:bg-primary-600 {active(
 								href
 							)
-								? 'text-orange-400 bg-orange-400/10 hover:bg-orange-400/10'
+								? 'text-primary-400 bg-primary-400/30 dark:bg-primary-400/10 hover:bg-primary-400/30 dark:hover:bg-primary-400/10'
 								: ''}"
 						>
 							{text}

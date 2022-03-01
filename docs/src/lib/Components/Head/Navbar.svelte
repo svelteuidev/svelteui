@@ -1,0 +1,41 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+	import Toggle from '$components/utils/Toggle.svelte';
+	import Github from '$components/svgs/icons/Github.svelte';
+	import Burger from '$components/svgs/icons/Burger.svelte';
+	import '../../../app.css';
+
+	let isBurger = true;
+
+	$: path = $page.url.pathname.split('/')[1];
+
+	function toggle() {
+		isBurger = !isBurger;
+	}
+</script>
+
+<header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center backdrop-blur-md">
+	<nav class="h-full w-full mx-auto">
+		<div
+			class="px-5 sm:px-10 flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
+		>
+			<Burger on:click={toggle} visible={isBurger} />
+			<a href="/" class="text-black dark:text-gray-200 text-2xl font-black">
+				Svelte<span class="text-primary-500">UI</span>
+				<span class="hidden md:inline-block text-base text-gray-600">v0.4.0</span>
+			</a>
+			<div class="flex items-center gap-4">
+				<a
+					href="/changelog"
+					class="hidden md:block text-sm font-medium py-2 px-2 rounded {path === 'changelog'
+						? 'text-white bg-primary-500'
+						: 'hover:bg-gray-800 hover:text-white'}"
+				>
+					Changelog
+				</a>
+				<Toggle />
+				<Github />
+			</div>
+		</div>
+	</nav>
+</header>

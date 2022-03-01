@@ -1,5 +1,5 @@
 name: Report an issue with svelteui-docs.vercel.app website
-description: Nothing is perfect, especially our docs, help us find and fix mistakes, bad wording, etc.
+description: Nothing is perfect, especially these docs, help me find and fix mistakes, bad wording, etc.
 body:
   - type: markdown
     attributes:
@@ -7,7 +7,7 @@ body:
   - type: input
     id: link
     attributes:
-      label: Link to the page where something nasty is located
+      label: Link to the page where something isn't quite right
   - type: textarea
     id: quote
     attributes:

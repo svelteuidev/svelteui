@@ -1,13 +1,37 @@
-# Changelog
-
-Updates will be displayed here.
-
+---
+group: 'changelog'
+title: 'Version 0.5.0'
+order: 1
+slug: /changelog/0-5-0/
+release: https://github.com/brisklemonade/sveltui/releases/tag/0.5.0
+date: 'March xxth, 2021'
 ---
 
-### 0.0.1 - xx/xx/xxxx
+<script>
+    import {Button, Loader, Code} from '@svelteuidev/core'
 
-First release.
+    const codeToCopy = `code to copy`
+</script>
 
-#### Added
+## New features and components
 
-- [Link](/) an example phrase.
+[Button](https://svelteui-docs.vercel.app/core/segmented-control/) component:
+
+<Button>Click</Button>
+
+[Code](https://svelteui-docs.vercel.app/core/popover/) component:
+
+<Code color='blue' block copy message={codeToCopy} />
+
+[Loader](https://svelteui-docs.vercel.app/core/divider/) component:
+
+<Loader color='green' size='lg' variant='bars' />
+
+## API changes
+
+- Custom component is now supported by the override prop
+
+## Bug fixes and improvements
+
+- Significant performance improvements with migration from emotion
+- Dark theme improvements, all components now support dark theme by default

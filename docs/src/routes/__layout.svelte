@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { theme } from '@svelteuidev/core';
 	import { browser } from '$app/env';
-	import Navbar from '$lib/PageComponents/Navbar.svelte';
+	import Navbar from '$lib/Components/Head/Navbar.svelte';
 	import '../app.css';
 
 	if (browser && document.documentElement.classList.contains('dark')) {
