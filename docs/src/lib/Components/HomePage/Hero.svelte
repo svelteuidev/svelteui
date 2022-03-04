@@ -5,15 +5,27 @@
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	/** Variable to play animation on mount*/
-	let visible;
+	/** Variables & function to determine when to play the animation */
+	let w: number;
+	let visible: boolean = false;
+	$: mobile = w < 768;
+	function toggleVisibility() {
+		if (!mobile) {
+			visible = true;
+		} else {
+			window.scrollY > 280 ? (visible = true) : (visible = false);
+		}
+	}
 	onMount(() => {
-		visible = true;
+		!mobile ? toggleVisibility() : null;
 	});
 </script>
 
-<main class="flex flex-col max-w-screen-xl mx-auto px-5 md:flex-row md:gap-40">
-	<section transition:slide class="flex flex-col justify-center items-start mt-20 md:w-1/2">
+<svelte:window bind:innerWidth={w} on:scroll={mobile ? toggleVisibility : null} />
+<main
+	class="flex flex-col max-w-screen-xl mx-auto mt-24 px-5 space-y-14 md:flex-row md:gap-40 md:space-y-0"
+>
+	<section transition:slide class="flex flex-col justify-center items-start  md:w-1/2">
 		<h1 class="text-left text-4xl tracking-tighter font-sans font-bold sm:text-4xl lg:text-5xl">
 			Create <span class="animate-text">fully functional</span> and accessible web applications in
 			less time than ever before.
@@ -30,9 +42,11 @@
 			</Button>
 		</div>
 	</section>
-	<section class="mt-20">
+	<section>
 		{#if visible}
 			<SvelteUI />
+		{:else}
+			<div class="w-[335px] h-[403px]" />
 		{/if}
 	</section>
 </main>

@@ -35,7 +35,7 @@
 	<input
 		bind:this={input}
 		on:change
-		class="w-6 h-6 bg-transparent dark:bg-dark-500  rounded-md"
+		class="min-w-[1.5rem] min-h-[1.5rem] bg-transparent dark:bg-dark-500  rounded-md"
 		type="checkbox"
 		tabindex="-1"
 	/>

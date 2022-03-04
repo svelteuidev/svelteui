@@ -26,14 +26,14 @@
 	</svg>
 
 	<div
-		class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide text-7xl sm:text-[7vw] font-normal font-[Overpass]"
+		class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide text-[5em] sm:text-[8em] md:text-[7vw] font-normal font-[Overpass]"
 		out:fly={{ y: -20, duration: 300 }}
 	>
 		{#each 'SVELTEUI' as char, i}
 			<span
 				class="will-change-[filter] {i === 6 || i === 7
 					? 'text-primary-600'
-					: 'text-dark-200 dark:text-dark-50'}"
+					: 'text-gray-400 dark:text-white'}"
 				in:fade={{ delay: 1000 + i * 150, duration: 800 }}>{char}</span
 			>
 		{/each}
@@ -41,10 +41,6 @@
 </div>
 
 <style>
-	span {
-		text-shadow: #000 1px 1px 50px;
-	}
-
 	path {
 		fill: white;
 		opacity: 1;

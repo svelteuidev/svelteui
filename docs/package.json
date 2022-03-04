@@ -45,6 +45,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@svelteuidev/core": "*"
+		"@svelteuidev/core": "*",
+		"radix-icons-svelte": "^1.2.1"
 	}
 }

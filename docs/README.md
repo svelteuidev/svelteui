@@ -1,6 +1,6 @@
 # SvelteUI Docs
 
-This is the sorce code for the svelteui documentation!
+This is the source code for the svelteui documentation!
 
 ## License
 

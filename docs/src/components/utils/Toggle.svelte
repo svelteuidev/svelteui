@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { theme } from '@svelteuidev/core';
 
 	let label: HTMLInputElement;
 
@@ -24,8 +25,8 @@
 	}
 </script>
 
-<label on:click={toggleTheme} class="switch">
-	<input bind:this={label} type="checkbox" name="toggle" />
+<label class="switch">
+	<input on:click={toggleTheme} bind:this={label} type="checkbox" name="toggle" />
 	<span
 		class="slider bg-slate-400 dark:bg-gradient-to-tr from-sky-500 to-emerald-400 before:bg-slate-200 dark:before:bg-[#1f212e]"
 	/>

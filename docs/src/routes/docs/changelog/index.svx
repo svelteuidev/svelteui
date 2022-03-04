@@ -15,15 +15,15 @@ date: 'March xxth, 2021'
 
 ## New features and components
 
-[Button](https://svelteui-docs.vercel.app/core/segmented-control/) component:
+[Button](https://svelteui-docs.vercel.app/core/button/) component:
 
 <Button>Click</Button>
 
-[Code](https://svelteui-docs.vercel.app/core/popover/) component:
+[Code](https://svelteui-docs.vercel.app/core/code/) component:
 
 <Code color='blue' block copy message={codeToCopy} />
 
-[Loader](https://svelteui-docs.vercel.app/core/divider/) component:
+[Loader](https://svelteui-docs.vercel.app/core/loader/) component:
 
 <Loader color='green' size='lg' variant='bars' />
 
@@ -35,3 +35,10 @@ date: 'March xxth, 2021'
 
 - Significant performance improvements with migration from emotion
 - Dark theme improvements, all components now support dark theme by default
+
+## To do
+
+- if animation is not shown on small viewport, and the viewport expands, the animation is not shown
+- Component's theme only changes on page refresh
+- Github Icon needs props for non global styles
+- Add Titles to head on pages

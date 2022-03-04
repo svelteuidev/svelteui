@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Toggle from '$components/utils/Toggle.svelte';
+	import { showSideBar } from '$lib/stores/sidebar';
+	import { HamburgerMenu, Cross1 } from 'radix-icons-svelte';
 	import Github from '$components/svgs/icons/Github.svelte';
-	import Burger from '$components/svgs/icons/Burger.svelte';
+	import Toggle from '$components/utils/Toggle.svelte';
 	import '../../../app.css';
 
-	let isBurger = true;
+	let sideBar = $showSideBar;
 
 	$: path = $page.url.pathname.split('/')[1];
 
-	function toggle() {
-		isBurger = !isBurger;
+	function toggleSideBar() {
+		sideBar = !sideBar;
+		showSideBar.set(sideBar);
 	}
 </script>
 
@@ -19,20 +21,18 @@
 		<div
 			class="px-5 sm:px-10 flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
 		>
-			<Burger on:click={toggle} visible={isBurger} />
+			<button class="block md:hidden" on:click={toggleSideBar}>
+				{#if !sideBar}
+					<HamburgerMenu size={25} />
+				{:else}
+					<Cross1 size={25} />
+				{/if}
+			</button>
 			<a href="/" class="text-black dark:text-gray-200 text-2xl font-black">
 				Svelte<span class="text-primary-500">UI</span>
 				<span class="hidden md:inline-block text-base text-gray-600">v0.4.0</span>
 			</a>
 			<div class="flex items-center gap-4">
-				<a
-					href="/changelog"
-					class="hidden md:block text-sm font-medium py-2 px-2 rounded {path === 'changelog'
-						? 'text-white bg-primary-500'
-						: 'hover:bg-gray-800 hover:text-white'}"
-				>
-					Changelog
-				</a>
 				<Toggle />
 				<Github />
 			</div>
