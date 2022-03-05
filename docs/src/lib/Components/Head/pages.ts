@@ -1,19 +1,31 @@
-interface Page {
+import { Cube, GithubLogo } from 'radix-icons-svelte';
+
+export interface Page {
 	title?: string;
 	pathname: string;
 	expand: boolean;
 	links: { href: string; text: string }[];
 }
 
-interface Links {
+export interface Links {
 	href: string;
 	text: string;
+	icon?: unknown;
+	iconClass?: string;
 }
 
 export const mainLinks: Array<Links> = [
 	{
 		href: '',
-		text: 'Getting Started'
+		text: 'Getting Started',
+		icon: Cube,
+		iconClass: 'border rounded-full p-1 bg-primary-600'
+	},
+	{
+		href: 'contribute',
+		text: 'Contributing',
+		icon: GithubLogo,
+		iconClass: 'border rounded-full p-1 bg-black'
 	}
 ];
 

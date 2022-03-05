@@ -1,0 +1,20 @@
+---
+title: Contributing
+---
+
+<svelte:head>
+
+<title>{title} | SvelteUI</title>
+</svelte:head>
+
+## Ways to contribute
+
+- **Improve documentation**: fix incomplete or missing docs, bad wording, examples or explanations
+
+- **Give feedback**: I am constantly working on making SvelteUI better, please share how you use SvelteUI, what features are missing and what is done well via GitHub Issues or Twitter
+
+- **Share SvelteUI**: share link to SvelteUI docs with everyone who can be interested, share SvelteUI on Twitter
+
+- **Contribute to the codebase**: propose new feature via GitHub Issues or find an existing one that you are interested in and work on it
+
+- **Give me a code review**: help me identify problems with source code or make SvelteUI more performant

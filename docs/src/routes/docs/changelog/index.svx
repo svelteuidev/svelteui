@@ -1,13 +1,18 @@
 ---
 group: 'changelog'
-title: 'Version 0.5.0'
+title: 'Version 0.4.0'
 order: 1
 slug: /changelog/0-5-0/
 release: https://github.com/brisklemonade/sveltui/releases/tag/0.5.0
 date: 'March xxth, 2021'
 ---
 
-<script>
+<svelte:head>
+
+<title>{group} | {title}</title>
+</svelte:head>
+
+<script lang='ts'>
     import {Button, Loader, Code} from '@svelteuidev/core'
 
     const codeToCopy = `code to copy`
@@ -15,17 +20,31 @@ date: 'March xxth, 2021'
 
 ## New features and components
 
-[Button](https://svelteui-docs.vercel.app/core/button/) component:
+### _Components:_
 
-<Button>Click</Button>
+[Button](https://svelteui-docs.vercel.app/core/button) component:
 
-[Code](https://svelteui-docs.vercel.app/core/code/) component:
+<Button>Click Me</Button>
+
+[Code](https://svelteui-docs.vercel.app/core/code) component:
 
 <Code color='blue' block copy message={codeToCopy} />
 
-[Loader](https://svelteui-docs.vercel.app/core/loader/) component:
+[Loader](https://svelteui-docs.vercel.app/core/loader) component:
 
 <Loader color='green' size='lg' variant='bars' />
+
+### _Actions:_
+
+<p>Action Here</p>
+
+### _Utilities:_
+
+<p>Utility Here</p>
+
+### _Motion:_
+
+<p>Motion Here</p>
 
 ## API changes
 
@@ -33,12 +52,12 @@ date: 'March xxth, 2021'
 
 ## Bug fixes and improvements
 
+### _Packages:_
+
 - Significant performance improvements with migration from emotion
 - Dark theme improvements, all components now support dark theme by default
 
-## To do
+### _Docs:_
 
-- if animation is not shown on small viewport, and the viewport expands, the animation is not shown
-- Component's theme only changes on page refresh
-- Github Icon needs props for non global styles
-- Add Titles to head on pages
+- Github Icon replaced with [radix-icons-svelte](https://www.npmjs.com/package/radix-icons-svelte)
+- Added titles to head on pages

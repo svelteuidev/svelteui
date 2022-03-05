@@ -1,8 +1,6 @@
 <script lang="ts">
 	import SideBar from '$lib/Components/Head/SideBar.svelte';
 	import { showSideBar } from '$lib/stores/sidebar';
-	import { fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 
 	$: sideBar = $showSideBar;
 </script>

@@ -7,6 +7,11 @@
 	if (browser && document.documentElement.classList.contains('dark')) {
 		$theme.colorScheme = 'dark';
 	}
+
+	/**
+	 * @todo Component's theme only changes on page refresh
+	 * @todo if animation is not shown on small viewport, and the viewport expands, the animation is not shown
+	 */
 </script>
 
 <div>

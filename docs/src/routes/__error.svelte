@@ -10,6 +10,8 @@
 </script>
 
 <script lang="ts">
+	import { Button } from '@svelteuidev/core';
+
 	export let error;
 	export let status: number;
 	console.error(`There was an error ${status} ${error.message}`);
@@ -25,16 +27,23 @@
 
 <div class="container">
 	{#if status >= 500}
-		<h1>{status}</h1>
-		<p>Sorry, the server had an internal error</p>
-		<p>Try checking your connection, then refreshing the page</p>
+		<div class="flex flex-col items-center ">
+			<h1>{status}</h1>
+			<p>Sorry, the server had an internal error</p>
+			<p>Try checking your connection, then refreshing the page</p>
+			<Button href="/">Go Home</Button>
+		</div>
 	{:else if status > 400}
-		<h1>{status}</h1>
-		<p>Sorry, the page was not found</p>
-		<p>You could have mistyped the URL, or the page has moved</p>
-		<a href="/">Back Home</a>
+		<div class="flex flex-col items-center ">
+			<h1>{status}</h1>
+			<p>Sorry, the page was not found</p>
+			<p>You could have mistyped the URL, or the page has moved</p>
+			<Button href="/">Go Home</Button>
+		</div>
 	{:else}
-		<h1>Error {status}</h1>
-		<a href="/">Back Home</a>
+		<div class="flex flex-col items-center ">
+			<h1>Error {status}</h1>
+			<Button href="/">Go Home</Button>
+		</div>
 	{/if}
 </div>

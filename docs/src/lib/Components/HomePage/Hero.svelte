@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Button } from '@svelteuidev/core';
-	import SvelteUI from '$components/svgs/SvelteUI/SvelteUI.svelte';
-	import Github from '$components/svgs/icons/Github.svelte';
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { GithubLogo } from 'radix-icons-svelte';
+	import SvelteUI from '$components/svgs/SvelteUI/SvelteUI.svelte';
 
 	/** Variables & function to determine when to play the animation */
 	let w: number;
@@ -16,7 +16,7 @@
 			window.scrollY > 280 ? (visible = true) : (visible = false);
 		}
 	}
-	onMount(() => {
+	$: onMount(() => {
 		!mobile ? toggleVisibility() : null;
 	});
 </script>
@@ -37,7 +37,7 @@
 		<div class="mt-16 w-full flex flex-col gap-4 md:flex-row">
 			<Button size="lg" href="/docs" variant="gradient" gradientTo="pink">Get Started</Button>
 			<Button size="lg" href="https://github.com/Brisklemonade/svelteui" variant="default" external>
-				<Github slot="leftIcon" />
+				<GithubLogo size={24} slot="leftIcon" />
 				Source Code
 			</Button>
 		</div>

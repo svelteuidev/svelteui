@@ -1,7 +1,28 @@
 <script lang="ts">
 	import Hero from '$lib/Components/HomePage/Hero.svelte';
+	import Circle from '$lib/temp/Circle.svelte';
+	import { onMount } from 'svelte';
+
+	/**
+	 * Need a loader so content isn't unstyled on load
+	 * Will change when SSR gets completed
+	 * */
+	let visible = false;
+	onMount(() => {
+		visible = true;
+	});
 </script>
 
-<div>
-	<Hero />
-</div>
+<svelte:head>
+	<title>SvelteUI</title>
+</svelte:head>
+
+{#if !visible}
+	<div class="fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
+		<Circle size={100} color="currentColor" />
+	</div>
+{:else}
+	<div>
+		<Hero />
+	</div>
+{/if}

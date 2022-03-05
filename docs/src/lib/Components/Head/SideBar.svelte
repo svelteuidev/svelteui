@@ -16,7 +16,9 @@
 		: 'fixed z-20 md:bottom-0 md:left-0 md:top-0 bg-white dark:bg-dark-700 md:px-4 md:w-64 md:mt-20 md:min-h-0 border-r border-gray-200 dark:border-gray-800 overflow-y-scroll'}
 >
 	<div class="mt-6 px-8 md:px-0">
-		<SidebarLinks iterable={mainLinks} />
+		<div class="ml-5">
+			<SidebarLinks iterable={mainLinks} />
+		</div>
 		{#each pages as { title, links, pathname, expand }, i}
 			<button
 				on:click={() => showCategories(i)}
