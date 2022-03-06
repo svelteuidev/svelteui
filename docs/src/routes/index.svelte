@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Hero from '$lib/Components/HomePage/Hero.svelte';
-	import Circle from '$lib/temp/Circle.svelte';
 	import { onMount } from 'svelte';
 
 	/**
 	 * Need a loader so content isn't unstyled on load
 	 * Will change when SSR gets completed
 	 * */
+
 	let visible = false;
 	onMount(() => {
 		visible = true;
@@ -18,8 +18,8 @@
 </svelte:head>
 
 {#if !visible}
-	<div class="fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
-		<Circle size={100} color="currentColor" />
+	<div class="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 animate-pulse">
+		LOADING...
 	</div>
 {:else}
 	<div>

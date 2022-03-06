@@ -4,8 +4,8 @@
 
 <div class="flex flex-col space-y-10 md:space-y-20">
 	<SkeletonLoader width="lg" />
-	<div class="md:flex md:gap-10">
+	<div class="md:flex gap-5">
 		<SkeletonLoader />
-		<span class="hidden md:block"><SkeletonLoader /></span>
+		<SkeletonLoader class="hidden md:block" />
 	</div>
 </div>

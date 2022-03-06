@@ -1,8 +1,8 @@
 <script lang="ts">
 	export let outerColor = '#FF3E00';
 	export let innerColor = 'white';
-	export let width = 67;
-	export let height = 80;
+	export let width = 200;
+	export let height = 100;
 </script>
 
 <svg {width} {height} viewBox="0 0 209 88" fill="none" xmlns="http://www.w3.org/2000/svg">

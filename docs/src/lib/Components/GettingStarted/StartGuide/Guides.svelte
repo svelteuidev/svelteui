@@ -18,6 +18,7 @@
 		padding: $theme.spacing.xl,
 		borderRadius: $theme.radius.md,
 		minWidth: '20rem',
+		maxHeight: '198px',
 
 		'&:hover': {
 			backgroundColor: $theme.colorScheme === 'dark' ? $theme.colors.dark[9] : $theme.colors.gray[0]
@@ -35,5 +36,5 @@
 
 <button on:click class="{ButtonStyles(active)} {className}">
 	<svelte:component this={icon} />
-	<p>{title}</p>
+	<p class="uppercase">{title}</p>
 </button>

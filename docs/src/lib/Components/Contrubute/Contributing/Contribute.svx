@@ -13,7 +13,7 @@ title: Contributing
 
 - **Give feedback**: I am constantly working on making SvelteUI better, please share how you use SvelteUI, what features are missing and what is done well via GitHub Issues or Twitter
 
-- **Share SvelteUI**: share link to SvelteUI docs with everyone who can be interested, share SvelteUI on Twitter
+- **Share SvelteUI**: share link to SvelteUI docs with everyone who can be interested. Share SvelteUI on Twitter, Reddit, Discord, etc.
 
 - **Contribute to the codebase**: propose new feature via GitHub Issues or find an existing one that you are interested in and work on it
 

@@ -1,47 +1,139 @@
 ---
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
 title: Button
+slug: /core/button/
+category: 'inputs'
+description: 'Render button or link with button styles from svelteuidev theme'
 ---
 
 <script lang="ts">
 	import Preview from '$lib/PageComponents/ComponentPreview.svelte'
-
+	import {Button} from '@svelteuidev/core'
+	import {TwitterLogo} from 'radix-icons-svelte'
+	
 	let clicked: boolean = false
+	let loading: boolean = false
 
-	let primary: string =
-		'rounded cursor-pointer select-none text-sm font-medium inline-flex items-center justify-center px-4 py-2 text-gray-200 bg-orange-400 border border-orange-400 hover:bg-orange-500 focus:bg-orange-600 focus:outline outline-1 outline-orange-400 outline-offset-[3px]';
+	let colors = ['dark' , 'gray' , 'red' , 'pink' , 'grape' , 'violet' , 'indigo' , 'blue' , 'cyan' , 'teal' , 'green' , 'lime' , 'yellow' , 'orange']
+	let variants = ['filled' , 'light' , 'outline' , 'default' , 'subtle']
 </script>
 
-<svelte:head>
+# {title}
 
-<title>{title} | SvelteUI</title>
-</svelte:head>
+{description}
 
-# Button
-
-The button component can be used to launch an action but also to link to other pages.
+## Usage
 
 <Preview>
-	<button 
-	 	class={primary}
-	 	on:click={() => clicked = true}
-	>
-	Click Me
-	</button>
 	<p>I am {clicked ? 'clicked' : 'not clicked'}</p>
+	{#each colors as color}
+	<div class="flex gap-4 items-center">
+		<Button  {color} on:click={() => clicked = true} >Click Me</Button>
+		<p>{color} color prop</p>
+	</div>
+	{/each}
 </Preview>
 
-## Basic Example
+## Variants
 
-```html
-<script>
-	import { count } from '$lib';
+Button supports the following variants: default, subtle, white, gradient, filled, light and outline:
 
-	const increment = () => {
-		count++;
-	};
-</script>
+<Preview class='flex flex-col md:flex-row gap-5 justify-center'>
+	{#each variants as variant}
+		<Button {variant}>{variant}</Button>
+	{/each}
+</Preview>
 
-<div>
-	<button on:click="{increment}">Increment</button>
-</div>
+Default Button color is `theme.primaryColor`, to change color and variant pass `color` and `variant` props:
+
+```tsx
+<Button color="red" /> // filled button with red color
+<Button variant="outline" /> // outline button with theme.primaryColor color
 ```
+
+### Gradient variant
+
+To use gradient as Button background:
+
+- set `variant` to `gradient`
+- set `gradient` to `{ from: 'color-from', to: 'color-to', deg: 135 }`, where
+  - `color-from` and `color-to` are color from `theme.colors`
+  - `deg` is linear gradient deg
+
+<Preview>
+	<Button variant='gradient'>Click Me</Button>
+</Preview>
+
+### White variant
+
+White is a variant in which button background color is always white (both in light and dark theme) and color is controlled with `color` prop:
+
+<Preview>
+	<Button variant='white'>Click Me</Button>
+</Preview>
+
+## Loading state
+
+Button supports loading state. In this state [Loader](/core/loader/) component replaces left or right icon,
+button becomes disabled and white or dark overlay is added.
+
+You can control loading state and [Loader](/core/loader/) component with following props:
+
+- `loading` - enable loading state
+- `loaderPosition` - Loader position relative to button label, either right or left
+- `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](/docs/core/loader) prop
+
+<Preview class='flex flex-col md:flex-row gap-5'>
+	<Button {loading}>Click Me</Button>
+	<Button on:click={() => loading = !loading} variant='white'>{!loading ? 'Set Loading' : 'Remove Loading'}</Button>
+</Preview>
+
+## Customize
+
+You can change styles of any element in button component with [Override API](/theming/override-api/) to match your design requirements:
+
+<Preview class='flex flex-col md:flex-row gap-5'>
+	<Button override={{backgroundColor: 'red'}} variant='outline'>Click Me</Button>
+	<Button>
+		<TwitterLogo name='leftIcon' />
+		Click Me
+	</Button>
+</Preview>
+
+## Size and radius
+
+Control button font-size, height and padding with `size` and border-radius with `radius` props.
+Both props have predefined values: xs, sm, md, lg, xl.
+Alternatively, you can use a number to set radius in px:
+
+```tsx
+<Button radius="lg" /> // -> theme predefined large radius
+<Button radius={10} /> // -> { borderRadius: '10px' }
+<Button size="sm" /> // -> predefined small size
+```
+
+## Compact
+
+<Preview class='flex flex-col md:flex-row gap-5'>
+	<Button compact>Click Me</Button>
+	<Button variant='outline' compact>Click Me</Button>
+	<Button variant='default' compact>Click Me</Button>
+</Preview>
+
+## Full width and overflow
+
+Button can take full width of container if you set `fullWidth` prop.
+If button is too large for its container, overflow content will be hidden:
+
+<Preview class='flex flex-col md:flex-row gap-5'>
+    	<Button fullWidth>Click Me</Button>
+</Preview>
+
+## Change root element
+
+You can use Button component both as `button` and `a` elements:
+
+<Preview class='flex flex-col md:flex-row gap-5'>
+    	<Button href={'https://example.com'}>Click Me</Button>
+</Preview>

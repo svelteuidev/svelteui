@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { theme } from '@svelteuidev/core';
 
 	let label: HTMLInputElement;
 

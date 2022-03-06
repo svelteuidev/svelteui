@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let width: 'sm' | 'md' | 'lg' = 'sm';
+	export let className = '';
+	export { className as class };
 
 	let maxW;
 	switch (width) {
@@ -18,7 +20,7 @@
 	}
 </script>
 
-<div class="border border-blue-300 shadow rounded-md p-4 w-full mx-auto {maxW}">
+<div class="border border-blue-300 shadow rounded-md p-4 w-full mx-auto {maxW} {className}">
 	<div class="animate-pulse flex space-x-4">
 		<div class="rounded-full bg-slate-700 h-10 w-10" />
 		<div class="flex-1 space-y-6 py-1">

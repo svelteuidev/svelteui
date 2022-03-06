@@ -17,7 +17,7 @@
 		{@const wholePath = pathname ? `/docs/${pathname}/${link.href}` : `/docs/${link.href}`}
 		{@const activeStyles =
 			'!text-primary-400 !bg-primary-400/30 !dark:bg-primary-400/10 !hover:bg-primary-400/30 !dark:hover:bg-primary-400/10 !hover:text-primary-400'}
-		<li class="mb-1 last:mb-0 flex items-center">
+		<li class="mb-2 last:mb-0 flex items-center">
 			{#if link.icon}
 				<span class={link.iconClass}>
 					<svelte:component this={link.icon} color="white" size={20} />

@@ -30,6 +30,7 @@
 	on:click={() => {
 		!input.checked ? (input.checked = true) : (input.checked = false);
 	}}
+	on:click
 	class="flex w-full items-center gap-6 {CardStyles()}"
 >
 	<input

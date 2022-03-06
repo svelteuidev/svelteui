@@ -26,7 +26,7 @@
 	</svg>
 
 	<div
-		class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide text-[5em] sm:text-[8em] md:text-[7vw] font-normal font-[Overpass]"
+		class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 tracking-wide text-7xl sm:text-[8em] md:text-[7vw] font-normal font-[Overpass]"
 		out:fly={{ y: -20, duration: 300 }}
 	>
 		{#each 'SVELTEUI' as char, i}
