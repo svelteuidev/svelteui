@@ -22,6 +22,12 @@
 
 Build fully functional accessible web applications faster than ever
 
+**Project is currently in Beta**
+
+> **Need to change component api's due to migration to stitches from emotion**
+
+> **Documentaion In progress**
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Packages
