@@ -11,7 +11,9 @@ description: 'Render button or link with button styles from svelteuidev theme'
 	import Preview from '$lib/PageComponents/ComponentPreview.svelte'
 	import {Button} from '@svelteuidev/core'
 	import {TwitterLogo} from 'radix-icons-svelte'
-	
+	import data from '$components/Button/Button.svelte?raw&sveld'
+	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
+		
 	let clicked: boolean = false
 	let loading: boolean = false
 
@@ -27,12 +29,12 @@ description: 'Render button or link with button styles from svelteuidev theme'
 
 <Preview>
 	<p>I am {clicked ? 'clicked' : 'not clicked'}</p>
-	{#each colors as color}
-	<div class="flex gap-4 items-center">
-		<Button  {color} on:click={() => clicked = true} >Click Me</Button>
-		<p>{color} color prop</p>
-	</div>
-	{/each}
+    {#each colors as color}
+    	<div class="flex gap-4 items-center">
+    		<Button  {color} on:click={() => clicked = true} >Click Me</Button>
+    		<p>{color} color prop</p>
+    	</div>
+    {/each}
 </Preview>
 
 ## Variants
@@ -126,7 +128,7 @@ Alternatively, you can use a number to set radius in px:
 Button can take full width of container if you set `fullWidth` prop.
 If button is too large for its container, overflow content will be hidden:
 
-<Preview class='flex flex-col md:flex-row gap-5'>
+<Preview class='flex flex-col gap-5'>
     	<Button fullWidth>Click Me</Button>
 </Preview>
 
@@ -135,5 +137,7 @@ If button is too large for its container, overflow content will be hidden:
 You can use Button component both as `button` and `a` elements:
 
 <Preview class='flex flex-col md:flex-row gap-5'>
-    	<Button href={'https://example.com'}>Click Me</Button>
+    	<Button external href={'https://example.com'}>Click Me</Button>
 </Preview>
+
+<APIDocs {data} />

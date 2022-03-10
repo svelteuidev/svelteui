@@ -3,6 +3,7 @@ import path from 'path';
 import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import slug from 'rehype-slug';
+import sveld from 'vite-plugin-sveld';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -27,6 +28,7 @@ const config = {
 			exports: (file) => file === 'index.js'
 		},
 		vite: {
+			plugins: [sveld()],
 			resolve: {
 				alias: {
 					$components: path.resolve('./src/components')
