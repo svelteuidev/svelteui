@@ -1,5 +1,77 @@
-import { globalCss } from '@stitches/core';
+import { createStitches } from '@stitches/core';
+import { DEFAULT_COLORS } from '$lib/_styles/default-colors';
 
+export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
+	{
+		theme: {
+			colors: {
+				primary: 'blue'
+			},
+			space: {
+				xs: 10,
+				sm: 12,
+				md: 16,
+				lg: 20,
+				xl: 24
+			},
+			fontSizes: {
+				xs: 12,
+				sm: 14,
+				md: 16,
+				lg: 18,
+				xl: 20
+			},
+			fonts: {
+				standard:
+					'-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+				mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
+				fallback: 'Segoe UI, system-ui, sans-serif'
+			},
+			fontWeights: {},
+			lineHeights: {},
+			letterSpacings: {},
+			sizes: {},
+			radii: {
+				xs: 2,
+				sm: 4,
+				md: 8,
+				lg: 16,
+				xl: 32
+			},
+			shadows: {
+				xs: '0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)',
+				sm: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0px 10px 15px -5px, rgba(0, 0, 0, 0.04) 0px 7px 7px -5px',
+				md: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+				lg: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0px 28px 23px -7px, rgba(0, 0, 0, 0.04) 0px 12px 12px -7px',
+				xl: '0 1px 3px rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0px 36px 28px -7px, rgba(0, 0, 0, 0.04) 0px 17px 17px -7px'
+			}
+		},
+		media: {
+			sm: '(min-width: 640px)',
+			md: '(min-width: 768px)',
+			lg: '(min-width: 1024px)',
+			xl: '(min-width: 1280px)',
+			xxl: '(min-width: 1536px)'
+		},
+		utils: {
+			size: (value) => ({
+				width: value,
+				height: value
+			})
+		}
+	}
+);
+
+/** Function for dark theme */
+export const dark = createTheme('dark-theme', {
+	colors: {
+		primary: 'green'
+	}
+});
+
+/**
+ * Normalize css function
+ */
 const NormalizeCSS = globalCss({
 	html: {
 		fontFamily: 'sans-serif',
@@ -190,5 +262,4 @@ const NormalizeCSS = globalCss({
 		display: 'none'
 	}
 });
-
-export default NormalizeCSS;
+export { NormalizeCSS };

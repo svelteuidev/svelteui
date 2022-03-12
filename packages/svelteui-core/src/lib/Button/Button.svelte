@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { css } from '@stitches/core';
+	import { css } from '$lib/_styles/index';
 	import { theme } from '$lib/_internal';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
@@ -21,28 +21,24 @@
 	export let gradientTo: SvelteuiColor = 'cyan';
 	export let gradientDeg: number = 45;
 
-	/** Custom classes to be applied to the button e.g. Tailwind classes */
+	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
 
-	/**
-	 * - Applies an href to the button component and converts it to an anchor tag
-	 * - If external is set to true, target = _blank
-	 */
+	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: string = '';
+	/** If external is set to true, target = _blank */
 	export let external: boolean = false;
 
-	/** Conditional class props that are either true or false
-	 * - disabled: will set button to disabled state
-	 * - compact: will set button to compact state
-	 * - loading: will set button to loading state
-	 * - uppercase: will set button text to uppercase
-	 * - fullSize: will set button width to 100%
-	 */
+	/** disabled will set button to disabled state */
 	export let disabled: boolean = false;
+	/** compact will set button to compact state */
 	export let compact: boolean = false;
+	/** loading will set button to loading state */
 	export let loading: boolean = false;
+	/** uppercase will set button text to uppercase */
 	export let uppercase: boolean = false;
+	/** fullSize will set button width to 100% */
 	export let fullSize: boolean = false;
 
 	/** An action that forwards inner dom node events to parent component */

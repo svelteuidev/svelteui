@@ -4,6 +4,7 @@ import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
 import fs from 'fs';
 export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
+import { searchForWorkspaceRoot } from 'vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -31,6 +32,16 @@ const config = {
 			test: {
 				globals: true,
 				environment: 'jsdom'
+			},
+			server: {
+				fs: {
+					allow: [
+						// search up for workspace root
+						searchForWorkspaceRoot(process.cwd()),
+						// your custom rules
+						'/stitches.config.ts'
+					]
+				}
 			}
 		}
 	}

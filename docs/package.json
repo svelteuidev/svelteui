@@ -45,6 +45,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@stitches/core": "^1.2.7",
 		"@svelteuidev/core": "*",
 		"radix-icons-svelte": "^1.2.1",
 		"vite-plugin-sveld": "^1.0.2"

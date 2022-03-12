@@ -1,7 +1,14 @@
 <script lang="ts">
-	import { NormalizeCSS } from '$lib';
+	import { NormalizeCSS, getCssText } from '$lib';
+
+	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`;
+
 	NormalizeCSS();
 </script>
+
+<!-- <svelte:head>
+	{@html ssrStyles}
+</svelte:head> -->
 
 <div>
 	<div class="title-container">
