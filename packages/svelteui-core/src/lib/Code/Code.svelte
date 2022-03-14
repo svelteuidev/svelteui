@@ -1,19 +1,23 @@
 <script lang="ts">
 	import CopyIcon from './CopyIcon.svelte';
-	import { css } from '@stitches/core';
-	import { theme } from '$lib/_internal';
-	import { getSharedColorScheme } from '$lib/_styles';
+	import { css } from '$lib/_styles/index';
 	import { clipboard } from '$lib/_internal';
 	import type { SvelteuiColor, Override } from '$lib/_styles';
-	import type { GetVariantStyles } from './Code.styles';
 
-	/** Code Component Props */
+	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
-	export let color: SvelteuiColor = $theme.colorScheme === 'dark' ? 'dark' : 'gray';
+	/** Code color and background from the default theme */
+	export let color: SvelteuiColor = 'gray';
+	/** True for code block, false for inline code */
 	export let block: boolean = false;
+	/** The width of the code block when set to block */
 	export let width: number = 100;
+	/** With copy prop will allow for string in the associated method prop to be copied*/
 	export let copy = false;
+	/** Message prop will be the text that is copied when the copy prop is enabled */
 	export let message: string = 'Copied';
+
+	/** Copy logic */
 	let copied = false;
 	function toggle() {
 		// sets the copied state for icon
@@ -33,32 +37,19 @@
 		);
 	}
 
-	/** Varient theme functions */
-	/** Need the objects to pass theme store as function parameters */
-	const sharedColorSchemeValues: GetVariantStyles = { color, theme: $theme, variant: 'light' };
-	const variantStyles = getSharedColorScheme(sharedColorSchemeValues);
-
-	/** Code theme only gets applied on mount */
+	/** Css function to generate button styles */
 	const CodeStyles = css({
 		position: 'relative',
-		lineHeight: $theme.lineHeight,
-		padding: `2px ${$theme.spacing.xs / 2}px`,
-		borderRadius: $theme.radius.sm,
-		color:
-			$theme.colorScheme === 'dark'
-				? color === 'dark'
-					? $theme.colors.dark[0]
-					: $theme.white
-				: $theme.colors.dark[7],
-		backgroundColor:
-			$theme.colorScheme === 'dark' && color === 'dark'
-				? $theme.colors.dark[4]
-				: variantStyles.background,
-		fontFamily: $theme.fontFamilyMonospace,
-		fontSize: $theme.fontSizes.xs,
+		lineHeight: 1.55,
+		padding: `2px 10px`,
+		borderRadius: '$sm',
+		color: color === 'dark' ? `$dark400` : `$dark700`,
+		backgroundColor: `$${color}50`,
+		fontFamily: '$mono',
+		fontSize: '$xs',
 		width: block ? `${width}%` : null,
 		[`& ${block}`]: {
-			padding: $theme.spacing.xs,
+			padding: '$xs',
 			margin: 0,
 			overflowX: 'auto'
 		}
@@ -69,7 +60,7 @@
 @component
 The Code component creates ...
 
-@see https://svelteui-docs.vercel.app/core/code
+@see https://svelteui-docs.vercel.app/docs/core/code
 @example
     ```tsx
     <Code color='green' size='lg' variant='bars' /> // standard code component

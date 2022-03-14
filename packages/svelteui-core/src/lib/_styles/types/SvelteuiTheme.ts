@@ -1,4 +1,4 @@
-import type { SvelteuiSize, SvelteuiSizes, SvelteuiNumberSize } from './SvelteuiSize';
+import type { SvelteuiSize, SvelteuiSizes } from './SvelteuiSize';
 import type { ColorScheme } from './ColorScheme';
 import type { SvelteuiColor } from './SvelteuiColor';
 import type { CSS } from '@stitches/core';

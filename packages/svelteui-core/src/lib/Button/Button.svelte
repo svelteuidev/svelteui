@@ -1,35 +1,42 @@
 <script lang="ts">
 	import { css } from '$lib/_styles/index';
-	import { theme } from '$lib/_internal';
+	import { vFunc } from '$lib/_styles/utils/get-variant-theme/get-variant-theme';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
-	import { getSharedColorScheme } from '../_styles/utils/index';
 	import Loader from '../Loader/Loader.svelte';
-	import type { ButtonVariant, GetVariantStyles } from './Button.styles';
-	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/_styles';
+	import type { ButtonVariant, LoaderProps } from './Button.styles';
+	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
 
-	/** Button Component Props*/
+	// --------------------------------------------
+	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
+	/** Controls button appearance */
 	export let variant: ButtonVariant = 'filled';
+	/** Button color from theme */
 	export let color: SvelteuiColor = 'blue';
+	/** Predefined button size */
 	export let size: SvelteuiNumberSize = 'sm';
+	/** Button border-radius from theme or number to set border-radius in px */
 	export let radius: SvelteuiNumberSize | number = 'sm';
+	/** Semantics for html to define the type of button when not an href */
 	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
+	/** Controls gradient settings in gradient variant only */
+	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
+	/** Loader position relative to button label */
 	export let loaderPosition: 'left' | 'right' = 'left';
-	export let gradientFrom: SvelteuiColor = 'indigo';
-	export let gradientTo: SvelteuiColor = 'cyan';
-	export let gradientDeg: number = 45;
+	/** Props passed to Loader component */
+	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
+	// --------------------------------------------
 
+	// --------------------------------------------
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
-
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: string = '';
 	/** If external is set to true, target = _blank */
 	export let external: boolean = false;
-
 	/** disabled will set button to disabled state */
 	export let disabled: boolean = false;
 	/** compact will set button to compact state */
@@ -40,42 +47,30 @@
 	export let uppercase: boolean = false;
 	/** fullSize will set button width to 100% */
 	export let fullSize: boolean = false;
+	// --------------------------------------------
 
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-
-	/** Varient theme functions
-	 * - Need the objects to pass theme store as function parameters
-	 */
-	const sharedColorSchemeValues: GetVariantStyles = { color, theme: $theme, variant };
-	const gradColorSchemeValues: GetVariantStyles = {
-		color,
-		theme: $theme,
-		variant: 'gradient',
-		gradient: { from: gradientFrom, to: gradientTo, deg: gradientDeg }
-	};
-	const variantStyles = getSharedColorScheme(sharedColorSchemeValues);
-	const gradient = getSharedColorScheme(gradColorSchemeValues);
-
-	/** Button theme only gets applied on page render
-	 * @todo ssr for Button component
-	 */
+	/** Css function to generate button styles */
 	const ButtonStyles = css({
-		color: variant === 'gradient' ? gradient.color : variantStyles.color,
-		backgroundColor: variantStyles.background,
-		background: variant === 'gradient' ? gradient.background : null,
-		borderRadius: typeof radius === 'number' ? radius : `${$theme.radius[radius]}px`,
-		border: variant === 'gradient' ? '0px' : `1px solid ${variantStyles.border}`,
+		color: 'White',
+		backgroundColor: `$${color}600`,
+		background:
+			variant === 'gradient'
+				? `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`
+				: null,
+		borderRadius: typeof radius === 'number' ? radius : `$${radius}`,
+		border: `1px solid $${color}600`,
 		height: sizes[compact ? `compact-${size}` : size].height,
 		padding: sizes[compact ? `compact-${size}` : size].padding,
-		fontFamily: $theme.fontFamily,
-		fontWeight: 600,
-		fontSize: $theme.fontSizes.sm,
+		fontFamily: '$standard',
+		fontWeight: '$SemiBold',
+		fontSize: '$sm',
 		lineHeight: 1,
 		flexGrow: 0,
 		width: fullSize ? '100%' : 'auto',
 		'&:hover': {
-			backgroundColor: variant === 'gradient' ? null : variantStyles.hover,
+			backgroundColor: variant === 'gradient' ? null : `$${color}700`,
 			backgroundSize: variant === 'gradient' ? '200%' : null
 		},
 		'&:active': {
@@ -88,9 +83,12 @@
 				position: 'absolute',
 				inset: -1,
 				backgroundColor: 'rgba(255, 255, 255, .5)',
-				borderRadius: $theme.radius[radius],
+				borderRadius: `$${radius}`,
 				cursor: 'not-allowed'
 			}
+		},
+		variants: {
+			variation: vFunc(color, gradient)
 		}
 	});
 </script>
@@ -99,10 +97,11 @@
 @component
 A user can perform an immediate action by pressing a button. It's frequently used to start an action, but it can also be used to link to other pages.
 
-@see https://svelteui-docs.vercel.app/core/button
+@see https://svelteui-docs.vercel.app/docs/core/button
 @example
     ```tsx
     <Button>Click</Button> // standard button
+    <Button variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>Click Me</Button> // gradient button
     ```
 -->
 {#if href && !disabled}
@@ -113,7 +112,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		class:compact
 		class:uppercase
 		class:loading
-		class="button {className} {ButtonStyles({ css: override })}"
+		class="button {className} {ButtonStyles({ css: override, variation: variant })}"
 		role="button"
 		rel="noreferrer noopener"
 		target={external ? '_blank' : '_self'}
@@ -143,7 +142,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 {:else}
 	<button
 		use:forwardEvents
-		class="button {className} {ButtonStyles({ css: override })}"
+		class="button {className} {ButtonStyles({ css: override, variation: variant })}"
 		class:disabled
 		class:compact
 		class:uppercase
@@ -155,7 +154,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	>
 		{#if loading && loaderPosition === 'left'}
 			<span class="loader-left">
-				<Loader size={'xs'} color={'white'} />
+				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.leftIcon}
 			<span class="loader-left">
@@ -165,7 +164,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		<slot>Button</slot>
 		{#if loading && loaderPosition === 'right'}
 			<span class="loader-right">
-				<Loader size={'xs'} color={'white'} />
+				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.rightIcon}
 			<span class="loader-right">
@@ -189,9 +188,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		justify-content: center;
 		align-items: center;
 	}
-	/* .button:focus {
-		box-shadow: 0 0 0 2px #fff, 0 0 0 4px #339af0;
-	} */
 	.disabled {
 		pointer-events: none;
 		border-color: transparent;

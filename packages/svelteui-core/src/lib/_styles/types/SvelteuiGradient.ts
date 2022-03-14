@@ -1,5 +1,7 @@
+import type { SvelteuiColor } from './SvelteuiColor';
+
 export interface SvelteuiGradient {
-	from: string;
-	to: string;
+	from: SvelteuiColor;
+	to: SvelteuiColor;
 	deg?: number;
 }

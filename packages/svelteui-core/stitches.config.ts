@@ -1,12 +1,11 @@
 import { createStitches } from '@stitches/core';
-import { DEFAULT_COLORS } from '$lib/_styles/default-colors';
+import { colors } from '$lib/_styles/default-colors';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
 	{
+		prefix: 'svelteui',
 		theme: {
-			colors: {
-				primary: 'blue'
-			},
+			colors,
 			space: {
 				xs: 10,
 				sm: 12,
@@ -15,11 +14,11 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				xl: 24
 			},
 			fontSizes: {
-				xs: 12,
-				sm: 14,
-				md: 16,
-				lg: 18,
-				xl: 20
+				xs: '12px',
+				sm: '14px',
+				md: '16px',
+				lg: '18px',
+				xl: '20px'
 			},
 			fonts: {
 				standard:
@@ -27,16 +26,25 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
 				fallback: 'Segoe UI, system-ui, sans-serif'
 			},
-			fontWeights: {},
+			fontWeights: {
+				Thin: 100,
+				ExtraLight: 200,
+				Light: 300,
+				Normal: 400,
+				Medium: 500,
+				SemiBold: 600,
+				Bold: 700,
+				ExtraBold: 800
+			},
 			lineHeights: {},
 			letterSpacings: {},
 			sizes: {},
 			radii: {
-				xs: 2,
-				sm: 4,
-				md: 8,
-				lg: 16,
-				xl: 32
+				xs: '2px',
+				sm: '4px',
+				md: '8px',
+				lg: '16px',
+				xl: '32px'
 			},
 			shadows: {
 				xs: '0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)',
@@ -63,9 +71,48 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 );
 
 /** Function for dark theme */
-export const dark = createTheme('dark-theme', {
+const dark = createTheme('dark-theme', {
 	colors: {
-		primary: 'green'
+		backgroundStandard: '$dark700',
+		primary: '#1971c2',
+		dark600: '$dark800',
+		gray600: '$gray800',
+		red600: '$red800',
+		pink600: '$pink800',
+		grape600: '$grape800',
+		violet600: '$violet800',
+		indigo600: '$indigo800',
+		blue600: '$blue800',
+		cyan600: '$cyan800',
+		teal600: '$teal800',
+		green600: '$green800',
+		lime600: '$lime800',
+		yellow600: '$yellow800',
+		orange600: '$orange800',
+
+		/** Variant caveats, will change later */
+		// Default variant
+		'border-default': '$dark500',
+		'background-default': '$dark500',
+		'color-default': 'White',
+		'hover-default': '$dark400',
+
+		// Light variant
+		'background-light': '$dark800',
+		'color-light': 'White',
+		'hover-light': '$dark400',
+
+		// Outline variant
+		'border-outline': '$dark500',
+		'background-outline': '$dark500',
+		'color-outline': 'White',
+		'hover-outline': '$dark400',
+
+		// Subtle variant
+		'border-subtle': '$dark500',
+		'background-subtle': '$dark500',
+		'color-subtle': 'White',
+		'hover-subtle': '$dark400'
 	}
 });
 
@@ -88,7 +135,8 @@ const NormalizeCSS = globalCss({
 	},
 
 	h1: {
-		fontSize: '2em'
+		fontSize: '2em',
+		margin: 0
 	},
 
 	hr: {
@@ -262,4 +310,4 @@ const NormalizeCSS = globalCss({
 		display: 'none'
 	}
 });
-export { NormalizeCSS };
+export { NormalizeCSS, dark };

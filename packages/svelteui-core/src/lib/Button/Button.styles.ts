@@ -5,6 +5,7 @@ import type {
 	SvelteuiNumberSize,
 	SvelteuiThemeBase
 } from '$lib/_styles';
+import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
 export type ButtonVariant =
 	| 'filled'
@@ -31,6 +32,12 @@ export interface GetVariantStyles {
 	color: SvelteuiColor;
 	variant: ButtonVariant;
 	gradient?: { from: SvelteuiColor; to: SvelteuiColor; deg: number };
+}
+
+export interface LoaderProps {
+	variant: LoaderPropsExtended['variant'];
+	color: LoaderPropsExtended['color'];
+	size: LoaderPropsExtended['size'];
 }
 
 const DEFAULT_GRADIENT = {

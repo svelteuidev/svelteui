@@ -1,10 +1,6 @@
-/** Internal Action functions to be used throughout the app */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import type { SvelteComponent } from 'svelte';
 import { bubble, listen } from 'svelte/internal';
-
-/**
- * @todo Implement the rest of the internal functions
- */
 
 // "Borrowed" from Tropix126/fluent-svelte Adapted from rgossiaux/svelte-headlessui which is modified from hperrin/svelte-material-ui
 /** Function for forwarding DOM events to the component's declaration */
@@ -15,7 +11,7 @@ export function createEventForwarder(component: SvelteComponent, exclude: string
 	let $on: (eventType: string, callback: EventCallback) => () => void;
 
 	// This is a list of events bound before mount.
-	let events: [string, EventCallback][] = [];
+	const events: [string, EventCallback][] = [];
 
 	// Monkeypatch SvelteComponent.$on with our own forward-compatible version
 	component.$on = (eventType: string, callback: EventCallback) => {
@@ -46,9 +42,9 @@ export function createEventForwarder(component: SvelteComponent, exclude: string
 		// This function is responsible for listening and forwarding
 		// all bound events.
 		$on = (eventType, callback) => {
-			let handler = callback;
+			const handler = callback;
 			// DOM addEventListener options argument.
-			let options: boolean | AddEventListenerOptions = false;
+			const options: boolean | AddEventListenerOptions = false;
 
 			// Listen for the event directly, with the given options.
 			const off = listen(node, eventType, handler, options);
@@ -83,7 +79,7 @@ export function createEventForwarder(component: SvelteComponent, exclude: string
 				}
 
 				// Remove all event forwarders.
-				for (let entry of Object.entries(forwardDestructors)) {
+				for (const entry of Object.entries(forwardDestructors)) {
 					entry[1]();
 				}
 			}
