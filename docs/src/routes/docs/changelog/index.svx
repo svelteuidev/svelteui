@@ -1,6 +1,6 @@
 ---
 group: 'changelog'
-title: 'Version 0.4.0'
+title: 'Version 0.5.0'
 order: 1
 slug: /changelog/0-5-0/
 release: https://github.com/brisklemonade/sveltui/releases/tag/0.5.0

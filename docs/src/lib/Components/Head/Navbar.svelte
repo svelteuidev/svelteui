@@ -3,7 +3,6 @@
 	import { showSideBar } from '$lib/stores/sidebar';
 	import { HamburgerMenu, Cross1, GithubLogo } from 'radix-icons-svelte';
 	import Toggle from '$components/utils/Toggle.svelte';
-	import '../../../app.css';
 
 	$: sideBar = $showSideBar;
 
@@ -31,7 +30,7 @@
 				<span class="text-base text-gray-600">Beta</span>
 			</a>
 			<div class="flex items-center gap-4">
-				<Toggle />
+				<Toggle on:toggle />
 				<a
 					href="https://github.com/Brisklemonade/svelteui"
 					target="_blank"
@@ -44,3 +43,13 @@
 		</div>
 	</nav>
 </header>
+
+<!-- 
+	Search element for later use
+	<input
+	type="text"
+	id="table-search"
+	class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+	placeholder="Search for items"
+	/>
+-->

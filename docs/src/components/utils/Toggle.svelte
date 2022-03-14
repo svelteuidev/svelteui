@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 
 	let label: HTMLInputElement;
+
+	const dispatch = createEventDispatcher();
 
 	onMount(() => {
 		const docClassList = document.documentElement.classList;
@@ -25,7 +27,13 @@
 </script>
 
 <label class="switch">
-	<input on:click={toggleTheme} bind:this={label} type="checkbox" name="toggle" />
+	<input
+		on:click={toggleTheme}
+		on:click={() => dispatch('toggle', label?.checked)}
+		bind:this={label}
+		type="checkbox"
+		name="toggle"
+	/>
 	<span
 		class="slider bg-slate-400 dark:bg-gradient-to-tr from-sky-500 to-emerald-400 before:bg-slate-200 dark:before:bg-[#1f212e]"
 	/>

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { css } from '@stitches/core';
-	import { theme } from '@svelteuidev/core';
+	import { css } from '@svelteuidev/core';
 
 	/** Component Props*/
 	export let title = 'Package/Title';
@@ -13,15 +12,12 @@
 	 *  Theme only gets applied on page render
 	 */
 	const CardStyles = css({
-		border: `1px solid ${
-			$theme.colorScheme === 'dark' ? $theme.colors.dark[8] : $theme.colors.gray[3]
-		}`,
-		borderRadius: $theme.radius.sm,
-		padding: $theme.spacing.lg,
-		backgroundColor: $theme.colorScheme === 'dark' ? $theme.colors.dark[8] : $theme.white,
-
+		border: `1px solid $gray300`,
+		borderRadius: '$sm',
+		padding: '20px',
+		backgroundColor: 'White',
 		'&:hover': {
-			backgroundColor: $theme.colorScheme === 'dark' ? $theme.colors.dark[9] : $theme.colors.gray[0]
+			backgroundColor: '$gray50'
 		}
 	});
 </script>

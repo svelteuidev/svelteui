@@ -42,6 +42,33 @@ export const pages: Array<Page> = [
 		]
 	},
 	{
+		title: 'Theming',
+		pathname: 'theming',
+		expand: false,
+		links: [
+			{
+				href: '',
+				text: 'SvelteuiWrapper'
+			},
+			{
+				href: 'override',
+				text: 'Override API'
+			},
+			{
+				href: 'create-styles',
+				text: 'Creating Styles'
+			},
+			{
+				href: 'dark-theme',
+				text: 'Dark Mode'
+			},
+			{
+				href: 'ssr',
+				text: 'Server Side Rendering'
+			}
+		]
+	},
+	{
 		title: 'Svelteui-Actions',
 		pathname: 'actions',
 		expand: false,

@@ -15,7 +15,7 @@
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 		{#each $PACKAGE_DATA as card, i (card.id)}
 			<PackageCard
-				on:click={getDependencys(i)}
+				on:click={() => getDependencys(i)}
 				title={card.package}
 				description={card.description}
 			/>
