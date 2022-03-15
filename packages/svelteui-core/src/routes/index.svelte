@@ -2,6 +2,6 @@
 	import { Loader, Code, Button } from '$lib';
 </script>
 
-<!-- <Button /> -->
+<Button />
 <!-- <Loader /> -->
 <!-- <Code /> -->

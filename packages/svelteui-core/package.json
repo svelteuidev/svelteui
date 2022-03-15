@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/core",
-	"version": "0.4.6",
+	"version": "0.4.7",
 	"sideEffects": false,
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -11,7 +11,8 @@
 		"package": "svelte-kit package",
 		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
 		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
-		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
+		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish",
+		"build:patch:nopub": "npm --no-git-tag-version version patch && npm run package"
 	},
 	"devDependencies": {
 		"eslint-preset-svelteui": "*",

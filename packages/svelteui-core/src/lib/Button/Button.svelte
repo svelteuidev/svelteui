@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { css } from '$lib/_styles/index';
-	import { vFunc } from '$lib/_styles/utils/get-variant-theme/get-variant-theme';
+	import { vFunc } from '$lib/_styles/index';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
@@ -8,24 +8,51 @@
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
 
-	// --------------------------------------------
-	/** Override prop for custom theming the component */
+	// -----------JsDoc comments for sveld--------------------
+	/**
+	 * Override prop for custom theming the component
+	 * @type {Override["props"]}
+	 */
 	export let override: Override['props'] = {};
-	/** Controls button appearance */
+	/**
+	 * Controls button appearance
+	 * @type {ButtonVariant}
+	 */
 	export let variant: ButtonVariant = 'filled';
-	/** Button color from theme */
+	/**
+	 * Button color from theme
+	 * @type {SvelteuiColor}
+	 */
 	export let color: SvelteuiColor = 'blue';
-	/** Predefined button size */
+	/**
+	 * Predefined button size
+	 * @type {SvelteuiNumberSize}
+	 */
 	export let size: SvelteuiNumberSize = 'sm';
-	/** Button border-radius from theme or number to set border-radius in px */
+	/**
+	 * Button border-radius from theme or number to set border-radius in px
+	 * @type {SvelteuiNumberSize | number}
+	 */
 	export let radius: SvelteuiNumberSize | number = 'sm';
-	/** Semantics for html to define the type of button when not an href */
+	/**
+	 * Semantics for html to define the type of button when not an href
+	 * @type {'button' | 'reset' | 'submit' | 'menu'}
+	 */
 	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
-	/** Controls gradient settings in gradient variant only */
+	/**
+	 * Controls gradient settings in gradient variant only
+	 * @type {SvelteuiGradient}
+	 */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	/** Loader position relative to button label */
+	/**
+	 * Loader position relative to button label
+	 * @type {'left' | 'right'}
+	 */
 	export let loaderPosition: 'left' | 'right' = 'left';
-	/** Props passed to Loader component */
+	/**
+	 * Props passed to Loader component
+	 * @type {LoaderProps}
+	 */
 	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
 	// --------------------------------------------
 
