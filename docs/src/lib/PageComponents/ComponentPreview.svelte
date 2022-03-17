@@ -16,7 +16,9 @@
 	}
 </script>
 
-<div class="relative h-max p-10 rounded-xl shadow-md bg-gray-100 dark:bg-gray-800 {className}">
+<div
+	class="space relative h-max p-10 rounded-xl shadow-md bg-gray-100 dark:bg-gray-800 {className}"
+>
 	<slot />
 
 	<button on:click={showCode} class="absolute bottom-3 right-5"
@@ -24,7 +26,16 @@
 	>
 </div>
 {#if isShowingCode}
-	<div transition:slide={{ duration: 100 }} class="rounded-xl bg-gray-100 dark:bg-gray-800">
-		<Code copy message={code} block>{code}</Code>
+	<div
+		transition:slide={{ duration: 100 }}
+		class="rounded-xl bg-gray-100 dark:bg-gray-800 not-prose"
+	>
+		<Code override={{ fontSize: '$md' }} copy message={code} block>{code}</Code>
 	</div>
 {/if}
+
+<style>
+	.space {
+		gap: var(--gap);
+	}
+</style>

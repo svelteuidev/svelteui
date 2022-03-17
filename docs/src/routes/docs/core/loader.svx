@@ -42,7 +42,7 @@ description: 'Indicate loading state'
 
 {description}
 
-<div class="flex gap-5">
+<div style="gap: 1.25rem;" class="flex gap-5">
 	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[0])}>Documentation</Button>
 	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[1])}>Component Props</Button>
 </div>
@@ -59,9 +59,6 @@ You can choose any color defined in the theme or extend [your own theme](/docs/t
 </Preview>
 <ColorSelect bind:color />
 
-
-
-
 ## Configure default loader
 
 You can configure default loader to be one of it's three variants
@@ -75,6 +72,7 @@ You can configure default loader to be one of it's three variants
 		<Loader variant='bars' />
 	{/if}
 	<select
+	style="margin-bottom: 1rem; margin-top: 1rem;"
 		bind:value={selected} on:change={() => console.log(selected)}
 		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 	>
@@ -83,7 +81,6 @@ You can configure default loader to be one of it's three variants
 		{/each}
 	</select>
 </Preview>
-
 
 ## Size
 

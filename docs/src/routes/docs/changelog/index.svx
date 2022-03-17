@@ -28,7 +28,9 @@ date: 'March xxth, 2021'
 
 [Code](/docs/core/code) component:
 
-<Code color='blue' block copy message={codeToCopy} />
+<div class='not-prose'>
+    <Code color='blue' block copy message={codeToCopy} />
+</div>
 
 [Loader](/docs/core/loader) component:
 

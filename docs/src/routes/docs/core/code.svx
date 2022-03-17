@@ -39,13 +39,12 @@ description: 'Inline or block code without syntax highlight'
 
 {description}
 
-<div class="flex gap-5">
+<div style="gap: 1.25rem;" class="flex gap-5">
 	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[0])}>Documentation</Button>
 	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[1])}>Component Props</Button>
 </div>
 
-{#if activeTab === 'one'}
-    ## Inline code
+{#if activeTab === 'one'} ## Inline code
 
     By default, Code component renders inline `code` html element:
 
@@ -65,4 +64,5 @@ description: 'Inline or block code without syntax highlight'
     <div>Color</div>
     {:else if activeTab === 'two'}
     <APIDocs manualForward {data} />
+
 {/if}
