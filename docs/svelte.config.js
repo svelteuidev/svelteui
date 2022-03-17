@@ -23,6 +23,9 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+		prerender: {
+			enabled: true
+		},
 		package: {
 			exports: (file) => file === 'index.js'
 		},
