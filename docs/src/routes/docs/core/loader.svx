@@ -1,1 +1,99 @@
+---
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+title: Loader
+slug: /core/loader/
+category: 'overlays'
+description: 'Indicate loading state'
+---
 
+<script lang='ts'>
+    import Preview from '$lib/PageComponents/ComponentPreview.svelte'
+    import ColorSelect from '$lib/PageComponents/ColorSelect.svelte'
+	import { Loader, Button } from '@svelteuidev/core'
+	import data from '$components/core/Loader/Loader.svelte?raw&sveld'
+	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
+
+	const code = [
+		`
+		<Loader color='blue' />
+		`,
+		`
+		<Loader variant='circle' />
+		<Loader variant='dots' />
+		<Loader variant='bars' />
+		`,
+		`
+		<Loader size="sm" /> // -> predefined small size
+		<Loader size={50} /> // -> size in px
+		`
+	]
+	
+	let color = 'blue'
+	let variants = ['circle' , 'dots' , 'bars']
+	let selected;
+	
+	const tabs = ['one', 'two'];
+	$: activeTab = 'one';
+	$: active = selected
+</script>
+
+# {title}
+
+{description}
+
+<div class="flex gap-5">
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[0])}>Documentation</Button>
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[1])}>Component Props</Button>
+</div>
+
+{#if activeTab === 'one'}
+
+## Usage
+
+By default, loader will be rendered with the SvelteUI blue color.
+You can choose any color defined in the theme or extend [your own theme](/docs/theming/create-styles):
+
+<Preview code={code[0]} class='flex gap-2'>
+        <Loader {color} />
+</Preview>
+<ColorSelect bind:color />
+
+
+
+
+## Configure default loader
+
+You can configure default loader to be one of it's three variants
+
+<Preview code={code[1]} class='flex flex-col items-center gap-5' >
+	{#if active === 'circle'}
+		<Loader variant='circle' />
+	{:else if active === 'dots'}
+		<Loader variant='dots' />
+	{:else if active === 'bars'}
+		<Loader variant='bars' />
+	{/if}
+	<select
+		bind:value={selected} on:change={() => console.log(selected)}
+		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+	>
+		{#each variants as variant}
+			<option value={variant}>{variant}</option>
+		{/each}
+	</select>
+</Preview>
+
+
+## Size
+
+Size controls loader height or width (depends on loader variant). Loader has predefined sizes: xs, sm, md, lg, xl.
+Alternatively, you can use a number to set width or height in px:
+
+<Preview code={code[2]} class='flex flex-col items-center'>
+	<Loader size="lg" />
+	<Loader size={50} />
+</Preview>
+    {:else if activeTab === 'two'}
+    <APIDocs manualForward {data} />
+{/if}

@@ -8,16 +8,13 @@
 	/** Bind input element to value */
 	let input: HTMLInputElement;
 
-	/**
-	 *  Theme only gets applied on page render
-	 */
 	const CardStyles = css({
-		border: `1px solid $gray300`,
+		border: `1px solid $gray500`,
 		borderRadius: '$sm',
 		padding: '20px',
-		backgroundColor: 'White',
+		backgroundColor: '$gray500',
 		'&:hover': {
-			backgroundColor: '$gray50'
+			backgroundColor: '$gray400'
 		}
 	});
 </script>
@@ -37,10 +34,10 @@
 		tabindex="-1"
 	/>
 	<div>
-		<div class="text-left text-base font-medium mb-1 text-black dark:text-dark-50">
+		<div class="text-left text-base font-medium mb-1 text-black dark:text-dark-700">
 			{title}
 		</div>
-		<div class="text-sm text-dark-300 text-left">
+		<div class="text-sm text-dark-500 text-left">
 			{description}
 		</div>
 	</div>

@@ -87,6 +87,14 @@ export const pages: Array<Page> = [
 			{
 				href: 'button',
 				text: 'Button'
+			},
+			{
+				href: 'code',
+				text: 'Code'
+			},
+			{
+				href: 'loader',
+				text: 'Loader'
 			}
 		]
 	},

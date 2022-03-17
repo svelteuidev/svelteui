@@ -22,15 +22,15 @@ date: 'March xxth, 2021'
 
 ### _Components:_
 
-[Button](https://svelteui-docs.vercel.app/core/button) component:
+[Button](/docs/core/button) component:
 
 <Button>Click Me</Button>
 
-[Code](https://svelteui-docs.vercel.app/core/code) component:
+[Code](/docs/core/code) component:
 
 <Code color='blue' block copy message={codeToCopy} />
 
-[Loader](https://svelteui-docs.vercel.app/core/loader) component:
+[Loader](/docs/core/loader) component:
 
 <Loader color='green' size='lg' variant='bars' />
 
@@ -48,7 +48,7 @@ date: 'March xxth, 2021'
 
 ## API changes
 
-- Custom component is now supported by the override prop
+- Custom components are now supported by the override prop
 
 ## Bug fixes and improvements
 
@@ -60,4 +60,5 @@ date: 'March xxth, 2021'
 ### _Docs:_
 
 - Github Icon replaced with [radix-icons-svelte](https://www.npmjs.com/package/radix-icons-svelte)
-- Added titles to head on pages
+- All pages now show proper titles
+- Removed loaders due to ssr rendering being enabled

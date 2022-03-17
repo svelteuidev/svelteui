@@ -23,7 +23,7 @@
 	<title>{path} | SvelteUI</title>
 </svelte:head>
 
-<SvelteuiWrapper colorScheme={isDark ? 'dark' : 'light'} ssr>
+<SvelteuiWrapper themeObserver={isDark ? 'dark' : 'light'} ssr>
 	<Navbar on:toggle={(e) => checkTheme(e)} />
 	<div id="page" class="mt-20 mb-40">
 		<slot />

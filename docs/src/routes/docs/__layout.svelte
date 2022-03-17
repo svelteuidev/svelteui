@@ -37,7 +37,7 @@
 		</div>
 	{/if}
 	<main
-		class="z-0 max-w-full px-4 prose prose-zinc dark:prose-invert prose-hr:border-gray-800 prose-a:text-brand hover:prose-a:text-brand-dark prose-tr:flex prose-th:flex-1 prose-td:flex-1 prose-blockquote:text-sm prose-blockquote:text-gray-500 prose-blockquote:border-gray-700 prose-p:text-black dark:prose-p:text-white pross xl:col-start-1 xl:col-end-4 xl:ml-64"
+		class="z-0 max-w-full px-4 prose prose-zinc dark:prose-invert prose-hr:border-gray-800 prose-a:text-brand hover:prose-a:text-brand-dark prose-tr:flex prose-th:flex-1 prose-td:flex-1 prose-blockquote:text-sm prose-blockquote:text-gray-500 prose-blockquote:border-gray-700 prose-p:text-black dark:prose-p:text-white xl:col-start-1 xl:col-end-4 xl:ml-64"
 		bind:this={main}
 	>
 		<slot />

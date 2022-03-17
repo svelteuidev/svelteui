@@ -1,0 +1,68 @@
+---
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+title: Code
+slug: /core/code/
+category: 'typography'
+description: 'Inline or block code without syntax highlight'
+---
+
+<script lang='ts'>
+    import Preview from '$lib/PageComponents/ComponentPreview.svelte'
+    import ColorSelect from '$lib/PageComponents/ColorSelect.svelte'
+	import { Button } from '@svelteuidev/core'
+	import data from '$components/core/Code/Code.svelte?raw&sveld'
+	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
+
+	const code = [
+		`
+		<Loader color='blue' />
+		`,
+		`
+		<Loader variant='circle' />
+		<Loader variant='dots' />
+		<Loader variant='bars' />
+		`,
+		`
+		<Loader size="sm" /> // -> predefined small size
+		<Loader size={50} /> // -> size in px
+		`
+	]
+	
+	let color = 'blue'
+	
+	const tabs = ['one', 'two'];
+	$: activeTab = 'one';
+</script>
+
+# {title}
+
+{description}
+
+<div class="flex gap-5">
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[0])}>Documentation</Button>
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[1])}>Component Props</Button>
+</div>
+
+{#if activeTab === 'one'}
+    ## Inline code
+
+    By default, Code component renders inline `code` html element:
+
+    <div>Inline</div>
+
+    ## Block code
+
+    To render code in `pre` element pass `block` prop to Code component:
+
+    <div>Block</div>
+
+    ## Custom color
+
+    By default, code has gray color,
+    you can change it to any color from [theme.colors](/theming/extend-theme/#default-colors):
+
+    <div>Color</div>
+    {:else if activeTab === 'two'}
+    <APIDocs manualForward {data} />
+{/if}

@@ -10,15 +10,15 @@
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		border: `1px solid $gray400`,
-		backgroundColor: 'White',
+		border: `3px solid $gray400`,
+		backgroundColor: '$gray500',
 		padding: '24px',
 		borderRadius: '$md',
 		minWidth: '20rem',
 		maxHeight: '198px',
 
 		'&:hover': {
-			backgroundColor: '$gray50'
+			backgroundColor: '$gray400'
 		},
 
 		variants: {
