@@ -21,10 +21,10 @@ export function download(node: HTMLElement, params: { blob: Blob; filename: stri
             setTimeout(function() {
                 document.body.removeChild(anchor);
                 window.URL.revokeObjectURL(url);
-                node.dispatchEvent(new CustomEvent('usedownload', { detail: blob }));
+                node.dispatchEvent(new CustomEvent('usedownload', { detail: { blob: blob, filename: filename } }));
             });
         } catch(e) {
-            node.dispatchEvent(new CustomEvent('usedownload-error', { detail: blob }));
+            node.dispatchEvent(new CustomEvent('usedownload-error', { detail: { blob: blob, filename: filename } }));
         }
 	};
 
