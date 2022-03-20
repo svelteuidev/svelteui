@@ -9,7 +9,3 @@ node_modules
 /bin
 /.svelte-kit
 /package
-/src/components/Button
-/src/components/Loader
-/src/components/_styles
-/src/components/_internal
