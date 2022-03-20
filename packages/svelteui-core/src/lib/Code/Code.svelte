@@ -4,6 +4,9 @@
 	import { clipboard } from '$lib/_internal';
 	import type { SvelteuiColor, Override } from '$lib/_styles';
 
+	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
+	export let className = '';
+	export { className as class };
 	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** Code color and background from the default theme */
@@ -69,13 +72,13 @@ The Code component creates ...
 -->
 {#if block}
 	<pre class={CodeStyles({ css: override })} {...$$restProps}>
-      <code><slot>Write some code</slot></code>
+      <code class={className}><slot>Write some code</slot></code>
       {#if copy}
 			<button on:click={toggle} use:clipboard={message} class:copy><CopyIcon {copied} /></button>
 		{/if}
     </pre>
 {:else}
-	<code class={CodeStyles({ css: override })} {...$$restProps}>
+	<code class="{className} {CodeStyles({ css: override })}" {...$$restProps}>
 		<slot>Write some code</slot>
 	</code>
 {/if}

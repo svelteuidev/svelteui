@@ -1,13 +1,11 @@
 <script lang="ts">
 	import { Prism } from '$lib';
-	const t = `const name = "Kamell"`;
-	const t2 = `const name = "Kamell Perry"`;
+
+	const test = 'const name = "Adam" ';
 </script>
 
-<svelte:head>
-	<link href="/prism.css" rel="stylesheet" />
-	<script defer src="/prism.js"></script>
-</svelte:head>
+<h1>Welcome to a svelteui package!</h1>
+<p>This is a test route to test the Prism package</p>
+<hr />
 
-<pre><code class="language-js">{@html t}</code></pre>
-<Prism block>{t2}</Prism>
+<Prism message={test}>{test}</Prism>
