@@ -9,3 +9,4 @@ node_modules
 /bin
 /.svelte-kit
 /package
+/src/components
