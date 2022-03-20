@@ -10,14 +10,18 @@
 		"package": "svelte-kit package",
 		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
 		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
-		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
+		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish",
+		"test": "vitest",
+		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
-		"eslint-preset-svelteui": "*",
-		"@svelteuidev/tsconfig": "*",
 		"@sveltejs/kit": "next",
+		"@svelteuidev/tsconfig": "*",
+		"@testing-library/svelte": "^3.1.0",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",
+		"eslint-preset-svelteui": "*",
+		"jsdom": "^19.0.0",
 		"postcss": "^8.3.11",
 		"sass": "^1.43.4",
 		"svelte": "^3.42.6",

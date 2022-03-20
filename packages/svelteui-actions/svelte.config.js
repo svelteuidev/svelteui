@@ -2,6 +2,7 @@ import mm from 'micromatch'
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
+import { configDefaults } from 'vitest/config'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -25,7 +26,10 @@ const config = {
 		vite: {
 			test: {
 				globals: true,
-				environment: 'jsdom'
+				environment: 'jsdom',
+				coverage: {
+					exclude: [...configDefaults.exclude, 'svelte.config.js', '**/test/**']
+				}
 			}
 		}
 	}

@@ -1,3 +1,4 @@
+import { tick } from 'svelte';
 import type { Action } from '../types/_types';
 
 /**
@@ -7,22 +8,22 @@ import type { Action } from '../types/_types';
  * @param text The text that you want to be copied when the DOM element is clicked
  * @example <button use:download={{ blob: new Blob([]), filename: "file.txt" }}>Download</button>
  */
-export function download(node: HTMLElement, params: { blob: Blob; filename: string }): ReturnType<Action> {
-    const { blob, filename } = params;
-
-	const click = async () => {
+export function download(node: HTMLElement, params: { blob: Blob; filename: string }): ReturnType<Action> {    
+    const click = async () => {
+        const { blob, filename } = params;
         try {
             const anchor: HTMLAnchorElement = document.createElement("a");
             const url: string = URL.createObjectURL(blob);
             anchor.href = url;
             anchor.download = filename || "";
             document.body.appendChild(anchor);
+
             anchor.click();
-            setTimeout(function() {
-                document.body.removeChild(anchor);
-                window.URL.revokeObjectURL(url);
-                node.dispatchEvent(new CustomEvent('usedownload', { detail: { blob: blob, filename: filename } }));
-            });
+            await tick();
+
+            document.body.removeChild(anchor);
+            URL.revokeObjectURL(url);
+            node.dispatchEvent(new CustomEvent('usedownload', { detail: { blob: blob, filename: filename } }));
         } catch(e) {
             node.dispatchEvent(new CustomEvent('usedownload-error', { detail: { blob: blob, filename: filename } }));
         }
@@ -31,7 +32,7 @@ export function download(node: HTMLElement, params: { blob: Blob; filename: stri
 	node.addEventListener('click', click, true);
 
 	return {
-		update: (params: { blob: Blob; filename: string }) => (params = params),
+		update: (_params: { blob: Blob; filename: string }) => (params = _params),
 		destroy: () => node.removeEventListener('click', click, true)
 	};
 }
