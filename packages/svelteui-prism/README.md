@@ -8,10 +8,10 @@ Code highlight built with prism and svelteui
 
 ```sh
 # With yarn
-yarn add @svelteuidev/actions @svelteuidev/core @svelteuidev/prism
+yarn add @svelteuidev/core @svelteuidev/prism
 
 # With npm
-npm install @svelteuidev/actions @svelteuidev/core @svelteuidev/prism
+npm install @svelteuidev/core @svelteuidev/prism
 ```
 
 ## License

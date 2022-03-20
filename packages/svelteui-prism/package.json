@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/prism",
-	"version": "0.1.1",
+	"version": "0.5.0",
 	"sideEffects": false,
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -32,6 +32,10 @@
 		"typescript": "^4.4.3"
 	},
 	"type": "module",
+	"peerDependencies": {
+		"@svelteuidev/core": "*",
+		"@svelteuidev/actions": "*"
+	},
 	"dependencies": {
 		"svelte-prism-action": "^1.0.7"
 	}
