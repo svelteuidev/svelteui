@@ -1,11 +1,4 @@
-import type { SvelteuiThemeBase, SvelteuiColor, SvelteuiGradient } from '../../types';
-
-interface GetSharedColorScheme {
-	color?: SvelteuiColor;
-	variant: 'outline' | 'filled' | 'light' | 'gradient' | 'white' | 'default' | 'subtle';
-	gradient?: { from: SvelteuiColor; to: SvelteuiColor; deg: number };
-	theme: SvelteuiThemeBase;
-}
+import type { SvelteuiColor, SvelteuiGradient } from '../../types';
 
 export const vFunc = (color: SvelteuiColor, gradient: SvelteuiGradient) => {
 	return {

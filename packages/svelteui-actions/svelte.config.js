@@ -1,8 +1,8 @@
-import mm from 'micromatch'
+import mm from 'micromatch';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
-import { configDefaults } from 'vitest/config'
+import { configDefaults } from 'vitest/config';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

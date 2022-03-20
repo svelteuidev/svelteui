@@ -1,7 +1,7 @@
 import type { SvelteuiNumberSize } from './SvelteuiSize';
 
 export type SvelteuiMargin = 'm' | 'my' | 'mx' | 'mt' | 'mb' | 'ml' | 'mr';
-type MarginValue = SvelteuiNumberSize | (string & {});
+type MarginValue = SvelteuiNumberSize | (string & Record<string, never>);
 
 export interface SvelteuiMargins {
 	m?: MarginValue;

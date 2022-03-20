@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { typewriter, flipboard } from '$lib';
+	import { flipboard } from '$lib';
 	import { onMount } from 'svelte';
 
 	let v = false;

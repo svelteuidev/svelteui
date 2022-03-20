@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /coverage
-/turbosvelte-cli
 build
 /build
 .svelte-kit

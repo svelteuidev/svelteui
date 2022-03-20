@@ -5,7 +5,7 @@ import { bubble, listen } from 'svelte/internal';
 // "Borrowed" from Tropix126/fluent-svelte Adapted from rgossiaux/svelte-headlessui which is modified from hperrin/svelte-material-ui
 /** Function for forwarding DOM events to the component's declaration */
 export function createEventForwarder(component: SvelteComponent, exclude: string[] = []) {
-	type EventCallback = (event: any) => void;
+	type EventCallback = (event: unknown) => void;
 
 	// This is our pseudo $on function. It is defined on component mount.
 	let $on: (eventType: string, callback: EventCallback) => () => void;

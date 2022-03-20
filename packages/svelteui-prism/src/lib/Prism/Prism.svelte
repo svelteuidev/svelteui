@@ -4,7 +4,7 @@
 	import { css } from '@svelteuidev/core/package';
 
 	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
+	export let override = {};
 	/** Code color and background from the default theme */
 	export let language: string = 'js';
 	/** True for code block, false for inline code */

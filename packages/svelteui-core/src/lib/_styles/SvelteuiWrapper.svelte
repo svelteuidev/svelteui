@@ -4,7 +4,7 @@
 	export let colorScheme: 'light' | 'dark' = 'light';
 	export let ssr: boolean = false;
 
-	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`;
+	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`; //eslint-disable-line
 </script>
 
 <svelte:head>
