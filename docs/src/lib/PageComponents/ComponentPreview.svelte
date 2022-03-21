@@ -1,7 +1,7 @@
 <!-- This component will be deprected soon -->
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import { Code } from '@svelteuidev/core';
+	import { Prism } from '@svelteuidev/prism';
 
 	/** The code to be displayed */
 	export let code: string = '<> No code to show yet </>';
@@ -26,11 +26,8 @@
 	>
 </div>
 {#if isShowingCode}
-	<div
-		transition:slide={{ duration: 100 }}
-		class="rounded-xl bg-gray-100 dark:bg-gray-800 not-prose"
-	>
-		<Code override={{ fontSize: '$md' }} copy message={code} block>{code}</Code>
+	<div transition:slide={{ duration: 100 }} class="prose-code:text-base">
+		<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 	</div>
 {/if}
 

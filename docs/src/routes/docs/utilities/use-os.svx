@@ -1,0 +1,55 @@
+---
+group: 'svelteuidev-utilities'
+packageGroup: '@svelteuidev/utilities'
+title: 'use-os'
+slug: /utilities/use-os/
+description: 'Get user os'
+---
+
+<script lang='ts'>
+    import {Prism} from '@svelteuidev/prism'
+    import {useOs} from '@svelteuidev/utilities'
+    
+    const code = `
+    <script>
+        import { useOs } from '@svelteuidev/utilities';
+
+        const os = useOs();
+    <\/script>
+
+    <p>Your os is <b>{os}</b></p>
+    `;
+
+    const os = useOs()
+</script>
+
+# {title}
+
+{description}
+
+<hr/>
+
+## Usage
+
+<div class='border rounded-md shadow-md flex justify-center'>
+    <p>Your os is <b>{os}</b></p>
+</div>
+<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
+
+Hook detects user os. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`.
+If os cannot be identified as well as during server side rendering `undetermined` will be returned.
+
+## TypeScript
+
+You can import `OS` union type from `@svleteui/utilities`:
+
+```tsx
+import type { OS } from '@svleteui/utilities';
+// OS type is 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux'
+```
+
+## Definition
+
+```tsx
+function getOS(): 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux';
+```

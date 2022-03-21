@@ -26,7 +26,7 @@
 			</button>
 			<a href="/" class="text-black dark:text-gray-200 text-2xl font-black">
 				Svelte<span class="text-primary-500">UI</span>
-				<span class="hidden md:inline-block text-base text-gray-600">v0.4.0</span>
+				<span class="hidden md:inline-block text-base text-gray-600">v0.5.0</span>
 				<span class="text-base text-gray-600">Beta</span>
 			</a>
 			<div class="flex items-center gap-4">

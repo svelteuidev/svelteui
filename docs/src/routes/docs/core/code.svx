@@ -8,28 +8,48 @@ description: 'Inline or block code without syntax highlight'
 ---
 
 <script lang='ts'>
+	import { Button, Code } from '@svelteuidev/core'
+	import {Prism} from '@svelteuidev/prism'
     import Preview from '$lib/PageComponents/ComponentPreview.svelte'
-    import ColorSelect from '$lib/PageComponents/ColorSelect.svelte'
-	import { Button } from '@svelteuidev/core'
 	import data from '$components/core/Code/Code.svelte?raw&sveld'
 	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
 
 	const code = [
 		`
-		<Loader color='blue' />
+		import { Code } from '@svelteuidev/core';
+		
+		<Code>This will be inline</Code>;
 		`,
 		`
-		<Loader variant='circle' />
-		<Loader variant='dots' />
-		<Loader variant='bars' />
+		import { Code } from '@svelteuidev/core';
+
+		const codeForDemo = \`
+		const obj = {
+			prop1: 'Hello',
+			prop2: 'World'
+		}\`; 
+
+		<Code block>{codeForDemo}</Code>
 		`,
 		`
-		<Loader size="sm" /> // -> predefined small size
-		<Loader size={50} /> // -> size in px
+		import { Code } from '@svelteuidev/core';
+		
+		<Code color="red">This will be inline</Code>
+      	<Code color="teal">This will be inline</Code>
+      	<Code color="blue">This will be inline</Code>
+		`,
+		`
+		import { Prism } from '@svelteuidev/prism'
+
+		const demoCode = \`
+		import { Button } from '@svelteuidev/core'
+
+		<Button>Click Me</Button>
+		\`
+
+		<Prism theme='twilight' language='tsx' block>{demoCode}</Prism>
 		`
 	]
-	
-	let color = 'blue'
 	
 	const tabs = ['one', 'two'];
 	$: activeTab = 'one';
@@ -48,20 +68,37 @@ description: 'Inline or block code without syntax highlight'
 
     By default, Code component renders inline `code` html element:
 
-    <div>Inline</div>
+    <Preview code={code[0]} class='not-prose'>
+    	<Code>This will be inline</Code>
+    </Preview>
 
     ## Block code
 
     To render code in `pre` element pass `block` prop to Code component:
 
-    <div>Block</div>
+    <Preview code={code[1]} class='not-prose'>
+    	<Code block>{code[1]}</Code>
+    </Preview>
 
     ## Custom color
 
     By default, code has gray color,
     you can change it to any color from [theme.colors](/theming/extend-theme/#default-colors):
 
-    <div>Color</div>
+    <Preview code={code[2]} class='not-prose'>
+    	<Code color="red">This will be inline</Code>
+      	<Code color="teal">This will be inline</Code>
+      	<Code color="blue">This will be inline</Code>
+    </Preview>
+
+    ## Syntax highlight
+
+    In case you need syntax highlight like in all code examples on SvelteUI website, use the [@sveltuidev/prism](/others/prism/) package:
+
+    <Preview code={code[3]} class='not-prose'>
+    	<Prism theme='twilight' language='tsx' block>{`\timport { Button } from '@svelteuidev/core'\n\n\t<Button>Click Me</Button>`}</Prism>
+    </Preview>
+
     {:else if activeTab === 'two'}
     <APIDocs manualForward {data} />
 
