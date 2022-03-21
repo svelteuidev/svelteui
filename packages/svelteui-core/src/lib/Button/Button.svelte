@@ -82,10 +82,7 @@
 	const ButtonStyles = css({
 		color: 'White',
 		backgroundColor: `$${color}600`,
-		background:
-			variant === 'gradient'
-				? `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`
-				: null,
+		background: null,
 		borderRadius: typeof radius === 'number' ? radius : `$${radius}`,
 		border: `1px solid $${color}600`,
 		height: sizes[compact ? `compact-${size}` : size].height,
