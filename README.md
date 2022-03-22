@@ -10,7 +10,7 @@
 [![NPM](https://img.shields.io/github/license/Brisklemonade/svelteui)](https://github.com/Brisklemonade/svelteui/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/Brisklemonade/svelteui)](https://github.com/Brisklemonade/svelteui/graphs/contributors)
 [![npm](https://img.shields.io/npm/v/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
-[![npm](https://img.shields.io/npm/dm/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/actions)
+[![npm](https://img.shields.io/npm/dm/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
 [![Help wanted](https://img.shields.io/github/labels/Brisklemonade/svelteui/help%20wanted?label=Contribute)](https://github.com/Brisklemonade/svelteui/labels/help%20wanted)
 [![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/sDdXGthXVU)
 
