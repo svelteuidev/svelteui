@@ -1,0 +1,94 @@
+---
+group: 'svelteuidev-actions'
+packageGroup: '@svelteuidev/actions'
+title: 'use-css-variable'
+slug: /actions/use-css-variable/
+description: 'Whenever some of their values change, update css properties on the fly'
+---
+
+<script lang='ts'>  
+    // style tags used
+    import {Prism} from '@svelteuidev/prism'
+    import {Button} from '@svelteuidev/core'
+    import {cssvariable} from '@svelteuidev/actions'
+
+    let isRed = true;
+
+    $: styleVars = {
+        titleColor: isRed ? 'red' : 'blue',
+    };
+    
+    
+    const code = `
+    <script>
+        import {cssvariable} from '@svelteuidev/actions'
+        
+        let isRed = true;
+
+        $: styleVars = {
+            titleColor: isRed ? 'red' : 'blue',
+        };
+    <\/script>
+
+    <div use:cssvariable="{styleVars}">
+        <!-- anything here will have access to var(--titleColor) -->
+        <p>This text is normal</p>
+        <p class='example'>This text is using the variable</p>
+    </div>
+    <Button on:click={() => isRed = !isRed}>Click to switch colors</Button>
+
+    <\style>
+        .example {
+            color: var(--titleColor);
+        }
+    <\/style>
+    `;
+
+</script>
+
+# {title}
+
+{description}
+
+<hr/>
+
+## Usage
+
+<div style="padding: 1rem;" class='h-max space border rounded-md shadow-md flex items-center justify-between px-2'>
+    <div use:cssvariable="{styleVars}">
+        <!-- anything here will have access to var(--titleColor) -->
+        <p>This text is normal</p>
+        <p class='example'>This text is using the variable</p>
+    </div>
+    <Button on:click={() => isRed = !isRed}>Click to switch colors</Button>
+</div>
+
+With the **{title}** action, an object of properties will be treated as css custom variables. By defining this object inside of a `$: {}` reactive block, {title} can update those css properties on the fly whenever some of its values change.
+
+<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
+
+## Params
+
+| Param | Description                                                          |
+| ----- | -------------------------------------------------------------------- |
+| props | The object that possesses the variables, and their associated values |
+
+## Events
+
+The **{title}** action does not dispatch any custom events`
+
+```tsx
+// No events to display
+```
+
+## Definition
+
+```tsx
+export function cssvariable(node: HTMLElement, props: UnknownKeyString<string>): ReturnType<Action>;
+```
+
+<style>
+    .example {
+      color: var(--titleColor);
+    }
+</style>

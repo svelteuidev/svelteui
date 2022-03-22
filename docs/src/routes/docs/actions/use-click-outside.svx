@@ -72,14 +72,19 @@ With the **{title}** action, a callback function will be fired whenever the user
 | enabled  | Sets the action to an enabled state if true, if false, action will not trigger |
 | callback | The callback to be fired once the user clicks outside of the dom node          |
 
+## Events
+
+The **{title}** action does not dispatch any custom events`
+
+```tsx
+// No events to display
+```
+
 ## Definition
 
 ```tsx
 export function clickOutside(
 	node: HTMLElement,
-	params: {
-		enabled: boolean;
-		callback?: (node?: HTMLElement) => void;
-	}
+	params: { enabled: boolean; callback?: (node?: HTMLElement) => void }
 ): ReturnType<Action>;
 ```

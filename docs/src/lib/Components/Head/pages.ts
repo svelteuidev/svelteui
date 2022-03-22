@@ -76,6 +76,18 @@ export const pages: Array<Page> = [
 			{
 				href: 'use-click-outside',
 				text: 'use-click-outside'
+			},
+			{
+				href: 'use-clipboard',
+				text: 'use-clipboard'
+			},
+			{
+				href: 'use-css-variable',
+				text: 'use-css-variable'
+			},
+			{
+				href: 'use-focus',
+				text: 'use-focus'
 			}
 		]
 	},
@@ -117,6 +129,10 @@ export const pages: Array<Page> = [
 			{
 				href: 'typewriter',
 				text: 'Typewriter'
+			},
+			{
+				href: 'flipboard',
+				text: 'Flipboard'
 			}
 		]
 	}
