@@ -67,7 +67,7 @@ description: 'Copies text to the clipboard when dom element is clicked'
     </div>
 </div>
 
-With the **{title}** action, a callback function will be fired whenever the user clicks outside of the dom node the action is appplied to.
+With the **{title}** action, text passed into the text param will be copied to the users clipboard.
 
 <Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 

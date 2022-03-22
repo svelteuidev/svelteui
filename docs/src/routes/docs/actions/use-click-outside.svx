@@ -61,7 +61,7 @@ description: 'Triggers a callback when a user clicks outside of a given element'
      </div>
 </div>
 
-With the **{title}** action, a callback function will be fired whenever the user clicks outside of the dom node the action is appplied to.
+With the **{title}** action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
 
 <Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
