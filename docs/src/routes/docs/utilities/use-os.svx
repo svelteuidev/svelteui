@@ -34,17 +34,18 @@ description: 'Get user os'
 <div class='border rounded-md shadow-md flex justify-center'>
     <p>Your os is <b>{os}</b></p>
 </div>
-<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
-Hook detects user os. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`.
-If os cannot be identified as well as during server side rendering `undetermined` will be returned.
+The {title} utility function detects a user's os. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`.
+If the os cannot be identified as well as during server side rendering `undetermined` will be returned.
+
+<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
 ## TypeScript
 
-You can import `OS` union type from `@svleteui/utilities`:
+You can import `OS` union type from `@svelteuidev/utilities`:
 
 ```tsx
-import type { OS } from '@svleteui/utilities';
+import type { OS } from '@svelteuidev/utilities';
 // OS type is 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux'
 ```
 

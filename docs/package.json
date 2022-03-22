@@ -46,7 +46,8 @@
 	"type": "module",
 	"dependencies": {
 		"@stitches/core": "^1.2.7",
-		"@svelteuidev/core": "^0.4.7-next.3",
+		"@svelteuidev/actions": "^0.3.1",
+		"@svelteuidev/core": "^0.4.7-next.4",
 		"@svelteuidev/motion": "^0.3.1",
 		"@svelteuidev/prism": "^0.5.0",
 		"@svelteuidev/utilities": "^0.2.6",

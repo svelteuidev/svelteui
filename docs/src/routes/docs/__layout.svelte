@@ -3,6 +3,7 @@
 	import SideBar from '$lib/Components/Head/SideBar.svelte';
 	import { showSideBar } from '$lib/stores/sidebar';
 	import { page } from '$app/stores';
+	import { ActivityLog } from 'radix-icons-svelte';
 
 	let main;
 
@@ -43,6 +44,7 @@
 		<slot />
 	</main>
 	<div class="hidden sticky top-20 z-40 {toggleToc(path)}">
+		<h3 class="flex items-center gap-3 text-lg font-bold"><ActivityLog /> Table of contents</h3>
 		<Toc target={main} />
 	</div>
 </div>

@@ -7,7 +7,8 @@ category: 'transitions'
 description: 'Type writer transition effect for text'
 ---
 
-<script lang='ts'>  
+<script lang='ts'>
+    // style tags used
     import {Prism} from '@svelteuidev/prism'
     import {typewriter} from '@svelteuidev/motion'
     import {Button} from '@svelteuidev/core'
@@ -46,7 +47,7 @@ description: 'Type writer transition effect for text'
 
 ## Usage
 
-<div class='space border rounded-md shadow-md flex items-center justify-between px-2'>
+<div style="padding-left: 1rem; padding-right: 1rem;" class='h-20 space border rounded-md shadow-md flex items-center justify-between px-2'>
     <div class="">
         {#if visible}
 	        <p in:typewriter>Now the transition is playing</p>
@@ -56,9 +57,10 @@ description: 'Type writer transition effect for text'
     </div>
     <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
 </div>
-<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
 The typewriter transition will give your text a typed effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the typewriter transition on non text nodes, it will result in an error.
+
+<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
 ## Params
 
@@ -69,10 +71,10 @@ The typewriter transition will give your text a typed effect. Just like every ot
 
 ## TypeScript
 
-You can import `TypewriterParams` interface type from `@svleteui/motion`:
+You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
 
 ```tsx
-import type { TypewriterParams } from '@svleteui/motion';
+import type { TypewriterParams } from '@svelteuidev/motion';
 
 interface TypewriterParams {
 	speed?: number;
