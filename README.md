@@ -34,7 +34,7 @@ Build fully functional accessible web applications faster than ever
 
 - [`@svelteui/core`](https//:example.com) – core components library – (?)+ components
 - [`@svelteui/actions`](https//:example.com) – library of useful actions
-- [`@svelteui/motion`](https//:example.com) – collection of transitions to utilize on dom elements
+- [`@svelteui/motion`](https//:example.com) – collection of transitions to use on dom elements
 - [`@svelteui/utilities`](https//:example.com) – collection of helpful utility functions
 - `@svelteui/eslint-config` – ESLint and Prettier configuration that is used in all svelteui projects
 
