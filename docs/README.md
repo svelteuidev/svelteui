@@ -8,5 +8,5 @@ All SvelteUI packages have MIT license. All SvelteUI dependencies also have MIT 
 
 ## Contributing
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+- If you have a suggestion that would make this project better, submit an issue.
+- If you would like to directly contribute, read the [contribution guide](https://svelteui-docs.vercel.app/docs/contribute) then submit a PR

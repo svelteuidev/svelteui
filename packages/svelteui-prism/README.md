@@ -1,19 +1,41 @@
-# SvelteUI prism code highlight
+# SvelteUI Prism
 
-Code highlight built with prism and svelteui
+## **code highlight component built with prism action**
 
-[View documentation](https://svelteui-docs.vercel.app/)
+- Package includes the Prism component that is used to give Code highlighting.
+- This package relies on the `@svelteuidev/actions` & `@svelteuidev/core` packages, so they will come together!
+
+## Documentation
+
+[See full documentation on svelteui website](https://svelteui-docs.vercel.app/)
 
 ## Installation
 
-```sh
+```bash
 # With yarn
-yarn add @svelteuidev/core @svelteuidev/prism
+yarn add @svelteuidev/prism
 
 # With npm
-npm install @svelteuidev/core @svelteuidev/prism
+npm install @svelteuidev/prism
+```
+
+## Usage
+
+```tsx
+<script>
+    import { Prism } from '@svelteuidev/prism';
+
+    const code = `
+    const obj = {
+        name: "Josh",
+        age: "age"
+    }
+    `
+</script>
+
+<Prism block message={code}>{code}</Prism>;
 ```
 
 ## License
 
-MIT
+All SvelteUI packages have MIT license. All SvelteUI dependencies also have MIT license.

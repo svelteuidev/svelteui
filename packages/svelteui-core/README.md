@@ -1,11 +1,18 @@
 # SvelteUI core
 
-SvelteUI allows you to create fully functional and accessible web applications in less time than ever before. Regardless of design experience.
-A variety of components, actions, and utility functions are on the way!
+## **Component library with ease of use.**
+
+- SvelteUI allows you to create fully functional and accessible web applications in less time than ever before. Regardless of design experience.
+
+- This package relies on the @svelteuidev/actions package, so they will come together!
+
+## Documentation
+
+[See full documentation on svelteui website](https://svelteui-docs.vercel.app/)
 
 ## Installation
 
-```sh
+```bash
 # With yarn
 yarn add @svelteuidev/core
 
@@ -16,7 +23,9 @@ npm install @svelteuidev/core
 ## Usage
 
 ```tsx
-import { Button } from '@svelteuidev/core';
+<script>
+    import { Button } from '@svelteuidev/core';
+</script>
 
 <Button>Submit</Button>;
 ```

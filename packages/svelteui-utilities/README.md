@@ -1,9 +1,9 @@
 # SvelteUI Utilities
 
-Utility library with (?)+ functions to assist in development.
+## **Utility library with functions to assist in development.**
 
-Package includes functions that are used to build components in @svelteui/ scoped packages.
-You can use these functions in your applications with or without other @svelteui/ packages.
+- Package includes functions that are used to build components in @svelteui/ scoped packages.
+- You can use these functions in your applications with or without other @svelteui/ packages.
 
 ## Documentation
 
@@ -11,7 +11,7 @@ You can use these functions in your applications with or without other @svelteui
 
 ## Installation
 
-```sh
+```bash
 # With yarn
 yarn add @svelteuidev/utilities
 
@@ -21,7 +21,7 @@ npm i @svelteuidev/utilities
 
 ## Included Utilities
 
-- [use-os](https://svelteui-docs.vercel.app/utilities/use-os) – identifies the user's os
+- [use-os](https://svelteui-docs.vercel.app/docs/utilities/use-os) – identifies the user's os
 
 ## License
 
