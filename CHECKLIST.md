@@ -4,3 +4,4 @@
 - [ ] Update the changelog
 - [ ] Make sure all packages are okay for public use
 - [ ] Unit Testing for motion package
+- [ ] Update READMEs across repo, update contributions on main README
