@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { PACKAGE_DATA, globalDeps } from './data';
+	import { PACKAGE_DATA } from './data';
 	import PackageCard from './PackageCard.svelte';
 
 	let dependencies;
+
 	$: getDependencys = (i: number) => {
 		dependencies = $PACKAGE_DATA[i].dependencies;
+		dependencies = dependencies;
 	};
 
-	$: globalDeps.update((v) => (v = dependencies));
+	$: console.log(dependencies);
 </script>
 
 <div>

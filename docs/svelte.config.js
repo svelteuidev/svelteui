@@ -4,6 +4,8 @@ import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import slug from 'rehype-slug';
 import sveld from 'vite-plugin-sveld';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +15,9 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
-			postcss: true
+			postcss: {
+				plugins: [autoprefixer(), cssnano()]
+			}
 		}),
 		mdsvex({
 			extensions: ['.svx', '.md'],

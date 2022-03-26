@@ -1,17 +1,18 @@
 <script lang="ts">
 	import { STARTGUIDE_DATA } from './data';
 	import Guides from './Guides.svelte';
+	import { Prism } from '@svelteuidev/prism';
 	import { Code } from '@svelteuidev/core';
-	import { globalDeps } from '../Installation/data';
 
+	/** Variable for switching cards stitches variant*/
 	const active = { state: 'active' };
-	const allDone = `<script>\n\timport { Button } from '@svelteuidev/core';\n<\/script>\n\n<Button>Click Me</Button`;
+	const allDone = `<script>\n\timport { Button } from '@svelteuidev/core';\n<\/script>\n\n<Button>Click Me</Button>`;
 
 	$: initScript =
 		selected === 'svelte'
 			? 'npx degit sveltejs/template my-svelte-project'
 			: 'npm init svelte@next my-app';
-	$: dependencies = $globalDeps?.join(' ');
+	$: dependencies = '';
 	$: selected = 'svelte';
 
 	const yarnScript = `yarn add ${dependencies || '@svelteuidev/core @svelteuidev/actions'}`;
@@ -34,20 +35,20 @@
 	<div class="">
 		<h3>Initialize a new project</h3>
 
-		<Code block copy message={initScript}>{initScript}</Code>
+		<Code copy message={initScript} block>{initScript}</Code>
 
 		<h2>Install dependencies</h2>
 
 		<h3>With yarn</h3>
 
-		<Code block copy message={yarnScript}>{yarnScript}</Code>
+		<Prism theme="twilight" language="tsx" block message={yarnScript}>{yarnScript}</Prism>
 
 		<h3>With npm</h3>
 
-		<Code block copy message={npmScript}>{npmScript}</Code>
+		<Prism theme="twilight" language="tsx" block message={npmScript}>{npmScript}</Prism>
 
 		<h3>All done!</h3>
 
-		<Code block copy message={allDone}>{allDone}</Code>
+		<Prism theme="twilight" language="html" block message={allDone}>{allDone}</Prism>
 	</div>
 </div>
