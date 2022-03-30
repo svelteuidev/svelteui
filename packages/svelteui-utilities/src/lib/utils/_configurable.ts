@@ -1,4 +1,5 @@
 import { isClient } from './is/is';
+import { browser } from '$app/env';
 
 export interface ConfigurableWindow {
 	/*
@@ -28,7 +29,7 @@ export interface ConfigurableLocation {
 	location?: Location;
 }
 
-export const defaultWindow = isClient ? window : undefined;
-export const defaultDocument = isClient ? window.document : undefined;
-export const defaultNavigator = isClient ? window.navigator : undefined;
-export const defaultLocation = isClient ? window.location : undefined;
+export const defaultWindow = isClient ? browser && window : undefined;
+export const defaultDocument = isClient ? browser && window.document : undefined;
+export const defaultNavigator = isClient ? browser && window.navigator : undefined;
+export const defaultLocation = isClient ? browser && window.location : undefined;
