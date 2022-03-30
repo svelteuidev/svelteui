@@ -16,11 +16,11 @@
 		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"
 	},
 	"devDependencies": {
-		"eslint-preset-svelteui": "*",
-		"@svelteuidev/tsconfig": "*",
 		"@sveltejs/kit": "next",
+		"@svelteuidev/tsconfig": "*",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",
+		"eslint-preset-svelteui": "*",
 		"postcss": "^8.3.11",
 		"sass": "^1.43.4",
 		"svelte": "^3.42.6",
@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@stitches/core": "^1.2.7"
+		"@stitches/core": "^1.2.7",
+		"uuid": "^8.3.2"
 	}
 }
