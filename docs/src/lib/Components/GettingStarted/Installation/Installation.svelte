@@ -8,8 +8,6 @@
 		dependencies = $PACKAGE_DATA[i].dependencies;
 		dependencies = dependencies;
 	};
-
-	$: console.log(dependencies);
 </script>
 
 <div>

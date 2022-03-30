@@ -12,10 +12,10 @@
 	};
 </script>
 
-<header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center backdrop-blur-md">
+<header class="fixed top-0 left-0 w-full z-20 h-20 flex items-center bg-white dark:bg-dark-700">
 	<nav class="h-full w-full mx-auto">
 		<div
-			class="px-5 sm:px-10 flex items-center justify-between h-full border-b border-gray-200 dark:border-gray-800"
+			class="px-5 sm:px-10 flex items-center justify-between h-full border-2 border-gray-200 dark:border-gray-800"
 		>
 			<button class="block md:hidden" on:click={toggleSideBar}>
 				{#if !sideBar}

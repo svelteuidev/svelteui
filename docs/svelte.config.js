@@ -6,6 +6,7 @@ import slug from 'rehype-slug';
 import sveld from 'vite-plugin-sveld';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
+import tailwindcss from 'tailwindcss';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -16,7 +17,7 @@ const config = {
 	preprocess: [
 		preprocess({
 			postcss: {
-				plugins: [autoprefixer(), cssnano()]
+				plugins: [tailwindcss(), autoprefixer(), cssnano()]
 			}
 		}),
 		mdsvex({
