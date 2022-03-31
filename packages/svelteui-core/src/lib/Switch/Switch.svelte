@@ -138,8 +138,8 @@ A user can use this component to enable/disable something, normally used for boo
     <Switch label="Lights" onLabel="ON" offLabel="OFF"/> // switch with labels
     ```
 -->
-<div use:forwardEvents class="switch {className}" class:disabled>
-	<input {id} bind:checked type="checkbox" class="{SwitchStyles({ css: override })}" />
+<div class="switch {className}" class:disabled>
+	<input {id} use:forwardEvents bind:checked type="checkbox" class="{SwitchStyles({ css: override })}" />
 	{#if label}
 		<label for={id} class="label {LabelStyles({ css: overrideLabel })}">
 			{label}
