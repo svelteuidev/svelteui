@@ -6,7 +6,7 @@ jobs:
     name: Actions
     strategy:
       matrix:
-        node-version: [12, 13, 14, 16]
+        node-version: [16, 17]
     runs-on: ubuntu-latest
     container: node:${{ matrix.node-version }}
     steps:
