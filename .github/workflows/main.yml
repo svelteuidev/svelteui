@@ -1,6 +1,9 @@
 
 name: Main Workflow
-on: [push]
+on: 
+  push:
+    branches:
+      - main
 jobs:
   build:
     name: Actions
