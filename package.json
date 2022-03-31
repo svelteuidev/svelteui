@@ -13,8 +13,8 @@
 		"dev": "turbo run dev --parallel",
 		"lint": "turbo run lint --parallel",
 		"format": "turbo run format --parallel",
-		"test": "vitest",
-		"coverage": "vitest run --coverage"
+		"test": "turbo run test --parallel",
+		"coverage": "turbo run coverage --parallel"
 	},
 	"devDependencies": {
 		"c8": "^7.11.0",
