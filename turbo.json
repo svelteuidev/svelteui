@@ -1,7 +1,6 @@
 {
 	"$schema": "https://turborepo.org/schema.json",
 	"baseBranch": "origin/main",
-	"packageManager": "npm",
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -22,11 +21,14 @@
 			"outputs": ["package"]
 		},
 		"test": {
-			"dependsOn": ["format", "lint"]
+			"dependsOn": ["^format", "^lint"],
+			"outputs": [],
+			"cache": false
 		},
 		"coverage": {
-			"dependsOn": ["format", "lint"],
-			"outputs": ["coverage/**"]
+			"dependsOn": ["^format", "^lint"],
+			"outputs": ["coverage/**"],
+			"cache": true
 		}
 	}
 }

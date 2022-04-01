@@ -146,7 +146,7 @@ describe('is', () => {
 	describe('rand', () => {
 		test('returns a random number between an interval of numbers', () => {
 			const value = rand(1, 4);
-			expect(value).toBeGreaterThan(1);
+			expect(value).toBeGreaterThanOrEqual(1);
 			expect(value).toBeLessThanOrEqual(4);
 		});
 	});
