@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^1.0.0-next.39",
-		"@sveltejs/kit": "1.0.0-next.303",
+		"@sveltejs/kit": "next",
 		"@svelteuidev/tsconfig": "^1.0.0",
 		"@tailwindcss/typography": "^0.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -48,7 +48,7 @@
 	"dependencies": {
 		"@stitches/core": "^1.2.7",
 		"@svelteuidev/actions": "^0.5.2",
-		"@svelteuidev/core": "^0.4.7-next.4",
+		"@svelteuidev/core": "^0.5.2",
 		"@svelteuidev/motion": "^0.5.2",
 		"@svelteuidev/prism": "^0.5.0",
 		"@svelteuidev/utilities": "^0.5.2",
