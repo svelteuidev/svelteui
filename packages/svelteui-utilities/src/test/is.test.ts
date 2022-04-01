@@ -35,8 +35,16 @@ describe('is', () => {
 
 	describe('isFunction', () => {
 		test('returns true when the value is a function', () => {
-			expect(isFunction(() => {})).eq(true);
-			expect(isFunction(function () {})).eq(true);
+			expect(
+				isFunction(() => {
+					return;
+				})
+			).eq(true);
+			expect(
+				isFunction(function () {
+					return;
+				})
+			).eq(true);
 		});
 
 		test('returns false when the value is not a function', () => {
@@ -53,7 +61,11 @@ describe('is', () => {
 
 		test('returns false when the value is not a number', () => {
 			expect(isNumber('test')).eq(false);
-			expect(isNumber(() => {})).eq(false);
+			expect(
+				isNumber(() => {
+					return;
+				})
+			).eq(false);
 			expect(isNumber(true)).eq(false);
 		});
 	});
@@ -66,7 +78,11 @@ describe('is', () => {
 
 		test('returns false when the value is not a string', () => {
 			expect(isString(1)).eq(false);
-			expect(isString(() => {})).eq(false);
+			expect(
+				isString(() => {
+					return;
+				})
+			).eq(false);
 			expect(isString(true)).eq(false);
 		});
 	});
@@ -79,7 +95,11 @@ describe('is', () => {
 
 		test('returns false when the value is not an object', () => {
 			expect(isObject(1)).eq(false);
-			expect(isObject(() => {})).eq(false);
+			expect(
+				isObject(() => {
+					return;
+				})
+			).eq(false);
 			expect(isObject(true)).eq(false);
 		});
 	});
@@ -91,7 +111,11 @@ describe('is', () => {
 
 		test('returns false when the value is not a window', () => {
 			expect(isWindow(1)).eq(false);
-			expect(isWindow(() => {})).eq(false);
+			expect(
+				isWindow(() => {
+					return;
+				})
+			).eq(false);
 			expect(isWindow(true)).eq(false);
 		});
 	});

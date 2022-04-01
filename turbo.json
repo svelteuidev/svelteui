@@ -23,6 +23,10 @@
 		},
 		"test": {
 			"dependsOn": ["format", "lint"]
+		},
+		"coverage": {
+			"dependsOn": ["format", "lint"],
+			"outputs": ["coverage/**"]
 		}
 	}
 }

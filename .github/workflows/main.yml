@@ -1,0 +1,21 @@
+
+name: Main Workflow
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Actions
+    strategy:
+      matrix:
+        node-version: [16, 17]
+    runs-on: ubuntu-latest
+    container: node:${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm install
+      - run: npm install --only=dev
+      - run: npm run lint
+      - run: npm test
