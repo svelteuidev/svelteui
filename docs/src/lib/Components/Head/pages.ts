@@ -116,8 +116,8 @@ export const pages: Array<Page> = [
 		expand: false,
 		links: [
 			{
-				href: 'use-os',
-				text: 'useOs'
+				href: 'os',
+				text: 'os'
 			}
 		]
 	},

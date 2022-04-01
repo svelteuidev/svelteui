@@ -1,14 +1,14 @@
 ---
 group: 'svelteuidev-utilities'
 packageGroup: '@svelteuidev/utilities'
-title: 'use-os'
-slug: /utilities/use-os/
+title: 'os'
+slug: /utilities/os/
 description: 'Get user os'
 ---
 
 <script lang='ts'>
     import {Prism} from '@svelteuidev/prism'
-    import {useOs} from '@svelteuidev/utilities'
+    import {os as _os} from '@svelteuidev/utilities'
     
     const code = `
     <script>
@@ -20,7 +20,7 @@ description: 'Get user os'
     <p>Your os is <b>{os}</b></p>
     `;
 
-    const os = useOs()
+    const os = _os()
 </script>
 
 # {title}

@@ -1,11 +1,19 @@
 {
 	"cSpell.words": [
+		"clickoutside",
 		"codesandbox",
+		"cssvariable",
+		"flipboard",
 		"okaidia",
 		"onuseclipboard",
 		"onusedownload",
 		"svelteui",
 		"svelteuidev",
+		"usedownload",
 		"vercel"
-	]
+	],
+	"deno.enable": true,
+	"deno.lint": true,
+	"deno.unstable": true,
+	"deno.enablePaths": ["./scripts"]
 }

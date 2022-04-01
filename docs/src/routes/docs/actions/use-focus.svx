@@ -23,24 +23,23 @@ description: 'Calls focus on a node once mounted into the dom'
     const code = `
     <script>
         import {focus} from '@svelteuidev/actions'
-        
-        let open = true;
+            let name = 'world';    
+            let editing = false;
+    
+    
+            function toggleEdit() {
+                editing = !editing
+            }
     <\/script>
 
-    <div use:focus={{ enabled: open, callback: () => open = false }}>
-
-        <Button on:click={() => open = true}>Open Modal</Button>
-
-        {#if open}
-            <div>
-                This is a modal
-            </div>
-        {:else if !open}
-            <div>
-                There is no modal
-            </div>
-       {/if}
-    </div>
+    <p>Name: {name}</p>
+    {#if editing}
+        <label>
+            Name
+            <input use:focus type="text" bind:value={name}>
+        </label>
+    {/if}
+    <Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'} </Button>
     `;
 </script>
 

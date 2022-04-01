@@ -21,7 +21,7 @@ npm i @svelteuidev/utilities
 
 ## Included Utilities
 
-- [use-os](https://svelteui-docs.vercel.app/docs/utilities/use-os) – identifies the user's os
+- [os](https://svelteui-docs.vercel.app/docs/utilities/os) – identifies the user's os
 
 ## License
 

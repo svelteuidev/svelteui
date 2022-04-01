@@ -28,7 +28,23 @@ function getOS() {
 	return os;
 }
 
-export function useOs(): OS {
+/**
+ *
+ * Util detects user os. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If os cannot be identified as well as during server side rendering `undetermined` will be returned.
+ *
+ * ```ts
+ * const os = os()
+ *
+ * if (os === 'macos') {
+ * 	key = 'cmd'
+ * } else if (os === 'windows') {
+ * 	key = 'ctrl'
+ * }
+ * ```
+ *
+ * @see https://svelteui-docs.vercel.app/docs/utilities/os
+ */
+export function os(): OS {
 	if (typeof window !== 'undefined') {
 		return getOS();
 	}

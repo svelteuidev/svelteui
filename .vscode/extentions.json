@@ -1,3 +1,7 @@
 {
-	"recommendations": ["streetsidesoftware.code-spell-checker", "esbenp.prettier-vscode"]
+	"recommendations": [
+		"streetsidesoftware.code-spell-checker",
+		"esbenp.prettier-vscode",
+		"denoland.deno"
+	]
 }
