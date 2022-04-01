@@ -1,6 +1,5 @@
-
 name: Main Workflow
-on: 
+on:
   push:
     branches:
       - main
@@ -16,6 +15,6 @@ jobs:
       - uses: actions/checkout@v1
       - run: node --version
       - run: npm install
-      - run: npm install --only=dev
+      - run: npm run format
       - run: npm run lint
       - run: npm test
