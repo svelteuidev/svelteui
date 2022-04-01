@@ -1,7 +1,7 @@
 /**
  * Represents the handle of an initialized Svelte Action
  */
-export interface IActionHandle<T = any> {
+export interface IActionHandle<T = unknown> {
 	/**
 	 * Destroys all bindings the Action was using
 	 */
@@ -18,7 +18,7 @@ export interface IActionHandle<T = any> {
  */
 export type IAction<
 	NodeType extends Node,
-	OptionsType = any,
+	OptionsType = unknown,
 	HandleType extends IActionHandle = IActionHandle<OptionsType>
 > = (node: NodeType, options: OptionsType) => HandleType;
 
@@ -36,7 +36,7 @@ export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOption
  * Represents an array of forwarded Svelte Actions, optionally
  * associated with their options
  */
-export type IForwardedActions = (IAction<any> | [IAction<any>, any])[];
+export type IForwardedActions = (IAction<unknown> | [IAction<unknown>, unknown])[];
 
 /**
  * Represents an array forwarded Svelte Action handles
@@ -65,6 +65,7 @@ export const forward_actions: IForwardActionsAction = (node, options) => {
 	const handles = initialize_actions(options.actions);
 
 	function initialize_actions(actions: IForwardedActions = []): IInitializedActions {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		return actions.map((entry, index) => {
 			if (Array.isArray(entry)) return entry[0](node, entry[1]);
 			else return entry(node, undefined);

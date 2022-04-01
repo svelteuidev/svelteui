@@ -19,5 +19,8 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
+	},
+	rules: {
+		'@typescript-eslint/no-inferrable-types': 'off'
 	}
 };

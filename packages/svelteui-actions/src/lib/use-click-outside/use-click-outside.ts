@@ -10,7 +10,7 @@ import type { Action } from '../types/_types';
  */
 export function clickoutside(
 	node: HTMLElement,
-	params: { enabled: boolean; callback: Function }
+	params: { enabled: boolean; callback: (any) => unknown }
 ): ReturnType<Action> {
 	const { enabled: initialEnabled, callback } = params;
 

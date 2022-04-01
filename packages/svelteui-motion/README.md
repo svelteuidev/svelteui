@@ -1,9 +1,9 @@
 # SvelteUI Motion
 
-A variety of Transition functions and Animation Components to improve the UI experience
+## **Transition functions and Animation Components to improve the UI experience.**
 
-Package includes functions that are used to build components in @svelteui/ scoped packages.
-You can use these functions in your applications with or without other @svelteui/ packages.
+- Package includes functions that are used to build components in @svelteui/ scoped packages.
+- You can use these functions in your applications with or without other @svelteui/ packages.
 
 ## Documentation
 
@@ -11,7 +11,7 @@ You can use these functions in your applications with or without other @svelteui
 
 ## Installation
 
-```sh
+```bash
 # With yarn
 yarn add @svelteuidev/motion
 
@@ -21,8 +21,8 @@ npm i @svelteuidev/motion
 
 ## Included Motion Transitions
 
-- [Flipboard](https://svelteui-docs.vercel.app/motion/flipboard) – A transition that displays text in a glitching format
-- [Typewriter](https://svelteui-docs.vercel.app/motion/typewriter) – A transition that diplays text in a typewriting format
+- [Flipboard](https://svelteui-docs.vercel.app/docs/motion/flipboard) – Flipboard transition effect for text format
+- [Typewriter](https://svelteui-docs.vercel.app/docs/motion/typewriter) – Type writer transition effect for text
 
 ## License
 

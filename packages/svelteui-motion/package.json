@@ -8,6 +8,8 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"package": "svelte-kit package",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
 		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
 		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish"

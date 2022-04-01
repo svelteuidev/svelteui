@@ -1,17 +1,28 @@
 {
+	"$schema": "https://turborepo.org/schema.json",
+	"baseBranch": "origin/main",
+	"packageManager": "npm",
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
 			"outputs": ["dist/**", ".build/**"]
 		},
 		"lint": {
-			"outputs": []
+			"outputs": [],
+			"cache": false
+		},
+		"format": {
+			"outputs": [],
+			"cache": false
 		},
 		"dev": {
 			"cache": false
 		},
 		"package": {
 			"outputs": ["package"]
+		},
+		"test": {
+			"dependsOn": ["format", "lint"]
 		}
 	}
 }

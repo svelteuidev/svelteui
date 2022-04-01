@@ -11,9 +11,9 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
-		"lint": "turbo run lint",
-		"test": "vitest run",
-		"test:watch": "vitest",
+		"lint": "turbo run lint --parallel",
+		"format": "turbo run format --parallel",
+		"test": "vitest",
 		"coverage": "vitest run --coverage"
 	},
 	"devDependencies": {
@@ -21,13 +21,13 @@
 		"micromatch": "^4.0.4",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
-		"turbo": "latest",
+		"turbo": "^1.1.6",
 		"vitest": "^0.5.5",
 		"vitest-svelte-kit": "^0.0.6"
 	},
 	"keywords": [
 		"Svelte",
-		"Mantine",
+		"Sveltekit",
 		"UI",
 		"Component Library"
 	],

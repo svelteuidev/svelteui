@@ -19,7 +19,7 @@
 	export let ssr: boolean = false;
 
 	/** weird behavior occurs if the logic is not stored in a variable */
-	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`;
+	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`; //eslint-disable-line
 </script>
 
 <svelte:head>
