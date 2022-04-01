@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { css } from '@stitches/core';
-	import { theme } from '@svelteuidev/core';
+	import { css } from '@svelteuidev/core';
 
 	export let title = 'title';
 	export let icon: unknown = '';
@@ -11,23 +10,21 @@
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		border: `1px solid ${
-			$theme.colorScheme === 'dark' ? $theme.colors.dark[8] : $theme.colors.gray[4]
-		}`,
-		backgroundColor: $theme.colorScheme === 'dark' ? $theme.colors.dark[8] : $theme.white,
-		padding: $theme.spacing.xl,
-		borderRadius: $theme.radius.md,
+		border: `3px solid $gray400`,
+		backgroundColor: '$gray500',
+		padding: '24px',
+		borderRadius: '$md',
 		minWidth: '20rem',
 		maxHeight: '198px',
 
 		'&:hover': {
-			backgroundColor: $theme.colorScheme === 'dark' ? $theme.colors.dark[9] : $theme.colors.gray[0]
+			backgroundColor: '$gray400'
 		},
 
 		variants: {
 			state: {
 				active: {
-					borderColor: $theme.colors.blue[6]
+					borderColor: '$primary'
 				}
 			}
 		}

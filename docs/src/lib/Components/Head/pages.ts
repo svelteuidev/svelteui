@@ -42,6 +42,33 @@ export const pages: Array<Page> = [
 		]
 	},
 	{
+		title: 'Theming',
+		pathname: 'theming',
+		expand: false,
+		links: [
+			{
+				href: '',
+				text: 'SvelteuiWrapper'
+			},
+			{
+				href: 'override',
+				text: 'Override API'
+			},
+			{
+				href: 'create-styles',
+				text: 'Creating Styles'
+			},
+			{
+				href: 'dark-theme',
+				text: 'Dark Mode'
+			},
+			{
+				href: 'ssr',
+				text: 'Server Side Rendering'
+			}
+		]
+	},
+	{
 		title: 'Svelteui-Actions',
 		pathname: 'actions',
 		expand: false,
@@ -49,6 +76,18 @@ export const pages: Array<Page> = [
 			{
 				href: 'use-click-outside',
 				text: 'use-click-outside'
+			},
+			{
+				href: 'use-clipboard',
+				text: 'use-clipboard'
+			},
+			{
+				href: 'use-css-variable',
+				text: 'use-css-variable'
+			},
+			{
+				href: 'use-focus',
+				text: 'use-focus'
 			}
 		]
 	},
@@ -60,6 +99,14 @@ export const pages: Array<Page> = [
 			{
 				href: 'button',
 				text: 'Button'
+			},
+			{
+				href: 'code',
+				text: 'Code'
+			},
+			{
+				href: 'loader',
+				text: 'Loader'
 			}
 		]
 	},
@@ -69,7 +116,7 @@ export const pages: Array<Page> = [
 		expand: false,
 		links: [
 			{
-				href: 'useos',
+				href: 'use-os',
 				text: 'useOs'
 			}
 		]
@@ -82,6 +129,10 @@ export const pages: Array<Page> = [
 			{
 				href: 'typewriter',
 				text: 'Typewriter'
+			},
+			{
+				href: 'flipboard',
+				text: 'Flipboard'
 			}
 		]
 	}

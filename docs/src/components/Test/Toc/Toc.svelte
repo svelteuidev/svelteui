@@ -32,7 +32,7 @@
 	{#key $page}
 		<nav class="table-of-contents">
 			{#each headings as { tagName, innerText, id }, i}
-				<li style="--fds-depth: {+tagName[1] - 1};">
+				<li style="--depth: {+tagName[1] - 1};">
 					<button on:click={(e) => handleClick(e, i, id)} selected={activeHeading === headings[i]}>
 						{innerText}
 					</button>
@@ -41,3 +41,22 @@
 		</nav>
 	{/key}
 {/if}
+
+<style>
+	li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-left: calc(12px * var(--depth));
+	}
+	:global(.list-item) {
+		margin-inline: 0;
+		inline-size: 100%;
+		block-size: 28px;
+	}
+	:global(.text-block) {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>

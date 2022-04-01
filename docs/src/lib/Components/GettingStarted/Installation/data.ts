@@ -28,4 +28,4 @@ export const PACKAGE_DATA = writable([
 	}
 ]);
 
-export const globalDeps: Writable<Array<string>> = writable(['']);
+export const deps: Writable<string[]> = writable([]);

@@ -4,6 +4,9 @@ import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import slug from 'rehype-slug';
 import sveld from 'vite-plugin-sveld';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import tailwindcss from 'tailwindcss';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +16,9 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
-			postcss: true
+			postcss: {
+				plugins: [tailwindcss(), autoprefixer(), cssnano()]
+			}
 		}),
 		mdsvex({
 			extensions: ['.svx', '.md'],
@@ -23,7 +28,9 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-
+		prerender: {
+			enabled: true
+		},
 		package: {
 			exports: (file) => file === 'index.js'
 		},
