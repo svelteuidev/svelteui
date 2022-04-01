@@ -12,9 +12,9 @@ description: 'Get user os'
     
     const code = `
     <script>
-        import { useOs } from '@svelteuidev/utilities';
+        import { os as _os } from '@svelteuidev/utilities';
 
-        const os = useOs();
+        const os = _os();
     <\/script>
 
     <p>Your os is <b>{os}</b></p>
