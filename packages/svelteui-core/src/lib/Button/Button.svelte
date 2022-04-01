@@ -16,22 +16,22 @@
 	export let override: Override['props'] = {};
 	/**
 	 * Controls button appearance
-	 * @type {ButtonVariant}
+	 * @type {"filled" | "light" | "outline" | "default" | "white" | "gradient" | "subtle"}
 	 */
 	export let variant: ButtonVariant = 'filled';
 	/**
 	 * Button color from theme
-	 * @type {SvelteuiColor}
+	 * @type {'dark' | 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange';}
 	 */
 	export let color: SvelteuiColor = 'blue';
 	/**
 	 * Predefined button size
-	 * @type {SvelteuiNumberSize}
+	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
 	 */
 	export let size: SvelteuiNumberSize = 'sm';
 	/**
 	 * Button border-radius from theme or number to set border-radius in px
-	 * @type {SvelteuiNumberSize | number}
+	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
 	 */
 	export let radius: SvelteuiNumberSize | number = 'sm';
 	/**
@@ -41,7 +41,7 @@
 	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
 	/**
 	 * Controls gradient settings in gradient variant only
-	 * @type {SvelteuiGradient}
+	 * @type {from: SvelteuiColor; to: SvelteuiColor; deg?: number;}
 	 */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
 	/**
@@ -56,7 +56,7 @@
 	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
 	// --------------------------------------------
 
-	// --------------------------------------------
+	// --------------Basic types-------------------
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };

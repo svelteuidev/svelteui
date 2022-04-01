@@ -5,4 +5,4 @@
 <!-- <Button /> -->
 <!-- <Loader /> -->
 <!-- <Code /> -->
-<!-- <Switch /> -->
+<!-- <Switch offLabel={'OFF'} onLabel={'ON'} label="I agree to sell my soul" /> -->

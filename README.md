@@ -31,11 +31,20 @@
 
 [Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
 
-**Project is currently in Beta**
+### Features
 
-> **API's are subject to change, hopefully not too much**
+- [SvelteKit](https://kit.svelte.dev/) and SSR Compatible
+- [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional.
+- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards. _(WIP)_
+- Dark theme included, as well as a custom theming api.
+- Minimal third-party dependency usage.
+- Easy setup - **Zero Configuration**
 
-> **Documentaion is a WIP (Work in Progress)**
+### Undocumented Components
+
+The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/Brisklemonade/svelteui/issues/15) is where you can keep track of the progress.
+
+> Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
 
 <br />
 

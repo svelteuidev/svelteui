@@ -22,7 +22,7 @@
 	/** Predefined transition function for the switch animation */
 	export let transitionFunction: SwitchTimingFunction = 'linear';
 
-	// --------------------------------------------
+	// --------------Basic types-------------------
 	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
@@ -72,7 +72,7 @@
 			backgroundColor: '#ffffff',
 			border: `1px solid #dee2e6`,
 			height: sizes[size].handle,
-		    width: sizes[size].handle,
+			width: sizes[size].handle,
 			transition: `transform 150ms ${transitionFunction}`,
 			transform: `translateX(${size === 'xs' ? 1 : 2}px)`,
 
@@ -80,46 +80,48 @@
 				transitionDuration: '0ms'
 			}
 		},
-        '&::after': {
-          position: 'absolute',
-          zIndex: 0,
-          display: 'flex',
-          height: '100%',
-          alignItems: 'center',
-          lineHeight: 0,
-          right: '10%',
-          transform: 'translateX(0)',
-          content: offLabel ? `'${offLabel}'` : "''",
-          color: '#868e96',
-          transition: `color 150ms ${transitionFunction}`,
-        },
-        '&:checked': {
-          backgroundColor: `$${color}600`,
-          borderColor: `$${color}600`,
+		'&::after': {
+			position: 'absolute',
+			zIndex: 0,
+			display: 'flex',
+			height: '100%',
+			alignItems: 'center',
+			lineHeight: 0,
+			right: '10%',
+			transform: 'translateX(0)',
+			content: offLabel ? `'${offLabel}'` : "''",
+			color: '#868e96',
+			transition: `color 150ms ${transitionFunction}`
+		},
+		'&:checked': {
+			backgroundColor: `$${color}600`,
+			borderColor: `$${color}600`,
 
-          '&::before': {
-            transform: `translateX(${sizes[size].width - sizes[size].handle - (size === 'xs' ? 3 : 4)}px)`,
-            borderColor: 'white'
-          },
+			'&::before': {
+				transform: `translateX(${
+					sizes[size].width - sizes[size].handle - (size === 'xs' ? 3 : 4)
+				}px)`,
+				borderColor: 'white'
+			},
 
-          '&::after': {
-            transform: 'translateX(-200%)',
-            content: onLabel ? `'${onLabel}'` : "''",
-            color: 'white',
-          },
-        },
+			'&::after': {
+				transform: 'translateX(-200%)',
+				content: onLabel ? `'${onLabel}'` : "''",
+				color: 'white'
+			}
+		},
 		'&:disabled': {
-            backgroundColor: 'gray',
-		    borderColor: 'white',
-            cursor: 'not-allowed',
+			backgroundColor: 'gray',
+			borderColor: 'white',
+			cursor: 'not-allowed',
 
-            '&::before': {
-                borderColor: 'white',
-                backgroundColor: 'gray'
-            },
-        },
+			'&::before': {
+				borderColor: 'white',
+				backgroundColor: 'gray'
+			}
+		}
 	});
-    /** Css function to generate switch label styles */
+	/** Css function to generate switch label styles */
 	const LabelStyles = css({
 		fontSize: sizes[size].labelFont,
 		lineHeight: `${sizes[size].height}px`,
@@ -129,6 +131,8 @@
 
 <!--
 @component
+**UNSTABLE**: new API, yet to be vetted.
+
 A user can use this component to enable/disable something, normally used for boolean values or for binary actions.
 
 @see https://svelteui-docs.vercel.app/docs/core/switch
@@ -139,7 +143,13 @@ A user can use this component to enable/disable something, normally used for boo
     ```
 -->
 <div class="switch {className}" class:disabled>
-	<input {id} use:forwardEvents bind:checked type="checkbox" class="{SwitchStyles({ css: override })}" />
+	<input
+		{id}
+		use:forwardEvents
+		bind:checked
+		type="checkbox"
+		class={SwitchStyles({ css: override })}
+	/>
 	{#if label}
 		<label for={id} class="label {LabelStyles({ css: overrideLabel })}">
 			{label}
@@ -149,11 +159,11 @@ A user can use this component to enable/disable something, normally used for boo
 
 <style>
 	.switch {
-        display: flex;
-        flex-direction: row;
-    }
+		display: flex;
+		flex-direction: row;
+	}
 
-    .label {
-        padding-left: 10px;
-    }
+	.label {
+		padding-left: 10px;
+	}
 </style>
