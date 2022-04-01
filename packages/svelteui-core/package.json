@@ -1,7 +1,8 @@
 {
 	"name": "@svelteuidev/core",
-	"version": "0.5.0",
+	"version": "0.5.2",
 	"sideEffects": false,
+	"types": "src/types/index.d.ts",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -14,7 +15,7 @@
 		"build:patch:nopub": "npm --no-git-tag-version version patch && npm run package"
 	},
 	"devDependencies": {
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "1.0.0-next.303",
 		"@svelteuidev/tsconfig": "*",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",

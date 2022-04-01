@@ -22,8 +22,6 @@
     <a href="https://github.com/Brisklemonade/svelteui/issues">Report Bug</a>
     ·
     <a href="https://github.com/Brisklemonade/svelteui/issues">Request Feature</a>
-    ·
-    <a href="https://github.com/Brisklemonade/svelteui/discussions">Questions | Feedback</a>
   </p>
 </div>
 
@@ -56,7 +54,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 - [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
 - [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – collection of transitions to utilize on dom elements
 - [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/use-os) – collection of helpful utility functions
-- `@svelteui/prism` – code highlight component built with prism action
+- `@svelteui/prism` – code highlight component built with prism action (coming in 0.5.0 release)
 
 <br />
 
@@ -65,7 +63,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord |:
 
 - [Join Discord community](https://discord.gg/sDdXGthXVU) – it will be the easiest way to get help.
-- Github discussions is unavailable right now, but later that will be an option as well.
+- [Github Discussions](https://github.com/Brisklemonade/svelteui/discussions) - you can discuss anything relating to the project here.
 
 <br />
 
