@@ -2,6 +2,8 @@
 
 Will need scripts for a better workflow as time goes on.
 
+> Scripts will be written with Deno as the runtime rather than Node.
+
 ## TO DO:
 
 - Release - this script will create a better workflow for future releases

@@ -23,6 +23,7 @@ const config = {
 		package: {
 			exports: (filepath) => {
 				if (filepath.endsWith('.d.ts')) return false;
+				if (filepath.endsWith('.config.js')) return false;
 				return !mm.contains(filepath, '**_');
 			},
 			files: mm.matcher('!**/*.test.{ts, js}')

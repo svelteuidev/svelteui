@@ -4,44 +4,48 @@ packageGroup: '@svelteuidev/core'
 title: Button
 slug: /core/button/
 category: 'inputs'
-description: 'Render button or link with button styles from svelteuidev theme'
+description: 'Render a button or link with button styles from svelteuidev theme'
 ---
 
 <script lang="ts">
 	import Preview from '$lib/PageComponents/ComponentPreview.svelte'
-	import {Button} from '@svelteuidev/core'
+	import { Button } from '@svelteuidev/core'
 	import {TwitterLogo} from 'radix-icons-svelte'
-	import data from '$components/Button/Button.svelte?raw&sveld'
+	import data from '$components/core/Button/Button.svelte?raw&sveld'
 	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
-		
+	
 	let clicked: boolean = false
 	let loading: boolean = false
-
-	let colors = ['dark' , 'gray' , 'red' , 'pink' , 'grape' , 'violet' , 'indigo' , 'blue' , 'cyan' , 'teal' , 'green' , 'lime' , 'yellow' , 'orange']
+	
 	let variants = ['filled' , 'light' , 'outline' , 'default' , 'subtle']
+	const tabs = ['one', 'two'];
+
+	$: activeTab = 'one';
 </script>
 
 # {title}
 
 {description}
 
+<div class="flex" style="gap: 1.25rem;">
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[0])}>Documentation</Button>
+	<Button variant='gradient' size='md' radius='xl' on:click={() => (activeTab = tabs[1])}>Component Props</Button>
+</div>
+
+{#if activeTab === 'one'}
+
 ## Usage
 
-<Preview>
-	<p>I am {clicked ? 'clicked' : 'not clicked'}</p>
-    {#each colors as color}
-    	<div class="flex gap-4 items-center">
-    		<Button  {color} on:click={() => clicked = true} >Click Me</Button>
-    		<p>{color} color prop</p>
-    	</div>
-    {/each}
+<Preview code={`<Button on:click={() => clicked = true}>Click Me</Button>`}>
+<p>I am {clicked ? 'clicked' : 'not clicked'}</p>
+<Button on:click={() => clicked = true} >Click Me</Button>
 </Preview>
 
 ## Variants
 
 Button supports the following variants: default, subtle, white, gradient, filled, light and outline:
 
-<Preview class='flex flex-col md:flex-row gap-5 justify-center'>
+<Preview class='flex flex-col md:flex-row justify-between'>
 	{#each variants as variant}
 		<Button {variant}>{variant}</Button>
 	{/each}
@@ -58,13 +62,17 @@ Default Button color is `theme.primaryColor`, to change color and variant pass `
 
 To use gradient as Button background:
 
-- set `variant` to `gradient`
-- set `gradient` to `{ from: 'color-from', to: 'color-to', deg: 135 }`, where
+- set `variant` prop to `gradient`
+- set `gradient` prop to `(from: 'color-from', to: 'color-to', deg: 135)`, where
   - `color-from` and `color-to` are color from `theme.colors`
   - `deg` is linear gradient deg
 
-<Preview>
-	<Button variant='gradient'>Click Me</Button>
+<Preview --gap='1.25rem' code={`<Button variant='gradient'>Default</Button>\n<Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}} >Lime Green</Button>`} class='flex flex-col md:flex-row gap-5 justify-center' style='gap: 1rem;' >
+<Button variant='gradient'>Default</Button>
+<Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}} >Lime Green</Button>
+<Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}} >Teal Blue</Button>
+<Button variant='gradient' gradient={{from: 'orange', to: 'red', deg: 45}} >Orange red</Button>
+<Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}} >Grape Pink</Button>
 </Preview>
 
 ### White variant
@@ -77,16 +85,16 @@ White is a variant in which button background color is always white (both in lig
 
 ## Loading state
 
-Button supports loading state. In this state [Loader](/core/loader/) component replaces left or right icon,
+Button supports loading state. In this state [Loader](loader/) component replaces left or right icon,
 button becomes disabled and white or dark overlay is added.
 
-You can control loading state and [Loader](/core/loader/) component with following props:
+You can control loading state and [Loader](loader/) component with following props:
 
 - `loading` - enable loading state
 - `loaderPosition` - Loader position relative to button label, either right or left
-- `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](/docs/core/loader) prop
+- `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](loader) prop
 
-<Preview class='flex flex-col md:flex-row gap-5'>
+<Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
 	<Button {loading}>Click Me</Button>
 	<Button on:click={() => loading = !loading} variant='white'>{!loading ? 'Set Loading' : 'Remove Loading'}</Button>
 </Preview>
@@ -95,7 +103,7 @@ You can control loading state and [Loader](/core/loader/) component with followi
 
 You can change styles of any element in button component with [Override API](/theming/override-api/) to match your design requirements:
 
-<Preview class='flex flex-col md:flex-row gap-5'>
+<Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
 	<Button override={{backgroundColor: 'red'}} variant='outline'>Click Me</Button>
 	<Button>
 		<TwitterLogo name='leftIcon' />
@@ -111,13 +119,13 @@ Alternatively, you can use a number to set radius in px:
 
 ```tsx
 <Button radius="lg" /> // -> theme predefined large radius
-<Button radius={10} /> // -> { borderRadius: '10px' }
+<Button radius={10} /> // -> ( borderRadius: '10px' )
 <Button size="sm" /> // -> predefined small size
 ```
 
 ## Compact
 
-<Preview class='flex flex-col md:flex-row gap-5'>
+<Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
 	<Button compact>Click Me</Button>
 	<Button variant='outline' compact>Click Me</Button>
 	<Button variant='default' compact>Click Me</Button>
@@ -129,7 +137,7 @@ Button can take full width of container if you set `fullWidth` prop.
 If button is too large for its container, overflow content will be hidden:
 
 <Preview class='flex flex-col gap-5'>
-    	<Button fullWidth>Click Me</Button>
+		<Button fullWidth>Click Me</Button>
 </Preview>
 
 ## Change root element
@@ -137,7 +145,8 @@ If button is too large for its container, overflow content will be hidden:
 You can use Button component both as `button` and `a` elements:
 
 <Preview class='flex flex-col md:flex-row gap-5'>
-    	<Button external href={'https://example.com'}>Click Me</Button>
+		<Button external href={'https://example.com'}>I go to example.com</Button>
 </Preview>
-
-<APIDocs {data} />
+{:else if activeTab === 'two'}
+	<APIDocs {data} />
+{/if}

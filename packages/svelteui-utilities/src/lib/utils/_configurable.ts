@@ -1,5 +1,6 @@
-import { isClient } from './is/is';
-import { browser } from '$app/env';
+// need a workaround to this, cannot import browser from $app/env as of now
+const isBrowser = () => typeof window !== 'undefined';
+const browser = isBrowser();
 
 export interface ConfigurableWindow {
 	/*
@@ -29,7 +30,7 @@ export interface ConfigurableLocation {
 	location?: Location;
 }
 
-export const defaultWindow = isClient ? browser && window : undefined;
-export const defaultDocument = isClient ? browser && window.document : undefined;
-export const defaultNavigator = isClient ? browser && window.navigator : undefined;
-export const defaultLocation = isClient ? browser && window.location : undefined;
+export const defaultWindow = browser ? window : undefined;
+export const defaultDocument = browser ? window.document : undefined;
+export const defaultNavigator = browser ? window.navigator : undefined;
+export const defaultLocation = browser ? window.location : undefined;

@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { PACKAGE_DATA, globalDeps } from './data';
+	import { PACKAGE_DATA, deps } from './data';
 	import PackageCard from './PackageCard.svelte';
 
 	let dependencies;
+
 	$: getDependencys = (i: number) => {
 		dependencies = $PACKAGE_DATA[i].dependencies;
+		dependencies = dependencies;
+		deps.set(dependencies);
 	};
-
-	$: globalDeps.update((v) => (v = dependencies));
 </script>
 
 <div>
@@ -15,7 +16,7 @@
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 		{#each $PACKAGE_DATA as card, i (card.id)}
 			<PackageCard
-				on:click={getDependencys(i)}
+				on:click={() => getDependencys(i)}
 				title={card.package}
 				description={card.description}
 			/>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { css } from '$lib/_styles/index';
-	import { vFunc } from '$lib/_styles/utils/get-variant-theme/get-variant-theme';
+	import { vFunc } from '$lib/_styles/index';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
@@ -8,28 +8,55 @@
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
 
-	// --------------------------------------------
-	/** Override prop for custom theming the component */
+	// -----------JsDoc comments for sveld--------------------
+	/**
+	 * Override prop for custom theming the component
+	 * @type {Override["props"]}
+	 */
 	export let override: Override['props'] = {};
-	/** Controls button appearance */
+	/**
+	 * Controls button appearance
+	 * @type {"filled" | "light" | "outline" | "default" | "white" | "gradient" | "subtle"}
+	 */
 	export let variant: ButtonVariant = 'filled';
-	/** Button color from theme */
+	/**
+	 * Button color from theme
+	 * @type {'dark' | 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange';}
+	 */
 	export let color: SvelteuiColor = 'blue';
-	/** Predefined button size */
+	/**
+	 * Predefined button size
+	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
+	 */
 	export let size: SvelteuiNumberSize = 'sm';
-	/** Button border-radius from theme or number to set border-radius in px */
+	/**
+	 * Button border-radius from theme or number to set border-radius in px
+	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
+	 */
 	export let radius: SvelteuiNumberSize | number = 'sm';
-	/** Semantics for html to define the type of button when not an href */
+	/**
+	 * Semantics for html to define the type of button when not an href
+	 * @type {'button' | 'reset' | 'submit' | 'menu'}
+	 */
 	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
-	/** Controls gradient settings in gradient variant only */
+	/**
+	 * Controls gradient settings in gradient variant only
+	 * @type {from: SvelteuiColor; to: SvelteuiColor; deg?: number;}
+	 */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	/** Loader position relative to button label */
+	/**
+	 * Loader position relative to button label
+	 * @type {'left' | 'right'}
+	 */
 	export let loaderPosition: 'left' | 'right' = 'left';
-	/** Props passed to Loader component */
+	/**
+	 * Props passed to Loader component
+	 * @type {LoaderProps}
+	 */
 	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
 	// --------------------------------------------
 
-	// --------------------------------------------
+	// --------------Basic types-------------------
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
@@ -55,10 +82,7 @@
 	const ButtonStyles = css({
 		color: 'White',
 		backgroundColor: `$${color}600`,
-		background:
-			variant === 'gradient'
-				? `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`
-				: null,
+		background: null,
 		borderRadius: typeof radius === 'number' ? radius : `$${radius}`,
 		border: `1px solid $${color}600`,
 		height: sizes[compact ? `compact-${size}` : size].height,

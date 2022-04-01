@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { describe, expect, test } from 'vitest';
 
 import {

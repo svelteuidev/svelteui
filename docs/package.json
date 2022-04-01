@@ -26,6 +26,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
 		"@typescript-eslint/parser": "^5.10.1",
 		"autoprefixer": "^10.4.2",
+		"cssnano": "^5.1.5",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
@@ -39,14 +40,18 @@
 		"svelte-check": "^2.2.6",
 		"svelte-preprocess": "^4.10.1",
 		"svelte2tsx": "^0.4.12",
-		"tailwindcss": "^3.0.12",
+		"tailwindcss": "^3.0.23",
 		"tslib": "^2.3.1",
 		"typescript": "^4.4.3"
 	},
 	"type": "module",
 	"dependencies": {
 		"@stitches/core": "^1.2.7",
-		"@svelteuidev/core": "*",
+		"@svelteuidev/actions": "^0.5.2",
+		"@svelteuidev/core": "^0.4.7-next.4",
+		"@svelteuidev/motion": "^0.5.2",
+		"@svelteuidev/prism": "^0.5.0",
+		"@svelteuidev/utilities": "^0.5.2",
 		"radix-icons-svelte": "^1.2.1",
 		"vite-plugin-sveld": "^1.0.2"
 	}

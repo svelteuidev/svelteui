@@ -1,0 +1,87 @@
+---
+group: 'svelteuidev-actions'
+packageGroup: '@svelteuidev/actions'
+title: 'use-focus'
+slug: /actions/use-focus/
+description: 'Calls focus on a node once mounted into the dom'
+---
+
+<script lang='ts'>  
+    // style tags used
+    import {Prism} from '@svelteuidev/prism'
+    import {Button} from '@svelteuidev/core'
+    import {focus} from '@svelteuidev/actions'
+
+    let name = 'world';    
+    let editing = false;
+
+
+    function toggleEdit() {
+        editing = !editing
+    }
+    
+    const code = `
+    <script>
+        import {focus} from '@svelteuidev/actions'
+            let name = 'world';    
+            let editing = false;
+    
+    
+            function toggleEdit() {
+                editing = !editing
+            }
+    <\/script>
+
+    <p>Name: {name}</p>
+    {#if editing}
+        <label>
+            Name
+            <input use:focus type="text" bind:value={name}>
+        </label>
+    {/if}
+    <Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'} </Button>
+    `;
+</script>
+
+# {title}
+
+{description}
+
+<hr/>
+
+## Usage
+
+<div style="padding: 1rem;" class='h-max space border rounded-md shadow-md flex items-center justify-between px-2'>
+    <p>Name: {name}</p>
+    {#if editing}
+        <label>
+            Name
+            <input use:focus type="text" bind:value={name}>
+        </label>
+    {/if}
+    <Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'} </Button>
+</div>
+
+With the **{title}** action, the affected dom node gets focused when it is mounted into the dom. Only "focusable" elements should use this action. Type errors will appear if this is not the case.
+
+<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
+
+## Params
+
+| Param | Description |
+| ----- | ----------- |
+| none  | N/A         |
+
+## Events
+
+The **{title}** action does not dispatch any custom events`
+
+```tsx
+// No events to display
+```
+
+## Definition
+
+```tsx
+export function focus(node: FocusableElement): ReturnType<Action>;
+```

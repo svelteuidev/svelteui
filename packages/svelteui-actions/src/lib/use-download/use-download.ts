@@ -2,11 +2,13 @@ import { tick } from 'svelte';
 import type { Action } from '../types/_types';
 
 /**
- * Downloads a given Blob object as a file with the given filename.
+ * With the `use-clipboard` action, a download will occur with a given Blob object as a file with the given filename.
  *
- * @param node HTMLElement that the action is applied to
- * @param text The text that you want to be copied when the DOM element is clicked
- * @example <button use:download={{ blob: new Blob([]), filename: "file.txt" }}>Download</button>
+ * ```tsx
+ *  <button use:download={{ blob: new Blob([]), filename: "text.txt" }} on:usedownload={() => { console.log('download');}}>Download</button>
+ * ```
+ * @param params - Object that contains two properties {blob: Blob, filename: string}
+ * @see https://svelteui-docs.vercel.app/docs/actions/use-download
  */
 export function download(
 	node: HTMLElement,

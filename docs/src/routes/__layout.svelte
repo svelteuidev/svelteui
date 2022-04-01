@@ -1,19 +1,23 @@
 <script lang="ts">
-	import { theme } from '@svelteuidev/core';
+	import { SvelteuiWrapper } from '@svelteuidev/core';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
+	import { showSideBar } from '$lib/stores/sidebar';
 	import Navbar from '$lib/Components/Head/Navbar.svelte';
+	import SideBar from '$lib/Components/Head/SideBar.svelte';
 	import '../app.css';
 
-	if (browser && document.documentElement.classList.contains('dark')) {
-		$theme.colorScheme = 'dark';
-	}
+	let isDark: boolean =
+		browser && document.documentElement.classList.contains('dark') ? true : false;
 
-	const val = $page.url.pathname.split('/');
-	const path = val[val.length - 1];
+	$: sideBar = $showSideBar;
+	$: val = $page.url.pathname.split('/');
+	$: path = val[val.length - 1];
+	$: checkTheme = (event: CustomEvent) => {
+		isDark = !event.detail;
+	};
 
 	/**
-	 * @todo Component's theme only changes on page refresh
 	 * @todo if animation is not shown on small viewport, and the viewport expands, the animation is not shown
 	 */
 </script>
@@ -22,18 +26,14 @@
 	<title>{path} | SvelteUI</title>
 </svelte:head>
 
-<div>
-	<Navbar />
+<SvelteuiWrapper themeObserver={isDark ? 'dark' : 'light'} ssr>
+	<Navbar on:toggle={(e) => checkTheme(e)} />
+	{#if sideBar}
+		<div class={!sideBar ? 'hidden' : 'md:hidden'}>
+			<SideBar sidebar={sideBar} />
+		</div>
+	{/if}
 	<div id="page" class="mt-20 mb-40">
 		<slot />
 	</div>
-</div>
-<!-- 
-	Search element for later use
-	<input
-	type="text"
-	id="table-search"
-	class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-	placeholder="Search for items"
-	/>
--->
+</SvelteuiWrapper>

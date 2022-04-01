@@ -26,7 +26,7 @@
 	NormalizeCSS();
 </script>
 
-<SvelteuiWrapper colorScheme={darkMode ? 'dark' : 'light'}>
+<SvelteuiWrapper themeObserver={darkMode ? 'dark' : 'light'}>
 	<div class={PageStyles({ vTheme: darkMode ? 'dark' : 'light' })}>
 		<div class="title-container">
 			<span class="button">
