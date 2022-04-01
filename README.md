@@ -22,6 +22,8 @@
     <a href="https://github.com/Brisklemonade/svelteui/issues">Report Bug</a>
     ·
     <a href="https://github.com/Brisklemonade/svelteui/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/Brisklemonade/svelteui/discussions">Questions | Feedback</a>
   </p>
 </div>
 

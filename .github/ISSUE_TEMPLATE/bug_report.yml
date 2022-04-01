@@ -21,20 +21,35 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: Describe the bug
+      label: A clear and concise description of what the bug is
     validations:
       required: true
-  - type: input
-    id: browser
+  - type: dropdown
+    id: browsers
     attributes:
-      label: In which browser did the problem occur
+      label: In which browser(s) did the problem occur?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Firefox Beta/Dev/Nightly
+        - Chrome Beta/Dev/Canary
+        - Safari Beta
+        - Microsoft Edge Beta/Dev/Canary
+        - Other - list in description
+  - type: textarea
+    attributes:
+      label: Steps To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '....'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See the error
     validations:
-      required: true
-  - type: input
-    id: link
-    attributes:
-      label: If possible, please include a link to a codesandbox with the reproduced problem
-      description: Codesandbox template coming soon
+      required: false
   - type: dropdown
     id: fix
     attributes:
@@ -50,6 +65,12 @@ body:
         - 'Yes'
         - 'No'
   - type: textarea
-    id: possibleFix
     attributes:
-      label: Possible fix
+      label: Relevant Assets
+      description: |
+        A list of assets (errors, screenshots) relevant to this bug.
+
+        Tip: You can attach images or log files by highlighting this area and dragging files into it.
+      placeholder: |
+        To access the site's log, press Ctrl + Shift + I and open the console tab.
+        Errors will be highlighted in red.
