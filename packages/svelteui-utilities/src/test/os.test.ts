@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from 'vitest';
 import * as jsdom from 'jsdom';
 
-import { useOs } from '$lib';
+import { os } from '$lib';
 
 describe('use-os', () => {
 	beforeEach(() => {
@@ -18,17 +18,17 @@ describe('use-os', () => {
 			get: () => 'Macintosh',
 			configurable: true
 		});
-		expect(useOs()).eq('macos');
+		expect(os()).eq('macos');
 
 		Object.defineProperty(window.navigator, 'platform', {
 			get: () => 'iPhone'
 		});
-		expect(useOs()).eq('ios');
+		expect(os()).eq('ios');
 
 		Object.defineProperty(window.navigator, 'platform', {
 			get: () => 'Win64'
 		});
-		expect(useOs()).eq('windows');
+		expect(os()).eq('windows');
 	});
 
 	test('returns the respective OS of the current window with a certain userAgent', () => {
@@ -36,32 +36,32 @@ describe('use-os', () => {
 			get: () => 'Macintosh',
 			configurable: true
 		});
-		expect(useOs()).eq('macos');
+		expect(os()).eq('macos');
 
 		Object.defineProperty(window.navigator, 'userAgent', {
 			get: () => '(linux)',
 			configurable: true
 		});
-		expect(useOs()).eq('linux');
+		expect(os()).eq('linux');
 
 		Object.defineProperty(window.navigator, 'userAgent', {
 			get: () => 'iPhone'
 		});
-		expect(useOs()).eq('ios');
+		expect(os()).eq('ios');
 
 		Object.defineProperty(window.navigator, 'userAgent', {
 			get: () => 'android'
 		});
-		expect(useOs()).eq('android');
+		expect(os()).eq('android');
 
 		Object.defineProperty(window.navigator, 'userAgent', {
 			get: () => 'Win64'
 		});
-		expect(useOs()).eq('windows');
+		expect(os()).eq('windows');
 	});
 
 	test('returns undetermined when there is no window', () => {
 		global.window = undefined;
-		expect(useOs()).eq('undetermined');
+		expect(os()).eq('undetermined');
 	});
 });

@@ -2,6 +2,17 @@
 	"name": "@svelteuidev/prism",
 	"version": "0.5.0",
 	"sideEffects": false,
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"package": "svelte-kit package",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
+		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
+		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish",
+		"build:patch:nopub": "npm --no-git-tag-version version patch && npm run package"
+	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
 		"@svelteuidev/tsconfig": "*",
