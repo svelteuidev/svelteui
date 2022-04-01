@@ -3,6 +3,13 @@
 	import { fade, draw, fly } from 'svelte/transition';
 	import { expand } from './custom-transition';
 	import { inner, outer } from './shape';
+
+	const browser = navigator.vendor;
+	$: isFireFox = (_browser: string) => {
+		if (_browser === '') return 'md:w-8/12 md:h-8/12 md:translate-x-[20%]';
+
+		return 'md:w-[130%] md:h-[130%] md:-translate-x-[10%]';
+	};
 </script>
 
 <svelte:head>
@@ -11,7 +18,7 @@
 
 <div class="relative">
 	<svg
-		class="w-full h-full md:w-1/2 md:h-1/2 md:-translate-x-[10%]"
+		class="w-full h-full {isFireFox(browser)} "
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 103 124"
 	>

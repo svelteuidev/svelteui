@@ -70,4 +70,6 @@ individual packages do not have dedicated scripts. However, docs do have individ
 
 ## Testing scripts
 
-- Testing scripts coming soon
+- `format` - runs prettier on packages folder
+- `lint` - runs eslint on packages folder (run format before running lint)
+- `test` - runs tests with [vitest](https://vitest.dev/)

@@ -3,6 +3,7 @@
 	import Guides from './Guides.svelte';
 	import { Prism } from '@svelteuidev/prism';
 	import { Code } from '@svelteuidev/core';
+	import { deps } from '../Installation/data';
 
 	/** Variable for switching cards stitches variant*/
 	const active = { state: 'active' };
@@ -12,11 +13,12 @@
 		selected === 'svelte'
 			? 'npx degit sveltejs/template my-svelte-project'
 			: 'npm init svelte@next my-app';
-	$: dependencies = '';
 	$: selected = 'svelte';
-
-	const yarnScript = `yarn add ${dependencies || '@svelteuidev/core @svelteuidev/actions'}`;
-	const npmScript = `npm install ${dependencies || '@svelteuidev/core @svelteuidev/actions'}`;
+	$: yarnScript = `yarn add ${dependancies($deps) || '@svelteuidev/core @svelteuidev/actions'}`;
+	$: npmScript = `npm install ${dependancies($deps) || '@svelteuidev/core @svelteuidev/actions'}`;
+	$: dependancies = (arr: Array<string>) => {
+		return arr.join(' ');
+	};
 </script>
 
 <div>
@@ -41,11 +43,11 @@
 
 		<h3>With yarn</h3>
 
-		<Prism theme="twilight" language="tsx" block message={yarnScript}>{yarnScript}</Prism>
+		<Code copy message={yarnScript} block>{yarnScript}</Code>
 
 		<h3>With npm</h3>
 
-		<Prism theme="twilight" language="tsx" block message={npmScript}>{npmScript}</Prism>
+		<Code copy message={npmScript} block>{npmScript}</Code>
 
 		<h3>All done!</h3>
 

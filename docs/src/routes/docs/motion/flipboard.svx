@@ -89,5 +89,8 @@ export interface FlipboardParams {
 ## Definition
 
 ```tsx
-function flipboard(node: HTMLElement, { delay, duration, easing }: FlipboardParams): TransitionConfig;
+function flipboard(
+	node: HTMLElement,
+	{ delay, duration, easing }: FlipboardParams
+): TransitionConfig;
 ```

@@ -27,3 +27,5 @@ export const PACKAGE_DATA = writable([
 		dependencies: ['@svelteuidev/core', '@svelteuidev/actions', '@svelteuidev/motion']
 	}
 ]);
+
+export const deps: Writable<string[]> = writable([]);

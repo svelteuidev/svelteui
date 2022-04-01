@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PACKAGE_DATA } from './data';
+	import { PACKAGE_DATA, deps } from './data';
 	import PackageCard from './PackageCard.svelte';
 
 	let dependencies;
@@ -7,6 +7,7 @@
 	$: getDependencys = (i: number) => {
 		dependencies = $PACKAGE_DATA[i].dependencies;
 		dependencies = dependencies;
+		deps.set(dependencies);
 	};
 </script>
 
