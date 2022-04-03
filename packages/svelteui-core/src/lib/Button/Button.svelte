@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { css } from '$lib/_styles/index';
 	import { vFunc } from '$lib/_styles/index';
+	import { UserException } from '$lib/_internal/errors';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
@@ -80,6 +81,17 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 	/** Css function to generate button styles */
 	const ButtonStyles = css({
+		cursor: 'pointer',
+		position: 'relative',
+		boxSizing: 'border-box',
+		textDecoration: 'none',
+		outline: 'none',
+		userSelect: 'none',
+		appearance: 'none',
+		textAlign: 'center',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
 		color: 'White',
 		backgroundColor: `$${color}600`,
 		background: null,
@@ -111,10 +123,36 @@
 				cursor: 'not-allowed'
 			}
 		},
+		[`&.disabled`]: {
+			pointerEvents: 'none',
+			borderColor: 'transparent',
+			backgroundColor: 'rgb(233, 236, 239)',
+			background: 'rgb(233, 236, 239)',
+			color: 'rgb(173, 181, 189)',
+			cursor: 'not-allowed'
+		},
 		variants: {
 			variation: vFunc(color, gradient)
 		}
 	});
+
+	// --------------Error Handling-------------------
+	let error: boolean = false;
+	let errorMessage: string = '';
+	let solution: string = '';
+
+	if (disabled && loading) {
+		error = true;
+		errorMessage = 'If using the disabled prop, a loading cannot be set at the same time';
+		solution = `
+		If your component looks like this:
+
+		<\\Button disabled loading ...> Button Text <\\/Button>
+		         ^^^^^^^^ ^^^^^^^ - Try removing one of these
+		`;
+	}
+
+	$: if (error) override = { display: 'none' };
 </script>
 
 <!--
@@ -128,6 +166,10 @@ A user can perform an immediate action by pressing a button. It's frequently use
     <Button variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>Click Me</Button> // gradient button
     ```
 -->
+{#if error}
+	{@html UserException('Button', errorMessage, solution)}
+{/if}
+
 {#if href && !disabled}
 	<a
 		{href}
@@ -199,27 +241,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 {/if}
 
 <style>
-	.button {
-		cursor: pointer;
-		position: relative;
-		box-sizing: border-box;
-		text-decoration: none;
-		outline: none;
-		user-select: none;
-		appearance: none;
-		text-align: center;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.disabled {
-		pointer-events: none;
-		border-color: transparent;
-		background-color: rgb(233, 236, 239);
-		background: rgb(233, 236, 239);
-		color: rgb(173, 181, 189);
-		cursor: not-allowed;
-	}
 	.uppercase {
 		text-transform: uppercase;
 	}
