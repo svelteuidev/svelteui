@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CopyIcon from './CopyIcon.svelte';
 	import { css } from '$lib/_styles/index';
-	import { clipboard, UserException } from '$lib/_internal';
+	import { clipboard } from '$lib/_internal';
 	import type { SvelteuiColor, Override } from '$lib/_styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -108,7 +108,7 @@ The Code component creates ...
     ```
 -->
 {#if error}
-	{@html UserException('Code', errorMessage, solution)}
+	<!-- {@html UserException('Code', errorMessage, solution)} -->
 {/if}
 
 {#if block}

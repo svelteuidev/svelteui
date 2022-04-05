@@ -2,6 +2,7 @@ import mm from 'micromatch';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
+import path from 'path';
 import fs from 'fs';
 export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
 import { searchForWorkspaceRoot } from 'vite';
@@ -30,6 +31,9 @@ const config = {
 		},
 		/** @type {import('vite').UserConfig} */
 		vite: {
+			resolve: {
+				'$svelteuidev/errors': '../svelteui-errors/dist/src'
+			},
 			test: {
 				globals: true,
 				environment: 'jsdom'

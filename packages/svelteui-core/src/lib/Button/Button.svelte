@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { css } from '$lib/_styles/index';
 	import { vFunc } from '$lib/_styles/index';
-	import { UserException } from '$lib/_internal/errors';
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
@@ -137,22 +136,15 @@
 	});
 
 	// --------------Error Handling-------------------
-	let error: boolean = false;
-	let errorMessage: string = '';
-	let solution: string = '';
+	let observable: boolean = false;
+	let err;
 
 	if (disabled && loading) {
-		error = true;
-		errorMessage = 'If using the disabled prop, a loading cannot be set at the same time';
-		solution = `
-		If your component looks like this:
-
-		<\\Button disabled loading ...> Button Text <\\/Button>
-		         ^^^^^^^^ ^^^^^^^ - Try removing one of these
-		`;
+		observable = true;
+		// err = ButtonErrors[0];
 	}
 
-	$: if (error) override = { display: 'none' };
+	// $: if (observable) override = { display: 'none' };
 </script>
 
 <!--
@@ -166,8 +158,8 @@ A user can perform an immediate action by pressing a button. It's frequently use
     <Button variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>Click Me</Button> // gradient button
     ```
 -->
-{#if error}
-	{@html UserException('Button', errorMessage, solution)}
+{#if observable}
+	<!-- {@html error('Button', err).template} -->
 {/if}
 
 {#if href && !disabled}
