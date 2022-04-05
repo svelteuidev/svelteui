@@ -1,1 +1,1 @@
-export { UserException } from './errors';
+export { UserException } from './user-exception';
