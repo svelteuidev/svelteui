@@ -1,0 +1,17 @@
+{
+	"name": "@svelteuidev/errors",
+	"version": "0.5.2",
+	"description": "Error handling for svelteui packages",
+	"main": "./dist/index.js",
+	"scripts": {
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"exports": {
+		".": "./dist/index.js"
+	}
+}
