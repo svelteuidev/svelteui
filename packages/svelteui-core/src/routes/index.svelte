@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Code, Loader, Switch } from '$lib';
+	import { Button, Code, Image, Loader, Switch } from '$lib';
 
 	// test for copy button, it should move with scroll
 	const text =
@@ -13,3 +13,6 @@
 <!-- <Code copy message="hello" block>{text}</Code> -->
 
 <!-- <Switch offLabel={'OFF'} onLabel={'ON'} label="I agree to sell my soul" /> -->
+
+<!-- <Image src={"https://images.unsplash.com/photo-1561046259-7d5b6e929ba0"} width={200} caption="Very cool doggo" /> -->
+
