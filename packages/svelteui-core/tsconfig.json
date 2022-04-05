@@ -17,11 +17,21 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
+
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
-			"$svelteuidev/errors": ["../svelteui-errors/dist/src"]
+			"@svelteuidev/actions": ["../svelteui-actions/src/lib"],
+			"@svelteuidev/utilities": ["../svelteui-utilities/src/lib"],
+			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
+			"@svelteuidev/errors": ["../svelteui-errors/dist"]
 		}
 	},
+	"references": [
+		{ "path": "../svelteui-actions" },
+		{ "path": "../svelteui-utilities" },
+		{ "path": "../svelteui-motion" },
+		{ "path": "../svelteui-errors/exports" }
+	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

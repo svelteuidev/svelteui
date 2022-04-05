@@ -1,5 +1,5 @@
 {
-	"extends": "../../configuration/svelteui-tsconfig/base.json",
+	"extends": "../../../configuration/svelteui-tsconfig/base.json",
 	"include": ["./src", "./types"],
 	"exclude": [
 		"./esm",
@@ -20,16 +20,16 @@
 		"declarationDir": "lib",
 		"composite": true,
 		"paths": {
-			"@svelteuidev/core": ["../svelteui-core/src/lib"],
-			"@svelteuidev/actions": ["../svelteui-actions/src/lib"],
-			"@svelteuidev/utilities": ["../svelteui-utilities/src/lib"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"]
+			"@svelteuidev/core": ["../../svelteui-core/src/lib"],
+			"@svelteuidev/actions": ["../../svelteui-actions/src/lib"],
+			"@svelteuidev/utilities": ["../../svelteui-utilities/src/lib"],
+			"@svelteuidev/motion": ["../../svelteui-motion/src/lib"]
 		}
 	},
 	"references": [
-		{ "path": "../svelteui-core/src/lib" },
-		{ "path": "../svelteui-actions/src/lib" },
-		{ "path": "../svelteui-utilities/src/lib" },
-		{ "path": "../svelteui-motion/src/lib" }
+		{ "path": "../../svelteui-core/src/lib" },
+		{ "path": "../../svelteui-actions/src/lib" },
+		{ "path": "../../svelteui-utilities/src/lib" },
+		{ "path": "../../svelteui-motion/src/lib" }
 	]
 }

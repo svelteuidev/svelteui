@@ -4,6 +4,8 @@
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
+	import { ButtonErrors } from '$lib';
+	import Error from '$lib/_internal/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
@@ -137,15 +139,17 @@
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
-	let err;
+	let err: Record<string, boolean | string>;
 
 	if (disabled && loading) {
 		observable = true;
-		// err = ButtonErrors[0];
+		err = ButtonErrors[0];
 	}
 
-	// $: if (observable) override = { display: 'none' };
+	$: if (observable) override = { display: 'none' };
 </script>
+
+<Error {observable} component="Button" code={err} />
 
 <!--
 @component
@@ -158,9 +162,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
     <Button variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>Click Me</Button> // gradient button
     ```
 -->
-{#if observable}
-	<!-- {@html error('Button', err).template} -->
-{/if}
 
 {#if href && !disabled}
 	<a

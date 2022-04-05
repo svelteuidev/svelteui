@@ -1,5 +1,12 @@
 export * from './_internal';
 export * from './_styles';
+export * from '@svelteuidev/errors';
+export type {
+	CurrentComponents,
+	ButtonProps,
+	CodeProps,
+	ErrorCtx
+} from '@svelteuidev/errors/dist/types';
 
 export { default as SvelteuiWrapper } from './_styles/SvelteuiWrapper.svelte';
 export { default as Button } from './Button/Button.svelte';

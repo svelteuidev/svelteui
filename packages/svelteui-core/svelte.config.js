@@ -32,7 +32,9 @@ const config = {
 		/** @type {import('vite').UserConfig} */
 		vite: {
 			resolve: {
-				'$svelteuidev/errors': '../svelteui-errors/dist/src'
+				alias: {
+					'@svelteuidev/errors': path.resolve('../svelteui-errors/dist')
+				}
 			},
 			test: {
 				globals: true,

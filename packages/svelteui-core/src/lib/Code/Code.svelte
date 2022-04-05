@@ -2,6 +2,8 @@
 	import CopyIcon from './CopyIcon.svelte';
 	import { css } from '$lib/_styles/index';
 	import { clipboard } from '$lib/_internal';
+	import { CodeErrors } from '$lib';
+	import Error from '$lib/_internal/Error.svelte';
 	import type { SvelteuiColor, Override } from '$lib/_styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -56,50 +58,33 @@
 	});
 
 	// --------------Error Handling-------------------
-	let error: boolean = false;
-	let errorMessage: string = '';
-	let solution: string = '';
+	let observable: boolean = false;
+	let err: Record<string, boolean | string>;
 
 	if (!block && width < 100) {
-		error = true;
-		errorMessage = 'Width can only be modified when block prop is true';
-		solution = `
-		If your component looks like this:
-
-		<\\Code width={50} ...> Code Text <\\/Code>
-		       ^^^^^^^^^^ - Try adding the block prop 
-		`;
+		observable = true;
+		err = CodeErrors[0];
 	}
 
 	if (copy && message === 'Copied') {
-		error = true;
-		errorMessage = 'If using the copy prop, a message must be assosciated with it';
-		solution = `
-		<strong>If your component looks like this:</strong>
-
-		<\\Code copy block ...> Code Text <\\/Code>
-		       ^^^^^^^^^^ - Try adding the message prop
-		`;
+		observable = true;
+		err = CodeErrors[1];
 	}
 
 	if (copy && !block) {
-		error = true;
-		errorMessage = 'If using the copy prop, the block prop must be set as well';
-		solution = `
-		<strong>If your component looks like this:</strong>
-
-		<\\Code copy ...> Code Text <\\/Code>
-		       ^^^^ - Try adding the block prop
-		`;
+		observable = true;
+		err = CodeErrors[2];
 	}
 
-	$: if (error) override = { display: 'none' };
+	$: if (observable) override = { display: 'none' };
 </script>
 
-<!--
-@component
-The Code component creates ...
+<Error {observable} component="Code" code={err} />
 
+<!--
+	@component
+	The Code component creates ...
+	
 @see https://svelteui-docs.vercel.app/docs/core/code
 @example
     ```tsx
@@ -107,9 +92,6 @@ The Code component creates ...
     <Code color='blue' block copy message={codeToCopy} /> // code with block and copy props
     ```
 -->
-{#if error}
-	<!-- {@html UserException('Code', errorMessage, solution)} -->
-{/if}
 
 {#if block}
 	<pre class:block class={CodeStyles({ css: override })} {...$$restProps}>
