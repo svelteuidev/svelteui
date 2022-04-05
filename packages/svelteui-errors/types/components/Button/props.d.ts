@@ -2,7 +2,6 @@ import type { ButtonVariant, LoaderProps } from '@svelteuidev/core/src/lib/Butto
 import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '../../index';
 
 export interface ButtonProps {
-	[x: string]: any;
 	override?: Override['props'];
 	variant?: ButtonVariant;
 	color?: SvelteuiColor;
