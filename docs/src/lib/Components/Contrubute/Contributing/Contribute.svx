@@ -22,7 +22,7 @@ title: 'Contribute to SvelteUI'
 ## Contributing workflow
 
 - Decide what you want to contribute
-- If you want to implement new feature discuss it with a maintainer ([Discord](https://discord.gg/sDdXGthXVU)) before jumping into code
+- If you want to implement new feature discuss it with a maintainer ([Discord](https://discord.gg/2J2xmzCS79)) before jumping into code
 - After finalizing issue details work on code, please follow commit convention
 - Submit a PR if everything is fine
 - Get a code review and fix all issues noticed by a maintainer
