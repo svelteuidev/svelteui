@@ -96,7 +96,7 @@ Dynamic Image component with optional placeholder for loading and error state
     ```tsx
     <Image src="https://images.unsplash.com/photo-1561046259-7d5b6e929ba0"/> // standard image
     <Image src="https://images.unsplash.com/photo-1561046259-7d5b6e929ba0" alt="Doggo" width={100} caption="Very cool doggo" /> // standard image with width and caption
-    <Image src="" alt="Doggo" usePlaceholder={true} /> // standard image that shows placeholder when it fails to load
+    <Image src="" alt="Doggo" usePlaceholder /> // standard image that shows placeholder when it fails to load
     ```
 -->
 <figure class="{FigureStyles()} {className}">

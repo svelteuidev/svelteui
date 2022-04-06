@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { NormalizeCSS, SvelteUIProvider, css } from '$lib';
+	import { NormalizeCSS, SvelteUIProvider, css, dark } from '$lib';
 	import { Button } from '$lib';
-	import SvelteUiProvider from '$lib/_styles/SvelteUIProvider.svelte';
 
 	let darkMode: boolean = false;
 	const toggleTheme = () => {
@@ -9,26 +8,21 @@
 	};
 
 	const PageStyles = css({
-		backgroundColor: '$backgroundStandard',
+		backgroundColor: 'White',
 		height: '100vh',
 		width: '100vw',
-		variants: {
-			vTheme: {
-				light: {
-					color: 'Black'
-				},
-				dark: {
-					color: '$dark50'
-				}
-			}
+		color: 'Black',
+		[`${dark.selector} &`]: {
+			backgroundColor: '$dark700',
+			color: 'White'
 		}
 	});
 
 	NormalizeCSS();
 </script>
 
-<SvelteUiProvider themeObserver={darkMode ? 'dark' : 'light'}>
-	<div class={PageStyles({ vTheme: darkMode ? 'dark' : 'light' })}>
+<SvelteUIProvider themeObserver={darkMode ? 'dark' : 'light'}>
+	<div class={PageStyles()}>
 		<div class="title-container">
 			<span class="button">
 				<Button on:click={toggleTheme} variant="gradient">{darkMode ? 'Dark' : 'Light'} Mode</Button
@@ -42,7 +36,7 @@
 			<slot />
 		</div>
 	</div>
-</SvelteUiProvider>
+</SvelteUIProvider>
 
 <style>
 	.container {

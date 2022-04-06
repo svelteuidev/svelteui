@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CopyIcon from './CopyIcon.svelte';
-	import { css } from '$lib/_styles/index';
+	import { css, dark, rgba } from '$lib/_styles';
 	import { clipboard } from '$lib/_internal';
 	import { CodeErrors } from './Code.errors';
 	import Error from '$lib/_internal/errors/Error.svelte';
@@ -33,12 +33,18 @@
 	}
 
 	/** Css function to generate button styles */
+	const darkColor = dark.colors[`${color}800`].value;
+
 	const CodeStyles = css({
+		[`${dark.selector} &`]: {
+			backgroundColor: color === 'dark' ? `$${color}400` : rgba(darkColor, 0.35),
+			color: color === 'dark' ? '$dark50' : 'White'
+		},
 		position: 'relative',
 		lineHeight: noMono ? 0 : 1.55,
 		padding: `2px 10px`,
 		borderRadius: '$sm',
-		color: color === 'dark' ? `$dark400` : `$dark700`,
+		color: '$dark700',
 		backgroundColor: `$${color}50`,
 		fontFamily: noMono ? '$standard' : '$mono',
 		fontSize: '$sm',
@@ -82,8 +88,8 @@
 <Error {observable} component="Code" code={err} />
 
 <!--
-	@component
-	The Code component creates ...
+@component
+Inline or block code without syntax highlighting
 	
 @see https://svelteui-docs.vercel.app/docs/core/code
 @example

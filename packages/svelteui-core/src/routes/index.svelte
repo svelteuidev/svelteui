@@ -4,8 +4,8 @@
 
 <!-- <Button /> -->
 <!-- <Loader /> -->
-<!-- <Code>{'text'}</Code> -->
-<!-- <Switch offLabel={'OFF'} onLabel={'ON'} label="I agree to sell my soul" /> -->
+<!-- <Code color="dark">{'text'}</Code> -->
+<!-- <Switch color="grape" offLabel={'OFF'} onLabel={'ON'} label="I agree to sell my soul" /> -->
 <!-- <Image
 	src="https://images.unsplash.com/photo-1648753532185-77d83918b809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1062&q=80"
 	height={240}

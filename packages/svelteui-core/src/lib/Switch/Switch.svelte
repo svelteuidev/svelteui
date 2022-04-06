@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { v4 as uuidv4 } from 'uuid';
-
-	import { css } from '$lib/_styles/index';
+	import { css, randomID } from '$lib/_styles/index';
 	import { radius as radiusSizes, sizes } from './Switch.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
@@ -27,7 +25,7 @@
 	export let className: string = '';
 	export { className as class };
 	/** The id used to bind input to label, if none is provided an unique ID will be generated */
-	export let id: string = uuidv4();
+	export let id: string = randomID();
 	/** The label to be added outside the switch, by default has none */
 	export let label: string = '';
 	/** The label to be added inside the switch, when the switch is checked, by default has none */
@@ -48,8 +46,8 @@
 		WebkitTapHighlightColor: 'transparent',
 		position: 'relative',
 		borderRadius: radiusSizes[radius],
-		backgroundColor: '#e9ecef',
-		border: `1px solid #dee2e6`,
+		backgroundColor: '$gray200',
+		border: `1px solid $gray300`,
 		height: sizes[size].height,
 		width: sizes[size].width,
 		minWidth: sizes[size].width,
@@ -69,8 +67,8 @@
 			boxSizing: 'border-box',
 			content: "''",
 			display: 'block',
-			backgroundColor: '#ffffff',
-			border: `1px solid #dee2e6`,
+			backgroundColor: 'White',
+			border: `1px solid $gray300`,
 			height: sizes[size].handle,
 			width: sizes[size].handle,
 			transition: `transform 150ms ${transitionFunction}`,
@@ -90,7 +88,7 @@
 			right: '10%',
 			transform: 'translateX(0)',
 			content: offLabel ? `'${offLabel}'` : "''",
-			color: '#868e96',
+			color: '$gray600',
 			transition: `color 150ms ${transitionFunction}`
 		},
 		'&:checked': {
@@ -101,23 +99,23 @@
 				transform: `translateX(${
 					sizes[size].width - sizes[size].handle - (size === 'xs' ? 3 : 4)
 				}px)`,
-				borderColor: 'white'
+				borderColor: 'White'
 			},
 
 			'&::after': {
 				transform: 'translateX(-200%)',
 				content: onLabel ? `'${onLabel}'` : "''",
-				color: 'white'
+				color: 'White'
 			}
 		},
 		'&:disabled': {
-			backgroundColor: 'gray',
-			borderColor: 'white',
+			backgroundColor: 'Gray',
+			borderColor: 'White',
 			cursor: 'not-allowed',
 
 			'&::before': {
-				borderColor: 'white',
-				backgroundColor: 'gray'
+				borderColor: 'White',
+				backgroundColor: 'Gray'
 			}
 		}
 	});

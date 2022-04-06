@@ -17,8 +17,8 @@
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		display: 'block',
-		width: width !== undefined ? width : 'auto',
-		height: height !== undefined ? height : 'auto',
+		width: width !== undefined ? `${width}%` : 'auto',
+		height: height !== undefined ? `${height}%` : 'auto',
 		border: 0,
 		textDecoration: 'none',
 		color: 'White',
@@ -27,6 +27,27 @@
 		padding: '16px'
 	});
 </script>
+
+<!--
+@component
+**UNSTABLE**: new API, yet to be vetted.
+
+BackgroundImage component can be used to add any content on image. It is useful for hero headers and other similar sections
+
+@see https://svelteui-docs.vercel.app/docs/core/image
+@example
+    ```svelte
+		<script>
+			const src = 'https://images.unsplash.com/photo-1649014048485-590f93c42936?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+		</script>
+	
+		<BackgroundImage radius="sm" {src}>
+			This content will be shown over the image
+		</BackgroundImage>
+    ```
+
+	It is suggested to wrap your component in a container element
+-->
 
 <div class={BackgroundImageStyles({ css: override })}>
 	<slot>Text</slot>
