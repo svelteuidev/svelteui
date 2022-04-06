@@ -6,41 +6,6 @@ slug: /actions/use-clipboard/
 description: 'Copies text to the clipboard when dom element is clicked'
 ---
 
-<script lang='ts'>  
-    // style tags used
-    import {Prism} from '@svelteuidev/prism'
-    import {Button} from '@svelteuidev/core'
-    import {clipboard} from '@svelteuidev/actions'
-
-    let textToCopy = 'This message was copied'
-    let copied = false
-    
-    const code = `
-    <script>
-        import {clipboard} from '@svelteuidev/actions'
-        
-        let textToCopy = 'This message was copied'
-        let copied = false
-    <\/script>
-
-    <div 
-        on:useclipboard={() => {
-            copied = true
-            setTimeout(function() {
-                copied = false
-            }, 1000);
-        }}
-        use:clipboard={textToCopy}
-    >
-    {#if copied}
-        <Button color='green'>copied</Button>
-    {:else}
-        <Button>Click me to copy text</Button>    
-    {/if}
-    </div>
-    `;
-</script>
-
 # {title}
 
 {description}
@@ -49,27 +14,33 @@ description: 'Copies text to the clipboard when dom element is clicked'
 
 ## Usage
 
-<div style="padding: 1rem;" class='h-max space border rounded-md shadow-md flex items-center justify-between px-2'>
-    <div 
-        on:useclipboard={() => {
-            copied = true
-            setTimeout(function() {
-                copied = false
-            }, 1000);
-        }}
-        use:clipboard={textToCopy}
-    >
-    {#if copied}
-        <Button color='green'>copied</Button>
-    {:else}
-        <Button>Click me to copy text</Button>    
-    {/if}
-    </div>
+```svelte example
+<script>
+	import { Button } from '@svelteuidev/core';
+	import { clipboard } from '@svelteuidev/actions';
+
+	let textToCopy = 'This message was copied';
+	let copied = false;
+</script>
+
+<div
+	on:useclipboard={() => {
+		copied = true;
+		setTimeout(function () {
+			copied = false;
+		}, 1000);
+	}}
+	use:clipboard={textToCopy}
+>
+	{#if copied}
+		<Button color="green">copied</Button>
+	{:else}
+		<Button>Click me to copy text</Button>
+	{/if}
 </div>
+```
 
 With the **{title}** action, text passed into the text param will be copied to the users clipboard.
-
-<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
 
 ## Params
 
@@ -81,13 +52,13 @@ With the **{title}** action, text passed into the text param will be copied to t
 
 The **{title}** action dispatches custom events. Each custom event takes a callback function just like other events `e.g. on:click={() => {}}`
 
-```tsx
+```ts
 on:useclipboard?: (callback: (any) => unknown) => void;
 on:useclipboard-error?: (callback: (any) => unknown) => void;
 ```
 
 ## Definition
 
-```tsx
+```ts
 export function clipboard(node: HTMLElement, text: string): ReturnType<Action>;
 ```

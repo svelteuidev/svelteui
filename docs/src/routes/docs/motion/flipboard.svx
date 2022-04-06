@@ -7,38 +7,6 @@ category: 'transitions'
 description: 'Flipboard transition effect for text'
 ---
 
-<script lang='ts'>
-    // style tags used
-    import {Prism} from '@svelteuidev/prism'
-    import {flipboard} from '@svelteuidev/motion'
-    import {Button} from '@svelteuidev/core'
-
-	let visible = false;
-
-    const toggleVisible = () => {
-        visible = !visible
-    }
-    
-    const code = `
-    <script>
-        import {flipboard} from '@svelteuidev/motion'
-        
-        let visible = false;
-
-        const toggleVisible = () => {
-            visible = !visible
-        }
-    <\/script>
-
-    <div>
-        {#if visible}
-	        <p transition:flipboard={{ duration: 1000 }}>Transition</p>
-        {/if}
-    </div>
-    <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
-    `;
-</script>
-
 # {title}
 
 {description}
@@ -47,20 +15,29 @@ description: 'Flipboard transition effect for text'
 
 ## Usage
 
-<div style="padding-left: 1rem; padding-right: 1rem;" class='h-20 space border rounded-md shadow-md flex items-center justify-between px-2'>
-    <div class="">
-        {#if visible}
-	        <p in:flipboard={{duration: 2000}}>Now the transition is playing</p>
-            {:else}
-            <p>Click the button to play the transition</p>
-        {/if}
-    </div>
-    <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
+```svelte example
+<script>
+	import { flipboard } from '@svelteuidev/motion';
+	import { Button } from '@svelteuidev/core';
+
+	let visible = false;
+
+	const toggleVisible = () => {
+		visible = !visible;
+	};
+</script>
+
+<div class="">
+	{#if visible}
+		<p in:flipboard={{ duration: 2000 }}>Now the transition is playing</p>
+	{:else}
+		<p>Click the button to play the transition</p>
+	{/if}
 </div>
+<Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
+```
 
-The flipboard transition that displays text with a glitch like effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the flipboard transition on non text nodes, it will result in an error.
-
-<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
+The flipboard transition displays text with a glitch like effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the flipboard transition on non text nodes, it will result in an error.
 
 ## Params
 
@@ -74,7 +51,7 @@ The flipboard transition that displays text with a glitch like effect. Just like
 
 You can import `FlipboardParams` interface type from `@svelteuidev/motion`:
 
-```tsx
+```ts
 import type { FlipboardParams } from '@svelteuidev/motion';
 
 export interface FlipboardParams {
@@ -88,7 +65,7 @@ export interface FlipboardParams {
 
 ## Definition
 
-```tsx
+```ts
 function flipboard(
 	node: HTMLElement,
 	{ delay, duration, easing }: FlipboardParams

@@ -11,4 +11,4 @@ export {
 	keyframes,
 	NormalizeCSS,
 	dark
-} from '../../../stitches.config';
+} from '../stitches.config';

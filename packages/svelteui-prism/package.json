@@ -16,7 +16,6 @@
 	"devDependencies": {
 		"@sveltejs/kit": "1.0.0-next.303",
 		"@svelteuidev/tsconfig": "*",
-		"@types/prismjs": "^1.26.0",
 		"autoprefixer": "^10.4.0",
 		"cssnano": "^5.0.10",
 		"postcss": "^8.3.11",
@@ -29,11 +28,8 @@
 		"typescript": "^4.4.3"
 	},
 	"type": "module",
-	"peerDependencies": {
-		"@svelteuidev/core": "*",
-		"@svelteuidev/actions": "*"
-	},
+	"peerDependencies": {},
 	"dependencies": {
-		"svelte-prism-action": "^1.0.7"
+		"mdsvexamples": "^0.2.3"
 	}
 }

@@ -6,38 +6,6 @@ slug: /actions/use-click-outside/
 description: 'Triggers a callback when a user clicks outside of a given element'
 ---
 
-<script lang='ts'>  
-    // style tags used
-    import {Prism} from '@svelteuidev/prism'
-    import {Button} from '@svelteuidev/core'
-    import {clickoutside} from '@svelteuidev/actions'
-
-    let open = true;
-    
-    const code = `
-    <script>
-        import {clickoutside} from '@svelteuidev/actions'
-        
-        let open = true;
-    <\/script>
-
-    <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
-
-        <Button on:click={() => open = true}>Open Modal</Button>
-
-        {#if open}
-            <div>
-                This is a modal
-            </div>
-        {:else if !open}
-            <div>
-                There is no modal
-            </div>
-       {/if}
-    </div>
-    `;
-</script>
-
 # {title}
 
 {description}
@@ -46,24 +14,32 @@ description: 'Triggers a callback when a user clicks outside of a given element'
 
 ## Usage
 
-<div style="padding: 1rem;" class='h-max space border rounded-md shadow-md flex items-center justify-between px-2'>
-    <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
-        <Button on:click={() => open = true}>Open Modal</Button>
-        {#if open}
-         <div style="border: 2px solid gray; padding: 2rem;">
-           This is a modal
-         </div>
-         {:else if !open}
-         <div>
-             There is no modal
-         </div>
-       {/if}
-     </div>
+```svelte example hideStyle
+<script>
+	import { clickoutside } from '@svelteuidev/actions';
+	import { Button } from '@svelteuidev/core';
+
+	let open = true;
+</script>
+
+<div use:clickoutside={{ enabled: open, callback: () => (open = false) }}>
+	<Button on:click={() => (open = true)}>Open Modal</Button>
+	{#if open}
+		<div class="box">This is a modal</div>
+	{:else}
+		<div>There is no modal</div>
+	{/if}
 </div>
 
-With the **{title}** action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
+<style>
+	.box {
+		border: 2px solid gray;
+		padding: 2rem;
+	}
+</style>
+```
 
-<Prism theme="twilight" language="tsx" message={code} block>{code}</Prism>
+With the **{title}** action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
 
 ## Params
 
@@ -76,13 +52,13 @@ With the **{title}** action, a callback function will be fired whenever the user
 
 The **{title}** action does not dispatch any custom events`
 
-```tsx
+```ts
 // No events to display
 ```
 
 ## Definition
 
-```tsx
+```ts
 export function clickOutside(
 	node: HTMLElement,
 	params: { enabled: boolean; callback?: (node?: HTMLElement) => void }

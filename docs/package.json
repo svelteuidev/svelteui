@@ -52,6 +52,7 @@
 		"@svelteuidev/motion": "^0.5.2",
 		"@svelteuidev/prism": "^0.5.0",
 		"@svelteuidev/utilities": "^0.5.2",
+		"mdsvexamples": "^0.2.3",
 		"radix-icons-svelte": "^1.2.1",
 		"vite-plugin-sveld": "^1.0.2"
 	}
