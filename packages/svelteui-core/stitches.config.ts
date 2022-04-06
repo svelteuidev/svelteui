@@ -214,31 +214,7 @@ const dark = createTheme('dark-theme', {
 		orange600: '#fd7e14',
 		orange700: '#f76707',
 		orange800: '#e8590c',
-		orange900: '#d9480f',
-
-		/** Variant caveats, will change later */
-		// Default variant
-		'border-default': '$dark500',
-		'background-default': '$dark500',
-		'color-default': 'White',
-		'hover-default': '$dark400',
-
-		// Light variant
-		'background-light': '$dark800',
-		'color-light': 'White',
-		'hover-light': '$dark400',
-
-		// Outline variant
-		'border-outline': '$dark500',
-		'background-outline': '$dark500',
-		'color-outline': 'White',
-		'hover-outline': '$dark400',
-
-		// Subtle variant
-		'border-subtle': '$dark500',
-		'background-subtle': '$dark500',
-		'color-subtle': 'White',
-		'hover-subtle': '$dark400'
+		orange900: '#d9480f'
 	}
 });
 

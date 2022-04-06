@@ -140,12 +140,5 @@ export const colors: Record<string, string> = {
 	orange600: '#fd7e14',
 	orange700: '#f76707',
 	orange800: '#e8590c',
-	orange900: '#d9480f',
-
-	/** Variant caveats, will change later */
-	// Default variant
-	'border-default': '$gray400',
-	'background-default': 'White',
-	'color-default': 'Black',
-	'hover-default': '$gray50'
+	orange900: '#d9480f'
 };
