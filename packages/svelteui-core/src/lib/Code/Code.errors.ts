@@ -1,4 +1,4 @@
-import type { ErrorCtx } from '../../../../types';
+import type { ErrorCtx } from '$lib/_internal/errors/types';
 
 /** Error codes for component
  *
@@ -21,7 +21,7 @@ export const CodeErrors: readonly ErrorCtx[] = Object.freeze([
         If your component looks like this:
 
         <\\Code width={50} ...> Code Text <\\/Code>
-            ^^^^^^^^^^ - Try adding the block prop 
+               ^^^^^^^^^^ - Try adding the block prop 
         `
 	},
 	{
@@ -41,7 +41,7 @@ export const CodeErrors: readonly ErrorCtx[] = Object.freeze([
         <strong>If your component looks like this:</strong>
 
         <\\Code copy ...> Code Text <\\/Code>
-            ^^^^ - Try adding the block prop
+               ^^^^ - Try adding the block prop
         `
 	}
 ]);

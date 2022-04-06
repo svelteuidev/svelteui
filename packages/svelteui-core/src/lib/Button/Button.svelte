@@ -4,59 +4,30 @@
 	import { sizes } from './Button.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
-	import { ButtonErrors } from '$lib';
-	import Error from '$lib/_internal/Error.svelte';
+	import { ButtonErrors } from './Button.errors';
+	import Error from '$lib/_internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
 
-	// -----------JsDoc comments for sveld--------------------
-	/**
-	 * Override prop for custom theming the component
-	 * @type {Override["props"]}
-	 */
+	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
-	/**
-	 * Controls button appearance
-	 * @type {"filled" | "light" | "outline" | "default" | "white" | "gradient" | "subtle"}
-	 */
+	/** Controls button appearance */
 	export let variant: ButtonVariant = 'filled';
-	/**
-	 * Button color from theme
-	 * @type {'dark' | 'gray' | 'red' | 'pink' | 'grape' | 'violet' | 'indigo' | 'blue' | 'cyan' | 'teal' | 'green' | 'lime' | 'yellow' | 'orange';}
-	 */
+	/** Button color from theme'yellow' | 'orange';} */
 	export let color: SvelteuiColor = 'blue';
-	/**
-	 * Predefined button size
-	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
-	 */
+	/** Predefined button size */
 	export let size: SvelteuiNumberSize = 'sm';
-	/**
-	 * Button border-radius from theme or number to set border-radius in px
-	 * @type {'xs' | 'sm' | 'md' | 'lg' | 'xl' | number}
-	 */
+	/** Button border-radius from theme or number to set border-radius in px */
 	export let radius: SvelteuiNumberSize | number = 'sm';
-	/**
-	 * Semantics for html to define the type of button when not an href
-	 * @type {'button' | 'reset' | 'submit' | 'menu'}
-	 */
+	/** Semantics for html to define the type of button when not an href */
 	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
-	/**
-	 * Controls gradient settings in gradient variant only
-	 * @type {from: SvelteuiColor; to: SvelteuiColor; deg?: number;}
-	 */
+	/** Controls gradient settings in gradient variant only */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	/**
-	 * Loader position relative to button label
-	 * @type {'left' | 'right'}
-	 */
+	/** Loader position relative to button label */
 	export let loaderPosition: 'left' | 'right' = 'left';
-	/**
-	 * Props passed to Loader component
-	 * @type {LoaderProps}
-	 */
+	/** Props passed to Loader component */
 	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
-	// --------------------------------------------
 
 	// --------------Basic types-------------------
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -80,6 +51,7 @@
 
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
+
 	/** Css function to generate button styles */
 	const ButtonStyles = css({
 		cursor: 'pointer',
@@ -139,7 +111,7 @@
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
-	let err: Record<string, boolean | string>;
+	let err;
 
 	if (disabled && loading) {
 		observable = true;

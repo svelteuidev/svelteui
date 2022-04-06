@@ -2,8 +2,8 @@
 	import CopyIcon from './CopyIcon.svelte';
 	import { css } from '$lib/_styles/index';
 	import { clipboard } from '$lib/_internal';
-	import { CodeErrors } from '$lib';
-	import Error from '$lib/_internal/Error.svelte';
+	import { CodeErrors } from './Code.errors';
+	import Error from '$lib/_internal/errors/Error.svelte';
 	import type { SvelteuiColor, Override } from '$lib/_styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -42,7 +42,7 @@
 		backgroundColor: `$${color}50`,
 		fontFamily: noMono ? '$standard' : '$mono',
 		fontSize: '$sm',
-		width: block ? `${width}%` : null,
+		width: block ? `${width}%` : 'auto',
 		'& .copy': {
 			position: 'sticky',
 			bottom: '60%',
@@ -59,7 +59,7 @@
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
-	let err: Record<string, boolean | string>;
+	let err;
 
 	if (!block && width < 100) {
 		observable = true;

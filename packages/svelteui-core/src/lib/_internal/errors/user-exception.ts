@@ -1,6 +1,6 @@
 import { browser } from './modules/browser';
 import { minifiedCss } from './assets/error-styles';
-import type { CurrentComponents } from '../types';
+import type { CurrentComponents } from './types';
 
 const style: HTMLStyleElement = browser ? document.createElement('style') : undefined;
 

@@ -1,2 +1,3 @@
 export * from './temp';
-export { createEventForwarder } from './_internal';
+export * from './errors';
+export { createEventForwarder } from './utils/_internal';

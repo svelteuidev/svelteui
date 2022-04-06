@@ -36,7 +36,7 @@ export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOption
  * Represents an array of forwarded Svelte Actions, optionally
  * associated with their options
  */
-export type IForwardedActions = (IAction<unknown> | [IAction<unknown>, unknown])[];
+export type IForwardedActions = (IAction<any> | [IAction<any>, unknown])[];
 
 /**
  * Represents an array forwarded Svelte Action handles

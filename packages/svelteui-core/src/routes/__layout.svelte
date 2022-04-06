@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { NormalizeCSS, SvelteuiWrapper, css } from '$lib';
+	import { NormalizeCSS, SvelteUIProvider, css } from '$lib';
 	import { Button } from '$lib';
+	import SvelteUiProvider from '$lib/_styles/SvelteUIProvider.svelte';
 
 	let darkMode: boolean = false;
 	const toggleTheme = () => {
@@ -26,7 +27,7 @@
 	NormalizeCSS();
 </script>
 
-<SvelteuiWrapper themeObserver={darkMode ? 'dark' : 'light'}>
+<SvelteUiProvider themeObserver={darkMode ? 'dark' : 'light'}>
 	<div class={PageStyles({ vTheme: darkMode ? 'dark' : 'light' })}>
 		<div class="title-container">
 			<span class="button">
@@ -41,7 +42,7 @@
 			<slot />
 		</div>
 	</div>
-</SvelteuiWrapper>
+</SvelteUiProvider>
 
 <style>
 	.container {

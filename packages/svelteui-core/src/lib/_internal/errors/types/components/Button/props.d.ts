@@ -1,5 +1,10 @@
-import type { ButtonVariant, LoaderProps } from '@svelteuidev/core/src/lib/Button/Button.styles';
-import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '../../index';
+import type { ButtonVariant, LoaderProps } from '$lib/Button/Button.styles';
+import type {
+	Override,
+	SvelteuiColor,
+	SvelteuiNumberSize,
+	SvelteuiGradient
+} from '$lib/_styles/types';
 
 export interface ButtonProps {
 	override?: Override['props'];

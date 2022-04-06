@@ -1,4 +1,4 @@
-import type { ErrorCtx } from '../../../../types';
+import type { ErrorCtx } from '$lib/_internal/errors/types';
 
 /** Error codes for component
  *
@@ -15,7 +15,7 @@ export const ButtonErrors: readonly ErrorCtx[] = Object.freeze([
                 If your component looks like this:
                 
                 <\\Button disabled loading ...> Button Text <\\/Button>
-                          ^^^^^^^^ ^^^^^^^ - Try removing one of these
+                         ^^^^^^^^ ^^^^^^^ - Try removing one of these
                 `
 	}
 ]);
