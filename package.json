@@ -1,6 +1,6 @@
 {
 	"name": "svelteui",
-	"version": "0.4.0",
+	"version": "0.5.2",
 	"private": true,
 	"description": "SvelteUI Components Monorepo.",
 	"keywords": [
@@ -21,13 +21,14 @@
 		"configuration/*"
 	],
 	"scripts": {
-		"repo:update": "sh scripts/git/update-branches.sh",
 		"build": "turbo run build",
+		"clean": "rimraf packages/*/.svelte-kit && rimraf packages/*/node_modules",
 		"coverage": "turbo run coverage --parallel",
 		"dev": "turbo run dev --parallel",
 		"format": "turbo run format --parallel",
 		"lint": "turbo run lint --parallel",
-		"sort": "npx sort-package-json",
+		"repo:update": "sh scripts/git/update-branches.sh",
+		"sort": "npx sort-package-json && turbo run sort",
 		"test": "turbo run test --parallel"
 	},
 	"devDependencies": {
@@ -36,6 +37,7 @@
 		"micromatch": "^4.0.4",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
+		"rimraf": "^3.0.2",
 		"turbo": "^1.1.6",
 		"vitest": "^0.5.5",
 		"vitest-svelte-kit": "^0.0.6"
