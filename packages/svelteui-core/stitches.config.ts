@@ -82,7 +82,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 		}
 	}
 );
-console.log(config);
+
 /** Function for dark theme */
 const dark = createTheme('dark-theme', {
 	colors: {
@@ -267,8 +267,7 @@ const NormalizeCSS = globalCss({
 
 	a: {
 		background: 'transparent',
-		textDecorationSkip: 'objects',
-		focusRing: 'auto'
+		textDecorationSkip: 'objects'
 	},
 
 	'a:active, a:hover': {
