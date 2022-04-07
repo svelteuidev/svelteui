@@ -2,15 +2,15 @@ export * from './types';
 export * from './utils';
 
 export { colors } from './default-colors';
-export { SvelteUIGlobalCSS } from './SvelteUiGlobal';
 export {
+	css,
+	dark,
 	theme,
 	config,
-	createTheme,
 	globalCss,
-	css,
-	getCssText,
 	keyframes,
+	getCssText,
+	createTheme,
 	NormalizeCSS,
-	dark
+	SvelteUIGlobalCSS
 } from '../stitches.config';

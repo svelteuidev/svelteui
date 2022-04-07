@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/core';
 import { colors } from './_styles';
-import type { CSS } from '@stitches/core/types/css-util';
+import type { CSS } from '@stitches/core';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
 	{
@@ -86,6 +86,12 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 /** Function for dark theme */
 const dark = createTheme('dark-theme', {
 	colors
+});
+
+const SvelteUIGlobalCSS = globalCss({
+	a: {
+		focusRing: 'auto'
+	}
 });
 
 /**
@@ -282,4 +288,4 @@ const NormalizeCSS = globalCss({
 		display: 'none'
 	}
 });
-export { NormalizeCSS, dark };
+export { SvelteUIGlobalCSS, NormalizeCSS, dark };
