@@ -36,6 +36,7 @@ export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOption
  * Represents an array of forwarded Svelte Actions, optionally
  * associated with their options
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type IForwardedActions = (IAction<any> | [IAction<any>, unknown])[];
 
 /**

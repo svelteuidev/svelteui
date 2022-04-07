@@ -3,7 +3,7 @@ import type {
 	SvelteuiSize,
 	SvelteuiNumberSize,
 	SvelteuiThemeBase
-} from '$lib/_styles';
+} from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
 export type ButtonVariant =

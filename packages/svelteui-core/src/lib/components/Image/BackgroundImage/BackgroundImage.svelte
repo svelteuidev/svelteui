@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { css } from '$lib/_styles';
-	import type { Override, SvelteuiNumberSize } from '$lib/_styles';
+	import { css } from '$lib/styles';
+	import type { Override, SvelteuiNumberSize } from '$lib/styles';
 
-	/** Override prop for custom theming the component */
+	/** Override prop for custom theming the component's placeholder */
 	export let override: Override['props'] = {};
 	/** Predefined radius size from theme or number to set border-radius in px */
 	export let radius: SvelteuiNumberSize | number = 0;

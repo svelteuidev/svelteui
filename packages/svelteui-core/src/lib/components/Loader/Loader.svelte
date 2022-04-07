@@ -4,9 +4,7 @@
 	import Dots from '$lib/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import type { LoaderPropsExtended } from './Loader.styles';
-	import type { SvelteuiColor, SvelteuiTheme } from '$lib/_styles';
-
-	// -------------------------------------------- //
+	import type { SvelteuiColor, SvelteuiTheme } from '$lib/styles';
 	/** Defines width of loader */
 	export let size: LoaderPropsExtended['size'] | number = 'md';
 	/** Loader color from theme */

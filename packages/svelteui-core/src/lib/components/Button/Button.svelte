@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { css } from '$lib/_styles/index';
-	import { vFunc } from '$lib/_styles/index';
-	import { sizes } from './Button.styles';
+	import { css, vFunc } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
 	import { ButtonErrors } from './Button.errors';
+	import { sizes } from './Button.styles';
 	import Error from '$lib/_internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
-	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/_styles';
+	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles';
 
-	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** Controls button appearance */
 	export let variant: ButtonVariant = 'filled';

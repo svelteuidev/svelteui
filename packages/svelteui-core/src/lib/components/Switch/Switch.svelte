@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { css, randomID } from '$lib/_styles/index';
+	import { css, randomID } from '$lib/styles';
 	import { radius as radiusSizes, sizes } from './Switch.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
 	import type { SwitchTimingFunction } from './Switch.styles';
-	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/_styles';
-
-	// --------------------------------------------
+	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/styles';
 	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** Override prop for custom theming the component */

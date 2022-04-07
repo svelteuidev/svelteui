@@ -1,4 +1,4 @@
-import type { SvelteuiColor, SvelteuiThemeBase } from '$lib/_styles';
+import type { SvelteuiColor, SvelteuiThemeBase } from '$lib/styles';
 
 export interface GetVariantStyles {
 	theme: SvelteuiThemeBase;

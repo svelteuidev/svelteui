@@ -1,11 +1,11 @@
 <script lang="ts">
 	import ImageIcon from './ImageIcon.svelte';
-	import { css } from '$lib/_styles';
+	import { css } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/_internal';
-	import type { Override, SvelteuiNumberSize } from '$lib/_styles';
+	import type { Override, SvelteuiNumberSize } from '$lib/styles';
 
-	/** Override prop for custom theming the component */
+	/** Override prop for custom theming the component's placeholder */
 	export let override: Override['props'] = {};
 	/** Override prop for custom theming the component's placeholder */
 	export let overridePlaceholder: Override['props'] = {};

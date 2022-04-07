@@ -1,4 +1,4 @@
-import type { SvelteuiColor, SvelteuiNumberSize, SvelteuiSize } from '$lib/_styles';
+import type { SvelteuiColor, SvelteuiNumberSize, SvelteuiSize } from '$lib/styles';
 
 export interface SwitchStylesProps {
 	color: SvelteuiColor;

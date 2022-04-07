@@ -1,5 +1,5 @@
 import { createStitches } from '@stitches/core';
-import { colors } from './_styles';
+import { colors } from './styles';
 import type { CSS } from '@stitches/core';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(

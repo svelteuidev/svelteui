@@ -1,4 +1,4 @@
-import type { SvelteuiNumberSize, SvelteuiColor, SvelteuiTheme } from '$lib/_styles';
+import type { SvelteuiNumberSize, SvelteuiColor, SvelteuiTheme } from '$lib/styles';
 
 export const LOADER_SIZES = {
 	xs: 18,

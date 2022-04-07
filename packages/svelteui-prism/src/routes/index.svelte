@@ -1,5 +1,5 @@
 <script lang="ts">
-	const test = 'const name = "Adam" ';
+	//
 </script>
 
 <h1>Welcome to a svelteui package!</h1>
