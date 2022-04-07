@@ -20,3 +20,5 @@ export type FocusableElement =
 	| HTMLAnchorElement
 	| HTMLButtonElement
 	| HTMLAreaElement;
+
+export type Fn<T> = () => T;

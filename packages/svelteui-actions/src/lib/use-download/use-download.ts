@@ -1,5 +1,5 @@
 import { tick } from 'svelte';
-import type { Action } from '../types/_types';
+import type { Action } from '../types/ActionTypes';
 
 /**
  * With the `use-clipboard` action, a download will occur with a given Blob object as a file with the given filename.

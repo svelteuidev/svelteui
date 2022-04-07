@@ -1,4 +1,4 @@
-import type { Action, FocusableElement } from '../types/_types';
+import type { Action, FocusableElement } from '../types/ActionTypes';
 
 /**
  * With the `use-focus` action, the affected dom node gets focused when it is mounted into the dom. Only “focusable” elements should use this action. Type errors will appear if this is not the case.
