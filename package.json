@@ -21,6 +21,7 @@
 		"configuration/*"
 	],
 	"scripts": {
+		"repo:update": "sh scripts/git/update-branches.sh",
 		"build": "turbo run build",
 		"coverage": "turbo run coverage --parallel",
 		"dev": "turbo run dev --parallel",
