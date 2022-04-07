@@ -1,19 +1,19 @@
 <script lang="ts">
-	import Circle from '$lib/Loader/loaders/Circle.svelte';
-	import Bars from '$lib/Loader/loaders/Bars.svelte';
-	import Dots from '$lib/Loader/loaders/Dots.svelte';
+	import Circle from '$lib/components/Loader/loaders/Circle.svelte';
+	import Bars from '$lib/components/Loader/loaders/Bars.svelte';
+	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import type { LoaderPropsExtended } from './Loader.styles';
 	import type { SvelteuiColor, SvelteuiTheme } from '$lib/styles';
+
 	/** Defines width of loader */
 	export let size: LoaderPropsExtended['size'] | number = 'md';
 	/** Loader color from theme */
 	export let color: SvelteuiColor | SvelteuiTheme['white'] = 'blue';
 	/** Loader appearance */
 	export let variant: LoaderPropsExtended['variant'] = 'circle';
-	// -------------------------------------------- //
 
-	/** Loader types */
+	/** Loader logic */
 	const LOADERS = {
 		bars: Bars,
 		circle: Circle,

@@ -5,6 +5,7 @@
 	import { createEventForwarder } from '$lib/_internal';
 	import type { SwitchTimingFunction } from './Switch.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/styles';
+
 	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** Override prop for custom theming the component */
