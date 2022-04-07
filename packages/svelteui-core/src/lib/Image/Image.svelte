@@ -19,7 +19,7 @@
 	/** The image alt text, used as placeholder if the image is not loaded */
 	export let alt: string = '';
 	/** The object-fit option to be used by the image, defaults to 'cover' */
-	export let fit: 'cover' = 'cover';
+	export let fit: 'cover' | undefined = 'cover';
 	/** The width of the image that defaults to 100% */
 	export let width: string | number = undefined;
 	/** The height of the image that defaults to the original image height adjusted to the width */

@@ -7,8 +7,10 @@
 		"okaidia",
 		"onuseclipboard",
 		"onusedownload",
+		"prepush",
 		"svelteui",
 		"svelteuidev",
+		"typecheck",
 		"usedownload",
 		"vercel"
 	],
