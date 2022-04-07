@@ -2,7 +2,7 @@
 	import ImageIcon from './ImageIcon.svelte';
 	import { css } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/_internal';
+	import { createEventForwarder } from '$lib/internal';
 	import type { Override, SvelteuiNumberSize } from '$lib/styles';
 
 	/** Override prop for custom theming the component's placeholder */

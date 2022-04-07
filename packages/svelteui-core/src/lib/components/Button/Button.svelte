@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { css, vFunc } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/_internal';
+	import { createEventForwarder } from '$lib/internal';
 	import { ButtonErrors } from './Button.errors';
 	import { sizes } from './Button.styles';
-	import Error from '$lib/_internal/errors/Error.svelte';
+	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles';

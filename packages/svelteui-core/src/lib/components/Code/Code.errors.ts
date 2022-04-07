@@ -1,4 +1,4 @@
-import type { ErrorCtx } from '$lib/_internal/errors/types';
+import type { ErrorCtx } from '$lib/internal/errors/types';
 
 /** Error codes for component
  *

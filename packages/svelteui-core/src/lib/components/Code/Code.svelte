@@ -1,9 +1,9 @@
 <script lang="ts">
 	import CopyIcon from './CopyIcon.svelte';
 	import { css, dark, rgba } from '$lib/styles';
-	import { clipboard } from '$lib/_internal';
+	import { clipboard } from '$lib/internal';
 	import { CodeErrors } from './Code.errors';
-	import Error from '$lib/_internal/errors/Error.svelte';
+	import Error from '$lib/internal/errors/Error.svelte';
 	import type { SvelteuiColor, Override } from '$lib/styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */

@@ -1,4 +1,4 @@
-export * from './_internal';
+export * from './internal';
 export * from './styles';
 
 export { default as SvelteUIProvider } from './styles/SvelteUIProvider.svelte';

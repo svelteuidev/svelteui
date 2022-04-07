@@ -2,7 +2,7 @@
 	import { css, randomID } from '$lib/styles';
 	import { radius as radiusSizes, sizes } from './Switch.styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/_internal';
+	import { createEventForwarder } from '$lib/internal';
 	import type { SwitchTimingFunction } from './Switch.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/styles';
 
