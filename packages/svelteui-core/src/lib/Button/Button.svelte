@@ -54,6 +54,7 @@
 
 	/** Css function to generate button styles */
 	const ButtonStyles = css({
+		focusRing: 'auto',
 		cursor: 'pointer',
 		position: 'relative',
 		boxSizing: 'border-box',

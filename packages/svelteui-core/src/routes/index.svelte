@@ -2,6 +2,7 @@
 	import { Button, Code, Image, Loader, Switch, BackgroundImage } from '$lib';
 </script>
 
+<!-- <a href="#">Test url</a> -->
 <!-- <Button /> -->
 <!-- <Loader /> -->
 <!-- <Code color="dark">{'text'}</Code> -->

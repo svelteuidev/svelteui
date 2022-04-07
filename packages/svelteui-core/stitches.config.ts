@@ -1,5 +1,6 @@
 import { createStitches } from '@stitches/core';
 import { colors } from '$lib/_styles/index';
+import type { CSS } from '@stitches/core/types/css-util';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
 	{
@@ -62,14 +63,26 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			xxl: '(min-width: 1536px)'
 		},
 		utils: {
-			size: (value) => ({
+			size: (value: number | string): CSS => ({
 				width: value,
 				height: value
+			}),
+			focusRing: (value: 'auto' | 'always' | 'never'): CSS => ({
+				WebkitTapHighlightColor: 'transparent',
+
+				'&:focus': {
+					outlineOffset: 2,
+					outline: value === 'always' || value === 'auto' ? '2px solid $primary' : 'none'
+				},
+
+				'&:focus:not(:focus-visible)': {
+					outline: value === 'auto' || value === 'never' ? 'none' : undefined
+				}
 			})
 		}
 	}
 );
-
+console.log(config);
 /** Function for dark theme */
 const dark = createTheme('dark-theme', {
 	colors: {
@@ -254,7 +267,8 @@ const NormalizeCSS = globalCss({
 
 	a: {
 		background: 'transparent',
-		textDecorationSkip: 'objects'
+		textDecorationSkip: 'objects',
+		focusRing: 'auto'
 	},
 
 	'a:active, a:hover': {
