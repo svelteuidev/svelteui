@@ -17,6 +17,9 @@
 		"dev": {
 			"cache": false
 		},
+		"sort": {
+			"cache": false
+		},
 		"package": {
 			"outputs": ["package"]
 		},

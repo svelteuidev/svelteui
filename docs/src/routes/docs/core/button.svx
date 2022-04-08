@@ -37,6 +37,7 @@ description: 'Render a button or link with button styles from svelteuidev theme'
 ## Usage
 
 <Preview code={`<Button on:click={() => clicked = true}>Click Me</Button>`}>
+
 <p>I am {clicked ? 'clicked' : 'not clicked'}</p>
 <Button on:click={() => clicked = true} >Click Me</Button>
 </Preview>
@@ -53,7 +54,7 @@ Button supports the following variants: default, subtle, white, gradient, filled
 
 Default Button color is `theme.primaryColor`, to change color and variant pass `color` and `variant` props:
 
-```tsx
+```svelte
 <Button color="red" /> // filled button with red color
 <Button variant="outline" /> // outline button with theme.primaryColor color
 ```
@@ -95,8 +96,8 @@ You can control loading state and [Loader](loader/) component with following pro
 - `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](loader) prop
 
 <Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
-	<Button {loading}>Click Me</Button>
-	<Button on:click={() => loading = !loading} variant='white'>{!loading ? 'Set Loading' : 'Remove Loading'}</Button>
+<Button {loading}>Click Me</Button>
+<Button on:click={() => loading = !loading} variant='white'>{!loading ? 'Set Loading' : 'Remove Loading'}</Button>
 </Preview>
 
 ## Customize
@@ -104,11 +105,11 @@ You can control loading state and [Loader](loader/) component with following pro
 You can change styles of any element in button component with [Override API](/theming/override-api/) to match your design requirements:
 
 <Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
-	<Button override={{backgroundColor: 'red'}} variant='outline'>Click Me</Button>
-	<Button>
-		<TwitterLogo name='leftIcon' />
-		Click Me
-	</Button>
+<Button override={{backgroundColor: 'red'}} variant='outline'>Click Me</Button>
+<Button>
+<TwitterLogo name='leftIcon' />
+Click Me
+</Button>
 </Preview>
 
 ## Size and radius
@@ -117,7 +118,7 @@ Control button font-size, height and padding with `size` and border-radius with 
 Both props have predefined values: xs, sm, md, lg, xl.
 Alternatively, you can use a number to set radius in px:
 
-```tsx
+```svelte
 <Button radius="lg" /> // -> theme predefined large radius
 <Button radius={10} /> // -> ( borderRadius: '10px' )
 <Button size="sm" /> // -> predefined small size
@@ -126,9 +127,9 @@ Alternatively, you can use a number to set radius in px:
 ## Compact
 
 <Preview --gap='1.25rem' class='flex flex-col md:flex-row gap-5'>
-	<Button compact>Click Me</Button>
-	<Button variant='outline' compact>Click Me</Button>
-	<Button variant='default' compact>Click Me</Button>
+<Button compact>Click Me</Button>
+<Button variant='outline' compact>Click Me</Button>
+<Button variant='default' compact>Click Me</Button>
 </Preview>
 
 ## Full width and overflow

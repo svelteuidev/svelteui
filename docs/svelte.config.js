@@ -1,8 +1,8 @@
-import { mdsvex } from 'mdsvex';
+import mdConfig from './mdsvex.config.js';
+import examples from 'mdsvexamples/vite';
 import path from 'path';
 import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
-import slug from 'rehype-slug';
 import sveld from 'vite-plugin-sveld';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
@@ -20,10 +20,7 @@ const config = {
 				plugins: [tailwindcss(), autoprefixer(), cssnano()]
 			}
 		}),
-		mdsvex({
-			extensions: ['.svx', '.md'],
-			rehypePlugins: [slug]
-		})
+		mdConfig
 	],
 
 	kit: {
@@ -35,7 +32,7 @@ const config = {
 			exports: (file) => file === 'index.js'
 		},
 		vite: {
-			plugins: [sveld()],
+			plugins: [sveld(), examples],
 			resolve: {
 				alias: {
 					$components: path.resolve('./src/components')

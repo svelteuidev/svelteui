@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { NormalizeCSS, SvelteUIProvider, css, dark } from '$lib';
+	import { NormalizeCSS, SvelteUIProvider, css, dark, SvelteUIGlobalCSS } from '$lib';
 	import { Button } from '$lib';
 
 	let darkMode: boolean = false;
@@ -19,6 +19,7 @@
 	});
 
 	NormalizeCSS();
+	SvelteUIGlobalCSS();
 </script>
 
 <SvelteUIProvider themeObserver={darkMode ? 'dark' : 'light'}>

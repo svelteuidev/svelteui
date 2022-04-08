@@ -1,4 +1,4 @@
-import type { Action } from '../types/_types';
+import type { Action } from '../types/ActionTypes';
 
 /**
  * With the `use-click-outside` action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.

@@ -1,22 +1,23 @@
-<script >import Circle from './loaders/Circle.svelte';
-import Bars from './loaders/Bars.svelte';
-import Dots from './loaders/Dots.svelte';
-import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
-// -------------------------------------------- //
-/** Defines width of loader */
-export let size = 'md';
-/** Loader color from theme */
-export let color = 'blue';
-/** Loader appearance */
-export let variant = 'circle';
-// -------------------------------------------- //
-/** Loader types */
-const LOADERS = {
-    bars: Bars,
-    circle: Circle,
-    dots: Dots
-};
-const defaultLoader = variant in LOADERS ? variant : 'circle';
+<script>
+	import Circle from './loaders/Circle.svelte';
+	import Bars from './loaders/Bars.svelte';
+	import Dots from './loaders/Dots.svelte';
+	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
+	// -------------------------------------------- //
+	/** Defines width of loader */
+	export let size = 'md';
+	/** Loader color from theme */
+	export let color = 'blue';
+	/** Loader appearance */
+	export let variant = 'circle';
+	// -------------------------------------------- //
+	/** Loader types */
+	const LOADERS = {
+		bars: Bars,
+		circle: Circle,
+		dots: Dots
+	};
+	const defaultLoader = variant in LOADERS ? variant : 'circle';
 </script>
 
 <!--

@@ -1,1 +1,7 @@
-export type { Action, FocusableElement, UnknownKeyNumber, UnknownKeyString } from './_types';
+export type {
+	Action,
+	FocusableElement,
+	UnknownKeyNumber,
+	UnknownKeyString,
+	Fn
+} from './ActionTypes';

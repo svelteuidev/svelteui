@@ -1,5 +1,6 @@
-<script >export let size = 25;
-export let color = 'blue';
+<script>
+	export let size = 25;
+	export let color = 'blue';
 </script>
 
 <svg
