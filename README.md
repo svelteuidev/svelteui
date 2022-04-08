@@ -35,7 +35,7 @@
 
 - [SvelteKit](https://kit.svelte.dev/) and SSR Compatible
 - [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional.
-- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards. _(WIP)_
+- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards.
 - Dark theme included, as well as a custom theming api.
 - Minimal third-party dependency usage.
 - Easy setup - **Zero Configuration**
@@ -50,11 +50,11 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library – (?)+ components
+- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 6+ components
 - [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
-- [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – collection of transitions to utilize on dom elements
-- [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – collection of helpful utility functions
-- `@svelteui/prism` – code highlight component built with prism action (coming in 0.5.0 release)
+- [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – library of transitions to utilize on dom elements
+- [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – library of helpful utility functions
+- `@svelteui/prism` – code highlight component built with prism (coming in 0.6.0 release)
 
 <br />
 
