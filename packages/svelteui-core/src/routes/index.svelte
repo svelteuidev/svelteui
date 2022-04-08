@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import { Button, Code, Image, Loader, Switch, BackgroundImage } from '$lib';
+	// import { BackgroundImage, Button, Code, Image, Loader, Switch, Text } from '$lib';
 </script>
 
 <!-- <a href="/">Test url</a> -->
