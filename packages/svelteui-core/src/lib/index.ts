@@ -9,3 +9,4 @@ export { default as Image } from './components/Image/Image.svelte';
 export { default as Loader } from './components/Loader/Loader.svelte';
 export { default as Switch } from './components/Switch/Switch.svelte';
 export { default as Text } from './components/Text/Text.svelte';
+export { default as Title } from './components/Title/Title.svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import { BackgroundImage, Button, Code, Image, Loader, Switch, Text } from '$lib';
+	// import { BackgroundImage, Button, Code, Image, Loader, Switch, Text, Title } from '$lib';
 </script>
 
 <!-- <a href="/">Test url</a> -->
@@ -29,3 +29,4 @@
 >
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere nulla at metus porta imperdiet. Nam sed massa porta, fringilla dolor vitae, cursus sem.
 </Text> -->
+<!-- <Title order={1} override={{ fontSize: "90px" }}>This is a title</Title> -->
