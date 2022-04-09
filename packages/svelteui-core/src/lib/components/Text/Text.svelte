@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { css } from '$lib/_styles';
+	import { css } from '$lib/styles';
 	import { fontSizes, textColor } from './Text.styles';
-	import type { SvelteuiColor, SvelteuiGradient, SvelteuiSize, Override } from '$lib/_styles';
+	import { TextErrors } from './Text.errors';
+	import Error from '$lib/internal/errors/Error.svelte';
+	import type { SvelteuiColor, SvelteuiGradient, SvelteuiSize, Override } from '$lib/styles';
 	import type { TextAlignment, TextTransform, TextVariant } from './Text.styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -34,12 +36,10 @@
 	/** Controls gradient settings in gradient variant only */
 	export let gradient: SvelteuiGradient = undefined;
 
-	// @TODO: convert component to link/text
-
-	let isTagComponent;
+	let isHTMLComponent;
 	let isComponent;
 	$: {
-		isTagComponent = component && typeof component === 'string';
+		isHTMLComponent = component && typeof component === 'string';
 		isComponent = component && typeof component !== 'string';
 	}
 
@@ -55,7 +55,7 @@
 		color: textColor(color, variant, gradient),
 		backgroundImage:
 			variant === 'gradient'
-				? `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`
+				? `linear-gradient(${gradient?.deg}deg, $${gradient?.from}600 0%, $${gradient?.to}600 100%)`
 				: null,
 		WebkitBackgroundClip: variant === 'gradient' ? 'text' : null,
 		WebkitTextFillColor: variant === 'gradient' ? 'transparent' : null,
@@ -75,7 +75,22 @@
 				  }
 				: undefined
 	});
+
+	// --------------Error Handling-------------------
+	let observable: boolean = false;
+	let err;
+
+	if (variant === "gradient" && !gradient) {
+		observable = true;
+		err = TextErrors[0];
+	}
+	if (gradient && variant !== "gradient") {
+		observable = true;
+		err = TextErrors[1];
+	}
 </script>
+
+<Error {observable} component="Text" code={err} />
 
 <!--
 @component
@@ -88,14 +103,15 @@ Text block with gradient support.
     ```tsx
     <Text size='lg'>This is a text</Text> // standard text component
     <Text size='lg' variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>This is a text with colours</Text> // text with gradient colors
+    <Text component={'span'}>Span text</Text> // text being used with a 'span' as wrapper
+    <Text component={Code}>Code text</Text> // text being used with the component Code as wrapper
     ```
 -->
 
-{#if isTagComponent}
-	<!-- @TODO: use this code when `svelte:element` is released in Svelte -->
-	<!-- <svelte:element this={'span'} class="text {className} {TextStyles({ css: override })}">
+{#if isHTMLComponent}
+	<svelte:element this={'span'} class="text {className} {TextStyles({ css: override })}">
 		<slot />
-	</svelte:element> -->
+	</svelte:element>
 {:else if isComponent}
 	<svelte:component
 		this={component}
