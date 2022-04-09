@@ -19,13 +19,5 @@
 	BackgroundImage component can be used to add any content on image. It is useful for hero headers
 	and other similar sections
 </BackgroundImage> -->
-<!-- <Text
-	component='span'
-	size='lg'
-	variant="gradient"
-	gradient={{from: 'blue', to: 'red', deg: 45}}
-	lineClamp={6}
-	override={{ width: "100px" }}
->
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere nulla at metus porta imperdiet. Nam sed massa porta, fringilla dolor vitae, cursus sem.
-</Text> -->
+
+<!-- <Text>Hello World</Text> -->

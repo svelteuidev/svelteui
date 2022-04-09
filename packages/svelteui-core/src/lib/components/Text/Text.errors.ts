@@ -5,20 +5,12 @@ import type { ErrorCtx } from '$lib/internal/errors/types';
  * `Object.freeze` is needed to keep modification outside of the object unavailable
  *
  * ## Code 1:
- * If using variant 'gradient', a 'gradient' prop is required
+ * If using the 'gradient' prop, set 'variant' prop to 'gradient' to apply the gradient
+ *
+ * ## Code 2:
+ * If using the 'link' variant, an href needs to be set and the root must be an anchor
  */
 export const TextErrors: readonly ErrorCtx[] = Object.freeze([
-	{
-		error: true,
-		message:
-			"If using the variant 'gradient', it is also required the provide the prop 'gradient' like { from: 'color-from', to: 'color-to', deg: 'degree' }",
-		solution: `
-                If your component looks like this:
-
-                <\\Text variant='gradient'>Text string <\\/Text>
-                                        ^^^ - Try adding a 'gradient' prop
-                `
-	},
 	{
 		error: true,
 		message: "If using the 'gradient' prop, set 'variant' prop to 'gradient' to apply the gradient",
@@ -27,6 +19,16 @@ export const TextErrors: readonly ErrorCtx[] = Object.freeze([
 
                 <\\Text gradient={{from: 'blue', to: 'red', deg: 45}}>Text string <\\/Text>
                                                                     ^^^ - Try adding prop variant='gradient'
+                `
+	},
+	{
+		error: true,
+		message: "If using the 'link' variant, an href needs to be set and the root must be an anchor",
+		solution: `
+                If your component looks like this:
+
+                <\\Text variant='link' >Text string <\\/Text>
+                                    ^^^ - Try adding props href && root={'a'}'
                 `
 	}
 ]);

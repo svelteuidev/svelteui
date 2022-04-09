@@ -1,9 +1,4 @@
-import type {
-	SvelteuiColor,
-	SvelteuiSize,
-	SvelteuiNumberSize,
-	SvelteuiThemeBase
-} from '$lib/styles';
+import type { SvelteuiColor, SvelteuiSize, SvelteuiNumberSize } from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
 export type ButtonVariant =
@@ -27,7 +22,6 @@ export interface ButtonStylesProps {
 }
 
 export interface GetVariantStyles {
-	theme: SvelteuiThemeBase;
 	color: SvelteuiColor;
 	variant: ButtonVariant;
 	gradient?: { from: SvelteuiColor; to: SvelteuiColor; deg: number };
