@@ -6,7 +6,7 @@
 	import type { SvelteuiColor, SvelteuiGradient, SvelteuiSize, Override } from '$lib/styles';
 	import type { TextAlignment, TextTransform, TextVariant } from './Text.styles';
 
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
+	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
 	/** Override prop for custom theming the component */
