@@ -26,7 +26,7 @@
 	/** Underlines the text */
 	export let underline: boolean = undefined;
 	/** If it should inherit font properties from the parent component */
-	export let inherit: boolean = true;
+	export let inherit: boolean = false;
 	/** The variant of the text that dictates how the text behaves and/or looks like */
 	export let variant: TextVariant = 'text';
 	/** The size of the text from the default theme */
@@ -45,7 +45,7 @@
 
 	const TextStyles = css({
 		fontFamily: inherit ? 'inherit' : '$standard',
-		fontSize: inherit ? 'inherit' : fontSizes[size],
+		fontSize: inherit ? 'inherit' : `${fontSizes[size]}px`,
 		fontWeight: inherit ? 'inherit' : weight,
 		lineHeight: inherit ? 'inherit' : inline ? 1 : fontSizes[size],
 		textTransform: transform,
