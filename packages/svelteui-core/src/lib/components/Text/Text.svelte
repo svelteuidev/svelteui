@@ -109,7 +109,7 @@ Text block with gradient support.
 -->
 
 {#if isHTMLComponent}
-	<svelte:element this={'span'} class="text {className} {TextStyles({ css: override })}">
+	<svelte:element this={component} class="text {className} {TextStyles({ css: override })}">
 		<slot />
 	</svelte:element>
 {:else if isComponent}
