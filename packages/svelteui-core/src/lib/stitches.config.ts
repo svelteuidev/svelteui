@@ -1,6 +1,5 @@
 import { createStitches } from '@stitches/core';
 import { colors } from './styles';
-import type { CSS } from '@stitches/core';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
 	{
@@ -63,11 +62,11 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			xxl: '(min-width: 1536px)'
 		},
 		utils: {
-			size: (value: number | string): CSS => ({
+			size: (value: number | string) => ({
 				width: value,
 				height: value
 			}),
-			focusRing: (value: 'auto' | 'always' | 'never'): CSS => ({
+			focusRing: (value: 'auto' | 'always' | 'never') => ({
 				WebkitTapHighlightColor: 'transparent',
 
 				'&:focus': {

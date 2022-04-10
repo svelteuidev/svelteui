@@ -5,4 +5,6 @@ export declare type CurrentComponents =
 	| 'Code'
 	| 'Image'
 	| 'Loader'
-	| 'Switch';
+	| 'Switch'
+	| 'Text'
+	| 'Title';

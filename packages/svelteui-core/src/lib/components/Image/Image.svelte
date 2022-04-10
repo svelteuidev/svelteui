@@ -50,6 +50,7 @@
 
 	/** Css function to generate image styles */
 	const ImageStyles = css({
+		focusRing: 'auto',
 		borderRadius: `$${radius}`,
 		width: width !== undefined ? width : '100%',
 		height: height !== undefined ? height : 'auto',
@@ -58,6 +59,7 @@
 
 	/** Css function to generate image placeholder styles */
 	const PlaceholderStyles = css({
+		focusRing: 'auto',
 		color: 'White',
 		backgroundColor: `$gray400`,
 		borderRadius: `$${radius}`,
@@ -72,12 +74,14 @@
 	});
 
 	const FigureStyles = css({
+		focusRing: 'auto',
 		position: 'relative',
 		margin: '0px',
 		textAlign: 'center'
 	});
 
 	const CaptionStyles = css({
+		focusRing: 'auto',
 		fontSize: '14px',
 		lineHeight: '14px',
 		textAlign: 'center',
