@@ -4,12 +4,11 @@
 	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import type { LoaderPropsExtended } from './Loader.styles';
-	import type { SvelteuiColor, SvelteuiTheme } from '$lib/styles';
 
 	/** Defines width of loader */
 	export let size: LoaderPropsExtended['size'] | number = 'md';
 	/** Loader color from theme */
-	export let color: SvelteuiColor | SvelteuiTheme['white'] = 'blue';
+	export let color: LoaderPropsExtended["color"] = 'blue';
 	/** Loader appearance */
 	export let variant: LoaderPropsExtended['variant'] = 'circle';
 

@@ -38,9 +38,6 @@
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: string = '';
 	
-	/** if there is an href prop, then the root must be an anchor same goes for link variant */
-	$: if (href.length > 0 || variant === 'link') root === 'a'
-	// if (variant === 'link') color = ''
 	let isHTMLComponent;
 	let isComponent;
 	$: {

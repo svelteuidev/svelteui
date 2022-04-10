@@ -19,5 +19,4 @@
 	BackgroundImage component can be used to add any content on image. It is useful for hero headers
 	and other similar sections
 </BackgroundImage> -->
-
 <!-- <Text>Hello World</Text> -->

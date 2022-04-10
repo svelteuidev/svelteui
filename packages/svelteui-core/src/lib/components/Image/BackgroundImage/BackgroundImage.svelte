@@ -14,6 +14,7 @@
 	export let height: string | number = undefined;
 
 	const BackgroundImageStyles = css({
+		focusRing: 'auto',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 		display: 'block',
