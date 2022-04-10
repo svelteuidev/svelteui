@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Text } from '$lib';
+	import Text from '../Text/Text.svelte';
 	import { css } from '$lib/styles';
 	import { titleSizes } from './Title.styles';
 	import type { Override, SvelteuiTextAlignment } from '$lib/styles';
@@ -43,6 +43,7 @@ Display text that uses title styling and title HTML tags.
 	root={element}
 	align={align}
 	size={titleSizes[order].fontSize}
+	{...$$restProps}
 >
     <slot />
 </Text>

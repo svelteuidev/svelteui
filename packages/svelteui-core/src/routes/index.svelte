@@ -23,5 +23,5 @@ and other similar sections
 <ActionIcon variant='default'>
 	-
 </ActionIcon>
-<Title order={2}>This is a title</Title>
+<Title variant='gradient' order={2}>This is a title</Title>
 -->
