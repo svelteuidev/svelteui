@@ -9,7 +9,7 @@
 	import { dark, theme, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from './index';
 	import type { ColorScheme } from './types';
 
-	export let themeObserver: ColorScheme = 'dark';
+	export let themeObserver: ColorScheme = 'light';
 	export let withNormalizeCSS: boolean = false
 	export let withGlobalStyles: boolean = false
 	export let ssr: boolean = false;
