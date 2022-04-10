@@ -36,7 +36,13 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				Bold: 700,
 				ExtraBold: 800
 			},
-			lineHeights: {},
+			lineHeights: {
+				xs: '12px',
+				sm: '14px',
+				md: '16px',
+				lg: '18px',
+				xl: '20px'
+			},
 			letterSpacings: {},
 			sizes: {},
 			radii: {
