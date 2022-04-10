@@ -20,6 +20,12 @@ export interface LoaderPropsExtended extends Partial<SVGElement> {
 	variant?: LoaderType;
 }
 
+export interface LoaderProps {
+	variant: LoaderPropsExtended['variant'];
+	color: LoaderPropsExtended['color'];
+	size: LoaderPropsExtended['size'];
+}
+
 export const getCorrectShade = (color: SvelteuiColor | string, dark: boolean = false) => {
 	return theme.colors[dark ? `${color}400` : `${color}600`].value;
 };

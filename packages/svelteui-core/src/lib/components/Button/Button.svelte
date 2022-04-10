@@ -9,10 +9,11 @@
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles';
 
+	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** Controls button appearance */
 	export let variant: ButtonVariant = 'filled';
-	/** Button color from theme'yellow' | 'orange';} */
+	/** Button color from theme */
 	export let color: SvelteuiColor = 'blue';
 	/** Predefined button size */
 	export let size: SvelteuiNumberSize = 'sm';
