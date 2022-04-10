@@ -1,10 +1,17 @@
 <script lang="ts">
 	import { css, dark } from '$lib/styles';
-	import { fontSizes, getTextColor } from './Text.styles';
+	import { getTextColor } from './Text.styles';
 	import { TextErrors } from './Text.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { SvelteuiGradient, SvelteuiNumberSize, Override, SvelteuiNumberFontSize } from '$lib/styles';
-	import type { TextAlignment, TextTransform, TextVariant, TextColors, HTMLTextElements } from './Text.styles';
+	import type {
+		SvelteuiGradient,
+		SvelteuiNumberSize,
+		Override,
+		SvelteuiNumberFontSize,
+		SvelteuiTextAlignment,
+		SvelteuiTextTransform
+	} from '$lib/styles';
+	import type { TextVariant, TextColors, HTMLTextElements } from './Text.styles';
 	
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: string = '';
@@ -12,13 +19,13 @@
 	/** Override prop for custom theming the component */
 	export let override: Override['props'] = {};
 	/** The alignment to be applied to the text */
-	export let align: TextAlignment = 'left';
+	export let align: SvelteuiTextAlignment = 'left';
 	/** Code color for the text from the default theme */
 	export let color: TextColors = 'dark';
 	/** The component or HTML tag to be used as the root component for the text */
 	export let root: HTMLTextElements = undefined;
 	/** Sets the text-transform CSS property of the text*/
-	export let transform: TextTransform = 'none';
+	export let transform: SvelteuiTextTransform = 'none';
 	/** The variant of the text that dictates how the text behaves and/or looks like */
 	export let variant: TextVariant = 'text';
 	/** The size of the text from the default theme */
@@ -53,7 +60,7 @@
 		fontFamily: inherit ? 'inherit' : '$standard',
 		fontSize: inherit ? 'inherit' : typeof size === 'string' ? `$${size}` : `${size}px`,
 		fontWeight: inherit ? 'inherit' : `$${weight}`,
-		lineHeight: inherit ? 'inherit' : inline ? 1 : fontSizes[size],
+		lineHeight: inherit ? 'inherit' : inline ? 1 : typeof size === 'string' ? `$${size}` : `${size}px`,
 		textTransform: transform,
 		textDecoration: underline ? 'underline' : 'none',
 		textAlign: align,
