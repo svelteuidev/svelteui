@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import { BackgroundImage, Button, Code, Image, Loader, Switch, Text, ActionIcon, CloseButton } from '$lib';
+	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title } from '$lib';
 </script>
 
 <!-- 
@@ -23,5 +23,5 @@ and other similar sections
 <ActionIcon variant='default'>
 	-
 </ActionIcon>
-
+<Title order={2}>This is a title</Title>
 -->
