@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { GithubLogo, ChevronDown } from 'radix-icons-svelte';
+	import { GithubLogo, ChevronDown, ArrowRight } from 'radix-icons-svelte';
 	import { css, Button, Text, keyframes } from '@svelteuidev/core';
 
 	let w: number;
@@ -7,7 +7,6 @@
 
 	// @ts-ignore: Unreachable code error
 	const HeroStyles = css({
-		marginTop: '10rem',
 		'& .container': {
 			display: 'flex',
 			justifyContent: 'center'
@@ -65,7 +64,10 @@
 				get started!</Text
 			>
 			<div class="button-container">
-				<Button href="/docs" size="xl" {override}>Get Started</Button>
+				<Button href="/docs" size="xl" {override}>
+					<ArrowRight size={20} slot="leftIcon" />
+					Get Started
+				</Button>
 				<Button size="xl" variant="default">
 					<GithubLogo size={25} slot="leftIcon" />
 					Source Code
