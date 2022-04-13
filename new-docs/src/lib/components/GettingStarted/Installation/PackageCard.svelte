@@ -12,7 +12,7 @@
 		['.dark-theme &']: {
 			border: `1px solid $dark800`,
 			backgroundColor: '$dark800',
-			color: '$dark50'
+			color: '$dark50',
 			'&:hover': {
 				backgroundColor: '$dark900'
 			}

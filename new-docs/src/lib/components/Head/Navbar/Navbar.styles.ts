@@ -1,5 +1,6 @@
 import { css } from '@svelteuidev/core';
 
+// @ts-ignore
 export const NavbarStyles = css({
 	[`.dark-theme &`]: {
 		backgroundColor: '$dark700',
@@ -59,6 +60,7 @@ export const NavbarStyles = css({
 	}
 });
 
+// @ts-ignore
 export const BurgerStyles = css({
 	display: 'block',
 	'@md': {

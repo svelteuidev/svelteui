@@ -1,12 +1,12 @@
 export type SvelteuiFontSizes =
-	| 'Thin'
-	| 'ExtraLight'
-	| 'Light'
-	| 'Normal'
-	| 'Medium'
-	| 'SemiBold'
-	| 'Bold'
-	| 'ExtraBold';
+	| 'thin'
+	| 'extralight'
+	| 'light'
+	| 'normal'
+	| 'medium'
+	| 'semibold'
+	| 'bold'
+	| 'extrabold';
 
 export type SvelteuiNumberFontSize = SvelteuiFontSizes | number;
 

@@ -6,6 +6,7 @@
 	export let className = '';
 	export let active = {};
 
+	// @ts-ignore
 	const ButtonStyles = css({
 		display: 'flex',
 		flexDirection: 'column',

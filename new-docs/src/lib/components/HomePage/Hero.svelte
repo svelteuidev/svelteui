@@ -53,13 +53,13 @@
 <section class={HeroStyles()}>
 	<div class="container">
 		<div class="content-container">
-			<Text align="center" size={40} weight="Bold"
+			<Text align="center" size={40} weight="bold"
 				>Create fully functional and accessible web applications in less time than ever before.</Text
 			>
-			<Text weight="ExtraBold" variant="gradient" align="center" size={60}
+			<Text weight="extrabold" variant="gradient" align="center" size={60}
 				>Regardless of design experience.</Text
 			>
-			<Text weight="SemiBold" size="xl" align="center"
+			<Text weight="semibold" size="xl" align="center"
 				>Scroll down to get a better look, check out the source code, or read the documentation &
 				get started!</Text
 			>
