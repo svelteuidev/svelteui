@@ -20,6 +20,7 @@
 		return arr.join(' ');
 	};
 
+	// @ts-ignore
 	const ContainerStyles = css({
 		h1: {
 			fontSize: '1.5rem',
@@ -56,20 +57,20 @@
 	<div class="">
 		<h3>Initialize a new project</h3>
 
-		<Code copy message={initScript} block>{initScript}</Code>
+		<Code width={90} copy message={initScript} block>{initScript}</Code>
 
 		<h2>Install dependencies</h2>
 
 		<h3>With yarn</h3>
 
-		<Code copy message={yarnScript} block>{yarnScript}</Code>
+		<Code width={90} copy message={yarnScript} block>{yarnScript}</Code>
 
 		<h3>With npm</h3>
 
-		<Code copy message={npmScript} block>{npmScript}</Code>
+		<Code width={90} copy message={npmScript} block>{npmScript}</Code>
 
 		<h3>All done!</h3>
 
-		<Code copy block message={allDone}>{allDone}</Code>
+		<Code width={90} copy block message={allDone}>{allDone}</Code>
 	</div>
 </div>

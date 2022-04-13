@@ -29,6 +29,6 @@
 <style>
 	/* App wide Layout Styles */
 	.layout {
-		margin-top: 10rem;
+		margin-top: 6rem;
 	}
 </style>

@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { GithubLogo, ChevronDown, ArrowRight } from 'radix-icons-svelte';
 	import { css, Button, Text, keyframes } from '@svelteuidev/core';
+	import type { CSS } from '@svelteuidev/core';
+	import DiscordLogo from '$lib/internal/svgs/DiscordLogo.svelte';
 
 	let w: number;
-	$: mobile = w < 640 ? true : false;
 
-	// @ts-ignore: Unreachable code error
+	// @ts-ignore
 	const HeroStyles = css({
 		'& .container': {
 			display: 'flex',
@@ -28,7 +29,7 @@
 		}
 	});
 
-	const override = {
+	const PrimaryButton: CSS = {
 		boxShadow: '0 2px 14px #228be6',
 		transition: 'all 0.2s ease-in-out',
 		'&:hover': {
@@ -42,7 +43,7 @@
 		'100%': { transform: 'translateY(-25%)' }
 	});
 
-	// @ts-ignore: Unreachable code error
+	// @ts-ignore
 	const ChevronStyles = css({
 		animation: `${bounce} 1s infinite ease`
 	});
@@ -64,7 +65,7 @@
 				get started!</Text
 			>
 			<div class="button-container">
-				<Button href="/docs" size="xl" {override}>
+				<Button href="/docs" size="xl" override={PrimaryButton}>
 					<ArrowRight size={20} slot="leftIcon" />
 					Get Started
 				</Button>

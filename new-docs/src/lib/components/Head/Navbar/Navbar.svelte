@@ -2,12 +2,11 @@
 	import { HamburgerMenu, GithubLogo } from 'radix-icons-svelte';
 	import { ActionIcon, Switch, Text, Button } from '@svelteuidev/core';
 	import { theme, DiscordLogo } from '$lib/internal/index';
-	import { BurgerStyles, NavbarStyles, override } from './Navbar.styles';
+	import { BurgerStyles, NavbarStyles, DiscordStyles } from './Navbar.styles';
 
 	let screenW: number;
 
 	$: isDark = $theme === 'dark' ? true : false;
-	$: mobile = screenW > 768 ? false : true;
 </script>
 
 <svelte:window bind:innerWidth={screenW} />
@@ -30,11 +29,8 @@
 			>
 				<span class="token-ui">SvelteUI</span>
 				<span class="token-version">v0.5.5</span>
-				<Button radius="xl" size="xs">Beta</Button>
+				<Button uppercase radius="xl" size="xs">Beta</Button>
 			</Text>
-			{#if mobile}
-				<Switch on:change size="lg" />
-			{/if}
 			<div class="controls">
 				<Switch on:change size="lg" />
 				<ActionIcon
@@ -44,7 +40,7 @@
 					rel="noreferrer"
 					radius="md"
 					variant="filled"
-					{override}
+					override={DiscordStyles}
 					size="xl"
 				>
 					<DiscordLogo color={'white'} size={24} />

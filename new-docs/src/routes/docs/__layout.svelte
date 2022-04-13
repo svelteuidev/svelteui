@@ -1,29 +1,32 @@
 <script lang="ts">
-	import { css, Title } from '@svelteuidev/core';
 	import { page } from '$app/stores';
+	import { css, Title } from '@svelteuidev/core';
 	import { ActivityLog } from 'radix-icons-svelte';
 	import Toc from '$lib/components/Layout/Toc/Toc.svelte';
 
 	let main: HTMLElement;
 
-	$: val = $page.url.pathname.split('/');
-	$: path = val[val.length - 1];
-	$: toggleToc = (path) => {
+	const toggleToc = (path) => {
 		if (path === 'docs' || path === 'contribute') {
-			return 'block';
+			return 'none';
 		}
 		return 'block';
 	};
-	$: toggleTocGrid = (path) => {
+	const toggleTocGrid = (path) => {
 		if (path === 'docs' || path === 'contribute') {
 			return 'repeat(3, minmax(0, 1fr))';
 		}
 		return 'repeat(4, minmax(0, 1fr))';
 	};
 
+	$: val = $page.url.pathname.split('/');
+	$: path = val[val.length - 1];
+	$: toc = toggleToc(path);
+	$: tocGrid = toggleTocGrid(path);
+
 	// @ts-ignore
 	const DocsLayoutStyles = css({
-		maxWidth: '100vw',
+		maxWidth: '95vw',
 		width: '100%',
 		mx: 'auto',
 		py: '$10',
@@ -35,7 +38,7 @@
 			gridTemplateColumns: '15.625rem 1fr'
 		},
 		'@xl': {
-			gridTemplateColumns: toggleTocGrid(path)
+			gridTemplateColumns: tocGrid
 		},
 		'& .sidebar': {
 			display: 'none',
@@ -59,7 +62,7 @@
 			top: '$20',
 			zIndex: '$2',
 			'@xl': {
-				display: toggleToc(path)
+				display: toc
 			}
 		}
 	});

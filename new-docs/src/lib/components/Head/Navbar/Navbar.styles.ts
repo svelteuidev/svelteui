@@ -68,7 +68,7 @@ export const BurgerStyles = css({
 	}
 });
 
-export const override = {
+export const DiscordStyles = {
 	['.dark-theme &']: {
 		backgroundColor: '$indigo700'
 	},
