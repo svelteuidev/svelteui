@@ -8,8 +8,7 @@ Before submitting a PR, please read https://github.com/Brisklemonade/svelteui/bl
 1. Give the PR a descriptive title
 2. Ensure there is a related issue and it is referenced in the PR text
 3. Ensure there are tests that cover the changes
-4. Ensure that `npm run test` passes.
-5. Ensure that `npm run lint` passes.
+4. Ensure that `npm run repo:prepush` passes.
 
 Happy contributing!
 
@@ -33,4 +32,4 @@ Provide a screenshot or video of the added feature, if it is called for
 ### Checklist
 
 - [ ] I have read the [Contributing guide](https://github.com/Brisklemonade/svelteui/blob/main/CONTRIBUTING.md)
-- [ ] Commands `npm run test` and `npm run lint` are passing
+- [ ] Command `npm run repo:prepush` passing

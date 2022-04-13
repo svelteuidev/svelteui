@@ -1,8 +1,9 @@
 name: Main Workflow
 on:
+  pull_request:
+    branches: [main, next-minor]
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
   build:
     name: Actions
@@ -14,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: node --version
-      - run: npm install
+      - run: npm ci
       - run: npm run format
       - run: npm run lint
       - run: npm test
