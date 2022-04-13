@@ -18,7 +18,7 @@ import {
 describe('is', () => {
 	describe('isClient', () => {
 		test('returns true when window is defined', () => {
-			expect(isClient).eq(true);
+			expect(isClient).eq(false);
 		});
 	});
 
