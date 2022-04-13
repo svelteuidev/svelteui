@@ -27,9 +27,17 @@
 
 <br />
 
-## About The Project
+<div align='center'>
+
+## **About The Project**
+
+## [![Time period](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_badge.svg)](https://repography.com)
+
+[![Timeline graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_timeline.svg)](https://github.com/Brisklemonade/svelteui/commits)
 
 [Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
+
+</div>
 
 ### Features
 
@@ -78,6 +86,8 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contributors
 
+[![Top contributors](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_users.svg)](https://github.com/Brisklemonade/svelteui/graphs/contributors)
+
 <a href="https://github.com/Brisklemonade/svelteui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Brisklemonade/svelteui" />
 </a>
@@ -96,3 +106,7 @@ Everything in the project is distributed under the MIT License
 - Discord - [SvelteUI Discord](https://discord.gg/sDdXGthXVU)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+[![Issue status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_issues.svg)](https://github.com/Brisklemonade/svelteui/issues)
+[![Pull request status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_prs.svg)](https://github.com/Brisklemonade/svelteui/pulls)
+[![Trending topics](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_words.svg)](https://github.com/Brisklemonade/svelteui/commits)
