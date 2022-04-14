@@ -4,7 +4,7 @@ import { dateTimeString } from '$lib';
 
 describe('time', () => {
 	test('returns a date time string based on locale', () => {
-		let timestamp = Date.parse('25 Apr 1974 22:55:00 GMT');
+		const timestamp = Date.parse('25 Apr 1974 22:55:00 GMT');
 		let result = dateTimeString(timestamp, 'en-US');
 		expect(result).eq('4/25/74, 11:55 PM');
 
