@@ -1,6 +1,6 @@
 export const dateTimeString = (
 	timestamp: number,
-	locale: string = undefined,
+	locale: string | undefined = undefined,
 	options: Intl.DateTimeFormatOptions = {
 		dateStyle: 'short',
 		timeStyle: 'short'
