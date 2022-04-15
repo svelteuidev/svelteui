@@ -24,7 +24,6 @@
 		"@svelteuidev/actions": "^0.5.2",
 		"@svelteuidev/core": "^0.5.2-next.5",
 		"@svelteuidev/motion": "^0.5.2",
-		"@svelteuidev/prism": "^0.5.0",
 		"@svelteuidev/utilities": "^0.5.2",
 		"mdsvexamples": "^0.2.3",
 		"radix-icons-svelte": "^1.2.1",

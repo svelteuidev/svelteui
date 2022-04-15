@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { STARTGUIDE_DATA } from './data';
 	import Guides from './Guides.svelte';
-	import { Prism } from '@svelteuidev/prism';
 	import { Code } from '@svelteuidev/core';
 	import { deps } from '../Installation/data';
 
@@ -51,6 +50,6 @@
 
 		<h3>All done!</h3>
 
-		<Prism theme="twilight" language="html" block message={allDone}>{allDone}</Prism>
+		<Code copy block message={allDone}>{allDone}</Code>
 	</div>
 </div>
