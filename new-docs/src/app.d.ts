@@ -1,6 +1,7 @@
 /// <reference types="@sveltejs/kit" />
+/// <reference types="@svelteness/kit-docs/globals" />
 
-// See https://kit.svelte.dev/docs/types#the-app-namespace
+// See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
 	// interface Locals {}

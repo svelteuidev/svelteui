@@ -1,11 +1,11 @@
-<script lang="ts">
-	import Hero from '$lib/components/HomePage/Hero.svelte';
+<script context="module">
+  export const prerender = true;
+
+  /** @type {import("@sveltejs/kit").Load} */
+  export function load() {
+    return {
+      status: 307,
+      redirect: '/docs/getting-started/first-page',
+    };
+  }
 </script>
-
-<svelte:head>
-	<title>SvelteUI</title>
-</svelte:head>
-
-<div class="app">
-	<Hero />
-</div>

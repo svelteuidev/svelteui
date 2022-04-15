@@ -1,82 +1,80 @@
-<script lang="ts">
-	import { page } from '$app/stores';
-	import { css, Title } from '@svelteuidev/core';
-	import { ActivityLog } from 'radix-icons-svelte';
-	import Toc from '$lib/components/Layout/Toc/Toc.svelte';
+<script context="module">
+  export const prerender = true;
 
-	let main: HTMLElement;
-
-	const toggleToc = (path) => {
-		if (path === 'docs' || path === 'contribute') {
-			return 'none';
-		}
-		return 'block';
-	};
-	const toggleTocGrid = (path) => {
-		if (path === 'docs' || path === 'contribute') {
-			return 'repeat(3, minmax(0, 1fr))';
-		}
-		return 'repeat(4, minmax(0, 1fr))';
-	};
-
-	$: val = $page.url.pathname.split('/');
-	$: path = val[val.length - 1];
-	$: toc = toggleToc(path);
-	$: tocGrid = toggleTocGrid(path);
-
-	// @ts-ignore
-	const DocsLayoutStyles = css({
-		maxWidth: '95vw',
-		width: '100%',
-		mx: 'auto',
-		py: '$10',
-		gap: '$4',
-		'@md': {
-			px: '$5',
-			display: 'grid',
-			alignItems: 'flex-start',
-			gridTemplateColumns: '15.625rem 1fr'
-		},
-		'@xl': {
-			gridTemplateColumns: tocGrid
-		},
-		'& .sidebar': {
-			display: 'none',
-			'@md': {
-				display: 'block'
-			}
-		},
-		main: {
-			zIndex: 0,
-			mw: '100%',
-			px: '$4',
-			'@xl': {
-				gridColumnStart: 1,
-				gridColumnEnd: 4,
-				ml: '$64'
-			}
-		},
-		'& .toc': {
-			display: 'none',
-			position: 'sticky',
-			top: '$20',
-			zIndex: '$2',
-			'@xl': {
-				display: toc
-			}
-		}
-	});
+  export const load = createKitDocsLoader({ sidebar: '/docs' });
 </script>
 
-<div class={DocsLayoutStyles()}>
-	<div class="sidebar">
-		<div>Sidebar</div>
-	</div>
-	<main bind:this={main}>
-		<slot />
-	</main>
-	<div class="toc">
-		<Title order={3}><ActivityLog />Table of Contents</Title>
-		<Toc target={main} />
-	</div>
-</div>
+<script>
+  import '@svelteness/kit-docs/client/polyfills/index.js';
+  import '@svelteness/kit-docs/client/styles/normalize.css';
+  import '@svelteness/kit-docs/client/styles/fonts.css';
+  import '@svelteness/kit-docs/client/styles/theme.css';
+  import '@svelteness/kit-docs/client/styles/vars.css';
+  import { sidebar } from '$lib/internal'
+  import { Text, SvelteUIProvider } from '@svelteuidev/core'
+  import {
+    KitDocs,
+    KitDocsLayout,
+    createKitDocsLoader,
+    createSidebarContext,
+    Chip,
+    SocialLink,
+    colorScheme
+  } from '@svelteness/kit-docs';
+
+  /** @type {import('@svelteness/kit-docs').MarkdownMeta} */
+  export let meta;
+
+  /** @type {import('@svelteness/kit-docs').NavbarConfig} */
+  const navbar = {
+    links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }],
+  };
+
+  const { activeCategory } = createSidebarContext(sidebar);
+</script>
+
+<svelte:head>
+  <title>{$activeCategory}: {meta.title} | SvelteUI</title>
+  <meta name="description" content={meta.description} />
+</svelte:head>
+
+
+<SvelteUIProvider ssr />
+<KitDocs {meta}>
+  <KitDocsLayout {navbar} {sidebar}>
+    <Text
+				override={{ display: 'flex', gap: '.25rem' }}
+				underline={false}
+				variant="link"
+				align="center"
+				root="a"
+				href="/"
+        slot='navbar-left'
+			>
+				<Text size={25} color='blue'>SvelteUI</Text>
+				<Text size={25} color='dimmed'>v0.5.5</Text>
+        {#if $colorScheme === 'dark'}
+          <Chip class='text-white'>BETA</Chip>
+        {:else}
+          <Chip class='text-black'>BETA</Chip>
+        {/if}
+  </Text>
+
+      <div slot="navbar-right-alt" class="flex" style="gap: 1rem;">
+          <SocialLink class='' type="discord" href="#" />
+          <SocialLink class='' type='gitHub' href="#" />
+      </div>
+    <slot />
+  </KitDocsLayout>
+</KitDocs>
+
+<style>
+  :global(:root) {
+    --kd-color-brand-rgb: 28, 126, 214;
+  }
+
+  :global(:root.dark) {
+    --kd-color-brand-rgb: 34, 139, 230;
+    --kd-color-gray-body: 26, 27, 30;
+  }
+</style>
