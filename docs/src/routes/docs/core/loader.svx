@@ -10,6 +10,7 @@ description: 'Indicate loading state'
 <script lang='ts'>
 	import data from '$components/core/Loader/Loader.svelte?raw&sveld'
 	import APIDocs from '$components/Test/APIDocs/APIDocs.svelte'
+	import { Button } from '@svelteuidev/core'
 	
 	const tabs = ['one', 'two'];
 	$: activeTab = 'one';
