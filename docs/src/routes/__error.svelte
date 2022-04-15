@@ -1,14 +1,3 @@
-<script context="module">
-	export function load({ error, status }) {
-		return {
-			props: {
-				error,
-				status
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
 	import { Button } from '@svelteuidev/core';
 

@@ -31,7 +31,7 @@
 	/** The size of the text from the default theme */
 	export let size: SvelteuiNumberSize = 'md';
 	/** The size of the text from the default theme */
-	export let weight: SvelteuiNumberFontSize = 'Normal';
+	export let weight: SvelteuiNumberFontSize = 'normal';
 	/** Controls gradient settings in gradient variant only */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
 	/** If enabled sets the line-height to 1 to center the text */

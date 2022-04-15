@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SvelteuiWrapper } from '@svelteuidev/core';
+	import { SvelteUIProvider } from '@svelteuidev/core';
 	import { browser } from '$app/env';
 	import { page } from '$app/stores';
 	import { showSideBar } from '$lib/stores/sidebar';
@@ -26,7 +26,7 @@
 	<title>{path} | SvelteUI</title>
 </svelte:head>
 
-<SvelteuiWrapper themeObserver={isDark ? 'dark' : 'light'} ssr>
+<SvelteUIProvider themeObserver={isDark ? 'dark' : 'light'} ssr>
 	<Navbar on:toggle={(e) => checkTheme(e)} />
 	{#if sideBar}
 		<div class={!sideBar ? 'hidden' : 'md:hidden'}>
@@ -36,4 +36,4 @@
 	<div id="page" class="mt-20 mb-40">
 		<slot />
 	</div>
-</SvelteuiWrapper>
+</SvelteUIProvider>
