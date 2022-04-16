@@ -2,5 +2,10 @@
 	"useTabs": true,
 	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 100
+	"printWidth": 100,
+	"svelteSortOrder": "options-styles-scripts-markup",
+	"svelteStrictMode": false,
+	"svelteBracketNewLine": true,
+	"svelteAllowShorthand": true,
+	"svelteIndentScriptAndStyle": true
 }
