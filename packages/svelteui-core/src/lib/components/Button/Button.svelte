@@ -19,8 +19,6 @@
 	export let size: SvelteuiNumberSize = 'sm';
 	/** Button border-radius from theme or number to set border-radius in px */
 	export let radius: SvelteuiNumberSize | number = 'sm';
-	/** Semantics for html to define the type of button when not an href */
-	export let type: 'button' | 'reset' | 'submit' | 'menu' = 'button';
 	/** Controls gradient settings in gradient variant only */
 	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
 	/** Loader position relative to button label */
@@ -140,7 +138,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		class:compact
 		class:uppercase
 		class:loading
-		class="button {className} {ButtonStyles({ css: override, variation: variant })}"
+		class="{className} {ButtonStyles({ css: override, variation: variant })}"
 		role="button"
 		rel="noreferrer noopener"
 		target={external ? '_blank' : '_self'}
@@ -170,13 +168,12 @@ A user can perform an immediate action by pressing a button. It's frequently use
 {:else}
 	<button
 		use:forwardEvents
-		class="button {className} {ButtonStyles({ css: override, variation: variant })}"
+		class="{className} {ButtonStyles({ css: override, variation: variant })}"
 		class:disabled
 		class:compact
 		class:uppercase
 		class:loading
 		{disabled}
-		{type}
 		{...$$restProps}
 		tabindex="0"
 	>

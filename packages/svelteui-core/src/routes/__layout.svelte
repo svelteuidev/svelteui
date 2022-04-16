@@ -18,8 +18,8 @@
 <SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={darkMode ? 'dark' : 'light'}>
 	<div class="title-container">
 		<Button {override} on:click={toggleTheme} variant="gradient">{darkMode ? 'Dark' : 'Light'} Mode</Button>
-		<Text weight='Bold' size={40} align='center' root='h1'>Welcome to a SvelteUI package!</Text>
-		<Text weight='Medium' size='xl' align='center' root='p'>This is a test route to test the core package</Text>
+		<Text weight='bold' size={40} align='center' root='h1'>Welcome to a SvelteUI package!</Text>
+		<Text weight='medium' size='xl' align='center' root='p'>This is a test route to test the core package</Text>
 		<hr />
 	</div>
 	<div class="container">

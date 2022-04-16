@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import { kitDocsPlugin } from '@svelteness/kit-docs/node';
 import Icons from 'unplugin-icons/vite';
 

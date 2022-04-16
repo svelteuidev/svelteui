@@ -30,7 +30,7 @@
 	"type": "module",
 	"dependencies": {
 		"@svelteuidev/actions": "^0.5.2",
-		"@svelteuidev/core": "^0.5.2-next.5",
+		"@svelteuidev/core": "^0.5.2-next.6",
 		"@svelteuidev/motion": "^0.5.2",
 		"@svelteuidev/utilities": "^0.5.2",
 		"radix-icons-svelte": "^1.2.1"
