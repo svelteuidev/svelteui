@@ -42,6 +42,7 @@
 <SvelteUIProvider ssr />
 <KitDocs {meta}>
   <KitDocsLayout {navbar} {sidebar}>
+    <!-- Logo -->
     <Text
 				override={{ display: 'flex', gap: '.25rem' }}
 				underline={false}
@@ -59,10 +60,11 @@
           <Chip class='text-black'>BETA</Chip>
         {/if}
   </Text>
+  <!-- End Logo -->
 
       <div slot="navbar-right-alt" class="flex" style="gap: 1rem;">
-          <SocialLink class='' type="discord" href="#" />
-          <SocialLink class='' type='gitHub' href="#" />
+          <SocialLink class='' type="discord" href="https://discord.gg/2J2xmzCS79" />
+          <SocialLink class='' type='gitHub' href="https://github.com/Brisklemonade/svelteui" />
       </div>
     <slot />
   </KitDocsLayout>

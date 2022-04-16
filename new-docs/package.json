@@ -1,33 +1,38 @@
 {
-  "name": "new-docs",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
-  },
-  "devDependencies": {
-    "@iconify-json/ri": "^1.1.1",
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-static": "^1.0.0-next.29",
-    "@sveltejs/kit": "next",
-    "@svelteness/kit-docs": "^0.3.3",
-    "clsx": "^1.1.1",
-    "svelte": "^3.44.0",
-    "unplugin-icons": "^0.13.4"
-  },
-  "type": "module",
-  "dependencies": {
-    "@svelteuidev/actions": "^0.5.2",
-    "@svelteuidev/core": "^0.5.2-next.5",
-    "@svelteuidev/motion": "^0.5.2",
-    "@svelteuidev/utilities": "^0.5.2",
-    "radix-icons-svelte": "^1.2.1"
-  }
+	"name": "svelteui-docs",
+	"version": "0.5.5",
+	"description": "Svelteui Docs",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Brisklemonade/svelteui.git"
+	},
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview",
+		"prepare": "svelte-kit sync",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+	},
+	"devDependencies": {
+		"@iconify-json/ri": "^1.1.1",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.29",
+		"@sveltejs/kit": "next",
+		"@svelteness/kit-docs": "^0.3.3",
+		"clsx": "^1.1.1",
+		"svelte": "^3.44.0",
+		"unplugin-icons": "^0.13.4"
+	},
+	"type": "module",
+	"dependencies": {
+		"@svelteuidev/actions": "^0.5.2",
+		"@svelteuidev/core": "^0.5.2-next.5",
+		"@svelteuidev/motion": "^0.5.2",
+		"@svelteuidev/utilities": "^0.5.2",
+		"radix-icons-svelte": "^1.2.1"
+	}
 }
