@@ -15,6 +15,11 @@ const config = {
 		},
 
 		vite: {
+			build: {
+				rollupOptions: {
+					external: ['@docsearch/js']
+				}
+			},
 			plugins: [
 				Icons({ compiler: 'svelte' }),
 				kitDocsPlugin({
