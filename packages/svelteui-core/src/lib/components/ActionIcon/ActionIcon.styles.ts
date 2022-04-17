@@ -29,7 +29,8 @@ export function getVariantStyles(color: SvelteuiColor, variant: ActionIconVarian
 		return {
 			[`${variant}`]: {
 				[`${dark.selector} &`]: {
-					color: `$${color}800`
+					color: `$${color}800`,
+					'&:hover': { backgroundColor: variant === 'transparent' ? null : `$dark800` }
 				},
 				border: '1px solid transparent',
 				backgroundColor: 'transparent',

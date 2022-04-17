@@ -112,6 +112,10 @@
 		observable = true;
 		err = ButtonErrors[0];
 	}
+	if (external && !loading) {
+		observable = true;
+		err = ButtonErrors[1];
+	}
 
 	$: if (observable) override = { display: 'none' };
 </script>

@@ -51,6 +51,10 @@
 		fontSize: '$sm',
 		width: block ? `${width}%` : 'auto',
 		'& .copy': {
+			[`${dark.selector} &`]: {
+				backgroundColor: 'rgba(52, 58, 64, 0.35);',
+				color: 'White'
+			},
 			position: 'sticky',
 			bottom: '60%',
 			left: '99%',
@@ -101,7 +105,10 @@ Inline or block code without syntax highlighting
 -->
 
 {#if block}
-	<pre class:block class={CodeStyles({ css: override })} {...$$restProps}>
+	<pre
+		class:block
+		class={CodeStyles({ css: override })}
+		{...$$restProps}>
 		{#if !noMono}
 			<code class={className}><slot>Write some code</slot></code>
 		{:else}
