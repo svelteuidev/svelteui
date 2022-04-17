@@ -2,38 +2,24 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="Svelte demo app" />
-		<link rel="icon" href="/static/favicon.png" />
+		<meta name="description" content="" />
+		<link rel="icon" href="%svelte.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script>
-			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-		</script>
-		%svelte.head%
+		
+    <script>
+      const key = 'svelteness::color-scheme';
+      const scheme = localStorage[key];
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (scheme === 'dark' || (scheme !== 'light' && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  
+    %svelte.head%
 	</head>
-	<body
-		class="font-body pt-1 bg-white text-black dark:bg-dark-700 dark:text-gray-200 font-normal scroll-pt-40"
-	>
-		<script>
-			// Checks the users color scheme preference and sets the appropriate class
-			// Script is needed to avoid light to dark theme flickering on reload
-			const colorSchemePref = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			const theme = localStorage.getItem('theme') || '';
-			if (!theme && colorSchemePref) {
-				document.documentElement.className = 'dark';
-			} else {
-				theme === 'dark'
-					? (document.documentElement.className = theme)
-					: (document.documentElement.className = '');
-			}
-		</script>
+	<body>
 		<div>%svelte.body%</div>
 	</body>
 </html>

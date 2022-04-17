@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { css } from '@svelteuidev/core';
 	import { PACKAGE_DATA, deps } from './data';
 	import PackageCard from './PackageCard.svelte';
 
@@ -9,11 +10,28 @@
 		dependencies = dependencies;
 		deps.set(dependencies);
 	};
+
+	const InstallationGridStyles = css({
+		length: 0,
+		h1: {
+			fontSize: '1.5rem',
+			lineHeight: '2rem',
+			'@sm': {
+				fontSize: '2.25rem',
+				lineHeight: '2.5rem'
+			}
+		},
+		'& .container': {
+			display: 'grid',
+			gap: '1rem',
+			gridTemplateColumns: 'repeat(1, minmax(0, 1fr))'
+		}
+	});
 </script>
 
-<div>
-	<h1 class="text-2xl sm:text-4xl">Choose your packages</h1>
-	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+<div class={InstallationGridStyles()}>
+	<h1 class="">Choose your packages</h1>
+	<div class="container">
 		{#each $PACKAGE_DATA as card, i (card.id)}
 			<PackageCard
 				on:click={() => getDependencys(i)}

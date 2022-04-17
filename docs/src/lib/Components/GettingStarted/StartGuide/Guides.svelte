@@ -7,24 +7,37 @@
 	export let active = {};
 
 	const ButtonStyles = css({
+		['.dark &']: {
+			border: `3px solid $dark800`,
+			backgroundColor: '$dark800',
+			color: '$dark50',
+			'&:hover': {
+				backgroundColor: '$dark900'
+			}
+		},
+		length: 0,
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		border: `3px solid $gray400`,
-		backgroundColor: '$gray500',
+		border: `3px solid $gray300`,
+		backgroundColor: 'White',
 		padding: '24px',
 		borderRadius: '$md',
 		minWidth: '20rem',
 		maxHeight: '198px',
-
 		'&:hover': {
-			backgroundColor: '$gray400'
+			backgroundColor: '$gray100'
 		},
-
+		'& .title': {
+			textAlign: 'uppercase'
+		},
 		variants: {
 			state: {
 				active: {
-					borderColor: '$primary'
+					['.dark &']: {
+						borderColor: `$blue600`
+					},
+					borderColor: `$blue600`
 				}
 			}
 		}
@@ -33,5 +46,5 @@
 
 <button on:click class="{ButtonStyles(active)} {className}">
 	<svelte:component this={icon} />
-	<p class="uppercase">{title}</p>
+	<p class="title">{title}</p>
 </button>

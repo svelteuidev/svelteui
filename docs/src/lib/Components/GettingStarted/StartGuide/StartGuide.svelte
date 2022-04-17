@@ -1,12 +1,12 @@
 <script lang="ts">
+	import { css } from '@svelteuidev/core';
 	import { STARTGUIDE_DATA } from './data';
-	import Guides from './Guides.svelte';
 	import { Code } from '@svelteuidev/core';
 	import { deps } from '../Installation/data';
+	import Guides from './Guides.svelte';
 
 	/** Variable for switching cards stitches variant*/
 	const active = { state: 'active' };
-	const allDone = `<script>\n\timport { Button } from '@svelteuidev/core';\n<\/script>\n\n<Button>Click Me</Button>`;
 
 	$: initScript =
 		selected === 'svelte'
@@ -18,11 +18,33 @@
 	$: dependancies = (arr: Array<string>) => {
 		return arr.join(' ');
 	};
+
+	const ContainerStyles = css({
+		length: 0,
+		h1: {
+			fontSize: '1.5rem',
+			lineHeight: '2rem',
+			'@sm': {
+				fontSize: '2.25rem',
+				lineHeight: '2.5rem'
+			}
+		},
+		'& .guide-wrapper': {
+			display: 'grid',
+			gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+			gap: '2.5rem',
+			'@md': {
+				display: 'flex'
+			}
+		}
+	});
+
+	const override = { fontSize: 'large', lineHeight: 0.3 };
 </script>
 
-<div>
-	<h1 class="text-2xl sm:text-4xl">Get started with</h1>
-	<div class="grid grid-cols-1 md:flex gap-10">
+<div class={ContainerStyles()}>
+	<h1 class="">Get started with</h1>
+	<div class="guide-wrapper">
 		{#each STARTGUIDE_DATA as { title, id, icon } (id)}
 			<Guides
 				on:click={() => (selected = id)}
@@ -36,20 +58,24 @@
 	<div class="">
 		<h3>Initialize a new project</h3>
 
-		<Code copy message={initScript} block>{initScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={initScript} block>{initScript}</Code>
+		</div>
 
 		<h2>Install dependencies</h2>
 
 		<h3>With yarn</h3>
 
-		<Code copy message={yarnScript} block>{yarnScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={yarnScript} block>{yarnScript}</Code>
+		</div>
 
 		<h3>With npm</h3>
 
-		<Code copy message={npmScript} block>{npmScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={npmScript} block>{npmScript}</Code>
+		</div>
 
 		<h3>All done!</h3>
-
-		<Code copy block message={allDone}>{allDone}</Code>
 	</div>
 </div>

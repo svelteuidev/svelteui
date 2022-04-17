@@ -6,6 +6,3 @@ node_modules
 .env
 .env.*
 !.env.example
-/bin
-/.svelte-kit
-/package

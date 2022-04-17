@@ -1,43 +1,95 @@
-<script lang="ts">
-	import Toc from '$components/Test/Toc/Toc.svelte';
-	import SideBar from '$lib/Components/Head/SideBar.svelte';
-	import { page } from '$app/stores';
-	import { ActivityLog } from 'radix-icons-svelte';
+<script context="module">
+	export const prerender = true;
 
-	let main;
-
-	$: val = $page.url.pathname.split('/');
-	$: path = val[val.length - 1];
-	$: toggleToc = (path) => {
-		if (path === 'docs' || path === 'contribute') {
-			return 'xl:hidden';
-		}
-		return 'xl:block';
-	};
-	$: toggleTocGrid = (path) => {
-		if (path === 'docs' || path === 'contribute') {
-			return 'xl:grid-cols-3';
-		}
-		return 'xl:grid-cols-4';
-	};
+	export const load = createKitDocsLoader({ sidebar: '/docs' });
 </script>
 
-<div
-	class="max-w-screen w-full mx-auto py-10 md:px-5 gap-4 md:grid md:grid-cols-[15.625rem,1fr] md:items-start {toggleTocGrid(
-		path
-	)}"
->
-	<div class="hidden md:block">
-		<SideBar />
-	</div>
-	<main
-		class="z-0 max-w-full px-4 prose prose-zinc dark:prose-invert prose-hr:border-gray-800 prose-a:text-brand hover:prose-a:text-brand-dark prose-tr:flex prose-th:flex-1 prose-td:flex-1 prose-blockquote:text-sm prose-blockquote:text-gray-500 prose-blockquote:border-gray-700 prose-p:text-black dark:prose-p:text-white xl:col-start-1 xl:col-end-4 xl:ml-64"
-		bind:this={main}
-	>
+<script>
+	import '@svelteness/kit-docs/client/polyfills/index.js';
+	import '@svelteness/kit-docs/client/styles/normalize.css';
+	import '@svelteness/kit-docs/client/styles/fonts.css';
+	import '@svelteness/kit-docs/client/styles/theme.css';
+	import '@svelteness/kit-docs/client/styles/vars.css';
+	import { page } from '$app/stores';
+	import { sidebar } from '$lib/internal';
+	import { Text } from '@svelteuidev/core';
+	import {
+		KitDocs,
+		KitDocsLayout,
+		createKitDocsLoader,
+		createSidebarContext,
+		Chip,
+		SocialLink,
+		colorScheme
+	} from '@svelteness/kit-docs';
+	import socialCardLarge from '$lib/img/Banner.png';
+
+	/** @type {import('@svelteness/kit-docs').MarkdownMeta} */
+	export let meta;
+
+	/** @type {import('@svelteness/kit-docs').NavbarConfig} */
+	const navbar = {
+		links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }]
+	};
+
+	const { activeCategory } = createSidebarContext(sidebar);
+</script>
+
+<svelte:head>
+	<title>{$activeCategory}: {meta.title} | SvelteUI</title>
+	<meta name="description" content={meta.description} />
+	<meta name="twitter:description" content={meta.description} />
+	<meta name="og:description" content={meta.description} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@Brisklemonaid" />
+	<meta name="twitter:image" content={`https://svelteui-docs.vercel.app${socialCardLarge}`} />
+	<meta name="twitter:creator" content="@Brisklemonaid" />
+	<meta property="og:url" content={`https://svelteui-docs.vercel.app${$page.url.pathname}`} />
+	<meta property="og:type" content="article" />
+	<meta name="og:image" content={`https://svelteui-docs.vercel.app${socialCardLarge}`} />
+</svelte:head>
+
+<KitDocs {meta}>
+	<KitDocsLayout {navbar} {sidebar}>
+		<!-- Logo -->
+		<Text
+			override={{ display: 'flex', gap: '.25rem' }}
+			underline={false}
+			variant="link"
+			align="center"
+			root="a"
+			href="/"
+			slot="navbar-left"
+		>
+			<Text size={25} color="blue">SvelteUI</Text>
+			<Text size={25} color="dimmed">v0.5.5</Text>
+			{#if $colorScheme === 'dark'}
+				<Chip class="text-white">BETA</Chip>
+			{:else}
+				<Chip class="text-black">BETA</Chip>
+			{/if}
+		</Text>
+		<!-- End Logo -->
+
+		<div slot="navbar-right-alt" class="flex" style="gap: 1rem;">
+			<SocialLink class="" type="discord" href="https://discord.gg/2J2xmzCS79" />
+			<SocialLink class="" type="gitHub" href="https://github.com/Brisklemonade/svelteui" />
+		</div>
 		<slot />
-	</main>
-	<div class="hidden sticky top-20 z-40 {toggleToc(path)}">
-		<h3 class="flex items-center gap-3 text-lg font-bold"><ActivityLog /> Table of contents</h3>
-		<Toc target={main} />
-	</div>
-</div>
+	</KitDocsLayout>
+</KitDocs>
+
+<style>
+	:global(:root) {
+		--kd-color-brand-rgb: 28, 126, 214;
+	}
+
+	:global(:root.dark) {
+		--kd-color-brand-rgb: 34, 139, 230;
+		--kd-color-gray-body: 26, 27, 30;
+	}
+
+	:global(.use-css-variable) {
+		color: var(--titleColor);
+	}
+</style>

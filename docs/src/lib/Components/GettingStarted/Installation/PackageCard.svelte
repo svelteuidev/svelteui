@@ -9,12 +9,46 @@
 	let input: HTMLInputElement;
 
 	const CardStyles = css({
-		border: `1px solid $gray500`,
+		length: 0,
+		['.dark &']: {
+			border: `1px solid $dark800`,
+			backgroundColor: '$dark800',
+			color: '$dark200',
+			'&:hover': {
+				backgroundColor: '$dark900'
+			},
+			'& .description': {
+				color: '$dark50'
+			}
+		},
+		display: 'flex',
+		width: '100%',
+		border: `1px solid $gray300`,
 		borderRadius: '$sm',
 		padding: '20px',
-		backgroundColor: '$gray500',
+		backgroundColor: 'White',
+		alignItems: 'center',
+		gap: '1.5rem',
 		'&:hover': {
-			backgroundColor: '$gray400'
+			backgroundColor: '$gray50'
+		},
+		input: {
+			minWidth: '1.5rem',
+			minHeight: '1.5rem',
+			borderRadius: '$md'
+		},
+		'& .title': {
+			fontSize: '1rem',
+			lineHeight: '1.5rem',
+			textAlign: 'left',
+			fontWeight: '$Medium',
+			marginBottom: '0.25rem'
+		},
+		'& .description': {
+			fontSize: '0.875rem',
+			lineHeight: '1.25rem',
+			color: '$dark500',
+			textAlign: 'left'
 		}
 	});
 </script>
@@ -24,20 +58,14 @@
 		!input.checked ? (input.checked = true) : (input.checked = false);
 	}}
 	on:click
-	class="flex w-full items-center gap-6 {CardStyles()}"
+	class={CardStyles()}
 >
-	<input
-		bind:this={input}
-		on:change
-		class="min-w-[1.5rem] min-h-[1.5rem] bg-transparent dark:bg-dark-500  rounded-md"
-		type="checkbox"
-		tabindex="-1"
-	/>
+	<input bind:this={input} on:change type="checkbox" tabindex="-1" />
 	<div>
-		<div class="text-left text-base font-medium mb-1 text-black dark:text-dark-700">
+		<div class="title">
 			{title}
 		</div>
-		<div class="text-sm text-dark-500 text-left">
+		<div class="description">
 			{description}
 		</div>
 	</div>
