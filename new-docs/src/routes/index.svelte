@@ -1,17 +1,19 @@
 <script context="module">
-  export const prerender = true;
+	export const prerender = true;
 </script>
 
 <script lang="ts">
 	import { GithubLogo, ChevronDown, ArrowRight } from 'radix-icons-svelte';
 	import { css, Button, Text, keyframes } from '@svelteuidev/core';
+	import { Chip, colorScheme, SocialLink } from '@svelteness/kit-docs';
+	import Navbar from '$lib/components/Navbar.svelte';
 
 	const HeroStyles = css({
 		length: 0,
 		'& .container': {
 			display: 'flex',
 			justifyContent: 'center',
-      m: 0
+			margin: '6rem 0rem'
 		},
 
 		'& .content-container': {
@@ -44,12 +46,13 @@
 		'100%': { transform: 'translateY(-25%)' }
 	});
 
-	// @ts-ignore
 	const ChevronStyles = css({
+		length: 0,
 		animation: `${bounce} 1s infinite ease`
 	});
 </script>
 
+<Navbar />
 <section class={HeroStyles()}>
 	<div class="container">
 		<div class="content-container">
@@ -60,8 +63,7 @@
 				>Regardless of design experience.</Text
 			>
 			<Text weight="semibold" size="xl" align="center"
-				>Scroll down to get a better look, check out the source code, or read the documentation &
-				get started!</Text
+				>Check out the source code, or read the documentation & get started!</Text
 			>
 			<div class="button-container">
 				<Button href="/docs" size="xl" override={PrimaryButton}>
@@ -73,7 +75,9 @@
 					Source Code
 				</Button>
 			</div>
-			<ChevronDown class={ChevronStyles()} size={60} />
 		</div>
 	</div>
 </section>
+
+<!-- Scroll down to get a better look -->
+<!-- <ChevronDown class={ChevronStyles()} size={60} /> -->

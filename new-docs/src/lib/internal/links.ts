@@ -21,7 +21,7 @@ const actions = [
 	'use-tab-leave'
 ];
 
-const core = ['button', 'code', 'loader', 'action-icon', 'image', 'switch', 'text', 'title'];
+const core = ['button', 'loader', 'code', 'action-icon', 'image', 'switch', 'text', 'title'];
 
 const utilities = ['os', 'raf-fn'];
 

@@ -1,14 +1,3 @@
-<style>
-	:global(:root) {
-		--kd-color-brand-rgb: 28, 126, 214;
-	}
-
-	:global(:root.dark) {
-		--kd-color-brand-rgb: 34, 139, 230;
-		--kd-color-gray-body: 26, 27, 30;
-	}
-</style>
-
 <script context="module">
 	export const prerender = true;
 
@@ -89,3 +78,18 @@
 		<slot />
 	</KitDocsLayout>
 </KitDocs>
+
+<style>
+	:global(:root) {
+		--kd-color-brand-rgb: 28, 126, 214;
+	}
+
+	:global(:root.dark) {
+		--kd-color-brand-rgb: 34, 139, 230;
+		--kd-color-gray-body: 26, 27, 30;
+	}
+
+	:global(.use-css-variable) {
+		color: var(--titleColor);
+	}
+</style>
