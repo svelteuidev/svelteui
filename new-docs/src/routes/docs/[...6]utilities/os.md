@@ -29,7 +29,7 @@ import { clickoutside } from '@svelteuidev/utilities';
     <p>Your os is <b>{os}</b></p>
 </Preview>
 
-```svelte|copy|lineNumbers
+```svelte|copy
 <script>
 	import { os as _os } from '@svelteuidev/utilities';
 

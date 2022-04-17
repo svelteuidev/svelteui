@@ -1,10 +1,15 @@
 <script lang="ts">
+	export let gap: number = 1;
+	export let direction: 'column' | 'row' = 'row';
 	export let style = '';
 	export let className = '';
 	export { className as class };
 </script>
 
-<div class="container {className}" {style}>
+<div
+	class="container {className}"
+	style="display: flex; flex-direction: {direction}; gap: {gap}rem; align-items: center; {style}"
+>
 	<slot />
 </div>
 

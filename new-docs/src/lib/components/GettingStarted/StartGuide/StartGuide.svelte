@@ -38,6 +38,8 @@
 			}
 		}
 	});
+
+	const override = { fontSize: 'large', lineHeight: 0.3 };
 </script>
 
 <div class={ContainerStyles()}>
@@ -56,17 +58,23 @@
 	<div class="">
 		<h3>Initialize a new project</h3>
 
-		<Code width={90} copy message={initScript} block>{initScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={initScript} block>{initScript}</Code>
+		</div>
 
 		<h2>Install dependencies</h2>
 
 		<h3>With yarn</h3>
 
-		<Code width={90} copy message={yarnScript} block>{yarnScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={yarnScript} block>{yarnScript}</Code>
+		</div>
 
 		<h3>With npm</h3>
 
-		<Code width={90} copy message={npmScript} block>{npmScript}</Code>
+		<div class="not-prose">
+			<Code {override} noMono width={100} copy message={npmScript} block>{npmScript}</Code>
+		</div>
 
 		<h3>All done!</h3>
 	</div>

@@ -9,7 +9,7 @@
 <SvelteUIProvider
 	withGlobalStyles={home ? true : false}
 	ssr
-	themeObserver={$colorScheme === 'dark' ? 'dark' : 'light'}
+	themeObserver={$colorScheme === 'dark' || $colorScheme === 'system' ? 'dark' : 'light'}
 >
 	<slot />
 </SvelteUIProvider>

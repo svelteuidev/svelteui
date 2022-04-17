@@ -29,7 +29,7 @@ import { rafFn } from '@svelteuidev/utilities';
 
 ## Usage
 
-<Preview style="display: flex; gap: 1rem; align-items: center;">
+<Preview>
     <Text size='xl'>Count: {count}</Text>
     <Button on:click={() => pause()}>Pause</Button>
     <Button on:click={() => resume()}>Resume</Button> 
@@ -37,7 +37,7 @@ import { rafFn } from '@svelteuidev/utilities';
 
 The {$frontmatter.title} utility takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
 
-```svelte|copy|lineNumbers
+```svelte|copy
 <script>
 	import { rafFn } from '@svelteuidev/utilities';
 	import { Button } from '@svelteuidev/core';

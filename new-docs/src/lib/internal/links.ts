@@ -9,7 +9,15 @@ interface Link {
 
 const changelog = ['0-5-0', '0-5-5'];
 
-const theming = ['svelteui-provider', 'override', 'create-styles', 'dark-theme', 'ssr'];
+const theming = [
+	'svelteui-provider',
+	'default-theme',
+	'create-styles',
+	'dark-theme',
+	'ssr',
+	'override',
+	'utilities'
+];
 
 const actions = [
 	'use-click-outside',
