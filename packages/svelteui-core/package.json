@@ -1,40 +1,40 @@
 {
-  "name": "@svelteuidev/core",
-  "version": "0.5.2",
-  "sideEffects": false,
-  "type": "module",
-  "types": "src/types/index.d.ts",
-  "scripts": {
-    "build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
-    "build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
-    "build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish",
-    "build:patch:nopub": "npm --no-git-tag-version version patch && npm run package",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "dev": "svelte-kit dev",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "package": "svelte-kit package",
-    "sort": "npx sort-package-json"
-  },
-  "dependencies": {
-    "@stitches/core": "1.2.7"
-  },
-  "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.310",
-    "@svelteuidev/tsconfig": "^*",
-    "autoprefixer": "10.4.4",
-    "cssnano": "5.1.7",
-    "eslint-preset-svelteui": "*",
-    "postcss": "8.4.12",
-    "sass": "1.50.0",
-    "svelte": "3.47.0",
-    "svelte-check": "2.2.6",
-    "svelte-preprocess": "4.10.5",
-    "svelte2tsx": "0.5.7",
-    "tslib": "2.3.1",
-    "typescript": "4.6.3"
-  },
-  "peerDependencies": {
-    "@svelteuidev/actions": "0.5.2"
-  }
+	"name": "@svelteuidev/core",
+	"version": "0.5.5",
+	"sideEffects": false,
+	"type": "module",
+	"types": "src/types/index.d.ts",
+	"scripts": {
+		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
+		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",
+		"build:patch": "npm --no-git-tag-version version patch && npm run package && cd package && npm publish",
+		"build:patch:nopub": "npm --no-git-tag-version version patch && npm run package",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"dev": "svelte-kit dev",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"package": "svelte-kit package",
+		"sort": "npx sort-package-json"
+	},
+	"dependencies": {
+		"@stitches/core": "1.2.7"
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "1.0.0-next.310",
+		"@svelteuidev/tsconfig": "^*",
+		"autoprefixer": "10.4.4",
+		"cssnano": "5.1.7",
+		"eslint-preset-svelteui": "*",
+		"postcss": "8.4.12",
+		"sass": "1.50.0",
+		"svelte": "3.47.0",
+		"svelte-check": "2.2.6",
+		"svelte-preprocess": "4.10.5",
+		"svelte2tsx": "0.5.7",
+		"tslib": "2.3.1",
+		"typescript": "4.6.3"
+	},
+	"peerDependencies": {
+		"@svelteuidev/actions": "0.5.2"
+	}
 }

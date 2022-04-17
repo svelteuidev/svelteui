@@ -2,7 +2,7 @@ import { tick } from 'svelte';
 import type { Action } from '../types/ActionTypes';
 
 /**
- * With the `use-clipboard` action, a download will occur with a given Blob object as a file with the given filename.
+ * With the `use-download` action, a download will occur with a given Blob object as a file with the given filename.
  *
  * ```tsx
  *  <button use:download={{ blob: new Blob([]), filename: "text.txt" }} on:usedownload={() => { console.log('download');}}>Download</button>
