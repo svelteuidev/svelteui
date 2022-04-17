@@ -1,8 +1,10 @@
 <script lang="ts">
 	export let style = '';
+	export let className = '';
+	export { className as class };
 </script>
 
-<div class="container" {style}>
+<div class="container {className}" {style}>
 	<slot />
 </div>
 

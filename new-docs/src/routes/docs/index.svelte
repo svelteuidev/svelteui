@@ -4,7 +4,7 @@
 	export function load() {
 		return {
 			status: 307,
-			redirect: '/docs/getting-started/setup'
+			redirect: '/docs/getting-started/introduction'
 		};
 	}
 </script>

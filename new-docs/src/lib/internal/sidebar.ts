@@ -4,7 +4,7 @@ import type { SidebarConfig } from '@svelteness/kit-docs';
 export const sidebar: Readonly<SidebarConfig> = {
 	baseUrl: '/docs',
 	links: {
-		'getting-started': ['setup', 'contributing'],
+		'getting-started': ['introduction', 'setup', 'contributing'],
 		changelog: [...LINKS.changelog],
 		theming: [...LINKS.theming],
 		actions: [...LINKS.actions],

@@ -5,8 +5,6 @@
 <script lang="ts">
 	import { GithubLogo, ChevronDown, ArrowRight } from 'radix-icons-svelte';
 	import { css, Button, Text, keyframes } from '@svelteuidev/core';
-	import { Chip, colorScheme, SocialLink } from '@svelteness/kit-docs';
-	import Navbar from '$lib/components/Navbar.svelte';
 
 	const HeroStyles = css({
 		length: 0,
@@ -52,7 +50,6 @@
 	});
 </script>
 
-<Navbar />
 <section class={HeroStyles()}>
 	<div class="container">
 		<div class="content-container">
