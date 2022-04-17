@@ -58,7 +58,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 6+ components
+- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 8+ components
 - [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
 - [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – library of transitions to utilize on dom elements
 - [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – library of helpful utility functions
@@ -86,8 +86,6 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contributors
 
-[![Top contributors](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_users.svg)](https://github.com/Brisklemonade/svelteui/graphs/contributors)
-
 <a href="https://github.com/Brisklemonade/svelteui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Brisklemonade/svelteui" />
 </a>
@@ -106,7 +104,3 @@ Everything in the project is distributed under the MIT License
 - Discord - [SvelteUI Discord](https://discord.gg/sDdXGthXVU)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-[![Issue status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_issues.svg)](https://github.com/Brisklemonade/svelteui/issues)
-[![Pull request status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_prs.svg)](https://github.com/Brisklemonade/svelteui/pulls)
-[![Trending topics](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_words.svg)](https://github.com/Brisklemonade/svelteui/commits)
