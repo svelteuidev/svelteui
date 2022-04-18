@@ -8,7 +8,7 @@ description: 'Call function on every requestAnimationFrame'
 <script>
 	import { rafFn } from '@svelteuidev/utilities';
 	import { Button, Text } from '@svelteuidev/core';
-    import Preview from '$lib/components/DocsHelpers/Preview.svelte'
+    import Preview from '$lib/Components/DocsHelpers/Preview.svelte'
 
 	let count = 0;
 	const { pause, resume } = rafFn(() => {

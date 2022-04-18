@@ -7,7 +7,7 @@ description: 'Get user os'
 
 <script>
 	import { os as _os } from '@svelteuidev/utilities';
-    import Preview from '$lib/components/DocsHelpers/Preview.svelte'
+    import Preview from '$lib/Components/DocsHelpers/Preview.svelte'
 
 	const os = _os();
 </script>
