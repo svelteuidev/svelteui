@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 import { kitDocsPlugin } from '@svelteness/kit-docs/node';
 import Icons from 'unplugin-icons/vite';
 import preprocess from 'svelte-preprocess';
@@ -13,7 +13,10 @@ const config = {
 
 		prerender: {
 			default: true,
-			entries: ['*']
+			entries: ['*'],
+			onError: ({ status, path, referrer, referenceType }) => {
+				console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
+			}
 		},
 
 		vite: {
