@@ -21,12 +21,12 @@
 		"@iconify-json/ri": "^1.1.1",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-static": "^1.0.0-next.29",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "1.0.0-next.310",
 		"@svelteness/kit-docs": "^0.5.0",
 		"clsx": "^1.1.1",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
-		"svelte": "^3.44.0",
+		"svelte": "^3.47.0",
 		"svelte-preprocess": "^4.10.6",
 		"unplugin-icons": "^0.13.4",
 		"svelte-check": "2.2.6",
@@ -38,10 +38,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@svelteuidev/actions": "^0.5.6",
-		"@svelteuidev/core": "^0.5.6",
-		"@svelteuidev/motion": "^0.5.6",
-		"@svelteuidev/utilities": "^0.5.6",
+		"@svelteuidev/actions": "latest",
+		"@svelteuidev/core": "latest",
+		"@svelteuidev/motion": "latest",
+		"@svelteuidev/utilities": "latest",
 		"radix-icons-svelte": "^1.2.1"
 	}
 }
