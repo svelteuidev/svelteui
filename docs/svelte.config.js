@@ -1,8 +1,7 @@
-import adapter from 'svelte-adapter-github';
+import adapter from '@sveltejs/adapter-vercel';
 import { kitDocsPlugin } from '@svelteness/kit-docs/node';
 import Icons from 'unplugin-icons/vite';
 import preprocess from 'svelte-preprocess';
-const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,9 +10,6 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		paths: {
-			base: dev ? '/localhost:3000' : '/svelteui'
-		},
 
 		prerender: {
 			default: true,
@@ -24,11 +20,6 @@ const config = {
 		},
 
 		vite: {
-			build: {
-				rollupOptions: {
-					external: ['@docsearch/js']
-				}
-			},
 			plugins: [
 				Icons({ compiler: 'svelte' }),
 				kitDocsPlugin({

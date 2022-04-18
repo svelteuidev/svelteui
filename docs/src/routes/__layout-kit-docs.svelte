@@ -1,7 +1,12 @@
 <script context="module">
 	export const prerender = true;
 
-	export const load = createKitDocsLoader({ sidebar: '/docs' });
+	export const load = createKitDocsLoader({
+		sidebar: {
+			'/': null,
+			'/docs': '/docs'
+		}
+	});
 </script>
 
 <script>
@@ -12,7 +17,9 @@
 	import '@svelteness/kit-docs/client/styles/vars.css';
 	import { page } from '$app/stores';
 	import { sidebar } from '$lib/internal';
-	import { Text } from '@svelteuidev/core';
+	import { Text, SvelteUIProvider } from '@svelteuidev/core';
+	import SvelteUILogo from '$img/Logo.png';
+
 	import {
 		KitDocs,
 		KitDocsLayout,
@@ -22,10 +29,10 @@
 		SocialLink,
 		colorScheme
 	} from '@svelteness/kit-docs';
-	import socialCardLarge from '$lib/img/Banner.png';
+	import socialCardLarge from '$img/Banner.png';
 
-	/** @type {import('@svelteness/kit-docs').MarkdownMeta} */
-	export let meta;
+	/** @type {import('@svelteness/kit-docs').MarkdownMeta | null} */
+	export let meta = null;
 
 	/** @type {import('@svelteness/kit-docs').NavbarConfig} */
 	const navbar = {
@@ -36,10 +43,14 @@
 </script>
 
 <svelte:head>
-	<title>{$activeCategory}: {meta.title} | SvelteUI</title>
-	<meta name="description" content={meta.description} />
-	<meta name="twitter:description" content={meta.description} />
-	<meta name="og:description" content={meta.description} />
+	{#if meta?.title}
+		<title>{$activeCategory ? `${$activeCategory}: ` : ''}{meta.title} | KitDocs</title>
+	{/if}
+	{#if meta?.description}
+		<meta name="description" content={meta?.description ?? 'meta not found'} />
+	{/if}
+	<meta name="twitter:description" content={meta?.description ?? 'meta not found'} />
+	<meta name="og:description" content={meta?.description ?? 'meta not found'} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@Brisklemonaid" />
 	<meta name="twitter:image" content={`https://svelteui-docs.vercel.app${socialCardLarge}`} />
@@ -49,35 +60,33 @@
 	<meta name="og:image" content={`https://svelteui-docs.vercel.app${socialCardLarge}`} />
 </svelte:head>
 
-<KitDocs {meta}>
-	<KitDocsLayout {navbar} {sidebar}>
-		<!-- Logo -->
-		<Text
-			override={{ display: 'flex', gap: '.25rem' }}
-			underline={false}
-			variant="link"
-			align="center"
-			root="a"
-			href="/"
-			slot="navbar-left"
-		>
-			<Text size={25} color="blue">SvelteUI</Text>
-			<Text size={25} color="dimmed">v0.5.5</Text>
-			{#if $colorScheme === 'dark'}
-				<Chip class="text-white">BETA</Chip>
-			{:else}
-				<Chip class="text-black">BETA</Chip>
-			{/if}
-		</Text>
-		<!-- End Logo -->
+<SvelteUIProvider
+	ssr
+	themeObserver={$colorScheme === 'dark' || $colorScheme === 'system' ? 'dark' : 'light'}
+>
+	<KitDocs {meta}>
+		<KitDocsLayout {navbar} {sidebar}>
+			<div class="logo" slot="navbar-left">
+				<Text
+					underline={false}
+					variant="link"
+					root="a"
+					href="/"
+					override={{ display: 'flex', alignItems: 'center', gap: '1rem' }}
+				>
+					<img width="25%" src={SvelteUILogo} alt="Logo" />
+					<Chip class={$colorScheme === 'light' ? 'text-black' : 'text-black'}>BETA</Chip>
+				</Text>
+			</div>
 
-		<div slot="navbar-right-alt" class="flex" style="gap: 1rem;">
-			<SocialLink class="" type="discord" href="https://discord.gg/2J2xmzCS79" />
-			<SocialLink class="" type="gitHub" href="https://github.com/Brisklemonade/svelteui" />
-		</div>
-		<slot />
-	</KitDocsLayout>
-</KitDocs>
+			<div slot="navbar-right-alt" class="flex" style="gap: 1rem;">
+				<SocialLink class="" type="discord" href="https://discord.gg/2J2xmzCS79" />
+				<SocialLink class="" type="gitHub" href="https://github.com/Brisklemonade/svelteui" />
+			</div>
+			<slot />
+		</KitDocsLayout>
+	</KitDocs>
+</SvelteUIProvider>
 
 <style>
 	:global(:root) {
