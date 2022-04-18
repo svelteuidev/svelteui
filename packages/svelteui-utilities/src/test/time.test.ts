@@ -12,14 +12,26 @@ describe('time', () => {
 		});
 		expect(result).eq('4/25/74, 10:55 PM');
 
-		result = dateTimeString(timestamp, 'en-US', { dateStyle: 'full', timeStyle: 'medium' });
-		expect(result).eq('Thursday, April 25, 1974 at 11:55:00 PM');
+		result = dateTimeString(timestamp, 'en-US', {
+			dateStyle: 'full',
+			timeStyle: 'medium',
+			timeZone: 'utc'
+		});
+		expect(result).eq('Thursday, April 25, 1974 at 10:55:00 PM');
 
-		result = dateTimeString(timestamp, 'en-US', { dateStyle: 'medium', timeStyle: 'medium' });
-		expect(result).eq('Apr 25, 1974, 11:55:00 PM');
+		result = dateTimeString(timestamp, 'en-US', {
+			dateStyle: 'medium',
+			timeStyle: 'medium',
+			timeZone: 'utc'
+		});
+		expect(result).eq('Apr 25, 1974, 10:55:00 PM');
 
-		result = dateTimeString(timestamp, 'pt', { dateStyle: 'full', timeStyle: 'medium' });
-		expect(result).eq('quinta-feira, 25 de abril de 1974 23:55:00');
+		result = dateTimeString(timestamp, 'pt', {
+			dateStyle: 'full',
+			timeStyle: 'medium',
+			timeZone: 'utc'
+		});
+		expect(result).eq('quinta-feira, 25 de abril de 1974 22:55:00');
 
 		result = dateTimeString(timestamp, 'pt', {
 			dateStyle: 'full',
