@@ -1,6 +1,16 @@
 <script context="module">
 	export const prerender = true;
+
+	/** @type {import("@sveltejs/kit").Load} */
+	export function load() {
+		return {
+			status: 307,
+			redirect: '/docs/getting-started/introduction'
+		};
+	}
 </script>
+
+<!--
 
 <script lang="ts">
 	import { GithubLogo, ChevronDown, ArrowRight } from 'radix-icons-svelte';
@@ -76,5 +86,7 @@
 	</div>
 </section>
 
-<!-- Scroll down to get a better look -->
-<!-- <ChevronDown class={ChevronStyles()} size={60} /> -->
+Scroll down to get a better look
+<ChevronDown class={ChevronStyles()} size={60} />
+
+-->
