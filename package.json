@@ -45,7 +45,7 @@
 		"prettier-plugin-svelte": "2.4.0",
 		"rimraf": "3.0.2",
 		"turbo": "latest",
-		"vitest": "0.5.5",
+		"vitest": "0.9.3",
 		"vitest-svelte-kit": "0.0.6"
 	}
 }
