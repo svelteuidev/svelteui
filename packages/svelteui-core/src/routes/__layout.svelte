@@ -15,7 +15,7 @@
 	};
 </script>
 
-<SvelteUIProvider ssr withGlobalStyles withNormalizeCSS themeObserver={'dark'}>
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={darkMode ? 'dark' : 'light'}>
 	<div class="title-container">
 		<Button {override} on:click={toggleTheme} variant="gradient"
 			>{darkMode ? 'Dark' : 'Light'} Mode</Button

@@ -31,7 +31,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 BackgroundImage component can be used to add any content on image. It is useful for hero headers and other similar sections
 

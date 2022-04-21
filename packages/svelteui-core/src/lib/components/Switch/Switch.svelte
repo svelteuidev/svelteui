@@ -39,6 +39,7 @@
 
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
+
 	/** Css function to generate switch styles */
 	const SwitchStyles = css({
 		focusRing: 'auto',
@@ -129,7 +130,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 A user can use this component to enable/disable something, normally used for boolean values or for binary actions.
 

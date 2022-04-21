@@ -2,7 +2,13 @@
 import type { SvelteComponent } from 'svelte';
 import { bubble, listen } from 'svelte/internal';
 
-// "Borrowed" from Tropix126/fluent-svelte Adapted from rgossiaux/svelte-headlessui which is modified from hperrin/svelte-material-ui
+/*
+ * "Borrowed" from Tropix126/fluent-svelte
+ * Adapted from rgossiaux/svelte-headlessui
+ * which is modified from hperrin/svelte-material-ui
+ *
+ * Gotta love the open source community right 😅 */
+
 /** Function for forwarding DOM events to the component's declaration */
 export function createEventForwarder(component: SvelteComponent, exclude: string[] = []) {
 	type EventCallback = (event: unknown) => void;

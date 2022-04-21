@@ -91,7 +91,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Dynamic Image component with optional placeholder for loading and error state
 

@@ -34,7 +34,7 @@ export function UserException(component: CurrentComponents, message: string, sol
             </pre>
         </div>
         <div class="modal-footer">
-            <h3>Fix the code to dismiss.</h3>
+            <h3>Fix the code to dismiss this error.</h3>
         </div>
     </div>        
     `;

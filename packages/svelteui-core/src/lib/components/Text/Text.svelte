@@ -12,7 +12,7 @@
 		SvelteuiTextTransform
 	} from '$lib/styles';
 	import type { TextVariant, TextColors, HTMLTextElements } from './Text.styles';
-	
+
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: string = '';
 	export { className as class };
@@ -42,9 +42,9 @@
 	export let underline: boolean = undefined;
 	/** If it should inherit font properties from the parent component */
 	export let inherit: boolean = false;
-	/** Applies an href to the button component and converts it to an anchor tag */
+	/** Applies an href to the anchor tag */
 	export let href: string = '';
-	
+
 	let isHTMLComponent;
 	let isComponent;
 	$: {
@@ -60,11 +60,17 @@
 		fontFamily: inherit ? 'inherit' : '$standard',
 		fontSize: inherit ? 'inherit' : typeof size === 'string' ? `$${size}` : `${size}px`,
 		fontWeight: inherit ? 'inherit' : `$${weight}`,
-		lineHeight: inherit ? 'inherit' : inline ? 1 : typeof size === 'string' ? `$${size}` : `${size}px`,
+		lineHeight: inherit
+			? 'inherit'
+			: inline
+			? 1
+			: typeof size === 'string'
+			? `$${size}`
+			: `${size}px`,
 		textTransform: transform,
 		textDecoration: underline ? 'underline' : 'none',
 		textAlign: align,
-		cursor: variant === 'link' ? 'pointer': 'inherit',
+		cursor: variant === 'link' ? 'pointer' : 'inherit',
 		color: color === 'green' ? 'Black' : getTextColor(color, variant, gradient),
 		backgroundImage:
 			variant === 'gradient'
@@ -84,7 +90,7 @@
 		'&:hover':
 			variant === 'link' && underline === undefined
 				? {
-					textDecoration: 'underline'
+						textDecoration: 'underline'
 				  }
 				: undefined
 	});
@@ -93,11 +99,11 @@
 	let observable: boolean = false;
 	let err;
 
-	if (gradient === { from: 'indigo', to: 'cyan', deg: 45 } && variant !== "gradient") {
+	if (gradient === { from: 'indigo', to: 'cyan', deg: 45 } && variant !== 'gradient') {
 		observable = true;
 		err = TextErrors[0];
 	}
-	if (variant === 'link' && href.length < 1 || variant === 'link' && root !== 'a') {
+	if ((variant === 'link' && href.length < 1) || (variant === 'link' && root !== 'a')) {
 		observable = true;
 		err = TextErrors[1];
 	}
@@ -108,7 +114,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Display text and links with theme styles.
 	
@@ -123,8 +128,8 @@ Display text and links with theme styles.
 -->
 
 {#if isHTMLComponent}
-	<svelte:element {href} this={root} class="text {className} {TextStyles({ css: override })}">
-		<slot />
+	<svelte:element this={root} {href} class="text {className} {TextStyles({ css: override })}">
+		<slot>Enter some text</slot>
 	</svelte:element>
 {:else if isComponent}
 	<svelte:component
@@ -132,10 +137,10 @@ Display text and links with theme styles.
 		class="text {className} {TextStyles({ css: override })}"
 		{...$$props}
 	>
-		<slot />
+		<slot>Enter some text</slot>
 	</svelte:component>
 {:else}
 	<div class="text {className} {TextStyles({ css: override })}">
-		<slot />
+		<slot>Enter some text</slot>
 	</div>
 {/if}

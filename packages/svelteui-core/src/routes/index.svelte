@@ -1,4 +1,5 @@
 <script lang="ts">
+	// prettier-ignore
 	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title } from '$lib';
 </script>
 
@@ -18,7 +19,6 @@ src="https://images.unsplash.com/photo-1649014048485-590f93c42936?ixlib=rb-1.2.1
 BackgroundImage component can be used to add any content on image. It is useful for hero headers
 and other similar sections
 </BackgroundImage>
-<Text>Hello World</Text>
-<ActionIcon>-</ActionIcon>
+<ActionIcon>+</ActionIcon>
 <Title variant="gradient" order={2}>This is a title</Title>
 -->
