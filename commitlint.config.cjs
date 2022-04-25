@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['@commitlint/config-conventional'],
+	// extends: ['@commitlint/config-conventional'],
 	rules: {
 		'body-min-length': [2, 'always', 1],
 		'type-enum': [
@@ -9,10 +9,10 @@ module.exports = {
 				'docs',
 				'core',
 				'cli',
-				'@svelteui/core',
-				'@svelteui/actions',
-				'@svelteui/motion',
-				'@svelteui/utilities'
+				'svelteui/core',
+				'svelteui/actions',
+				'svelteui/motion',
+				'svelteui/utilities'
 			]
 		]
 	}
