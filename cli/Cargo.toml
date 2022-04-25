@@ -1,9 +1,21 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [package]
-name = "cli"
+name = "svelteui_cli"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/brisklemonade/svelteui"
+homepage = "https://svelteui-docs.vercel.app"
+description = "SvelteUI's official cli"
+# exclude = ["assets/*"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+path = "src/main.rs"
+name = "sui"
 
 [dependencies]
 clap = { version = "3.1.8", features = ["derive"] }
+colored = "2.0.0"
+jwalk = "0.6.0"
+regex = "1.5.5"
