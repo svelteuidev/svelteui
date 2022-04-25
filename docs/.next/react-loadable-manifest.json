@@ -1,0 +1,32 @@
+{
+  "./Highlight2": [
+    {
+      "id": "./node_modules/prism-react-renderer/dist/index.js",
+      "file": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/prism-react-renderer/prism/index.js",
+      "file": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/prism-react-renderer/themes/duotoneDark/index.js",
+      "file": "static/chunks/2.js"
+    },
+    {
+      "id": "./src/components/Highlight2.js",
+      "file": "static/chunks/2.js"
+    }
+  ],
+  "./dev/noop": [
+    {
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/1.js"
+    }
+  ],
+  "@docsearch/react/modal": [
+    {
+      "id": "./node_modules/@docsearch/react/modal.js",
+      "file": "static/chunks/0.js"
+    }
+  ]
+}
