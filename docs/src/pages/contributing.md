@@ -39,15 +39,15 @@ All commits made in this repository are divided in 3 groups:
 Commit message consists of 3 parts:
 
 ```bash
-[area] Optional title: Message
+type: Message
 ```
 
 Examples:
 
-- `[core] Fix documentation deployment script` - Change made in repository script, it is not related to documentation or any package
-- `[docs] Update report issues link` - Change related to documentation website
-- `[@svelteui/core] Button: Add theme focus styles` - Change in `@svelteui/core` package at Button component
-- `[@svelteui/actions] use-list-state: Add remove handler` - Change in `@svelteui/actions` package at use-list-state hook
+- `core: Fix documentation deployment script` - Change made in repository script, it is not related to documentation or any package
+- `docs: Update report issues link` - Change related to documentation website
+- `@svelteui/core: Add theme focus styles` - Change in `@svelteui/core` package at Button component
+- `@svelteui/actions: Add remove handler` - Change in `@svelteui/actions` package at use-list-state hook
 
 ## Git branches
 
