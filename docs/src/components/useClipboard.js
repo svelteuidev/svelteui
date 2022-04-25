@@ -8,19 +8,19 @@ import copy from 'copy-to-clipboard';
  */
 
 export function useClipboard(text, timeout = 1500) {
-  const [hasCopied, setHasCopied] = React.useState(false);
-  const onCopy = React.useCallback(() => {
-    const didCopy = copy(text);
-    setHasCopied(didCopy);
-  }, [text]); // @ts-ignore
+	const [hasCopied, setHasCopied] = React.useState(false);
+	const onCopy = React.useCallback(() => {
+		const didCopy = copy(text);
+		setHasCopied(didCopy);
+	}, [text]);
 
-  React.useEffect(() => {
-    if (hasCopied) {
-      const id = setTimeout(() => {
-        setHasCopied(false);
-      }, timeout);
-      return () => clearTimeout(id);
-    }
-  }, [timeout, hasCopied]);
-  return [hasCopied, onCopy];
+	React.useEffect(() => {
+		if (hasCopied) {
+			const id = setTimeout(() => {
+				setHasCopied(false);
+			}, timeout);
+			return () => clearTimeout(id);
+		}
+	}, [timeout, hasCopied]);
+	return [hasCopied, onCopy];
 }

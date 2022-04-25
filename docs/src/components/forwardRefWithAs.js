@@ -21,7 +21,7 @@ import * as React from 'react';
  * @param Comp
  */
 export function forwardRefWithAs(comp) {
-  return React.forwardRef(comp);
+	return React.forwardRef(comp);
 }
 /*
 Test components to make sure our dynamic As prop components work as intended 

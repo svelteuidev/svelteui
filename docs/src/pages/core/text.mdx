@@ -43,7 +43,7 @@ Use Text component to display text and links with theme styles. Control Text sty
 Text supports special `dimmed` value in `color` prop. It sets color to `theme.colors.dark200` in dark theme and to `theme.colors.gray600` in light:
 
 ```tsx
-<Text color='dimmed'>Dimmed text</Text>
+<Text color="dimmed">Dimmed text</Text>
 ```
 
 ## Gradient variant
@@ -57,14 +57,14 @@ To use gradient as Text color:
 
 ```tsx
 <Text
-  component='span'
-  align='center'
-  variant='gradient'
-  gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
-  size='xl'
-  weight={700}
+	component="span"
+	align="center"
+	variant="gradient"
+	gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
+	size="xl"
+	weight={700}
 >
-  Indigo cyan gradient
+	Indigo cyan gradient
 </Text>
 ```
 
@@ -75,13 +75,12 @@ CSS property ([caniuse](https://caniuse.com/css-line-clamp)). Note that `padding
 
 ```tsx
 <Text lineClamp={4}>
-  From Bulbapedia: Bulbasaur is a small, quadrupedal Pokémon that has blue-green
-  skin with darker patches. It has red eyes with white pupils, pointed, ear-like
-  structures on top of its head, and a short, blunt snout with a wide mouth. A
-  pair of small, pointed teeth are visible in the upper jaw when its mouth is
-  open. Each of its thick legs ends with three sharp claws. On Bulbasaur's back
-  is a green plant bulb, which is grown from a seed planted there at birth. The
-  bulb also conceals two slender, tentacle-like vines and provides
+	From Bulbapedia: Bulbasaur is a small, quadrupedal Pokémon that has blue-green skin with darker
+	patches. It has red eyes with white pupils, pointed, ear-like structures on top of its head, and a
+	short, blunt snout with a wide mouth. A pair of small, pointed teeth are visible in the upper jaw
+	when its mouth is open. Each of its thick legs ends with three sharp claws. On Bulbasaur's back is
+	a green plant bulb, which is grown from a seed planted there at birth. The bulb also conceals two
+	slender, tentacle-like vines and provides
 </Text>
 ```
 
@@ -93,11 +92,11 @@ styles set `inherit` prop. For example, highlight part of [Title](/core/title/):
 
 ```tsx
 <Title order={3}>
-  Highlight{' '}
-  <Text color='blue' inherit component='span'>
-    something
-  </Text>
-  in title
+	Highlight{' '}
+	<Text color="blue" inherit component="span">
+		something
+	</Text>
+	in title
 </Title>
 ```
 

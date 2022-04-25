@@ -1,8 +1,8 @@
-import manifest from './manifest.json'
+import manifest from './manifest.json';
 
-const versions = {}
+const versions = {};
 
-export const versionList = Object.keys(versions)
-export const getManifest = tag => {
-  return tag ? versions[tag] : manifest
-}
+export const versionList = Object.keys(versions);
+export const getManifest = (tag) => {
+	return tag ? versions[tag] : manifest;
+};

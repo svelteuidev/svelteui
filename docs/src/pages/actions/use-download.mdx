@@ -10,8 +10,8 @@ example: 'https://codesandbox.io/embed/use-download-dvjw4y?fontsize=14&hidenavig
 ## Usage
 
 <p>
-  With the <strong>{meta.title}</strong> action, a download will occur with a
-  given Blob object as a file with the given filename
+	With the <strong>{meta.title}</strong> action, a download will occur with a given Blob object as a
+	file with the given filename
 </p>
 
 ```tsx
@@ -39,9 +39,9 @@ example: 'https://codesandbox.io/embed/use-download-dvjw4y?fontsize=14&hidenavig
 ## Events
 
 <p>
-  The <strong>{meta.title}</strong> action dispatches custom events. Each custom
-  event takes a callback function just like other events `e.g. on:click=
-  {() => {}}`
+	The <strong>{meta.title}</strong> action dispatches custom events. Each custom event takes a
+	callback function just like other events `e.g. on:click=
+	{() => {}}`
 </p>
 
 ```ts
@@ -53,7 +53,7 @@ on:usedownload-error?: (callback: (any) => unknown) => void;
 
 ```ts
 export function download(
-  node: HTMLElement,
-  params: { blob: Blob; filename: string }
+	node: HTMLElement,
+	params: { blob: Blob; filename: string }
 ): ReturnType<Action>;
 ```

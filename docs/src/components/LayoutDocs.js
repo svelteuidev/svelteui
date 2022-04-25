@@ -23,194 +23,176 @@ import { getManifest } from 'manifests/getManifest';
 import { Text } from '@mantine/core';
 
 const getSlugAndTag = (path) => {
-  const parts = path.split('/');
+	const parts = path.split('/');
 
-  if (parts[2] === '1.5.8' || parts[2] === '2.1.4') {
-    return {
-      tag: parts[2],
-      slug: `/docs/${parts.slice(2).join('/')}`,
-    };
-  }
+	if (parts[2] === '1.5.8' || parts[2] === '2.1.4') {
+		return {
+			tag: parts[2],
+			slug: `/docs/${parts.slice(2).join('/')}`
+		};
+	}
 
-  return {
-    slug: path,
-  };
+	return {
+		slug: path
+	};
 };
 
 const addTagToSlug = (slug, tag) => {
-  return tag ? `/docs/${tag}/${slug.replace('/docs/', '')}` : slug;
+	return tag ? `/docs/${tag}/${slug.replace('/docs/', '')}` : slug;
 };
 
 export const LayoutDocs = (props) => {
-  const router = useRouter();
-  const { slug, tag } = getSlugAndTag(router.asPath);
-  const { routes } = getManifest(tag);
+	const router = useRouter();
+	const { slug, tag } = getSlugAndTag(router.asPath);
+	const { routes } = getManifest(tag);
 
-  const _route = findRouteByPath(removeFromLast(slug, '#'), routes); // @ts-ignore
+	const _route = findRouteByPath(removeFromLast(slug, '#'), routes); // @ts-ignore
 
-  const isMobile = useIsMobile();
-  const { route, prevRoute, nextRoute } = getRouteContext(_route, routes);
-  const title = route && `${route.title}`;
+	const isMobile = useIsMobile();
+	const { route, prevRoute, nextRoute } = getRouteContext(_route, routes);
+	const title = route && `${route.title}`;
 
-  return (
-    <>
-      {tag && (
-        <Head>
-          <meta name='robots' content='noindex' />
-        </Head>
-      )}
-      <div>
-        {isMobile ? (
-          <>
-            <Nav />
-            <Sticky shadow>
-              <SidebarMobile>
-                <SidebarRoutes isMobile={true} routes={routes} />
-              </SidebarMobile>
-            </Sticky>
-          </>
-        ) : (
-          <Sticky>
-            <Nav />
-          </Sticky>
-        )}
-        <Seo
-          title={props.meta.title || title}
-          description={props.meta.description}
-        />
-        <div className='block'>
-          <>
-            <div className='container mx-auto pb-12 pt-6 content'>
-              <div className='flex relative'>
-                {!isMobile && (
-                  <Sidebar fixed>
-                    <SidebarRoutes routes={routes} />
-                  </Sidebar>
-                )}
+	return (
+		<>
+			{tag && (
+				<Head>
+					<meta name="robots" content="noindex" />
+				</Head>
+			)}
+			<div>
+				{isMobile ? (
+					<>
+						<Nav />
+						<Sticky shadow>
+							<SidebarMobile>
+								<SidebarRoutes isMobile={true} routes={routes} />
+							</SidebarMobile>
+						</Sticky>
+					</>
+				) : (
+					<Sticky>
+						<Nav />
+					</Sticky>
+				)}
+				<Seo title={props.meta.title || title} description={props.meta.description} />
+				<div className="block">
+					<>
+						<div className="container mx-auto pb-12 pt-6 content">
+							<div className="flex relative">
+								{!isMobile && (
+									<Sidebar fixed>
+										<SidebarRoutes routes={routes} />
+									</Sidebar>
+								)}
 
-                <div className={s['markdown'] + ' w-full docs'}>
-                  <h1 id='_top'>{props.meta.title}</h1>
-                  <Text>{props.meta.description ?? ''}</Text>
-                  {route.path.split('/')[1] === 'changelog' ? null : <hr />}
-                  <MDXProvider components={MDXComponents}>
-                    {props.meta.example ? (
-                      <iframe
-                        src={props.meta.example}
-                        title={`Brisklemonade/svelteui: ${props.meta.id}`}
-                        sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-                        style={{
-                          width: '100%',
-                          height: `${isMobile ? '50' : '35'}vh`,
-                          border: '5px solid black',
-                          borderRadius: 8,
-                          overflow: 'hidden',
-                          position: 'static',
-                          zIndex: 0,
-                        }}
-                      ></iframe>
-                    ) : null}
-                    {props.children}
-                  </MDXProvider>
-                  <DocsPageFooter
-                    href={route?.path || ''}
-                    route={route}
-                    prevRoute={prevRoute}
-                    nextRoute={nextRoute}
-                  />
-                </div>
-                {props.meta.toc === false ? null : (
-                  <div
-                    className='hidden xl:block ml-10 flex-shrink-0'
-                    style={{
-                      width: 200,
-                    }}
-                  >
-                    <div className='sticky top-24 overflow-y-auto'>
-                      <h4 className='font-semibold uppercase text-sm mb-2 mt-2 text-gray-500'>
-                        On this page
-                      </h4>
-                      <Toc title={props.meta.title} />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </>
-        </div>
-      </div>
-      <Footer />
-      <style jsx>{`
-        .docs {
-          min-width: calc(100% - 300px - 1rem - 200px);
-        }
-      `}</style>
-    </>
-  );
+								<div className={s['markdown'] + ' w-full docs'}>
+									<h1 id="_top">{props.meta.title}</h1>
+									<Text>{props.meta.description ?? ''}</Text>
+									{route.path.split('/')[1] === 'changelog' ? null : <hr />}
+									<MDXProvider components={MDXComponents}>
+										{props.meta.example ? (
+											<iframe
+												src={props.meta.example}
+												title={`Brisklemonade/svelteui: ${props.meta.id}`}
+												sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+												style={{
+													width: '100%',
+													height: `${isMobile ? '50' : '35'}vh`,
+													border: '5px solid black',
+													borderRadius: 8,
+													overflow: 'hidden',
+													position: 'static',
+													zIndex: 0
+												}}
+											></iframe>
+										) : null}
+										{props.children}
+									</MDXProvider>
+									<DocsPageFooter
+										href={route?.path || ''}
+										route={route}
+										prevRoute={prevRoute}
+										nextRoute={nextRoute}
+									/>
+								</div>
+								{props.meta.toc === false ? null : (
+									<div
+										className="hidden xl:block ml-10 flex-shrink-0"
+										style={{
+											width: 200
+										}}
+									>
+										<div className="sticky top-24 overflow-y-auto">
+											<h4 className="font-semibold uppercase text-sm mb-2 mt-2 text-gray-500">
+												On this page
+											</h4>
+											<Toc title={props.meta.title} />
+										</div>
+									</div>
+								)}
+							</div>
+						</div>
+					</>
+				</div>
+			</div>
+			<Footer />
+			<style jsx>{`
+				.docs {
+					min-width: calc(100% - 300px - 1rem - 200px);
+				}
+			`}</style>
+		</>
+	);
 };
 
 function getCategoryPath(routes) {
-  const route = routes.find((r) => r.path);
-  return route && removeFromLast(route.path, '/');
+	const route = routes.find((r) => r.path);
+	return route && removeFromLast(route.path, '/');
 }
 
 function SidebarRoutes({ isMobile, routes: currentRoutes, level = 1 }) {
-  const { asPath } = useRouter();
-  let { slug, tag } = getSlugAndTag(asPath);
-  return currentRoutes.map(({ path, title, routes, heading, open }) => {
-    if (routes) {
-      const pathname = getCategoryPath(routes);
-      const selected = slug.startsWith(pathname);
-      const opened = selected || isMobile ? false : open;
+	const { asPath } = useRouter();
+	let { slug, tag } = getSlugAndTag(asPath);
+	return currentRoutes.map(({ path, title, routes, heading, open }) => {
+		if (routes) {
+			const pathname = getCategoryPath(routes);
+			const selected = slug.startsWith(pathname);
+			const opened = selected || isMobile ? false : open;
 
-      if (heading) {
-        return (
-          <SidebarHeading key={'parent' + pathname} title={title}>
-            <SidebarRoutes
-              isMobile={isMobile}
-              routes={routes}
-              level={level + 1}
-            />
-          </SidebarHeading>
-        );
-      }
+			if (heading) {
+				return (
+					<SidebarHeading key={'parent' + pathname} title={title}>
+						<SidebarRoutes isMobile={isMobile} routes={routes} level={level + 1} />
+					</SidebarHeading>
+				);
+			}
 
-      return (
-        <SidebarCategory
-          key={pathname}
-          isMobile={isMobile}
-          level={level}
-          title={title}
-          selected={selected}
-          opened={opened}
-        >
-          <SidebarRoutes
-            isMobile={isMobile}
-            routes={routes}
-            level={level + 1}
-          />
-        </SidebarCategory>
-      );
-    }
+			return (
+				<SidebarCategory
+					key={pathname}
+					isMobile={isMobile}
+					level={level}
+					title={title}
+					selected={selected}
+					opened={opened}
+				>
+					<SidebarRoutes isMobile={isMobile} routes={routes} level={level + 1} />
+				</SidebarCategory>
+			);
+		}
 
-    const pagePath = removeFromLast(path, '.');
-    const pathname = addTagToSlug(pagePath, tag);
-    const selected = slug === pagePath;
-    const route = {
-      href: pagePath,
-      path,
-      title,
-      pathname,
-      selected,
-    };
-    return (
-      <SidebarPost
-        key={title}
-        isMobile={isMobile}
-        level={level}
-        route={route}
-      />
-    );
-  });
+		const pagePath = removeFromLast(path, '.');
+		const pathname = addTagToSlug(pagePath, tag);
+		const selected = slug === pagePath;
+		const route = {
+			href: pagePath,
+			path,
+			title,
+			pathname,
+			selected
+		};
+		return <SidebarPost key={title} isMobile={isMobile} level={level} route={route} />;
+	});
 }
 
 LayoutDocs.displayName = 'LayoutDocs';

@@ -6,33 +6,31 @@ import { SearchProvider } from 'components/useSearch';
 import { MantineProvider } from '@mantine/core';
 
 function loadScript(src, attrs = {}) {
-  if (typeof document !== 'undefined') {
-    const script = document.createElement('script');
-    script.async = true;
-    script.defer = true;
-    Object.keys(attrs).forEach((attr) =>
-      script.setAttribute(attr, attrs[attr])
-    );
-    script.src = src;
-    document.body.appendChild(script);
-  }
+	if (typeof document !== 'undefined') {
+		const script = document.createElement('script');
+		script.async = true;
+		script.defer = true;
+		Object.keys(attrs).forEach((attr) => script.setAttribute(attr, attrs[attr]));
+		script.src = src;
+		document.body.appendChild(script);
+	}
 }
 
 function MyApp({ Component, pageProps }) {
-  React.useEffect(() => {
-    loadScript('https://buttons.github.io/buttons.js');
-  }, []);
+	React.useEffect(() => {
+		loadScript('https://buttons.github.io/buttons.js');
+	}, []);
 
-  return (
-    <>
-      <Head>
-        <link
-          href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-          rel='stylesheet'
-        />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
+	return (
+		<>
+			<Head>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+					rel="stylesheet"
+				/>
+				<style
+					dangerouslySetInnerHTML={{
+						__html: `
         @media (max-width: 390px) {
             .formkit-slide-in {
               display: none;
@@ -43,17 +41,17 @@ function MyApp({ Component, pageProps }) {
               display: none;
             }
           }
-          `,
-          }}
-        />
-      </Head>
-      <MantineProvider withGlobalStyles theme={{ colorScheme: 'light' }}>
-        <SearchProvider>
-          <Component {...pageProps} />
-        </SearchProvider>
-      </MantineProvider>
-    </>
-  );
+          `
+					}}
+				/>
+			</Head>
+			<MantineProvider withGlobalStyles theme={{ colorScheme: 'light' }}>
+				<SearchProvider>
+					<Component {...pageProps} />
+				</SearchProvider>
+			</MantineProvider>
+		</>
+	);
 }
 
 export default MyApp;

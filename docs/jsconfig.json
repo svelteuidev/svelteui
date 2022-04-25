@@ -1,8 +1,8 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./src"
-  },
-  "typeAcquisition": {
-    "include": ["node", "@types/node"]
-  }
+	"compilerOptions": {
+		"baseUrl": "./src"
+	},
+	"typeAcquisition": {
+		"include": ["node", "@types/node"]
+	}
 }

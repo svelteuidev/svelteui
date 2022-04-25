@@ -60,16 +60,13 @@ You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
 import type { TypewriterParams } from '@svelteuidev/motion';
 
 interface TypewriterParams {
-  speed?: number;
-  easing?: EasingFunction;
+	speed?: number;
+	easing?: EasingFunction;
 }
 ```
 
 ## Definition
 
 ```ts
-function typewriter(
-  node: HTMLElement,
-  { speed }: TypewriterParams
-): TransitionConfig;
+function typewriter(node: HTMLElement, { speed }: TypewriterParams): TransitionConfig;
 ```

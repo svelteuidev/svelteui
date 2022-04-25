@@ -10,10 +10,9 @@ example: 'https://codesandbox.io/embed/use-css-variable-o477b4?fontsize=14&hiden
 ## Usage
 
 <p>
-  With the <strong>{meta.title}</strong> action, an object of properties will be
-  treated as css custom variables. By defining this object inside of a `$: {}`
-  reactive block, {meta.title} can update those css properties on the fly
-  whenever some of its values change.
+	With the <strong>{meta.title}</strong> action, an object of properties will be treated as css
+	custom variables. By defining this object inside of a `$: {}` reactive block, {meta.title} can
+	update those css properties on the fly whenever some of its values change.
 </p>
 
 ```tsx
@@ -45,7 +44,7 @@ example: 'https://codesandbox.io/embed/use-css-variable-o477b4?fontsize=14&hiden
 ## Events
 
 <p>
-  The <strong>{meta.title}</strong> action does not dispatch any custom events`
+	The <strong>{meta.title}</strong> action does not dispatch any custom events`
 </p>
 
 ```ts
@@ -55,8 +54,5 @@ example: 'https://codesandbox.io/embed/use-css-variable-o477b4?fontsize=14&hiden
 ## Definition
 
 ```ts
-export function cssvariable(
-  node: HTMLElement,
-  props: UnknownKeyString<string>
-): ReturnType<Action>;
+export function cssvariable(node: HTMLElement, props: UnknownKeyString<string>): ReturnType<Action>;
 ```
