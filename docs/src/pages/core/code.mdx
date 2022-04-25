@@ -1,0 +1,50 @@
+---
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+title: Code
+slug: /core/code/
+category: 'typography'
+description: 'Inline or block code without syntax highlight'
+example: 'https://codesandbox.io/embed/code-r032c1?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+import { Alert, Text } from '@mantine/core';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
+
+## Inline code
+
+By default, Code component renders inline `code` html element:
+
+```tsx
+<Code>This code will be inline</Code>
+```
+
+## Block code
+
+To render code in `pre` element pass `block` prop to Code component:
+
+```tsx
+<Code block copy message={codeForDemo}>
+  {codeForDemo}
+</Code>
+```
+
+## Custom color
+
+By default, code has gray color,
+you can change it to any color from [theme colors](/theming/extend-theme/#default-colors):
+
+```tsx
+<Code color="red">This will be inline</Code>
+<Code color="teal">This will be inline</Code>
+<Code color="blue">This will be inline</Code>
+```
+
+## Syntax highlight
+
+<Alert icon={<InfoCircledIcon />} title='Warning' color='yellow'>
+  <Text size='lg'>
+    In case you need syntax highlighting, a @sveltuidev/prism package will be
+    available soon.
+  </Text>
+</Alert>

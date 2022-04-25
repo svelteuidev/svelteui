@@ -1,0 +1,176 @@
+{
+  "routes": [
+    {
+      "title": "Getting Started",
+      "heading": true,
+      "routes": [
+        {
+          "title": "Introduction",
+          "path": "/introduction",
+          "editUrl": "/introduction.md"
+        },
+        {
+          "title": "Installation",
+          "path": "/installation",
+          "editUrl": "/installation.md"
+        },
+        {
+          "title": "Contributing",
+          "path": "/contributing",
+          "editUrl": "/contributing.md"
+        },
+        {
+          "title": "Playground",
+          "path": "/playground",
+          "editUrl": "/playground.mdx"
+        }
+      ]
+    },
+    {
+      "title": "Changelog",
+      "heading": true,
+      "routes": [
+        {
+          "title": "Version 0.5.0",
+          "path": "/changelog/0-5-0",
+          "editUrl": "/changelog/0-5-0.md"
+        },
+        {
+          "title": "Version 0.5.5",
+          "path": "/changelog/0-5-5",
+          "editUrl": "/changelog/0-5-5.md"
+        }
+      ]
+    },
+    {
+      "title": "Theming",
+      "heading": true,
+      "routes": [
+        {
+          "title": "Coming Soon",
+          "path": "/theming/svelteui-provider",
+          "editUrl": "/theming/svelteui-provider.mdx"
+        }
+      ]
+    },
+    {
+      "title": "SvelteUI Actions",
+      "heading": false,
+      "routes": [
+        {
+          "title": "use-click-outside",
+          "path": "/actions/use-click-outside",
+          "editUrl": "/actions/use-click-outside.mdx"
+        },
+        {
+          "title": "use-clipboard",
+          "path": "/actions/use-clipboard",
+          "editUrl": "/actions/use-clipboard.mdx"
+        },
+        {
+          "title": "use-css-variable",
+          "path": "/actions/use-css-variable",
+          "editUrl": "/actions/use-css-variable.mdx"
+        },
+        {
+          "title": "use-download",
+          "path": "/actions/use-download",
+          "editUrl": "/actions/use-download.mdx"
+        },
+        {
+          "title": "use-focus",
+          "path": "/actions/use-focus",
+          "editUrl": "/actions/use-focus.mdx"
+        },
+        {
+          "title": "use-page-leave",
+          "path": "/actions/use-page-leave",
+          "editUrl": "/actions/use-page-leave.mdx"
+        },
+        {
+          "title": "use-tab-leave",
+          "path": "/actions/use-tab-leave",
+          "editUrl": "/actions/use-tab-leave.mdx"
+        }
+      ]
+    },
+    {
+      "title": "SvelteUI Core",
+      "heading": false,
+      "routes": [
+        {
+          "title": "Button",
+          "path": "/core/button",
+          "editUrl": "/core/button.mdx"
+        },
+        {
+          "title": "Code",
+          "path": "/core/code",
+          "editUrl": "/core/code.mdx"
+        },
+        {
+          "title": "Loader",
+          "path": "/core/loader",
+          "editUrl": "/core/loader.mdx"
+        },
+        {
+          "title": "ActionIcon",
+          "path": "/core/action-icon",
+          "editUrl": "/core/action-icon.mdx"
+        },
+        {
+          "title": "Image",
+          "path": "/core/image",
+          "editUrl": "/core/image.mdx"
+        },
+        {
+          "title": "Switch",
+          "path": "/core/switch",
+          "editUrl": "/core/switch.mdx"
+        },
+        {
+          "title": "Text",
+          "path": "/core/text",
+          "editUrl": "/core/text.mdx"
+        },
+        {
+          "title": "Title",
+          "path": "/core/title",
+          "editUrl": "/core/title.mdx"
+        }
+      ]
+    },
+    {
+      "title": "SvelteUI Utilities",
+      "heading": false,
+      "routes": [
+        {
+          "title": "os",
+          "path": "/utilities/os",
+          "editUrl": "/utilities/os.mdx"
+        },
+        {
+          "title": "rafFn",
+          "path": "/utilities/raf-fn",
+          "editUrl": "/utilities/raf-fn.mdx"
+        }
+      ]
+    },
+    {
+      "title": "SvelteUI Motion",
+      "heading": false,
+      "routes": [
+        {
+          "title": "Typewriter",
+          "path": "/motion/typewriter",
+          "editUrl": "/motion/typewriter.mdx"
+        },
+        {
+          "title": "Flipboard",
+          "path": "/motion/flipboard",
+          "editUrl": "/motion/flipboard.mdx"
+        }
+      ]
+    }
+  ]
+}

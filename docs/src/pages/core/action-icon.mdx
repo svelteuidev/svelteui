@@ -1,0 +1,67 @@
+---
+title: ActionIcon
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+category: 'inputs'
+description: 'Icon button to indicate secondary action'
+example: 'https://codesandbox.io/embed/action-icon-yx5746?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+ActionIcon accepts anything as child. It **does not control icon size**, specify it manually on icon component to match ActionIcon size. For example, in [radix-icons-svelte](https://www.npmjs.com/package/radix-icons-svelte) you can use size prop:
+
+## Variants
+
+ActionIcon has 6 variants: hover, default, transparent, filled, light and outline:
+
+```tsx
+<ActionIcon color="blue" variant="transparent"><Gear size={16} /></ActionIcon>
+<ActionIcon color="blue" variant="hover"><Gear size={16} /></ActionIcon>
+<ActionIcon color="blue" variant="default"><Gear size={16} /></ActionIcon>
+<ActionIcon color="blue" variant="outline"><Gear size={16} /></ActionIcon>
+<ActionIcon color="blue" variant="filled"><Gear size={16} /></ActionIcon>
+<ActionIcon color="blue" variant="light"><Gear size={16} /></ActionIcon>
+```
+
+## Color
+
+ActionIcon supports all colors from [theme.colors](/theming/default-theme):
+
+```tsx
+<ActionIcon color="red" />
+<ActionIcon color="blue" />
+```
+
+## Size and radius
+
+Control button width and height with `size` and border-radius with `radius`.
+Both props have predefined values: xs, sm, md, lg, xl.
+Alternatively, use a number to set radius or size in px:
+
+```tsx
+<ActionIcon radius="lg" /> // -> theme predefined large radius
+<ActionIcon radius={10} /> // -> { borderRadius: '10px' }
+
+<ActionIcon size="sm" /> // -> predefined small size
+<ActionIcon size={50} /> // -> { width: '50px', height: '50px' }
+```
+
+## Close button
+
+CloseButton is a pre-made ActionIcon with close icon, it will be used in all other components: Popover, Modal, Notification, etc. Component accepts the same props as ActionIcon with additional `iconSize` prop to control icon width and height:
+
+```tsx
+<CloseButton />
+<CloseButton size="xl" iconSize={20} />
+```
+
+## Accessibility
+
+ActionIcon renders a regular button element. Set `title` or `aria-label` props for screen reader support:
+
+```tsx
+<ActionIcon /> // -> not visible to screen reader
+<ActionIcon title="Settings" /> // -> ok
+<ActionIcon aria-label="Settings" /> // -> ok
+```

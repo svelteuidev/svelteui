@@ -1,0 +1,49 @@
+---
+id: 'raf-fn'
+title: 'rafFn'
+group: 'svelteuidev-utilities'
+packageGroup: '@svelteuidev/utilities'
+description: 'Call function on every requestAnimationFrame'
+example: 'https://codesandbox.io/embed/raf-fn-fy06f1?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+The rafFn utility takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
+
+```tsx
+<script>
+	import { rafFn } from '@svelteuidev/utilities';
+	import { Button } from '@svelteuidev/core';
+
+	let count = 0;
+	const { pause, resume } = rafFn(() => {
+		count++;
+	});
+</script>
+
+<div>Count: {count}</div>
+<Button on:click={() => pause()}>Pause</Button>
+<Button on:click={() => resume()}>Resume</Button>
+```
+
+## TypeScript
+
+You can import `RafFnOptions` interface type from `@svelteuidev/utilities`:
+
+```ts
+export interface RafFnOptions extends ConfigurableWindow {
+  /**
+   * Start the requestAnimationFrame loop immediately on creation
+   *
+   * @default true
+   */
+  immediate?: boolean;
+}
+```
+
+## Definition
+
+```ts
+function rafFn(fn: Fn, options: RafFnOptions = {}): Pauseable;
+```
