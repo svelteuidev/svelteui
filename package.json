@@ -29,7 +29,7 @@
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
     "docs:typecheck": "cd docs && npm run check",
     "format": "turbo run format --parallel",
-    "postinstall": "pnpm patch-package",
+    "postinstall": "npx patch-package",
     "lint": "turbo run lint --parallel",
     "package": "npm run clean && turbo run package --parallel",
     "pre-commit": "lint-staged",
