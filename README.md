@@ -94,7 +94,7 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-Everything in the project is distributed under the MIT License
+Everything in the project is distributed under the MIT License.
 
 <br />
 
