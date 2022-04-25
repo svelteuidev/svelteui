@@ -1,8 +1,7 @@
 {
 	"name": "@svelteuidev/motion",
-	"version": "0.5.2",
+	"version": "0.5.6",
 	"type": "module",
-	"types": "types/index.d.ts",
 	"scripts": {
 		"build:major": "npm --no-git-tag-version version major && npm run package && cd package && npm publish",
 		"build:minor": "npm --no-git-tag-version version minor && npm run package && cd package && npm publish",

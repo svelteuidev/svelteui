@@ -1,0 +1,72 @@
+---
+id: typewriter
+title: Typewriter
+group: 'svelteuidev-motion'
+packageGroup: '@svelteuidev/motion'
+category: 'transitions'
+description: 'Type writer transition effect for text'
+example: 'https://codesandbox.io/embed/typewriter-spuii8?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+```tsx
+<div>
+    {#if visible}
+        <p in:typewriter>Now the transition is playing</p>
+    {:else}
+        <p>Click the button to play the transition</p>
+    {/if}
+</div>
+<Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
+```
+
+The typewriter transition will give your text a typed effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the typewriter transition on non text nodes, it will result in an error.
+
+```tsx
+<script>
+	import { Button } from '@svelteuidev/core';
+	import { typewriter } from '@svelteuidev/motion';
+
+	let visible = false;
+
+	const toggleVisible = () => {
+		visible = !visible;
+	};
+</script>
+
+<div>
+    {#if visible}
+        <p in:typewriter>Now the transition is playing</p>
+    {:else}
+        <p>Click the button to play the transition</p>
+    {/if}
+</div>
+<Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
+```
+
+## Params
+
+| Param  | Description                                                                                              |
+| ------ | -------------------------------------------------------------------------------------------------------- |
+| speed  | A decimal number representing the duration of the transition (in seconds)                                |
+| easing | An easing function to be applied to the transition. Works with svelte easing and custom easing functions |
+
+## TypeScript
+
+You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
+
+```ts
+import type { TypewriterParams } from '@svelteuidev/motion';
+
+interface TypewriterParams {
+	speed?: number;
+	easing?: EasingFunction;
+}
+```
+
+## Definition
+
+```ts
+function typewriter(node: HTMLElement, { speed }: TypewriterParams): TransitionConfig;
+```

@@ -143,9 +143,6 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 					outline: value === 'auto' || value === 'never' ? 'none' : undefined
 				}
 			}),
-			p: (value: string | number) => ({
-				padding: value
-			}),
 			pt: (value: string | number) => ({
 				paddingTop: value
 			}),

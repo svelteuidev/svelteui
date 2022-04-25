@@ -1,51 +1,51 @@
 {
-  "name": "svelteui",
-  "version": "0.5.2",
-  "private": true,
-  "description": "SvelteUI Components Monorepo.",
-  "keywords": [
-    "Svelte",
-    "Sveltekit",
-    "UI",
-    "Component Library"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Brisklemonade/svelteui.git"
-  },
-  "license": "MIT",
-  "author": "Kamell Perry",
-  "type": "module",
-  "workspaces": [
-    "packages/*",
-    "configuration/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "clean": "rimraf packages/*/{node_modules,package,.turbo} packages/*/.svelte-kit/{generated,runtime,types}",
-    "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo}",
-    "coverage": "turbo run coverage --parallel",
-    "dev": "turbo run dev --parallel",
-    "docs:prepush": "cd docs && npx sort-package-json && npm run format && npm run lint",
-    "docs:typecheck": "cd docs && npm run check",
-    "format": "turbo run format --parallel",
-    "lint": "turbo run lint --parallel",
-    "package": "npm run clean && turbo run package --parallel",
-    "release:prepare": "npm run clean && npm run repo:prepush && npm test",
-    "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
-    "repo:update": "sh scripts/git/update-branches.sh",
-    "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
-    "test": "turbo run test --parallel"
-  },
-  "devDependencies": {
-    "@changesets/cli": "2.22.0",
-    "c8": "7.11.0",
-    "micromatch": "4.0.4",
-    "prettier": "2.4.1",
-    "prettier-plugin-svelte": "2.4.0",
-    "rimraf": "3.0.2",
-    "turbo": "1.1.6",
-    "vitest": "0.5.5",
-    "vitest-svelte-kit": "0.0.6"
-  }
+	"name": "svelteui",
+	"version": "0.5.6",
+	"private": true,
+	"description": "SvelteUI Components Monorepo.",
+	"keywords": [
+		"Svelte",
+		"Sveltekit",
+		"UI",
+		"Component Library"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Brisklemonade/svelteui.git"
+	},
+	"license": "MIT",
+	"author": "Kamell Perry",
+	"type": "module",
+	"workspaces": [
+		"packages/*",
+		"configuration/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"clean": "rimraf packages/*/{node_modules,package,.turbo} packages/*/.svelte-kit/{generated,runtime,types}",
+		"clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo}",
+		"coverage": "turbo run coverage --parallel",
+		"dev": "turbo run dev --parallel",
+		"docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
+		"docs:typecheck": "cd docs && npm run check",
+		"format": "turbo run format --parallel",
+		"lint": "turbo run lint --parallel",
+		"package": "npm run clean && turbo run package --parallel",
+		"release:prepare": "npm run clean && npm run repo:prepush",
+		"repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
+		"repo:update": "sh scripts/git/update-branches.sh",
+		"sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
+		"test": "turbo run test --parallel"
+	},
+	"devDependencies": {
+		"@changesets/cli": "2.22.0",
+		"c8": "7.11.0",
+		"micromatch": "4.0.4",
+		"prettier": "2.4.1",
+		"prettier-plugin-svelte": "2.4.0",
+		"rimraf": "3.0.2",
+		"turbo": "latest",
+		"vitest": "0.9.3",
+		"vitest-svelte-kit": "0.0.6"
+	}
 }

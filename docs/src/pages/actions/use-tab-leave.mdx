@@ -1,0 +1,46 @@
+---
+id: 'use-tab-leave'
+title: 'use-tab-leave'
+group: 'svelteuidev-actions'
+packageGroup: '@svelteuidev/actions'
+description: 'Call a function when the current tab is switched'
+example: 'https://codesandbox.io/embed/use-tab-leave-d1xpiw?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+<p>
+	The <strong>{meta.title}</strong> action calls given function when the current tab is switched
+</p>
+
+```tsx
+<script>
+    import { tableave } from '@svelteuidev/actions';
+
+    $: count = 0;
+</script>
+
+<div use:tableave={() => count++}>{count}</div>
+```
+
+## Params
+
+| Param    | Description              |
+| -------- | ------------------------ |
+| callback | The callback to be fired |
+
+## Events
+
+<p>
+	The <strong>{meta.title}</strong> action does not dispatch any custom events`
+</p>
+
+```ts
+// No events to display
+```
+
+## Definition
+
+```ts
+export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Action>;
+```

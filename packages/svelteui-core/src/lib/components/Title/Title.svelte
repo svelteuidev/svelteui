@@ -42,8 +42,8 @@
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: string = '';
 
-    let element: HTMLHeadingElements;
-    $: element = `h${order}` as HTMLHeadingElements;
+	let element: HTMLHeadingElements;
+	$: element = `h${order}` as HTMLHeadingElements;
 
 	const TitleStyles = css({
 		margin: 0
@@ -52,7 +52,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Display text that uses title styling and title HTML tags.
 	
@@ -68,7 +67,7 @@ Display text that uses title styling and title HTML tags.
 <Text
 	class="title {className} {TitleStyles({ css: override })}"
 	root={element}
-	align={align}
+	{align}
 	size={titleSizes[order].fontSize}
 	{color}
 	{transform}
@@ -81,5 +80,5 @@ Display text that uses title styling and title HTML tags.
 	{inherit}
 	{href}
 >
-    <slot />
+	<slot />
 </Text>

@@ -3,8 +3,10 @@ node_modules
 /coverage
 build
 /build
-.svelte-kit
-/.svelte-kit
+.svelte-kit/*
+!.svelte-kit/tsconfig.json
+/.svelte-kit/*
+!/.svelte-kit/tsconfig.json
 package
 /package
 /packages/svelteui-errors/dist

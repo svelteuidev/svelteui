@@ -12,7 +12,7 @@
 [![npm](https://img.shields.io/npm/v/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
 [![npm](https://img.shields.io/npm/dm/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
 [![Help wanted](https://img.shields.io/github/labels/Brisklemonade/svelteui/help%20wanted?label=Contribute)](https://github.com/Brisklemonade/svelteui/labels/help%20wanted)
-[![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/sDdXGthXVU)
+[![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/2J2xmzCS79)
 
   <p align="center">
    SvelteUI is a component library for building fully functional & accessible web applications faster than ever
@@ -58,7 +58,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 6+ components
+- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 8+ components
 - [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
 - [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – library of transitions to utilize on dom elements
 - [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – library of helpful utility functions
@@ -70,7 +70,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord |:
 
-- [Join Discord community](https://discord.gg/sDdXGthXVU) – it will be the easiest way to get help.
+- [Join Discord community](https://discord.gg/2J2xmzCS79) – it will be the easiest way to get help.
 - [Github Discussions](https://github.com/Brisklemonade/svelteui/discussions) - you can discuss anything relating to the project here.
 
 <br />
@@ -86,8 +86,6 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contributors
 
-[![Top contributors](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_users.svg)](https://github.com/Brisklemonade/svelteui/graphs/contributors)
-
 <a href="https://github.com/Brisklemonade/svelteui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Brisklemonade/svelteui" />
 </a>
@@ -96,17 +94,13 @@ Contributions are what make the open source community such an amazing place to l
 
 ## License
 
-Everything in the project is distributed under the MIT License
+Everything in the project is distributed under the MIT License.
 
 <br />
 
 ## Contact
 
 - Twitter - [Brisklemonaid](https://twitter.com/brisklemonaid)
-- Discord - [SvelteUI Discord](https://discord.gg/sDdXGthXVU)
+- Discord - [SvelteUI Discord](https://discord.gg/2J2xmzCS79)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-[![Issue status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_issues.svg)](https://github.com/Brisklemonade/svelteui/issues)
-[![Pull request status graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_prs.svg)](https://github.com/Brisklemonade/svelteui/pulls)
-[![Trending topics](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_words.svg)](https://github.com/Brisklemonade/svelteui/commits)

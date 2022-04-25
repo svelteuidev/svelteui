@@ -1,0 +1,35 @@
+---
+title: Loader
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+category: 'overlays'
+description: 'Indicate loading state'
+example: 'https://codesandbox.io/embed/loader-7run21?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+By default, loader will be rendered with the SvelteUI blue color.
+You can choose any color defined in the theme or extend [your own theme](/docs/theming/create-styles):
+
+## Configure default loader
+
+You can configure default loader to be one of it's three variants
+
+```tsx
+<Loader variant="circle" />
+
+<Loader variant="dots" />
+
+<Loader variant="bars" />
+```
+
+## Size
+
+Size controls loader height or width (depends on loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`.
+Alternatively, you can use a number to set width or height in px:
+
+```tsx
+<Loader size="lg" />
+<Loader size={50} />
+```

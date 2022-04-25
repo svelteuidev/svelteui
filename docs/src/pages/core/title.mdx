@@ -1,0 +1,33 @@
+---
+title: Title
+group: 'svelteuidev-core'
+packageGroup: '@svelteuidev/core'
+category: 'typography'
+description: 'Inline or block code without syntax highlight'
+example: 'https://codesandbox.io/embed/title-neubxl?fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark&view=preview'
+---
+
+## Usage
+
+Use the Title component to render h1-h6 headings with SvelteUI theme styles.
+By default, Title has no margins and paddings.
+
+Pass `order` prop to render specific element (h1-h6), default order is 1:
+
+```tsx
+<Title order={1}>This is h1 title</Title>
+<Title order={2}>This is h2 title</Title>
+<Title order={3}>This is h3 title</Title>
+<Title order={4}>This is h4 title</Title>
+<Title order={5}>This is h5 title</Title>
+<Title order={6}>This is h6 title</Title>
+```
+
+## Shared Props
+
+The Title component takes all the same props as the Text component
+
+```tsx
+<Title order={1}>This is h1 title</Title>
+<Title order={1} variant='gradient'>This is h1 title with a twist</Title>
+```

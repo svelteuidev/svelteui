@@ -1,11 +1,8 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
+.next
+.now
 .env
 .env.*
-!.env.example
-/bin
-/.svelte-kit
-/package
+node_modules
+*.log
+.DS_Store
+.vercel
