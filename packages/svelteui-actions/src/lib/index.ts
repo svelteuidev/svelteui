@@ -5,3 +5,7 @@ export { download } from './use-download/use-download.js';
 export { focus } from './use-focus/use-focus.js';
 export { pageleave } from './use-page-leave/use-page-leave.js';
 export { tableave } from './use-tab-leave/use-tab-leave.js';
+export { lazy } from './use-lazy/use-lazy.js';
+export { longpress } from './use-long-press/use-long-press.js';
+export { hotkey } from './use-hot-key/use-hot-key.js';
+export { persistenttab } from './use-persistent-tab/use-persistent-tab.js';

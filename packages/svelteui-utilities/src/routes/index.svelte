@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import { isClient, sleep, useOs, randomID, rafFn } from '$lib';
+	// import { isClient, sleep, os, randomID, rafFn, hash } from '$lib';
 
 	/*
 	let count = 0;
