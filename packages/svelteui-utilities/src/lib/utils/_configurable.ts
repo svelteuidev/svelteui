@@ -1,6 +1,6 @@
 // need a workaround to this, cannot import browser from $app/env as of now
 const isBrowser = () => typeof window !== 'undefined';
-const browser = isBrowser();
+export const browser = isBrowser();
 
 export interface ConfigurableWindow {
 	/*
