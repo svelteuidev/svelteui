@@ -16,7 +16,7 @@
 		flexDirection: 'column',
 		alignItems: `${align}`,
 		justifyContent: `${justify}`,
-		gap: typeof spacing === 'number' ? `${spacing}px` : ''
+		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`
 	});
 
 	// --------------Error Handling-------------------
@@ -33,4 +33,23 @@
 
 <Error {observable} component="Stack" code={err} />
 
-<Box css={override} class="{className} {StackStyles()}" />
+<!--
+@component
+**UNSTABLE**: new API, yet to be vetted.
+
+Compose elements and components in a vertical flex container.
+	
+@see https://svelteui-docs.vercel.app/docs/core/stack
+@example
+    ```svelte
+    <Stack align="flex-end" justify="space-between" override={{ height: 300 }}>
+		<Button variant="outline">1</Button>
+		<Button variant="outline">2</Button>
+		<Button variant="outline">3</Button>
+	</Stack>
+    ```
+-->
+
+<Box css={override} class="{className} {StackStyles()}">
+	<slot />
+</Box>
