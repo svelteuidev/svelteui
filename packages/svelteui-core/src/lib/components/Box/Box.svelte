@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { css as _css } from '$lib/styles';
-	import type { Override } from '$lib/styles';
+	import type { BoxProps } from './Box.styles';
 
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: BoxProps["className"] = '';
 	export { className as class };
 	/** Css prop for custom theming the component */
-	export let css: Override['props'] = {};
+	export let css: BoxProps["override"] = {};
 	/** The component or HTML tag to be used as the root component for the text */
-	export let root: keyof HTMLElementTagNameMap = undefined;
+	export let root: BoxProps["root"] = undefined;
 
-	let isHTMLComponent;
+	let isHTMLElement;
 	let isComponent;
 	$: {
-		isHTMLComponent = root && typeof root === 'string';
+		isHTMLElement = root && typeof root === 'string';
 		isComponent = root && typeof root === 'function';
 	}
 
@@ -24,25 +24,26 @@
 @component
 **UNSTABLE**: new API, yet to be vetted.
 
-Display text and links with theme styles.
+Add inline styles to any element or component with sx.
 	
-@see https://svelteui-docs.vercel.app/docs/core/text
+@see https://svelteui-docs.vercel.app/docs/core/box
 @example
     ```svelte
-    <Box>example</Box>
+    <Box css={{backgroundColor: '$blue600'}}>example</Box>
+	<Box root='span'>example</Box>
     ```
 -->
 
-{#if isHTMLComponent}
+{#if isHTMLElement}
 	<svelte:element this={root} class="{className} {BoxStyles({ css })}" {...$$restProps}>
-		<slot>Enter some text</slot>
+		<slot>Fill the box up</slot>
 	</svelte:element>
 {:else if isComponent}
-	<svelte:component this={root} class="text {className} {BoxStyles({ css })}" {...$$restProps}>
-		<slot>Enter some text</slot>
+	<svelte:component this={root} class="{className} {BoxStyles({ css })}" {...$$restProps}>
+		<slot>Fill the box up</slot>
 	</svelte:component>
 {:else}
 	<div class="{className} {BoxStyles({ css })}" {...$$restProps}>
-		<slot>Enter some text</slot>
+		<slot>Fill the box up</slot>
 	</div>
 {/if}

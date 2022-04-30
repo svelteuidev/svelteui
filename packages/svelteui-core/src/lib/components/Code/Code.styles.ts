@@ -1,7 +1,10 @@
-import type { SvelteuiColor } from '$lib/styles';
+import type { SvelteuiColor, DefaultProps } from '$lib/styles';
 
-export interface GetVariantStyles {
+export interface CodeProps extends DefaultProps {
 	color: SvelteuiColor;
-	variant: 'filled' | 'light' | 'outline' | 'default' | 'white' | 'gradient' | 'subtle';
-	gradient?: { from: SvelteuiColor; to: SvelteuiColor; deg: number };
+	block: boolean;
+	width: number;
+	copy: boolean;
+	message: string;
+	noMono: boolean;
 }
