@@ -1,3 +1,4 @@
+export type { SvelteUIProviderProps } from './SvelteUIProvider';
 export type { DefaultProps } from './DefaultProps';
 export type { ColorScheme, DefaultBackground, DefaultColor } from './ColorScheme';
 export type { SvelteuiColor } from './SvelteuiColor';
