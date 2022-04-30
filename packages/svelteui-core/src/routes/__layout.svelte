@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { SvelteUIProvider } from '$lib';
-	import { Button, Text } from '$lib';
-	import type { CSS } from '$lib';
+	import { Button, Text, Box } from '$lib';
+	import type { CSS } from '@stitches/core';
 
 	let darkMode: boolean = false;
 	const toggleTheme = () => {
@@ -16,7 +16,7 @@
 </script>
 
 <SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={darkMode ? 'dark' : 'light'}>
-	<div class="title-container">
+	<Box css={{ position: 'relative', mt: '$4' }}>
 		<Button {override} on:click={toggleTheme} variant="gradient"
 			>{darkMode ? 'Dark' : 'Light'} Mode</Button
 		>
@@ -25,19 +25,8 @@
 			>This is a test route to test the core package</Text
 		>
 		<hr />
-	</div>
-	<div class="container">
+	</Box>
+	<Box css={{ padding: '2rem', margin: '0rem auto' }}>
 		<slot />
-	</div>
+	</Box>
 </SvelteUIProvider>
-
-<style>
-	.container {
-		padding: 2rem;
-		margin: 0 auto;
-	}
-	.title-container {
-		position: relative;
-		margin-top: 10px;
-	}
-</style>

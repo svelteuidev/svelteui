@@ -4,25 +4,25 @@
 	import { clipboard } from '$lib/internal';
 	import { CodeErrors } from './Code.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { SvelteuiColor, Override } from '$lib/styles';
+	import type { CodeProps } from './Code.styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: CodeProps['className'] = '';
 	export { className as class };
 	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
+	export let override: CodeProps['override'] = {};
 	/** Code color and background from the default theme */
-	export let color: SvelteuiColor = 'gray';
+	export let color: CodeProps['color'] = 'gray';
 	/** True for code block, false for inline code */
-	export let block: boolean = false;
+	export let block: CodeProps['block'] = false;
 	/** The width of the code block when set to block */
-	export let width: number = 100;
+	export let width: CodeProps['width'] = 100;
 	/** With copy prop will allow for string in the associated method prop to be copied*/
-	export let copy = false;
+	export let copy: CodeProps['copy'] = false;
 	/** Message prop will be the text that is copied when the copy prop is enabled */
-	export let message: string = 'Copied';
+	export let message: CodeProps['message'] = 'Copied';
 	/** Changes the font of the text to match the standard font */
-	export let noMono: boolean = false;
+	export let noMono: CodeProps['noMono'] = false;
 
 	/** Copy logic */
 	let copied = false;

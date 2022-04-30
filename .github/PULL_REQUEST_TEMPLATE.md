@@ -14,22 +14,12 @@ Happy contributing!
 
 -->
 
-## Rationale
+### Before submitting the PR, please make sure you do the following
 
-<!--
-Provide a description of what this PR does.
-Link issue if there is one, uses `Fixes #ISSUE` if PR fixes a documented bug
--->
+- [ ] Read the [Contributing guide](https://github.com/Brisklemonade/svelteui/blob/main/CONTRIBUTING.md)
+- [ ] Prefix your PR title with `[@svelteui/core]`, `[@svelteui/actions]`, `[@svelteui/motion]`, `[@svelteui/core]`, `[core]`, or `[docs]`.
+- [ ] This message body should clearly illustrate what problems it solves.
 
-Related issue: #ISSUE
+### Tests
 
-### Videos and screenshots
-
-<!--
-Provide a screenshot or video of the added feature, if it is called for
--->
-
-### Checklist
-
-- [ ] I have read the [Contributing guide](https://github.com/Brisklemonade/svelteui/blob/main/CONTRIBUTING.md)
-- [ ] Command `npm run repo:prepush` passing
+- [ ] Run the tests with `npm test` and lint the project with `npm run lint` or just run `npm run repo:prepush` and check to see if it's passing.

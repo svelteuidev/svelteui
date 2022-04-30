@@ -1,19 +1,23 @@
 <script lang="ts">
-	import { dark, theme, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from './index';
-	import type { ColorScheme } from './types';
+	import { dark, theme, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from './index';
+	import type { SvelteUIProviderProps } from './types';
 
-	export let themeObserver: ColorScheme = 'light';
-	export let withNormalizeCSS: boolean = false
-	export let withGlobalStyles: boolean = false
-	export let ssr: boolean = false;
+	export let themeObserver: SvelteUIProviderProps['themeObserver'] = 'light';
+	export let withNormalizeCSS: SvelteUIProviderProps['withNormalizeCSS'] = false;
+	export let withGlobalStyles: SvelteUIProviderProps['withGlobalStyles'] = false;
+	export let ssr: SvelteUIProviderProps['ssr'] = false;
+	export let override: SvelteUIProviderProps['override'] = {};
 
-	// weird behavior occurs if the logic is not stored in a variable
+	/**
+	 * weird behavior occurs if the logic is not stored in a variable
+	 */
 	const ssrStyles = `<style\tid="stitches">${getCssText()}<\/style>`; //eslint-disable-line
-	const globalStylesLight = `<style\tid="svelteui-inject" type="text\/css">body{background-color: white;color: black;}<\/style>` //eslint-disable-line
-	const globalStylesDark = `<style\tid="svelteui-inject" type="text\/css">body{background-color: #1A1B1E;color: #C1C2C5;}<\/style>` //eslint-disable-line
+	const globalStylesLight = `<style\tid="svelteui-inject" type="text\/css">body{background-color: white;color: black;}<\/style>`; //eslint-disable-line
+	const globalStylesDark = `<style\tid="svelteui-inject" type="text\/css">body{background-color: #1A1B1E;color: #C1C2C5;}<\/style>`; //eslint-disable-line
+	const ProviderStyles = css({});
 
 	$: if (withNormalizeCSS) NormalizeCSS();
-	SvelteUIGlobalCSS()
+	SvelteUIGlobalCSS();
 </script>
 
 <svelte:head>
@@ -29,6 +33,6 @@
 	{/if}
 </svelte:head>
 
-<div class="{themeObserver === 'light' ? theme : dark}">
+<div class="{ProviderStyles({ css: override })} {themeObserver === 'light' ? theme : dark}">
 	<slot />
 </div>

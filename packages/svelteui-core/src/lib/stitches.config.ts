@@ -1,5 +1,6 @@
 import { createStitches, defaultThemeMap } from '@stitches/core';
 import { colors } from './styles';
+import type * as Stitches from '@stitches/core';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
 	{
@@ -143,214 +144,213 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 					outline: value === 'auto' || value === 'never' ? 'none' : undefined
 				}
 			}),
-			pt: (value: string | number) => ({
+			/** padding top */
+			pt: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingTop: value
 			}),
-			pr: (value: string | number) => ({
+			pr: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingRight: value
 			}),
-			pb: (value: string | number) => ({
+			pb: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingBottom: value
 			}),
-			pl: (value: string | number) => ({
+			pl: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingLeft: value
 			}),
-			px: (value: string | number) => ({
+			px: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingLeft: value,
 				paddingRight: value
 			}),
-			py: (value: string | number) => ({
+			py: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingTop: value,
 				paddingBottom: value
 			}),
-			// Abbreviated padding properties
-			m: (value: string | number) => ({
+			/** margin */
+			m: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				margin: value
 			}),
-			mt: (value: string | number) => ({
+			/** margin-top */
+			mt: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginTop: value
 			}),
-			mr: (value: string | number) => ({
+			mr: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginRight: value
 			}),
-			mb: (value: string | number) => ({
+			mb: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginBottom: value
 			}),
-			ml: (value: string | number) => ({
+			ml: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginLeft: value
 			}),
-			mx: (value: string | number) => ({
+			mx: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginLeft: value,
 				marginRight: value
 			}),
-			my: (value: string | number) => ({
+			my: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				marginTop: value,
 				marginBottom: value
 			}),
-			ta: (value: string | number) => ({
+			ta: (value: Stitches.PropertyValue<'textAlign'>) => ({
 				textAlign: value
 			}),
-			tt: (value: string | number) => ({
+			tt: (value: Stitches.PropertyValue<'textTransform'>) => ({
 				textTransform: value
 			}),
-			to: (value: string | number) => ({
+			to: (value: Stitches.PropertyValue<'textOverflow'>) => ({
 				textOverflow: value
 			}),
-			d: (value: string | number) => ({ display: value }),
-			dflex: (value: string | number) => ({
+			d: (value: Stitches.PropertyValue<'display'>) => ({ display: value }),
+			dflex: (value: Stitches.PropertyValue<'alignItems' | 'justifyContent'>) => ({
 				display: 'flex',
 				alignItems: value,
 				justifyContent: value
 			}),
-			fd: (value: string | number) => ({
+			fd: (value: Stitches.PropertyValue<'flexDirection'>) => ({
 				flexDirection: value
 			}),
-			fw: (value: string | number) => ({ flexWrap: value }),
-			ai: (value: string | number) => ({
+			fw: (value: Stitches.PropertyValue<'flexWrap'>) => ({ flexWrap: value }),
+			ai: (value: Stitches.PropertyValue<'alignItems'>) => ({
 				alignItems: value
 			}),
-			ac: (value: string | number) => ({
+			ac: (value: Stitches.PropertyValue<'alignContent'>) => ({
 				alignContent: value
 			}),
-			jc: (value: string | number) => ({
+			jc: (value: Stitches.PropertyValue<'justifyContent'>) => ({
 				justifyContent: value
 			}),
-			as: (value: string | number) => ({
+			as: (value: Stitches.PropertyValue<'alignSelf'>) => ({
 				alignSelf: value
 			}),
-			fg: (value: string | number) => ({ flexGrow: value }),
-			fs: (value: string | number) => ({
+			fg: (value: Stitches.PropertyValue<'flexGrow'>) => ({ flexGrow: value }),
+			fs: (value: Stitches.PropertyValue<'fontSize'>) => ({
 				fontSize: value
 			}),
-			fb: (value: string | number) => ({
+			fb: (value: Stitches.PropertyValue<'flexBasis'>) => ({
 				flexBasis: value
 			}),
-			bc: (value: string | number) => ({
+			bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
 				backgroundColor: value
 			}),
-			bf: (value: string | number) => ({
+			bf: (value: Stitches.PropertyValue<'backdropFilter'>) => ({
 				backdropFilter: value
 			}),
-			bg: (value: string | number) => ({
+			bg: (value: Stitches.PropertyValue<'background'>) => ({
 				background: value
 			}),
-			bgBlur: (value: string | number) => ({
+			bgBlur: (value: Stitches.PropertyValue<'background'>) => ({
 				bf: 'saturate(180%) blur(10px)',
-				bg: `${value}66`
+				bg: value
 			}),
-			bgColor: (value: string | number) => ({
+			bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
 				backgroundColor: value
 			}),
-			backgroundClip: (value: string | number) => ({
+			backgroundClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
 				WebkitBackgroundClip: value,
 				backgroundClip: value
 			}),
-			bgClip: (value: string | number) => ({
+			bgClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
 				WebkitBackgroundClip: value,
 				backgroundClip: value
 			}),
-			br: (value: string | number) => ({
+			br: (value: Stitches.PropertyValue<'borderRadius'>) => ({
 				borderRadius: value
 			}),
-			bw: (value: string | number) => ({
+			bw: (value: Stitches.PropertyValue<'borderWidth'>) => ({
 				borderWidth: value
 			}),
-			btrr: (value: string | number) => ({
+			btrr: (value: Stitches.PropertyValue<'borderTopRightRadius'>) => ({
 				borderTopRightRadius: value
 			}),
-			bbrr: (value: string | number) => ({
+			bbrr: (value: Stitches.PropertyValue<'borderBottomRightRadius'>) => ({
 				borderBottomRightRadius: value
 			}),
-			bblr: (value: string | number) => ({
+			bblr: (value: Stitches.PropertyValue<'borderBottomLeftRadius'>) => ({
 				borderBottomLeftRadius: value
 			}),
-			btlr: (value: string | number) => ({
+			btlr: (value: Stitches.PropertyValue<'borderTopLeftRadius'>) => ({
 				borderTopLeftRadius: value
 			}),
-			bs: (value: string | number) => ({
+			bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({
 				boxShadow: value
 			}),
-			normalShadow: (value: string | number) => ({
-				boxShadow: `0 4px 14px 0 $colors${value}`
+			normalShadow: (value: keyof typeof colors) => ({
+				boxShadow: `0 4px 14px 0 $${value}`
 			}),
-			normalShadowVar: (value: string | number) => ({
-				boxShadow: `0 4px 14px 0 ${value}`
-			}),
-			lh: (value: string | number) => ({
+			lh: (value: Stitches.PropertyValue<'lineHeight'>) => ({
 				lineHeight: value
 			}),
-			ov: (value: string | number) => ({ overflow: value }),
-			ox: (value: string | number) => ({
+			ov: (value: Stitches.PropertyValue<'overflow'>) => ({ overflow: value }),
+			ox: (value: Stitches.PropertyValue<'overflowX'>) => ({
 				overflowX: value
 			}),
-			oy: (value: string | number) => ({
+			oy: (value: Stitches.PropertyValue<'overflowY'>) => ({
 				overflowY: value
 			}),
-			pe: (value: string | number) => ({
+			pe: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
 				pointerEvents: value
 			}),
-			events: (value: string | number) => ({
+			events: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
 				pointerEvents: value
 			}),
-			us: (value: string | number) => ({
+			us: (value: Stitches.PropertyValue<'userSelect'>) => ({
 				WebkitUserSelect: value,
 				userSelect: value
 			}),
-			userSelect: (value: string | number) => ({
+			userSelect: (value: Stitches.PropertyValue<'userSelect'>) => ({
 				WebkitUserSelect: value,
 				userSelect: value
 			}),
-			w: (value: string | number) => ({ width: value }),
-			h: (value: string | number) => ({ height: value }),
-			mw: (value: string | number) => ({ maxWidth: value }),
-			maxW: (value: string | number) => ({
+			w: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ width: value }),
+			h: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ height: value }),
+			mw: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ maxWidth: value }),
+			maxW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value
 			}),
-			mh: (value: string | number) => ({
+			mh: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxHeight: value
 			}),
-			maxH: (value: string | number) => ({
+			maxH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxHeight: value
 			}),
-			size: (value: string | number) => ({
+			size: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				width: value,
 				height: value
 			}),
-			minSize: (value: string | number) => ({
+			minSize: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				minWidth: value,
 				minHeight: value,
 				width: value,
 				height: value
 			}),
-			sizeMin: (value: string | number) => ({
+			sizeMin: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				minWidth: value,
 				minHeight: value,
 				width: value,
 				height: value
 			}),
-			maxSize: (value: string | number) => ({
+			maxSize: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value,
 				maxHeight: value
 			}),
-			sizeMax: (value: string | number) => ({
+			sizeMax: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value,
 				maxHeight: value
 			}),
-			appearance: (value: string | number) => ({
+			appearance: (value: Stitches.PropertyValue<'appearance'>) => ({
 				WebkitAppearance: value,
 				appearance: value
 			}),
-			scale: (value: string | number) => ({
+			scale: (value: string) => ({
 				transform: `scale(${value})`
 			}),
-			linearGradient: (value: string | number) => ({
+			linearGradient: (value: string) => ({
 				backgroundImage: `linear-gradient(${value})`
 			}),
-			tdl: (value: string | number) => ({
+			tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
 				textDecorationLine: value
 			}),
 			// Text gradient effect
-			textGradient: (value: string | number) => ({
+			textGradient: (value: string) => ({
 				backgroundImage: `linear-gradient(${value})`,
 				WebkitBackgroundClip: 'text',
 				WebkitTextFillColor: 'transparent'

@@ -1,0 +1,55 @@
+<script lang="ts">
+	import { css } from '$lib/styles';
+	import Box from '../Box/Box.svelte';
+	import Error from '$lib/internal/errors/Error.svelte';
+	import type { StackProps } from './Stack.styles';
+
+	export let className: StackProps['className'] = '';
+	export { className as class };
+	export let override: StackProps['override'] = {};
+	export let spacing: StackProps['spacing'] = 'md';
+	export let align: StackProps['align'] = 'stretch';
+	export let justify: StackProps['justify'] = 'center';
+
+	const StackStyles = css({
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: `${align}`,
+		justifyContent: `${justify}`,
+		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`
+	});
+
+	// --------------Error Handling-------------------
+	let observable: boolean = false;
+	let err;
+
+	// if () {
+	// 	observable = true;
+	// 	err = {};
+	// }
+
+	$: if (observable) override = { display: 'none' };
+</script>
+
+<Error {observable} component="Stack" code={err} />
+
+<!--
+@component
+**UNSTABLE**: new API, yet to be vetted.
+
+Compose elements and components in a vertical flex container.
+	
+@see https://svelteui-docs.vercel.app/docs/core/stack
+@example
+    ```svelte
+    <Stack align="flex-end" justify="space-between" override={{ height: 300 }}>
+		<Button variant="outline">1</Button>
+		<Button variant="outline">2</Button>
+		<Button variant="outline">3</Button>
+	</Stack>
+    ```
+-->
+
+<Box css={override} class="{className} {StackStyles()}">
+	<slot />
+</Box>

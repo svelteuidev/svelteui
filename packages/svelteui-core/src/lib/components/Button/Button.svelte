@@ -6,6 +6,7 @@
 	import { sizes } from './Button.styles';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
+	import Ripple from './Ripple.svelte';
 	import type { ButtonVariant, LoaderProps } from './Button.styles';
 	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles';
 
@@ -44,6 +45,8 @@
 	export let uppercase: boolean = false;
 	/** fullSize will set button width to 100% */
 	export let fullSize: boolean = false;
+	/** ripple will add a mui ripple effect to the button on click */
+	export let ripple: boolean = false;
 	// --------------------------------------------
 
 	/** An action that forwards inner dom node events to parent component */
@@ -151,7 +154,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	>
 		{#if loading && loaderPosition === 'left'}
 			<span class="loader-left">
-				<Loader size={'xs'} color={'white'} />
+				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.leftIcon}
 			<span class="loader-left">
@@ -159,9 +162,12 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			</span>
 		{/if}
 		<slot>Button</slot>
+		{#if ripple}
+			<Ripple center={false} circle={false} />
+		{/if}
 		{#if loading && loaderPosition === 'right'}
 			<span class="loader-right">
-				<Loader size={'xs'} color={'white'} />
+				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.rightIcon}
 			<span class="loader-right">
@@ -191,6 +197,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			</span>
 		{/if}
 		<slot>Button</slot>
+		{#if ripple}
+			<Ripple center={false} circle={false} />
+		{/if}
 		{#if loading && loaderPosition === 'right'}
 			<span class="loader-right">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />

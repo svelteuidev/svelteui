@@ -1,4 +1,7 @@
-import type { CSS } from '@stitches/core';
+import type { config } from '../../stitches.config';
+import type * as Stitches from '@stitches/core';
+
+export type CSS = Stitches.CSS<typeof config>;
 
 export type LoaderType = 'bars' | 'circle' | 'dots';
 

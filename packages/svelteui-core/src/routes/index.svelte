@@ -1,6 +1,6 @@
 <script lang="ts">
 	// prettier-ignore
-	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title } from '$lib';
+	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title, Box, Stack } from '$lib';
 </script>
 
 <!-- 
@@ -21,4 +21,10 @@ and other similar sections
 </BackgroundImage>
 <ActionIcon>+</ActionIcon>
 <Title variant="gradient" order={2}>This is a title</Title>
+<Stack align="flex-end" justify="space-between" override={{ height: 300 }}>
+	<Button variant="outline">1</Button>
+	<Button variant="outline">2</Button>
+	<Button variant="outline">3</Button>
+</Stack>
 -->
+<!-- <Box css={{pt: '$18'}}>Hello</Box> -->
