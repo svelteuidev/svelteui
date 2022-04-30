@@ -39,11 +39,10 @@ export function cssvariable(
 	});
 
 	return {
-		update(_props: UnknownKeyString<string>) {
+		update(_props) {
 			Object.entries(_props).forEach(([key, value]) => {
 				node.style.setProperty(`--${key}`, `${value}`);
 				delete props[key];
-				props = _props;
 			});
 
 			Object.keys(props).forEach((name) => node.style.removeProperty(`--${name}`));
