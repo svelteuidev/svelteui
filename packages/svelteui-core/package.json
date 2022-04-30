@@ -23,7 +23,6 @@
     "@svelteuidev/tsconfig": "^*",
     "autoprefixer": "10.4.4",
     "cssnano": "5.1.7",
-    "eslint-preset-svelteui": "*",
     "postcss": "8.4.12",
     "sass": "1.50.0",
     "svelte": "3.47.0",
