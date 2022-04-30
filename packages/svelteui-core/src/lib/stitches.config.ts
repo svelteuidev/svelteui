@@ -143,6 +143,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 					outline: value === 'auto' || value === 'never' ? 'none' : undefined
 				}
 			}),
+			/** padding top */
 			pt: (value: string | number) => ({
 				paddingTop: value
 			}),
@@ -167,6 +168,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			m: (value: string | number) => ({
 				margin: value
 			}),
+			/** margin-top */
 			mt: (value: string | number) => ({
 				marginTop: value
 			}),

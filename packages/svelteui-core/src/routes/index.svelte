@@ -1,6 +1,6 @@
 <script lang="ts">
 	// prettier-ignore
-	import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title, Box } from '$lib';
+	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title, Box } from '$lib';
 </script>
 
 <!-- 
