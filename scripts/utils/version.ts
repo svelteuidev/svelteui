@@ -16,8 +16,8 @@ export function calculateVersion(type: string, version: string): string {
     return newVersion.join(".");
 }
 
-export function updateVersions(version: string, packageJSON: Record<string, any>): Record<string, any> {
-    packageJSON.version = version;
+export function updateVersions(version: string, packageJSON: Record<string, any>, skipPackageBump: boolean): Record<string, any> {
+    if (!skipPackageBump) packageJSON.version = version;
 
     for(const tree of ["dependencies", "peerDependencies"]) {
         if (!(tree in Object.keys(packageJSON))) continue;
