@@ -23,9 +23,9 @@
 		"package": {
 			"outputs": ["package"]
 		},
-		"types": {
+		"generate-types": {
 			"dependsOn": ["^package"],
-			"outputs": ["types"]
+			"outputs": ["package/types"]
 		},
 		"test": {
 			"dependsOn": ["^format", "^lint"],
