@@ -21,7 +21,6 @@
     "configuration/*"
   ],
   "scripts": {
-    "build": "turbo run build",
     "bump:major": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts major",
     "bump:minor": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts minor",
     "bump:patch": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts patch",
