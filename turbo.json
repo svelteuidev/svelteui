@@ -23,6 +23,10 @@
 		"package": {
 			"outputs": ["package"]
 		},
+		"types": {
+			"dependsOn": ["^package"],
+			"outputs": ["types"]
+		},
 		"test": {
 			"dependsOn": ["^format", "^lint"],
 			"outputs": [],

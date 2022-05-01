@@ -14,3 +14,5 @@ export {
 	NormalizeCSS,
 	SvelteUIGlobalCSS
 } from '../stitches.config';
+
+export { default as SvelteUIProvider } from './SvelteUIProvider.svelte';
