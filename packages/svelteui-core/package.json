@@ -14,7 +14,7 @@
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
     "sort": "npx sort-package-json",
-    "types": "deno run --unstable --allow-read --allow-write ../../scripts/types/types.ts"
+    "types": "deno run --unstable --allow-read --allow-write ../../scripts/types.ts"
   },
   "dependencies": {
     "@stitches/core": "1.2.7"
