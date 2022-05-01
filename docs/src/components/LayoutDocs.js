@@ -93,7 +93,7 @@ export const LayoutDocs = (props) => {
 										{props.meta.example ? (
 											<iframe
 												src={props.meta.example}
-												title={`Brisklemonade/svelteui: ${props.meta.id}`}
+												title={`svelteuidev/svelteui: ${props.meta.id}`}
 												sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 												style={{
 													width: '100%',

@@ -5,12 +5,12 @@ const links = {
 	resources: [{ href: '/overview', title: 'Docs' }],
 	community: [
 		{
-			href: 'https://github.com/Brisklemonade/svelteui/discussions',
+			href: 'https://github.com/svelteuidev/svelteui/discussions',
 			title: 'Discussions'
 		},
 		{ href: 'https://discord.gg/2J2xmzCS79', title: 'SvelteUI Discord' },
 		{
-			href: 'https://github.com/Brisklemonade/svelteui/releases',
+			href: 'https://github.com/svelteuidev/svelteui/releases',
 			title: 'Releases'
 		}
 	]
@@ -57,15 +57,15 @@ export const Footer = (props) => {
 									<li className="mt-4">
 										<a
 											className="github-button"
-											href="https://github.com/Brisklemonade/svelteui"
+											href="https://github.com/svelteuidev/svelteui"
 											data-color-scheme="no-preference: light; light: light; dark: dark;"
 											data-icon="octicon-star"
 											data-size="large"
 											data-show-count="true"
-											aria-label="Star Brisklemonade/svelteui on GitHub"
+											aria-label="Star svelteuidev/svelteui on GitHub"
 										>
 											<img
-												src="https://img.shields.io/github/stars/Brisklemonade/svelteui?style=social"
+												src="https://img.shields.io/github/stars/svelteuidev/svelteui?style=social"
 												alt=""
 											/>
 											Stars
@@ -85,7 +85,7 @@ export const Footer = (props) => {
 						, and These{' '}
 						<a
 							style={{ textDecoration: 'underline' }}
-							href="https://github.com/Brisklemonade/svelteui/graphs/contributors"
+							href="https://github.com/svelteuidev/svelteui/graphs/contributors"
 						>
 							Awesome Contributors
 						</a>

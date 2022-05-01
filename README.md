@@ -3,25 +3,25 @@
 <br />
 <div align="center">
    <img src="gallery/Logo.png" alt="Logo" width="80" height="80">
-  <a href="https://github.com/Brisklemonade/svelteui">
+  <a href="https://github.com/svelteuidev/svelteui">
     <h1 align="center">svelteui</h1>
   </a>
 
-[![NPM](https://img.shields.io/github/license/Brisklemonade/svelteui)](https://github.com/Brisklemonade/svelteui/blob/main/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/Brisklemonade/svelteui)](https://github.com/Brisklemonade/svelteui/graphs/contributors)
+[![NPM](https://img.shields.io/github/license/svelteuidev/svelteui)](https://github.com/svelteuidev/svelteui/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/svelteuidev/svelteui)](https://github.com/svelteuidev/svelteui/graphs/contributors)
 [![npm](https://img.shields.io/npm/v/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
 [![npm](https://img.shields.io/npm/dm/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
-[![Help wanted](https://img.shields.io/github/labels/Brisklemonade/svelteui/help%20wanted?label=Contribute)](https://github.com/Brisklemonade/svelteui/labels/help%20wanted)
+[![Help wanted](https://img.shields.io/github/labels/svelteuidev/svelteui/help%20wanted?label=Contribute)](https://github.com/svelteuidev/svelteui/labels/help%20wanted)
 [![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/2J2xmzCS79)
 
   <p align="center">
-   SvelteUI is a component library for building fully functional & accessible web applications faster than ever
+   SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could yo ask for ¯\_(ツ)_/¯
     <br />
     <a href="https://svelteui-docs.vercel.app/"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/Brisklemonade/svelteui/issues">Report Bug</a>
+    <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Brisklemonade/svelteui/issues">Request Feature</a>
+    <a href="https://github.com/svelteuidev/svelteui/issues">Request Feature</a>
   </p>
 </div>
 
@@ -31,9 +31,9 @@
 
 ## **About The Project**
 
-## [![Time period](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_badge.svg)](https://repography.com)
+## [![Time period](https://images.repography.com/24930506/svelteuidev/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_badge.svg)](https://repography.com)
 
-[![Timeline graph](https://images.repography.com/24930506/Brisklemonade/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_timeline.svg)](https://github.com/Brisklemonade/svelteui/commits)
+[![Timeline graph](https://images.repography.com/24930506/svelteuidev/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_timeline.svg)](https://github.com/svelteuidev/svelteui/commits)
 
 [Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
 
@@ -48,9 +48,9 @@
 - Minimal third-party dependency usage.
 - Easy setup - **Zero Configuration**
 
-### Undocumented Components
+### Undocumented Components & Functions
 
-The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/Brisklemonade/svelteui/issues/15) is where you can keep track of the progress.
+The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
 
 > Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
 
@@ -71,7 +71,7 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord |:
 
 - [Join Discord community](https://discord.gg/2J2xmzCS79) – it will be the easiest way to get help.
-- [Github Discussions](https://github.com/Brisklemonade/svelteui/discussions) - you can discuss anything relating to the project here.
+- [Github Discussions](https://github.com/svelteuidev/svelteui/discussions) - you can discuss anything relating to the project here.
 
 <br />
 
@@ -86,8 +86,8 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contributors
 
-<a href="https://github.com/Brisklemonade/svelteui/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Brisklemonade/svelteui" />
+<a href="https://github.com/svelteuidev/svelteui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=svelteuidev/svelteui" />
 </a>
 
 <br />

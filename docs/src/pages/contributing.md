@@ -15,8 +15,8 @@ If you are even viewing this page, I would like to thank you. If you have the ab
 - **Improve documentation:** fix incomplete or missing docs, bad wording, examples or explanations
 - **Give feedback:** we are constantly working on making SvelteUI better, please share how you use SvelteUI, what features are missing and what is done good via GitHub Discussions
 - **Share SvelteUI:** share link to SvelteUI docs with everyone who can be interested, share SvelteUI on Twitter
-- **Contribute to codebase:** propose new feature via GitHub Issues or find an [existing one](https://github.com/Brisklemonade/svelteui/labels/help%20wanted) that you are interested in and work on it
-- **Give us a code review:** help us identify problems with [source code](https://github.com/Brisklemonade/svelteui) or make SvelteUI more performant
+- **Contribute to codebase:** propose new feature via GitHub Issues or find an [existing one](https://github.com/svelteuidev/svelteui/labels/help%20wanted) that you are interested in and work on it
+- **Give us a code review:** help us identify problems with [source code](https://github.com/svelteuidev/svelteui) or make SvelteUI more performant
 
 ## Contributing workflow
 
@@ -57,13 +57,13 @@ Examples:
 ## Get started with SvelteUI locally
 
 - Install [editorconfig](https://editorconfig.org/) extension for your editor
-- Fork [repository](https://github.com/Brisklemonade/svelteui), clone or download your fork
+- Fork [repository](https://github.com/svelteuidev/svelteui), clone or download your fork
 - Install dependencies with npm - `npm i`
 - To start docs - `cd docs && yarn install && yarn dev`
 
 ## NPM scripts
 
-All packages npm scripts are located at [main package.json](https://github.com/Brisklemonade/svelteui/blob/main/package.json),
+All packages npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be ran from the root of the monorepo.
 
 ## Testing scripts
