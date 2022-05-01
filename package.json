@@ -22,8 +22,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "clean": "rimraf packages/*/{node_modules,package,.turbo} packages/*/.svelte-kit/{generated,runtime,types}",
-    "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo}",
+    "clean": "rimraf packages/*/{node_modules,package,.turbo,types} packages/*/.svelte-kit/{generated,runtime,types}",
+    "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types}",
     "coverage": "turbo run coverage --parallel",
     "dev": "turbo run dev --parallel",
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
@@ -39,7 +39,8 @@
     "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
     "repo:update": "sh scripts/git/update-branches.sh",
     "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
-    "test": "turbo run test --parallel"
+    "test": "turbo run test --parallel",
+    "types": "turbo run types --parallel"
   },
   "lint-staged": {
     "*.--parallel": "prettier --write"

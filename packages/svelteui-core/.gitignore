@@ -4,6 +4,7 @@ node_modules
 /.svelte-kit/*
 !/.svelte-kit/tsconfig.json
 /package
+/types
 .env
 
 /coverage

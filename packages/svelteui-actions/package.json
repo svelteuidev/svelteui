@@ -15,7 +15,8 @@
     "package": "svelte-kit package",
     "sort": "npx sort-package-json",
     "test": "vitest --run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "types": "deno run --unstable --allow-read --allow-write ../../scripts/types/types.ts"
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.310",
