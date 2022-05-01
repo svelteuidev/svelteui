@@ -21,7 +21,8 @@
 		},
 		"generate-types": {
 			"dependsOn": ["^package"],
-			"outputs": ["package/types"]
+			"outputs": ["package/types"],
+			"cache": false
 		},
 		"test": {
 			"dependsOn": ["^format", "^lint"],
