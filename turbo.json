@@ -2,10 +2,6 @@
 	"$schema": "https://turborepo.org/schema.json",
 	"baseBranch": "origin/main",
 	"pipeline": {
-		"build": {
-			"dependsOn": ["^build"],
-			"outputs": ["dist/**", ".build/**"]
-		},
 		"lint": {
 			"outputs": [],
 			"cache": false
@@ -22,6 +18,11 @@
 		},
 		"package": {
 			"outputs": ["package"]
+		},
+		"generate-types": {
+			"dependsOn": ["^package"],
+			"outputs": ["package/types"],
+			"cache": false
 		},
 		"test": {
 			"dependsOn": ["^format", "^lint"],

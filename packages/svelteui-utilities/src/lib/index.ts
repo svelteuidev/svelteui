@@ -1,6 +1,6 @@
-export { os } from './os/os.js';
-export { rafFn } from './raf-fn/raf-fn.js';
-export { hash } from './hash/hash.js';
+export { os } from './os/os';
+export { rafFn } from './raf-fn/raf-fn';
+export { hash } from './hash/hash';
 
-export * from './utils/index.js';
-export * from './types/index';
+export * from './utils';
+export * from './types';
