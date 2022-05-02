@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
-import ogImage from '../images/banner.png';
+import ogImage from '../images/new-banner.png';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const favicon = require('images/favicon.png?url');
