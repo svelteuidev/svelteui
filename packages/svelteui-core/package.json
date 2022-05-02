@@ -3,6 +3,7 @@
   "version": "0.5.6",
   "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",

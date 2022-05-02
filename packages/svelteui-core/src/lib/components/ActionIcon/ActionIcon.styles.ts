@@ -1,5 +1,28 @@
 import { vFunc, dark } from '$lib/styles';
-import type { SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles/types';
+import type { LoaderProps } from '../Loader/Loader.styles';
+import type {
+	SvelteuiColor,
+	SvelteuiNumberSize,
+	SvelteuiGradient,
+	DefaultProps
+} from '$lib/styles';
+
+export interface ActionIconProps extends DefaultProps {
+	root: keyof HTMLElementTagNameMap;
+	color: SvelteuiColor;
+	variant: ActionIconVariant;
+	size: SvelteuiNumberSize;
+	radius: SvelteuiNumberSize | number;
+	loaderProps: LoaderProps;
+	loading: boolean;
+	disabled: boolean;
+	href: string;
+	external: boolean;
+}
+
+export interface CloseButtonProps extends ActionIconProps {
+	iconSize: SvelteuiNumberSize;
+}
 
 export type ActionIconVariant =
 	| 'hover'

@@ -2,14 +2,14 @@
 	import { css } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { StackProps } from './Stack.styles';
+	import type { StackProps as $$StackProps } from './Stack.styles';
 
-	export let className: StackProps['className'] = '';
+	export let className: $$StackProps['className'] = '';
 	export { className as class };
-	export let override: StackProps['override'] = {};
-	export let spacing: StackProps['spacing'] = 'md';
-	export let align: StackProps['align'] = 'stretch';
-	export let justify: StackProps['justify'] = 'center';
+	export let override: $$StackProps['override'] = {};
+	export let spacing: $$StackProps['spacing'] = 'md';
+	export let align: $$StackProps['align'] = 'stretch';
+	export let justify: $$StackProps['justify'] = 'center';
 
 	const StackStyles = css({
 		display: 'flex',

@@ -1,5 +1,30 @@
-import type { SvelteuiColor, SvelteuiSize, SvelteuiNumberSize } from '$lib/styles';
+import type {
+	SvelteuiColor,
+	SvelteuiSize,
+	SvelteuiNumberSize,
+	SvelteuiGradient,
+	DefaultProps
+} from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
+
+export interface ButtonProps extends DefaultProps {
+	variant: ButtonVariant;
+	color: SvelteuiColor;
+	size: SvelteuiNumberSize;
+	radius: SvelteuiNumberSize | number;
+	gradient: SvelteuiGradient;
+	loaderPosition: 'left' | 'right';
+	loaderProps: LoaderProps;
+	className: string;
+	href: string;
+	external: boolean;
+	disabled: boolean;
+	compact: boolean;
+	loading: boolean;
+	uppercase: boolean;
+	fullSize: boolean;
+	ripple: boolean;
+}
 
 export type ButtonVariant =
 	| 'filled'

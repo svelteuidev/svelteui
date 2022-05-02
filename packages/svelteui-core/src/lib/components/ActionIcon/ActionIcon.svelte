@@ -6,33 +6,37 @@
 	import { get_current_component } from 'svelte/internal';
 	import Loader from '../Loader/Loader.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { LoaderProps } from '../Loader/Loader.styles';
-	import type { ActionIconVariant } from './ActionIcon.styles';
-	import type { HTMLTextElements } from '../Text/Text.styles';
-	import type { SvelteuiColor, SvelteuiNumberSize, Override } from '$lib/styles';
+	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
 
+	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
+	export let className: $$ActionIconProps['className'] = '';
+	export { className as class };
 	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
+	export let override: $$ActionIconProps['override'] = {};
 	/** The component or HTML tag to be used as the root component for the text */
-	export let root: HTMLTextElements = 'button';
+	export let root: $$ActionIconProps['root'] = 'button';
 	/** Button color from theme'yellow' | 'orange';} */
-	export let color: SvelteuiColor = 'gray';
+	export let color: $$ActionIconProps['color'] = 'gray';
 	/** Controls button appearance */
-	export let variant: ActionIconVariant = 'hover';
+	export let variant: $$ActionIconProps['variant'] = 'hover';
 	/** Predefined button size */
-	export let size: SvelteuiNumberSize = 'md';
+	export let size: $$ActionIconProps['size'] = 'md';
 	/** Button border-radius from theme or number to set border-radius in px */
-	export let radius: SvelteuiNumberSize | number = 'sm';
+	export let radius: $$ActionIconProps['radius'] = 'sm';
 	/** Props passed to Loader component */
-	export let loaderProps: LoaderProps = { size: 'xs', color: 'gray', variant: 'circle' };
+	export let loaderProps: $$ActionIconProps['loaderProps'] = {
+		size: 'xs',
+		color: 'gray',
+		variant: 'circle'
+	};
 	/** loading will set button to loading state */
-	export let loading: boolean = false;
+	export let loading: $$ActionIconProps['loading'] = false;
 	/** disabled will set button to disabled state */
-	export let disabled: boolean = false;
+	export let disabled: $$ActionIconProps['disabled'] = false;
 	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: string = '';
+	export let href: $$ActionIconProps['href'] = '';
 	/** If external is set to true, target = _blank */
-	export let external: boolean = false;
+	export let external: $$ActionIconProps['external'] = false;
 
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -118,7 +122,7 @@ Icon button to indicate secondary action.
 	class:loading
 	class:disabled
 	use:forwardEvents
-	class={ActionIconStyles({ css: override, variation: variant })}
+	class="{className} {ActionIconStyles({ css: override, variation: variant })}"
 	disabled={disabled || loading}
 	{...$$restProps}
 	tabindex="0"

@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { css as _css } from '$lib/styles';
-	import type { BoxProps } from './Box.styles';
+	import type { BoxProps as $$BoxProps } from './Box.styles';
 
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: BoxProps["className"] = '';
+	export let className: $$BoxProps['className'] = '';
 	export { className as class };
 	/** Css prop for custom theming the component */
-	export let css: BoxProps["override"] = {};
+	export let css: $$BoxProps['override'] = {};
 	/** The component or HTML tag to be used as the root component for the text */
-	export let root: BoxProps["root"] = undefined;
+	export let root: $$BoxProps['root'] = undefined;
 
 	let isHTMLElement;
 	let isComponent;

@@ -1,9 +1,19 @@
-import type { SvelteuiColor, SvelteuiNumberSize, SvelteuiSize } from '$lib/styles';
+import type { DefaultProps, Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/styles';
 
-export interface SwitchStylesProps {
+export interface SwitchProps extends DefaultProps {
+	override: Override['props'];
+	overrideLabel: Override['props'];
 	color: SvelteuiColor;
-	size: SvelteuiSize;
+	size: SvelteuiNumberSize;
 	radius: SvelteuiNumberSize;
+	transitionFunction: SwitchTimingFunction;
+	className: string;
+	id: string;
+	label: string;
+	onLabel: string;
+	offLabel: string;
+	disabled: boolean;
+	checked: boolean;
 }
 
 export type SwitchTimingFunction =

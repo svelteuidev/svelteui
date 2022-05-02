@@ -1,4 +1,31 @@
-import type { SvelteuiGradient, SvelteuiColor } from '$lib/styles';
+import type {
+	SvelteuiGradient,
+	SvelteuiColor,
+	Override,
+	SvelteuiTextAlignment,
+	SvelteuiTextTransform,
+	SvelteuiNumberSize,
+	SvelteuiNumberFontSize,
+	DefaultProps
+} from '$lib/styles';
+
+export interface TextProps extends DefaultProps {
+	className: string;
+	override: Override['props'];
+	align: SvelteuiTextAlignment;
+	color: TextColors;
+	root: HTMLTextElements;
+	transform: SvelteuiTextTransform;
+	variant: TextVariant;
+	size: SvelteuiNumberSize;
+	weight: SvelteuiNumberFontSize;
+	gradient: SvelteuiGradient;
+	inline: boolean;
+	lineClamp: number;
+	underline: boolean;
+	inherit: boolean;
+	href: string;
+}
 
 export type TextVariant = 'link' | 'text' | 'gradient';
 

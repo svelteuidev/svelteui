@@ -3,31 +3,31 @@
 	import { css } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/internal';
-	import type { Override, SvelteuiNumberSize } from '$lib/styles';
+	import type { ImageProps as $$ImageProps } from './Image.styles';
 
 	/** Override prop for custom theming the component's placeholder */
-	export let override: Override['props'] = {};
+	export let override: $$ImageProps['override'] = {};
 	/** Override prop for custom theming the component's placeholder */
-	export let overridePlaceholder: Override['props'] = {};
+	export let overridePlaceholder: $$ImageProps['overridePlaceholder'] = {};
 	/** Predefined switch radius size */
-	export let radius: SvelteuiNumberSize = 0;
+	export let radius: $$ImageProps['radius'] = 0;
 	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: $$ImageProps['className'] = '';
 	export { className as class };
 	/** The image src to be used */
-	export let src: string = undefined;
+	export let src: $$ImageProps['src'] = undefined;
 	/** The image alt text, used as placeholder if the image is not loaded */
-	export let alt: string = '';
+	export let alt: $$ImageProps['alt'] = '';
 	/** The object-fit option to be used by the image, defaults to 'cover' */
-	export let fit: 'cover' | undefined = 'cover';
+	export let fit: $$ImageProps['fit'] = 'cover';
 	/** The width of the image that defaults to 100% */
-	export let width: string | number = undefined;
+	export let width: $$ImageProps['width'] = undefined;
 	/** The height of the image that defaults to the original image height adjusted to the width */
-	export let height: string | number = undefined;
+	export let height: $$ImageProps['height'] = undefined;
 	/** The caption of the image, will show below it if defined */
-	export let caption: string = undefined;
+	export let caption: $$ImageProps['caption'] = undefined;
 	/** Defaults to a placeholder if the image has not yet loaded or an error occured */
-	export let usePlaceholder: boolean = false;
+	export let usePlaceholder: $$ImageProps['usePlaceholder'] = false;
 	// --------------------------------------------
 
 	/* Image logic */

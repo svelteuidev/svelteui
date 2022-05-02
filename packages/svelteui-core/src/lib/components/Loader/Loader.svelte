@@ -3,14 +3,14 @@
 	import Bars from '$lib/components/Loader/loaders/Bars.svelte';
 	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
-	import type { LoaderPropsExtended } from './Loader.styles';
+	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
 
 	/** Defines width of loader */
-	export let size: LoaderPropsExtended['size'] | number = 'md';
+	export let size: $$LoaderProps['size'] | number = 'md';
 	/** Loader color from theme */
-	export let color: LoaderPropsExtended["color"] = 'blue';
+	export let color: $$LoaderProps['color'] = 'blue';
 	/** Loader appearance */
-	export let variant: LoaderPropsExtended['variant'] = 'circle';
+	export let variant: $$LoaderProps['variant'] = 'circle';
 
 	/** Loader logic */
 	const LOADERS = {
