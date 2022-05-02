@@ -27,17 +27,9 @@
 
 <br />
 
-<div align='center'>
-
 ## **About The Project**
 
-## [![Time period](https://images.repography.com/24930506/svelteuidev/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_badge.svg)](https://repography.com)
-
-[![Timeline graph](https://images.repography.com/24930506/svelteuidev/svelteui/recent-activity/fc5677046c345e8190582fbd7b3464af_timeline.svg)](https://github.com/svelteuidev/svelteui/commits)
-
 [Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
-
-</div>
 
 ### Features
 
