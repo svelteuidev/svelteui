@@ -1,4 +1,3 @@
-export * from './types';
 export * from './utils';
 
 export { colors } from './default-colors';
@@ -16,3 +15,51 @@ export {
 } from '../stitches.config';
 
 export { default as SvelteUIProvider } from './SvelteUIProvider.svelte';
+
+/** types exporting */
+import type {
+	SvelteUIProviderProps,
+	DefaultProps,
+	ColorScheme,
+	DefaultBackground,
+	DefaultColor,
+	SvelteuiColor,
+	SvelteuiGradient,
+	SvelteuiMargins,
+	SvelteuiMargin,
+	SvelteuiShadow,
+	SvelteuiNumberSize,
+	SvelteuiSizes,
+	SvelteuiSize,
+	HeadingStyle,
+	Override,
+	LoaderType,
+	CSS,
+	SvelteuiFontSizes,
+	SvelteuiNumberFontSize,
+	SvelteuiTextAlignment,
+	SvelteuiTextTransform
+} from './types';
+export type {
+	SvelteUIProviderProps,
+	DefaultProps,
+	ColorScheme,
+	DefaultBackground,
+	DefaultColor,
+	SvelteuiColor,
+	SvelteuiGradient,
+	SvelteuiMargins,
+	SvelteuiMargin,
+	SvelteuiShadow,
+	SvelteuiNumberSize,
+	SvelteuiSizes,
+	SvelteuiSize,
+	HeadingStyle,
+	Override,
+	LoaderType,
+	CSS,
+	SvelteuiFontSizes,
+	SvelteuiNumberFontSize,
+	SvelteuiTextAlignment,
+	SvelteuiTextTransform
+};

@@ -300,8 +300,8 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				WebkitUserSelect: value,
 				userSelect: value
 			}),
-			w: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ width: value }),
-			h: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ height: value }),
+			w: (value: Stitches.ScaleValue<'space'>) => ({ width: value }),
+			h: (value: Stitches.ScaleValue<'space'> | number | string) => ({ height: value }),
 			mw: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ maxWidth: value }),
 			maxW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value
@@ -312,7 +312,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			maxH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxHeight: value
 			}),
-			size: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			size: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				width: value,
 				height: value
 			}),
