@@ -20,7 +20,7 @@ export function updateVersions(version: string, packageJSON: Record<string, any>
     if (!skipPackageBump) packageJSON.version = version;
 
     for(const tree of ["dependencies", "peerDependencies"]) {
-        if (!(tree in Object.keys(packageJSON))) continue;
+        if (!Object.keys(packageJSON).includes(tree)) continue;
 
         for (const dependency of Object.keys(packageJSON[tree])) {
             if (!dependency.startsWith("@svelteuidev")) continue;
