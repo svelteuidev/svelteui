@@ -5,6 +5,9 @@
 	import { createEventForwarder } from '$lib/internal';
 	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
+	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
+	export let className: $$SwitchProps['className'] = '';
+	export { className as class };
 	/** Override prop for custom theming the component */
 	export let override: $$SwitchProps['override'] = {};
 	/** Override prop for custom theming the component */
@@ -17,9 +20,6 @@
 	export let radius: $$SwitchProps['radius'] = 'xl';
 	/** Predefined transition function for the switch animation */
 	export let transitionFunction: $$SwitchProps['transitionFunction'] = 'linear';
-	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
-	export let className: $$SwitchProps['className'] = '';
-	export { className as class };
 	/** The id used to bind input to label, if none is provided an unique ID will be generated */
 	export let id: $$SwitchProps['id'] = randomID();
 	/** The label to be added outside the switch, by default has none */

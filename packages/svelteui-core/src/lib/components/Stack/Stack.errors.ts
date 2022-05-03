@@ -15,7 +15,7 @@ export const StackErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
                 
-                <\\Stack> Button Text <\\/Stack>
+                &lt;Stack&gt; Button Text &lt;/Stack&gt;
                         ^^^^^^^^ - Try removing this
                 `
 	}

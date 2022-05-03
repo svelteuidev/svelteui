@@ -17,7 +17,7 @@ export const TextErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
 
-                <\\Text gradient={{from: 'blue', to: 'red', deg: 45}}>Text string <\\/Text>
+                &lt;Text gradient={{from: 'blue', to: 'red', deg: 45}}&gt;Text string &lt;/Text&gt;
                                                                     ^^^ - Try adding prop variant='gradient'
                 `
 	},
@@ -27,7 +27,7 @@ export const TextErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
 
-                <\\Text variant='link' >Text string <\\/Text>
+                &lt;Text variant='link'&gt;Text string &lt;/Text&gt;
                                     ^^^ - Try adding props href && root={'a'}'
                 `
 	}

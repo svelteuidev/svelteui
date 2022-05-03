@@ -20,7 +20,7 @@ export const CodeErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
         If your component looks like this:
 
-        <\\Code width={50} ...> Code Text <\\/Code>
+        &lt;Code width={50} ...&gt; Code Text &lt;/Code&gt;
                ^^^^^^^^^^ - Try adding the block prop 
         `
 	},
@@ -30,7 +30,7 @@ export const CodeErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
         <strong>If your component looks like this:</strong>
     
-        <\\Code copy block ...> Code Text <\\/Code>
+        &lt;Code copy block ...&gt; Code Text &lt;/Code&gt;
                ^^^^^^^^^^ - Try adding the message prop
         `
 	},
@@ -40,7 +40,7 @@ export const CodeErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
         <strong>If your component looks like this:</strong>
 
-        <\\Code copy ...> Code Text <\\/Code>
+        &lt;Code copy ...&gt; Code Text &lt;/Code&gt;
                ^^^^ - Try adding the block prop
         `
 	}

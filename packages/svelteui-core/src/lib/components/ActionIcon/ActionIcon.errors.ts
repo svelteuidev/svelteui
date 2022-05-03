@@ -15,10 +15,10 @@ export const ActionIconErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
 
-                |1. <\\ActionIcon href='https://example.com' >
+                |1. &lt;ActionIcon href='https://example.com'&gt;
                 |                                          ^^^ - Try adding prop root='a'
                 |2.        Text string 
-                |3. <\\/ActionIcon>
+                |3. &lt;/ActionIcon&gt;
                 `
 	}
 ]);
