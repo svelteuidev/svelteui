@@ -12,6 +12,8 @@
 		Title,
 		Box,
 		Stack,
-		Group
+		Group,
+		Center,
+		Space
 	} from '$lib';
 </script>

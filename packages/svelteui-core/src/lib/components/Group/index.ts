@@ -1,2 +1,2 @@
 export { default as Group } from './Group.svelte';
-export * as StackStyles from './Group.styles';
+export * as GroupStyles from './Group.styles';

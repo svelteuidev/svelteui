@@ -302,6 +302,12 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			}),
 			w: (value: Stitches.ScaleValue<'space'>) => ({ width: value }),
 			h: (value: Stitches.ScaleValue<'space'> | number | string) => ({ height: value }),
+			minW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+				minWidth: value
+			}),
+			minH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+				minWidth: value
+			}),
 			mw: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ maxWidth: value }),
 			maxW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value

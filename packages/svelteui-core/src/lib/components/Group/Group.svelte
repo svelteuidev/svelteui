@@ -1,13 +1,15 @@
 <script lang="ts">
-	import { css } from '$lib/styles';
 	import { POSITIONS } from './Group.styles';
 	import { GroupErrors } from './Group.errors';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
+	import type { CSS } from '$lib/styles';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
+	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$GroupProps['className'] = '';
 	export { className as class };
+	/** Override prop for custom theming the component */
 	export let override: $$GroupProps['override'] = {};
 	/** Defines justify-content property */
 	export let position: $$GroupProps['position'] = 'left';
@@ -24,7 +26,7 @@
 	/** The children being rendered */
 	export let children: $$GroupProps['children'] = null;
 
-	const GroupStyles = css({
+	const GroupStyles: CSS = {
 		boxSizing: 'border-box',
 		display: 'flex',
 		flexDirection: direction,
@@ -51,7 +53,7 @@
 					: undefined,
 			flexGrow: grow ? 1 : 0
 		}
-	});
+	};
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
@@ -83,6 +85,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={override} class="{className} {GroupStyles()}">
+<Box css={{ ...override, ...GroupStyles }} class={className}>
 	<slot />
 </Box>
