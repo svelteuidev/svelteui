@@ -93,7 +93,7 @@
 	let observable: boolean = false;
 	let err;
 
-	if (root !== 'a' && href.length > 0) {
+	if (root !== 'a' && $$props.href) {
 		observable = true;
 		err = ActionIconErrors[0];
 	}
