@@ -1,1 +1,1 @@
-// export { default as Prism } from './Prism.svelte';
+export { default as Prism } from './Prism.svelte';
