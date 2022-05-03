@@ -1,6 +1,6 @@
 # SvelteUI Actions
 
-## **Actions library with useful lifecycle functions.**
+## Actions library with useful lifecycle functions.
 
 - Package includes functions that are used to build components in @svelteuidev/ scoped packages.
 - You can use these functions in your applications with or without other @svelteuidev/ packages.
