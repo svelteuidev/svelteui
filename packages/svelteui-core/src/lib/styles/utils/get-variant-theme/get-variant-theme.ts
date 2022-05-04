@@ -1,7 +1,7 @@
 import { rgba, dark, theme } from '../../index';
-import type { SvelteuiColor, SvelteuiGradient } from '../../types';
+import type { SvelteuiColor, SvelteuiGradient, VariantThemeFunction } from '../../types';
 
-export const vFunc = (color: SvelteuiColor, gradient: SvelteuiGradient) => {
+export const vFunc = (color: SvelteuiColor, gradient: SvelteuiGradient): VariantThemeFunction => {
 	/**
 	 * Dark Theme Mapping (dtm) is an object that contains the values needed for the rgba function
 	 * it allows for there to be less clutter in the function

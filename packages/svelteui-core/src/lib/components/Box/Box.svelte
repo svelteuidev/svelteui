@@ -31,6 +31,7 @@ Add inline styles to any element or component with sx.
     ```svelte
     <Box css={{backgroundColor: '$blue600'}}>example</Box>
 	<Box root='span'>example</Box>
+	<Box css={{pt: '$20'}}>padding top of 5rem</Box> // uses the paddingTop shorthand, and theme scale
     ```
 -->
 

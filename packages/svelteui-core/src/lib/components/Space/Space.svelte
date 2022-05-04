@@ -37,6 +37,6 @@ Add horizontal or vertical spacing from theme.
 	</Group>
     ```
 -->
-<Box css={{ ...override, ...SpaceStyles }} class={className}>
+<Box css={{ ...SpaceStyles, ...override }} class={className}>
 	<slot />
 </Box>

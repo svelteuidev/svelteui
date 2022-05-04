@@ -17,3 +17,5 @@
 		Space
 	} from '$lib';
 </script>
+
+<Button>Click Me</Button>

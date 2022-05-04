@@ -85,6 +85,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...override, ...GroupStyles }} class={className}>
+<Box css={{ ...GroupStyles, ...override }} class={className}>
 	<slot />
 </Box>

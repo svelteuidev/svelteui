@@ -1,4 +1,5 @@
 export * from './ActionIcon';
+export * from './Badge';
 export * from './Box';
 export * from './Button';
 export * from './Center';
@@ -10,4 +11,5 @@ export * from './Space';
 export * from './Stack';
 export * from './Switch';
 export * from './Text';
+export * from './ThemeIcon';
 export * from './Title';

@@ -31,6 +31,6 @@ Centers content vertically and horizontally.
 	</Center>
     ```
 -->
-<Box css={{ ...override, ...CenterStyles }} class={className}>
+<Box css={{ ...CenterStyles, ...override }} class={className}>
 	<slot>This is centered</slot>
 </Box>

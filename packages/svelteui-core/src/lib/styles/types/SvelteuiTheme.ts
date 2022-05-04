@@ -13,3 +13,5 @@ export interface HeadingStyle {
 	fontSize: number | string | undefined;
 	lineHeight: number | string | undefined;
 }
+
+export type VariantThemeFunction = Record<string, Record<string, string | Record<string, unknown>>>;
