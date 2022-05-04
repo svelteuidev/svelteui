@@ -38,7 +38,8 @@ import type {
 	SvelteuiFontSizes,
 	SvelteuiNumberFontSize,
 	SvelteuiTextAlignment,
-	SvelteuiTextTransform
+	SvelteuiTextTransform,
+	VariantThemeFunction
 } from './types';
 export type {
 	SvelteUIProviderProps,
@@ -61,5 +62,6 @@ export type {
 	SvelteuiFontSizes,
 	SvelteuiNumberFontSize,
 	SvelteuiTextAlignment,
-	SvelteuiTextTransform
+	SvelteuiTextTransform,
+	VariantThemeFunction
 };
