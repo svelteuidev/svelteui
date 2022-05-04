@@ -30,6 +30,7 @@
     "dev": "turbo run dev --parallel",
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
     "docs:typecheck": "cd docs && npm run check",
+    "fix:bugs": "npm run clean:all && npm i && npm run dev",
     "format": "turbo run format --parallel",
     "generate-types": "turbo run generate-types --parallel --force",
     "postinstall": "npx patch-package",

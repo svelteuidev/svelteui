@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css, theme } from '$lib/styles';
-	import { getVariantStyles } from './Badge.styles';
+	import { css } from '$lib/styles';
+	import { getVariantStyles, sizes } from './Badge.styles';
 	import Box from '../Box/Box.svelte';
 	import type { BadgeProps as $$BadgeProps } from './Badge.styles';
 
@@ -16,29 +16,55 @@
 	export let radius: $$BadgeProps['radius'] = 'xl';
 	export let fullWidth: $$BadgeProps['fullWidth'] = false;
 
+	const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
+
 	const BadgeStyles = css({
+		focusRing: 'auto',
+		fontSize,
+		height,
+		WebkitTapHighlightColor: 'transparent',
+		lineHeight: `${height - 2}px`,
+		textDecoration: 'none',
+		padding: typeof size === 'number' ? `0 $${size}px` : `0 $${size}`,
+		boxSizing: 'border-box',
+		display: fullWidth ? 'flex' : 'inline-flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		width: fullWidth ? '100%' : 'auto',
+		textTransform: 'uppercase',
+		borderRadius: `$${radius}`,
+		fontWeight: 700,
+		letterSpacing: 0.25,
+		cursor: 'default',
+		textOverflow: 'ellipsis',
+		overflow: 'hidden',
 		'&.leftSection': {
 			marginRight: '$3'
 		},
 		'&.rightSection': {
 			marginLeft: '$3'
 		},
+		'&.inner': {
+			whiteSpace: 'nowrap',
+			overflow: 'hidden',
+			textOverflow: 'ellipsis'
+		},
 		variants: {
-			variation: getVariantStyles(color, variant)
+			variation: getVariantStyles(color, variant, size, gradient)
 		}
 	});
 </script>
 
 <Box class="{className}{BadgeStyles({ css: override, variation: variant })}">
 	{#if $$slots.leftSection}
-		<span>
-			<slot class={''} name="leftSection" />
+		<span class="leftSection">
+			<slot name="leftSection" />
 		</span>
 	{/if}
-	<slot />
+	<span class="inner"><slot /></span>
 	{#if $$slots.rightSection}
-		<span>
-			<slot class={''} name="rightSection" />
+		<span class="rightSection">
+			<slot name="rightSection" />
 		</span>
 	{/if}
 </Box>

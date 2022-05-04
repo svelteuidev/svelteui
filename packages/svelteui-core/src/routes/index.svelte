@@ -14,8 +14,7 @@
 		Stack,
 		Group,
 		Center,
-		Space
+		Space,
+		Badge
 	} from '$lib';
 </script>
-
-<Button>Click Me</Button>
