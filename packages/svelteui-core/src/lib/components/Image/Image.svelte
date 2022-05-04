@@ -49,7 +49,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate image styles */
-	const ImageStyles = css({
+	$: ImageStyles = css({
 		focusRing: 'auto',
 		borderRadius: `$${radius}`,
 		width: width !== undefined ? width : '100%',
@@ -58,7 +58,7 @@
 	});
 
 	/** Css function to generate image placeholder styles */
-	const PlaceholderStyles = css({
+	$: PlaceholderStyles = css({
 		focusRing: 'auto',
 		color: 'White',
 		backgroundColor: `$gray400`,
@@ -73,14 +73,14 @@
 		left: 0
 	});
 
-	const FigureStyles = css({
+	$: FigureStyles = css({
 		focusRing: 'auto',
 		position: 'relative',
 		margin: '0px',
 		textAlign: 'center'
 	});
 
-	const CaptionStyles = css({
+	$: CaptionStyles = css({
 		focusRing: 'auto',
 		fontSize: '14px',
 		lineHeight: '14px',

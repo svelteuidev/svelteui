@@ -90,10 +90,14 @@ export function getVariantStyles(
 	return getVariant(color, ctx);
 }
 
-export const getVariant = (
-	color: SvelteuiColor,
-	gradient: SvelteuiGradient
-): VariantThemeFunction => {
+/**
+ * getVariant function is a copy & paste of the vFunc function
+ *
+ * It is copied over because hover styles were removed
+ *
+ * Better implementation should be developed soon
+ */
+const getVariant = (color: SvelteuiColor, gradient: SvelteuiGradient): VariantThemeFunction => {
 	const dtm = {
 		lightBg: dark.colors[`${color}800`].value,
 		lightHv: dark.colors[`${color}700`].value,

@@ -35,7 +35,7 @@
 	/** Css function to generate button styles */
 	const darkColor = dark.colors[`${color}800`].value;
 
-	const CodeStyles = css({
+	$: CodeStyles = css({
 		focusRing: 'auto',
 		[`${dark.selector} &`]: {
 			backgroundColor: color === 'dark' ? `$${color}400` : rgba(darkColor, 0.35),

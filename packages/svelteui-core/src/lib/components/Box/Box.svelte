@@ -17,7 +17,7 @@
 		isComponent = root && typeof root === 'function';
 	}
 
-	const BoxStyles = _css({});
+	$: BoxStyles = _css({});
 </script>
 
 <!--

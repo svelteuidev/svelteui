@@ -44,7 +44,7 @@
 		isComponent = root && typeof root === 'function';
 	}
 
-	const TextStyles = css({
+	$: TextStyles = css({
 		focusRing: 'auto',
 		[`${dark.selector} &`]: {
 			color: color === 'dark' ? '$dark50' : getTextColor(color, variant, gradient, true)

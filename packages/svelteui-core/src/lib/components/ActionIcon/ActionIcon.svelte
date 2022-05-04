@@ -41,7 +41,7 @@
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	const ActionIconStyles = css({
+	$: ActionIconStyles = css({
 		focusRing: 'auto',
 		position: 'relative',
 		appearance: 'none',

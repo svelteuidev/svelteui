@@ -38,7 +38,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate switch styles */
-	const SwitchStyles = css({
+	$: SwitchStyles = css({
 		focusRing: 'auto',
 		overflow: 'hidden',
 		WebkitTapHighlightColor: 'transparent',

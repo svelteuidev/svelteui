@@ -38,7 +38,7 @@
 	let element: HTMLHeadingElements;
 	$: element = `h${order}` as HTMLHeadingElements;
 
-	const TitleStyles = css({
+	$: TitleStyles = css({
 		margin: 0
 	});
 </script>

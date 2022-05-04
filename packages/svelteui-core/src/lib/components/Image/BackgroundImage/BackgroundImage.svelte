@@ -13,7 +13,7 @@
 	/** The height of the image that defaults to the original image height adjusted to the width */
 	export let height: $$ImageProps['height'] = undefined;
 
-	const BackgroundImageStyles = css({
+	$: BackgroundImageStyles = css({
 		focusRing: 'auto',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',

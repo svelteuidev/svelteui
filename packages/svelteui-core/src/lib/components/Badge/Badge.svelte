@@ -18,7 +18,7 @@
 
 	const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
 
-	const BadgeStyles = css({
+	$: BadgeStyles = css({
 		focusRing: 'auto',
 		fontSize,
 		height,

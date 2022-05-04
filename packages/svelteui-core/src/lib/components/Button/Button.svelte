@@ -53,7 +53,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate button styles */
-	const ButtonStyles = css({
+	$: ButtonStyles = css({
 		focusRing: 'auto',
 		cursor: 'pointer',
 		position: 'relative',
