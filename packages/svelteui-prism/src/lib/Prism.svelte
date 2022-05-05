@@ -2,9 +2,11 @@
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
     import "prism-svelte";
-    import "prismjs/themes/prism.css";
 	import "prismjs/plugins/line-numbers/prism-line-numbers.js";
 	import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js";
+
+	import type { PrismTheme } from './types/PrismTheme';
+	import * as PrismStyles from "./Prism.styles";
 
 	export let code: string = '';
 	export let language: string = 'javascript';
@@ -21,6 +23,8 @@
         'tabs-to-spaces': 4,
         'spaces-to-tabs': 4
 	};
+	/** Code color for the prism style from the default theme */
+	export let color: PrismTheme = 'dark';
 
 	onMount(() => {
         if (process.env.NODE_ENV === 'development' && !Prism.languages[language]) {
@@ -43,11 +47,11 @@
 			normalizeWhiteSpace ? '' : 'no-whitespace-normalization'
 		}`;
 	}
-    
-	console.log('pretty', prettyCode);
+
+	const PrismStyle = Object.keys(PrismStyles).includes(color) ? PrismStyles[color]() : {};
 </script>
 
-<pre class="{prismClasses}">
+<pre class="{prismClasses} {PrismStyle}">
     <code class="language-{language}">
         {@html prettyCode}
     </code>

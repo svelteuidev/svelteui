@@ -1,5 +1,5 @@
 export type PrismTheme =
-	| 'default'
+	| 'light'
 	| 'dark'
 	| 'funky'
 	| 'okaidia'
