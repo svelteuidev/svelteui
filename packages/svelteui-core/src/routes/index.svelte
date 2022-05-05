@@ -20,5 +20,6 @@
 		Input,
 		clipboard
 	} from '$lib';
+	import { onMount } from 'svelte';
 	import Gear from '../icons/Gear.svelte';
 </script>

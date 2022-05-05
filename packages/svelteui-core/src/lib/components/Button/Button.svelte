@@ -9,6 +9,7 @@
 	import Ripple from './Ripple.svelte';
 	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
+	export let element: $$ButtonProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$ButtonProps['className'] = '';
 	export { className as class };
@@ -139,6 +140,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 
 {#if href && !disabled}
 	<a
+		bind:this={element}
 		{href}
 		use:forwardEvents
 		class:disabled
@@ -177,6 +179,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	</a>
 {:else}
 	<button
+		bind:this={element}
 		use:forwardEvents
 		class="{className} {ButtonStyles({ css: override, variation: variant })}"
 		class:disabled

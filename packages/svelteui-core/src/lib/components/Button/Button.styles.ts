@@ -7,7 +7,7 @@ import type {
 } from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
-export interface ButtonProps extends DefaultProps {
+export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
 	variant: ButtonVariant;
 	color: SvelteuiColor;
 	size: SvelteuiNumberSize;
