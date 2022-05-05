@@ -15,7 +15,7 @@
 	/** Adds hidden option to select and sets it as selected if value is not present */
 	export let placeholder: $$NativeSelectProps['placeholder'] = '';
 	/** Data used to render options */
-	export let data: $$NativeSelectProps['data'] = [''];
+	export let data: $$NativeSelectProps['data'] = [];
 	/** Style properties added to select element */
 	export let inputStyle: $$NativeSelectProps['inputStyle'] = {};
 	/** Props passed to root element (InputWrapper component) */
@@ -131,7 +131,7 @@
 		on:input
 	>
 		{#if placeholder}
-			<option value="" disabled hidden>
+			<option value="" disabled>
 				{placeholder}
 			</option>
 		{/if}
