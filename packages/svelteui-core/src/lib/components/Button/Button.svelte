@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { css, vFunc } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { ButtonErrors } from './Button.errors';
 	import { sizes } from './Button.styles';
 	import Error from '$lib/internal/errors/Error.svelte';
@@ -9,6 +9,7 @@
 	import Ripple from './Ripple.svelte';
 	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
+	export let use: $$ButtonProps['use'] = [];
 	export let element: $$ButtonProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$ButtonProps['className'] = '';
@@ -142,6 +143,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	<a
 		bind:this={element}
 		{href}
+		use:useActions={use}
 		use:forwardEvents
 		class:disabled
 		class:compact
@@ -180,6 +182,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 {:else}
 	<button
 		bind:this={element}
+		use:useActions={use}
 		use:forwardEvents
 		class="{className} {ButtonStyles({ css: override, variation: variant })}"
 		class:disabled

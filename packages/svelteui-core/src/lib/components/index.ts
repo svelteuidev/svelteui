@@ -4,6 +4,7 @@ export * from './Box';
 export * from './Button';
 export * from './Center';
 export * from './Code';
+export * from './Fragment';
 export * from './Group';
 export * from './Image';
 export * from './Input';

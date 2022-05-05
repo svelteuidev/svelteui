@@ -1,106 +1,68 @@
-/**
- * Represents the handle of an initialized Svelte Action
- */
-export interface IActionHandle<T = unknown> {
-	/**
-	 * Destroys all bindings the Action was using
-	 */
+// This file taken from rgossiaux/svelte-headlessui
+// Copyright 2020-present Hunter Perrin
+
+export type SvelteActionReturnType<P> = {
+	update?: (newParams?: P) => void;
 	destroy?: () => void;
+} | void;
 
-	/**
-	 * Replaces the options that was initially passed to the Action
-	 */
-	update?: (options: T) => void;
-}
+export type SvelteHTMLActionType<P> = (node: HTMLElement, params?: P) => SvelteActionReturnType<P>;
 
-/**
- * Represents the constructor of a Svelte Action
- */
-export type IAction<
-	NodeType extends Node,
-	OptionsType = unknown,
-	HandleType extends IActionHandle = IActionHandle<OptionsType>
-> = (node: NodeType, options: OptionsType) => HandleType;
+export type HTMLActionEntry<P = any> = SvelteHTMLActionType<P> | [SvelteHTMLActionType<P>, P];
 
-/**
- * Represents the Svelte Action initializer signature for [[forward_actions]]
- */
-export type IForwardActionsAction = IAction<Node, IForwardActionsOptions, IForwardActionsHandle>;
+export type HTMLActionArray = HTMLActionEntry[];
 
-/**
- * Represents the Svelte Action handle returned by [[forward_actions]]
- */
-export type IForwardActionsHandle = Required<IActionHandle<IForwardActionsOptions>>;
+export type SvelteSVGActionType<P> = (node: SVGElement, params?: P) => SvelteActionReturnType<P>;
 
-/**
- * Represents an array of forwarded Svelte Actions, optionally
- * associated with their options
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type IForwardedActions = (IAction<any> | [IAction<any>, unknown])[];
+export type SVGActionEntry<P = any> = SvelteSVGActionType<P> | [SvelteSVGActionType<P>, P];
 
-/**
- * Represents an array forwarded Svelte Action handles
- */
-type IInitializedActions = IActionHandle[];
+export type SVGActionArray = SVGActionEntry[];
 
-/**
- * Represents the options passable to the [[forward_actions]] Svelte Action
- */
-export interface IForwardActionsOptions {
-	/**
-	 * Represents Svelte Actions that will be attached to the targeted element
-	 */
-	actions?: IForwardedActions;
-}
+export type ActionArray = HTMLActionArray | SVGActionArray;
 
-/**
- * Attaches the provided array of Svelte Actions to the target element, handling
- * lifecycle events automatically
- *
- * @param node
- * @param options
- * @returns
- */
-export const forward_actions: IForwardActionsAction = (node, options) => {
-	const handles = initialize_actions(options.actions);
+export function useActions(node: HTMLElement | SVGElement, actions: ActionArray) {
+	const actionReturns: SvelteActionReturnType<any>[] = [];
 
-	function initialize_actions(actions: IForwardedActions = []): IInitializedActions {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		return actions.map((entry, index) => {
-			if (Array.isArray(entry)) return entry[0](node, entry[1]);
-			else return entry(node, undefined);
-		});
+	if (actions) {
+		for (let i = 0; i < actions.length; i++) {
+			const actionEntry = actions[i];
+			const action = Array.isArray(actionEntry) ? actionEntry[0] : actionEntry;
+			if (Array.isArray(actionEntry) && actionEntry.length > 1) {
+				actionReturns.push(action(node as HTMLElement & SVGElement, actionEntry[1]));
+			} else {
+				actionReturns.push(action(node as HTMLElement & SVGElement));
+			}
+		}
 	}
 
 	return {
-		destroy() {
-			for (const handle of handles) {
-				if (handle) {
-					const { destroy } = handle;
-					if (destroy) destroy();
+		update(actions: ActionArray) {
+			if (((actions && actions.length) || 0) != actionReturns.length) {
+				throw new Error('You must not change the length of an actions array.');
+			}
+
+			if (actions) {
+				for (let i = 0; i < actions.length; i++) {
+					const returnEntry = actionReturns[i];
+					if (returnEntry && returnEntry.update) {
+						const actionEntry = actions[i];
+						if (Array.isArray(actionEntry) && actionEntry.length > 1) {
+							returnEntry.update(actionEntry[1]);
+						} else {
+							returnEntry.update();
+						}
+					}
 				}
 			}
 		},
 
-		update(options) {
-			const { actions = [] } = options;
-			if (actions.length !== handles.length) {
-				throw new ReferenceError(
-					`bad argument #0 to 'forward_actions.update' (supplied actions must never change lengths)`
-				);
-			}
-
-			for (const index in actions) {
-				const entry = actions[index];
-				const options = Array.isArray(entry) ? entry[1] : undefined;
-
-				const handle = handles[index];
-				if (handle) {
-					const { update } = handle;
-					if (update) update(options);
+		destroy() {
+			for (let i = 0; i < actionReturns.length; i++) {
+				const returnEntry = actionReturns[i];
+				if (returnEntry && returnEntry.destroy) {
+					returnEntry.destroy();
 				}
 			}
 		}
 	};
-};
+}
