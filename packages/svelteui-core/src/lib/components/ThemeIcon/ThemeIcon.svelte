@@ -38,6 +38,24 @@
 	});
 </script>
 
+<!--
+@component
+**UNSTABLE:** new API, yet to be vetted.
+
+Render icon inside element with theme colors
+	
+@see https://svelteui-docs.vercel.app/docs/core/theme-icon
+@example
+    ```svelte
+    <ThemeIcon>
+      <Icon />
+    </ThemeIcon>
+
+	<ThemeIcon size="lg" variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
+        <Icon size={20} />
+    </ThemeIcon>
+    ```
+-->
 <Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}">
 	<slot />
 </Box>

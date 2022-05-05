@@ -38,13 +38,13 @@
 		cursor: 'default',
 		textOverflow: 'ellipsis',
 		overflow: 'hidden',
-		'&.leftSection': {
+		'& .leftSection': {
 			marginRight: '$3'
 		},
-		'&.rightSection': {
+		'& .rightSection': {
 			marginLeft: '$3'
 		},
-		'&.inner': {
+		'& .inner': {
 			whiteSpace: 'nowrap',
 			overflow: 'hidden',
 			textOverflow: 'ellipsis'
@@ -55,6 +55,22 @@
 	});
 </script>
 
+<!--
+@component
+**UNSTABLE:** new API, yet to be vetted.
+
+Display badge, pill or tag
+	
+@see https://svelteui-docs.vercel.app/docs/core/badge
+@example
+    ```svelte
+    <Badge>Badge</Badge>
+	<Badge variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>Indigo cyan</Badge>
+	<Box css={{ width: 120 }}>
+		<Badge variant="filled" fullWidth>Badge with overflow</Badge>
+	</Box>
+    ```
+-->
 <Box class="{className}{BadgeStyles({ css: override, variation: variant })}">
 	{#if $$slots.leftSection}
 		<span class="leftSection">

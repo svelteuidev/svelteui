@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { css, dark } from '$lib/styles';
 	import { sizes } from './Input.styles';
+	import { createEventForwarder } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
+	import Error from '$lib/internal/errors/Error.svelte';
 	import type { InputProps as $$InputProps } from './Input.styles';
 
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
@@ -40,6 +43,9 @@
 	/** Will input have multiple lines? */
 	export let multiline: boolean = false;
 
+	/** An action that forwards inner dom node events to parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
+	
 	let isHTMLElement;
 	let isComponent;
 	const withRightSection = !!rightSection;
@@ -241,15 +247,27 @@
 			width: rightSectionWidth
 		}
 	});
+
+	// --------------Error Handling-------------------
+	let observable: boolean = false;
+	let err;
+
+	if (root !== 'a' && $$props.href) {
+		observable = true;
+		err = ''
+	}
+	$: if (observable) override = { display: 'none' };
 </script>
+
+<Error {observable} component="ActionIcon" code={err} />
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
+**DISCLAIMER**: In most cases, you should not use Input component in your application. Input component is a base for other inputs and was not designed to be used directly.
 
 Base component to create custom inputs
 	
-@see https://svelteui-docs.vercel.app/docs/core/stack
+@see https://svelteui-docs.vercel.app/docs/core/input
 @example
     ```svelte
     <Input
@@ -270,6 +288,7 @@ Base component to create custom inputs
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input
+			use:forwardEvents
 			{required}
 			{disabled}
 			aria-invalid={invalid}
@@ -282,6 +301,7 @@ Base component to create custom inputs
 	{:else if isHTMLElement}
 		<svelte:element
 			this={root}
+			use:forwardEvents
 			{required}
 			{disabled}
 			aria-invalid={invalid}
