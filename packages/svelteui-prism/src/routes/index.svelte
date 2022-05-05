@@ -1,8 +1,8 @@
 <script>
-	import { Prism } from "$lib";
-	import "prismjs/components/prism-java.js";
+	import { Prism } from '$lib';
+	import 'prismjs/components/prism-java.js';
 
-	import { SvelteUIProvider } from "@svelteuidev/core";
+	import { SvelteUIProvider } from '@svelteuidev/core';
 
 	let code = `
 		const a = 2;
@@ -14,14 +14,13 @@
 		function add(a, b) {
 			return a + b;
 		}
-	`
+	`;
 	let svelteCode = `<div>a</div>`;
 	let javaCode = `System.out.println("batata")`;
 </script>
 
-<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={'dark'}>
-	<Prism code={code} />
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={'light'}>
+	<Prism {code} />
 	<Prism code={svelteCode} language="svelte" />
 	<Prism code={javaCode} language="java" />
 </SvelteUIProvider>
-
