@@ -1,18 +1,18 @@
 import type {
-	SvelteuiColor,
-	SvelteuiSize,
-	SvelteuiNumberSize,
-	SvelteuiGradient,
+	SvelteUIColor,
+	SvelteUISize,
+	SvelteUINumberSize,
+	SvelteUIGradient,
 	DefaultProps
 } from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
 export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
 	variant: ButtonVariant;
-	color: SvelteuiColor;
-	size: SvelteuiNumberSize;
-	radius: SvelteuiNumberSize | number;
-	gradient: SvelteuiGradient;
+	color: SvelteUIColor;
+	size: SvelteUINumberSize;
+	radius: SvelteUINumberSize | number;
+	gradient: SvelteUIGradient;
 	loaderPosition: 'left' | 'right';
 	loaderProps: LoaderProps;
 	className: string;
@@ -36,9 +36,9 @@ export type ButtonVariant =
 	| 'subtle';
 
 export interface ButtonStylesProps {
-	color: SvelteuiColor;
-	size: SvelteuiSize;
-	radius: SvelteuiNumberSize;
+	color: SvelteUIColor;
+	size: SvelteUISize;
+	radius: SvelteUINumberSize;
 	fullWidth: boolean;
 	compact: boolean;
 	gradientFrom: string;
@@ -47,9 +47,9 @@ export interface ButtonStylesProps {
 }
 
 export interface GetVariantStyles {
-	color: SvelteuiColor;
+	color: SvelteUIColor;
 	variant: ButtonVariant;
-	gradient?: { from: SvelteuiColor; to: SvelteuiColor; deg: number };
+	gradient?: { from: SvelteUIColor; to: SvelteUIColor; deg: number };
 }
 
 export interface LoaderProps {

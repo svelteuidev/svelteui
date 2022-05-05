@@ -1,11 +1,11 @@
 import type {
-	SvelteuiGradient,
-	SvelteuiColor,
+	SvelteUIGradient,
+	SvelteUIColor,
 	Override,
-	SvelteuiTextAlignment,
-	SvelteuiTextTransform,
-	SvelteuiNumberSize,
-	SvelteuiNumberFontSize,
+	SvelteUITextAlignment,
+	SvelteUITextTransform,
+	SvelteUINumberSize,
+	SvelteUINumberFontSize,
 	DefaultProps
 } from '$lib/styles';
 import type { Component } from '$lib/internal';
@@ -13,14 +13,14 @@ import type { Component } from '$lib/internal';
 export interface TextProps extends DefaultProps {
 	className: string;
 	override: Override['props'];
-	align: SvelteuiTextAlignment;
+	align: SvelteUITextAlignment;
 	color: TextColors;
 	root: HTMLTextElements | Component;
-	transform: SvelteuiTextTransform;
+	transform: SvelteUITextTransform;
 	variant: TextVariant;
-	size: SvelteuiNumberSize;
-	weight: SvelteuiNumberFontSize;
-	gradient: SvelteuiGradient;
+	size: SvelteUINumberSize;
+	weight: SvelteUINumberFontSize;
+	gradient: SvelteUIGradient;
 	inline: boolean;
 	lineClamp: number;
 	underline: boolean;
@@ -30,14 +30,14 @@ export interface TextProps extends DefaultProps {
 
 export type TextVariant = 'link' | 'text' | 'gradient';
 
-export type TextColors = SvelteuiColor | 'dimmed';
+export type TextColors = SvelteUIColor | 'dimmed';
 
 export type HTMLTextElements = keyof HTMLElementTagNameMap;
 
 export function getTextColor(
 	color: TextColors,
 	variant: TextVariant,
-	gradient: SvelteuiGradient,
+	gradient: SvelteUIGradient,
 	dark: boolean = false
 ) {
 	if (color === 'dimmed') return dark ? '$dark200' : '$gray600';

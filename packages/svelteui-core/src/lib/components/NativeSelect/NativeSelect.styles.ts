@@ -1,4 +1,4 @@
-import type { DefaultProps, Override, SvelteuiSize } from '$lib/styles';
+import type { DefaultProps, Override, SvelteUISize } from '$lib/styles';
 import type { InputBaseProps } from '../Input/Input.styles';
 import type { InputWrapperBaseProps } from '../InputWrapper/InputWrapper.styles';
 import type { SelectItem } from '../Select/types';
@@ -15,5 +15,5 @@ export interface NativeSelectProps extends DefaultProps, InputBaseProps, InputWr
 	/** Props passed to root element (InputWrapper component) */
 	wrapperProps: Record<string, any>;
 	/** Input size */
-	size: SvelteuiSize;
+	size: SvelteUISize;
 }

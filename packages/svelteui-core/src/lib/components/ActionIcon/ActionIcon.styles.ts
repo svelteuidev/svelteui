@@ -1,18 +1,18 @@
 import { vFunc, dark } from '$lib/styles';
 import type { LoaderProps } from '../Loader/Loader.styles';
 import type {
-	SvelteuiColor,
-	SvelteuiNumberSize,
-	SvelteuiGradient,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUIGradient,
 	DefaultProps
 } from '$lib/styles';
 
 export interface ActionIconProps extends DefaultProps {
 	root: keyof HTMLElementTagNameMap;
-	color: SvelteuiColor;
+	color: SvelteUIColor;
 	variant: ActionIconVariant;
-	size: SvelteuiNumberSize;
-	radius: SvelteuiNumberSize | number;
+	size: SvelteUINumberSize;
+	radius: SvelteUINumberSize | number;
 	loaderProps: LoaderProps;
 	loading: boolean;
 	disabled: boolean;
@@ -21,7 +21,7 @@ export interface ActionIconProps extends DefaultProps {
 }
 
 export interface CloseButtonProps extends ActionIconProps {
-	iconSize: SvelteuiNumberSize;
+	iconSize: SvelteUINumberSize;
 }
 
 export type ActionIconVariant =
@@ -33,9 +33,9 @@ export type ActionIconVariant =
 	| 'transparent';
 
 export interface ActionIconStylesParams {
-	color: SvelteuiColor;
-	size: SvelteuiNumberSize;
-	radius: SvelteuiNumberSize;
+	color: SvelteUIColor;
+	size: SvelteUINumberSize;
+	radius: SvelteUINumberSize;
 }
 
 export const sizes = {
@@ -46,8 +46,8 @@ export const sizes = {
 	xl: 44
 };
 
-export function getVariantStyles(color: SvelteuiColor, variant: ActionIconVariant) {
-	const ctx: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
+export function getVariantStyles(color: SvelteUIColor, variant: ActionIconVariant) {
+	const ctx: SvelteUIGradient = { from: 'indigo', to: 'cyan', deg: 45 };
 	if (variant === 'hover' || variant === 'transparent') {
 		return {
 			[`${variant}`]: {

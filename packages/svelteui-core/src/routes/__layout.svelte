@@ -2,7 +2,7 @@
 	import { SvelteUIProvider } from '$lib';
 	import { Button, Text, Box } from '$lib';
 	import type { CSS } from '@stitches/core';
-	import type { SvelteuiGradient } from '$lib';
+	import type { SvelteUIGradient } from '$lib';
 
 	let darkMode: boolean = false;
 	const toggleTheme = () => {
@@ -15,7 +15,7 @@
 		left: '10%'
 	};
 
-	const GRADIENTS: SvelteuiGradient[] = [
+	const GRADIENTS: SvelteUIGradient[] = [
 		{ from: 'blue', to: 'cyan', deg: 45 },
 		{ from: 'red', to: 'pink', deg: 45 }
 	];

@@ -1,4 +1,4 @@
-import type { DefaultProps, SvelteuiSize } from '$lib/styles';
+import type { DefaultProps, SvelteUISize } from '$lib/styles';
 import type { SvelteNode } from '$lib/internal';
 
 export interface InputWrapperBaseProps extends DefaultProps {
@@ -13,5 +13,5 @@ export interface InputWrapperBaseProps extends DefaultProps {
 export interface InputWrapperProps extends InputWrapperBaseProps {
 	id: string;
 	labelElement: 'label' | 'div';
-	size: SvelteuiSize;
+	size: SvelteUISize;
 }

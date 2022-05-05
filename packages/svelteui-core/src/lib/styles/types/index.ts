@@ -1,21 +1,21 @@
 export type { $$SvelteUIProviderProps as SvelteUIProviderProps } from './SvelteUIProvider';
 export type { DefaultProps } from './DefaultProps';
 export type { ColorScheme, DefaultBackground, DefaultColor } from './ColorScheme';
-export type { SvelteuiColor } from './SvelteuiColor';
-export type { SvelteuiGradient } from './SvelteuiGradient';
-export type { SvelteuiMargins, SvelteuiMargin } from './SvelteuiMargin';
-export type { SvelteuiShadow } from './SvelteuiShadow';
-export type { SvelteuiNumberSize, SvelteuiSizes, SvelteuiSize } from './SvelteuiSize';
+export type { SvelteUIColor } from './SvelteUIColor';
+export type { SvelteUIGradient } from './SvelteUIGradient';
+export type { SvelteUIMargins, SvelteUIMargin } from './SvelteUIMargin';
+export type { SvelteUIShadow } from './SvelteUIShadow';
+export type { SvelteUINumberSize, SvelteUISizes, SvelteUISize } from './SvelteUISize';
 export type {
 	HeadingStyle,
 	Override,
 	LoaderType,
 	CSS,
 	VariantThemeFunction
-} from './SvelteuiTheme';
+} from './SvelteUITheme';
 export type {
-	SvelteuiFontSizes,
-	SvelteuiNumberFontSize,
-	SvelteuiTextAlignment,
-	SvelteuiTextTransform
-} from './SvelteuiTypography';
+	SvelteUIFontSizes,
+	SvelteUINumberFontSize,
+	SvelteUITextAlignment,
+	SvelteUITextTransform
+} from './SvelteUITypography';

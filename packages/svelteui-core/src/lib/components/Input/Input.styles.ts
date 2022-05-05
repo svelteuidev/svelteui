@@ -1,4 +1,4 @@
-import type { DefaultProps, SvelteuiNumberSize, SvelteuiSize } from '$lib/styles';
+import type { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
 export interface InputBaseProps extends DefaultProps {
@@ -10,10 +10,10 @@ export interface InputBaseProps extends DefaultProps {
 	rightSectionProps: Record<string, unknown>;
 	wrapperProps: Record<string, unknown>;
 	required: boolean;
-	radius: SvelteuiNumberSize;
+	radius: SvelteUINumberSize;
 	variant: InputVariant;
 	disabled: boolean;
-	size: SvelteuiSize;
+	size: SvelteUISize;
 	root: Component | keyof HTMLElementTagNameMap;
 	value: string;
 }

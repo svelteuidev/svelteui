@@ -1,4 +1,4 @@
-import type { Override } from './SvelteuiTheme';
+import type { Override } from './SvelteUITheme';
 import type { ActionArray } from '../../internal/utils/forward-actions';
 
 export interface DefaultProps<T = string> {

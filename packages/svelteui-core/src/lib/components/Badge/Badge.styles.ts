@@ -1,19 +1,19 @@
 import { dark, rgba } from '$lib/styles';
 import type {
 	DefaultProps,
-	SvelteuiColor,
-	SvelteuiGradient,
-	SvelteuiNumberSize,
-	SvelteuiSize,
+	SvelteUIColor,
+	SvelteUIGradient,
+	SvelteUINumberSize,
+	SvelteUISize,
 	VariantThemeFunction
 } from '$lib/styles';
 
 export interface BadgeProps extends DefaultProps {
-	color?: SvelteuiColor;
+	color?: SvelteUIColor;
 	variant?: BadgeVariant;
-	gradient?: SvelteuiGradient;
-	size?: SvelteuiSize;
-	radius?: SvelteuiNumberSize;
+	gradient?: SvelteUIGradient;
+	size?: SvelteUISize;
+	radius?: SvelteUINumberSize;
 	fullWidth?: boolean;
 }
 
@@ -51,13 +51,13 @@ export const dotSizes = {
 };
 
 export function getVariantStyles(
-	color: SvelteuiColor,
+	color: SvelteUIColor,
 	variant: BadgeVariant,
 	size: number | string,
-	gradient: SvelteuiGradient
+	gradient: SvelteUIGradient
 ) {
 	const dotSize = typeof size === 'number' ? `${size}px` : dotSizes[size] || dotSizes.md;
-	const ctx: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
+	const ctx: SvelteUIGradient = { from: 'indigo', to: 'cyan', deg: 45 };
 	if (variant === 'dot') {
 		return {
 			dot: {
@@ -97,7 +97,7 @@ export function getVariantStyles(
  *
  * Better implementation should be developed soon
  */
-const getVariant = (color: SvelteuiColor, gradient: SvelteuiGradient): VariantThemeFunction => {
+const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {
 	const dtm = {
 		lightBg: dark.colors[`${color}800`].value,
 		lightHv: dark.colors[`${color}700`].value,

@@ -1,9 +1,9 @@
-import type { DefaultProps, Override, SvelteuiNumberSize } from '$lib/styles';
+import type { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
 
 export interface ImageProps extends DefaultProps {
 	override: Override['props'];
 	overridePlaceholder: Override['props'];
-	radius: SvelteuiNumberSize;
+	radius: SvelteUINumberSize;
 	className: string;
 	src: string;
 	alt: string;

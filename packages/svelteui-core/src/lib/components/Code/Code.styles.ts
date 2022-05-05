@@ -1,7 +1,7 @@
-import type { SvelteuiColor, DefaultProps } from '$lib/styles';
+import type { SvelteUIColor, DefaultProps } from '$lib/styles';
 
 export interface CodeProps extends DefaultProps {
-	color: SvelteuiColor;
+	color: SvelteUIColor;
 	block: boolean;
 	width: number;
 	copy: boolean;

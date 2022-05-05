@@ -1,9 +1,9 @@
-import type { SvelteuiColor, Override } from '$lib/styles/types';
+import type { SvelteUIColor, Override } from '$lib/styles/types';
 
 export interface CodeProps {
 	class?: string;
 	override?: Override['props'];
-	color?: SvelteuiColor;
+	color?: SvelteUIColor;
 	block?: boolean;
 	width?: number;
 	copy?: boolean;

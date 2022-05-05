@@ -1,18 +1,18 @@
 import { dark, rgba } from '$lib/styles';
 import type {
 	DefaultProps,
-	SvelteuiNumberSize,
-	SvelteuiColor,
-	SvelteuiGradient,
+	SvelteUINumberSize,
+	SvelteUIColor,
+	SvelteUIGradient,
 	VariantThemeFunction
 } from '$lib/styles';
 
 export interface ThemeIconProps extends DefaultProps {
-	size: SvelteuiNumberSize;
-	radius: SvelteuiNumberSize;
-	color: SvelteuiColor;
+	size: SvelteUINumberSize;
+	radius: SvelteUINumberSize;
+	color: SvelteUIColor;
 	variant: ThemeIconVariant;
-	gradient: SvelteuiGradient;
+	gradient: SvelteUIGradient;
 }
 
 export type ThemeIconVariant = 'filled' | 'light' | 'gradient' | 'outline';
@@ -26,11 +26,11 @@ export const sizes = {
 };
 
 export function getVariantStyles(
-	color: SvelteuiColor,
+	color: SvelteUIColor,
 	variant: ThemeIconVariant,
-	gradient: SvelteuiGradient
+	gradient: SvelteUIGradient
 ) {
-	const ctx: SvelteuiGradient = { from: 'blue', to: 'cyan', deg: 45 };
+	const ctx: SvelteUIGradient = { from: 'blue', to: 'cyan', deg: 45 };
 	if (variant === 'gradient') return getVariant(color, gradient);
 	return getVariant(color, ctx);
 }
@@ -42,7 +42,7 @@ export function getVariantStyles(
  *
  * Better implementation should be developed soon
  */
-const getVariant = (color: SvelteuiColor, gradient: SvelteuiGradient): VariantThemeFunction => {
+const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {
 	const dtm = {
 		lightBg: dark.colors[`${color}800`].value,
 		lightHv: dark.colors[`${color}700`].value,

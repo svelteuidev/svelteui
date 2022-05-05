@@ -1,4 +1,4 @@
-export type SvelteuiFontSizes =
+export type SvelteUIFontSizes =
 	| 'thin'
 	| 'extralight'
 	| 'light'
@@ -8,8 +8,8 @@ export type SvelteuiFontSizes =
 	| 'bold'
 	| 'extrabold';
 
-export type SvelteuiNumberFontSize = SvelteuiFontSizes | number;
+export type SvelteUINumberFontSize = SvelteUIFontSizes | number;
 
-export type SvelteuiTextAlignment = 'left' | 'right' | 'center' | 'justify';
+export type SvelteUITextAlignment = 'left' | 'right' | 'center' | 'justify';
 
-export type SvelteuiTextTransform = 'none' | 'capitalize' | 'uppercase' | 'lowercase';
+export type SvelteUITextTransform = 'none' | 'capitalize' | 'uppercase' | 'lowercase';

@@ -1,10 +1,10 @@
-import type { DefaultProps, CSS, SvelteuiNumberSize } from '$lib/styles';
+import type { DefaultProps, CSS, SvelteUINumberSize } from '$lib/styles';
 
 export interface GroupProps extends DefaultProps {
 	position: GroupPosition;
 	noWrap: boolean;
 	grow: boolean;
-	spacing: SvelteuiNumberSize;
+	spacing: SvelteUINumberSize;
 	direction: 'row' | 'column';
 	align: CSS['alignItems'];
 	children: number;
