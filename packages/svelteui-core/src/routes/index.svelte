@@ -18,8 +18,18 @@
 		Badge,
 		ThemeIcon,
 		Input,
-		clipboard
+		clipboard,
+		InputWrapper,
+		NativeSelect
 	} from '$lib';
 	import { onMount } from 'svelte';
 	import Gear from '../icons/Gear.svelte';
+
+	let value = 'Hello Worlds';
 </script>
+
+<Input bind:value on:change={(e) => console.log(e)} placeholder="Start Typing" />
+<Space h="md" />
+<NativeSelect bind:value on:change={(e) => console.log(e)} placeholder="Pick One" />
+<Space h="md" />
+{value}

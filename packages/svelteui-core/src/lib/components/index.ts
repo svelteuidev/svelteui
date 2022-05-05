@@ -9,6 +9,8 @@ export * from './Image';
 export * from './Input';
 export * from './InputWrapper';
 export * from './Loader';
+export * from './NativeSelect';
+export * from './Select';
 export * from './Space';
 export * from './Stack';
 export * from './Switch';

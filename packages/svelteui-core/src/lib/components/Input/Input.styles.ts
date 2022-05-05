@@ -15,6 +15,7 @@ export interface InputBaseProps extends DefaultProps {
 	disabled: boolean;
 	size: SvelteuiSize;
 	root: Component | keyof HTMLElementTagNameMap;
+	value: string;
 }
 
 export interface InputProps extends InputBaseProps {

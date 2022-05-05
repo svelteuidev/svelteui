@@ -38,6 +38,8 @@
 	export let disabled: $$InputProps['disabled'] = false;
 	/** Input size */
 	export let size: $$InputProps['size'] = 'sm';
+	/** Input value */
+	export let value: $$InputProps['value'] = '';
 	/** Sets border color to red and aria-invalid=true on input element */
 	export let invalid: boolean = false;
 	/** Will input have multiple lines? */
@@ -45,7 +47,7 @@
 
 	/** An action that forwards inner dom node events to parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	
+
 	let isHTMLElement;
 	let isComponent;
 	const withRightSection = !!rightSection;
@@ -94,7 +96,9 @@
 						minHeight:
 							variant === 'default' || variant === 'filled' ? sizes[size] ?? sizes.md : null,
 						paddingLeft:
-							variant === 'default' || variant === 'filled' ? sizes[size] ?? sizes.md / 3 : null,
+							(variant === 'default' && icon) || (variant === 'filled' && icon)
+								? sizes[size] ?? sizes.md / 3
+								: 12,
 						paddingRight:
 							variant === 'default' || variant === 'filled'
 								? withRightSection
@@ -254,7 +258,7 @@
 
 	if (root !== 'a' && $$props.href) {
 		observable = true;
-		err = ''
+		err = '';
 	}
 	$: if (observable) override = { display: 'none' };
 </script>
@@ -288,6 +292,7 @@ Base component to create custom inputs
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input
+			bind:value
 			use:forwardEvents
 			{required}
 			{disabled}
@@ -315,6 +320,7 @@ Base component to create custom inputs
 		</svelte:element>
 	{:else if isComponent}
 		<svelte:component
+			bind:value	
 			this={root}
 			class="input {className} {`${variant}Variant`} {invalid ? 'invalid' : null} {disabled
 				? 'disabled'
