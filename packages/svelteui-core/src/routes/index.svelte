@@ -17,13 +17,23 @@
 		Space,
 		Badge,
 		ThemeIcon,
+		Input,
 		clipboard
 	} from '$lib';
+	import ChevronDown from '../icons/ChevronDown.svelte';
 
 	let is = false;
 	const toggle = () => (is = !is);
-	let textToCopy = 'This message was copied';
-	let copied = false;
+
+	const props = {
+		placeholder: 'Your email',
+		numProp: 12,
+		override: {
+			bg: '$blue600',
+			textAlign: 'left',
+			gay: 3
+		}
+	};
 </script>
 
 <ThemeIcon size="xl" radius="sm">X</ThemeIcon>
@@ -32,16 +42,5 @@
 <Space h="md" />
 <Badge variant="gradient">{is}</Badge>
 <Space h="md" />
-<Center override={{ width: '$96', h: '200px', bc: 'AliceBlue' }}>
-	<div
-		on:useclipboard={() => {
-			copied = true;
-			setTimeout(function () {
-				copied = false;
-			}, 1000);
-		}}
-		use:clipboard={textToCopy}
-	>
-		<Button color={copied ? 'green' : 'blue'}>{copied ? 'copied' : 'Click me to copy text'}</Button>
-	</div>
-</Center>
+<Input placeholder="Hello world" />
+<Space h="md" />

@@ -5,6 +5,7 @@ export * from './Button';
 export * from './Center';
 export * from './Code';
 export * from './Group';
+export * from './Input';
 export * from './Image';
 export * from './Loader';
 export * from './Space';
