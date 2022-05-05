@@ -1,7 +1,27 @@
-<script lang="ts">
-	//
+<script>
+	import { Prism } from "$lib";
+	import "prismjs/components/prism-java.js";
+
+	import { SvelteUIProvider } from "@svelteuidev/core";
+
+	let code = `
+		const a = 2;
+		const b = 2;
+
+		console.log(a + b);
+
+		// this is a function
+		function add(a, b) {
+			return a + b;
+		}
+	`
+	let svelteCode = `<div>a</div>`;
+	let javaCode = `System.out.println("batata")`;
 </script>
 
-<h1>Welcome to a svelteui package!</h1>
-<p>This is a test route to test the Prism package</p>
-<hr />
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={'dark'}>
+	<Prism code={code} />
+	<Prism code={svelteCode} language="svelte" />
+	<Prism code={javaCode} language="java" />
+</SvelteUIProvider>
+

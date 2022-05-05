@@ -13,7 +13,9 @@
     "sort": "npx sort-package-json"
   },
   "dependencies": {
-    "mdsvexamples": "0.2.3"
+    "mdsvexamples": "0.2.3",
+    "prism-svelte": "0.5.0",
+    "prismjs": "1.28.0"
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.310",
@@ -28,6 +30,5 @@
     "svelte2tsx": "0.5.7",
     "tslib": "2.3.1",
     "typescript": "4.6.3"
-  },
-  "peerDependencies": {}
+  }
 }
