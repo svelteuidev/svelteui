@@ -11,16 +11,23 @@
 		console.log(a + b);
 
 		// this is a function
-		function add(a, b) {
+		async function add(a, b) {
 			return a + b;
 		}
+		await add(a, b);
 	`;
-	let svelteCode = `<div>a</div>`;
-	let javaCode = `System.out.println("batata")`;
+	let svelteCode = `
+		{#if true}
+			<div>True</div>
+		{:else}
+			<div>False</div>
+		{/if}
+	`;
+	let javaCode = `System.out.println("I like coffee")`;
 </script>
 
-<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={'light'}>
-	<Prism {code} />
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={'dark'}>
+	<Prism code={code} lineNumbers={true} highlightLines={'1-4,8'}/>
 	<Prism code={svelteCode} language="svelte" />
 	<Prism code={javaCode} language="java" />
 </SvelteUIProvider>
