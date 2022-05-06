@@ -56,17 +56,17 @@
 			paddingLeft: '$sm',
 			fontSize: `$${size}`,
 			lineHeight: `$${size}`,
-            color: "#000000",
-            [`${dark.selector} &`]: {
-                color: "$dark000"
-            }
+			color: '#000000',
+			[`${dark.selector} &`]: {
+				color: '$dark000'
+			}
 		},
 		'& .input': {
 			appearance: 'none',
-            backgroundColor: "#ffffff",
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderColor: "$gray400",
+			backgroundColor: '#ffffff',
+			borderWidth: '1px',
+			borderStyle: 'solid',
+			borderColor: '$gray400',
 			width: sizes[size],
 			height: sizes[size],
 			borderRadius: `$${radius}`,
@@ -74,15 +74,15 @@
 			display: 'block',
 			margin: 0,
 			transition: `border-color ${transitionDuration}ms ease, background-color ${transitionDuration}ms ease`,
-            
-            [`${dark.selector} &`]: {
-                backgroundColor: "$dark400",
-                borderColor: "$dark400"
-            },
+
+			[`${dark.selector} &`]: {
+				backgroundColor: '$dark400',
+				borderColor: '$dark400'
+			},
 			'&:checked': {
-                border: 'transparent',
-                backgroundColor: `$${color}600`,
-                color: '#ffffff',
+				border: 'transparent',
+				backgroundColor: `$${color}600`,
+				color: '#ffffff',
 
 				[`& + .icon-wrapper`]: {
 					opacity: 1,
@@ -91,64 +91,64 @@
 			},
 
 			'&.disabled': {
-				backgroundColor: "$gray200",
-				borderColor:"$gray300",
+				backgroundColor: '$gray200',
+				borderColor: '$gray300',
 				cursor: 'not-allowed',
 
 				[`& + .icon-wrapper`]: {
-					color: "$gray500",
-                    backgroundColor: "$gray200",
-                    borderColor:"$gray300",
+					color: '$gray500',
+					backgroundColor: '$gray200',
+					borderColor: '$gray300'
 				},
 
-                [`${dark.selector} &`]: {
-                    backgroundColor: "$dark400",
-                    borderColor: "$dark600",
-                    [`& + .icon`]: {
-                        color: "$dark600"
-                    }
-                }
+				[`${dark.selector} &`]: {
+					backgroundColor: '$dark400',
+					borderColor: '$dark600',
+					[`& + .icon`]: {
+						color: '$dark600'
+					}
+				}
 			}
 		},
 
-        '& .icon-wrapper': {
-            color: "#ffffff",
-            transform: 'translateY(5px) scale(0.5)',
-            opacity: 0,
-            transitionProperty: 'opacity, transform',
-            transitionTimingFunction: 'ease',
-            transitionDuration: `${transitionDuration}ms`,
-            pointerEvents: 'none',
-            width: sizes[size],
-            height: sizes[size],
-            minWidth: sizes[size],
-            minHeight: sizes[size], 
-            position: 'absolute',
-            zIndex: 1,
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            margin: 'auto',
-            '@media (prefers-reduced-motion)': {
-                transitionDuration: '0ms',
-            },
-        },
+		'& .icon-wrapper': {
+			color: '#ffffff',
+			transform: 'translateY(5px) scale(0.5)',
+			opacity: 0,
+			transitionProperty: 'opacity, transform',
+			transitionTimingFunction: 'ease',
+			transitionDuration: `${transitionDuration}ms`,
+			pointerEvents: 'none',
+			width: sizes[size],
+			height: sizes[size],
+			minWidth: sizes[size],
+			minHeight: sizes[size],
+			position: 'absolute',
+			zIndex: 1,
+			top: 0,
+			bottom: 0,
+			left: 0,
+			right: 0,
+			margin: 'auto',
+			'@media (prefers-reduced-motion)': {
+				transitionDuration: '0ms'
+			}
+		},
 
-        '& .icon': {
-            color: "#ffffff",
-            width: iconSizes[size],
-            height: iconSizes[size],
-            minWidth: iconSizes[size],
-            minHeight: iconSizes[size], 
+		'& .icon': {
+			color: '#ffffff',
+			width: iconSizes[size],
+			height: iconSizes[size],
+			minWidth: iconSizes[size],
+			minHeight: iconSizes[size],
 
-            '@media (prefers-reduced-motion)': {
-                transitionDuration: '0ms',
-            },
-        },
+			'@media (prefers-reduced-motion)': {
+				transitionDuration: '0ms'
+			}
+		}
 	});
 
-    $: checked = indeterminate || checked;
+	$: checked = indeterminate || checked;
 </script>
 
 <!--
@@ -156,8 +156,6 @@
 **UNSTABLE**: new API, yet to be vetted.
 
 A checkbox input component using the theme styles with support for a label and indeterminate state.
-
-Add inline styles to any element or component with sx.
 	
 @see https://svelteui-docs.vercel.app/docs/core/checkbox
 @example
@@ -173,23 +171,23 @@ Add inline styles to any element or component with sx.
 	<div class="inner">
 		<input
 			use:useActions={use}
-            use:forwardEvents
-            bind:checked={checked}
-            class="input"
-            class:disabled
-            disabled={disabled}
-            id={id}
-            type="checkbox"
-        />
-        <ThemeIcon class="icon-wrapper" size={size}>
-            <slot>
-                <CheckboxIcon class="icon" indeterminate={indeterminate} />
-            </slot>
-        </ThemeIcon>
+			use:forwardEvents
+			bind:checked
+			class="input"
+			class:disabled
+			{disabled}
+			{id}
+			type="checkbox"
+		/>
+		<ThemeIcon class="icon-wrapper" {size}>
+			<slot>
+				<CheckboxIcon class="icon" {indeterminate} />
+			</slot>
+		</ThemeIcon>
 	</div>
 	{#if label}
 		<label class="label" for={id}>
-            {label}
-        </label>
+			{label}
+		</label>
 	{/if}
 </Box>

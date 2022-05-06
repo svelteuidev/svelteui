@@ -14,6 +14,7 @@ export * from './Loader';
 export * from './NativeSelect';
 export * from './Overlay';
 export * from './Select';
+export * from './SimpleGrid';
 export * from './Space';
 export * from './Stack';
 export * from './Switch';

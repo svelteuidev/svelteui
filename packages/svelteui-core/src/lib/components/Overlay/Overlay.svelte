@@ -34,6 +34,25 @@
 	};
 </script>
 
+<!--
+@component
+**UNSTABLE**: new API, yet to be vetted.
+
+Overlays given element with div element with any color and opacity
+	
+@see https://svelteui-docs.vercel.app/docs/core/overlay
+@example
+    ```svelte
+	<Box sx={{ height: 100, position: 'relative' }}>
+       	<Overlay opacity={0.6} color="#000" blur={2} />
+        Overlay with a blur
+    </Box>
+	<Box sx={{ height: 100, position: 'relative' }}>
+       	<Overlay gradient={`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)`} />
+        Overlay with a gradient
+    </Box>
+    ```
+-->
 {#if blur}
 	<Box
 		{use}

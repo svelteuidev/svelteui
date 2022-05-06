@@ -84,6 +84,24 @@
 	};
 </script>
 
+<!--
+@component
+**UNSTABLE**: new API, yet to be vetted.
+
+Capture user feedback limited to large set of options
+	
+@see https://svelteui-docs.vercel.app/docs/core/native-select
+@example
+    ```svelte
+    <NativeSelect
+      data={['React', 'Vue', 'Angular', 'Svelte']}
+      placeholder="Pick one"
+      label="Select your favorite framework/library"
+      description="This is anonymous"
+      required
+    />
+    ```
+-->
 <InputWrapper
 	id={uuid}
 	class={className}
