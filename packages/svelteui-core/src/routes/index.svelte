@@ -24,6 +24,7 @@
 		Fragment,
 		Overlay,
 		SimpleGrid,
+		Container,
 		clipboard
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';

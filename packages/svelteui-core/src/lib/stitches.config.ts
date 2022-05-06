@@ -408,7 +408,8 @@ const NormalizeCSS = globalCss({
 	html: {
 		fontFamily: 'sans-serif',
 		lineHeight: '1.15',
-		textSizeAdjust: '100%'
+		textSizeAdjust: '100%',
+		margin: 0
 	},
 
 	body: {
