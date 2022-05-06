@@ -2,7 +2,6 @@
 	import Text from '../Text/Text.svelte';
 	import { css } from '$lib/styles';
 	import { titleSizes } from './Title.styles';
-	import { TextErrors } from '../Text/Text.errors';
 	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title.styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */

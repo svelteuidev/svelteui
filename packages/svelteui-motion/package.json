@@ -1,6 +1,28 @@
 {
   "name": "@svelteuidev/motion",
   "version": "0.5.6",
+  "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "library",
+    "frontend",
+    "svelte-motion",
+    "motion",
+    "animation",
+    "transition",
+    "state"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-actions"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
+  "sideEffects": false,
   "type": "module",
   "types": "types/index.d.ts",
   "files": [

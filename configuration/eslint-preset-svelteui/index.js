@@ -21,6 +21,7 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		'@typescript-eslint/no-inferrable-types': 'off'
+		'@typescript-eslint/no-inferrable-types': 'off',
+		'@typescript-eslint/no-extra-boolean-cast': 'off'
 	}
 };

@@ -97,7 +97,7 @@
 		bind:value
 		root="select"
 		id={uuid}
-		invalid={!!error}
+		invalid={Boolean(error)}
 		override={{ ...base, ...inputStyle }}
 		aria-required={required}
 		{size}
@@ -143,7 +143,7 @@
 			<option value="" disabled hidden> Add Some Options </option>
 		{/each}
 		<svelte:component
-			this={!!rightSection ? rightSection : ChevronUpDown}
+			this={rightSection ? rightSection : ChevronUpDown}
 			slot="rightSection"
 			size={iconProps.size}
 			color={iconProps.color}

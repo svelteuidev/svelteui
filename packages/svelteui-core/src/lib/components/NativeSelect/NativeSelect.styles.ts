@@ -13,7 +13,7 @@ export interface NativeSelectProps extends DefaultProps, InputBaseProps, InputWr
 	/** Style properties added to select element */
 	inputStyle: Override['props'];
 	/** Props passed to root element (InputWrapper component) */
-	wrapperProps: Record<string, any>;
+	wrapperProps: Record<string, unknown>;
 	/** Input size */
 	size: SvelteUISize;
 }

@@ -1,14 +1,13 @@
 import type { DefaultProps, SvelteUISize } from '$lib/styles';
-import type { SvelteNode } from '$lib/internal';
 
 export interface InputWrapperBaseProps extends DefaultProps {
 	label: string;
 	description: string;
 	error: string;
 	required: boolean;
-	labelProps: Record<string, any>;
-	descriptionProps: Record<string, any>;
-	errorProps: Record<string, any>;
+	labelProps: Record<string, unknown>;
+	descriptionProps: Record<string, unknown>;
+	errorProps: Record<string, unknown>;
 }
 export interface InputWrapperProps extends InputWrapperBaseProps {
 	id: string;

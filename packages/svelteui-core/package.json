@@ -1,6 +1,27 @@
 {
   "name": "@svelteuidev/core",
   "version": "0.5.6",
+  "description": "Svelte component library for creating fully functional and accessible web applications quickly",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "stitches"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-core"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
   "types": "types/index.d.ts",

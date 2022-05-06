@@ -3,5 +3,5 @@ export interface SelectItem {
 	label?: string;
 	disabled?: boolean;
 	group?: string;
-	[key: string]: any;
+	[key: string]: unknown;
 }
