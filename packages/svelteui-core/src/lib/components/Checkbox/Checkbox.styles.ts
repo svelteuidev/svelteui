@@ -2,7 +2,6 @@ import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/style
 import type { Component } from '$lib/internal';
 
 export interface CheckboxProps extends DefaultProps {
-	icon: Component | HTMLOrSVGElement;
 	color: SvelteUIColor;
 	id: string;
 	checked: boolean;

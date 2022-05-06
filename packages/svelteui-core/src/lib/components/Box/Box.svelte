@@ -16,7 +16,7 @@
 	/** The component or HTML tag to be used as the root component for the text */
 	export let root: $$BoxProps['root'] = undefined;
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	let isHTMLElement;

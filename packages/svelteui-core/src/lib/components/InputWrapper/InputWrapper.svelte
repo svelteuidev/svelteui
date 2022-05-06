@@ -36,7 +36,7 @@
 		_labelProps = labelElement === 'label' ? { htmlFor: id } : {};
 	}
 
-	const InputWrapperStyles = css({
+	$: InputWrapperStyles = css({
 		lineHeight: '$md',
 		'& .label': {
 			[`${dark.selector} &`]: {

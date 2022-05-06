@@ -26,7 +26,7 @@
 	/** The children being rendered */
 	export let children: $$GroupProps['children'] = null;
 
-	const GroupStyles: CSS = {
+	$: GroupStyles = {
 		boxSizing: 'border-box',
 		display: 'flex',
 		flexDirection: direction,

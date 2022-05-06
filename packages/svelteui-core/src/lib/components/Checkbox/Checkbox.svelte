@@ -2,10 +2,10 @@
 	import { css, dark, randomID } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
+	import { sizes, iconSizes } from './Checkbox.styles';
 	import Box from '../Box/Box.svelte';
 	import ThemeIcon from '../ThemeIcon/ThemeIcon.svelte';
 	import CheckboxIcon from './CheckboxIcon.svelte';
-	import { sizes, iconSizes } from './Checkbox.styles';
 	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
 
 	/** Used for forwarding actions from component */
@@ -15,8 +15,6 @@
 	export { className as class };
 	/** Css prop for custom theming the component */
 	export let override: $$CheckboxProps['override'] = {};
-	/** The icon to be used that can replace the default one */
-	export let icon: $$CheckboxProps['icon'] = null;
 	/** Checkbox color from theme */
 	export let color: $$CheckboxProps['color'] = 'gray';
 	/** The id used to bind input to label, if none is provided an unique ID will be generated */
@@ -38,7 +36,7 @@
 	/** The props to pass to the wrapper component */
 	export let wrapperProps: $$CheckboxProps['wrapperProps'] = {};
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: CheckboxStyles = css({

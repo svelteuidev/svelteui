@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Box from '../Box/Box.svelte';
-	import type { CSS } from '$lib/styles';
 	import type { CenterProps as $$CenterProps } from './Center.styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
@@ -10,7 +9,7 @@
 	export let override: $$CenterProps['override'] = {};
 	export let inline: $$CenterProps['inline'] = false;
 
-	const CenterStyles: CSS = {
+	$: CenterStyles = {
 		display: inline ? 'inline-flex' : 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'

@@ -11,7 +11,7 @@
 	export let align: $$StackProps['align'] = 'stretch';
 	export let justify: $$StackProps['justify'] = 'center';
 
-	const StackStyles: CSS = {
+	$: StackStyles = {
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: `${align}`,

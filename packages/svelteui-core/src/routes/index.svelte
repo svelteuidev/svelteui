@@ -38,9 +38,7 @@
 	]}
 	cols={3}
 >
-	<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>1</Center>
-	<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>2</Center>
-	<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>3</Center>
-	<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>4</Center>
-	<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>5</Center>
+	{#each [...Array(5).keys()] as _, i}
+		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+	{/each}
 </SimpleGrid>

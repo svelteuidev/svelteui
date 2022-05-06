@@ -1,6 +1,6 @@
 import type { ColorScheme, DefaultProps, CSS } from './index';
 
-export interface SvelteUIProviderProps extends DefaultProps {
+export interface SvelteUIProviderProps extends DefaultProps<HTMLDivElement> {
 	themeObserver: ColorScheme;
 	withNormalizeCSS: boolean;
 	withGlobalStyles: boolean;

@@ -12,7 +12,13 @@
 		{ from: 'blue', to: 'cyan', deg: 45 },
 		{ from: 'red', to: 'pink', deg: 45 }
 	];
+
+	let x: number;
+	let y: number;
+	$: mobile = x < 525;
 </script>
+
+<svelte:window bind:innerWidth={x} bind:innerHeight={y} />
 
 <SvelteUIProvider
 	override={{ overflow: 'hidden' }}
@@ -20,8 +26,8 @@
 	withNormalizeCSS
 	themeObserver={darkMode ? 'dark' : 'light'}
 >
-	<Center>
-		<Group spacing="xl" position="center" noWrap>
+	<Center override={{ pt: '$4' }}>
+		<Group direction={mobile ? 'column' : 'row'} spacing="xl" position="center" noWrap>
 			<Button
 				gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
 				on:click={toggleTheme}

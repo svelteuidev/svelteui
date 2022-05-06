@@ -13,7 +13,7 @@
 	/** Height, set to add vertical spacing */
 	export let h: $$SpaceProps['h'] = 'md';
 
-	const SpaceStyles: CSS = {
+	$: SpaceStyles = {
 		width: typeof w === 'number' ? `${w}px` : `$${w}`,
 		minW: typeof w === 'number' ? `${w}px` : `$${w}`,
 		height: typeof h === 'number' ? `${h}px` : `$${h}`,

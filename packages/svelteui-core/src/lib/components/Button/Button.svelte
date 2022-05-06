@@ -53,7 +53,7 @@
 	/** ripple will add a mui ripple effect to the button on click */
 	export let ripple: $$ButtonProps['ripple'] = false;
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate button styles */

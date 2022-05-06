@@ -73,7 +73,7 @@
 		typeof item === 'string' ? { label: item, value: item } : item
 	);
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** When no icon is present give the left section 12px of padding*/

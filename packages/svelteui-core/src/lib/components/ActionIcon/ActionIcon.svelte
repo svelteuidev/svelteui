@@ -38,7 +38,7 @@
 	/** If external is set to true, target = _blank */
 	export let external: $$ActionIconProps['external'] = false;
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: ActionIconStyles = css({
@@ -116,7 +116,7 @@ Icon button to indicate secondary action.
     <ActionIcon variant="default"><Discord></ActionIcon> // default variant with an icon
     ```
 -->
-
+<!-- prettier-ignore -->
 <svelte:element
 	this={root}
 	class:loading
