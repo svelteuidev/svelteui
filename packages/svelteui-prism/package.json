@@ -1,8 +1,27 @@
 {
   "name": "@svelteuidev/prism",
-  "version": "0.5.0",
+  "version": "0.5.6",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "code",
+    "highlight",
+    "syntax",
+    "syntax-highlight"
+  ],
   "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "dist/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",
@@ -31,5 +50,9 @@
     "svelte2tsx": "0.5.7",
     "tslib": "2.3.1",
     "typescript": "4.6.3"
+  },
+  "peerDependencies": {
+    "@svelteuidev/core": "0.5.6",
+    "svelte": "3.47.0"
   }
 }

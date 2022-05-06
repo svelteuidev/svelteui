@@ -2,6 +2,12 @@
   "name": "@svelteuidev/utilities",
   "version": "0.5.6",
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "dist/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "coverage": "vitest run --coverage",

@@ -4,6 +4,14 @@
   "sideEffects": false,
   "type": "module",
   "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "stitches.config.js",
+    "components/**/*.{js,svelte}",
+    "internal/**/*.{js,svelte}",
+    "styles/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",
