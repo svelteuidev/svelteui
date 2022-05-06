@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { css, dark } from '$lib/styles';
 	import { sizes } from './Input.styles';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { InputProps as $$InputProps } from './Input.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$InputProps['use'] = [];
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$InputProps['className'] = '';
 	export { className as class };
@@ -293,6 +295,7 @@ Base component to create custom inputs
 	{#if isHTMLElement && root === 'input'}
 		<input
 			bind:value
+			use:useActions={use}
 			use:forwardEvents
 			{required}
 			{disabled}
@@ -304,8 +307,11 @@ Base component to create custom inputs
 			{...$$restProps}
 		/>
 	{:else if isHTMLElement}
+		<!-- prettier-ignore -->
 		<svelte:element
 			this={root}
+			value={value}
+			use:useActions={use}
 			use:forwardEvents
 			{required}
 			{disabled}
@@ -320,8 +326,8 @@ Base component to create custom inputs
 		</svelte:element>
 	{:else if isComponent}
 		<svelte:component
-			bind:value	
 			this={root}
+			bind:value
 			class="input {className} {`${variant}Variant`} {invalid ? 'invalid' : null} {disabled
 				? 'disabled'
 				: null} {icon ? 'withIcon' : null}"
