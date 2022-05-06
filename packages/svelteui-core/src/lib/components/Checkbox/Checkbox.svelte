@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { css, dark, randomID } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
 	import ThemeIcon from '../ThemeIcon/ThemeIcon.svelte';
 	import CheckboxIcon from './CheckboxIcon.svelte';
 	import { sizes, iconSizes } from './Checkbox.styles';
 	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$CheckboxProps['use'] = [];
 	/** Used for custom classes to be applied to the checkbox e.g. Tailwind classes */
 	export let className: $$CheckboxProps['className'] = '';
 	export { className as class };
@@ -170,6 +172,7 @@ Add inline styles to any element or component with sx.
 <Box class="checkbox {className} {CheckboxStyles({ css: override })}" {...wrapperProps}>
 	<div class="inner">
 		<input
+			use:useActions={use}
             use:forwardEvents
             bind:checked={checked}
             class="input"
