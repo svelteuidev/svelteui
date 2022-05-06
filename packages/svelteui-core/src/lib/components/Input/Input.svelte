@@ -254,6 +254,12 @@
 		}
 	});
 
+	function onChange() {
+		// the 'this' keyword in this case is the
+		// HTML element provided in prop 'root'
+		value = this.value;
+	}
+
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
 	let err;
@@ -313,6 +319,7 @@ Base component to create custom inputs
 			value={value}
 			use:useActions={use}
 			use:forwardEvents
+			on:change={onChange}
 			{required}
 			{disabled}
 			aria-invalid={invalid}
