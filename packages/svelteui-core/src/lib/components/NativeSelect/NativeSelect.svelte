@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { randomID } from '$lib/styles';
+	import { createEventForwarder } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import Input from '../Input/Input.svelte';
 	import InputWrapper from '../InputWrapper/InputWrapper.svelte';
 	import ChevronUpDown from './ChevronUpDown.svelte';
@@ -71,6 +73,9 @@
 		typeof item === 'string' ? { label: item, value: item } : item
 	);
 
+	/** An action that forwards inner dom node events to parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
+
 	/** When no icon is present give the left section 12px of padding*/
 	const base = {
 		'& .input': {
@@ -94,6 +99,7 @@
 	{...wrapperProps}
 >
 	<Input
+		use={[[forwardEvents]]}
 		bind:value
 		root="select"
 		id={uuid}
@@ -112,26 +118,9 @@
 		{rightSectionWidth}
 		{rightSectionProps}
 		{...$$restProps}
-		on:change
-		on:click
-		on:contextmenu
-		on:dblclick
-		on:focusin
-		on:focusout
-		on:keydown
-		on:keyup
-		on:pointercancel
-		on:pointerdown
-		on:pointerenter
-		on:pointerleave
-		on:pointermove
-		on:pointerout
-		on:pointerup
-		on:change
-		on:input
 	>
 		{#if placeholder}
-			<option value="" disabled>
+			<option value="" disabled hidden>
 				{placeholder}
 			</option>
 		{/if}
