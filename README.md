@@ -22,6 +22,8 @@
     <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
     <a href="https://github.com/svelteuidev/svelteui/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/svelteuidev/svelteui/wiki/Roadmap">Read Roadmap</a>
   </p>
 </div>
 
