@@ -283,7 +283,7 @@ Base component to create custom inputs
 		<Badge slot='rightSection' color="blue" variant="filled">
 			new
 		</Badge>
-	<Icon />
+	<Input />
     ```
 -->
 <Box {...wrapperProps} class="{className} {InputStyles({ css: override })}">

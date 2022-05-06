@@ -3,6 +3,7 @@
 		ActionIcon,
 		BackgroundImage,
 		Button,
+		Checkbox,
 		CloseButton,
 		Code,
 		Image,
@@ -63,3 +64,5 @@
 >
 	{copied ? 'Copied' : 'Click to copy'}
 </Button>
+<Space h="md" />
+<Checkbox label="Please accept these terms and conditions without reading" />
