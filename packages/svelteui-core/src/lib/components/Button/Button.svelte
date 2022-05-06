@@ -9,7 +9,9 @@
 	import Ripple from './Ripple.svelte';
 	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
+	/** Used for forwarding actions from component */
 	export let use: $$ButtonProps['use'] = [];
+	/** Used for components to bind to elements */
 	export let element: $$ButtonProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$ButtonProps['className'] = '';

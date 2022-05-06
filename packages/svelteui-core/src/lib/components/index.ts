@@ -12,6 +12,7 @@ export * from './Input';
 export * from './InputWrapper';
 export * from './Loader';
 export * from './NativeSelect';
+export * from './Overlay';
 export * from './Select';
 export * from './Space';
 export * from './Stack';
