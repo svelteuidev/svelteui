@@ -3,6 +3,7 @@
 		ActionIcon,
 		BackgroundImage,
 		Button,
+		Checkbox,
 		CloseButton,
 		Code,
 		Image,
