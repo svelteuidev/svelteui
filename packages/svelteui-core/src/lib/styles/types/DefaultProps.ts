@@ -1,5 +1,5 @@
 import type { Override } from './SvelteUITheme';
-import type { ActionArray } from '../../internal/utils/forward-actions';
+import type { ActionArray } from '$lib/internal/utils/forwarding/forward-actions';
 
 export interface DefaultProps<T = string> {
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */

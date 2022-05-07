@@ -1,6 +1,7 @@
 export * from './ActionIcon';
 export * from './Badge';
 export * from './Box';
+export * from './BrowserRender';
 export * from './Button';
 export * from './Center';
 export * from './Checkbox';
@@ -15,6 +16,7 @@ export * from './Loader';
 export * from './NativeSelect';
 export * from './Overlay';
 export * from './Select';
+export * from './ServerRender';
 export * from './SimpleGrid';
 export * from './Space';
 export * from './Stack';
