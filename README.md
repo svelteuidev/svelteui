@@ -15,7 +15,7 @@
 [![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/2J2xmzCS79)
 
   <p align="center">
-   SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could yo ask for ¯\_(ツ)_/¯
+   SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could you ask for ¯\_(ツ)_/¯
     <br />
     <a href="https://svelteui-docs.vercel.app/"><strong>Explore the docs »</strong></a>
     <br />
@@ -36,10 +36,10 @@
 ### Features
 
 - [SvelteKit](https://kit.svelte.dev/) and SSR Compatible
-- [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional.
-- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards.
-- Dark theme included, as well as a custom theming api.
-- Minimal third-party dependency usage.
+- [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional
+- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards
+- Dark theme included, as well as a custom theming api
+- Minimal third-party dependency usage
 - Easy setup - **Zero Configuration**
 
 ### Undocumented Components & Functions
@@ -73,7 +73,7 @@ I want to build a friendly community that is happy to help those who need it. He
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-- If you have a suggestion that would make this project better, submit an issue.
+- If you have a suggestion that would make this project better, submit an issue
 - If you would like to directly contribute, read the [contribution guide](https://svelteui-docs.vercel.app/docs/contribute) then submit a PR
 
 <br />
