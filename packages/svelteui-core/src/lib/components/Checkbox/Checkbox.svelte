@@ -21,6 +21,8 @@
 	export let id: $$CheckboxProps['id'] = randomID();
 	/** Will set the checkbox to disabled state */
 	export let disabled: $$CheckboxProps['disabled'] = false;
+	/** The value of the checkbox */
+	export let value: $$CheckboxProps['value'] = null;
 	/** The value used to set the value of checkbox as checked or unchecked */
 	export let checked: $$CheckboxProps['checked'] = false;
 	/** Sets the checkbox to indetermined state, overrides the checked state */
@@ -81,6 +83,7 @@
 				border: 'transparent',
 				backgroundColor: `$${color}600`,
 				color: '#ffffff',
+				borderRadius: `$${radius}`,
 
 				[`& + .icon-wrapper`]: {
 					opacity: 1,
@@ -121,6 +124,7 @@
 			height: sizes[size],
 			minWidth: sizes[size],
 			minHeight: sizes[size],
+			borderRadius: `$${radius}`,
 			position: 'absolute',
 			zIndex: 1,
 			top: 0,
@@ -173,9 +177,10 @@ A checkbox input component using the theme styles with support for a label and i
 			bind:checked
 			class="input"
 			class:disabled
-			{disabled}
-			{id}
 			type="checkbox"
+			{disabled}
+			{value}
+			{id}
 		/>
 		<ThemeIcon class="icon-wrapper" {size}>
 			<slot>

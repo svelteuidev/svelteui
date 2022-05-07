@@ -3,7 +3,6 @@
 	import { GroupErrors } from './Group.errors';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { CSS } from '$lib/styles';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
