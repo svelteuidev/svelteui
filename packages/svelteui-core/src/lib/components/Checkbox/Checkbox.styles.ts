@@ -7,6 +7,8 @@ export interface CheckboxProps extends DefaultProps {
 	checked: boolean;
 	disabled: boolean;
 	indeterminate: boolean;
+	value: string;
+
 	label: Component | string;
 	radius: SvelteUINumberSize | number;
 	size: SvelteUINumberSize;

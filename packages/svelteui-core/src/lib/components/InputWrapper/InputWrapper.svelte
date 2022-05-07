@@ -13,9 +13,9 @@
 	/** Input label, displayed before input */
 	export let label: $$InputWrapperProps['label'] = 'label';
 	/** Input description, displayed after label */
-	export let description: $$InputWrapperProps['description'] = 'description';
+	export let description: $$InputWrapperProps['description'] = null;
 	/** Displays error message after input */
-	export let error: $$InputWrapperProps['error'] = 'error';
+	export let error: $$InputWrapperProps['error'] = null;
 	/** Adds red asterisk on the right side of label */
 	export let required: $$InputWrapperProps['required'] = false;
 	/** Props spread to label element */
