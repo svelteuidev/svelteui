@@ -6,9 +6,9 @@ export interface CheckboxGroupProps extends DefaultProps {
 	value: string[];
 	label: string;
 	size: SvelteUINumberSize;
-	radius: SvelteUINumberSize | number;
+	radius: SvelteUINumberSize;
 	direction: 'row' | 'column';
 	align: CSS['alignItems'];
 	spacing: SvelteUINumberSize;
-	wrapperProps: { [key: string]: any };
+	wrapperProps: Record<string, any>;
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
-    import Checkbox from '../Checkbox.svelte';
+	import Checkbox from '../Checkbox.svelte';
 	import type { CheckboxGroupProps as $$CheckboxGroupProps } from './CheckboxGroup.styles';
 
 	/** Used for custom classes to be applied to the checkbox group e.g. Tailwind classes */
@@ -19,7 +19,7 @@
 	export let label: $$CheckboxGroupProps['label'] = null;
 	/** Predefined checkbox size */
 	export let size: $$CheckboxGroupProps['size'] = 'md';
-    /** Predefined checkbox radius */
+	/** Predefined checkbox radius */
 	export let radius: $$CheckboxGroupProps['radius'] = 'sm';
 	/** Predefined checkbox spacing between checkboxes in horizontal orientation */
 	export let direction: $$CheckboxGroupProps['direction'] = 'row';
@@ -30,10 +30,10 @@
 	/** The props to pass to the wrapper component */
 	export let wrapperProps: $$CheckboxGroupProps['wrapperProps'] = {};
 
-    function onChanged(item, el) {        
-        if (el.checked) value = [...value, item];
-        else value = value.filter(val => val !== item);
-    }
+	function onChanged(item, el) {
+		if (el.checked) value = [...value, item];
+		else value = value.filter((val) => val !== item);
+	}
 </script>
 
 <!--
@@ -52,18 +52,18 @@ the items passed.
     ```
 -->
 
-<InputWrapper class="{className}" {label} {override} {size} {...wrapperProps} {...$$restProps}>
-    <Group {direction} {spacing} {align}>
-        {#each items as item}
-            <Checkbox
-                label={item.label}
-                value={item.value}
-                checked={value.includes(item.value)}
-                {radius}
-                {size}
-                {color}
-                on:change={(e) => onChanged(item.value, e.target)}
-            />
-        {/each}
-    </Group>
+<InputWrapper class={className} {label} {override} {size} {...wrapperProps} {...$$restProps}>
+	<Group {direction} {spacing} {align}>
+		{#each items as item}
+			<Checkbox
+				label={item.label}
+				value={item.value}
+				checked={value.includes(item.value)}
+				{radius}
+				{size}
+				{color}
+				on:change={(e) => onChanged(item.value, e.target)}
+			/>
+		{/each}
+	</Group>
 </InputWrapper>
