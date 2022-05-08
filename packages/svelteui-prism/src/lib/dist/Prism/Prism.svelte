@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css, dark, Error } from '@svelteuidev/core';
-	import type { Override, SvelteuiSize } from '@svelteuidev/core';
+	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
+	import { clipboard } from '@svelteuidev/actions';
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
 	import 'prism-svelte';
@@ -9,27 +9,28 @@
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 	import { PrismErrors } from './Prism.errors';
+	import type { PrismStyles as $$PrismStyles } from './Prism.styles';
 
 	/** Used for custom classes to be applied to the prism e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: $$PrismStyles['className'] = '';
 	export { className as class };
 
 	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
+	export let override: $$PrismStyles['override'] = {};
 	/** The size of the text inside the highlighting from the default theme */
-	export let size: SvelteuiSize = 'md';
+	export let size: $$PrismStyles['size'] = 'md';
 	/** The code to be shown highlighted */
-	export let code: string = '';
+	export let code: $$PrismStyles['code'] = '';
 	/** The language which the code is written, used to define the highlight */
-	export let language: string = 'javascript';
+	export let language: $$PrismStyles['language'] = 'javascript';
 	/** If it should show the line numbers next to the code */
-	export let lineNumbers: boolean = false;
+	export let lineNumbers: $$PrismStyles['lineNumbers'] = false;
 	/** The lines to be highlighted e.g. 1-5,9,10 */
-	export let highlightLines: string = null;
+	export let highlightLines: $$PrismStyles['highlightLines'] = null;
 	/** If white space should be normalized in the code provided */
-	export let normalizeWhiteSpace: boolean = true;
+	export let normalizeWhiteSpace: $$PrismStyles['normalizeWhiteSpace'] = true;
 	/** Settings to configure the normalization of white space */
-	export let normalizeWhiteSpaceConfig: Record<string, any> = {
+	export let normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = {
 		'remove-trailing': true,
 		'remove-indent': true,
 		'left-trim': true,
@@ -39,12 +40,21 @@
 		'tabs-to-spaces': 4,
 		'spaces-to-tabs': 4
 	};
+	/** The time in ms for the copy button to return to its normal state after copy */
+	export let copy: $$PrismStyles['copy'] = true;
+	export let copyTimeout: $$PrismStyles['copyTimeout'] = 3000;
 
 	onMount(() => {
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
 		}
 	});
+
+	let copied = false;
+	function onClipboard() {
+		copied = true;
+		setTimeout(() => (copied = false), copyTimeout);
+	}
 
 	$: prettyCode = Prism.highlight(code, Prism.languages[language], language);
 	$: prismClasses = `language-${language} ${lineNumbers ? 'line-numbers' : ''} ${
@@ -57,6 +67,30 @@
 		backgroundColor: '$gray50',
 		fontSize: `$${size}`,
 		lineHeight: `$${size}`,
+		position: "relative",
+		paddingTop: '$xs',
+		paddingBottom: '$xs',
+
+		pre: {
+			margin: 0
+		},
+		'pre[data-line]': {
+			paddingTop: 0,
+			paddingBottom: 0
+		},
+	
+		'& .copy': {
+			position: 'absolute',
+			right: '$md',
+    		zIndex: 2,
+			background: 'transparent'
+		},
+		'& .copy:hover': {
+			background: 'transparent',
+			[`${dark.selector} &`]: {
+				background: 'transparent'
+			}
+		},
 
 		'& .token.comment': {
 			color: '$gray600'
@@ -152,6 +186,7 @@
 			marginRight: '$xs'
 		},
 		'& .line-highlight': {
+			marginTop: 0,
 			backgroundColor: 'rgba(51, 154, 240, 0.2)'
 		},
 		[`${dark.selector} &`]: {
@@ -241,9 +276,14 @@
 <Error {observable} component="Text" code={err} />
 
 <div class="{className} {PrismCss({ css: override })}">
-	<pre
-		class={prismClasses}
-		data-line={highlightLines}>
+	{#if copy}
+		<ActionIcon class="copy" use={[[clipboard, code]]} on:useclipboard={onClipboard}>
+			<ThemeIcon variant="subtle">
+				<CopyIcon {copied} />
+			</ThemeIcon>
+		</ActionIcon>
+	{/if}
+	<pre class={prismClasses} data-line={highlightLines}>
 		<code class="language-{language}">
 			{@html prettyCode}
 		</code>

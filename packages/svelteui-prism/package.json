@@ -41,6 +41,7 @@
     "sort": "npx sort-package-json"
   },
   "dependencies": {
+    "@svelteuidev/actions": "0.5.6",
     "@svelteuidev/core": "0.5.6",
     "mdsvexamples": "0.2.3",
     "prism-svelte": "0.5.0",
@@ -61,6 +62,7 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
+    "@svelteuidev/actions": "0.5.6",
     "@svelteuidev/core": "0.5.6",
     "svelte": "3.47.0"
   }

@@ -15,7 +15,14 @@ export interface ThemeIconProps extends DefaultProps {
 	gradient: SvelteUIGradient;
 }
 
-export type ThemeIconVariant = 'filled' | 'light' | 'gradient' | 'outline';
+export type ThemeIconVariant =
+	| 'filled'
+	| 'light'
+	| 'gradient'
+	| 'outline'
+	| 'subtle'
+	| 'default'
+	| 'white';
 
 export const sizes = {
 	xs: 16,
