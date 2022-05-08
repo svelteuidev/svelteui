@@ -2,12 +2,14 @@
 	import { css } from '$lib/styles';
 	import { getVariantStyles, sizes } from './ActionIcon.styles';
 	import { ActionIconErrors } from './ActionIcon.errors';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import Loader from '../Loader/Loader.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$ActionIconProps['use'] = [];
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$ActionIconProps['className'] = '';
 	export { className as class };
@@ -121,6 +123,7 @@ Icon button to indicate secondary action.
 	this={root}
 	class:loading
 	class:disabled
+	use:useActions={use}
 	use:forwardEvents
 	class="{className} {ActionIconStyles({ css: override, variation: variant })}"
 	disabled={disabled || loading}
