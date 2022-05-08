@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { css, dark, Error } from '@svelteuidev/core';
+	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
+	import { clipboard } from '@svelteuidev/actions';
 	import type { Override, SvelteuiSize } from '@svelteuidev/core';
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
@@ -39,12 +40,20 @@
 		'tabs-to-spaces': 4,
 		'spaces-to-tabs': 4
 	};
+	/** The time in ms for the copy button to return to its normal state after copy */
+	export let copyTimeout: number = 3000;
 
 	onMount(() => {
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
 		}
 	});
+
+	let copied = false;
+	function onClipboard() {
+		copied = true;
+		setTimeout(() => (copied = false), copyTimeout);
+	}
 
 	$: prettyCode = Prism.highlight(code, Prism.languages[language], language);
 	$: prismClasses = `language-${language} ${lineNumbers ? 'line-numbers' : ''} ${
@@ -57,6 +66,30 @@
 		backgroundColor: '$gray50',
 		fontSize: `$${size}`,
 		lineHeight: `$${size}`,
+		position: "relative",
+		paddingTop: '$xs',
+		paddingBottom: '$xs',
+
+		pre: {
+			margin: 0
+		},
+		'pre[data-line]': {
+			paddingTop: 0,
+			paddingBottom: 0
+		},
+	
+		'& .copy': {
+			position: 'absolute',
+			right: '$md',
+    		zIndex: 2,
+			background: 'transparent'
+		},
+		'& .copy:hover': {
+			background: 'transparent',
+			[`${dark.selector} &`]: {
+				background: 'transparent'
+			}
+		},
 
 		'& .token.comment': {
 			color: '$gray600'
@@ -152,6 +185,7 @@
 			marginRight: '$xs'
 		},
 		'& .line-highlight': {
+			marginTop: 0,
 			backgroundColor: 'rgba(51, 154, 240, 0.2)'
 		},
 		[`${dark.selector} &`]: {
@@ -241,9 +275,12 @@
 <Error {observable} component="Text" code={err} />
 
 <div class="{className} {PrismCss({ css: override })}">
-	<pre
-		class={prismClasses}
-		data-line={highlightLines}>
+	<ActionIcon class="copy" use={[[clipboard, code]]} on:useclipboard={onClipboard}>
+		<ThemeIcon variant="subtle">
+			<CopyIcon {copied} />
+		</ThemeIcon>
+	</ActionIcon>
+	<pre class={prismClasses} data-line={highlightLines}>
 		<code class="language-{language}">
 			{@html prettyCode}
 		</code>
