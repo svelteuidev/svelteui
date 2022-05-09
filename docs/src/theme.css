@@ -77,7 +77,7 @@
 }
 
 .sidebar {
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 @media (max-width: 800px) {
