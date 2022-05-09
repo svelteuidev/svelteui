@@ -1,0 +1,71 @@
+/* Theme tunning: for full list ov variables visit the https://alexxnb.github.io/svelte-docs/theming */
+
+:root {
+  --primary: #228be6 !important;
+  --tag: #f4f5f7 !important;
+  --tag-text: #161e2e !important;
+  --tag-border: #d2d6dc !important;
+  --secondary: rgb(75, 85, 99) !important;
+}
+
+.article {
+  max-width: 80rem !important;
+  margin: auto 2rem !important;
+  padding-bottom: 10rem !important;
+}
+
+.sidebar h3 ~ ul li strong {
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.55;
+  text-decoration: none;
+  position: relative;
+  padding-left: 23px;
+  margin-bottom: 5px;
+  border-left: 1px solid rgb(222, 226, 230);
+  height: 34px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 12px;
+  background-color: rgb(248, 249, 250);
+  color: #1a202c;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.sidebar h3 ~ ul li a.active {
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.55;
+  text-decoration: none;
+  position: relative;
+  padding-left: 23px;
+  margin-bottom: 5px;
+  border-left: 1px solid var(--primary);
+  height: 34px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 12px;
+  background-color: var(--svelteui-colors-blue50);
+  color: var(--primary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@media (max-width: 800px) {
+  .article {
+    max-width: 80rem !important;
+    margin: 0 !important;
+    padding: 0 0.25rem !important;
+  }
+}

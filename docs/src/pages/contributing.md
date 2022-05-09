@@ -1,14 +1,13 @@
 ---
-id: contributing
-title: Contributing
+title: 'Contributing'
 ---
 
-import { Alert } from '@mantine/core';
-import { CheckCircledIcon } from '@radix-ui/react-icons'
+import { current_page } from '@svelte-docs/get/routes';
+import { MinorHeading } from 'components'
 
-<Alert icon={<CheckCircledIcon />} title="Thank You!">
-If you are even viewing this page, I would like to thank you. If you have the ability to contribute to this project in any capacity that would be greatly appreciated
-</Alert>
+<MinorHeading />
+
+> If you are even viewing this page, I would like to thank you. If you have the ability to contribute to this project in any capacity that would be greatly appreciated
 
 ## Ways to contribute
 
@@ -29,14 +28,14 @@ If you are even viewing this page, I would like to thank you. If you have the ab
 
 ## Commit convention
 
-SvelteUI is a monorepo and it is important to write clear commit messages to keep git history clean.
+SvelteUI is a monorepo and it is important to write clear commit messages to keep the git history clean.
 All commits made in this repository are divided in 3 groups:
 
 - **package commits** related to particular package
 - **docs commits** related to documentation
 - **core commits** only related to repository tooling and not associated with any package
 
-Commit message consists of 3 parts:
+This repo uses commitizen to make commits easier. In order to commit changes made, you must run the `npm run cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
 
 ```bash
 type: Message
@@ -58,8 +57,8 @@ Examples:
 
 - Install [editorconfig](https://editorconfig.org/) extension for your editor
 - Fork [repository](https://github.com/svelteuidev/svelteui), clone or download your fork
-- Install dependencies with npm - `npm i`
-- To start docs - `cd docs && yarn install && yarn dev`
+- Install dependencies at the root of the monorepo with npm - `npm i`
+- To start docs - `cd docs && npm install && npm run dev`
 
 ## NPM scripts
 
@@ -72,3 +71,4 @@ individual packages have scripts, but they should not be interacted with directl
 - `lint` - runs eslint on packages folder (run format before running lint)
 - `test` - runs tests with [vitest](https://vitest.dev/)
 - `repo:prepush` - runs all of these commands
+- `cm` - runs git commands to add and commit through commitizen

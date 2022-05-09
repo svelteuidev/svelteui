@@ -1,10 +1,10 @@
 ---
-id: introduction
-title: Introduction
+title: 'Introduction'
 ---
 
-import { Alert } from '@mantine/core';
-import { InfoCircledIcon } from '@radix-ui/react-icons'
+import { CodeBlock, MinorHeading } from 'components'
+
+<MinorHeading />
 
 Instead of remaking the same components, recreating custom actions, transitions, utilities, etc. SvelteUI is designed so you can start making projects quickly. It works amazingly well **out-of-the-box, with zero-configuration, and can be customized** to your liking as your application grows.
 
@@ -19,23 +19,19 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 ### Undocumented Components
 
-The docs are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
-
-<Alert icon={<InfoCircledIcon />} title="Warning" color="yellow">
-Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
-</Alert>
+> The docs are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
 
 <br />
 
 ## Packages
 
-[`@svelteui/core`](./core/button) - core components library
+**[`@svelteui/core`](./core/button)** - core components library
 
-[`@svelteui/actions`](./actions/use-click-outside) - library of useful actions
+**[`@svelteui/actions`](./actions/use-click-outside)** - library of useful actions
 
-[`@svelteui/motion`](./motion/typewriter) - collection of transitions to utilize on dom elements
+**[`@svelteui/motion`](./motion/typewriter)** - collection of transitions to utilize on dom elements
 
-[`@svelteui/utilities`](./utilities/os) - collection of helpful utility functions
+**[`@svelteui/utilities`](./utilities/os)** - collection of helpful utility functions
 
 `@svelteui/prism` - code highlight component built with prism action (coming in v0.6.0 release)
 
