@@ -5,20 +5,67 @@
 
 <hr />
 
-- ### Theming
-  - coming soon
-- ### SvelteUI Core
-  - [Button](components/button)
-- ### SvelteUI Actions
-  - **UI & Dom**
-  - [use-click-outside](actions/use-click-outside)
-- ### SvelteUI Utilities
-  - [Button](components/button)
-- ### SvelteUI Motion
-  - [Button](components/button)
-- ### SvelteUI Others
-  - [Prism](others/prism)
 - ### Changelog
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
+- ### Theming
+  - coming soon
+- ### SvelteUI Core
+  - **Layout**
+  - [Container](core/container)
+  - [Center](core/center)
+  - [SimpleGrid](core/simple-grid)
+  - [Space](core/space)
+  - [Stack](core/stack)
+  - [Group](core/group)
+  - **Inputs & Actions**
+  - [ActionIcon](core/action-icon)
+  - [Button](core/button)
+  - [Checkbox](core/checkbox)
+  - [Input](core/input)
+  - [InputWrapper](core/input-wrapper)
+  - [NativeSelect](core/native-select)
+  - [Switch](core/switch)
+  - **Data Display**
+  - [Badge](core/badge)
+  - [Image](core/image)
+  - [ThemeIcon](core/theme-icon)
+  - **Feedback**
+  - [Loader](core/loader)
+  - **Typography**
+  - [Code](core/code)
+  - [Text](core/text)
+  - [Title](core/title)
+  - **Overlay**
+  - [Overlay](core/overlay)
+  - **Miscellaneous**
+  - [Box](core/box)
+  - [BrowserRender](core/browser-render)
+  - [ServerRender](core/server-render)
+  - [Fragment](core/fragment)
+- ### SvelteUI Actions
+  - [use-click-outside](actions/use-click-outside)
+  - [use-clipboard](actions/use-clipboard)
+  - [use-css-variable](actions/use-css-variable)
+  - [use-download](actions/use-download)
+  - [use-focus](actions/use-focus)
+  - [use-lazy](actions/use-lazy)
+  - [use-long-press](actions/use-long-press)
+  - [use-persistent-tab](actions/use-persistent-tab)
+  - [use-portal](actions/use-portal)
+  - [use-page-leave](actions/use-page-leave)
+  - [use-tab-leave](actions/use-tab-leave)
+- ### SvelteUI Utilities
+  - [os](utilities/os)
+  - [rafFn](utilities/raf-fn)
+  - [hash](utilities/hash)
+  - [helpers](utilities/helpers)
+- ### SvelteUI Motion
+  - **Transitions**
+  - [Typewriter](motion/typewriter)
+  - [Flipboard](motion/flipboard)
+  - **Animations**
+  - [Animation](motion/animation)
+- ### SvelteUI Others
+  - [Prism](others/prism)
