@@ -8,4 +8,5 @@ export * from './use-lazy';
 export * from './use-long-press';
 export * from './use-page-leave';
 export * from './use-persistent-tab';
+export * from './use-portal';
 export * from './use-tab-leave';

@@ -2,7 +2,7 @@ export type Action = (
 	node: HTMLElement,
 	parameters?: unknown
 ) => {
-	update?: (parameters: unknown) => void;
+	update?: (parameters: unknown) => Promise<void> | void;
 	destroy?: () => void;
 };
 
