@@ -26,7 +26,7 @@
     "bump:patch": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts patch",
     "clean": "rimraf packages/*/{node_modules,package,.turbo,types} packages/*/.svelte-kit/{generated,runtime,types}",
     "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types}",
-    "cm": "./node_modules/cz-customizable/standalone.js",
+    "cm": "git add . && ./node_modules/cz-customizable/standalone.js",
     "coverage": "turbo run coverage --parallel",
     "dev": "turbo run dev --parallel",
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
