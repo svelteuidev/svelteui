@@ -12,6 +12,7 @@ docs: 'core/button.md'
 
 <script lang="ts">
     import { ActionIcon, Button, SimpleGrid } from '@svelteuidev/core';
+    import { GithubLogo } from "radix-icons-svelte";
     import { Heading, Preview } from 'components'
 
     const simpleButtons = `
@@ -60,12 +61,13 @@ docs: 'core/button.md'
     `;
     const customizeButtons = `
         <script>
-            import { ActionIcon, Button } from '@svelteuidev/core';
+            import { Button } from '@svelteuidev/core';
+            import { GithubLogo } from "radix-icons-svelte";
         <\/script>
 
         <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me<\/Button>
         <Button>
-            <ActionIcon \/>Click Me
+            <GithubLogo size={16} \/> I love open source!
         <\/Button>
     `;
     const sizeButtons = `
@@ -181,7 +183,7 @@ You can change styles of any element in button component with `override` prop to
     <SimpleGrid cols={2}>
         <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me</Button>
         <Button>
-            <ActionIcon />Click Me
+            <GithubLogo size={16} /> I love open source!
         </Button>
     </SimpleGrid>
 </Preview>
