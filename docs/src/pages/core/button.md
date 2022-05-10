@@ -11,7 +11,7 @@ docs: 'core/button.md'
 ---
 
 <script lang="ts">
-    import { ActionIcon, Button } from '@svelteuidev/core';
+    import { ActionIcon, Button, SimpleGrid } from '@svelteuidev/core';
     import { Heading, Preview } from 'components'
 
     const simpleButtons = `
@@ -108,8 +108,10 @@ docs: 'core/button.md'
 ## Usage
 
 <Preview code={simpleButtons}>
-    <Button />
-    <Button>Click me!</Button>
+    <SimpleGrid cols={2}>
+        <Button />
+        <Button>Click me!</Button>
+    </SimpleGrid>
 </Preview>
 
 ### Variants
@@ -117,9 +119,11 @@ docs: 'core/button.md'
 Button supports the following variants: `default`, `subtle`, `white`, `gradient`, `filled`, `light` and `outline`. Default Button color is `theme.blue600`, to change color and variant pass color and variant props:
 
 <Preview code={variantButtons}>
-    <Button color="red" />
-    <Button variant="outline"/>
-    <Button variant="filled"/>
+    <SimpleGrid cols={3}>
+        <Button color="red" />
+        <Button variant="outline"/>
+        <Button variant="filled"/>
+    </SimpleGrid>
 </Preview>
 
 #### Gradient variant
@@ -132,11 +136,13 @@ To use gradient as Button background:
     * `deg` is linear gradient degree
 
 <Preview code={gradientButtons}>
-    <Button variant='gradient'>Default</Button>
-    <Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}}>Lime Green</Button>
-    <Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}}>Teal Blue</Button>
-    <Button variant='gradient' gradient={{from: 'orange', to: 'red', deg: 45}}>Orange red</Button>
-    <Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}}>Grape Pink</Button>
+    <SimpleGrid cols={5}>
+        <Button variant='gradient'>Default</Button>
+        <Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}}>Lime Green</Button>
+        <Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}}>Teal Blue</Button>
+        <Button variant='gradient' gradient={{from: 'orange', to: 'red', deg: 45}}>Orange red</Button>
+        <Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}}>Grape Pink</Button>
+    </SimpleGrid>
 </Preview>
 
 #### White variant
@@ -144,8 +150,10 @@ To use gradient as Button background:
 White is a variant in which button background color is always white (both in light and dark theme) and `color` is controlled with color prop:
 
 <Preview code={whiteButtons}>
-    <Button variant="white">Click Me</Button>
-    <Button variant="white" color="red">I am red</Button>
+    <SimpleGrid cols={2}>
+        <Button variant="white">Click Me</Button>
+        <Button variant="white" color="red">I am red</Button>
+    </SimpleGrid>
 </Preview>
 
 ### Loading state
@@ -159,8 +167,10 @@ You can control loading state and [Loader](core/loader) component with following
 * `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](core/loader) prop
 
 <Preview code={loadingButtons}>
-    <Button loading={true}>I am loading</Button>
-    <Button loading={true} loaderPosition={"right"}>I am loading on the right</Button>
+    <SimpleGrid cols={2}>
+        <Button loading={true}>I am loading</Button>
+        <Button loading={true} loaderPosition={"right"}>I am loading on the right</Button>
+    </SimpleGrid>
 </Preview>
 
 ### Customize
@@ -168,10 +178,12 @@ You can control loading state and [Loader](core/loader) component with following
 You can change styles of any element in button component with `override` prop to match your design requirements. See [Theming](theming/utilities) for more information about how to customize the styles of the component.
 
 <Preview code={loadingButtons}>
-    <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me</Button>
-    <Button>
-        <ActionIcon />Click Me
-    </Button>
+    <SimpleGrid cols={2}>
+        <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me</Button>
+        <Button>
+            <ActionIcon />Click Me
+        </Button>
+    </SimpleGrid>
 </Preview>
 
 ### Size and radius
@@ -179,18 +191,22 @@ You can change styles of any element in button component with `override` prop to
 Control button font-size, height and padding with `size` and border-radius with `radius` props. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set radius in px:
 
 <Preview code={sizeButtons}>
-    <Button radius="lg" />
-    <Button radius={10} />
-    <Button size="sm" />
-    <Button size="lg" />
+    <SimpleGrid cols={4}>
+        <Button radius="lg" />
+        <Button radius={10} />
+        <Button size="sm" />
+        <Button size="lg" />
+    </SimpleGrid>
 </Preview>
 
 ### Compact
 
 <Preview code={compactButtons}>
-    <Button compact>Click Me</Button>
-    <Button variant='outline' compact>Click Me</Button>
-    <Button variant='default' compact>Click Me</Button>
+    <SimpleGrid cols={3}>
+        <Button compact>Click Me</Button>
+        <Button variant='outline' compact>Click Me</Button>
+        <Button variant='default' compact>Click Me</Button>
+    </SimpleGrid>
 </Preview>
 
 ### Full width and overflow
