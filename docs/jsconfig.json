@@ -1,6 +1,5 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
 		"moduleResolution": "node",
@@ -18,8 +17,8 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"@svelteuidev/demos": ["../packages/svelteui-demos/src"],
-			"@components": ["./src/components"]
+			"@svelteuidev/demos": ["../packages/svelteui-demos/src/lib"],
+			"components": ["./src/components"]
 		}
 	},
 	"references": [{ "path": "../packages/svelteui-demos" }],

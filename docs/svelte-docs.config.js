@@ -35,7 +35,7 @@ module.exports = {
 		//  Then you can use:
 		//  import Button from './Button.svelte';
 		//  import { Input } from 'mylib';
-		'@components': './src/components/index.js'
+		components: './src/components/index.js'
 	},
 
 	preprocess: [
