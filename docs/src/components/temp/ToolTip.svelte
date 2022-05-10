@@ -1,4 +1,5 @@
 <script lang="ts">
+	/** @type {boolean | string}*/
 	export let tip = false;
 </script>
 

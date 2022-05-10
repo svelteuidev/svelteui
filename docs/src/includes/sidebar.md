@@ -11,6 +11,7 @@
   - [Version 0.6.0](changelog/v0-6-0)
 - ### Theming
   - coming soon
+  - [Utilities](theming/utilities)
 - ### SvelteUI Core
   - **Layout**
   - [Container](core/container)
