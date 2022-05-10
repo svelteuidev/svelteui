@@ -10,7 +10,7 @@ source: 'svelteui-core/src/lib/components/Button/Button.svelte'
 docs: 'core/button.md'
 ---
 
-<script>
+<script lang="ts">
     import { ActionIcon, Button } from '@svelteuidev/core';
     import { Heading, Preview } from 'components'
 
