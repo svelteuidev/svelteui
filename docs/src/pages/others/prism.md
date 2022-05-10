@@ -1,6 +1,5 @@
 ---
 title: 'Prism code highlight'
-order: 1
 group: 'svelteuidev-prism'
 packageGroup: '@svelteuidev/prism'
 description: 'Code highlight with SvelteUI theme colors and styles'
@@ -36,8 +35,6 @@ yarn add @svelteuidev/prism @svelteuidev/core
 Use Prism component to highlight code with svelteuidev theme styles.
 Component uses [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer)
 under the hood and support light and dark theme, it is used in svelteuidev docs to display all code examples.
-
-### Demo Here
 
 ## Line numbers
 

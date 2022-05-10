@@ -3,22 +3,64 @@
   "version": "0.5.6",
   "private": true,
   "description": "Demos used in documentation",
-  "homepage": "https://svelteui-docs.vercel.app/",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "demos"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui.git",
     "directory": "packages/svelteui-demos"
   },
   "license": "MIT",
-  "author": "Kamell Perry",
-  "main": "index.js",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
+  "sideEffects": false,
+  "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "Demos/**/*.{js,svelte}",
+    "demos/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "dev": "svelte-kit dev",
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "package": "svelte-kit package",
     "sort": "npx sort-package-json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@sveltejs/kit": "1.0.0-next.310",
+    "@svelteuidev/tsconfig": "^*",
+    "autoprefixer": "10.4.4",
+    "cssnano": "5.1.7",
+    "postcss": "8.4.12",
+    "sass": "1.50.0",
+    "svelte": "3.47.0",
+    "svelte-check": "2.2.6",
+    "svelte-preprocess": "4.10.5",
+    "svelte2tsx": "0.5.7",
+    "tslib": "2.3.1",
+    "typescript": "4.6.3"
   },
   "peerDependencies": {
     "@svelteuidev/actions": "0.5.6",
     "@svelteuidev/core": "0.5.6",
+    "@svelteuidev/demos": "0.5.6",
     "@svelteuidev/motion": "0.5.6",
+    "@svelteuidev/prism": "0.5.6",
     "@svelteuidev/utilities": "0.5.6"
   }
 }

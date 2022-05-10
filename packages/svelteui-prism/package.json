@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/svelteuidev/svelteui.git",
-    "directory": "packages/svelteui-actions"
+    "directory": "packages/svelteui-prism"
   },
   "license": "MIT",
   "author": "Kamell Perry <kamellperry33@gmail.com>",
