@@ -10,6 +10,72 @@ source: 'svelte-core/src/lib/components/Box/Box.svelte'
 docs: 'core/box.md'
 ---
 
-import { CodeBlock, Heading } from 'components'
+<script>
+    import { Box, Code } from '@svelteuidev/core';
+    import { Heading, Preview } from 'components';
+
+    const styles = `
+     <script>
+        import { Box } from '@svelteuidev/core';
+    <\/script>
+    
+    <Box
+        css={{
+            backgroundColor: '$gray50',
+            textAlign: 'center',
+            padding: '$20',
+            borderRadius: '$md',
+            cursor: 'pointer',
+
+            '&:hover': {
+                backgroundColor: '$gray100',
+            },
+        }}
+    >
+        Box lets you add inline styles with the css prop
+    <\/Box>
+    `;
+
+    const custom = `
+    <script>
+        import { Box, Code } from '@svelteuidev/core';
+    <\/script>
+
+    <Box root={Code}>I am a code component now<\/Box>
+    <Box root='span'>I am a span tag<\/Box>
+    `
+</script>
 
 <Heading />
+
+## Usage
+
+Box allows you to use the css prop ([like override](/theming/override)) with any element or component. Box itself does not include any styles.
+
+<Preview code={styles}>
+    <Box
+        css={{
+            backgroundColor: '$gray50',
+            textAlign: 'center',
+            padding: '$20',
+            borderRadius: '$md',
+            cursor: 'pointer',
+
+            '&:hover': {
+                backgroundColor: '$gray100',
+            },
+        }}
+    >
+        Box lets you add inline styles with the css prop
+    </Box>
+
+</Preview>
+
+## Custom component
+
+To use Box with custom component or element set `root` prop to tag name or svelte component:
+
+<Preview code={custom}>
+    <Box root={Code}>I am a code component now</Box>
+    <Box root='span'>I am a span tag</Box>
+</Preview>

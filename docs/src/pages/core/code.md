@@ -26,7 +26,9 @@ docs: 'core/code.md'
         import { Code } from '@svelteuidev/core';
     <\/script>
 
-    <Code block copy>This code will be in block and you can copy<\/Code>
+    <Code block copy message={"This code will be in block and you can copy"}>
+        This code will be in block and you can copy
+    <\/Code>
     `;
     const colorCode = `
     <script>

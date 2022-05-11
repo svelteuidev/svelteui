@@ -15,6 +15,7 @@
 	let showCode = false;
 
 	const css = {
+		bc: 'white',
 		position: 'relative',
 		height: 'max-content',
 		border: '1px solid transparent',
@@ -27,15 +28,10 @@
 		flexDirection: `${direction}`,
 		gap: `${space}`
 	};
-
-	let slotObj;
-
-	$: console.log(slotObj?.innerHTML);
-	$: console.log(slotObj?.innerText);
 </script>
 
 <Box css={{ ...css, ...override }}>
-	<span bind:this={slotObj}><slot /></span>
+	<slot />
 	<Box css={{ position: 'absolute', bottom: 0, right: 10 }}>
 		<ToolTip tip={showCode ? 'hide code' : 'show code'}>
 			<ActionIcon

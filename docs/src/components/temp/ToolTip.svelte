@@ -1,6 +1,6 @@
 <script lang="ts">
-	/** @type {boolean | string}*/
-	export let tip = false;
+	/** @type { string }*/
+	export let tip = undefined;
 </script>
 
 <div data-tooltip={tip}>

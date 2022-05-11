@@ -8,118 +8,139 @@
 	--secondary: rgb(75, 85, 99) !important;
 }
 
+body {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),
+		fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
+		fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
+}
+
+.logo {
+	padding-top: 0.5rem;
+}
+
+.topbar {
+	padding: 0.5rem 0.25rem !important;
+}
+
 .article {
 	max-width: 80rem !important;
 	margin: auto 2rem !important;
 	padding-bottom: 10rem !important;
 }
 
-.article th {
-	-webkit-text-size-adjust: 100%;
-	text-rendering: optimizeLegibility;
-	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
-		sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
-		Segoe UI Symbol, Noto Color Emoji;
-	-webkit-font-smoothing: antialiased;
-	line-height: 1.625;
-	border: 0 solid #d2d6dc;
-	box-sizing: border-box;
-	padding: 0.5rem 0.75rem;
-	text-align: left;
-	font-size: 0.875rem;
-	font-weight: 700;
-	--bg-opacity: 1;
-	background-color: rgba(244, 245, 247, var(--bg-opacity));
-	--text-opacity: 1;
-	color: rgba(55, 65, 81, var(--text-opacity));
-}
-
-.article td {
-	-webkit-text-size-adjust: 100%;
-	text-rendering: optimizeLegibility;
-	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
-		sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
-		Segoe UI Symbol, Noto Color Emoji;
-	-webkit-font-smoothing: antialiased;
-	line-height: 1.625;
-	--text-opacity: 1;
-	color: rgba(55, 65, 81, var(--text-opacity));
-	font-size: 0.875rem;
-	border: 0 solid #d2d6dc;
-	box-sizing: border-box;
-	padding: 0.75rem;
-}
-
-.sidebar h3 ~ ul li strong {
-	text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: transparent;
-	line-height: 1.55;
-	text-decoration: none;
-	position: relative;
-	padding-left: 23px;
-	margin-bottom: 5px;
-	border-left: 1px solid rgb(222, 226, 230);
-	height: 34px;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 12px;
-	background-color: rgb(248, 249, 250);
-	color: #1a202c;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-.sidebar h3 ~ ul li a.active {
-	text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: transparent;
-	line-height: 1.55;
-	text-decoration: none;
-	position: relative;
-	padding-left: 23px;
-	margin-bottom: 5px;
-	border-left: 1px solid var(--primary);
-	height: 34px;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 12px;
-	background-color: var(--svelteui-colors-blue50);
-	color: var(--primary);
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
-.sidebar h3 ~ ul li a {
-	text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
-	-webkit-tap-highlight-color: transparent;
-	line-height: 1.55;
-	text-decoration: none;
-	position: relative;
-	padding-left: 23px;
-	margin-bottom: 5px;
-	border-left: 1px solid rgb(222, 226, 230);
-	height: 34px;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 12px;
-	color: #1a202c;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-
 .sidebar {
 	overflow-y: scroll;
 }
+
+/* ---------------------------Media Query's below----------------------------------- */
 
 @media (max-width: 800px) {
 	.article {
 		max-width: 80rem !important;
 		margin: 0 !important;
-		padding: 0 0.25rem !important;
+		padding-left: 0.25rem !important;
+		padding-right: 0.25rem !important;
+		padding-bottom: 5rem !important;
+	}
+}
+
+/* Put in media query to have less clutter at the top of the file */
+@media (min-width: 0px) {
+	.article th {
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+		font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+			sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
+			Segoe UI Symbol, Noto Color Emoji;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1.625;
+		border: 0 solid #d2d6dc;
+		box-sizing: border-box;
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		font-size: 0.875rem;
+		font-weight: 700;
+		--bg-opacity: 1;
+		background-color: rgba(244, 245, 247, var(--bg-opacity));
+		--text-opacity: 1;
+		color: rgba(55, 65, 81, var(--text-opacity));
+	}
+
+	.article td {
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+		font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+			sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
+			Segoe UI Symbol, Noto Color Emoji;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1.625;
+		--text-opacity: 1;
+		color: rgba(55, 65, 81, var(--text-opacity));
+		font-size: 0.875rem;
+		border: 0 solid #d2d6dc;
+		box-sizing: border-box;
+		padding: 0.75rem;
+	}
+
+	.sidebar h3 ~ ul li strong {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid rgb(222, 226, 230);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		background-color: rgb(248, 249, 250);
+		color: #1a202c;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.sidebar h3 ~ ul li a.active {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid var(--primary);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		background-color: var(--svelteui-colors-blue50);
+		color: var(--primary);
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.sidebar h3 ~ ul li a {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid rgb(222, 226, 230);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		color: #1a202c;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
 	}
 }

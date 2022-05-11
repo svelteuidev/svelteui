@@ -1,7 +1,7 @@
 - ### [Introduction](introduction)
 - ### [Installation](installation)
 - ### [Contributing](contributing)
-- ### Playground (coming soon)
+- ### [Playground](playground)
 
 <hr />
 

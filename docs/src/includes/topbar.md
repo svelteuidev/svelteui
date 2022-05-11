@@ -1,7 +1,8 @@
 <script>
-    import { Switch, ActionIcon, Center } from '@svelteuidev/core'
-    import { DiscordLogo, GithubLogo } from 'radix-icons-svelte'
+    import { ActionIcon } from '@svelteuidev/core'
+    import { GithubLogo } from 'radix-icons-svelte'
     import Discord from '../components/svgs/Discord.svelte'
+    import Opengraph from './opengraph.svelte';
 
     const discordLogo = {
         bc: '#6875f5',
@@ -11,6 +12,7 @@
     }
 </script>
 
-- [Documentation](introduction)
-- [<ActionIcon override={discordLogo} size='lg' color='blue' variant='filled'><Discord size={20} /></ActionIcon>](https://discord.gg/2J2xmzCS79)
-- [<ActionIcon size='lg' color='dark' variant='outline'><GithubLogo size={20} /></ActionIcon>](https://github.com/svelteuidev/svelteui)
+<Opengraph />
+
+- [<ActionIcon override={discordLogo} size='xl' color='blue' variant='filled'><Discord size={25} /></ActionIcon>](https://discord.gg/2J2xmzCS79)
+- [<ActionIcon size='xl' color='dark' variant='outline'><GithubLogo size={25} /></ActionIcon>](https://github.com/svelteuidev/svelteui)

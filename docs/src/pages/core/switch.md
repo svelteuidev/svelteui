@@ -12,7 +12,7 @@ docs: 'core/switch.md'
 
 <script lang="ts">
     import { SimpleGrid, Switch } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
+    import { Heading, Preview, mobile, Device } from 'components';
 
     const switchCode = `
     <script>
@@ -46,12 +46,14 @@ docs: 'core/switch.md'
 
 <Heading />
 
+<Device />
+
 ## Usage
 
 Switch component is used to enable/disable something, normally used for boolean values or for binary actions. The component dispatches an on change event, and supports a checked prop for programmatically setting the checked state.
 
 <Preview code={switchCode}>
-    <SimpleGrid cols={3}>
+    <SimpleGrid cols={$mobile ? 1 : 3}>
         <Switch label="I agree to sell my privacy" size="md" color="teal"/>
         <Switch onLabel="ON" offLabel="OFF" label="Setting 1" size="xl" color="pink"/>
         <Switch checked size="xs"/>
