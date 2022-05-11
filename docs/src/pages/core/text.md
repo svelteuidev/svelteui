@@ -15,80 +15,80 @@ docs: 'core/text.md'
     import { Heading, Preview } from 'components';
 
     const text = `
-        <script>
-            import { Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Text } from '@svelteuidev/core';
+    <\/script>
 
-        <Text size="xs">Extra small text<\/Text>
-        <Text size="sm">Small text<\/Text>
-        <Text size="md">Default text<\/Text>
-        <Text size="lg">Large text<\/Text>
-        <Text size="xl">Extra large text<\/Text>
-        <Text weight={'semibold'}>Semibold<\/Text>
-        <Text weight={'bold'}>Bold<\/Text>
-        <Text underline>Underlined<\/Text>
-        <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant<\/Text>
-        <Text color="red">Red text<\/Text>
-        <Text color="blue">Blue text<\/Text>
-        <Text color="gray">Gray text<\/Text>
-        <Text transform="uppercase">Uppercase<\/Text>
-        <Text transform="capitalize">capitalized text<\/Text>
-        <Text align="center">Aligned to center<\/Text>
-        <Text align="right">Aligned to right<\/Text>
+    <Text size="xs">Extra small text<\/Text>
+    <Text size="sm">Small text<\/Text>
+    <Text size="md">Default text<\/Text>
+    <Text size="lg">Large text<\/Text>
+    <Text size="xl">Extra large text<\/Text>
+    <Text weight={'semibold'}>Semibold<\/Text>
+    <Text weight={'bold'}>Bold<\/Text>
+    <Text underline>Underlined<\/Text>
+    <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant<\/Text>
+    <Text color="red">Red text<\/Text>
+    <Text color="blue">Blue text<\/Text>
+    <Text color="gray">Gray text<\/Text>
+    <Text transform="uppercase">Uppercase<\/Text>
+    <Text transform="capitalize">capitalized text<\/Text>
+    <Text align="center">Aligned to center<\/Text>
+    <Text align="right">Aligned to right<\/Text>
     `;
     const dimmedText = `
-        <script>
-            import { Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Text } from '@svelteuidev/core';
+    <\/script>
 
-        <Text color="dimmed">Dimmed text<\/Text>
+    <Text color="dimmed">Dimmed text<\/Text>
     `;
     const gradientText = `
-        <script>
-            import { Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Text } from '@svelteuidev/core';
+    <\/script>
 
-        <Text
-            component="span"
-            align="center"
-            variant="gradient"
-            gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
-            size="xl"
-            weight={'bold'}
-        >
-            Indigo cyan gradient
-        <\/Text>
+    <Text
+        component="span"
+        align="center"
+        variant="gradient"
+        gradient={{ from: 'indigo', to: 'cyan', deg: 45 }}
+        size="xl"
+        weight={'bold'}
+    >
+        Indigo cyan gradient
+    <\/Text>
     `;
     const lineclampText = `
-        <script>
-            import { Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Text } from '@svelteuidev/core';
+    <\/script>
 
-        <Text lineClamp={4}>
-            From Bulbapedia: Bulbasaur is a small, quadrupedal Pokémon that has blue-green skin with darker patches. It has red eyes with white pupils, pointed, ear-like structures on top of its head, and a short, blunt snout with a wide mouth. A pair of small, pointed teeth are visible in the upper jaw when its mouth is open. Each of its thick legs ends with three sharp claws. On Bulbasaur's back is a green plant bulb, which is grown from a seed planted there at birth. The bulb also conceals two slender, tentacle-like vines.
-        <\/Text>
+    <Text lineClamp={4}>
+        From Bulbapedia: Bulbasaur is a small, quadrupedal Pokémon that has blue-green skin with darker patches. It has red eyes with white pupils, pointed, ear-like structures on top of its head, and a short, blunt snout with a wide mouth. A pair of small, pointed teeth are visible in the upper jaw when its mouth is open. Each of its thick legs ends with three sharp claws. On Bulbasaur's back is a green plant bulb, which is grown from a seed planted there at birth. The bulb also conceals two slender, tentacle-like vines.
+    <\/Text>
     `;
     const inheritText = `
-        <script>
-            import { Text, Title } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Text, Title } from '@svelteuidev/core';
+    <\/script>
 
-        <Title order={3}>
-            Highlight{' '}
-            <Text color="blue" inherit component="span">
-                something
-            <\/Text>
-            in title
-        <\/Title>
+    <Title order={3}>
+        Highlight{' '}
+        <Text color="blue" inherit component="span">
+            something
+        <\/Text>
+        in title
+    <\/Title>
     `;
     const customText = `
-        <script>
-            import { Code, Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Code, Text } from '@svelteuidev/core';
+    <\/script>
 
-        <Text root="a">This is a anchor now<\/Text>
-        <Text root="p">This is a paragraph<\/Text>
-        <Text root={Code}>This is a Code Component<\/Text>
+    <Text root="a">This is a anchor now<\/Text>
+    <Text root="p">This is a paragraph<\/Text>
+    <Text root={Code}>This is a Code Component<\/Text>
     `;
 </script>
 

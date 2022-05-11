@@ -9,6 +9,45 @@ docs: 'actions/use-page-leave.md'
 source: 'svelteui-actions/src/lib/dist/use-page-leave/use-page-leave.ts'
 ---
 
-import { CodeBlock, Heading } from 'components'
+<script lang='ts'>
+	import { pageleave } from '@svelteuidev/actions';
+    import { Heading, Preview } from 'components'
+
+    const code = `
+    <script>
+        import { pageleave } from '@svelteuidev/actions';
+
+        $: count = 0;
+    <\/script>
+
+    <div use:pageleave={() => count++}>Switch the page to see the counter go up: {count}<\/div>
+    `;
+
+    $: count = 0;
+</script>
 
 <Heading />
+
+## Usage
+
+The `use-page-leave` action calls given function when mouse leaves the page.
+
+<Preview {code}>
+    <div use:pageleave={() => count++}>Switch the page to see the counter go up: {count}</div>
+</Preview>
+
+## Params
+
+| Param    | Description                                    |
+| -------- | ---------------------------------------------- |
+| callback | The callback to be fired when the page is left |
+
+## Events
+
+The `use-page-leave` action does not dispatch any custom events.
+
+## Definition
+
+```ts
+export function pageleave(node: HTMLElement, callback: Fn<void>): ReturnType<Action>;
+```

@@ -15,27 +15,27 @@ docs: 'core/code.md'
     import { Heading, Preview } from 'components';
 
     const code = `
-        <script>
-            import { Code } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Code } from '@svelteuidev/core';
+    <\/script>
 
-        <Code>This code will be inline<\/Code>
+    <Code>This code will be inline<\/Code>
     `;
     const blockCode = `
-        <script>
-            import { Code } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Code } from '@svelteuidev/core';
+    <\/script>
 
-        <Code block copy>This code will be in block and you can copy<\/Code>
+    <Code block copy>This code will be in block and you can copy<\/Code>
     `;
     const colorCode = `
-        <script>
-            import { Code } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Code } from '@svelteuidev/core';
+    <\/script>
 
-        <Code color="red">This code is red<\/Code>
-        <Code color="teal">This code is teal<\/Code>
-        <Code color="blue">This code is blue<\/Code>
+    <Code color="red">This code is red<\/Code>
+    <Code color="teal">This code is teal<\/Code>
+    <Code color="blue">This code is blue<\/Code>
     `;
 </script>
 

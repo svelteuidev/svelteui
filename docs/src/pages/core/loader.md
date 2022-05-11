@@ -15,28 +15,28 @@ docs: 'core/loader.md'
     import { Heading, Preview } from 'components';
 
     const loader = `
-        <script>
-            import { Loader } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Loader } from '@svelteuidev/core';
+    <\/script>
 
-        <Loader \/>
+    <Loader \/>
     `;
     const variantLoaders = `
-        <script>
-            import { Loader } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Loader } from '@svelteuidev/core';
+    <\/script>
 
-        <Loader variant="circle" \/>
-        <Loader variant="dots" \/>
-        <Loader variant="bars" \/>
+    <Loader variant="circle" \/>
+    <Loader variant="dots" \/>
+    <Loader variant="bars" \/>
     `;
     const sizeLoaders = `
-        <script>
-            import { Loader } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Loader } from '@svelteuidev/core';
+    <\/script>
 
-        <Loader size="lg" \/>
-        <Loader size={50} \/>
+    <Loader size="lg" \/>
+    <Loader size={50} \/>
     `;
 </script>
 

@@ -15,32 +15,32 @@ docs: 'core/switch.md'
     import { Heading, Preview } from 'components';
 
     const switchCode = `
-        <script>
-            import { Switch } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Switch } from '@svelteuidev/core';
+    <\/script>
 
-        <Switch label="I agree to sell my privacy" size="md" color="teal"\/>
-        <Switch onLabel="ON" offLabel="OFF" label="Setting 1" size="xl" color="pink"\/>
-        <Switch checked size="xs"\/>
+    <Switch label="I agree to sell my privacy" size="md" color="teal"\/>
+    <Switch onLabel="ON" offLabel="OFF" label="Setting 1" size="xl" color="pink"\/>
+    <Switch checked size="xs"\/>
     `;
     const labelSwitch = `
-        <script>
-            import { Switch } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Switch } from '@svelteuidev/core';
+    <\/script>
 
-        <Switch size='sm' onLabel="ON" offLabel="OFF" \/>
-        <Switch size='md' onLabel="ON" offLabel="OFF" \/>
-        <Switch size='lg' onLabel="ON" offLabel="OFF" \/>
-        <Switch size='xl' onLabel="ON" offLabel="OFF" \/>
+    <Switch size='sm' onLabel="ON" offLabel="OFF" \/>
+    <Switch size='md' onLabel="ON" offLabel="OFF" \/>
+    <Switch size='lg' onLabel="ON" offLabel="OFF" \/>
+    <Switch size='xl' onLabel="ON" offLabel="OFF" \/>
     `;
     const accessibilitySwitch = `
-        <script>
-            import { Switch } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Switch } from '@svelteuidev/core';
+    <\/script>
 
-        <Switch \/> // -> not ok, input is not labeled
-        <Switch label="I agree to everything" \/> // -> ok, input and label is connected
-        <Switch aria-label="I agree to everything" \/> // -> ok, label is not visible but will be announced by screen reader
+    <Switch \/> // -> not ok, input is not labeled
+    <Switch label="I agree to everything" \/> // -> ok, input and label is connected
+    <Switch aria-label="I agree to everything" \/> // -> ok, label is not visible but will be announced by screen reader
     `;
 </script>
 
