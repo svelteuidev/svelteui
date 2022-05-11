@@ -18,91 +18,91 @@ docs: 'core/image.md'
     const doggo = "https://images.unsplash.com/photo-1627552245715-77d79bbf6fe2?auto=format&fit=crop&w=640&q=80";
 
     const image = `
-        <script>
-            import { Image } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Image } from '@svelteuidev/core';
+    <\/script>
 
-        <Image
-            radius="md"
-            src={url}
-            alt="Random unsplash image"
-        \/>
+    <Image
+        radius="md"
+        src={url}
+        alt="Random unsplash image"
+    \/>
     `;
     const sizeImage = `
-        <script>
-            import { Image } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Image } from '@svelteuidev/core';
+    <\/script>
 
-        <Image
-            width={200}
-            height={80}
-            src={url}
-        \/>
-        <Image
-            width={200}
-            height={80}
-            fit="contain"
-            src={url}
-        \/>
-        <Image
-            height={80}
-            src={url}
-        \/>
+    <Image
+        width={200}
+        height={80}
+        src={url}
+    \/>
+    <Image
+        width={200}
+        height={80}
+        fit="contain"
+        src={url}
+    \/>
+    <Image
+        height={80}
+        src={url}
+    \/>
     `;
     const placeholderImage = `
-        <script>
-            import { Image } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Image } from '@svelteuidev/core';
+    <\/script>
 
-        <Image
-            width={200}
-            height={120}
-            src={null}
-            alt="Without placeholder"
-        \/>
-        <Image
-            width={200}
-            height={120}
-            src={null}
-            alt="With default placeholder"
-            usePlaceholder
-        \/>
+    <Image
+        width={200}
+        height={120}
+        src={null}
+        alt="Without placeholder"
+    \/>
+    <Image
+        width={200}
+        height={120}
+        src={null}
+        alt="With default placeholder"
+        usePlaceholder
+    \/>
     `;
     const captionImage = `
-        <script>
-            import { Image } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Image } from '@svelteuidev/core';
+    <\/script>
 
-        <Image
-            radius="md"
-            src={doggo}
-            alt="Random unsplash image"
-            caption="My dog begging for treats"
-        \/>
+    <Image
+        radius="md"
+        src={doggo}
+        alt="Random unsplash image"
+        caption="My dog begging for treats"
+    \/>
     `;
     const radiusImage = `
-        <script>
-            import { Image } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Image } from '@svelteuidev/core';
+    <\/script>
 
-        <Image radius={0} src={doggo} \/>
-        <Image radius={"lg"} src={doggo} \/>
-        <Image radius={10} src={doggo} \/>
+    <Image radius={0} src={doggo} \/>
+    <Image radius={"lg"} src={doggo} \/>
+    <Image radius={10} src={doggo} \/>
     `;
     const backgroundImage = `
-        <script>
-            import { BackgroundImage, Text } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { BackgroundImage, Text } from '@svelteuidev/core';
+    <\/script>
 
-        <BackgroundImage
-            src={url}
-            radius="sm"
-        >
-            <Text color="#fff">
-                BackgroundImage component can be used to add any content on image. It is useful for hero
-                headers and other similar sections
-            <\/Text>
-        <\/BackgroundImage>
+    <BackgroundImage
+        src={url}
+        radius="sm"
+    >
+        <Text color="#fff">
+            BackgroundImage component can be used to add any content on image. It is useful for hero
+            headers and other similar sections
+        <\/Text>
+    <\/BackgroundImage>
     `;
 </script>
 

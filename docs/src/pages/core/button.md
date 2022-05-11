@@ -16,92 +16,92 @@ docs: 'core/button.md'
     import { Heading, Preview } from 'components'
 
     const simpleButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button \/>
-        <Button>Click me!<\/Button>
+    <Button \/>
+    <Button>Click me!<\/Button>
     `;
     const variantButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button color="red" \/>
-        <Button variant="outline"\/>
-        <Button variant="filled"\/>
+    <Button color="red" \/>
+    <Button variant="outline"\/>
+    <Button variant="filled"\/>
     `;
     const gradientButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button variant='gradient'>Default<\/Button>
-        <Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}}>Lime Green<\/Button>
-        <Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}}>Teal Blue<\/Button>
-        <Button variant='gradient' gradient={{from: 'orange', to: 'red', deg: 45}}>Orange red<\/Button>
-        <Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}}>Grape Pink<\/Button>
+    <Button variant='gradient'>Default<\/Button>
+    <Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}}>Lime Green<\/Button>
+    <Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}}>Teal Blue<\/Button>
+    <Button variant='gradient' gradient={{from: 'orange', to: 'red', deg: 45}}>Orange red<\/Button>
+    <Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}}>Grape Pink<\/Button>
     `;
     const whiteButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button variant="white">Click Me<\/Button>
-        <Button variant="white" color="red">I am red<\/Button>
+    <Button variant="white">Click Me<\/Button>
+    <Button variant="white" color="red">I am red<\/Button>
     `;
     const loadingButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button loading={true}>I am loading<\/Button>
-        <Button loading={true} loaderPosition={"right"}>I am loading on the right<\/Button>
+    <Button loading={true}>I am loading<\/Button>
+    <Button loading={true} loaderPosition={"right"}>I am loading on the right<\/Button>
     `;
     const customizeButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-            import { GithubLogo } from "radix-icons-svelte";
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+        import { GithubLogo } from "radix-icons-svelte";
+    <\/script>
 
-        <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me<\/Button>
-        <Button>
-            <GithubLogo size={16} \/> I love open source!
-        <\/Button>
+    <Button override={{ backgroundColor: 'red' }} variant='outline'>Click Me<\/Button>
+    <Button>
+        <GithubLogo size={16} \/> I love open source!
+    <\/Button>
     `;
     const sizeButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button radius="lg" \/> // -> theme predefined large radius
-        <Button radius={10} \/> // -> ( borderRadius: '10px' )
-        <Button size="sm" \/> // -> predefined small size
-        <Button size="lg" \/> // -> predefined large size
+    <Button radius="lg" \/> // -> theme predefined large radius
+    <Button radius={10} \/> // -> ( borderRadius: '10px' )
+    <Button size="sm" \/> // -> predefined small size
+    <Button size="lg" \/> // -> predefined large size
     `;
     const compactButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button compact>Click Me<\/Button>
-        <Button variant='outline' compact>Click Me<\/Button>
-        <Button variant='default' compact>Click Me<\/Button>
+    <Button compact>Click Me<\/Button>
+    <Button variant='outline' compact>Click Me<\/Button>
+    <Button variant='default' compact>Click Me<\/Button>
     `;
     const fullsizeButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button fullSize>Click Me<\/Button>
+    <Button fullSize>Click Me<\/Button>
     `;
     const rootButtons = `
-        <script>
-            import { Button } from '@svelteuidev/core';
-        <\/script>
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
 
-        <Button href="https://github.com/svelteuidev/svelteui">I go to svelteuidev/svelteui<\/Button>
+    <Button href="https://github.com/svelteuidev/svelteui">I go to svelteuidev/svelteui<\/Button>
     `;
 </script>
 
