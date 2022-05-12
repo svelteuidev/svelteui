@@ -48,8 +48,7 @@ docs: 'motion/typewriter.md'
 
 The typewriter transition will give your text a typed effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the typewriter transition on non text nodes, it will result in an error.
 
-<Preview {code}>
-    <Box>
+<Preview cols={2} {code}>
         <div>
             {#if visible}
                 <p in:typewriter>Now the transition is playing</p>
@@ -58,7 +57,6 @@ The typewriter transition will give your text a typed effect. Just like every ot
             {/if}
         </div>
         <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
-    </Box>
 </Preview>
 
 ## Params
@@ -74,6 +72,7 @@ You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
 
 ```ts
 import type { TypewriterParams } from '@svelteuidev/motion';
+
 interface TypewriterParams {
     speed?: number;
     easing?: EasingFunction;

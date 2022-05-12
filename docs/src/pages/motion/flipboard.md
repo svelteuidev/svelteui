@@ -77,6 +77,7 @@ You can import `FlipboardParams` interface type from `@svelteuidev/motion`:
 
 ```ts
 import type { FlipboardParams } from '@svelteuidev/motion';
+
 export interface FlipboardParams {
     delay?: number;
     duration?: number;

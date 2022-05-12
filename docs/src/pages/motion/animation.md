@@ -13,3 +13,5 @@ docs: 'motion/animation.md'
 import { CodeBlock, Heading } from 'components'
 
 <Heading />
+
+Documentation coming soon
