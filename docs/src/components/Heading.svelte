@@ -13,8 +13,6 @@
 	};
 </script>
 
-<Device />
-
 <Stack override={{ width: '100%', bc: 'white' }}>
 	<Stack override={{ mt: 50, mb: 20, h1: { mb: 0 }, '@md': { mt: 0 } }} spacing="xs">
 		<h1>{$current_page.meta.title}</h1>

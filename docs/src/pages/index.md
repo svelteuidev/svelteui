@@ -22,14 +22,12 @@ index: true
 		Stack
 	} from '@svelteuidev/core';
 
-	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}<\/style>`;
+	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}.main.nosidebar{margin-left: 0 !important;padding-top: 0 !important;}<\/style>`;
 </script>
 
 <svelte:head>
 	{@html backgroundStyles}
 </svelte:head>
-
-<Device />
 
 <SvelteUIProvider class="homepage_styles" withGlobalStyles ssr>
 	<div class="container">
@@ -86,10 +84,6 @@ index: true
 </SvelteUIProvider>
 
 <style>
-	:global(.main.nosidebar) {
-		margin-left: 0 !important;
-		padding-top: 0 !important;
-	}
 	.container {
 		padding-left: 1rem;
 		padding-right: 1rem;

@@ -11,8 +11,8 @@ docs: 'core/switch.md'
 ---
 
 <script lang="ts">
-    import { SimpleGrid, Switch } from '@svelteuidev/core';
-    import { Heading, Preview, mobile, Device } from 'components';
+    import { SimpleGrid, Switch, Group } from '@svelteuidev/core';
+    import { Heading, Preview, mobile } from 'components';
 
     const switchCode = `
     <script>
@@ -46,31 +46,29 @@ docs: 'core/switch.md'
 
 <Heading />
 
-<Device />
-
 ## Usage
 
 Switch component is used to enable/disable something, normally used for boolean values or for binary actions. The component dispatches an on change event, and supports a checked prop for programmatically setting the checked state.
 
 <Preview code={switchCode}>
-    <SimpleGrid cols={$mobile ? 1 : 3}>
+        <Group>
+            <Switch color='pink' checked size="xs"/>
+            <Switch radius='sm' size="md"/>
+            <Switch checked size="xs"/>
+        </Group>
         <Switch label="I agree to sell my privacy" size="md" color="teal"/>
         <Switch onLabel="ON" offLabel="OFF" label="Setting 1" size="xl" color="pink"/>
-        <Switch checked size="xs"/>
-    </SimpleGrid>
 </Preview>
 
 ### Inner labels and Size
 
 There is support for inserting text inside the switch for when it is enabled and/or disabled. It is also possible to control the size of the switch with predefined values: `xs`, `sm`, `md`, `lg`, `xl`.
 
-<Preview code={labelSwitch}>
-    <SimpleGrid cols={4}>
+<Preview code={labelSwitch} cols={4}>
         <Switch size='sm' onLabel="ON" offLabel="OFF" />
         <Switch size='md' onLabel="ON" offLabel="OFF" />
         <Switch size='lg' onLabel="ON" offLabel="OFF" />
         <Switch size='xl' onLabel="ON" offLabel="OFF" />
-    </SimpleGrid>
 </Preview>
 
 ## Accessibility
@@ -78,9 +76,7 @@ There is support for inserting text inside the switch for when it is enabled and
 Switch is a regular input with checkbox type. Provide `aria-label` if Switch is used without `label`:
 
 <Preview code={accessibilitySwitch}>
-    <SimpleGrid cols={3}>
-        <Switch />
         <Switch label="I agree to everything" />
         <Switch aria-label="I agree to everything" />
-    </SimpleGrid>
+        <Switch />
 </Preview>

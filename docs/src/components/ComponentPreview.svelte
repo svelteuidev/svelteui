@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Box, ActionIcon } from '@svelteuidev/core';
+	import { Box, ActionIcon, SimpleGrid } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import { slide } from 'svelte/transition';
 	// @ts-ignore
-	import { ToolTip } from 'components';
+	import { ToolTip, mobile } from 'components';
 
 	/** @type { 'row' | 'column' } */
 	export let direction = 'row';
@@ -11,6 +11,7 @@
 	export let override = {};
 	export let code = `<script>\nconst a = 1\n<\/script>`;
 	export let language = 'svelte';
+	export let cols = 3
 
 	let showCode = false;
 
@@ -31,7 +32,9 @@
 </script>
 
 <Box css={{ ...css, ...override }}>
-	<slot />
+	<SimpleGrid cols={$mobile ? 1 : cols}>
+		<slot />
+	</SimpleGrid>
 	<Box css={{ position: 'absolute', bottom: 0, right: 10 }}>
 		<ToolTip tip={showCode ? 'hide code' : 'show code'}>
 			<ActionIcon

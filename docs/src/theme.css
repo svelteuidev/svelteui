@@ -24,6 +24,10 @@
 
 .sidebar {
 	overflow-y: scroll;
+	padding-top: 1em !important;
+	padding-right: 1em !important;
+	padding-left: 1em !important;
+	padding-bottom: 5rem !important;
 }
 
 blockquote {
@@ -38,8 +42,8 @@ blockquote {
 	.article {
 		max-width: 80rem !important;
 		margin: 0 !important;
-		padding-left: 0.25rem !important;
-		padding-right: 0.25rem !important;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
 		padding-bottom: 5rem !important;
 	}
 }

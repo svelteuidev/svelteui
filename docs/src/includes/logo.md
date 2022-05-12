@@ -1,14 +1,12 @@
 <script>
 	import { Badge, Center, Title, Image } from '@svelteuidev/core';
-	import { mobile, Device } from 'components';
+	import { mobile } from 'components';
 	import { page } from '../stores';
 
 	const override = {
 		gap: '0.5rem'
 	};
 </script>
-
-<Device />
 
 <a style="text-decoration: none;" href="/">
 	<Center {override} inline>

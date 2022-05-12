@@ -11,9 +11,9 @@ docs: 'core/button.md'
 ---
 
 <script lang="ts">
-    import { ActionIcon, Button, SimpleGrid } from '@svelteuidev/core';
+    import { Button, SimpleGrid } from '@svelteuidev/core';
     import { GithubLogo } from "radix-icons-svelte";
-    import { Heading, Preview } from 'components'
+    import { Heading, Preview, mobile } from 'components'
 
     const simpleButtons = `
     <script>
@@ -28,9 +28,9 @@ docs: 'core/button.md'
         import { Button } from '@svelteuidev/core';
     <\/script>
 
-    <Button color="red" \/>
-    <Button variant="outline"\/>
-    <Button variant="filled"\/>
+    {#each ['filled', 'outline', 'light','subtle','default'] as variant}
+        <Button variant={variant} />
+    {/each}
     `;
     const gradientButtons = `
     <script>
@@ -51,6 +51,13 @@ docs: 'core/button.md'
     <Button variant="white">Click Me<\/Button>
     <Button variant="white" color="red">I am red<\/Button>
     `;
+    const rippleButtons = `
+    <script>
+        import { Button } from '@svelteuidev/core';
+    <\/script>
+    
+    <Button ripple>Click me!<\/Button>
+    `
     const loadingButtons = `
     <script>
         import { Button } from '@svelteuidev/core';
@@ -121,10 +128,10 @@ docs: 'core/button.md'
 Button supports the following variants: `default`, `subtle`, `white`, `gradient`, `filled`, `light` and `outline`. Default Button color is `theme.blue600`, to change color and variant pass color and variant props:
 
 <Preview code={variantButtons}>
-    <SimpleGrid cols={3}>
-        <Button color="red" />
-        <Button variant="outline"/>
-        <Button variant="filled"/>
+    <SimpleGrid cols={$mobile ? 1 : 5}>
+        {#each ['filled', 'outline', 'light','subtle','default'] as variant}
+             <Button variant={variant} />
+        {/each}
     </SimpleGrid>
 </Preview>
 
@@ -132,13 +139,13 @@ Button supports the following variants: `default`, `subtle`, `white`, `gradient`
 
 To use gradient as Button background:
 
-* set `variant` prop to `gradient`
-* set `gradient` prop to `(from: 'color-from', to: 'color-to', deg: 135)`, where
-    * `color-from` and `color-to` are color from `theme.colors`
-    * `deg` is linear gradient degree
+- set `variant` prop to `gradient`
+- set `gradient` prop to
+- `color-from` and `color-to` are color from `theme.colors`
+- `deg` is linear gradient degree
 
 <Preview code={gradientButtons}>
-    <SimpleGrid cols={5}>
+    <SimpleGrid cols={$mobile ? 1 : 5}>
         <Button variant='gradient'>Default</Button>
         <Button variant='gradient' gradient={{from: 'teal', to: 'green', deg: 105}}>Lime Green</Button>
         <Button variant='gradient' gradient={{from: 'teal', to: 'blue', deg: 60}}>Teal Blue</Button>
@@ -151,10 +158,20 @@ To use gradient as Button background:
 
 White is a variant in which button background color is always white (both in light and dark theme) and `color` is controlled with color prop:
 
-<Preview code={whiteButtons}>
+<Preview override={{bc: '$gray100'}} code={whiteButtons}>
     <SimpleGrid cols={2}>
         <Button variant="white">Click Me</Button>
         <Button variant="white" color="red">I am red</Button>
+    </SimpleGrid>
+</Preview>
+
+### Ripple effect
+
+Adding the ripple prop gives the button a Material UI ripple effect.
+
+<Preview code={rippleButtons}>
+    <SimpleGrid cols={1}>
+        <Button ripple>Click me!</Button>
     </SimpleGrid>
 </Preview>
 
@@ -164,9 +181,9 @@ Button supports loading state. In this state [Loader](core/loader) component rep
 
 You can control loading state and [Loader](core/loader) component with following props:
 
-* `loading` - enable loading state
-* `loaderPosition` - Loader position relative to button label, either `right` or `left`
-* `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](core/loader) prop
+- `loading` - enable loading state
+- `loaderPosition` - Loader position relative to button label, either `right` or `left`
+- `loaderProps` - props spread to Loader component, you can choose loader type, size and any other [supported](core/loader) prop
 
 <Preview code={loadingButtons}>
     <SimpleGrid cols={2}>
