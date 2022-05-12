@@ -71,3 +71,5 @@ You can install SvelteUI with [NPM](https://npmjs.com) or [Yarn](https://yarnpkg
 ### Yarn
 
 <CodeBlock copy message={`yarn add ${sanitizedPKG}`}>yarn add {sanitizedPKG}</CodeBlock>
+
+> Wanna give it a spin before you download? Take some time in the [playground](playground)!

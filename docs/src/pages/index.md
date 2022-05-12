@@ -4,7 +4,7 @@ title: 'SvelteUI - A variety of components, actions, transition and utility func
 index: true
 ---
 
-<script lang="ts">
+<script>
 	import { Features, Device, mobile } from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {
@@ -21,16 +21,13 @@ index: true
 		Center,
 		Stack
 	} from '@svelteuidev/core';
-	const PrimaryButton = {
-		boxShadow: '0 2px 14px #228be6',
-		transition: 'all 0.2s ease-in-out',
-		color: 'white !important',
-		textDecoration: 'none !important',
-		'&:hover': {
-			boxShadow: '0 4px 20px #228be6'
-		}
-	};
+
+	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}<\/style>`;
 </script>
+
+<svelte:head>
+	{@html backgroundStyles}
+</svelte:head>
 
 <Device />
 
@@ -47,28 +44,44 @@ index: true
 				fullSize={$mobile ? true : false}
 				href="introduction"
 				size="xl"
-				override={PrimaryButton}
+				override={{ '&:hover': { textDecoration: 'none' } }}
 			>
-				<ArrowRight size={20} slot="leftIcon" />
-				<p>Get Started</p>
+				<Text weight="bold" override={{ color: 'white' }}>Get Started</Text>
 			</Button>
 			<Button fullSize={$mobile ? true : false} override={{ m: 0 }} size="xl" variant="default">
 				<GithubLogo size={25} slot="leftIcon" />
-				<p>Source Code</p>
+				<Text weight="bold" color="dark">Source Code</Text>
 			</Button>
 		</Group>
 	</div>
-	<Container>
+	<Container override={{mt: 250}} size="xl">
 		<Features />
 	</Container>
 	<Container override={{ py: '4rem' }} size="xl">
 		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">
 			Less Code. Elegant Solutions.
 		</Title>
-		<Text size="lg" align="center" root="p">
-			Turborepo reimagines build system techniques used by Facebook and Google to remove maintenance
-			burden and overhead.
+		<Text size="xl" align="center" root="p">
+			Spend less time writing UI code and more time building a great experience for your
+			customers.
+			<br />
+			Don't like what you see? Customize every component anyway you like!
 		</Text>
+		<Box
+			root="iframe"
+			src="https://codesandbox.io/embed/charming-moon-fb226s?autoresize=1&fontsize=14&hidenavigation=1&module=%2FApp.svelte&theme=dark"
+			title="SvelteUIDev/SvelteUI: basic"
+			sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+			css={{
+				width: '100%',
+				height: '80vh',
+				border: '5px solid black',
+				borderRadius: 8,
+				overflow: 'hidden',
+				position: 'static',
+				zIndex: 0
+			}}
+		/>
 	</Container>
 </SvelteUIProvider>
 

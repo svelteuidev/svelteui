@@ -20,7 +20,7 @@ source: 'svelteui-actions/src/lib/dist/use-page-leave/use-page-leave.ts'
         $: count = 0;
     <\/script>
 
-    <div use:pageleave={() => count++}>Switch the page to see the counter go up: {count}<\/div>
+    <div use:pageleave={() => count++}>Move the mouse off the page to see the counter go up: {count}<\/div>
     `;
 
     $: count = 0;
@@ -33,7 +33,7 @@ source: 'svelteui-actions/src/lib/dist/use-page-leave/use-page-leave.ts'
 The `use-page-leave` action calls given function when mouse leaves the page.
 
 <Preview {code}>
-    <div use:pageleave={() => count++}>Switch the page to see the counter go up: {count}</div>
+    <div use:pageleave={() => count++}>Move the mouse off the page to see the counter go up: {count}</div>
 </Preview>
 
 ## Params

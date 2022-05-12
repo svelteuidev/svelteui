@@ -25,15 +25,15 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 ## Packages
 
-**[`@svelteui/core`](./core/button)** - core components library
+**[`@svelteui/core`](core/button)** - core components library
 
-**[`@svelteui/actions`](./actions/use-click-outside)** - library of useful actions
+**[`@svelteui/actions`](actions/use-click-outside)** - library of useful actions
 
-**[`@svelteui/motion`](./motion/typewriter)** - collection of transitions to utilize on dom elements
+**[`@svelteui/motion`](motion/typewriter)** - collection of transitions to utilize on dom elements
 
-**[`@svelteui/utilities`](./utilities/os)** - collection of helpful utility functions
+**[`@svelteui/utilities`](utilities/os)** - collection of helpful utility functions
 
-`@svelteui/prism` - code highlight component built with prism action (coming in v0.6.0 release)
+**[`@svelteui/prism`](others/prism.md)** - code highlight component built with prism action (coming in v0.6.0 release)
 
 <br />
 

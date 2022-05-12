@@ -67,8 +67,5 @@ on:usedownload-error?: (callback: (any) => unknown) => void;
 ## Definition
 
 ```ts
-export function download(
-    node: HTMLElement,
-    params: { blob: Blob; filename: string }
-): ReturnType<Action>;
+export function download(node: HTMLElement, params: { blob: Blob; filename: string }): ReturnType<Action>;
 ```
