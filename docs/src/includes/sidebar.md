@@ -1,3 +1,8 @@
+<script>
+  import { Space } from "@svelteuidev/core";
+  import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
+</script>
+
 - ### [Introduction](introduction)
 - ### [Installation](installation)
 - ### [Contributing](contributing)
@@ -13,14 +18,14 @@
   - coming soon
   - [Utilities](theming/utilities)
 - ### SvelteUI Core
-  - **Layout**
+  - **<Layout /><Space />Layout**
   - [Container](core/container)
   - [Center](core/center)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
   - [Group](core/group)
-  - **Inputs & Actions**
+  - **<Input/><Space />Inputs & Actions**
   - [ActionIcon](core/action-icon)
   - [Button](core/button)
   - [Checkbox](core/checkbox)
@@ -28,19 +33,19 @@
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)
   - [Switch](core/switch)
-  - **Data Display**
+  - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
   - [Image](core/image)
   - [ThemeIcon](core/theme-icon)
-  - **Feedback**
+  - **<ExclamationTriangle/><Space />Feedback**
   - [Loader](core/loader)
-  - **Typography**
+  - **<Stack/><Space />Overlay**
+  - [Overlay](core/overlay)
+  - **<LetterCaseToggle/><Space />Typography**
   - [Code](core/code)
   - [Text](core/text)
   - [Title](core/title)
-  - **Overlay**
-  - [Overlay](core/overlay)
-  - **Miscellaneous**
+  - **<BoxModel/><Space />Miscellaneous**
   - [Box](core/box)
   - [BrowserRender](core/browser-render)
   - [ServerRender](core/server-render)
