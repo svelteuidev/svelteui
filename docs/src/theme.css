@@ -16,10 +16,18 @@
 	padding: 0.5rem 0.25rem !important;
 }
 
+.main {
+	position: relative;
+}
+
 .article {
 	max-width: 80rem !important;
 	margin: auto 2rem !important;
 	padding-bottom: 10rem !important;
+}
+
+.article > *:nth-child(3) {
+	margin-top: 20rem;
 }
 
 .sidebar {
@@ -45,6 +53,9 @@ blockquote {
 		padding-left: 1rem !important;
 		padding-right: 1rem !important;
 		padding-bottom: 5rem !important;
+	}
+	.article > *:nth-child(3) {
+		margin-top: 25rem;
 	}
 }
 

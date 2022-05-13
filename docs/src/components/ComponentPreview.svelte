@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Box, ActionIcon, SimpleGrid } from '@svelteuidev/core';
+	import { Box, ActionIcon, SimpleGrid, Space } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import { slide } from 'svelte/transition';
 	// @ts-ignore
@@ -11,7 +11,7 @@
 	export let override = {};
 	export let code = `<script>\nconst a = 1\n<\/script>`;
 	export let language = 'svelte';
-	export let cols = 3
+	export let cols = 3;
 
 	let showCode = false;
 
@@ -32,7 +32,7 @@
 </script>
 
 <Box css={{ ...css, ...override }}>
-	<SimpleGrid cols={$mobile ? 1 : cols}>
+	<SimpleGrid override={{ pb: '$14' }} cols={$mobile ? 1 : cols}>
 		<slot />
 	</SimpleGrid>
 	<Box css={{ position: 'absolute', bottom: 0, right: 10 }}>
