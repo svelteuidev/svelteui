@@ -30,6 +30,18 @@ docs: 'core/loader.md'
     <Loader variant="dots" \/>
     <Loader variant="bars" \/>
     `;
+    const colorLoaders = `
+    <script>
+        import { Loader } from '@svelteuidev/core';
+    <\/script>
+
+    <Loader color="red" />
+    <Loader color="green" />
+    <Loader color="teal" />
+    <Loader color="gray" />
+    <Loader color="blue" />
+    <Loader color="yellow" />
+    `;
     const sizeLoaders = `
     <script>
         import { Loader } from '@svelteuidev/core';
@@ -46,7 +58,7 @@ docs: 'core/loader.md'
 
 By default, loader will be rendered with the SvelteUI blue color. You can choose any color defined in the theme or extend your [own theme](theming/create-styles):
 
-<Preview code={loader}>
+<Preview cols={1} code={loader}>
     <Loader />
 </Preview>
 
@@ -54,19 +66,30 @@ By default, loader will be rendered with the SvelteUI blue color. You can choose
 
 You can configure default loader to be one of it's three variants, `circle`, `dots` and `bars`:
 
-<Preview code={variantLoaders}>
-    <SimpleGrid cols={3}>
-        <Loader variant="circle" />
-        <Loader variant="dots" />
-        <Loader variant="bars" />
-    </SimpleGrid>
+<Preview cols={3} code={variantLoaders}>
+    <Loader variant="circle" />
+    <Loader variant="dots" />
+    <Loader variant="bars" />
+</Preview>
+
+### Color
+
+Loader supports all colors from [theme.colors](theming/default-theme):
+
+<Preview cols={6} code={colorLoaders}>
+    <Loader color="red" />
+    <Loader color="green" />
+    <Loader color="teal" />
+    <Loader color="gray" />
+    <Loader color="blue" />
+    <Loader color="yellow" />
 </Preview>
 
 ### Size
 
 Size controls loader height or width (depends on loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
 
-<Preview code={sizeLoaders}>
+<Preview cols={2} code={sizeLoaders}>
     <Loader size="lg" />
     <Loader size={50} />
 </Preview>

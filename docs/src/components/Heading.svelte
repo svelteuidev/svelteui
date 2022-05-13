@@ -4,7 +4,7 @@
 	import { Stack, Box, Title, Text, Group, Center } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/actions';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
-	import { mobile } from 'components';
+	import { screenW } from 'components';
 
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/tree/main/packages/',
@@ -33,7 +33,7 @@
 		<Title color="dimmed" order={3}>{$current_page.meta.description}</Title>
 	</Stack>
 	{#if $current_page.meta?.import}
-		<Group children={2} spacing={70}>
+		<Group children={2} spacing={$screenW < 476 ? 10 : 70}>
 			<Text color="dimmed">Import</Text>
 			<Box css={importStyles}>
 				<code use:clipboard={$current_page.meta.import}>

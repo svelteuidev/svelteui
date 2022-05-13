@@ -57,7 +57,7 @@ Pass `order` prop to render specific element (h1-h6), default order is 1:
 
 The Title component takes all the same props as the Text component
 
-<Preview code={sharedTitle}>
+<Preview cols={2} code={sharedTitle}>
     <Title order={1}>This is h1 title</Title>
     <Title order={1} variant='gradient'>This is h1 title with a twist</Title>
 </Preview>
