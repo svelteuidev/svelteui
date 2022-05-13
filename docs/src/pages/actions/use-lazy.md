@@ -34,7 +34,7 @@ source: 'svelteui-actions/src/lib/dist/use-lazy/use-lazy.ts'
 
 ## Usage
 
-With the `use-lazy` action, the affected DOM node gets focused when it is mounted into the DOM. Only "focusable" elements should use this action. Type errors will appear if this is not the case.
+With the `use-lazy` action, you can set attributes on an element when it is visible in the viewport.
 
 <Preview override={{height: '300px', overflow: 'scroll', '#code-button': {position: 'sticky', top: '90%', right: 0}}} cols={1} {code}>
     {#each [...Array(15).keys()] as i}

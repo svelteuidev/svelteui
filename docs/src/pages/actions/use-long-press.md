@@ -10,6 +10,7 @@ source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
 ---
 
 <script>
+    import { Button } from '@svelteuidev/core';
     import { longpress } from '@svelteuidev/actions';
     import { Heading, Preview } from 'components';
 
@@ -18,24 +19,23 @@ source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
 
     const code = `
     <script>
+        import { Button } from '@svelteuidev/core';
         import { longpress } from '@svelteuidev/actions'
 
         let pressed = false;
 	    let duration = 2000;
     <\/script>
     
-    <label>
-        <input type=range bind:value={duration} max={2000} step={100} \/>
-        {duration}ms
-    <\/label>
+    <input type=range bind:value={duration} max={2000} step={100} \/>
+    {duration}ms
 
-    <button 
-        use:longpress={duration}
+    <Button 
+        use={[[longpress, duration]]}
         on:longpress="{() => pressed = true}"
         on:mouseenter="{() => pressed = false}"
     >
         press and hold
-    <\/button>
+    <\/Button>
 
     {#if pressed}
         <p>congratulations, you pressed and held for {duration} ms<\/p>
@@ -50,18 +50,16 @@ source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
 With the `use-long-press` action, a `long press` event is created when `mousedown` is above the `duration` in milliseconds.
 
 <Preview cols={1} {code}>
-<label>
-    <input type=range bind:value={duration} max={2000} step={100} />
-    {duration}ms
-</label>
+<input type=range bind:value={duration} max={2000} step={100} />
+{duration}ms
 
-<button 
-    use:longpress={duration}
+<Button 
+    use={[[longpress, duration]]}
     on:uselongpress={() => pressed = true}
     on:mouseenter={() => pressed = false}
 >
     press and hold
-</button>
+</Button>
 
 {#if pressed}
     <p>congratulations, you pressed and held for {duration} ms</p>

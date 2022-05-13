@@ -48,7 +48,7 @@ docs: 'motion/typewriter.md'
 
 The typewriter transition will give your text a typed effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the typewriter transition on non text nodes, it will result in an error.
 
-<Preview cols={2} {code}>
+<Preview cols={1} {code}>
         <div>
             {#if visible}
                 <p in:typewriter>Now the transition is playing</p>

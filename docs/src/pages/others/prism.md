@@ -10,74 +10,150 @@ docs: 'others/prism.md'
 license: MIT
 ---
 
-import { CodeBlock, Heading } from 'components'
+<script>
+    import { Prism } from '@svelteuidev/prism';
+    import { Box } from '@svelteuidev/core';
+    import { Heading, Preview, CodeBlock } from 'components';
+
+
+    const prismExampleCode = `
+    <script>
+        import { Button } from '@svelteuidev/core'
+    <\/script>
+
+    <Button>Hello<\/Button>
+    `
+    
+    const prismCode = `
+    <script>
+        import { Prism } from '@svelteuidev/prism'
+
+        const prismExampleCode = \`
+        <script>
+            import { Button } from '@svelteuidev/core'
+        <\/script>
+
+        <Button>Hello<\/Button>
+        \`
+        
+        <Prism language='svelte' code={prismExampleCode} \/>
+    <\/script>
+
+    <Button>Hello<\/Button>
+    `
+
+    const prismCodeLineNumbers = `
+    <script>
+        import { Prism } from '@svelteuidev/prism'
+
+        const prismExampleCode = \`
+        <script>
+            import { Button } from '@svelteuidev/core'
+        <\/script>
+
+        <Button>Hello<\/Button>
+        \`
+        
+        <Prism lineNumbers language='svelte' code={prismExampleCode} \/>
+    <\/script>
+
+    <Button>Hello<\/Button>
+    `
+    const prismCodeHighlight = `
+    <script>
+        import { Prism } from '@svelteuidev/prism'
+
+        const prismExampleCode = \`
+        <script>
+            import { Button } from '@svelteuidev/core'
+        <\/script>
+
+        <Button>Hello<\/Button>
+        \`
+        
+        <Prism lineNumbers highlightLines='3-4' language='svelte' code={prismExampleCode} \/>
+    <\/script>
+
+    <Button>Hello<\/Button>
+    `
+    const prismCodeCopy = `
+    <script>
+        import { Prism } from '@svelteuidev/prism'
+
+        const prismExampleCode = \`
+        <script>
+            import { Button } from '@svelteuidev/core'
+        <\/script>
+
+        <Button>Hello<\/Button>
+        \`
+        
+        <Prism copy={false} language='svelte' code={prismExampleCode} \/>
+    <\/script>
+
+    <Button>Hello<\/Button>
+    `
+</script>
 
 <Heading />
 
 ## Installation
 
-Package depends on [Prism](https://), [Dependent](https://), [@svelteuidev/core](https://www.npmjs.com/package/@svelteuidev/core).
+Package depends on [Prism](https://) and [@svelteuidev/core](https://www.npmjs.com/package/@svelteuidev/core).
 
 Install with npm:
 
 <CodeBlock copy>
-npm install @svelteuidev/prism @svelteuidev/core
+    npm install @svelteuidev/prism @svelteuidev/core
 </CodeBlock>
 
 Install with yarn:
 
 <CodeBlock copy>
-yarn add @svelteuidev/prism @svelteuidev/core
+    yarn add @svelteuidev/prism @svelteuidev/core
 </CodeBlock>
 
 ## Usage
 
-Use Prism component to highlight code with svelteuidev theme styles.
-Component uses [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer)
-under the hood and support light and dark theme, it is used in svelteuidev docs to display all code examples.
+Use Prism component to highlight code with SvelteUI theme styles. Component uses PrismJS under the hood and support light and dark theme, it is used in SvelteUI docs to display all code examples.
 
-## Line numbers
+<Preview width={70} cols={1} code={prismCode}>
+    <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+        <Prism language='svelte' code={prismExampleCode} />
+    </Box>
+</Preview>
 
 Set `withLineNumbers` prop to display line numbers:
 
-### Demo Here
+> Due to a bug with the docs, line numbers aren't displayed correctly.
+
+<Preview width={70} cols={1} code={prismCodeLineNumbers}>
+    <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+        <Prism lineNumbers language='svelte' code={prismExampleCode} />
+    </Box>
+</Preview>
 
 ## Lines highlight
 
-To highlight individual lines use `highlightLines` prop with object containing
-line numbers as keys and highlight options as values. Highlight options include
-color from `theme.colors` and label which replaces line number:
+To highlight individual lines use `highlightLines` prop with the string containing
+line numbers.
 
-### Demo Here
+- e.g. `highlightLines='1-2,4'`
+
+<Preview width={70} cols={1} code={prismCodeHighlight}>
+    <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+        <Prism lineNumbers highlightLines='3-4' language='svelte' code={prismExampleCode} />
+    </Box>
+</Preview>
 
 ## Copy button
 
-To remove copy button set `noCopy` prop.
-Copy button labels can be changed with `copyLabel` and `copiedLabel` props:
+To remove copy button set `copy` prop to false.
 
-### Demo Here
+<Preview width={70} cols={1} code={prismCodeCopy}>
+    <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+        <Prism copy={false} language='svelte' code={prismExampleCode} />
+    </Box>
+</Preview>
 
-## Native scrollbars
-
-By default, Prism uses [ScrollArea](/core/scroll-area/) component to handle overflow content,
-to replace it with native scrollbars set `scrollAreaComponent="div"`:
-
-### Demo Here
-
-## With tabs
-
-To display multiple files use `Prism.Tabs` component, it supports the same props as [Tabs](/core/tabs/) component:
-
-### Demo Here
-
-## Force dark/light theme
-
-You can force dark/light color scheme by setting `colorScheme` prop:
-
-### Demo Here
-
-## Languages
-
-Component supports all languages which are supported by [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer):
-
-### Demo Here
+> This is only Prism v1. More updates will roll out overtime.

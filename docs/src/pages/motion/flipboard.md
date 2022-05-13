@@ -50,17 +50,15 @@ docs: 'motion/flipboard.md'
 
 The flipboard transition displays text with a glitch like effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the flipboard transition on non text nodes, it will result in an error.
 
-<Preview {code}>
-    <Box>
-        <div>
-            {#if visible}
-                <p in:flipboard={{ duration: 2000 }}>Now the transition is playing</p>
-            {:else}
-                <p>Click the button to play the transition</p>
-            {/if}
-        </div>
-        <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
-    </Box>
+<Preview cols={1} {code}>
+    <div>
+        {#if visible}
+            <p in:flipboard={{ duration: 2000 }}>Now the transition is playing</p>
+        {:else}
+            <p>Click the button to play the transition</p>
+        {/if}
+    </div>
+    <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
 </Preview>
 
 ## Params
@@ -90,8 +88,5 @@ export interface FlipboardParams {
 ## Definition
 
 ```ts
-function flipboard(
-    node: HTMLElement,
-    { delay, duration, easing }: FlipboardParams
-): TransitionConfig;
+function flipboard(node: HTMLElement, { delay, duration, easing }: FlipboardParams): TransitionConfig;
 ```

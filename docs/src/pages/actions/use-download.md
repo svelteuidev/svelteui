@@ -14,20 +14,21 @@ source: 'svelteui-actions/src/lib/dist/use-download/use-download.ts'
 	import { download } from '@svelteuidev/actions';
     import { Heading, Preview } from 'components'
 
+    const file = new Blob([])
+
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
         import { download } from '@svelteuidev/actions';
     <\/script>
 
-    <div
-        use:download={{ blob: new Blob([]), filename: "test.txt" }}
+    <Button 
+        variant='outline'
+        use={[[download, { blob: file, filename: "test.txt" }]]}
         on:usedownload={() => console.log('File Downloaded')}
     >
-        <Button variant='outline'>
-            Download File
-        <\/Button>
-    <\/div>
+        Download File
+    <\/Button>
     `;
 </script>
 
@@ -38,14 +39,13 @@ source: 'svelteui-actions/src/lib/dist/use-download/use-download.ts'
 With the `use-download` action, a download will occur with a given Blob object as a file with the given filename.
 
 <Preview cols={1} {code}>
-    <div
-        use:download={{ blob: new Blob([]), filename: "test.txt" }}
+    <Button 
+        variant='outline'
+        use={[[download, { blob: file, filename: "test.txt" }]]}
         on:usedownload={() => console.log('File Downloaded')}
     >
-        <Button variant='outline'>
-            Download File
-        </Button>
-    </div>
+        Download File
+    </Button>
 </Preview>
 
 ## Params

@@ -32,7 +32,7 @@ docs: 'utilities/os.md'
 
 The `os` utility function detects a user's Operating System. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If the OS cannot be identified as well as during server side rendering, `undetermined` will be returned.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <p>Your os is <b>{os}</b></p>
 </Preview>
 
@@ -46,5 +46,5 @@ import type { OS } from '@svelteuidev/utilities';
 ## Definition
 
 ```ts
-function getOS(): 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux';
+export function os(): OS;
 ```

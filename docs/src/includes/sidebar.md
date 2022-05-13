@@ -69,7 +69,6 @@
   - [os](utilities/os)
   - [rafFn](utilities/raf-fn)
   - [hash](utilities/hash)
-  - [helpers](utilities/helpers)
 - ### SvelteUI Motion
   - **Transitions**
   - [Typewriter](motion/typewriter)
