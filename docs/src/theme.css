@@ -1,5 +1,8 @@
 /* Theme tunning: for full list ov variables visit the https://alexxnb.github.io/svelte-docs/theming */
 
+html {
+	scroll-behavior: smooth;
+}
 :root {
 	--primary: #228be6 !important;
 	--tag: #f4f5f7 !important;

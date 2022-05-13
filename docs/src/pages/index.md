@@ -5,8 +5,9 @@ index: true
 ---
 
 <script>
-	import { Features, Device, mobile } from 'components';
+	import { Features, Device, mobile, AllComponents } from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
+	import { portal } from "@svelteuidev/actions";
 	import {
 		css,
 		Box,
@@ -19,7 +20,8 @@ index: true
 		SvelteUIProvider,
 		ThemeIcon,
 		Center,
-		Stack
+		Stack,
+		Space
 	} from '@svelteuidev/core';
 
 	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}.main.nosidebar{margin-left: 0 !important;padding-top: 0 !important;}<\/style>`;
@@ -36,7 +38,7 @@ index: true
 			<br class="line-br" />
 			<span class="gradient-animation">Regardless of design experience</span>
 		</h1>
-		<p class="content">Check out the source code, or read the documentation & get started!</p>
+		<p class="content">SvelteUI includes more than 25+ customizable components so far. Check out the source code, or read the documentation & get started!</p>
 		<Group direction={$mobile ? 'column' : 'row'} position="center">
 			<Button
 				fullSize={$mobile ? true : false}
@@ -52,10 +54,19 @@ index: true
 			</Button>
 		</Group>
 	</div>
-	<Container override={{mt: 250}} size="xl">
+	<Text
+		color='blue' 
+		size='lg' 
+		weight="extrabold" 
+		override={{ letterSpacing: '$tight' }} 
+		align='center'
+	>
+		Or scroll down and have a quick look at the components 😳
+	</Text>
+	<Container override={{py: '7rem'}} size="xl">
 		<Features />
 	</Container>
-	<Container override={{ py: '4rem' }} size="xl">
+	<Container override={{ py: '7rem' }} size="xl">
 		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">
 			Less Code. Elegant Solutions.
 		</Title>
@@ -80,6 +91,12 @@ index: true
 				zIndex: 0
 			}}
 		/>
+	</Container>
+	<Container override={{py: '7rem'}} size="xl">
+		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">All Components</Title>
+		<Space h='xl' />
+		<Space h='xl' />
+		<AllComponents />
 	</Container>
 </SvelteUIProvider>
 

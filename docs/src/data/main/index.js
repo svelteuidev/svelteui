@@ -1,2 +1,2 @@
-export { features } from './homepage';
+export { features, components } from './homepage';
 export { NEXT_STEPS_DATA } from './installation';

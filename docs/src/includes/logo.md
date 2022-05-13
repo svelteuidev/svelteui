@@ -1,7 +1,6 @@
 <script>
 	import { Badge, Center, Title, Image } from '@svelteuidev/core';
 	import { mobile } from 'components';
-	import { page } from '../stores';
 
 	const override = {
 		gap: '0.5rem'
