@@ -5,6 +5,7 @@
 
 - ### [Introduction](introduction)
 - ### [Installation](installation)
+- ### [Learn The Basics](basics)
 - ### [Contributing](contributing)
 - ### [Playground](playground)
 

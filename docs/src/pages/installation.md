@@ -4,7 +4,7 @@ title: 'Installation'
 
 <script>
     import { NativeSelect, CheckboxGroup, Center, Container } from '@svelteuidev/core'
-	import { CodeBlock, MinorHeading } from 'components'
+	import { CodeBlock, MinorHeading, NextSteps } from 'components'
 
     const data = ['Svelte', 'SvelteKit']
     const items = [
@@ -73,3 +73,7 @@ You can install SvelteUI with [NPM](https://npmjs.com) or [Yarn](https://yarnpkg
 <CodeBlock copy message={`yarn add ${sanitizedPKG}`}>yarn add {sanitizedPKG}</CodeBlock>
 
 > Wanna give it a spin before you download? Take some time in the [playground](playground)!
+
+## Next steps
+
+<NextSteps />

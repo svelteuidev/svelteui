@@ -86,7 +86,7 @@ docs: 'core/action-icon.md'
 
 ActionIcon accepts anything as child. It **does not control icon size**, the user must specify it manually on the icon component to match ActionIcon size. For example, in radix-icons-svelte you can use size prop:
 
-<Preview code={action}>
+<Preview cols={1} code={action}>
     <ActionIcon><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
@@ -94,64 +94,54 @@ ActionIcon accepts anything as child. It **does not control icon size**, the use
 
 ActionIcon has 6 variants: `hover`, `default`, `transparent`, `filled`, `light` and `outline`:
 
-<Preview code={variantActions}>
-    <SimpleGrid cols={6}>
-        <ActionIcon color="blue" variant="hover"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" variant="default"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" variant="transparent"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" variant="filled"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" variant="light"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" variant="outline"><GithubLogo size={16} /></ActionIcon>
-    </SimpleGrid>
+<Preview cols={6} code={variantActions}>
+    <ActionIcon color="blue" variant="hover"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" variant="default"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" variant="transparent"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" variant="filled"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" variant="light"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" variant="outline"><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
 ### Color
 
 ActionIcon supports all colors from [theme.colors](theming/default-theme):
 
-<Preview code={colorActions}>
-    <SimpleGrid cols={6}>
-        <ActionIcon color="red"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="green"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="teal"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="gray"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="yellow"><GithubLogo size={16} /></ActionIcon>
-    </SimpleGrid>
+<Preview cols={6} code={colorActions}>
+    <ActionIcon color="red"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="green"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="teal"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="gray"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="yellow"><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
 ### Size and radius
 
 Control button width and height with `size` and border-radius with `radius`. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, use a number to set radius or size in px:
 
-<Preview code={sizeActions}>
-    <SimpleGrid cols={4}>
-        <ActionIcon color="blue" radius="lg" variant="filled"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" radius={10} variant="filled"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" size="sm" variant="filled"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon color="blue" size={50} variant="filled"><GithubLogo size={16} /></ActionIcon>
-    </SimpleGrid>
+<Preview cols={4} code={sizeActions}>
+    <ActionIcon color="blue" radius="lg" variant="filled"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" radius={10} variant="filled"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" size="sm" variant="filled"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon color="blue" size={50} variant="filled"><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
 ## Close button
 
 CloseButton is a pre-made ActionIcon with close icon, it will be used in all other components: Popover, Modal, Notification, etc. Component accepts the same props as ActionIcon with additional `iconSize` prop to control icon width and height:
 
-<Preview code={closeButton}>
-    <SimpleGrid cols={2}>
-        <CloseButton variant="filled" />
-        <CloseButton size="xl" iconSize={20} variant="filled" />
-    </SimpleGrid>
+<Preview cols={2} code={closeButton}>
+    <CloseButton variant="filled" />
+    <CloseButton size="xl" iconSize={20} variant="filled" />
 </Preview>
 
 ## Accessibility
 
 ActionIcon renders a regular `button` element. Set `title` or `aria-label` props for screen reader support:
 
-<Preview code={accessibility}>
-    <SimpleGrid cols={3}>
-        <ActionIcon><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon title="Settings"><GithubLogo size={16} /></ActionIcon>
-        <ActionIcon aria-label="Settings"><GithubLogo size={16} /></ActionIcon>
-    </SimpleGrid>
+<Preview cols={3} code={accessibility}>
+    <ActionIcon><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon title="Settings"><GithubLogo size={16} /></ActionIcon>
+    <ActionIcon aria-label="Settings"><GithubLogo size={16} /></ActionIcon>
 </Preview>

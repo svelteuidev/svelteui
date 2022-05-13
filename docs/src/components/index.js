@@ -1,4 +1,5 @@
 export * from './homepage';
+export * from './mainpages';
 
 // needed to use alias for exporting components
 export { default as CodeBlock } from './CodeBlock.svelte';

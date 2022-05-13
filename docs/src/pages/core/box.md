@@ -52,7 +52,7 @@ docs: 'core/box.md'
 
 Box allows you to use the css prop ([like override](/theming/override)) with any element or component. Box itself does not include any styles.
 
-<Preview code={styles}>
+<Preview cols={1} code={styles}>
     <Box
         css={{
             backgroundColor: '$gray50',
@@ -73,9 +73,9 @@ Box allows you to use the css prop ([like override](/theming/override)) with any
 
 ## Custom component
 
-To use Box with custom component or element set `root` prop to tag name or svelte component:
+To use Box with custom component or element set `root` prop to tag name or a svelte component:
 
-<Preview code={custom}>
+<Preview cols={2} code={custom}>
     <Box root={Code}>I am a code component now</Box>
     <Box root='span'>I am a span tag</Box>
 </Preview>
