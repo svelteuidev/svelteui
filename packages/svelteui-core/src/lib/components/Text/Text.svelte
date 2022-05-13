@@ -3,47 +3,39 @@
 	import { getTextColor } from './Text.styles';
 	import { TextErrors } from './Text.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type {
-		SvelteuiGradient,
-		SvelteuiNumberSize,
-		Override,
-		SvelteuiNumberFontSize,
-		SvelteuiTextAlignment,
-		SvelteuiTextTransform
-	} from '$lib/styles';
-	import type { TextVariant, TextColors, HTMLTextElements } from './Text.styles';
+	import type { TextProps as $$TextProps } from './Text.styles';
 
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: $$TextProps['className'] = '';
 	export { className as class };
 	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
+	export let override: $$TextProps['override'] = {};
 	/** The alignment to be applied to the text */
-	export let align: SvelteuiTextAlignment = 'left';
+	export let align: $$TextProps['align'] = 'left';
 	/** Code color for the text from the default theme */
-	export let color: TextColors = 'dark';
+	export let color: $$TextProps['color'] = 'dark';
 	/** The component or HTML tag to be used as the root component for the text */
-	export let root: HTMLTextElements = undefined;
+	export let root: $$TextProps['root'] = undefined;
 	/** Sets the text-transform CSS property of the text*/
-	export let transform: SvelteuiTextTransform = 'none';
+	export let transform: $$TextProps['transform'] = 'none';
 	/** The variant of the text that dictates how the text behaves and/or looks like */
-	export let variant: TextVariant = 'text';
+	export let variant: $$TextProps['variant'] = 'text';
 	/** The size of the text from the default theme */
-	export let size: SvelteuiNumberSize = 'md';
+	export let size: $$TextProps['size'] = 'md';
 	/** The size of the text from the default theme */
-	export let weight: SvelteuiNumberFontSize = 'normal';
+	export let weight: $$TextProps['weight'] = 'normal';
 	/** Controls gradient settings in gradient variant only */
-	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
+	export let gradient: $$TextProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 };
 	/** If enabled sets the line-height to 1 to center the text */
-	export let inline: boolean = true;
+	export let inline: $$TextProps['inline'] = true;
 	/** Sets the maximum lines of text using CSS -webkit-line-clamp property */
-	export let lineClamp: number = undefined;
+	export let lineClamp: $$TextProps['lineClamp'] = undefined;
 	/** Underlines the text */
-	export let underline: boolean = undefined;
+	export let underline: $$TextProps['underline'] = undefined;
 	/** If it should inherit font properties from the parent component */
-	export let inherit: boolean = false;
+	export let inherit: $$TextProps['inherit'] = false;
 	/** Applies an href to the anchor tag */
-	export let href: string = '';
+	export let href: $$TextProps['href'] = '';
 
 	let isHTMLComponent;
 	let isComponent;
@@ -52,7 +44,7 @@
 		isComponent = root && typeof root === 'function';
 	}
 
-	const TextStyles = css({
+	$: TextStyles = css({
 		focusRing: 'auto',
 		[`${dark.selector} &`]: {
 			color: color === 'dark' ? '$dark50' : getTextColor(color, variant, gradient, true)

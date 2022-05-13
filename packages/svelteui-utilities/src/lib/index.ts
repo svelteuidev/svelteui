@@ -1,6 +1,4 @@
-export { os } from './os/os';
-export { rafFn } from './raf-fn/raf-fn';
-export { hash } from './hash/hash';
+export * from './dist';
 
-export * from './utils';
-export * from './types';
+import type { Fn, Pauseable } from './dist/types';
+export { Fn, Pauseable };

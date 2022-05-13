@@ -1,6 +1,6 @@
-import type { SvelteuiColor } from '$lib/styles';
+import type { SvelteUIColor } from '$lib/styles';
 
 export interface LoaderPropsExtended extends Partial<SVGElement> {
 	size: number;
-	color: SvelteuiColor;
+	color: SvelteUIColor;
 }

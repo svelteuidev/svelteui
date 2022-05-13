@@ -1,7 +1,34 @@
 {
   "name": "@svelteuidev/utilities",
-  "version": "0.5.6",
+  "version": "0.6.0",
+  "description": "Svelte utilities library with generally useful functions to assist in development.",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "library",
+    "frontend",
+    "svelte-utilities",
+    "utilities",
+    "utils",
+    "state"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-utilities"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
+  "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "dist/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "coverage": "vitest run --coverage",

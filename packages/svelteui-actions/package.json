@@ -1,7 +1,34 @@
 {
   "name": "@svelteuidev/actions",
-  "version": "0.5.6",
+  "version": "0.6.0",
+  "description": "Svelte actions library with useful lifecycle functions (aka actions).",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "library",
+    "frontend",
+    "svelte-actions",
+    "actions",
+    "state",
+    "dom"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-actions"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
+  "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "dist/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "coverage": "vitest run --coverage",

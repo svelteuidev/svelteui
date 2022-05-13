@@ -1,8 +1,36 @@
 {
   "name": "@svelteuidev/prism",
-  "version": "0.5.0",
+  "version": "0.6.0",
+  "description": "Code highlight with SvelteUI theme",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "code",
+    "highlight",
+    "syntax",
+    "syntax-highlight"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-prism"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "dist/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",
@@ -13,7 +41,10 @@
     "sort": "npx sort-package-json"
   },
   "dependencies": {
-    "mdsvexamples": "0.2.3"
+    "@svelteuidev/actions": "0.6.0",
+    "@svelteuidev/core": "0.6.0",
+    "prism-svelte": "0.5.0",
+    "prismjs": "1.28.0"
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.310",
@@ -29,5 +60,9 @@
     "tslib": "2.3.1",
     "typescript": "4.6.3"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@svelteuidev/actions": "0.6.0",
+    "@svelteuidev/core": "0.6.0",
+    "svelte": "3.47.0"
+  }
 }

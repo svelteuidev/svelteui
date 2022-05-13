@@ -9,12 +9,11 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			colors,
 			space: {
 				0: '0rem',
-				xs: '0.5rem',
-				sm: '0.75rem',
-				md: '1rem',
-				lg: '1.375rem',
-				xl: '2.25rem',
-				px: '1px',
+				xs: '10px',
+				sm: '12px',
+				md: '16px',
+				lg: '20px',
+				xl: '24px',
 				1: '0.125rem',
 				2: '0.25rem',
 				3: '0.375rem',
@@ -300,8 +299,14 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				WebkitUserSelect: value,
 				userSelect: value
 			}),
-			w: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ width: value }),
-			h: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ height: value }),
+			w: (value: Stitches.ScaleValue<'space'>) => ({ width: value }),
+			h: (value: Stitches.ScaleValue<'space'> | number | string) => ({ height: value }),
+			minW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+				minWidth: value
+			}),
+			minH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+				minWidth: value
+			}),
 			mw: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ maxWidth: value }),
 			maxW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxWidth: value
@@ -312,7 +317,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			maxH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxHeight: value
 			}),
-			size: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			size: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				width: value,
 				height: value
 			}),
@@ -403,7 +408,8 @@ const NormalizeCSS = globalCss({
 	html: {
 		fontFamily: 'sans-serif',
 		lineHeight: '1.15',
-		textSizeAdjust: '100%'
+		textSizeAdjust: '100%',
+		margin: 0
 	},
 
 	body: {

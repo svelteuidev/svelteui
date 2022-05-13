@@ -1,59 +1,63 @@
 <script lang="ts">
 	import { css, vFunc } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { ButtonErrors } from './Button.errors';
 	import { sizes } from './Button.styles';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonVariant, LoaderProps } from './Button.styles';
-	import type { Override, SvelteuiColor, SvelteuiNumberSize, SvelteuiGradient } from '$lib/styles';
+	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
-	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
-	/** Controls button appearance */
-	export let variant: ButtonVariant = 'filled';
-	/** Button color from theme */
-	export let color: SvelteuiColor = 'blue';
-	/** Predefined button size */
-	export let size: SvelteuiNumberSize = 'sm';
-	/** Button border-radius from theme or number to set border-radius in px */
-	export let radius: SvelteuiNumberSize | number = 'sm';
-	/** Controls gradient settings in gradient variant only */
-	export let gradient: SvelteuiGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	/** Loader position relative to button label */
-	export let loaderPosition: 'left' | 'right' = 'left';
-	/** Props passed to Loader component */
-	export let loaderProps: LoaderProps = { size: 'xs', color: 'white', variant: 'circle' };
-
-	// --------------Basic types-------------------
+	/** Used for forwarding actions from component */
+	export let use: $$ButtonProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ButtonProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: $$ButtonProps['className'] = '';
 	export { className as class };
+	/** Override prop for custom theming the component */
+	export let override: $$ButtonProps['override'] = {};
+	/** Controls button appearance */
+	export let variant: $$ButtonProps['variant'] = 'filled';
+	/** Button color from theme */
+	export let color: $$ButtonProps['color'] = 'blue';
+	/** Predefined button size */
+	export let size: $$ButtonProps['size'] = 'sm';
+	/** Button border-radius from theme or number to set border-radius in px */
+	export let radius: $$ButtonProps['radius'] = 'sm';
+	/** Controls gradient settings in gradient variant only */
+	export let gradient: $$ButtonProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 };
+	/** Loader position relative to button label */
+	export let loaderPosition: $$ButtonProps['loaderPosition'] = 'left';
+	/** Props passed to Loader component */
+	export let loaderProps: $$ButtonProps['loaderProps'] = {
+		size: 'xs',
+		color: 'white',
+		variant: 'circle'
+	};
 	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: string = '';
+	export let href: $$ButtonProps['href'] = '';
 	/** If external is set to true, target = _blank */
-	export let external: boolean = false;
+	export let external: $$ButtonProps['external'] = false;
 	/** disabled will set button to disabled state */
-	export let disabled: boolean = false;
+	export let disabled: $$ButtonProps['disabled'] = false;
 	/** compact will set button to compact state */
-	export let compact: boolean = false;
+	export let compact: $$ButtonProps['compact'] = false;
 	/** loading will set button to loading state */
-	export let loading: boolean = false;
+	export let loading: $$ButtonProps['loading'] = false;
 	/** uppercase will set button text to uppercase */
-	export let uppercase: boolean = false;
+	export let uppercase: $$ButtonProps['uppercase'] = false;
 	/** fullSize will set button width to 100% */
-	export let fullSize: boolean = false;
+	export let fullSize: $$ButtonProps['fullSize'] = false;
 	/** ripple will add a mui ripple effect to the button on click */
-	export let ripple: boolean = false;
-	// --------------------------------------------
+	export let ripple: $$ButtonProps['ripple'] = false;
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate button styles */
-	const ButtonStyles = css({
+	$: ButtonStyles = css({
 		focusRing: 'auto',
 		cursor: 'pointer',
 		position: 'relative',
@@ -139,7 +143,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 
 {#if href && !disabled}
 	<a
+		bind:this={element}
 		{href}
+		use:useActions={use}
 		use:forwardEvents
 		class:disabled
 		class:compact
@@ -177,6 +183,8 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	</a>
 {:else}
 	<button
+		bind:this={element}
+		use:useActions={use}
 		use:forwardEvents
 		class="{className} {ButtonStyles({ css: override, variation: variant })}"
 		class:disabled

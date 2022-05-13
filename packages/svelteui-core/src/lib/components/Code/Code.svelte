@@ -1,28 +1,36 @@
 <script lang="ts">
 	import CopyIcon from './CopyIcon.svelte';
 	import { css, dark, rgba } from '$lib/styles';
-	import { clipboard } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
+	import { clipboard, useActions, createEventForwarder } from '$lib/internal';
 	import { CodeErrors } from './Code.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { CodeProps } from './Code.styles';
+	import type { CodeProps as $$CodeProps } from './Code.styles';
 
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: CodeProps['className'] = '';
+	/** Used for forwarding actions from component */
+	export let use: $$CodeProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$CodeProps['element'] = undefined;
+	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
+	export let className: $$CodeProps['className'] = '';
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: CodeProps['override'] = {};
+	/** Css prop for custom theming the component */
+	export let override: $$CodeProps['override'] = {};
 	/** Code color and background from the default theme */
-	export let color: CodeProps['color'] = 'gray';
+	export let color: $$CodeProps['color'] = 'gray';
 	/** True for code block, false for inline code */
-	export let block: CodeProps['block'] = false;
+	export let block: $$CodeProps['block'] = false;
 	/** The width of the code block when set to block */
-	export let width: CodeProps['width'] = 100;
+	export let width: $$CodeProps['width'] = 100;
 	/** With copy prop will allow for string in the associated method prop to be copied*/
-	export let copy: CodeProps['copy'] = false;
+	export let copy: $$CodeProps['copy'] = false;
 	/** Message prop will be the text that is copied when the copy prop is enabled */
-	export let message: CodeProps['message'] = 'Copied';
+	export let message: $$CodeProps['message'] = 'Copied';
 	/** Changes the font of the text to match the standard font */
-	export let noMono: CodeProps['noMono'] = false;
+	export let noMono: $$CodeProps['noMono'] = false;
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Copy logic */
 	let copied = false;
@@ -35,7 +43,7 @@
 	/** Css function to generate button styles */
 	const darkColor = dark.colors[`${color}800`].value;
 
-	const CodeStyles = css({
+	$: CodeStyles = css({
 		focusRing: 'auto',
 		[`${dark.selector} &`]: {
 			backgroundColor: color === 'dark' ? `$${color}400` : rgba(darkColor, 0.35),
@@ -106,6 +114,9 @@ Inline or block code without syntax highlighting
 
 {#if block}
 	<pre
+		bind:this={element}
+		use:useActions={use}
+		use:forwardEvents
 		class:block
 		class={CodeStyles({ css: override })}
 		{...$$restProps}>
@@ -119,7 +130,13 @@ Inline or block code without syntax highlighting
 		{/if}
     </pre>
 {:else}
-	<code class="{className} {CodeStyles({ css: override })}" {...$$restProps}>
+	<code
+		bind:this={element}
+		use:useActions={use}
+		use:forwardEvents
+		class="{className} {CodeStyles({ css: override })}"
+		{...$$restProps}
+	>
 		<slot>Write some code</slot>
 	</code>
 {/if}

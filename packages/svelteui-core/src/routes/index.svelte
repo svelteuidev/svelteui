@@ -1,30 +1,44 @@
 <script lang="ts">
-	// prettier-ignore
-	// import { ActionIcon, BackgroundImage, Button, CloseButton, Code, Image, Loader, Switch, Text, Title, Box, Stack } from '$lib';
+	import {
+		ActionIcon,
+		BackgroundImage,
+		Button,
+		Checkbox,
+		CloseButton,
+		Code,
+		Image,
+		Loader,
+		Switch,
+		Text,
+		Title,
+		Box,
+		Stack,
+		Group,
+		Center,
+		Space,
+		Badge,
+		ThemeIcon,
+		Input,
+		InputWrapper,
+		NativeSelect,
+		Fragment,
+		Overlay,
+		SimpleGrid,
+		Container,
+		clipboard
+	} from '$lib';
+	import Gear from '../icons/Gear.svelte';
 </script>
 
-<!-- 
-<Button />
-<Loader />
-<Switch color="grape" offLabel={'OFF'} onLabel={'ON'} label="I agree to sell my soul" />
-<Image
-src="https://images.unsplash.com/photo-1648753532185-77d83918b809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1062&q=80"
-height={240}
-alt="unsplash image"
-/>
-<BackgroundImage
-radius="sm"
-src="https://images.unsplash.com/photo-1649014048485-590f93c42936?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+<SimpleGrid
+	breakpoints={[
+		{ maxWidth: 980, cols: 3, spacing: 'md' },
+		{ maxWidth: 755, cols: 2, spacing: 'sm' },
+		{ maxWidth: 600, cols: 1, spacing: 'sm' }
+	]}
+	cols={3}
 >
-BackgroundImage component can be used to add any content on image. It is useful for hero headers
-and other similar sections
-</BackgroundImage>
-<ActionIcon>+</ActionIcon>
-<Title variant="gradient" order={2}>This is a title</Title>
-<Stack align="flex-end" justify="space-between" override={{ height: 300 }}>
-	<Button variant="outline">1</Button>
-	<Button variant="outline">2</Button>
-	<Button variant="outline">3</Button>
-</Stack>
--->
-<!-- <Box css={{pt: '$18'}}>Hello</Box> -->
+	{#each [...Array(5).keys()] as _, i}
+		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+	{/each}
+</SimpleGrid>

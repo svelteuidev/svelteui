@@ -1,4 +1,4 @@
-export type SvelteuiColor =
+export type SvelteUIColor =
 	| 'dark'
 	| 'gray'
 	| 'red'

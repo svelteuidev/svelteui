@@ -1,19 +1,19 @@
 import type { ButtonVariant, LoaderProps } from '$lib/components/Button/Button.styles';
 import type {
 	Override,
-	SvelteuiColor,
-	SvelteuiNumberSize,
-	SvelteuiGradient
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUIGradient
 } from '$lib/styles/types';
 
 export interface ButtonProps {
 	override?: Override['props'];
 	variant?: ButtonVariant;
-	color?: SvelteuiColor;
-	size?: SvelteuiNumberSize;
-	radius?: SvelteuiNumberSize | number;
+	color?: SvelteUIColor;
+	size?: SvelteUINumberSize;
+	radius?: SvelteUINumberSize | number;
 	type?: 'button' | 'reset' | 'submit' | 'menu';
-	gradient?: SvelteuiGradient;
+	gradient?: SvelteUIGradient;
 	loaderPosition?: 'left' | 'right';
 	loaderProps?: LoaderProps;
 	class?: string;

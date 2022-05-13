@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { css } from '$lib/styles';
-	import type { Override, SvelteuiNumberSize } from '$lib/styles';
+	import type { ImageProps as $$ImageProps } from '../Image.styles';
 
 	/** Override prop for custom theming the component's placeholder */
-	export let override: Override['props'] = {};
+	export let override: $$ImageProps['override'] = {};
 	/** Predefined radius size from theme or number to set border-radius in px */
-	export let radius: SvelteuiNumberSize | number = 0;
+	export let radius: $$ImageProps['radius'] = 0;
 	/** The image src to be used */
-	export let src: string = '';
+	export let src: $$ImageProps['src'] = '';
 	/** The width of the image that defaults to 100% */
-	export let width: string | number = undefined;
+	export let width: $$ImageProps['width'] = undefined;
 	/** The height of the image that defaults to the original image height adjusted to the width */
-	export let height: string | number = undefined;
+	export let height: $$ImageProps['height'] = undefined;
 
-	const BackgroundImageStyles = css({
+	$: BackgroundImageStyles = css({
 		focusRing: 'auto',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',

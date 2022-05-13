@@ -17,7 +17,7 @@ export const ButtonErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
                 
-                <\\Button disabled loading ...> Button Text <\\/Button>
+                &lt;Button disabled loading ...&gt; Button Text &lt;/Button&gt;
                          ^^^^^^^^ ^^^^^^^ - Try removing one of these
                 `
 	},
@@ -27,7 +27,7 @@ export const ButtonErrors: readonly ErrorCtx[] = Object.freeze([
 		solution: `
                 If your component looks like this:
                 
-                <\\Button external ...> Button Text <\\/Button>
+                &lt;Button external ...&gt; Button Text &lt;/Button&gt;
                          ^^^^^^^^ - Try adding the href prop too
                 `
 	}

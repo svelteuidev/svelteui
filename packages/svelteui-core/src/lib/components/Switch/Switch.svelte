@@ -3,45 +3,42 @@
 	import { radius as radiusSizes, sizes } from './Switch.styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder } from '$lib/internal';
-	import type { SwitchTimingFunction } from './Switch.styles';
-	import type { Override, SvelteuiColor, SvelteuiNumberSize } from '$lib/styles';
+	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
-	/** Override prop for custom theming the component */
-	export let override: Override['props'] = {};
-	/** Override prop for custom theming the component */
-	export let overrideLabel: Override['props'] = {};
-	/** Switch color from theme */
-	export let color: SvelteuiColor = 'blue';
-	/** Predefined switch size */
-	export let size: SvelteuiNumberSize = 'sm';
-	/** Predefined switch radius size */
-	export let radius: SvelteuiNumberSize = 'xl';
-	/** Predefined transition function for the switch animation */
-	export let transitionFunction: SwitchTimingFunction = 'linear';
-
-	// --------------Basic types-------------------
 	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
-	export let className: string = '';
+	export let className: $$SwitchProps['className'] = '';
 	export { className as class };
+	/** Override prop for custom theming the component */
+	export let override: $$SwitchProps['override'] = {};
+	/** Override prop for custom theming the component */
+	export let overrideLabel: $$SwitchProps['overrideLabel'] = {};
+	/** Switch color from theme */
+	export let color: $$SwitchProps['color'] = 'blue';
+	/** Predefined switch size */
+	export let size: $$SwitchProps['size'] = 'sm';
+	/** Predefined switch radius size */
+	export let radius: $$SwitchProps['radius'] = 'xl';
+	/** Predefined transition function for the switch animation */
+	export let transitionFunction: $$SwitchProps['transitionFunction'] = 'linear';
 	/** The id used to bind input to label, if none is provided an unique ID will be generated */
-	export let id: string = randomID();
+	export let id: $$SwitchProps['id'] = randomID();
 	/** The label to be added outside the switch, by default has none */
-	export let label: string = '';
+	export let label: $$SwitchProps['label'] = '';
 	/** The label to be added inside the switch, when the switch is checked, by default has none */
-	export let onLabel: string = '';
+	export let onLabel: $$SwitchProps['onLabel'] = '';
 	/** The label to be added inside the switch, when the switch is unchecked, by default has none */
-	export let offLabel: string = '';
+	export let offLabel: $$SwitchProps['offLabel'] = '';
 	/** Will set the switch to disabled state */
-	export let disabled: boolean = false;
+	export let disabled: $$SwitchProps['disabled'] = false;
 	/** The value used to set the value of switch as checked or unchecked */
-	export let checked: boolean = false;
+	export let checked: $$SwitchProps['checked'] = false;
 	// --------------------------------------------
 
-	/** An action that forwards inner dom node events to parent component */
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Css function to generate switch styles */
-	const SwitchStyles = css({
+	$: SwitchStyles = css({
 		focusRing: 'auto',
 		overflow: 'hidden',
 		WebkitTapHighlightColor: 'transparent',

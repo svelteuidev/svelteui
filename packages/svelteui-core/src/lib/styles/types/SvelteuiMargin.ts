@@ -1,9 +1,9 @@
-import type { SvelteuiNumberSize } from './SvelteuiSize';
+import type { SvelteUINumberSize } from './SvelteUISize';
 
-export type SvelteuiMargin = 'm' | 'my' | 'mx' | 'mt' | 'mb' | 'ml' | 'mr';
-type MarginValue = SvelteuiNumberSize | (string & Record<string, never>);
+export type SvelteUIMargin = 'm' | 'my' | 'mx' | 'mt' | 'mb' | 'ml' | 'mr';
+type MarginValue = SvelteUINumberSize | (string & Record<string, never>);
 
-export interface SvelteuiMargins {
+export interface SvelteUIMargins {
 	m?: MarginValue;
 	my?: MarginValue;
 	mx?: MarginValue;

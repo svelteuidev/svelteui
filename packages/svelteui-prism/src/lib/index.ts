@@ -1,1 +1,4 @@
-// export { default as Prism } from './Prism.svelte';
+export * from './dist';
+/** Type exports */
+import type { PrismTheme } from './dist/types';
+export type { PrismTheme };

@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type { SvelteuiSize } from './SvelteuiSize';
+import type { SvelteUISize } from './SvelteUISize';
 
-export type SvelteuiShadow = SvelteuiSize | (string & {});
+export type SvelteUIShadow = SvelteUISize | (string & {});

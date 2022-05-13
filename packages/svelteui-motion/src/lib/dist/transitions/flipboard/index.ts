@@ -1,0 +1,1 @@
+export { flipboard } from './flipboard';

@@ -1,9 +1,7 @@
 <script lang="ts">
-    import { pageleave } from "$lib/use-page-leave/use-page-leave";
+	import { pageleave } from '$lib/dist/use-page-leave/use-page-leave';
 
-    export let callback;
+	export let callback;
 </script>
-    
-<div use:pageleave={() => callback()}>
-    Leave
-</div>
+
+<div use:pageleave={() => callback()}>Leave</div>

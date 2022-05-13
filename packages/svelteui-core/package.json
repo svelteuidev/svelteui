@@ -1,8 +1,38 @@
 {
   "name": "@svelteuidev/core",
-  "version": "0.5.6",
+  "version": "0.6.0",
+  "description": "Svelte component library for creating fully functional and accessible web applications quickly",
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "svelteui",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design",
+    "stitches"
+  ],
+  "homepage": "https://svelteui-docs.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svelteuidev/svelteui.git",
+    "directory": "packages/svelteui-core"
+  },
+  "license": "MIT",
+  "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
+  "types": "types/index.d.ts",
+  "files": [
+    "index.js",
+    "stitches.config.js",
+    "components/**/*.{js,svelte}",
+    "internal/**/*.{js,svelte}",
+    "styles/**/*.{js,svelte}",
+    "types/**/*.d.ts"
+  ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",
@@ -30,6 +60,7 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/actions": "0.5.6"
+    "@svelteuidev/actions": "0.6.0",
+    "svelte": "3.47.0"
   }
 }
