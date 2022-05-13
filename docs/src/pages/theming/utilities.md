@@ -6,20 +6,13 @@ docs: 'theming/utilities.md'
 
 <script>
     import { CodeBlock, Heading, Preview } from 'components'
-    import { SimpleGrid, Center } from "@svelteuidev/core";
+    import { SimpleGrid, Center, Box } from "@svelteuidev/core";
     import { Prism } from "@svelteuidev/prism";
     import { theme, utils } from '../../data/theming'
 
     const override = {'& .token.literal-property.property': {color: '$violet400'}}
     const code = `
-    <SimpleGrid
-        breakpoints={[
-            { maxWidth: 980, cols: 3, spacing: 'md' },
-            { maxWidth: 755, cols: 2, spacing: 'sm' },
-            { maxWidth: 600, cols: 1, spacing: 'sm' }
-        ]}
-        cols={3}
-    >
+    <SimpleGrid cols={3}>
         {#each [...Array(5).keys()] as _, i}
             <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}<\/Center>
         {/each}
@@ -41,24 +34,17 @@ we create a custom set that can be used for styling SvelteUI components or eleme
 
 You can use any of the utilities through the `override` prop or using the `css` function.
 
-<Preview {code}>
-    <SimpleGrid
-        breakpoints={[
-            { maxWidth: 980, cols: 3, spacing: 'md' },
-            { maxWidth: 755, cols: 2, spacing: 'sm' },
-            { maxWidth: 600, cols: 1, spacing: 'sm' }
-        ]}
-        cols={3}
-    >
-        {#each [...Array(5).keys()] as _, i}
-            <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-        {/each}
-    </SimpleGrid>
+<Preview cols={3} {code}>
+    {#each [...Array(5).keys()] as _, i}
+        <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+    {/each}
 </Preview>
 
 ### Utilities
 
-<Prism {override} code={utils} />
+<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+    <Prism {override} code={utils} />
+</Box>
 
 > Note: If you would like for us to add more utilities, please let us know on [SvelteUI Discussions](https://github.com/svelteuidev/svelteui/discussions), or on [Discord](https://discord.gg/2J2xmzCS79).
 
@@ -68,6 +54,8 @@ SvelteUI tokens types are automatically mapped to CSS Properties for an improved
 
 Here is the detailed list of all the mapped tokens:
 
-<Prism {override} code={theme} />
+<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
+    <Prism {override} code={theme} />
+</Box>
 
 > You can read [this](https://stitches.dev/docs/tokens#property-mapping) for more information about `defaultStitchesThemeMap`.

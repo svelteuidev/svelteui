@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
 	import { Text, ThemeIcon } from '@svelteuidev/core';
 
 	export let color = 'blue';
@@ -37,7 +38,7 @@
 	};
 </script>
 
-<Text variant="link" root="a" override={styles} {href}>
+<Text class="main-link" variant="link" root="a" override={styles} {href}>
 	<ThemeIcon size={30} override={{ bc: `$${color}600`, color: 'white' }} radius="lg">
 		<slot name="icon" />
 	</ThemeIcon>

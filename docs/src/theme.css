@@ -70,7 +70,7 @@ blockquote {
 	.topbar {
 		z-index: 110;
 	}
-	.sidebar ul li a.active {
+	.sidebar ul li a.main-link.active {
 		background-color: rgb(248, 249, 250) !important;
 		color: var(--dark) !important;
 		font-weight: normal !important;

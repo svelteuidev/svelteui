@@ -5,7 +5,6 @@
 	import { StarFilled, Play, GithubLogo, Cube, Download } from 'radix-icons-svelte';
 </script>
 
-
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
 - <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
 - <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
@@ -75,7 +74,5 @@
   - **Transitions**
   - [Typewriter](motion/typewriter)
   - [Flipboard](motion/flipboard)
-  - **Animations**
-  - [Animation](motion/animation)
 - ### SvelteUI Others
   - [Prism](others/prism)
