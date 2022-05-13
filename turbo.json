@@ -17,7 +17,8 @@
 			"cache": false
 		},
 		"package": {
-			"outputs": ["package"]
+			"outputs": ["package"],
+			"cache": false
 		},
 		"generate-types": {
 			"dependsOn": ["^package"],
