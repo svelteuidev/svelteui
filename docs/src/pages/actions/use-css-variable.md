@@ -51,7 +51,7 @@ source: 'svelteui-actions/src/lib/dist/use-css-variable/use-css-variable.ts'
 
 With the `use-css-variable` action, an object of properties will be treated as css custom variables. By defining this object inside of a `$: ` reactive block, `use-css-variable` can update those css properties on the fly whenever some of its values change.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <div use:cssvariable={styleVars}>
         <p>This text is normal</p>
         <p class="example-text">This text is using the variable</p>

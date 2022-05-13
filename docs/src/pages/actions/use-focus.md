@@ -49,7 +49,7 @@ source: 'svelteui-actions/src/lib/dist/use-focus/use-focus.ts'
 
 With the `use-focus` action, the affected DOM node gets focused when it is mounted into the DOM. Only "focusable" elements should use this action. Type errors will appear if this is not the case.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <p>Name: {name}</p>
     {#if editing}
         <label>

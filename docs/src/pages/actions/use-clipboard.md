@@ -51,13 +51,14 @@ source: 'svelteui-actions/src/lib/dist/use-clipboard/use-clipboard.ts'
 
 With the use-clipboard action, text passed into the text param will be copied to the users clipboard.
 
-<Preview {code}>
-<Button
-use={[[clipboard, textToCopy]]}
-on:useclipboard={onCopy}
-color={copied ? 'green' : 'blue'} >
-{copied ? 'copied' : 'Click me to copy text'}
-</Button>
+<Preview cols={1} {code}>
+    <Button
+        use={[[clipboard, textToCopy]]}
+        on:useclipboard={onCopy}
+        color={copied ? 'green' : 'blue'}
+    >
+        {copied ? 'copied' : 'Click me to copy text'}
+    </Button>
 </Preview>
 
 ## Params

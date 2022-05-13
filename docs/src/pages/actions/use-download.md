@@ -37,7 +37,7 @@ source: 'svelteui-actions/src/lib/dist/use-download/use-download.ts'
 
 With the `use-download` action, a download will occur with a given Blob object as a file with the given filename.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <div
         use:download={{ blob: new Blob([]), filename: "test.txt" }}
         on:usedownload={() => console.log('File Downloaded')}

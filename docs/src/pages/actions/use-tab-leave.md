@@ -32,7 +32,7 @@ source: 'svelteui-actions/src/lib/dist/use-tab-leave/use-tab-leave.ts'
 
 The `use-tab-leave` action calls given function when the current tab is switched.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <div use:tableave={() => count++}>Switch the tab to see the counter go up: {count}</div>
 </Preview>
 

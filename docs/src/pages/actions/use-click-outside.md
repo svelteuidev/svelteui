@@ -45,7 +45,7 @@ source: 'svelteui-actions/src/lib/dist/use-click-outside/use-click-outside.ts'
 
 With the `use-click-outside` action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
 
-<Preview {code}>
+<Preview cols={1} {code}>
     <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
         <Button on:click={() => open = true}>Open Modal</Button>
         {#if open}
