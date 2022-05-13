@@ -5,7 +5,7 @@ title: Playground
 <script>
     import { CodeBlock, MinorHeading } from 'components'
 	import { Box } from '@svelteuidev/core'
-    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:0!important;}<\/style>`;
+    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
 <svelte:head>
