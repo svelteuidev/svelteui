@@ -59,15 +59,22 @@ blockquote {
 	}
 	.sidebar {
 		--sidebar-width: 100% !important;
-		z-index: 100;
-	}
-	.topbar {
-		z-index: 110;
 	}
 }
 
 /* Put in media query to have less clutter at the top of the file */
 @media (min-width: 0px) {
+	.sidebar {
+		z-index: 100;
+	}
+	.topbar {
+		z-index: 110;
+	}
+	.sidebar ul li a.active {
+		background-color: rgb(248, 249, 250) !important;
+		color: var(--dark) !important;
+		font-weight: normal !important;
+	}
 	.article th {
 		-webkit-text-size-adjust: 100%;
 		text-rendering: optimizeLegibility;

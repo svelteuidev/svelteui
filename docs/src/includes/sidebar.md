@@ -1,13 +1,16 @@
 <script>
+  import { MainLink } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
+	import { StarFilled, Play, GithubLogo, Cube, Download } from 'radix-icons-svelte';
 </script>
 
-- ### [Introduction](introduction)
-- ### [Installation](installation)
-- ### [Learn The Basics](basics)
-- ### [Contributing](contributing)
-- ### [Playground](playground)
+
+- <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
+- <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
+- <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
+- <MainLink color='dark' href='contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
+- <MainLink color='yellow' href='playground'><Play slot='icon' size={20} />Playground</MainLink>
 
 <hr />
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
 	import { Group, ThemeIcon, Text, SimpleGrid, Box } from '@svelteuidev/core';
 	import { mobile } from 'components';
 	import { NEXT_STEPS_DATA } from '../../data';
