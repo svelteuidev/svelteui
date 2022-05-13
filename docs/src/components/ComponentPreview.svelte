@@ -12,6 +12,8 @@
 	export let code = `<script>\nconst a = 1\n<\/script>`;
 	export let language = 'svelte';
 	export let cols = 3;
+	/** @type {number} */
+	export let width = null;
 
 	let showCode = false;
 
@@ -32,7 +34,11 @@
 </script>
 
 <Box css={{ ...css, ...override }}>
-	<SimpleGrid override={{ pb: '$14' }} cols={$mobile ? 1 : cols}>
+	<SimpleGrid
+		class="grid"
+		override={{ pb: '$14', width: width ? `${width}%` : null }}
+		cols={$mobile ? 1 : cols}
+	>
 		<slot />
 	</SimpleGrid>
 	<Box id="code-button" css={{ position: 'absolute', bottom: 0, right: 10 }}>

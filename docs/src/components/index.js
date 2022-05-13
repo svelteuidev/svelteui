@@ -9,3 +9,4 @@ export { default as Preview } from './ComponentPreview.svelte';
 export { default as ToolTip } from './temp/ToolTip.svelte';
 export { default as Device } from './Device.svelte';
 export { mobile, screenH, screenW, scrollY, mouse } from './Device.svelte';
+export { colors } from './temp/colors';

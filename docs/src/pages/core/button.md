@@ -265,7 +265,7 @@ Control button font-size, height and padding with `size` and border-radius with 
 
 Button can take full width of container if you set `fullSize` prop. If button is too large for its container, overflow content will be hidden:
 
-<Preview override={{ 'div:first-of-type': {w: '100%'}}} cols={1} code={fullsizeButtons}>
+<Preview width={100} cols={1} code={fullsizeButtons}>
      <Button fullSize>Click Me</Button>
 </Preview>
 
