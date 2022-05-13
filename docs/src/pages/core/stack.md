@@ -21,10 +21,16 @@ docs: 'core/stack.md'
     const spacingList = ['xs', 'sm', 'md', 'lg', 'xl']
     let spacing = 'md'
 
-    const badge = `
+    $: stack = `
     <script>
         import { Stack } from '@svelteuidev/core'
     <\/script>
+
+    <Stack align='${align}' spacing='${spacing}' justify='${justify}' override={{ height: 300 }} position>
+        <Button variant="outline">1<\/Button>
+        <Button variant="outline">2<\/Button>
+        <Button variant="outline">3<\/Button>
+    <\/Stack>
     `
 </script>
 
@@ -32,7 +38,7 @@ docs: 'core/stack.md'
 
 ## Usage
 
-<Preview cols={1} width={75}>
+<Preview cols={1} width={75} code={stack}>
     <Stack align={align} spacing={spacing} justify={justify} override={{ height: 300 }} position>
         <Button variant="outline">1</Button>
         <Button variant="outline">2</Button>

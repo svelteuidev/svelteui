@@ -40,8 +40,65 @@ docs: 'core/checkbox.md'
 
     const checkbox = `
     <script>
-        import { Checkbox, CheckboxGroup } from '@svelteuidev/core'
+        import { Checkbox } from '@svelteuidev/core'
     <\/script>
+
+    <Checkbox label="I agree to sell my privacy"\/>
+    <Checkbox
+        label="I agree to sell my privacy"
+        color="red"
+        radius="xl"
+        size="xl"
+    \/>
+    <Checkbox
+        label="I agree to sell my privacy"
+        color="violet"
+        radius="xs"
+        size="md"
+        disabled
+    \/>
+    `
+    const checkboxStates = `
+    <script>
+        import { Checkbox } from '@svelteuidev/core'
+    <\/script>
+
+    <Checkbox checked={false} label="Default checkbox" \/>
+    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
+    <Checkbox checked label="Checked checkbox" \/>
+    <Checkbox disabled label="Disabled checkbox" \/>
+    <Checkbox disabled checked label="Disabled checked checkbox" \/>
+    <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" \/>
+    `
+    const checkboxSizes = `
+    <script>
+        import { Checkbox } from '@svelteuidev/core'
+    <\/script>
+
+    {#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
+        <Checkbox size={size} label={\`$\{size\} checkbox\`}\/>
+    {/each}
+    `
+    const checkboxIndeterminateState = `
+    <script>
+        import { Checkbox } from '@svelteuidev/core'
+    <\/script>
+
+    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
+    <Checkbox checked={true} indeterminate label="Indeterminate checkbox" \/>
+    `
+    const checkboxCheckboxGroup = `
+    <script>
+        import { CheckboxGroup } from '@svelteuidev/core'
+    <\/script>
+
+    <CheckboxGroup
+	 	items={items} 
+	 	bind:value={packages} 
+	 	label={"Choose your packages"} 
+	 \/>
+     <Title align='center'>Packages<\/Title>
+     <Text align='center'>{packages}<\/Text>
     `
 </script>
 
@@ -49,26 +106,26 @@ docs: 'core/checkbox.md'
 
 ## Usage
 
-<Preview cols={1}>
+<Preview cols={1} code={checkbox}>
     <Checkbox label="I agree to sell my privacy"/>
     <Checkbox
-      label="I agree to sell my privacy"
-      color="red"
-      radius="xl"
-      size="xl"
+        label="I agree to sell my privacy"
+        color="red"
+        radius="xl"
+        size="xl"
     />
     <Checkbox
-      label="I agree to sell my privacy"
-      color="violet"
-      radius="xs"
-      size="md"
-      disabled
+        label="I agree to sell my privacy"
+        color="violet"
+        radius="xs"
+        size="md"
+        disabled
     />
 </Preview>
 
 ## States
 
-<Preview cols={1}>
+<Preview cols={1} code={checkboxStates}>
     <Checkbox checked={false} label="Default checkbox" />
     <Checkbox checked={false} indeterminate label="Indeterminate checkbox" />
     <Checkbox checked label="Checked checkbox" />
@@ -85,7 +142,7 @@ Checkbox has 5 predefined sizes: xs, sm, md, lg, xl. Size defines label font-siz
 <Checkbox size="xl" /> // -> predefined xl size
 ```
 
-<Preview cols={1}>
+<Preview cols={1} code={checkboxSizes}>
 {#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
     <Checkbox size={size} label={`${size} checkbox`}/>
 {/each}
@@ -96,7 +153,7 @@ Checkbox has 5 predefined sizes: xs, sm, md, lg, xl. Size defines label font-siz
 Checkbox supports indeterminate state. When `indeterminate` prop is true,
 `checked` prop is ignored:
 
-<Preview cols={1}>
+<Preview cols={1} code={checkboxIndeterminateState}>
     <Checkbox checked={false} indeterminate label="Indeterminate checkbox" />
     <Checkbox checked={true} indeterminate label="Indeterminate checkbox" />
 </Preview>
@@ -114,7 +171,7 @@ Provide `aria-label` in case you use checkbox without label for screen reader su
 
 ## CheckboxGroup
 
-<Preview cols={1}>
+<Preview cols={1} code={checkboxCheckboxGroup}>
     <CheckboxGroup
 	 	items={items} 
 	 	bind:value={packages} 

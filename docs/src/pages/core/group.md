@@ -20,15 +20,15 @@ docs: 'core/group.md'
     let spacing = 'md'
     let grow = false
 
-    const group = `
+    $: group = `
     <script>
         import { Group } from '@svelteuidev/core'
     <\/script>
 
-    <Group>
-      <Button variant="outline">1<\/Button>
-      <Button variant="outline">2<\/Button>
-      <Button variant="outline">3<\/Button>
+    <Group ${grow ? 'grow ' : ''}children={3} spacing='${spacing}' position='${position}'>
+        <Button variant="outline">1<\/Button>
+        <Button variant="outline">2<\/Button>
+        <Button variant="outline">3<\/Button>
     <\/Group>
     `
 </script>
@@ -39,9 +39,9 @@ docs: 'core/group.md'
 
 <Preview cols={1} width={75} code={group}>
     <Group grow={grow} children={3} spacing={spacing} position={position}>
-      <Button variant="outline">1</Button>
-      <Button variant="outline">2</Button>
-      <Button variant="outline">3</Button>
+        <Button variant="outline">1</Button>
+        <Button variant="outline">2</Button>
+        <Button variant="outline">3</Button>
     </Group>
     <NativeSelect data={positionList} bind:value={position} label='Position' />
     <NativeSelect data={spacingList} bind:value={spacing} label='Spacing' />

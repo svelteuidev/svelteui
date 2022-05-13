@@ -21,7 +21,7 @@ docs: 'core/center.md'
     <\/script>
     
     <Center>
-        This will only render on the Browser.
+        All elements inside Center are centered
     <\/Center>
     `
     const centerInline = `
@@ -29,9 +29,12 @@ docs: 'core/center.md'
         import { Center, Box } from '@svelteuidev/core';
     <\/script>
     
-    <Center>
-        This will only render on the Browser.
-    <\/Center>
+    <Box css={{color: '$blue600'}} root='a' href="/" target="_blank">
+        <Center inline>
+            <ArrowLeft size={14} />
+            <Box ml={5}>Back to the homepage<\/Box>
+        <\/Center>
+    <\/Box>
     `
 </script>
 

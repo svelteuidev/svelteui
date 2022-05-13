@@ -47,6 +47,6 @@ Fragment can also be used as a declarative version of a Svelte component. Becaus
 
 <Preview code={fragmentDeclarative} cols={1}>
     <Fragment>
-        Testing for lifecycle methods
+        Testing for lifecycle methods update in next patch
     </Fragment>
 </Preview>
