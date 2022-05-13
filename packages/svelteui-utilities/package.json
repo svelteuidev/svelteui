@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/utilities",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "description": "Svelte utilities library with generally useful functions to assist in development.",
   "keywords": [
     "svelte",
