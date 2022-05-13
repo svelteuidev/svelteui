@@ -23,9 +23,6 @@ const theme = `
 const utils = `
     export const utils = {
         // Abbreviated padding properties
-        p: (value) => ({
-            padding: value
-        }),
         pt: (value) => ({
             paddingTop: value
         }),

@@ -34,7 +34,7 @@ we create a custom set that can be used for styling SvelteUI components or eleme
 
 You can use any of the utilities through the `override` prop or using the `css` function.
 
-<Preview cols={3} {code}>
+<Preview width={100} cols={3} {code}>
     {#each [...Array(5).keys()] as _, i}
         <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
     {/each}
