@@ -8,7 +8,7 @@
 
 ## Documentation
 
-[See full documentation on svelteui website](https://svelteui-docs.vercel.app/)
+[See full documentation on svelteui website](https://svelteuidev.github.io/svelteui/)
 
 ## Installation
 

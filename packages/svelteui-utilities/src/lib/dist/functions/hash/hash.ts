@@ -9,7 +9,7 @@ import { browser } from '../../utils';
  *
  * @param prefix prefix that is applied to the hash - defaults to `svelteui`
  *
- * @see https://svelteui-docs.vercel.app/docs/utilities/hash
+ * @see https://svelteuidev.github.io/svelteui/docs/utilities/hash
  */
 export function hash(prefix: string = 'svelteui', persist: boolean = false): string {
 	if (persist && browser) {

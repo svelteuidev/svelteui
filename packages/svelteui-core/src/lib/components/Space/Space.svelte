@@ -27,7 +27,7 @@
 
 Add horizontal or vertical spacing from theme.
 	
-@see https://svelteui-docs.vercel.app/docs/core/space
+@see https://svelteuidev.github.io/svelteui/docs/core/space
 @example
     ```svelte
     <Group children={3} grow>

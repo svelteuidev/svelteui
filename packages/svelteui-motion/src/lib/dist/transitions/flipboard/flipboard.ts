@@ -9,7 +9,7 @@ import type { FlipboardParams } from './flipboard.config';
  * ```
  *
  * @param params Optional params to pass to the transition
- * @see https://svelteui-docs.vercel.app/docs/motion/flipboard
+ * @see https://svelteuidev.github.io/svelteui/docs/motion/flipboard
  */
 //prettier-ignore
 export function flipboard(node: HTMLElement, {delay = 0, duration = 400, easing}: FlipboardParams): TransitionConfig {

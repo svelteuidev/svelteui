@@ -7,7 +7,7 @@
 
 ## Documentation
 
-[See full documentation on svelteui website](https://svelteui-docs.vercel.app/)
+[See full documentation on svelteui website](https://svelteuidev.github.io/svelteui/)
 
 ## Installation
 
@@ -21,7 +21,7 @@ npm i @svelteuidev/utilities
 
 ## Included Utilities
 
-- [os](https://svelteui-docs.vercel.app/docs/utilities/os) – identifies the user's os
+- [os](https://svelteuidev.github.io/svelteui/docs/utilities/os) – identifies the user's os
 
 ## License
 

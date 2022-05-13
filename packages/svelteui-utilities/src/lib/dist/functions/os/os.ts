@@ -42,7 +42,7 @@ function getOS() {
  * }
  * ```
  *
- * @see https://svelteui-docs.vercel.app/docs/utilities/os
+ * @see https://svelteuidev.github.io/svelteui/docs/utilities/os
  */
 export function os(): OS {
 	if (typeof window !== 'undefined') {

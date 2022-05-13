@@ -50,7 +50,7 @@
 
 Responsive grid where each item takes equal amount of space
 	
-@see https://svelteui-docs.vercel.app/docs/core/input
+@see https://svelteuidev.github.io/svelteui/docs/core/input
 @example
     ```svelte
     <SimpleGrid cols={3}>

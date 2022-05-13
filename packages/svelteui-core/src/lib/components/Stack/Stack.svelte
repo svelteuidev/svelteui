@@ -39,7 +39,7 @@
 
 Compose elements and components in a vertical flex container.
 	
-@see https://svelteui-docs.vercel.app/docs/core/stack
+@see https://svelteuidev.github.io/svelteui/docs/core/stack
 @example
     ```svelte
     <Stack align="flex-end" justify="space-between" override={{ height: 300 }}>

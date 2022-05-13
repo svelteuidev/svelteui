@@ -49,7 +49,7 @@
 
 CloseButton is a premade ActionIcon with close icon
 
-@see https://svelteui-docs.vercel.app/docs/core/action-icon
+@see https://svelteuidev.github.io/svelteui/docs/core/action-icon
 @example
     ```tsx
     <CloseButton /> // standard CloseButton

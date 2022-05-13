@@ -7,7 +7,7 @@ import type { Action } from '../types/ActionTypes';
  *  <button use:clipboard={'This text will be copied'}>Copy Me</button>
  * ```
  * @param text - The text that you want to be copied when the DOM element is clicked
- * @see https://svelteui-docs.vercel.app/docs/actions/use-clipboard
+ * @see https://svelteuidev.github.io/svelteui/docs/actions/use-clipboard
  */
 export function clipboard(node: HTMLElement, text: string): ReturnType<Action> {
 	const click = async () => {

@@ -90,7 +90,7 @@
 
 Capture user feedback limited to large set of options
 	
-@see https://svelteui-docs.vercel.app/docs/core/native-select
+@see https://svelteuidev.github.io/svelteui/docs/core/native-select
 @example
     ```svelte
     <NativeSelect

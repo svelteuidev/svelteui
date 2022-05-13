@@ -22,7 +22,7 @@
 
 Centers content vertically and horizontally.
 	
-@see https://svelteui-docs.vercel.app/docs/core/center
+@see https://svelteuidev.github.io/svelteui/docs/core/center
 @example
     ```svelte
 	<Center override={{ width: 400, height: 200, bg: '$blue100' }}>

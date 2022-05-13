@@ -61,7 +61,7 @@
 
 Display badge, pill or tag
 	
-@see https://svelteui-docs.vercel.app/docs/core/badge
+@see https://svelteuidev.github.io/svelteui/docs/core/badge
 @example
     ```svelte
     <Badge>Badge</Badge>

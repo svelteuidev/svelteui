@@ -20,7 +20,7 @@
 @component
 Fragments let you group a list of children without adding extra nodes to the DOM.
 	
-@see https://svelteui-docs.vercel.app/docs/core/fragment
+@see https://svelteuidev.github.io/svelteui/docs/core/fragment
 @example
     ```svelte
 	<Fragment>

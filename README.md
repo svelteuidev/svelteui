@@ -17,7 +17,7 @@
   <p align="center">
    SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could you ask for ¯\_(ツ)_/¯
     <br />
-    <a href="https://svelteui-docs.vercel.app/"><strong>Explore the docs »</strong></a>
+    <a href="https://svelteuidev.github.io/svelteui/"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
@@ -31,7 +31,7 @@
 
 ## **About The Project**
 
-[Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
+[Read the Changelog](https://svelteuidev.github.io/svelteui/docs/changelog)
 
 ### Features
 
@@ -44,7 +44,7 @@
 
 ### Undocumented Components & Functions
 
-The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
+The [docs](https://svelteuidev.github.io/svelteui/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
 
 > Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
 
@@ -52,10 +52,10 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 8+ components
-- [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
-- [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – library of transitions to utilize on dom elements
-- [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – library of helpful utility functions
+- [`@svelteui/core`](https://svelteuidev.github.io/svelteui/docs/core/button) – core components library with 8+ components
+- [`@svelteui/actions`](https://svelteuidev.github.io/svelteui/docs/actions/use-click-outside) – library of useful actions
+- [`@svelteui/motion`](https://svelteuidev.github.io/svelteui/docs/motion/typewriter) – library of transitions to utilize on dom elements
+- [`@svelteui/utilities`](https://svelteuidev.github.io/svelteui/docs/utilities/os) – library of helpful utility functions
 - `@svelteui/prism` – code highlight component built with prism (coming in 0.6.0 release)
 
 <br />
@@ -74,7 +74,7 @@ I want to build a friendly community that is happy to help those who need it. He
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 - If you have a suggestion that would make this project better, submit an issue
-- If you would like to directly contribute, read the [contribution guide](https://svelteui-docs.vercel.app/docs/contribute) then submit a PR
+- If you would like to directly contribute, read the [contribution guide](https://svelteuidev.github.io/svelteui/docs/contribute) then submit a PR
 
 <br />
 
