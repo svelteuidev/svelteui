@@ -35,7 +35,7 @@
 	<SimpleGrid override={{ pb: '$14' }} cols={$mobile ? 1 : cols}>
 		<slot />
 	</SimpleGrid>
-	<Box css={{ position: 'absolute', bottom: 0, right: 10 }}>
+	<Box id="code-button" css={{ position: 'absolute', bottom: 0, right: 10 }}>
 		<ToolTip tip={showCode ? 'hide code' : 'show code'}>
 			<ActionIcon
 				on:click={() => (showCode = !showCode)}

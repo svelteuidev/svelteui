@@ -2,7 +2,14 @@
 title: Learn the basics
 ---
 
-import { CodeBlock, MinorHeading } from 'components'
+<script>
+    import { CodeBlock, MinorHeading } from 'components'
+    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:0!important;}<\/style>`;
+</script>
+
+<svelte:head>
+{@html styles}
+</svelte:head>
 
 <MinorHeading />
 
@@ -117,9 +124,9 @@ All components support binding their top-level element via the element prop inst
 	let element: HTMLButtonElement;
 
 	$: {
-        console.log(element); 
-        console.log({ element }); // interact with DOM nodes programmatically.
-    }
+		console.log(element);
+		console.log({ element }); // interact with DOM nodes programmatically.
+	}
 </script>
 
 <Button bind:element>Button Reference</Button>

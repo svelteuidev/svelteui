@@ -6,6 +6,8 @@ title: 'Installation'
     import { NativeSelect, CheckboxGroup, Center, Container } from '@svelteuidev/core'
 	import { CodeBlock, MinorHeading, NextSteps } from 'components'
 
+    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:0!important;}<\/style>`;
+
     const data = ['Svelte', 'SvelteKit']
     const items = [
 		{
@@ -36,6 +38,10 @@ title: 'Installation'
     $: value = 'Svelte'
 	$: sanitizedPKG = packages.join(' ')
 </script>
+
+<svelte:head>
+{@html styles}
+</svelte:head>
 
 <MinorHeading />
 

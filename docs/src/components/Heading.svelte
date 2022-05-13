@@ -30,10 +30,12 @@
 >
 	<Stack override={{ mt: 50, mb: 20, h1: { mb: 0 }, '@md': { mt: 0 } }} spacing="xs">
 		<h1>{$current_page.meta.title}</h1>
-		<Title color="dimmed" order={3}>{$current_page.meta.description}</Title>
+		{#if $current_page.meta.description}
+			<Title color="dimmed" order={3}>{$current_page.meta.description}</Title>
+		{/if}
 	</Stack>
 	{#if $current_page.meta?.import}
-		<Group children={2} spacing={$screenW < 476 ? 10 : 70}>
+		<Group children={2} spacing={$screenW <= 500 ? 10 : 70}>
 			<Text color="dimmed">Import</Text>
 			<Box css={importStyles}>
 				<code use:clipboard={$current_page.meta.import}>

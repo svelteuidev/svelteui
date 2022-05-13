@@ -9,6 +9,81 @@ docs: 'actions/use-long-press.md'
 source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
 ---
 
-import { CodeBlock, Heading } from 'components'
+<script>
+    import { longpress } from '@svelteuidev/actions';
+    import { Heading, Preview } from 'components';
+
+    let pressed = false;
+	let duration = 2000;
+
+    const code = `
+    <script>
+        import { longpress } from '@svelteuidev/actions'
+
+        let pressed = false;
+	    let duration = 2000;
+    <\/script>
+    
+    <label>
+        <input type=range bind:value={duration} max={2000} step={100} \/>
+        {duration}ms
+    <\/label>
+
+    <button 
+        use:longpress={duration}
+        on:longpress="{() => pressed = true}"
+        on:mouseenter="{() => pressed = false}"
+    >
+        press and hold
+    <\/button>
+
+    {#if pressed}
+        <p>congratulations, you pressed and held for {duration} ms<\/p>
+    {\/if}
+    `
+</script>
 
 <Heading />
+
+## Usage
+
+With the `use-long-press` action, a `long press` event is created when `mousedown` is above the `duration` in milliseconds.
+
+<Preview cols={1} {code}>
+<label>
+    <input type=range bind:value={duration} max={2000} step={100} />
+    {duration}ms
+</label>
+
+<button 
+    use:longpress={duration}
+    on:uselongpress={() => pressed = true}
+    on:mouseenter={() => pressed = false}
+>
+    press and hold
+</button>
+
+{#if pressed}
+    <p>congratulations, you pressed and held for {duration} ms</p>
+{/if}
+</Preview>
+
+## Params
+
+| Param    | Description                                                          |
+| -------- | -------------------------------------------------------------------- |
+| duration | The duration until the longpress event is dispatched in milliseconds |
+
+## Events
+
+The use-longpress action dispatches one custom event. The custom event takes a callback function just like other events.
+
+```ts
+on:uselongpress?: (callback: (any) => unknown) => void;
+```
+
+## Definition
+
+```ts
+export function lazy(node: HTMLElement, attributes: Record<string, number | string>): ReturnType<Action>;
+```

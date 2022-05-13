@@ -2,8 +2,15 @@
 title: Playground
 ---
 
-import { CodeBlock, MinorHeading } from 'components'
-import { Box } from '@svelteuidev/core'
+<script>
+    import { CodeBlock, MinorHeading } from 'components'
+	import { Box } from '@svelteuidev/core'
+    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:0!important;}<\/style>`;
+</script>
+
+<svelte:head>
+{@html styles}
+</svelte:head>
 
 <MinorHeading />
 

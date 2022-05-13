@@ -1,7 +1,7 @@
 <script>
     import { ActionIcon } from '@svelteuidev/core'
     import { GithubLogo } from 'radix-icons-svelte'
-    import { Device } from 'components'
+    import { Device, mobile } from 'components'
     import Discord from '../components/svgs/Discord.svelte'
     import Opengraph from './opengraph.svelte';
 
