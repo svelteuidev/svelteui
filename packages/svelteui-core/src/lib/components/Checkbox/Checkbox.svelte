@@ -52,6 +52,7 @@
 		},
 
 		'& .label': {
+			cursor: 'pointer',
 			WebkitTapHighlightColor: 'transparent',
 			paddingLeft: '$sm',
 			fontSize: `$${size}`,
@@ -62,6 +63,7 @@
 			}
 		},
 		'& .input': {
+			cursor: 'pointer',
 			appearance: 'none',
 			backgroundColor: '#ffffff',
 			borderWidth: '1px',
