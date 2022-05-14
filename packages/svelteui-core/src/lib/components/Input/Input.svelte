@@ -294,7 +294,7 @@ Base component to create custom inputs
 	<Input />
     ```
 -->
-<Box {...wrapperProps} class="{className} {InputStyles({ css: override })}">
+<Box {...wrapperProps} class="{className} {InputStyles({ css: override })}" {...$$restProps}>
 	{#if icon}
 		<svelte:component this={icon} size={iconProps.size} color={iconProps.color} class="icon" />
 	{/if}

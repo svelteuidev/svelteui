@@ -27,8 +27,6 @@
 	export let align: $$CheckboxGroupProps['align'] = 'flex-start';
 	/** Predefined checkbox spacing between checkboxes in horizontal orientation */
 	export let spacing: $$CheckboxGroupProps['spacing'] = 'md';
-	/** The props to pass to the wrapper component */
-	export let wrapperProps: $$CheckboxGroupProps['wrapperProps'] = {};
 
 	function onChanged(item, el) {
 		if (el.checked) value = [...value, item];
@@ -52,7 +50,7 @@ the items passed.
     ```
 -->
 
-<InputWrapper class={className} {label} {override} {size} {...wrapperProps} {...$$restProps}>
+<InputWrapper class={className} {label} {override} {size} {...$$restProps}>
 	<Group {direction} {spacing} {align}>
 		{#each items as item}
 			<Checkbox

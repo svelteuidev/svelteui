@@ -62,6 +62,6 @@ Responsive grid where each item takes equal amount of space
     </SimpleGrid>
     ```
 -->
-<Box {use} css={{ ...SimpleGridStyles, ...override }} class={className}>
+<Box {use} css={{ ...SimpleGridStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>

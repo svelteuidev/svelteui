@@ -35,8 +35,6 @@
 	export let size: $$CheckboxProps['size'] = 'md';
 	/** The transtion of the check/unchecked duration, set to 0 to disable transtion */
 	export let transitionDuration: $$CheckboxProps['transitionDuration'] = 100;
-	/** The props to pass to the wrapper component */
-	export let wrapperProps: $$CheckboxProps['wrapperProps'] = {};
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -171,7 +169,7 @@ A checkbox input component using the theme styles with support for a label and i
     ```
 -->
 
-<Box class="checkbox {className} {CheckboxStyles({ css: override })}" {...wrapperProps}>
+<Box class="checkbox {className} {CheckboxStyles({ css: override })}" {...$$restProps}>
 	<div class="inner">
 		<input
 			use:useActions={use}

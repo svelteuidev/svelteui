@@ -50,6 +50,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...StackStyles, ...override }} class={className}>
+<Box css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>

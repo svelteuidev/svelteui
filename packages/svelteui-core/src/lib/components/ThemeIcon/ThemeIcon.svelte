@@ -56,6 +56,6 @@ Render icon inside element with theme colors
     </ThemeIcon>
     ```
 -->
-<Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}">
+<Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}" {...$$restProps}>
 	<slot />
 </Box>
