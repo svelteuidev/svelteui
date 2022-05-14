@@ -42,6 +42,3 @@
 		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
 	{/each}
 </SimpleGrid>
-
-<Checkbox />
-<Checkbox label={"Please check this"}/>
