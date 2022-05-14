@@ -5,8 +5,8 @@
 - **Improve documentation:** fix incomplete or missing docs, bad wording, examples or explanations
 - **Give feedback:** we are constantly working on making SvelteUI better, please share how you use SvelteUI, what features are missing and what is done good via GitHub Discussions
 - **Share SvelteUI:** share link to SvelteUI docs with everyone who can be interested, share SvelteUI on Twitter
-- **Contribute to codebase:** propose new feature via GitHub Issues or find an [existing one](https://github.com/svelteuidev/svelteui/labels/help%20wanted) that you are interested in and work on it
-- **Give us a code review:** help us identify problems with [source code](https://github.com/svelteuidev/svelteui) or make SvelteUI more performant
+- **Contribute to codebase:** propose new feature via GitHub Issues or find an [existing one](https://svelteui.org/labels/help%20wanted) that you are interested in and work on it
+- **Give us a code review:** help us identify problems with [source code](https://svelteui.org) or make SvelteUI more performant
 
 ## Contributing workflow
 
@@ -47,14 +47,14 @@ Examples:
 ## Get started with SvelteUI locally
 
 - Install [editorconfig](https://editorconfig.org/) extension for your editor
-- Fork [repository](https://github.com/svelteuidev/svelteui), clone or download your fork
+- Fork [repository](https://svelteui.org), clone or download your fork
 - Install dependencies with npm – `npm i`
 - Build local version of all packages – `npm run build`
 - To start docs – `cd docs && npm i && npm run dev`
 
 ## NPM scripts
 
-All packages npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
+All packages npm scripts are located at [main package.json](https://svelteui.org/blob/main/package.json),
 individual packages do not have dedicated scripts. However, docs do have individual packages as of now.
 
 ## Testing scripts

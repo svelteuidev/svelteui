@@ -35,18 +35,18 @@ we create a custom set that can be used for styling SvelteUI components or eleme
 You can use any of the utilities through the `override` prop or using the `css` function.
 
 <Preview width={100} cols={3} {code}>
-    {#each [...Array(5).keys()] as _, i}
-        <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-    {/each}
+{#each [...Array(5).keys()] as \_, i}
+<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+{/each}
 </Preview>
 
 ### Utilities
 
 <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism {override} code={utils} />
+<Prism {override} code={utils} />
 </Box>
 
-> Note: If you would like for us to add more utilities, please let us know on [SvelteUI Discussions](https://github.com/svelteuidev/svelteui/discussions), or on [Discord](https://discord.gg/2J2xmzCS79).
+> Note: If you would like for us to add more utilities, please let us know on [SvelteUI Discussions](https://svelteui.org/discussions), or on [Discord](https://discord.gg/2J2xmzCS79).
 
 ### Theme Map
 
@@ -55,7 +55,7 @@ SvelteUI tokens types are automatically mapped to CSS Properties for an improved
 Here is the detailed list of all the mapped tokens:
 
 <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism {override} code={theme} />
+<Prism {override} code={theme} />
 </Box>
 
 > You can read [this](https://stitches.dev/docs/tokens#property-mapping) for more information about `defaultStitchesThemeMap`.

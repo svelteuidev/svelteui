@@ -18,7 +18,7 @@
   "homepage": "https://svelteui-docs.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteuidev/svelteui.git",
+    "url": "https://svelteui.org.git",
     "directory": "packages/svelteui-prism"
   },
   "license": "MIT",

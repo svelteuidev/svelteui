@@ -142,7 +142,7 @@ docs: 'core/button.md'
         import { Button } from '@svelteuidev/core';
     <\/script>
 
-    <Button href="https://github.com/svelteuidev/svelteui">I go to svelteuidev/svelteui<\/Button>
+    <Button href="https://svelteui.org">I go to svelteuidev/svelteui<\/Button>
     `;
 </script>
 
@@ -274,5 +274,5 @@ Button can take full width of container if you set `fullSize` prop. If button is
 You can use `Button` component both as `button` or `a` elements. The component's root element can be changed by adding the `href` prop. Adding the `external` prop will set the target attribute to blank:
 
 <Preview cols={1} code={rootButtons}>
-    <Button href="https://github.com/svelteuidev/svelteui">I go to svelteuidev/svelteui</Button>
+    <Button href="https://svelteui.org">I go to svelteuidev/svelteui</Button>
 </Preview>

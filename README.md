@@ -3,15 +3,15 @@
 <br />
 <div align="center">
    <img src="gallery/Logo.png" alt="Logo" width="80" height="80">
-  <a href="https://github.com/svelteuidev/svelteui">
+  <a href="https://svelteui.org">
     <h1 align="center">svelteui</h1>
   </a>
 
-[![NPM](https://img.shields.io/github/license/svelteuidev/svelteui)](https://github.com/svelteuidev/svelteui/blob/main/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/svelteuidev/svelteui)](https://github.com/svelteuidev/svelteui/graphs/contributors)
+[![NPM](https://img.shields.io/github/license/svelteuidev/svelteui)](https://svelteui.org/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/svelteuidev/svelteui)](https://svelteui.org/graphs/contributors)
 [![npm](https://img.shields.io/npm/v/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
 [![npm](https://img.shields.io/npm/dm/@svelteuidev/core)](https://www.npmjs.com/package/@svelteuidev/core)
-[![Help wanted](https://img.shields.io/github/labels/svelteuidev/svelteui/help%20wanted?label=Contribute)](https://github.com/svelteuidev/svelteui/labels/help%20wanted)
+[![Help wanted](https://img.shields.io/github/labels/svelteuidev/svelteui/help%20wanted?label=Contribute)](https://svelteui.org/labels/help%20wanted)
 [![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/2J2xmzCS79)
 
   <p align="center">
@@ -19,11 +19,11 @@
     <br />
     <a href="https://svelteuidev.github.io/svelteui/"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
+    <a href="https://svelteui.org/issues">Report Bug</a>
     ·
-    <a href="https://github.com/svelteuidev/svelteui/issues">Request Feature</a>
+    <a href="https://svelteui.org/issues">Request Feature</a>
     ·
-    <a href="https://github.com/svelteuidev/svelteui/wiki/Roadmap">Read Roadmap</a>
+    <a href="https://svelteui.org/wiki/Roadmap">Read Roadmap</a>
   </p>
 </div>
 
@@ -44,7 +44,7 @@
 
 ### Undocumented Components & Functions
 
-The [docs](https://svelteuidev.github.io/svelteui/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
+The [docs](https://svelteuidev.github.io/svelteui/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://svelteui.org/issues/15) is where you can keep track of the progress.
 
 > Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
 
@@ -65,7 +65,7 @@ The [docs](https://svelteuidev.github.io/svelteui/) are still under construction
 I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord |:
 
 - [Join Discord community](https://discord.gg/2J2xmzCS79) – it will be the easiest way to get help.
-- [Github Discussions](https://github.com/svelteuidev/svelteui/discussions) - you can discuss anything relating to the project here.
+- [Github Discussions](https://svelteui.org/discussions) - you can discuss anything relating to the project here.
 
 <br />
 
@@ -80,7 +80,7 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Contributors
 
-<a href="https://github.com/svelteuidev/svelteui/graphs/contributors">
+<a href="https://svelteui.org/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=svelteuidev/svelteui" />
 </a>
 

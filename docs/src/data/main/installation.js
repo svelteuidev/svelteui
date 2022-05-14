@@ -19,7 +19,7 @@ export const NEXT_STEPS_DATA = [
 	},
 	{
 		icon: GithubLogo,
-		link: 'https://github.com/svelteuidev/svelteui',
+		link: 'https://svelteui.org',
 		title: 'Explore source code',
 		description: 'If you like SvelteUI please give us a star',
 		color: '#000'

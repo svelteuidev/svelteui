@@ -1,6 +1,6 @@
 module.exports = {
 	// if you will serve docs in subdirictory use '/subdir/'
-	basepath: '/svelteui/',
+	basepath: '/',
 
 	// theme
 	theme: 'light',
