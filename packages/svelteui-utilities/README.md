@@ -21,7 +21,9 @@ npm i @svelteuidev/utilities
 
 ## Included Utilities
 
-- [os](https://svelteuidev.github.io/svelteui/docs/utilities/os) – identifies the user's os
+- [hash](https://svelteui.org/utilities/hash) – Generates a random hash with a specified prefix
+- [os](https://svelteui.org/utilities/os) – Identifies the user's os
+- [raf-fn](https://svelteui.org/utilities/raf-fn) – Call function on every requestAnimationFrame
 
 ## License
 

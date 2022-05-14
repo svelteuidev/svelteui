@@ -94,7 +94,7 @@
 
 Dynamic Image component with optional placeholder for loading and error state
 
-@see https://svelteuidev.github.io/svelteui/docs/core/image
+@see https://svelteui.org/core/image
 @example
     ```tsx
     <Image src="https://images.unsplash.com/photo-1561046259-7d5b6e929ba0"/> // standard image

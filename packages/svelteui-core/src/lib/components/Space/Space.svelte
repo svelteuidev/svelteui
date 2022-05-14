@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Box from '../Box/Box.svelte';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
-	import type { CSS } from '$lib/styles';
 
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$SpaceProps['className'] = '';
@@ -15,9 +14,9 @@
 
 	$: SpaceStyles = {
 		width: typeof w === 'number' ? `${w}px` : `$${w}`,
-		minW: typeof w === 'number' ? `${w}px` : `$${w}`,
+		minWidth: typeof w === 'number' ? `${w}px` : `$${w}`,
 		height: typeof h === 'number' ? `${h}px` : `$${h}`,
-		minH: typeof h === 'number' ? `${h}px` : `$${h}`
+		minHeight: typeof h === 'number' ? `${h}px` : `$${h}`
 	};
 </script>
 
@@ -27,16 +26,14 @@
 
 Add horizontal or vertical spacing from theme.
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/space
+@see https://svelteui.org/core/space
 @example
     ```svelte
-    <Group children={3} grow>
-		<Button variant="outline">1</Button>
-		<Button variant="outline">2</Button>
-		<Button variant="outline">3</Button>
-	</Group>
+		<Space h="md" />
+		<Space w="lg" />
+		<Space w={30} /> // Width will be set to 30px
     ```
 -->
-<Box css={{ ...SpaceStyles, ...override }} class={className}>
+<Box css={{ ...SpaceStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>

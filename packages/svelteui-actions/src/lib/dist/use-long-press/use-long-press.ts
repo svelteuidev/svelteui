@@ -9,7 +9,7 @@ import type { Action } from '../types';
  *  </button>
  * ```
  * @param duration - The duration until the longpress event is dispatched
- * @see https://svelteuidev.github.io/svelteui/docs/actions/use-longpress
+ * @see https://svelteui.org/actions/use-longpress
  */
 export function longpress(node: HTMLElement, duration: number): ReturnType<Action> {
 	let timer: number;

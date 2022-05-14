@@ -44,7 +44,7 @@
 
 Render icon inside element with theme colors
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/theme-icon
+@see https://svelteui.org/core/theme-icon
 @example
     ```svelte
     <ThemeIcon>
@@ -56,6 +56,6 @@ Render icon inside element with theme colors
     </ThemeIcon>
     ```
 -->
-<Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}">
+<Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}" {...$$restProps}>
 	<slot />
 </Box>

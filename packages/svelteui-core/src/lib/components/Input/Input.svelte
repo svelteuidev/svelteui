@@ -279,7 +279,7 @@
 
 Base component to create custom inputs
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/input
+@see https://svelteui.org/core/input
 @example
     ```svelte
     <Input
@@ -294,7 +294,7 @@ Base component to create custom inputs
 	<Input />
     ```
 -->
-<Box {...wrapperProps} class="{className} {InputStyles({ css: override })}">
+<Box {...wrapperProps} class="{className} {InputStyles({ css: override })}" {...$$restProps}>
 	{#if icon}
 		<svelte:component this={icon} size={iconProps.size} color={iconProps.color} class="icon" />
 	{/if}

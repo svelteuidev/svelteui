@@ -61,7 +61,7 @@
 
 Display badge, pill or tag
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/badge
+@see https://svelteui.org/core/badge
 @example
     ```svelte
     <Badge>Badge</Badge>
@@ -71,7 +71,7 @@ Display badge, pill or tag
 	</Box>
     ```
 -->
-<Box class="{className}{BadgeStyles({ css: override, variation: variant })}">
+<Box class="{className} {BadgeStyles({ css: override, variation: variant })}" {...$$restProps}>
 	{#if $$slots.leftSection}
 		<span class="leftSection">
 			<slot name="leftSection" />
