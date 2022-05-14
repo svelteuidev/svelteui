@@ -32,7 +32,7 @@ const browser = isBrowser();
  *
  * @param fn callback function
  * @param options controls whether the callback is triggered immediately
- * @see https://svelteui-docs.vercel.app/docs/utilities/raf-fn
+ * @see https://svelteui.org/utilities/raf-fn
  */
 export function rafFn(fn: () => void, options: RafFnOptions = {}): Pauseable {
 	const { immediate = true } = options;

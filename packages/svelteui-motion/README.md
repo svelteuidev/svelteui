@@ -21,8 +21,8 @@ npm i @svelteuidev/motion
 
 ## Included Motion Transitions
 
-- [Flipboard](https://svelteui-docs.vercel.app/docs/motion/flipboard) – Flipboard transition effect for text format
-- [Typewriter](https://svelteui-docs.vercel.app/docs/motion/typewriter) – Type writer transition effect for text
+- [Flipboard](https://svelteui.org/motion/flipboard) – Flipboard transition effect for text format
+- [Typewriter](https://svelteui.org/motion/typewriter) – Type writer transition effect for text
 
 ## License
 

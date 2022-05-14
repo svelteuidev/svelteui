@@ -27,7 +27,7 @@ function observer() {
  *  <img use:lazy={{src:"/my-image"}} alt="My Image">
  * ```
  * @param attributes - an object whose properties are the attributes to be applied, and the values are the attr values
- * @see https://svelteui-docs.vercel.app/docs/actions/use-lazy
+ * @see https://svelteui.org/actions/use-lazy
  */
 export function lazy(node: HTMLElement, attributes: Record<string, number | string>): ReturnType<Action> {
     nodeAttributesMap.set(node, attributes);

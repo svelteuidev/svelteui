@@ -73,7 +73,7 @@
 
 Compose elements and components in a vertical flex container.
 	
-@see https://svelteui-docs.vercel.app/docs/core/group
+@see https://svelteui.org/core/group
 @example
     ```svelte
     <Group children={3} grow>

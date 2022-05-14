@@ -44,7 +44,7 @@
 
 Render icon inside element with theme colors
 	
-@see https://svelteui-docs.vercel.app/docs/core/theme-icon
+@see https://svelteui.org/core/theme-icon
 @example
     ```svelte
     <ThemeIcon>

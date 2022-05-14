@@ -26,7 +26,7 @@
 @component
 The Loader component creates a loading icon. There are three different Loaders with the circle as the default.
 
-@see https://svelteui-docs.vercel.app/docs/core/loader
+@see https://svelteui.org/core/loader
 @example
     ```tsx
     <Loader color='green' size='lg' variant='bars' />

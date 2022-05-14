@@ -159,7 +159,7 @@
 
 A checkbox input component using the theme styles with support for a label and indeterminate state.
 	
-@see https://svelteui-docs.vercel.app/docs/core/checkbox
+@see https://svelteui.org/core/checkbox
 @example
     ```svelte
     <Checkbox />

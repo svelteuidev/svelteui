@@ -109,7 +109,7 @@
 
 Display text and links with theme styles.
 	
-@see https://svelteui-docs.vercel.app/docs/core/text
+@see https://svelteui.org/core/text
 @example
     ```tsx
     <Text size='lg'>This is a text</Text> // standard text component

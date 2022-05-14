@@ -279,7 +279,7 @@
 
 Base component to create custom inputs
 	
-@see https://svelteui-docs.vercel.app/docs/core/input
+@see https://svelteui.org/core/input
 @example
     ```svelte
     <Input

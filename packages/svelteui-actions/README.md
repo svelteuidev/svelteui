@@ -21,10 +21,10 @@ npm i @svelteuidev/actions
 
 ## Included Actions
 
-- [use-click-outside](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – Triggers a callback when a user clicks outside of a given element.
-- [use-clipboard](https://svelteui-docs.vercel.app/docs/actions/use-clipboard) - Copies text to the clipboard when dom element is clicked
-- [use-css-variable](https://svelteui-docs.vercel.app/docs/actions/use-css-variable) - Update css properties on the fly whenever some of their values change.
-- [use-focus](https://svelteui-docs.vercel.app/docs/actions/use-focus) - Calls focus on a node once mounted into the dom
+- [use-click-outside](https://svelteui.org/actions/use-click-outside) – Triggers a callback when a user clicks outside of a given element.
+- [use-clipboard](https://svelteui.org/actions/use-clipboard) - Copies text to the clipboard when dom element is clicked
+- [use-css-variable](https://svelteui.org/actions/use-css-variable) - Update css properties on the fly whenever some of their values change.
+- [use-focus](https://svelteui.org/actions/use-focus) - Calls focus on a node once mounted into the dom
 
 ## License
 
