@@ -8,7 +8,7 @@ import type { Action } from '../types/ActionTypes';
  *  <button use:download={{ blob: new Blob([]), filename: "text.txt" }} on:usedownload={() => { console.log('download');}}>Download</button>
  * ```
  * @param params - Object that contains two properties {blob: Blob, filename: string}
- * @see https://svelteui-docs.vercel.app/docs/actions/use-download
+ * @see https://svelteui.org/actions/use-download
  */
 export function download(
 	node: HTMLElement,

@@ -6,9 +6,9 @@
 
 	let descr =
 		'A Svelte library with a variety of components, actions, transition and utility functions!';
-	let img = 'https://svelteuidev.github.io/svelteui/static/new-banner.png';
+	let img = 'https://svelteui.org/static/new-banner.png';
 	$: title = $current_page.title ? $current_page.title + ' — ' + maintitle : maintitle;
-	$: url = `https://svelteuidev.github.io/svelteui/${$current_page.url}`;
+	$: url = `https://svelteui.org/${$current_page.url}`;
 </script>
 
 <svelte:head>

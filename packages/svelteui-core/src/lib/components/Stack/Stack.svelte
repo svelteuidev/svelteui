@@ -39,7 +39,7 @@
 
 Compose elements and components in a vertical flex container.
 	
-@see https://svelteui-docs.vercel.app/docs/core/stack
+@see https://svelteui.org/core/stack
 @example
     ```svelte
     <Stack align="flex-end" justify="space-between" override={{ height: 300 }}>
@@ -50,6 +50,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...StackStyles, ...override }} class={className}>
+<Box css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>

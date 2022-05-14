@@ -110,7 +110,7 @@
 
 Icon button to indicate secondary action.
 
-@see https://svelteui-docs.vercel.app/docs/core/action-icon
+@see https://svelteui.org/core/action-icon
 @example
     ```tsx
     <ActionIcon>Click</ActionIcon> // standard ActionIcon

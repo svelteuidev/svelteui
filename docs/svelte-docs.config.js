@@ -1,6 +1,6 @@
 module.exports = {
 	// if you will serve docs in subdirictory use '/subdir/'
-	basepath: '/svelteui/',
+	basepath: '/',
 
 	// theme
 	theme: 'light',
@@ -17,7 +17,7 @@ module.exports = {
 	// URL to your favicon
 	favicon: 'static/favicon.png',
 
-	preview: 'https://svelteuidev.github.io/svelteui/static/new-banner.png',
+	preview: 'https://svelteui.org/static/new-banner.png',
 
 	pathes: {
 		// directory for files, generated in development mode

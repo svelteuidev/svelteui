@@ -4,7 +4,7 @@
 <div align="center">
    <img src="gallery/Logo.png" alt="Logo" width="80" height="80">
   <a href="https://github.com/svelteuidev/svelteui">
-    <h1 align="center">svelteui</h1>
+    <h1 align="center">SvelteUI</h1>
   </a>
 
 [![NPM](https://img.shields.io/github/license/svelteuidev/svelteui)](https://github.com/svelteuidev/svelteui/blob/main/LICENSE)
@@ -15,13 +15,15 @@
 [![Discord](https://img.shields.io/badge/Chat%20on-Discord-%235865f2)](https://discord.gg/2J2xmzCS79)
 
   <p align="center">
-   SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could yo ask for ¯\_(ツ)_/¯
+   SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could you ask for ¯\_(ツ)_/¯
     <br />
-    <a href="https://svelteui-docs.vercel.app/"><strong>Explore the docs »</strong></a>
+    <a href="https://svelteui.org/"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
     <a href="https://github.com/svelteuidev/svelteui/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/svelteuidev/svelteui/wiki/Roadmap">Read Roadmap</a>
   </p>
 </div>
 
@@ -29,20 +31,20 @@
 
 ## **About The Project**
 
-[Read the Changelog](https://svelteui-docs.vercel.app/docs/changelog)
+[Read the Changelog](https://svelteui.org/changelog/v0-6-0)
 
 ### Features
 
 - [SvelteKit](https://kit.svelte.dev/) and SSR Compatible
-- [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional.
-- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards.
-- Dark theme included, as well as a custom theming api.
-- Minimal third-party dependency usage.
+- [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional
+- All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards
+- Dark theme included, as well as a custom theming api
+- Minimal third-party dependency usage
 - Easy setup - **Zero Configuration**
 
 ### Undocumented Components & Functions
 
-The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
+The [docs](https://svelteui.org/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
 
 > Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
 
@@ -50,11 +52,11 @@ The [docs](https://svelteui-docs.vercel.app/) are still under construction. Some
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui-docs.vercel.app/docs/core/button) – core components library with 8+ components
-- [`@svelteui/actions`](https://svelteui-docs.vercel.app/docs/actions/use-click-outside) – library of useful actions
-- [`@svelteui/motion`](https://svelteui-docs.vercel.app/docs/motion/typewriter) – library of transitions to utilize on dom elements
-- [`@svelteui/utilities`](https://svelteui-docs.vercel.app/docs/utilities/os) – library of helpful utility functions
-- `@svelteui/prism` – code highlight component built with prism (coming in 0.6.0 release)
+- [`@svelteui/core`](https://svelteui.org/core/button) – core components library with 8+ components
+- [`@svelteui/actions`](https://svelteui.org/actions/use-click-outside) – library of useful actions
+- [`@svelteui/motion`](https://svelteui.org/motion/typewriter) – library of transitions to utilize on dom elements
+- [`@svelteui/utilities`](https://svelteui.org/utilities/os) – library of helpful utility functions
+- [`@svelteui/prism`](https://svelteui.org/others/prism) – code highlight component built with prism
 
 <br />
 
@@ -71,8 +73,8 @@ I want to build a friendly community that is happy to help those who need it. He
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-- If you have a suggestion that would make this project better, submit an issue.
-- If you would like to directly contribute, read the [contribution guide](https://svelteui-docs.vercel.app/docs/contribute) then submit a PR
+- If you have a suggestion that would make this project better, submit an issue
+- If you would like to directly contribute, read the [contribution guide](https://svelteui.org/contributing) then submit a PR
 
 <br />
 

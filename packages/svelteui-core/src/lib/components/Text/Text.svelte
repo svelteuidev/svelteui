@@ -109,7 +109,7 @@
 
 Display text and links with theme styles.
 	
-@see https://svelteui-docs.vercel.app/docs/core/text
+@see https://svelteui.org/core/text
 @example
     ```tsx
     <Text size='lg'>This is a text</Text> // standard text component
@@ -120,6 +120,7 @@ Display text and links with theme styles.
 -->
 
 {#if isHTMLComponent}
+	<!-- prettier-ignore -->
 	<svelte:element this={root} {href} class="text {className} {TextStyles({ css: override })}">
 		<slot>Enter some text</slot>
 	</svelte:element>
