@@ -130,7 +130,7 @@
 
 A user can use this component to enable/disable something, normally used for boolean values or for binary actions.
 
-@see https://svelteuidev.github.io/svelteui/docs/core/switch
+@see https://svelteui.org/core/switch
 @example
     ```tsx
     <Switch/> // standard switch

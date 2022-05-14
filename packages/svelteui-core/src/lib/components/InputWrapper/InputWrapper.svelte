@@ -82,7 +82,7 @@
 	});
 </script>
 
-<Box class="{className} {InputWrapperStyles({ css: override })}">
+<Box class="{className} {InputWrapperStyles({ css: override })}" {...$$restProps}>
 	{#if label}
 		<LabelElement {...labelProps} {label} {id} {labelElement} {required} />
 	{/if}

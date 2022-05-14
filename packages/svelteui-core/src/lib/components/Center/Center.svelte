@@ -22,7 +22,7 @@
 
 Centers content vertically and horizontally.
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/center
+@see https://svelteui.org/core/center
 @example
     ```svelte
 	<Center override={{ width: 400, height: 200, bg: '$blue100' }}>
@@ -30,6 +30,6 @@ Centers content vertically and horizontally.
 	</Center>
     ```
 -->
-<Box css={{ ...CenterStyles, ...override }} class={className}>
+<Box css={{ ...CenterStyles, ...override }} class={className} {...$$restProps}>
 	<slot>This is centered</slot>
 </Box>

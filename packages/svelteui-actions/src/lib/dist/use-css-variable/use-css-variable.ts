@@ -28,7 +28,7 @@ import type { Action, UnknownKeyString } from '../types/ActionTypes';
  *   </style>
  * ```
  * @param props - A reactive object with properties that should be treated as css custom properties.
- * @see https://svelteuidev.github.io/svelteui/docs/actions/use-css-variable
+ * @see https://svelteui.org/actions/use-css-variable
  */
 export function cssvariable(
 	node: HTMLElement,

@@ -6,7 +6,7 @@ import type { Action, FocusableElement } from '../types/ActionTypes';
  * ```tsx
  *  <button use:clipboard={'This text will be copied'}>Copy Me</button>
  * ```
- * @see https://svelteuidev.github.io/svelteui/docs/actions/use-focus
+ * @see https://svelteui.org/actions/use-focus
  */
 export function focus(node: FocusableElement): ReturnType<Action> {
 	node.focus();

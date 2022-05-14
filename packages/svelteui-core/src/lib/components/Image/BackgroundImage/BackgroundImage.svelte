@@ -34,7 +34,7 @@
 
 BackgroundImage component can be used to add any content on image. It is useful for hero headers and other similar sections
 
-@see https://svelteuidev.github.io/svelteui/docs/core/image
+@see https://svelteui.org/core/image
 @example
     ```svelte
 		<script>

@@ -133,7 +133,7 @@
 @component
 A user can perform an immediate action by pressing a button. It's frequently used to start an action, but it can also be used to link to other pages.
 
-@see https://svelteuidev.github.io/svelteui/docs/core/button
+@see https://svelteui.org/core/button
 @example
     ```tsx
     <Button>Click</Button> // standard button

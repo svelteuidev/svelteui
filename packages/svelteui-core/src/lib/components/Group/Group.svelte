@@ -73,7 +73,7 @@
 
 Compose elements and components in a vertical flex container.
 	
-@see https://svelteuidev.github.io/svelteui/docs/core/group
+@see https://svelteui.org/core/group
 @example
     ```svelte
     <Group children={3} grow>
@@ -84,6 +84,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...GroupStyles, ...override }} class={className}>
+<Box css={{ ...GroupStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>
