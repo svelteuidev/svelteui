@@ -48,7 +48,7 @@ index: true
 			>
 				<Text weight="bold" override={{ color: 'white' }}>Get Started</Text>
 			</Button>
-			<Button fullSize={$mobile ? true : false} override={{ m: 0 }} size="xl" variant="default">
+			<Button fullSize={$mobile ? true : false} override={{ m: 0 }} size="xl" variant="default" href="https://github.com/svelteuidev/svelteui">
 				<GithubLogo size={25} slot="leftIcon" />
 				<Text weight="bold" color="dark">Source Code</Text>
 			</Button>
