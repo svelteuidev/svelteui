@@ -1,5 +1,9 @@
 <script lang="ts">
-	// your script goes here
+	import { Demo, ButtonsDemo } from '$lib/index';
 </script>
 
-Start coding here
+<h1 style="margin-bottom: 20px">Configurator</h1>
+<Demo demo={ButtonsDemo.configurator} />
+
+<h1 style="margin-bottom: 20px">CodeDemo</h1>
+<Demo demo={ButtonsDemo.variants} />
