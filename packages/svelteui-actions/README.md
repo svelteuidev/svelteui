@@ -7,7 +7,7 @@
 
 ## Documentation
 
-[See full documentation on svelteui website](https://svelteuidev.github.io/svelteui/)
+[See full documentation on svelteui website](https://svelteui.org/)
 
 ## Installation
 

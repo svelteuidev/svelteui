@@ -58,7 +58,6 @@
   "peerDependencies": {
     "@svelteuidev/actions": "0.6.0",
     "@svelteuidev/core": "0.6.0",
-    "@svelteuidev/demos": "0.6.0",
     "@svelteuidev/motion": "0.6.0",
     "@svelteuidev/prism": "0.6.0",
     "@svelteuidev/utilities": "0.6.0"
