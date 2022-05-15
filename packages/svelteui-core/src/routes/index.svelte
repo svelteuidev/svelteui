@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		ActionIcon,
+		Anchor,
 		BackgroundImage,
 		Button,
 		Checkbox,
