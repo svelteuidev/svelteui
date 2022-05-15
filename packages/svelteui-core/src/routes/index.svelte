@@ -44,4 +44,4 @@
 	{/each}
 </SimpleGrid>
 
-<Button />
+<Anchor href="/test">Test</Anchor>
