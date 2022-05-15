@@ -10,7 +10,7 @@
 </script>
 
 <NativeSelect
-	bind:value
+	{value}
 	{label}
 	data={data.map((item) => ({
 		value: item.value,
