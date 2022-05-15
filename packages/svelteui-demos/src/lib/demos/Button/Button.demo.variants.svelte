@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type { CodeDemoConfiguration } from '$lib/demos/types';
+	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/demos/types';
 
 	const code = `
 <script>
@@ -16,8 +16,9 @@
   <Button variant="subtle">subtle</Button>
 </Group>`;
 
+	export const type: CodeDemoType['type'] = 'demo';
+
 	export const configuration: CodeDemoConfiguration = {
-		type: 'demo',
 		code
 	};
 </script>

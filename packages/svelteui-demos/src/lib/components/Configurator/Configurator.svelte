@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
-	import { controls } from './controls';
+	import { controls as controlsComponents } from './controls';
 	import { propsToString, upperFirst } from '../../utils';
 
 	export let component: ConfiguratorDemoType['default'];
@@ -11,7 +11,7 @@
 	export let center: ConfiguratorDemoConfiguration['center'] = true;
 
 	let data: Record<string, any> = {};
-	let children, componentProps;
+	let children, componentProps, controls;
 
 	$: data = configurator.reduce((acc, prop) => {
 		acc[prop.name] = prop.initialValue;
@@ -26,6 +26,21 @@
 
 	$: code = codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children);
 
+	$: controls = configurator.map((control) => {
+		const { type, label, name, initialValue, defaultValue, ...props } = control;
+
+		return {
+			component: controlsComponents[type],
+			label: upperFirst(control.label || control.name),
+			value: data[name],
+			onChange(e) {
+				const value = e.currentTarget ? e.currentTarget.value : e.detail;
+				changeData(name, value);
+			},
+			props
+		};
+	});
+
 	function changeData(name: string, value: any) {
 		data = { ...data, [name]: value };
 	}
@@ -36,21 +51,11 @@
 		<svelte:component this={component} props={componentProps}>{children}</svelte:component>
 	</div>
 	<div class="controls">
-		{#each configurator as control, i}
-			<!-- TODO: remove if when all controls will be done -->
-			{#if control.type in controls}
+		{#each controls as { component, label, value, props, onChange }, i}
+			<!-- TODO: remove condition when all controls will be done -->
+			{#if component}
 				<div class="control">
-					<svelte:component
-						this={controls[control.type]}
-						label={upperFirst(control.label || control.name)}
-						value={data[control.name]}
-						data={control.data}
-						capitalize={control.capitalize}
-						on:change={(e) => {
-							const value = e.currentTarget ? e.currentTarget.value : e.detail;
-							changeData(control.name, value);
-						}}
-					/>
+					<svelte:component this={component} {label} {value} {...props} on:change={onChange} />
 				</div>
 			{/if}
 		{/each}

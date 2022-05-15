@@ -21,7 +21,6 @@ interface DemoBaseConfiguration {
 }
 
 export interface CodeDemoConfiguration extends DemoBaseConfiguration {
-	type: 'demo';
 	code?: string;
 	spacing?: boolean;
 	toggle?: boolean;
@@ -29,7 +28,6 @@ export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 }
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
-	type: 'configurator';
 	codeTemplate(props: string, children?: string): string;
 	configurator: DemoControlProps[];
 	multiline?: boolean | number;
@@ -39,11 +37,13 @@ export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 
 export interface CodeDemoType {
 	default: typeof SvelteComponent;
+	type: 'demo';
 	configuration: CodeDemoConfiguration;
 }
 
 export interface ConfiguratorDemoType {
 	default: typeof SvelteComponent;
+	type: 'configurator';
 	configuration: ConfiguratorDemoConfiguration;
 }
 
