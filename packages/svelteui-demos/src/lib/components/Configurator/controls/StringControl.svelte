@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DemoControlProps } from '$lib/types';
+	import type { DemoControlProps } from '../../../types';
 	import { createEventDispatcher } from 'svelte';
 	import { Input, InputWrapper } from '@svelteuidev/core';
 
