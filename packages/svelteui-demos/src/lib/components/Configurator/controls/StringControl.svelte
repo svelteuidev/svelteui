@@ -13,6 +13,7 @@
 	}
 </script>
 
+<!-- TODO: switch to TextInput when it will be implemented -->
 <InputWrapper {label}>
 	<Input {value} on:input={onInput} />
 </InputWrapper>
