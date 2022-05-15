@@ -43,7 +43,7 @@
     "sort": "npx sort-package-json"
   },
   "dependencies": {
-    "@stitches/core": "1.2.7"
+    "@stitches/core": "1.2.8"
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.310",
