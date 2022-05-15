@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [

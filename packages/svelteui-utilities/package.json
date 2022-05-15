@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/utilities",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Svelte utilities library with generally useful functions to assist in development.",
   "keywords": [
     "svelte",
@@ -13,7 +13,7 @@
     "utils",
     "state"
   ],
-  "homepage": "https://svelteui-docs.vercel.app",
+  "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://https://github.com/svelteuidev/svelteui",
@@ -23,6 +23,8 @@
   "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
+  "main": "index.js",
+  "module": "index.js",
   "types": "types/index.d.ts",
   "files": [
     "index.js",

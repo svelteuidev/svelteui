@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/motion",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
   "keywords": [
     "svelte",
@@ -14,7 +14,7 @@
     "transition",
     "state"
   ],
-  "homepage": "https://svelteui-docs.vercel.app",
+  "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://https://github.com/svelteuidev/svelteui",

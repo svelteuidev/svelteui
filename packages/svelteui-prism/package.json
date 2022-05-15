@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/prism",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Code highlight with SvelteUI theme",
   "keywords": [
     "svelte",
@@ -15,7 +15,7 @@
     "syntax",
     "syntax-highlight"
   ],
-  "homepage": "https://svelteui-docs.vercel.app",
+  "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://https://github.com/svelteuidev/svelteui",
@@ -41,8 +41,8 @@
     "sort": "npx sort-package-json"
   },
   "dependencies": {
-    "@svelteuidev/actions": "0.6.0",
-    "@svelteuidev/core": "0.6.0",
+    "@svelteuidev/actions": "0.6.2",
+    "@svelteuidev/core": "0.6.2",
     "prism-svelte": "0.5.0",
     "prismjs": "1.28.0"
   },
@@ -61,8 +61,8 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/actions": "0.6.0",
-    "@svelteuidev/core": "0.6.0",
+    "@svelteuidev/actions": "0.6.2",
+    "@svelteuidev/core": "0.6.2",
     "svelte": "3.47.0"
   }
 }

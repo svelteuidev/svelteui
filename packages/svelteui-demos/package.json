@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/demos",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "description": "Demos used in documentation",
   "keywords": [
@@ -14,7 +14,7 @@
     "frontend",
     "demos"
   ],
-  "homepage": "https://svelteui-docs.vercel.app",
+  "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://https://github.com/svelteuidev/svelteui",
@@ -56,11 +56,11 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/actions": "0.6.0",
-    "@svelteuidev/core": "0.6.0",
-    "@svelteuidev/demos": "0.6.0",
-    "@svelteuidev/motion": "0.6.0",
-    "@svelteuidev/prism": "0.6.0",
-    "@svelteuidev/utilities": "0.6.0"
+    "@svelteuidev/actions": "0.6.2",
+    "@svelteuidev/core": "0.6.2",
+    "@svelteuidev/demos": "0.6.2",
+    "@svelteuidev/motion": "0.6.2",
+    "@svelteuidev/prism": "0.6.2",
+    "@svelteuidev/utilities": "0.6.2"
   }
 }

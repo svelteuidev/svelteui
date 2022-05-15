@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/dates",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "description": "Calendars, date and time pickers based on SvelteUI components",
   "keywords": [
     "svelte",
@@ -16,7 +16,7 @@
     "time",
     "picker"
   ],
-  "homepage": "https://svelteui-docs.vercel.app",
+  "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://https://github.com/svelteuidev/svelteui",
@@ -60,6 +60,6 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/core": "0.6.0"
+    "@svelteuidev/core": "0.6.2"
   }
 }

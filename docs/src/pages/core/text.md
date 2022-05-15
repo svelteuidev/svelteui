@@ -29,7 +29,7 @@ docs: 'core/text.md'
     <Text weight={'semibold'}>Semibold<\/Text>
     <Text weight={'bold'}>Bold<\/Text>
     <Text underline>Underlined<\/Text>
-    <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant<\/Text>
+    <Text variant="link" root="a" href="https://svelteui.org">Link variant<\/Text>
     <Text color="red">Red text<\/Text>
     <Text color="blue">Blue text<\/Text>
     <Text color="gray">Gray text<\/Text>
@@ -118,7 +118,7 @@ Use Text component to display text and links with theme styles. Control Text sty
     <Text weight={'semibold'}>Semibold</Text>
     <Text weight={'bold'}>Bold</Text>
     <Text underline>Underlined</Text>
-    <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant</Text>
+    <Text variant="link" root="a" href="https://svelteui.org">Link variant</Text>
     <Text color="red">Red text</Text>
     <Text color="blue">Blue text</Text>
     <Text color="gray">Gray text</Text>
