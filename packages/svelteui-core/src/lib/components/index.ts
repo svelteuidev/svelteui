@@ -1,4 +1,5 @@
 export * from './ActionIcon';
+export * from './Anchor';
 export * from './Badge';
 export * from './Box';
 export * from './BrowserRender';
