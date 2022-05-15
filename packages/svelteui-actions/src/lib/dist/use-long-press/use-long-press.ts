@@ -1,7 +1,7 @@
 import type { Action } from '../types';
 
 /**
- * Creates `long press` event when mousedown is above the `duration` milliseconds..
+ * Creates `long press` event when mousedown or touchstart is above the `duration` milliseconds.
  *
  * ```tsx
  *  <button use:longpress={duration} on:uselongpress={() => alert("longpress")}>
@@ -14,28 +14,32 @@ import type { Action } from '../types';
 export function longpress(node: HTMLElement, duration: number): ReturnType<Action> {
 	let timer: number;
 
-	function handleMouseDown() {
+	function handlePress() {
 		timer = window.setTimeout(() => {
 			node.dispatchEvent(new CustomEvent('uselongpress'));
 		}, duration);
 	}
 
-	function handleMouseUp() {
+	function handleRelease() {
 		clearTimeout(timer);
 	}
 
-	node.addEventListener('mousedown', handleMouseDown);
-	node.addEventListener('mouseup', handleMouseUp);
+	node.addEventListener('mousedown', handlePress);
+	node.addEventListener('mouseup', handleRelease);
+	node.addEventListener('touchstart', handlePress);
+	node.addEventListener('touchend', handleRelease);
 
 	return {
 		update(newDuration: number) {
-			handleMouseUp();
+			handleRelease();
 			duration = newDuration;
 		},
 		destroy() {
-			handleMouseUp();
-			node.removeEventListener('mousedown', handleMouseDown);
-			node.removeEventListener('mouseup', handleMouseUp);
+			handleRelease();
+			node.removeEventListener('mousedown', handlePress);
+			node.removeEventListener('mouseup', handleRelease);
+			node.removeEventListener('touchstart', handlePress);
+			node.removeEventListener('touchstart', handleRelease);
 		}
 	};
 }
