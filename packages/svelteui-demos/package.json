@@ -38,6 +38,8 @@
     "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
+    "pub": "npm publish package/",
+    "pub:test": "npm publish package/",
     "sort": "npx sort-package-json"
   },
   "dependencies": {},
