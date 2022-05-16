@@ -25,6 +25,7 @@
   "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
+  "module": "./package/index.js",
   "types": "types/index.d.ts",
   "files": [
     "index.js",
@@ -40,7 +41,8 @@
     "package": "svelte-kit package",
     "pub": "npm publish package/",
     "pub:test": "npm publish package/",
-    "sort": "npx sort-package-json"
+    "sort": "npx sort-package-json",
+    "watch": "svelte-kit package -w"
   },
   "dependencies": {
     "@svelteuidev/actions": "0.6.2",
@@ -49,13 +51,13 @@
     "prismjs": "1.28.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.310",
+    "@sveltejs/kit": "1.0.0-next.333",
     "@svelteuidev/tsconfig": "^*",
     "autoprefixer": "10.4.4",
     "cssnano": "5.1.7",
     "postcss": "8.4.12",
     "sass": "1.50.0",
-    "svelte": "3.47.0",
+    "svelte": "3.48.0",
     "svelte-check": "2.5.0",
     "svelte-preprocess": "4.10.5",
     "svelte2tsx": "0.5.7",
