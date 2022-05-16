@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { POSITIONS } from './Group.styles';
 	import { GroupErrors } from './Group.errors';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
+	export let element: $$GroupProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$GroupProps['className'] = '';
 	export { className as class };
@@ -23,7 +25,12 @@
 	/** Defines align-items css property */
 	export let align: $$GroupProps['align'] = 'center';
 	/** The children being rendered */
-	export let children: $$GroupProps['children'] = null;
+
+	let children: $$GroupProps['children'];
+	/** can only get access to children at runtime */
+	onMount(() => {
+		children = element.childElementCount;
+	});
 
 	$: GroupStyles = {
 		boxSizing: 'border-box',
@@ -76,7 +83,7 @@ Compose elements and components in a vertical flex container.
 @see https://svelteui.org/core/group
 @example
     ```svelte
-    <Group children={3} grow>
+    <Group grow>
 		<Button variant="outline">1</Button>
 		<Button variant="outline">2</Button>
 		<Button variant="outline">3</Button>
@@ -84,6 +91,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...GroupStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element css={{ ...GroupStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>
