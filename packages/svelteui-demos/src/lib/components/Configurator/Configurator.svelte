@@ -1,5 +1,10 @@
 <script lang="ts">
-	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
+	import type {
+		ConfiguratorDemoType,
+		ConfiguratorDemoConfiguration,
+		DemoControl,
+		ConfiguratorDemoControl
+	} from '$lib/types';
 	import { controls as controlsComponents } from './controls';
 	import { propsToString, upperFirst } from '../../utils';
 
@@ -10,23 +15,27 @@
 	export let includeCode: ConfiguratorDemoConfiguration['includeCode'] = true;
 	export let center: ConfiguratorDemoConfiguration['center'] = true;
 
+	// Filter out control type which we use only for make typescript work as we wanted
+	let demoControls: DemoControl[] = [];
 	let data: Record<string, any> = {};
 	let children, componentProps, controls;
 
-	$: data = configurator.reduce((acc, prop) => {
+	$: demoControls = configurator.filter(isDemoControl);
+
+	$: data = demoControls.reduce((acc, prop) => {
 		acc[prop.name] = prop.initialValue;
 		return acc;
 	}, {});
 	$: ({ children, ...componentProps } = data);
 	$: propsCode = propsToString({
-		props: configurator,
+		props: demoControls,
 		values: data,
 		multiline
 	});
 
 	$: code = codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children);
 
-	$: controls = configurator.map((control) => {
+	$: controls = demoControls.map((control) => {
 		const { type, label, name, initialValue, defaultValue, ...props } = control;
 
 		return {
@@ -43,6 +52,10 @@
 
 	function changeData(name: string, value: any) {
 		data = { ...data, [name]: value };
+	}
+
+	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
+		return control && control.type !== '_DO_NOT_USE_';
 	}
 </script>
 

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { DemoControlProps } from '../../../types';
+	import type { DemoControlNumber } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import { Input, InputWrapper } from '@svelteuidev/core';
 
 	export let value: number;
-	export let label: DemoControlProps['label'];
-	export let min: number | undefined;
-	export let max: number | undefined;
+	export let label: DemoControlNumber['label'];
+	export let min: DemoControlNumber['min'];
+	export let max: DemoControlNumber['max'];
 
 	const dispatch = createEventDispatcher();
 

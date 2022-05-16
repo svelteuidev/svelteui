@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/demos/types';
+	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>

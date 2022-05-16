@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DemoControlProps } from '$lib/types';
+	import type { DemoControlSize } from '$lib/types';
 	import { NativeSelect } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
@@ -15,7 +15,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let value: string;
-	export let label: DemoControlProps['label'];
+	export let label: DemoControlSize['label'];
 
 	$: _value = MARKS.find((mark) => mark.label === value).value;
 

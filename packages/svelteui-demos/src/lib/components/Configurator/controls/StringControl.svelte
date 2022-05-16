@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { DemoControlProps } from '../../../types';
+	import type { DemoControlString } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import { Input, InputWrapper } from '@svelteuidev/core';
 
 	export let value: string;
-	export let label: DemoControlProps['label'];
+	export let label: DemoControlString['label'];
 
 	const dispatch = createEventDispatcher();
 

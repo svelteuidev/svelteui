@@ -1,19 +1,57 @@
 import type { SvelteComponent } from 'svelte';
+import type { SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
-type DemoControlType = 'boolean' | 'color' | 'select' | 'string' | 'size' | 'number' | 'segmented';
-
-export interface DemoControlProps {
-	type: DemoControlType;
+interface DemoControlBase<T = any> {
 	name: string;
 	label?: string;
-	initialValue?: any;
-	defaultValue?: any;
+	initialValue?: T;
+	defaultValue?: T;
+}
+
+export interface DemoControlBoolean extends DemoControlBase<boolean> {
+	type: 'boolean';
+}
+
+export interface DemoControlColor extends DemoControlBase<SvelteUIColor> {
+	type: 'color';
+}
+
+export interface DemoControlSelect extends DemoControlBase<string> {
+	type: 'select';
+	data: { label: string; value: string }[];
 	capitalize?: boolean;
-	data?: { label: string; value: string }[];
+}
+
+export interface DemoControlString extends DemoControlBase<string> {
+	type: 'string';
+}
+
+export interface DemoControlSize extends DemoControlBase<SvelteUISize> {
+	type: 'size';
+}
+
+export interface DemoControlNumber extends DemoControlBase<number> {
+	type: 'number';
 	min?: number;
 	max?: number;
-	step?: number;
 }
+
+export interface DemoControlSegmented extends DemoControlBase<string> {
+	type: 'segmented';
+	data: { label: string; value: string }[];
+	capitalize?: boolean;
+}
+
+export type DemoControl =
+	| DemoControlBoolean
+	| DemoControlColor
+	| DemoControlSelect
+	| DemoControlString
+	| DemoControlSize
+	| DemoControlNumber
+	| DemoControlSegmented;
+
+export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
 
 interface DemoBaseConfiguration {
 	wrapper?: typeof SvelteComponent;
@@ -29,7 +67,8 @@ export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 	codeTemplate(props: string, children?: string): string;
-	configurator: DemoControlProps[];
+	// _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
+	configurator: ConfiguratorDemoControl[];
 	multiline?: boolean | number;
 	includeCode?: boolean;
 	center?: boolean;

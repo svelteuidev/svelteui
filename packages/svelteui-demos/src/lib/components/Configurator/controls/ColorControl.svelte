@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type * as Stitches from '@stitches/core';
-	import type { DemoControlProps } from '$lib/types';
+	import type { DemoControlColor } from '$lib/types';
 	import { InputWrapper, Group, css } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
 	export let value: string;
-	export let label: DemoControlProps['label'];
+	export let label: DemoControlColor['label'];
 
 	const dispatch = createEventDispatcher();
 	const listOfColors = [

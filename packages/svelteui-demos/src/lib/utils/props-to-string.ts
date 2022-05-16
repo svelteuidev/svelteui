@@ -1,7 +1,7 @@
-import type { DemoControlProps } from '../types';
+import type { DemoControl } from '../types';
 
 interface PropToString {
-	type: DemoControlProps['type'];
+	type: DemoControl['type'];
 	name: string;
 	value: any;
 	defaultValue: any;
@@ -28,7 +28,7 @@ export function propToString({ type, name, value, defaultValue }: PropToString) 
 }
 
 interface PropsToString {
-	props: DemoControlProps[];
+	props: DemoControl[];
 	values: Record<string, any>;
 	multiline: boolean | number;
 }
