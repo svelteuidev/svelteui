@@ -15,7 +15,7 @@ const DIRS: string[] = [".", "./docs", "./packages/*/"];
 const VERSION_EXCEPTION: string[] = ["./docs"];
 
 if (Deno.args.length !== 1) {
-    throw "Please provide only one argument, the type of version bump ('major', 'minor' or 'patch')"
+    throw "Please provide only one argument, the type of version bump ('major', 'minor', 'patch' or 'next')"
 }
 
 const type = Deno.args[0] as SEMVER;
