@@ -26,7 +26,6 @@ const config = {
 				if (filepath.endsWith('.config.js')) return false;
 				if (mm.contains(filepath, 'internal/**')) return false;
 				if (mm.contains(filepath, 'styles/**')) return false;
-				if (mm.contains(filepath, 'components/**')) return false;
 				return !mm.contains(filepath, '**_');
 			},
 			files: mm.matcher('!**/*.test.{ts, js}')
