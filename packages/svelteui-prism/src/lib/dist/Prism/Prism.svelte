@@ -67,7 +67,7 @@
 		backgroundColor: '$gray50',
 		fontSize: `$${size}`,
 		lineHeight: `$${size}`,
-		position: "relative",
+		position: 'relative',
 		paddingTop: '$xs',
 		paddingBottom: '$xs',
 
@@ -78,11 +78,11 @@
 			paddingTop: 0,
 			paddingBottom: 0
 		},
-	
+
 		'& .copy': {
 			position: 'absolute',
 			right: '$md',
-    		zIndex: 2,
+			zIndex: 2,
 			background: 'transparent'
 		},
 		'& .copy:hover': {
@@ -283,9 +283,7 @@
 			</ThemeIcon>
 		</ActionIcon>
 	{/if}
-	<pre class={prismClasses} data-line={highlightLines}>
-		<code class="language-{language}">
-			{@html prettyCode}
-		</code>
-	</pre>
+	<pre
+		class={prismClasses}
+		data-line={highlightLines}><code class="language-{language}">{@html prettyCode}</code></pre>
 </div>
