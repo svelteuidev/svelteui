@@ -51,23 +51,22 @@ export type DemoControl =
 	| DemoControlNumber
 	| DemoControlSegmented;
 
+// _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
 export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
 
 interface DemoBaseConfiguration {
-	wrapper?: typeof SvelteComponent;
-	background?: (colorScheme: 'light' | 'dark') => string;
+	previewMaxWidth?: number;
+	previewBackground?: { light: string; dark: string };
 }
 
 export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 	code?: string;
 	spacing?: boolean;
 	toggle?: boolean;
-	inline?: boolean;
 }
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 	codeTemplate(props: string, children?: string): string;
-	// _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
 	configurator: ConfiguratorDemoControl[];
 	multiline?: boolean | number;
 	includeCode?: boolean;

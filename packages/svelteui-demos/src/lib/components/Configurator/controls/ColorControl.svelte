@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type * as Stitches from '@stitches/core';
 	import type { DemoControlColor } from '$lib/types';
-	import { InputWrapper, Group, css } from '@svelteuidev/core';
+	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
 	export let value: string;
@@ -24,6 +24,7 @@
 		'yellow',
 		'orange'
 	];
+
 	const colorStyles = css({
 		focusRing: 'auto',
 		border: 0,
@@ -56,7 +57,11 @@
 
 		listOfColors.forEach((color) => {
 			variants[color] = {
-				background: `$${color}500`
+				background: `$${color}500`,
+
+				[`.${dark} &`]: {
+					background: `$${color}700`
+				}
 			};
 		});
 
