@@ -1,1 +1,1 @@
-export { download } from './use-download';
+export { download } from './use-download.js';

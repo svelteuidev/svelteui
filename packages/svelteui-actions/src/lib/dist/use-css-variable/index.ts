@@ -1,1 +1,1 @@
-export { cssvariable } from './use-css-variable';
+export { cssvariable } from './use-css-variable.js';

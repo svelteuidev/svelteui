@@ -1,1 +1,1 @@
-export { tableave } from './use-tab-leave';
+export { tableave } from './use-tab-leave.js';

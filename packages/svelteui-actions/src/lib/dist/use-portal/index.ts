@@ -1,1 +1,1 @@
-export { portal } from './use-portal';
+export { portal } from './use-portal.js';

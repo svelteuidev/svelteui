@@ -1,1 +1,1 @@
-export { lazy } from './use-lazy';
+export { lazy } from './use-lazy.js';

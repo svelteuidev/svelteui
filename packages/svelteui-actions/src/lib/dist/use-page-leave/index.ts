@@ -1,1 +1,1 @@
-export { pageleave } from './use-page-leave';
+export { pageleave } from './use-page-leave.js';
