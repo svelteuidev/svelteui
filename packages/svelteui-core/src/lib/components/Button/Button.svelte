@@ -76,7 +76,7 @@
 		padding: sizes[compact ? `compact-${size}` : size].padding,
 		fontFamily: '$standard',
 		fontWeight: '$SemiBold',
-		fontSize: '$sm',
+		fontSize: `$${size}`,
 		lineHeight: 1,
 		flexGrow: 0,
 		width: fullSize ? '100%' : 'auto',

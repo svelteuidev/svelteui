@@ -7,6 +7,7 @@
 	} from '$lib/types';
 	import { controls as controlsComponents } from './controls';
 	import { propsToString, upperFirst } from '../../utils';
+	import { Prism } from '@svelteuidev/prism';
 
 	export let component: ConfiguratorDemoType['default'];
 	export let codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'];
@@ -75,9 +76,7 @@
 	</div>
 </div>
 
-<pre>
-    {code}
-</pre>
+<Prism language="svelte" {code} />
 
 <style>
 	.preview {

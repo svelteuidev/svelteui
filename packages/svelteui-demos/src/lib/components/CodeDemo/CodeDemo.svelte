@@ -1,9 +1,10 @@
 <script lang="ts">
-	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/demos/types';
+	import { Prism } from '@svelteuidev/prism';
+	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	export let component: CodeDemoType['default'];
 	export let code: CodeDemoConfiguration['code'];
 </script>
 
 <svelte:component this={component} />
-<pre>{code}</pre>
+<Prism language="svelte" {code} />

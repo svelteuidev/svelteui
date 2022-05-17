@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -23,6 +23,7 @@
   "scripts": {
     "bump:major": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts major",
     "bump:minor": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts minor",
+    "bump:next": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts next",
     "bump:patch": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts patch",
     "clean": "rimraf packages/*/{node_modules,package,.turbo,types} packages/*/.svelte-kit/{generated,runtime,types}",
     "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types}",
@@ -39,6 +40,7 @@
     "package": "npm run clean && turbo run package --parallel",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
+    "pub": "turbo run pub --parallel",
     "release": "changeset publish",
     "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types",
     "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
