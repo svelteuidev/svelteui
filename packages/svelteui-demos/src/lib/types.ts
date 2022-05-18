@@ -66,10 +66,10 @@ export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 }
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
-	codeTemplate(props: string, children?: string): string;
 	configurator: ConfiguratorDemoControl[];
+	codeTemplate?: (props: string, children?: string) => string;
 	multiline?: boolean | number;
-	includeCode?: boolean;
+	multilineEndNewLine?: boolean;
 	center?: boolean;
 }
 

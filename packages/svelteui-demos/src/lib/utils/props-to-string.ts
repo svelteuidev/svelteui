@@ -31,6 +31,7 @@ interface PropsToString {
 	props: DemoControl[];
 	values: Record<string, any>;
 	multiline: boolean | number;
+	multilineEndNewLine: boolean;
 }
 
 const getOffset = (value: boolean | number) => {
@@ -41,8 +42,8 @@ const getOffset = (value: boolean | number) => {
 	return `\n${Array(value).fill('  ').join('')}`;
 };
 
-export function propsToString({ props, values, multiline }: PropsToString) {
-	return props
+export function propsToString({ props, values, multiline, multilineEndNewLine }: PropsToString) {
+	const propsString = props
 		.map((prop) =>
 			propToString({
 				type: prop.type,
@@ -54,4 +55,8 @@ export function propsToString({ props, values, multiline }: PropsToString) {
 		.filter(Boolean)
 		.join(multiline ? getOffset(multiline) : ' ')
 		.trim();
+	const pre = multiline ? getOffset(multiline) : '';
+	const post = multiline && multilineEndNewLine ? getOffset((multiline as number) - 1) : '';
+
+	return multiline && propsString ? `${pre}${propsString}${post}` : propsString;
 }
