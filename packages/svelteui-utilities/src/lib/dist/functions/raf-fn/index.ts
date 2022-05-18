@@ -1,1 +1,1 @@
-export { rafFn } from './raf-fn';
+export { rafFn } from './raf-fn.js';

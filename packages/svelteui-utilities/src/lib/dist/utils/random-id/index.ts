@@ -1,1 +1,1 @@
-export { randomID } from './random-id';
+export { randomID } from './random-id.js';

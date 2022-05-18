@@ -10,4 +10,4 @@ export {
 	rand,
 	sleep,
 	timestamp
-} from './is';
+} from './is.js';
