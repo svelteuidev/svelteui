@@ -1,5 +1,4 @@
 export * from './dist';
-/** Type Exports */
 import type {
 	Action,
 	Fn,
