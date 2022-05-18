@@ -19,6 +19,8 @@
 	export let multilineEndNewLine: ConfiguratorDemoConfiguration['multilineEndNewLine'] = true;
 	export let center: ConfiguratorDemoConfiguration['center'] = true;
 
+	const BREAKPOINT = 885;
+
 	let demoControls: DemoControl[] = [];
 	let data: Record<string, any> = {};
 	let children, componentProps, controls;
@@ -65,12 +67,18 @@
 		return control && control.type !== '_DO_NOT_USE_';
 	}
 
+	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
+
 	const styles = css({
 		border: '1px solid $gray200',
 		borderRadius: '$sm',
 
 		'.preview': {
 			display: 'flex',
+
+			[mobileBreakpoint]: {
+				flexDirection: 'column'
+			},
 
 			'& > .component': {
 				background: previewBackground ? previewBackground.light : undefined,
@@ -80,6 +88,10 @@
 				padding: '$8',
 				flexDirection: 'column',
 				justifyContent: center ? 'center' : 'flex-start',
+
+				[mobileBreakpoint]: {
+					borderTopRightRadius: '$sm'
+				},
 
 				'& > .wrapper': {
 					width: '100%',
@@ -93,7 +105,13 @@
 			boxSizing: 'border-box',
 			width: 270,
 			padding: '$8',
-			borderLeft: '1px solid $gray200'
+			borderLeft: '1px solid $gray200',
+
+			[mobileBreakpoint]: {
+				borderLeft: 'none',
+				borderTop: '1px solid $gray200',
+				width: 'auto'
+			}
 		},
 
 		'.control + .control': {

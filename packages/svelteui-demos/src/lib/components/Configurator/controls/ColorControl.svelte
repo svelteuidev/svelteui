@@ -35,7 +35,7 @@
 		alignItems: 'center',
 		justifyContent: 'center',
 		color: 'rgb(255, 255, 255)',
-		flex: '1 0 calc(15% - 4px)',
+		flex: '1 0 32px',
 		boxShadow: 'rgb(0 0 0 / 10%) 0px 0px 0px 1px inset, rgb(0 0 0 / 15%) 0px 0px 4px inset',
 		borderRadius: 4,
 
