@@ -28,7 +28,9 @@
 			background: previewBackground ? previewBackground.light : undefined,
 
 			'& > .wrapper': {
-				margin: 'auto'
+				width: '100%',
+				maxWidth: previewMaxWidth,
+				margin: '0 auto'
 			}
 		},
 
@@ -65,7 +67,7 @@
 
 <div class={styles()}>
 	<div class="preview">
-		<div class="wrapper" style={previewMaxWidth ? `max-width: ${previewMaxWidth}px` : undefined}>
+		<div class="wrapper">
 			<svelte:component this={component} />
 		</div>
 		{#if !!code && toggle}
