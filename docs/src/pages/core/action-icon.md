@@ -90,7 +90,7 @@ ActionIcon accepts anything as child. It **does not control icon size**, the use
     <ActionIcon><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
-### Variants
+## Variants
 
 ActionIcon has 6 variants: `hover`, `default`, `transparent`, `filled`, `light` and `outline`:
 
@@ -103,7 +103,7 @@ ActionIcon has 6 variants: `hover`, `default`, `transparent`, `filled`, `light` 
     <ActionIcon color="blue" variant="outline"><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
-### Color
+## Color
 
 ActionIcon supports all colors from [theme.colors](theming/default-theme):
 
@@ -116,7 +116,7 @@ ActionIcon supports all colors from [theme.colors](theming/default-theme):
     <ActionIcon color="yellow"><GithubLogo size={16} /></ActionIcon>
 </Preview>
 
-### Size and radius
+## Size and radius
 
 Control button width and height with `size` and border-radius with `radius`. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, use a number to set radius or size in px:
 

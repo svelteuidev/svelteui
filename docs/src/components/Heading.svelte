@@ -4,19 +4,26 @@
 	import { Stack, Box, Title, Text, Group, Center } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/actions';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
-	import { screenW } from 'components';
+	import { screenW, ToolTip } from 'components';
 
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/tree/main/packages/',
-		docs: 'https://github.com/svelteuidev/svelteui/tree/main/docs/src/pages/',
+		docs: 'https://github.com/svelteuidev/svelteui/blob/main/docs/src/pages/',
 		npm: 'https://www.npmjs.com/package/'
 	};
 
-	const importStyles = {
+	$: importStyles = {
 		'&:hover': { cursor: 'pointer' },
-		code: { fontSize: '$xs' },
-		'@sm': { code: { fontSize: '$md' } }
+		code: { fontSize: $screenW < 500 ? 10 : '$sm' },
+		'@sm': { code: { fontSize: '$sm' } },
+		'@md': { code: { fontSize: '$md' } }
 	};
+
+	let copied = false;
+	function onCopy() {
+		copied = true;
+		setTimeout(() => (copied = false), 1000);
+	}
 </script>
 
 <Stack
@@ -35,12 +42,16 @@
 		{/if}
 	</Stack>
 	{#if $current_page.meta?.import}
-		<Group children={2} spacing={$screenW <= 500 ? 10 : 70}>
-			<Text color="dimmed">Import</Text>
+		<Group noWrap children={$screenW > 975 ? 2 : 1} spacing={$screenW < 650 ? 10 : 70}>
+			{#if $screenW > 975}
+				<Text color="dimmed">Import</Text>
+			{/if}
 			<Box css={importStyles}>
-				<code use:clipboard={$current_page.meta.import}>
-					{$current_page.meta.import}
-				</code>
+				<ToolTip tip={copied ? 'Copied' : 'Copy'}>
+					<code use:clipboard={$current_page.meta.import} on:useclipboard={onCopy}>
+						{$current_page.meta.import}
+					</code>
+				</ToolTip>
 			</Box>
 		</Group>
 	{/if}
@@ -58,7 +69,7 @@
 	{#if $current_page.meta?.docs}
 		<Group spacing={78}>
 			<Text color="dimmed">Docs</Text>
-			<Text variant="link" root="a" href={`${links.github}${$current_page.meta.docs}`}>
+			<Text variant="link" root="a" href={`${links.docs}${$current_page.meta.docs}`}>
 				<Center override={{ gap: '$4' }} inline>
 					<Pencil1 />
 					Edit This Page

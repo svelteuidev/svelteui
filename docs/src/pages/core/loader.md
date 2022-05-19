@@ -62,7 +62,7 @@ By default, loader will be rendered with the SvelteUI blue color. You can choose
     <Loader />
 </Preview>
 
-### Configure default loader
+## Configure default loader
 
 You can configure default loader to be one of it's three variants, `circle`, `dots` and `bars`:
 
@@ -72,7 +72,7 @@ You can configure default loader to be one of it's three variants, `circle`, `do
     <Loader variant="bars" />
 </Preview>
 
-### Color
+## Color
 
 Loader supports all colors from [theme.colors](theming/default-theme):
 
@@ -85,7 +85,7 @@ Loader supports all colors from [theme.colors](theming/default-theme):
     <Loader color="yellow" />
 </Preview>
 
-### Size
+## Size
 
 Size controls loader height or width (depends on loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
 

@@ -22,7 +22,6 @@ This guide will help you get familiar with core SvelteUI concepts. Please read t
 - `@svelteui/motion` - collection of transitions and animations
 - `@svelteui/utilities` - collection of helpful utility functions
 - `@svelteuidev/prism` – [code highlight](others/prism) built with [PrismJS](https://prismjs.com/).
-- `@svelteuidev/eslint-config` – ESLint and Prettier configuration that the SvelteUI project uses.
 
 ## Dark Theme
 
@@ -69,7 +68,7 @@ import type { ButtonProps } from '@svelteuidev/core';
 
 # General concepts
 
-Svelte ...
+Svelte works really well most of the time, however there are some specific component level and library level concepts you must understand before you can get started developing.
 
 ## Event forwarding
 
@@ -119,7 +118,7 @@ All components support binding their top-level element via the element prop inst
 
 ```svelte
 <script lang="ts">
-	import { Button } from '@svelteui/dev';
+	import { Button } from '@svelteuidev/core';
 
 	let element: HTMLButtonElement;
 
@@ -138,7 +137,7 @@ All components support a class prop which is useful for things like global styli
 
 ```svelte
 <script lang="ts">
-    import { Button } from "@svelteui/dev";
+    import { Button } from "@svelteuidev/core";
 </script>
 
 <Button class='animation-bounce'>I have a tailwind animation<Button>

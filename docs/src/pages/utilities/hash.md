@@ -52,7 +52,7 @@ The `hash` utility function generates a random hash with a specified prefix. The
 
 The `hash` utility also takes a second argument which is a boolean value. If set to true the hash value will be saved in local storage, and therefore persist through the browser.
 
-<Preview cols={1} {code2}>
+<Preview cols={1} code={code2}>
     <Button on:click={() => window.location.reload()}>Click to refresh the page</Button>
     <p>Generated hash that won't change: {id2}</p>
 </Preview>

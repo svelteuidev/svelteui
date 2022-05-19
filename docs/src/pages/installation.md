@@ -60,7 +60,7 @@ label='Select which project you would like to initialize'
 {value === 'Svelte' ? templates[0] : templates[1]}
 </CodeBlock>
 
-You can install SvelteUI with [NPM](https://npmjs.com) or [Yarn](https://yarnpkg.com). You don't have too install every package, you can use them as needed. All packages except from the core package works independent from the others.
+You can install SvelteUI with [NPM](https://npmjs.com) or [Yarn](https://yarnpkg.com). You don't have to install every package, you can use them as needed. All packages except from the core package works independent from the others.
 
 <Center override={{bc: '$blue100', padding: '$10 $4'}}>
     <CheckboxGroup
@@ -77,8 +77,6 @@ You can install SvelteUI with [NPM](https://npmjs.com) or [Yarn](https://yarnpkg
 ### Yarn
 
 <CodeBlock copy message={`yarn add ${sanitizedPKG}`}>yarn add {sanitizedPKG}</CodeBlock>
-
-> Wanna give it a spin before you download? Take some time in the [playground](playground)!
 
 ## Next steps
 

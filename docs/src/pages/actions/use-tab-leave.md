@@ -3,7 +3,7 @@ title: 'use-tab-leave'
 group: 'svelteuidev-actions'
 packageGroup: '@svelteuidev/actions'
 slug: /actions/use-tab-leave/
-description: 'Call a function when the current tab is switch'
+description: 'Call a function when the current tab is switched'
 import: "import { tableave } from '@svelteuidev/actions';"
 docs: 'actions/use-tab-leave.md'
 source: 'svelteui-actions/src/lib/dist/use-tab-leave/use-tab-leave.ts'
@@ -48,6 +48,6 @@ The `use-tab-leave` action does not dispatch any custom events.
 
 ## Definition
 
-```ts
+```tsx
 export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Action>;
 ```

@@ -47,7 +47,7 @@ source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
 
 ## Usage
 
-With the `use-long-press` action, a `long press` event is created when `mousedown` or `touchstart` is above the `duration` in milliseconds.
+With the `use-long-press` action, a `long press` event is created when `mousedown` or `touchstart` is above the `duration` passed in, in milliseconds.
 
 <Preview cols={1} {code}>
 <input type=range bind:value={duration} max={2000} step={100} />

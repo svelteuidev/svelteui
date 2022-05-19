@@ -60,7 +60,7 @@ Switch component is used to enable/disable something, normally used for boolean 
     <Switch onLabel="ON" offLabel="OFF" label="Setting 1" size="xl" color="pink"/>
 </Preview>
 
-### Inner labels and Size
+## Inner labels and Size
 
 There is support for inserting text inside the switch for when it is enabled and/or disabled. It is also possible to control the size of the switch with predefined values: `xs`, `sm`, `md`, `lg`, `xl`.
 

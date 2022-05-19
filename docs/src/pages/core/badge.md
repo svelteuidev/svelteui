@@ -145,7 +145,7 @@ If badge cannot fit in its container, overflow content will be hidden with ellip
 
 </Preview>
 
-### Size and radius
+## Size and radius
 
 Control button width and height with `size` and border-radius with `radius`. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, use a number to set radius or size in px:
 
