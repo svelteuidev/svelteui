@@ -25,6 +25,13 @@ index: true
 	} from '@svelteuidev/core';
 
 	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}.main.nosidebar{margin-left: 0 !important;padding-top: 0 !important;}<\/style>`;
+
+	const srcCodeButton = {
+		m: 0,
+		'&:hover': {
+			textDecoration: 'none'
+		}
+	}
 </script>
 
 <svelte:head>
@@ -48,7 +55,7 @@ index: true
 			>
 				<Text weight="bold" override={{ color: 'white' }}>Get Started</Text>
 			</Button>
-			<Button fullSize={$mobile ? true : false} override={{ m: 0 }} size="xl" variant="default" href="https://github.com/svelteuidev/svelteui">
+			<Button fullSize={$mobile ? true : false} override={srcCodeButton} size="xl" variant="default" href="https://github.com/svelteuidev/svelteui">
 				<GithubLogo size={25} slot="leftIcon" />
 				<Text weight="bold" color="dark">Source Code</Text>
 			</Button>
