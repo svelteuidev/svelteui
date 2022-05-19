@@ -1,6 +1,6 @@
 import type { DefaultProps, CSS, SvelteUINumberSize } from '$lib/styles';
 
-export interface GroupProps extends DefaultProps {
+export interface GroupProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	position: GroupPosition;
 	noWrap: boolean;
 	grow: boolean;

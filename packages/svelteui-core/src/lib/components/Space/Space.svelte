@@ -8,9 +8,9 @@
 	/** Override prop for custom theming the component */
 	export let override: $$SpaceProps['override'] = {};
 	/** Width, set to add horizontal spacing */
-	export let w: $$SpaceProps['w'] = 'md';
+	export let w: $$SpaceProps['w'] = 0;
 	/** Height, set to add vertical spacing */
-	export let h: $$SpaceProps['h'] = 'md';
+	export let h: $$SpaceProps['h'] = 0;
 
 	$: SpaceStyles = {
 		width: typeof w === 'number' ? `${w}px` : `$${w}`,

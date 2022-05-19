@@ -1,1 +1,1 @@
-export { hash } from './hash';
+export { hash } from './hash.js';

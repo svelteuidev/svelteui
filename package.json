@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -40,6 +40,7 @@
     "package": "npm run clean && turbo run package --parallel",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
+    "pub": "turbo run pub --parallel",
     "release": "changeset publish",
     "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types",
     "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",

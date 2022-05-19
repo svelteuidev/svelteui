@@ -7,7 +7,18 @@ export interface PrismStyles extends DefaultProps {
 	lineNumbers: boolean;
 	highlightLines: string;
 	normalizeWhiteSpace: boolean;
-	normalizeWhiteSpaceConfig: Record<string, any>;
+	normalizeWhiteSpaceConfig: WhiteSpaceConfig;
 	copy: boolean;
 	copyTimeout: number;
+}
+
+export interface WhiteSpaceConfig {
+	'remove-trailing': boolean;
+	'remove-indent': boolean;
+	'left-trim': boolean;
+	'right-trim': boolean;
+	'break-lines': number;
+	'remove-initial-line-feed': boolean;
+	'tabs-to-spaces': number;
+	'spaces-to-tabs': number;
 }

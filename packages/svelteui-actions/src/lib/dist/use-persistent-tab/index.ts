@@ -1,1 +1,1 @@
-export { persistenttab } from './use-persistent-tab';
+export { persistenttab } from './use-persistent-tab.js';

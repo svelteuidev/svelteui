@@ -15,9 +15,13 @@ docs: 'utilities/raf-fn.md'
     import { Heading, Preview } from 'components'
 
     let count = 0;
+    let count2 = 0;
     const { pause, resume } = rafFn(() => {
         count++;
     });
+    const { pause: pause2, resume: resume2 } = rafFn(() => {
+        count2++;
+    }, {immediate: false});
 
     const code = `
     <script>
@@ -28,6 +32,22 @@ docs: 'utilities/raf-fn.md'
         const { pause, resume } = rafFn(() => {
             count++;
         });
+    <\/script>
+
+    <div>Count: {count}<\/div>
+    <Button on:click={() => pause()}>Pause<\/Button>
+    <Button on:click={() => resume()}>Resume<\/Button>
+    `;
+
+    const code2 = `
+    <script>
+        import { rafFn } from '@svelteuidev/utilities';
+        import { Button } from '@svelteuidev/core';
+
+        let count = 0;
+        const { pause, resume } = rafFn(() => {
+            count++;
+        }, {immediate: false});
     <\/script>
 
     <div>Count: {count}<\/div>
@@ -46,6 +66,16 @@ The `rafFn` utility takes a callback function as its first argument, and calls t
     <div>Count: {count}</div>
     <Button on:click={() => pause()}>Pause</Button>
     <Button on:click={() => resume()}>Resume</Button>
+</Preview>
+
+## Immediate Option
+
+The `rafFn` utility also takes a second argument of options, which is an object that has one property. The immediate option is set to true by default. If it is set to false, then the callback function won't be ran unless the `resume` function is called.
+
+<Preview code={code2}>
+    <div>Count: {count2}</div>
+    <Button on:click={() => pause2()}>Pause</Button>
+    <Button on:click={() => resume2()}>Resume</Button>
 </Preview>
 
 ## Typescript

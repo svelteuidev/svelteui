@@ -60,7 +60,7 @@ Group component uses the `children` prop to add styles to its children
 </Group>
 ```
 
-**!important** Group will work only with React elements. Strings, numbers, fragments and other parts will
+**!important** Group will work only with elements and Components that render elements. Strings, numbers, fragments and other parts will
 not have correct styles:
 
 ```svelte

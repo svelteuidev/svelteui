@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {
 		ActionIcon,
+		Anchor,
 		BackgroundImage,
 		Button,
 		Checkbox,
@@ -42,5 +43,3 @@
 		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
 	{/each}
 </SimpleGrid>
-
-<Button />

@@ -29,7 +29,7 @@ docs: 'core/text.md'
     <Text weight={'semibold'}>Semibold<\/Text>
     <Text weight={'bold'}>Bold<\/Text>
     <Text underline>Underlined<\/Text>
-    <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant<\/Text>
+    <Text variant="link" root="a" href="https://svelteui.org">Link variant<\/Text>
     <Text color="red">Red text<\/Text>
     <Text color="blue">Blue text<\/Text>
     <Text color="gray">Gray text<\/Text>
@@ -118,7 +118,7 @@ Use Text component to display text and links with theme styles. Control Text sty
     <Text weight={'semibold'}>Semibold</Text>
     <Text weight={'bold'}>Bold</Text>
     <Text underline>Underlined</Text>
-    <Text variant="link" root="a" href="https://svelteui-docs.vercel.app">Link variant</Text>
+    <Text variant="link" root="a" href="https://svelteui.org">Link variant</Text>
     <Text color="red">Red text</Text>
     <Text color="blue">Blue text</Text>
     <Text color="gray">Gray text</Text>
@@ -128,15 +128,15 @@ Use Text component to display text and links with theme styles. Control Text sty
     <Text align="right">Aligned to right</Text>
 </Preview>
 
-### Dimmed
+## Dimmed
 
-Text supports special `dimmed` value in color prop. It sets color to `theme.colors.dark200` in dark theme and to `theme.colors.gray600` in light:
+Text supports special `dimmed` value in color prop. It sets color to `theme.colors["dark200"].value` in dark theme and to `theme.colors["gray600"].value` in light:
 
 <Preview cols={1} code={dimmedText}>
     <Text color="dimmed">Dimmed text</Text>
 </Preview>
 
-### Gradient variant
+## Gradient variant
 
 To use gradient as Text color:
 
@@ -157,7 +157,7 @@ To use gradient as Text color:
     </Text>
 </Preview>
 
-### Line Clamp
+## Line Clamp
 
 Specify maximum amount of lines with `lineClamp` prop. This option uses [-webkit-line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp) CSS property ([caniuse](https://caniuse.com/css-line-clamp)). Note that padding-bottom cannot be set on text element:
 
@@ -172,7 +172,7 @@ Specify maximum amount of lines with `lineClamp` prop. This option uses [-webkit
     </InputWrapper>
 </Preview>
 
-### Inherit Styles
+## Inherit Styles
 
 Text always applies font-size, font-family and line-height styles, but in some cases this is not a desired behavior. To force Text to inherit parent styles set `inherit` prop. For example, highlight part of [Title](core/title):
 
@@ -186,7 +186,7 @@ Text always applies font-size, font-family and line-height styles, but in some c
     </Title>
 </Preview>
 
-### Custom component
+## Custom component
 
 By default, text is rendered as div element, to change it by set `root` prop:
 

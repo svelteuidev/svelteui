@@ -42,7 +42,7 @@
 		</Group>
 	</Center>
 	<hr />
-	<Container id="main-container" size="xl">
+	<Container override={{ py: '$10' }} id="main-container" size="xl">
 		<slot />
 	</Container>
 </SvelteUIProvider>

@@ -76,7 +76,7 @@ By default the Code component renders inline `code` html element:
     <Code>This code will be inline</Code>
 </Preview>
 
-### Block code
+## Block code
 
 To render code in `pre` element pass block prop to Code component. It is also possible to allow copying the code to the clipboard with the prop `copy`:
 
@@ -86,7 +86,7 @@ To render code in `pre` element pass block prop to Code component. It is also po
     </Code>
 </Preview>
 
-### Custom color
+## Custom color
 
 By default, code has gray color, you can change it to any color from [theme colors](theming/default-theme.md):
 
@@ -96,7 +96,7 @@ By default, code has gray color, you can change it to any color from [theme colo
     <Code color="blue">This code is blue</Code>
 </Preview>
 
-### Syntax highlight
+## Syntax highlight
 
 For syntax highlight consult the [prism package](others/prism).
 

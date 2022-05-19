@@ -120,7 +120,7 @@ Image component is a wrapper around img element with option to change object fit
     />
 </Preview>
 
-### Width and height
+## Width and height
 
 In the example above, the image takes 100% of width of its container and height is calculated dynamically based on image proportion. To change this behavior, set image width and height to define image size.
 
@@ -144,7 +144,7 @@ Note that if image proportions do not match given width and height, some parts w
     />
 </Preview>
 
-### Placeholder
+## Placeholder
 
 By default the placeholders image is disabled. Image placeholder is displayed in these cases:
 
@@ -173,7 +173,7 @@ Placeholder size is determined by width and height props. Placeholder is centere
     </div>
 </Preview>
 
-### With caption
+## With caption
 
 You can add figcaption to an image with `caption` prop:
 
@@ -186,7 +186,7 @@ You can add figcaption to an image with `caption` prop:
     />
 </Preview>
 
-### Radius
+## Radius
 
 Radius is applied both to image and placeholder. Radius has predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set border-radius in px:
 
@@ -196,7 +196,7 @@ Radius is applied both to image and placeholder. Radius has predefined values: `
     <Image radius={10} src={doggo} />
 </Preview>
 
-### BackgroundImage component
+## BackgroundImage component
 
 Use BackgroundImage component when you need to display image below any content. Component sets `background-image` to given `src`, `background-size` to `cover` and `background-position` to `center`. It can be used for cards, hero headers and similar components:
 

@@ -13,10 +13,10 @@
 
 ```bash
 # With yarn
-yarn add @svelteuidev/prism
+yarn add @svelteuidev/prism @svelteuidev/actions @svelteuidev/core
 
 # With npm
-npm install @svelteuidev/prism
+npm install @svelteuidev/prism @svelteuidev/actions @svelteuidev/core
 ```
 
 ## Usage
