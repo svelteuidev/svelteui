@@ -47,7 +47,8 @@
 					{ label: 'right', value: 'right' }
 				],
 				initialValue: 'left',
-				defaultValue: 'left'
+				defaultValue: 'left',
+				when: { control: 'loading', comparator: '===', value: true }
 			},
 			{ name: 'children', type: 'string', initialValue: 'Settings' }
 		]

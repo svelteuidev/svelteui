@@ -23,19 +23,29 @@
 
 	let demoControls: DemoControl[] = [];
 	let data: Record<string, any> = {};
+	let conditionalData: Record<string, any> = {};
 	let children, componentProps, controls;
 
-	// Filter out control type which we use only for make typescript work as we wanted
+	// Filter out control type which we use only for making typescript work as we wanted
 	$: demoControls = configurator.filter(isDemoControl);
 
-	$: data = demoControls.reduce((acc, prop) => {
-		acc[prop.name] = prop.initialValue;
+	// Contain data for all possible controls even for conditional, we want to keep track of all data
+	$: data = demoControls.reduce((acc, control) => {
+		acc[control.name] = control.initialValue;
 		return acc;
 	}, {});
-	$: ({ children, ...componentProps } = data);
+	// Contain data which match conditions
+	$: conditionalData = demoControls.reduce((acc, control) => {
+		const { name, defaultValue } = control;
+
+		acc[name] = isEnabled(control, data) ? data[name] : defaultValue;
+
+		return acc;
+	}, {});
+	$: ({ children, ...componentProps } = conditionalData);
 	$: propsCode = propsToString({
 		props: demoControls,
-		values: data,
+		values: conditionalData,
 		multiline,
 		multilineEndNewLine
 	});
@@ -55,7 +65,8 @@
 				const value = e.currentTarget ? e.currentTarget.value : e.detail;
 				changeData(name, value);
 			},
-			props
+			props,
+			hidden: !isEnabled(control, data)
 		};
 	});
 
@@ -65,6 +76,22 @@
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
 		return control && control.type !== '_DO_NOT_USE_';
+	}
+
+	function isEnabled(control: DemoControl, data: Record<string, any>): boolean {
+		const { when } = control;
+
+		if (when) {
+			const { control: controlName, comparator, value } = when;
+			switch (comparator) {
+				case '===':
+					return data[controlName] === value;
+				case '!==':
+					return data[controlName] !== value;
+			}
+		}
+
+		return true;
 	}
 
 	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
@@ -147,10 +174,10 @@
 			</div>
 		</div>
 		<div class="controls">
-			{#each controls as { component, label, value, props, onChange }, i}
+			{#each controls as { component, label, value, props, onChange, hidden }, i}
 				<!-- TODO: remove condition when all controls will be done -->
 				{#if component}
-					<div class="control">
+					<div class="control" style={hidden ? 'display: none;' : ''}>
 						<svelte:component this={component} {label} {value} {...props} on:change={onChange} />
 					</div>
 				{/if}

@@ -1,11 +1,18 @@
 import type { SvelteComponent } from 'svelte';
 import type { SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
+interface ControlCondition {
+	control: string;
+	comparator: '===' | '!==';
+	value: any;
+}
+
 interface DemoControlBase<T = any> {
 	name: string;
 	label?: string;
 	initialValue?: T;
 	defaultValue?: T;
+	when?: ControlCondition;
 }
 
 export interface DemoControlBoolean extends DemoControlBase<boolean> {
