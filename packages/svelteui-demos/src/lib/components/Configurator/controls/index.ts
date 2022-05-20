@@ -5,6 +5,7 @@ import StringControl from './StringControl.svelte';
 import SizeControl from './SizeControl.svelte';
 import SegmentedControl from './SegmentedControl.svelte';
 import NumberControl from './NumberControl.svelte';
+import CompositeControl from './CompositeControl.svelte';
 
 export const controls = {
 	select: SelectControl,
@@ -13,5 +14,8 @@ export const controls = {
 	string: StringControl,
 	size: SizeControl,
 	segmented: SegmentedControl,
-	number: NumberControl
+	number: NumberControl,
+	composite: CompositeControl
 };
+
+export { default as ControlsRenderer } from './ControlsRenderer.svelte';

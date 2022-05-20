@@ -1,11 +1,18 @@
 import type { SvelteComponent } from 'svelte';
 import type { SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
+interface ControlCondition {
+	control: string;
+	comparator: '===' | '!==';
+	value: any;
+}
+
 interface DemoControlBase<T = any> {
 	name: string;
 	label?: string;
 	initialValue?: T;
 	defaultValue?: T;
+	when?: ControlCondition;
 }
 
 export interface DemoControlBoolean extends DemoControlBase<boolean> {
@@ -42,6 +49,12 @@ export interface DemoControlSegmented extends DemoControlBase<string> {
 	capitalize?: boolean;
 }
 
+export interface DemoControlComposite
+	extends Exclude<DemoControlBase<Record<string, any>>, 'initialValue' | 'defaultValue'> {
+	type: 'composite';
+	controls: DemoControl[];
+}
+
 export type DemoControl =
 	| DemoControlBoolean
 	| DemoControlColor
@@ -49,28 +62,28 @@ export type DemoControl =
 	| DemoControlString
 	| DemoControlSize
 	| DemoControlNumber
-	| DemoControlSegmented;
+	| DemoControlSegmented
+	| DemoControlComposite;
 
+// _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
 export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
 
 interface DemoBaseConfiguration {
-	wrapper?: typeof SvelteComponent;
-	background?: (colorScheme: 'light' | 'dark') => string;
+	previewMaxWidth?: number;
+	previewBackground?: { light: string; dark: string };
 }
 
 export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 	code?: string;
 	spacing?: boolean;
 	toggle?: boolean;
-	inline?: boolean;
 }
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
-	codeTemplate(props: string, children?: string): string;
-	// _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
 	configurator: ConfiguratorDemoControl[];
+	codeTemplate?: (props: string, children?: string) => string;
 	multiline?: boolean | number;
-	includeCode?: boolean;
+	multilineEndNewLine?: boolean;
 	center?: boolean;
 }
 

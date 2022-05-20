@@ -12,6 +12,7 @@
 
 	function onInput(e) {
 		let newValue = e.currentTarget.value * 1;
+		let lastNumber = e.currentTarget.value[e.currentTarget.value.length - 1] * 1;
 
 		// all these validations will be done in NumberInput when it will be implemented
 		if (min !== undefined && newValue < min) {
@@ -20,8 +21,8 @@
 		}
 
 		if (max !== undefined && newValue > max) {
-			newValue = max;
-			value = max;
+			newValue = Math.max(Math.min(lastNumber, max), min);
+			value = Math.max(Math.min(lastNumber, max), min);
 		}
 
 		dispatch('change', newValue);
