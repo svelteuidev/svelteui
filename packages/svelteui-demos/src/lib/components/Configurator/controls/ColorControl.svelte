@@ -31,16 +31,23 @@
 		appearance: 'none',
 		height: 25,
 		cursor: 'pointer',
-		display: 'flex',
+		display: 'block',
 		alignItems: 'center',
 		justifyContent: 'center',
 		color: 'rgb(255, 255, 255)',
-		flex: '1 0 32px',
+		flexGrow: '1 !important',
+		flexShrink: 0,
+		flexBasis: 'calc(15% - 4px)',
 		boxShadow: 'rgb(0 0 0 / 10%) 0px 0px 0px 1px inset, rgb(0 0 0 / 15%) 0px 0px 4px inset',
 		borderRadius: 4,
+		position: 'relative',
 
 		svg: {
-			display: 'none'
+			display: 'none',
+			position: 'absolute',
+			left: '50%',
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
 		},
 
 		'&.active svg': {
