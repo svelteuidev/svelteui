@@ -31,7 +31,23 @@
 				initialValue: 'filled',
 				defaultValue: 'filled'
 			},
-			{ name: 'color', type: 'color', initialValue: 'blue', defaultValue: 'blue' },
+			{
+				name: 'color',
+				type: 'color',
+				initialValue: 'blue',
+				defaultValue: 'blue',
+				when: { control: 'variant', comparator: '!==', value: 'gradient' }
+			},
+			{
+				name: 'gradient',
+				type: 'composite',
+				controls: [
+					{ name: 'from', type: 'color', initialValue: 'indigo', defaultValue: 'indigo' },
+					{ name: 'to', type: 'color', initialValue: 'cyan', defaultValue: 'cyan' },
+					{ name: 'deg', type: 'number', initialValue: 45, defaultValue: 45 }
+				],
+				when: { control: 'variant', comparator: '===', value: 'gradient' }
+			},
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },

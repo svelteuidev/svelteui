@@ -17,6 +17,9 @@
 <h2>Multiline Offset</h2>
 <Demo demo={ConfiguratorExamples.multilineOffset} />
 
+<h2>We Need To Go Deeper</h2>
+<Demo demo={ConfiguratorExamples.weNeedToGoDeeper} />
+
 <h2>Only Configurator</h2>
 <Demo demo={ConfiguratorExamples.onlyConfigurator} />
 

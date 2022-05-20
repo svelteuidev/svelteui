@@ -5,9 +5,18 @@ interface PropToString {
 	name: string;
 	value: any;
 	defaultValue: any;
+	controls: DemoControl[];
+	multiline?: boolean | number;
 }
 
-export function propToString({ type, name, value, defaultValue }: PropToString) {
+export function propToString({
+	type,
+	name,
+	value,
+	defaultValue,
+	controls,
+	multiline = false
+}: PropToString) {
 	if (value === defaultValue || name === 'children') {
 		return '';
 	}
@@ -24,7 +33,59 @@ export function propToString({ type, name, value, defaultValue }: PropToString) 
 		return `${name}={${value}}`;
 	}
 
+	if (type === 'composite') {
+		const stringVal = compositeToString({ name, value, controls, multiline });
+
+		return stringVal ? `${name}={${stringVal}}` : '';
+	}
+
 	return `${name}="${value}"`;
+}
+
+interface CompositeToString {
+	name: string;
+	value: any;
+	controls: DemoControl[];
+	multiline?: boolean | number;
+}
+
+function compositeToString({ value, controls, multiline = false }: CompositeToString): string {
+	const multiLineOffset = Number(multiline);
+	const stringVal = controls
+		.map((control) => {
+			const { type, name, defaultValue } = control;
+
+			if (type === 'composite') {
+				const stringVal = compositeToString({
+					name: name,
+					value: value[name],
+					controls: control.controls,
+					multiline: multiLineOffset ? multiLineOffset + 1 : multiLineOffset
+				});
+
+				return stringVal ? `${name}: ${stringVal}` : '';
+			} else {
+				if (value[name] === defaultValue) {
+					return '';
+				}
+
+				if (['boolean', 'number'].includes(type)) {
+					return `${name}: ${value[name]}`;
+				}
+
+				return `${name}: '${value[name]}'`;
+			}
+		})
+		.filter(Boolean)
+		.join(multiLineOffset ? `,${getOffset(multiLineOffset + 1)}` : ', ');
+
+	if (multiLineOffset) {
+		return stringVal
+			? `{${getOffset(multiLineOffset + 1)}${stringVal}${getOffset(multiLineOffset)}}`
+			: '';
+	}
+
+	return stringVal ? `{ ${stringVal} }` : '';
 }
 
 interface PropsToString {
@@ -49,7 +110,9 @@ export function propsToString({ props, values, multiline, multilineEndNewLine }:
 				type: prop.type,
 				name: prop.name,
 				value: values[prop.name],
-				defaultValue: prop.defaultValue
+				defaultValue: prop.defaultValue,
+				controls: prop.type === 'composite' ? prop.controls : undefined,
+				multiline
 			})
 		)
 		.filter(Boolean)

@@ -5,8 +5,8 @@
 		DemoControl,
 		ConfiguratorDemoControl
 	} from '$lib/types';
-	import { controls as controlsComponents } from './controls';
-	import { propsToString, upperFirst } from '../../utils';
+	import { ControlsRenderer } from './controls';
+	import { propsToString, isEnabled } from '../../utils';
 	import { css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 
@@ -28,20 +28,32 @@
 
 	// Filter out control type which we use only for making typescript work as we wanted
 	$: demoControls = configurator.filter(isDemoControl);
+	$: data = demoControls.reduce(dataReducer, {});
 
-	// Contain data for all possible controls even for conditional, we want to keep track of all data
-	$: data = demoControls.reduce((acc, control) => {
-		acc[control.name] = control.initialValue;
-		return acc;
-	}, {});
 	// Contain data which match conditions
-	$: conditionalData = demoControls.reduce((acc, control) => {
-		const { name, defaultValue } = control;
+	$: conditionalData = getConditionalData(demoControls, data);
 
-		acc[name] = isEnabled(control, data) ? data[name] : defaultValue;
+	function getConditionalData(
+		demoControls: DemoControl[],
+		data: Record<string, any>,
+		isControlEnabled?: boolean
+	): Record<string, any> {
+		function conditionalDataReducer(acc, control: DemoControl) {
+			const { name, defaultValue, type, controls } = control;
+			const enabled = isControlEnabled !== undefined ? isControlEnabled : isEnabled(control, data);
 
-		return acc;
-	}, {});
+			if (type !== 'composite') {
+				acc[name] = enabled ? data[name] : defaultValue;
+			} else {
+				acc[name] = getConditionalData(controls, data[name] ?? {}, enabled);
+			}
+
+			return acc;
+		}
+
+		return demoControls.reduce(conditionalDataReducer, {});
+	}
+
 	$: ({ children, ...componentProps } = conditionalData);
 	$: propsCode = propsToString({
 		props: demoControls,
@@ -54,44 +66,17 @@
 		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children).trim()
 		: '';
 
-	$: controls = demoControls.map((control) => {
-		const { type, label, name, initialValue, defaultValue, ...props } = control;
-
-		return {
-			component: controlsComponents[type],
-			label: upperFirst(control.label || control.name),
-			value: data[name],
-			onChange(e) {
-				const value = e.currentTarget ? e.currentTarget.value : e.detail;
-				changeData(name, value);
-			},
-			props,
-			hidden: !isEnabled(control, data)
-		};
-	});
-
-	function changeData(name: string, value: any) {
-		data = { ...data, [name]: value };
-	}
-
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
 		return control && control.type !== '_DO_NOT_USE_';
 	}
 
-	function isEnabled(control: DemoControl, data: Record<string, any>): boolean {
-		const { when } = control;
+	function dataReducer(acc, { name, initialValue, type, controls }) {
+		acc[name] = type !== 'composite' ? initialValue : controls.reduce(dataReducer, {});
+		return acc;
+	}
 
-		if (when) {
-			const { control: controlName, comparator, value } = when;
-			switch (comparator) {
-				case '===':
-					return data[controlName] === value;
-				case '!==':
-					return data[controlName] !== value;
-			}
-		}
-
-		return true;
+	function onChange(newData) {
+		data = newData;
 	}
 
 	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
@@ -174,14 +159,7 @@
 			</div>
 		</div>
 		<div class="controls">
-			{#each controls as { component, label, value, props, onChange, hidden }, i}
-				<!-- TODO: remove condition when all controls will be done -->
-				{#if component}
-					<div class="control" style={hidden ? 'display: none;' : ''}>
-						<svelte:component this={component} {label} {value} {...props} on:change={onChange} />
-					</div>
-				{/if}
-			{/each}
+			<ControlsRenderer value={data} controls={demoControls} {onChange} />
 		</div>
 	</div>
 	{#if code}

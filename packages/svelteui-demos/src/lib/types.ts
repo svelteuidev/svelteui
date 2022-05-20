@@ -49,6 +49,12 @@ export interface DemoControlSegmented extends DemoControlBase<string> {
 	capitalize?: boolean;
 }
 
+export interface DemoControlComposite
+	extends Exclude<DemoControlBase<Record<string, any>>, 'initialValue' | 'defaultValue'> {
+	type: 'composite';
+	controls: DemoControl[];
+}
+
 export type DemoControl =
 	| DemoControlBoolean
 	| DemoControlColor
@@ -56,7 +62,8 @@ export type DemoControl =
 	| DemoControlString
 	| DemoControlSize
 	| DemoControlNumber
-	| DemoControlSegmented;
+	| DemoControlSegmented
+	| DemoControlComposite;
 
 // _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
 export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
