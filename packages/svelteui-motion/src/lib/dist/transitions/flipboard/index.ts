@@ -1,1 +1,1 @@
-export { flipboard } from './flipboard';
+export { flipboard } from './flipboard.js';

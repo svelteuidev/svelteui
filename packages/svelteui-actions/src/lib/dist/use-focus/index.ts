@@ -1,1 +1,1 @@
-export { focus } from './use-focus';
+export { focus } from './use-focus.js';

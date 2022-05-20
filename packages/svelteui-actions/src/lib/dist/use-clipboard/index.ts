@@ -1,1 +1,1 @@
-export { clipboard } from './use-clipboard';
+export { clipboard } from './use-clipboard.js';

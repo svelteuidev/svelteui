@@ -1,4 +1,4 @@
-import { StarFilled, BlendingMode, GithubLogo } from 'radix-icons-svelte';
+import { StarFilled, BlendingMode, QuestionMarkCircled } from 'radix-icons-svelte';
 
 export const NEXT_STEPS_DATA = [
 	{
@@ -18,10 +18,11 @@ export const NEXT_STEPS_DATA = [
 		color: '$cyan600'
 	},
 	{
-		icon: GithubLogo,
-		link: 'https://github.com/svelteuidev/svelteui',
-		title: 'Explore source code',
-		description: 'If you like SvelteUI please give us a star',
-		color: '#000'
+		icon: QuestionMarkCircled,
+		link: 'faq',
+		title: "Look at some FAQ's",
+		description:
+			'Have some questions such as integrating Tailwind with SvelteUI? Get them answered in the FAQ section',
+		color: '$indigo600'
 	}
 ];

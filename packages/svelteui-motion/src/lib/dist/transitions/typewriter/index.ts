@@ -1,1 +1,1 @@
-export { typewriter } from './typewriter';
+export { typewriter } from './typewriter.js';

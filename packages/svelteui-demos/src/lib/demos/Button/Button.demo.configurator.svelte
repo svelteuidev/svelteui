@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+	/* eslint-disable no-useless-escape */
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) => `

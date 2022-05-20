@@ -3,7 +3,7 @@ title: 'use-persistent-tab'
 group: 'svelteuidev-actions'
 packageGroup: '@svelteuidev/actions'
 slug: /actions/use-persistent-tab/
-description: 'Prevent current tab from being closed by user.'
+description: 'Prevent current tab from being closed by the user.'
 import: "import { persistenttab } from '@svelteuidev/actions';"
 docs: 'actions/use-persistent-tab.md'
 source: 'svelteui-actions/src/lib/dist/use-persistent-tab/use-persistent-tab.ts'
@@ -37,7 +37,7 @@ source: 'svelteui-actions/src/lib/dist/use-persistent-tab/use-persistent-tab.ts'
 
 ## Usage
 
-With the `use-persistenttab` action, you can prevent current tab from being closed by user. A common use case for this is when a user is filling out a form, and you don't want them to lose their data/progress.
+With the `use-persistent-tab` action, you can prevent current tab from being closed by user. A common use case for this is when a user is filling out a form, and you don't want them to lose their data/progress.
 
 <Preview cols={1} {code}>
     <Button ripple on:click={() => isNotClosable = !isNotClosable}>
@@ -57,7 +57,7 @@ With the `use-persistenttab` action, you can prevent current tab from being clos
 
 ## Events
 
-The use-persistenttab action does not dispatch any custom events.
+The use-persistent-tab action does not dispatch any custom events.
 
 ## Definition
 

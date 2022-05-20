@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+	/* eslint-disable no-useless-escape */
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `

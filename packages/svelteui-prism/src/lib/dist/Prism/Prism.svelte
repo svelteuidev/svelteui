@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/actions';
+	import { clipboard } from './clipboard';
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
 	import 'prism-svelte';
@@ -8,6 +8,7 @@
 	import 'prismjs/plugins/line-highlight/prism-line-highlight';
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
+	import { config } from './Prism.config';
 	import { PrismErrors } from './Prism.errors';
 	import type { PrismStyles as $$PrismStyles } from './Prism.styles';
 
@@ -30,16 +31,7 @@
 	/** If white space should be normalized in the code provided */
 	export let normalizeWhiteSpace: $$PrismStyles['normalizeWhiteSpace'] = true;
 	/** Settings to configure the normalization of white space */
-	export let normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = {
-		'remove-trailing': true,
-		'remove-indent': true,
-		'left-trim': true,
-		'right-trim': true,
-		'break-lines': 80,
-		'remove-initial-line-feed': false,
-		'tabs-to-spaces': 4,
-		'spaces-to-tabs': 4
-	};
+	export let normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = config;
 	/** The time in ms for the copy button to return to its normal state after copy */
 	export let copy: $$PrismStyles['copy'] = true;
 	export let copyTimeout: $$PrismStyles['copyTimeout'] = 3000;

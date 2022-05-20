@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Box, ActionIcon, SimpleGrid, Space } from '@svelteuidev/core';
+	import { Box, ActionIcon, SimpleGrid, ThemeIcon } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import { slide } from 'svelte/transition';
 	// @ts-ignore
@@ -9,13 +9,17 @@
 	export let direction = 'row';
 	export let space = '$8';
 	export let override = {};
-	export let code = `<script>\nconst a = 1\n<\/script>`;
+	export let showCode = false;
+	export let code = `
+	<script>
+		const oops = "If you see this please raise an issue on github";
+	<\/script>
+	`;
 	export let language = 'svelte';
 	export let cols = 3;
 	/** @type {number} */
 	export let width = null;
 
-	let showCode = false;
 
 	const css = {
 		bc: 'white',
@@ -46,7 +50,7 @@
 			<ActionIcon
 				on:click={() => (showCode = !showCode)}
 				override={{ width: 'max-content', px: '$3' }}
-				variant="hover"
+				variant="outline"
 				size="lg"
 			>
 				{'<></>'}

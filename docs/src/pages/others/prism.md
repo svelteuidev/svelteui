@@ -35,11 +35,9 @@ license: MIT
 
         <Button>Hello<\/Button>
         \`
-        
-        <Prism language='svelte' code={prismExampleCode} \/>
     <\/script>
 
-    <Button>Hello<\/Button>
+    <Prism language='svelte' code={prismExampleCode} \/>
     `
 
     const prismCodeLineNumbers = `
@@ -54,10 +52,9 @@ license: MIT
         <Button>Hello<\/Button>
         \`
         
-        <Prism lineNumbers language='svelte' code={prismExampleCode} \/>
     <\/script>
 
-    <Button>Hello<\/Button>
+    <Prism lineNumbers language='svelte' code={prismExampleCode} \/>
     `
     const prismCodeHighlight = `
     <script>
@@ -71,10 +68,9 @@ license: MIT
         <Button>Hello<\/Button>
         \`
         
-        <Prism lineNumbers highlightLines='3-4' language='svelte' code={prismExampleCode} \/>
     <\/script>
 
-    <Button>Hello<\/Button>
+    <Prism lineNumbers highlightLines='3-4' language='svelte' code={prismExampleCode} \/>
     `
     const prismCodeCopy = `
     <script>
@@ -88,10 +84,9 @@ license: MIT
         <Button>Hello<\/Button>
         \`
         
-        <Prism copy={false} language='svelte' code={prismExampleCode} \/>
     <\/script>
 
-    <Button>Hello<\/Button>
+    <Prism copy={false} language='svelte' code={prismExampleCode} \/>
     `
 </script>
 
@@ -99,7 +94,7 @@ license: MIT
 
 ## Installation
 
-Package depends on [Prism](https://) and [@svelteuidev/core](https://www.npmjs.com/package/@svelteuidev/core).
+Package depends on [Prism](https://prismjs.com/), [prism-svelte](https://github.com/pngwn/prism-svelte) and [@svelteuidev/core](https://www.npmjs.com/package/@svelteuidev/core).
 
 Install with npm:
 
@@ -117,17 +112,17 @@ Install with yarn:
 
 Use Prism component to highlight code with SvelteUI theme styles. Component uses PrismJS under the hood and support light and dark theme, it is used in SvelteUI docs to display all code examples.
 
-<Preview width={70} cols={1} code={prismCode}>
+<Preview width={100} cols={1} code={prismCode}>
     <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
         <Prism language='svelte' code={prismExampleCode} />
     </Box>
 </Preview>
 
-Set `withLineNumbers` prop to display line numbers:
+Set `lineNumbers` prop to display line numbers:
 
-> Due to a bug with the docs, line numbers aren't displayed correctly.
+> Due to a bug with the docs, line numbers aren't displayed correctly. When you download the package it will work as intended.
 
-<Preview width={70} cols={1} code={prismCodeLineNumbers}>
+<Preview width={100} cols={1} code={prismCodeLineNumbers}>
     <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
         <Prism lineNumbers language='svelte' code={prismExampleCode} />
     </Box>
@@ -140,7 +135,7 @@ line numbers.
 
 - e.g. `highlightLines='1-2,4'`
 
-<Preview width={70} cols={1} code={prismCodeHighlight}>
+<Preview width={100} cols={1} code={prismCodeHighlight}>
     <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
         <Prism lineNumbers highlightLines='3-4' language='svelte' code={prismExampleCode} />
     </Box>
@@ -150,7 +145,7 @@ line numbers.
 
 To remove copy button set `copy` prop to false.
 
-<Preview width={70} cols={1} code={prismCodeCopy}>
+<Preview width={100} cols={1} code={prismCodeCopy}>
     <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
         <Prism copy={false} language='svelte' code={prismExampleCode} />
     </Box>

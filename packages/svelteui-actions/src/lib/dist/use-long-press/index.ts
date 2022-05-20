@@ -1,1 +1,1 @@
-export { longpress } from './use-long-press';
+export { longpress } from './use-long-press.js';

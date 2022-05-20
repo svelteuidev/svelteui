@@ -155,7 +155,7 @@ docs: 'core/button.md'
     <Button>Click me!</Button>
 </Preview>
 
-### Variants
+## Variants
 
 Button supports the following variants: `default`, `subtle`, `white`, `gradient`, `filled`, `light` and `outline`. Default Button color is `theme.blue600`, to change color and variant pass color and variant props:
 
@@ -165,7 +165,7 @@ Button supports the following variants: `default`, `subtle`, `white`, `gradient`
     {/each}
 </Preview>
 
-#### Gradient variant
+## Gradient variant
 
 To use gradient as Button background:
 
@@ -182,7 +182,7 @@ To use gradient as Button background:
     <Button variant='gradient' gradient={{from: 'grape', to: 'pink', deg: 35}}>Grape Pink</Button>
 </Preview>
 
-#### White variant
+## White variant
 
 White is a variant in which button background color is always white (both in light and dark theme) and `color` is controlled with color prop:
 
@@ -191,7 +191,7 @@ White is a variant in which button background color is always white (both in lig
 <Button variant="white" color="red">I am red</Button>
 </Preview>
 
-### Ripple effect
+## Ripple effect
 
 Button supports a ripple prop that gives the button a Material UI ripple effect. It expands outward from the point it was clicked.
 
@@ -201,7 +201,7 @@ Button supports a ripple prop that gives the button a Material UI ripple effect.
     {/each}
 </Preview>
 
-### Loading state
+## Loading state
 
 Button supports loading state. In this state [Loader](core/loader) component replaces left or right icon, button becomes disabled and white or dark overlay is added.
 
@@ -216,7 +216,7 @@ You can control loading state and [Loader](core/loader) component with following
     <Button loading={true} loaderPosition={"right"}>I am loading on the right</Button>
 </Preview>
 
-### Icons
+## Icons
 
 The Button component has two slots to render an Icon either on the left side or the right side. Wrap your Icon with the Button component, then add the `slot='leftIcon'` or `slot='rightIcon'` prop to your Icon.
 
@@ -231,9 +231,9 @@ The Button component has two slots to render an Icon either on the left side or 
     </Button>
 </Preview>
 
-### Customize
+## Customize
 
-You can change styles of any element in button component with `override` prop to match your design requirements. See [Theming](theming/utilities) for more information about how to customize the styles of the component.
+You can change styles of any element in button component with `override` prop to match your design requirements. See [Theming](theming/override) for more information about how to customize the styles of the component.
 
 <Preview cols={2} code={customizeButtons}>
     <Button override={{ bc: 'red', '&:hover': { bc: '$indigo400' } }} variant='outline'>Click Me</Button>
@@ -242,7 +242,7 @@ You can change styles of any element in button component with `override` prop to
     </Button>
 </Preview>
 
-### Size and radius
+## Size and radius
 
 Control button font-size, height and padding with `size` and border-radius with `radius` props. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set radius in px:
 
@@ -253,7 +253,7 @@ Control button font-size, height and padding with `size` and border-radius with 
     <Button size="lg" />
 </Preview>
 
-### Compact
+## Compact
 
 <Preview cols={3} code={compactButtons}>
     <Button compact>Click Me</Button>
@@ -261,7 +261,7 @@ Control button font-size, height and padding with `size` and border-radius with 
     <Button variant='default' compact>Click Me</Button>
 </Preview>
 
-### Full width and overflow
+## Full width and overflow
 
 Button can take full width of container if you set `fullSize` prop. If button is too large for its container, overflow content will be hidden:
 
@@ -269,7 +269,7 @@ Button can take full width of container if you set `fullSize` prop. If button is
      <Button fullSize>Click Me</Button>
 </Preview>
 
-### Change root element
+## Change root element
 
 You can use `Button` component both as `button` or `a` elements. The component's root element can be changed by adding the `href` prop. Adding the `external` prop will set the target attribute to blank:
 

@@ -2,14 +2,14 @@
   import { MainLink } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
-	import { StarFilled, Play, GithubLogo, Cube, Download } from 'radix-icons-svelte';
+	import { StarFilled, QuestionMarkCircled, GithubLogo, Cube, Download } from 'radix-icons-svelte';
 </script>
 
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
 - <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
 - <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
 - <MainLink color='dark' href='contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
-- <MainLink color='yellow' href='playground'><Play slot='icon' size={20} />Playground</MainLink>
+- <MainLink color='indigo' href='faq'><QuestionMarkCircled slot='icon' size={20} />FAQ</MainLink>
 
 <hr />
 
@@ -18,7 +18,12 @@
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
 - ### Theming
-  - coming soon
+  - [SvelteUIProvider](theming/svelteui-provider)
+  - [Creating styles](theming/create-styles)
+  - [Default Theme](theming/default-theme)
+  - [Dark Theme](theming/dark-theme)
+  - [Override styles](theming/override)
+  - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
 - ### SvelteUI Core
   - **<Layout /><Space />Layout**

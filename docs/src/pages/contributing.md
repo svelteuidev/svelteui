@@ -13,8 +13,6 @@ title: 'Contributing'
 
 <MinorHeading />
 
-> If you are even viewing this page, I would like to thank you. If you have the ability to contribute to this project in any capacity that would be greatly appreciated
-
 ## Ways to contribute
 
 - **Improve documentation:** fix incomplete or missing docs, bad wording, examples or explanations
@@ -26,7 +24,7 @@ title: 'Contributing'
 ## Contributing workflow
 
 - Decide what you want to contribute
-- If you want to implement new feature discuss it with a maintainer ([Discord](https://discord.gg/2J2xmzCS79)) before jumping into code
+- If you want to implement new feature discuss it with a maintainer ([Discord](https://discord.gg/2J2xmzCS79) or [Discussions](https://github.com/svelteuidev/svelteui/discussions/categories/feature-requests)) before jumping into code
 - After finalizing issue details work on code, please follow commit convention
 - Submit a PR if everything is fine
 - Get a code review and fix all issues noticed by a maintainer
@@ -41,29 +39,46 @@ All commits made in this repository are divided in 3 groups:
 - **docs commits** related to documentation
 - **core commits** only related to repository tooling and not associated with any package
 
-This repo uses commitizen to make commits easier. In order to commit changes made, you must run the `npm run cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
+This repo uses commitizen to make commits easier. In order to commit changes made, you should run the `npm run cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
 
 ```bash
-type: Message
+[type]: Message
 ```
 
 Examples:
 
-- `core: Fix documentation deployment script` - Change made in repository script, it is not related to documentation or any package
-- `docs: Update report issues link` - Change related to documentation website
-- `@svelteui/core: Add theme focus styles` - Change in `@svelteui/core` package at Button component
-- `@svelteui/actions: Add remove handler` - Change in `@svelteui/actions` package at use-list-state hook
+- `[core]: Fix documentation deployment script` - Change made in repository script, it is not related to documentation or any package
+- `[docs]: update report issues link` - Change related to documentation
+- `[@svelteui/core]: updated SvelteUIProvider config` - Change in `@svelteui/core` package in SvelteUIProvider component
+- `[@svelteui/actions]: added use-portal action` - Change in `@svelteui/actions` package by adding a new action
 
 ## Git branches
 
 - **main** - When the project hits 1.0, this will be for the current version, and patches for current minor version (1.0.x)
-- **next-minor** - contains next minor version (1.x.0), most likely you would want to create a PR to this branch
+- **next-minor** - Contains next minor version (1.x.0), most likely you would want to create a PR to this branch
+- **experimental** - Up to date with next minor version (1.x.0), implementing some experimental features that may or may not be added
 
 ## Get started with SvelteUI locally
 
 - Install [editorconfig](https://editorconfig.org/) extension for your editor
+- **vscode users only** - install recommended extensions
 - Fork [repository](https://github.com/svelteuidev/svelteui), clone or download your fork
-- Install dependencies at the root of the monorepo with npm - `npm i`
+- Install dependencies at the root of the monorepo with npm **(make sure to install with npm only)**
+- After your node modules have installed:
+
+**If developing in [svelteui-prism, svelteui-dates, or svelteui-demos]**
+
+1. run `npm run package`
+   - If you want to watch for changes in one of the packages that they depend on, run `npm run watch` in their directory.
+   - You will need two terminal sessions open at the very least. If this doesn't apply to your situation move on to step 2
+2. cd into the package you want to develop on
+3. run `npm run dev`
+
+**If developing in [svelteui-core, svelteui-actions, svelteui-utilities, or svelteui-motion]**
+
+1. cd into the package you want to develop on
+2. run `npm run dev`
+
 - To start docs - `cd docs && npm install && npm run dev`
 
 ## NPM scripts
@@ -71,10 +86,10 @@ Examples:
 All packages npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be ran from the root of the monorepo.
 
-## Testing scripts
-
+- `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder
 - `lint` - runs eslint on packages folder (run format before running lint)
 - `test` - runs tests with [vitest](https://vitest.dev/)
-- `repo:prepush` - runs all of these commands
-- `cm` - runs git commands to add and commit through commitizen
+- `package` - generates built versions of packages (needed for cross package development)
+- `repo:prepush` - runs sort, format, lint and test (run this before pushing your code)
+- `cm` - runs git commands to add and commit through commitizen (this is the recommended way to commit as it follows the convention automatically)

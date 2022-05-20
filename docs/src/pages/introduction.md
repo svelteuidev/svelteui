@@ -31,7 +31,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 ### Undocumented Components
 
-> The docs are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
+> The docs are still under construction. Some of the library's exported components & functions are still undocumented.
 
 <br />
 

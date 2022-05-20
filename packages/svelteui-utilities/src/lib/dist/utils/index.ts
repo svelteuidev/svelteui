@@ -17,7 +17,7 @@ export {
 	defaultLocation,
 	defaultDocument,
 	browser
-} from './_configurable';
+} from './_configurable.js';
 export * from './is';
 export * from './time';
 export * from './random-id';
