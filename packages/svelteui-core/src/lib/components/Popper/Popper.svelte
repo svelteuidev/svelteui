@@ -25,10 +25,18 @@
 	export let dir: $$PopperProps['dir'] = 'ltr'; //@todo: this come later from a global config
 	export let reference: $$PopperProps['reference'] = null; //@todo: check this
 
+	let element;
+
 	$: PopperStyles = css({
 		position: 'absolute',
         top: popperPosition.top,
         left: popperPosition.left,
+		pointerEvents: 'none',
+		visibility: 'hidden',
+
+		'&.mounted': {
+			visibility: 'visible'
+		},
 
 		'& .arrow': {
 			width: arrowSize * 2,
@@ -80,36 +88,73 @@
 		}
 	});
 
+	let popperPosition;
+
 	onMount(() => {
-		calculatePlacement(reference)
-		// window.addEventListener('resize', onResize);
-	})
+		calculatePlacement(reference, position, placement);
+	});
 
-	// onDestroy(() => {
-	// 	window.removeEventListener('resize', onResize);
-	// })
+	function onResize() {
+		popperPosition = calculatePlacement(reference, position, placement);
+	}
 
-	// function onResize() {
-	// 	calculatePlacement(reference);
-	// }
-
-	function calculatePlacement(reference) {
+	function calculatePlacement(reference, position, placement) {
 		if (!reference) return { top: 0, left: 0 };
-		const referenceData = reference.$$.root.getBoundingClientRect();
-		console.log("referenceData", reference, referenceData);
+		const referenceData = reference.getBoundingClientRect();
 
 		let top = referenceData.bottom;
 		let left = referenceData.x - referenceData.left;
 
-		switch(placement) {
-			case "start":
-				left = referenceData.x - referenceData.left;
+		const positionPlacement = `${position}-${placement}`;
+
+		switch(positionPlacement) {
+			case "top-start":
+				left = referenceData.x;
+				top = referenceData.top - element.clientHeight;
 				break;
-			case "center":
-				left = referenceData.x - referenceData.left + referenceData.width / 2;
+			case "top-center":
+				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
+				top = referenceData.top - element.clientHeight;
 				break;
-			case "end":
-				left = referenceData.x - referenceData.left + referenceData.width;
+			case "top-end":
+				left = referenceData.x + referenceData.width - element.clientWidth;
+				top = referenceData.top - element.clientHeight;
+				break;
+			case "bottom-start":
+				left = referenceData.x;
+				top = referenceData.bottom;
+				break;
+			case "bottom-center":
+				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
+				top = referenceData.bottom;
+				break;
+			case "bottom-end":
+				left = referenceData.x + referenceData.width - element.clientWidth;
+				top = referenceData.bottom;
+				break;
+			case "left-start":
+				left = referenceData.x - element.clientWidth;
+				top = referenceData.top;
+				break;
+			case "left-center":
+				left = referenceData.x - element.clientWidth;
+				top = referenceData.bottom + referenceData.height / 2 - element.clientHeight / 2;
+				break;
+			case "left-end":
+				left = referenceData.x - element.clientWidth;
+				top = referenceData.bottom + referenceData.height - element.clientHeight;
+				break;
+			case "right-start":
+				left = referenceData.x + referenceData.width;
+				top = referenceData.top;
+				break;
+			case "right-center":
+				left = referenceData.x + referenceData.width;
+				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
+				break;
+			case "right-end":
+				left = referenceData.x + referenceData.width;
+				top = referenceData.bottom - element.clientHeight;
 				break;
 		}
 
@@ -119,16 +164,17 @@
 		}
 	}
 
-	let popperPosition = { top: 0, left: 0 };
-
 	$: {
-		popperPosition = calculatePlacement(reference);
-		console.log("popperPosition", popperPosition);
+		popperPosition = calculatePlacement(reference, position, placement);
 	}
 
-    // $: initialPlacement = reference ? reference.$$.root.getBoundingClientRect() : null;
-    // $: console.log(initialPlacement)
+	// @TODOS:
+	// use transition
+	// show arrow
+	// show gutter
 </script>
+
+<svelte:window on:resize={onResize} />
 
 <!--
 @component
@@ -149,6 +195,12 @@ Overlays given element with div element with any color and opacity
     </Box>
     ```
 -->
-<div class="{PopperStyles()} {className}" transition:fade>
+
+<div
+	bind:this={element}
+	class="{PopperStyles()} {className}"
+	class:mounted={mounted}
+	transition:fade
+>
 	<slot />
 </div>

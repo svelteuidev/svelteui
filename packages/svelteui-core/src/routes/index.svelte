@@ -32,8 +32,12 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 
+	import type { PopperProps } from '$lib/components/Popper/Popper.styles';
+
 	let ref;
-	let placement = "start";
+	let mounted = false;
+	let placement: PopperProps["placement"] = "start";
+	let position: PopperProps["position"] = "bottom";
 </script>
 
 <!-- <SimpleGrid
@@ -49,15 +53,28 @@
 	{/each}
 </SimpleGrid> -->
 
-
-<Button bind:this={ref}>Click here</Button>
-<Popper reference={ref}>
-	This is a text
+<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
+<Popper reference={ref} {placement} {position} {mounted}>
+	<Box css={{ backgroundColor: '$gray100', padding: '30px' }}>
+		<Center>
+			<Text>This is a text</Text>
+		</Center>
+	</Box>
 </Popper>
 
+<Space h={30} />
 <Title>Placements</Title>
 <SimpleGrid cols={3}>
 	<Button on:click={() => placement = "start"}>Start</Button>
 	<Button on:click={() => placement = "center"}>Center</Button>
 	<Button on:click={() => placement = "end"}>End</Button>
+</SimpleGrid>
+
+<Space h={30} />
+<Title>Positions</Title>
+<SimpleGrid cols={4}>
+	<Button on:click={() => position = "top"}>Top</Button>
+	<Button on:click={() => position = "left"}>Left</Button>
+	<Button on:click={() => position = "bottom"}>Bottom</Button>
+	<Button on:click={() => position = "right"}>Right</Button>
 </SimpleGrid>
