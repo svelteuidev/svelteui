@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { dark } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
     import { DividerErrors } from './Divider.errors';
@@ -13,7 +14,7 @@
 	/** Css prop for custom theming the component */
 	export let override: $$DividerProps['override'] = {};
     /** Color of the divider line from theme */
-	export let color: $$DividerProps['color'] = 'dark';
+	export let color: $$DividerProps['color'] = 'gray';
     /** The orientation of the divider, can be 'horizontal' or 'vertical' */
 	export let orientation: $$DividerProps['orientation'] = 'horizontal';
     /** The size of the divider height in horizontal orientation and width in vertical orientation */
@@ -53,7 +54,10 @@
 		'& .label': {
 			display: 'flex',
 			alignItems: 'center',
-			color: `$${color}400`,
+			color: color === "dark" ? '$dark100' : `$${color}600`,
+            [`${dark.selector} &`]: {
+                color: color === "dark" ? '$dark100' : `$${color}500`,
+            },
 
 			'&.left': {
 				'&::before': {
@@ -73,8 +77,11 @@
 				height: 1,
 				borderTopWidth: typeof size === 'number' ? `${size}px` : `$${size}`,
 				borderTopStyle: `${variant}`,
-				borderTopColor: `$${color}300`,
-				marginRight: '$xs'
+				borderTopColor: `$${color}400`,
+				marginRight: '$xs',
+                [`${dark.selector} &`]: {
+                    borderTopColor: `$${color}300`
+                }
 			},
 
 			'&::after': {
