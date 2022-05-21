@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
+    import { DividerErrors } from './Divider.errors';
+    import Error from '$lib/internal/errors/Error.svelte';
 	import type { DividerProps as $$DividerProps } from './Divider.styles';
 
 	/** Used for forwarding actions from component */
@@ -85,7 +87,20 @@
 			}
 		}
 	};
+
+    // --------------Error Handling-------------------
+	let observable: boolean = false;
+	let err;
+
+	if (isVertical && label || $$slots.label) {
+		observable = true;
+		err = DividerErrors[0];
+	}
+
+	$: if (observable) override = { display: 'none' };
 </script>
+
+<Error {observable} component="Divider" code={err} />
 
 <!--
 @component
