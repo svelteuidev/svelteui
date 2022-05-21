@@ -7,7 +7,7 @@
 	} from '$lib/types';
 	import { ControlsRenderer } from './controls';
 	import { propsToString, isEnabled } from '../../utils';
-	import { css, dark } from '@svelteuidev/core';
+	import { css, dark, Box } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 
 	export let component: ConfiguratorDemoType['default'];
@@ -63,7 +63,7 @@
 	});
 
 	$: code = codeTemplate
-		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children).trim()
+		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children)
 		: '';
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
@@ -164,13 +164,15 @@
 	</div>
 	{#if code}
 		<div class="code">
-			<Prism
-				language="svelte"
-				{code}
-				override={{
-					padding: '$8'
-				}}
-			/>
+			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
+				<Prism
+					language="svelte"
+					{code}
+					override={{
+						padding: '$8'
+					}}
+				/>
+			</Box>
 		</div>
 	{/if}
 </div>

@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-	/* eslint-disable no-useless-escape */
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) => `
@@ -25,9 +24,8 @@
 					{ label: 'light', value: 'light' },
 					{ label: 'outline', value: 'outline' },
 					{ label: 'default', value: 'default' },
-					{ label: 'white', value: 'white' },
-					{ label: 'gradient', value: 'gradient' },
-					{ label: 'subtle', value: 'subtle' }
+					{ label: 'subtle', value: 'subtle' },
+					{ label: 'gradient', value: 'gradient' }
 				],
 				initialValue: 'filled',
 				defaultValue: 'filled'
@@ -55,17 +53,6 @@
 			{ name: 'compact', type: 'boolean', initialValue: false, defaultValue: false },
 			{ name: 'uppercase', type: 'boolean', initialValue: false, defaultValue: false },
 			{ name: 'ripple', type: 'boolean', initialValue: false, defaultValue: false },
-			{ name: 'loading', type: 'boolean', initialValue: false, defaultValue: false },
-			{
-				name: 'loaderPosition',
-				type: 'segmented',
-				data: [
-					{ label: 'left', value: 'left' },
-					{ label: 'right', value: 'right' }
-				],
-				initialValue: 'left',
-				defaultValue: 'left'
-			},
 			{ name: 'children', type: 'string', initialValue: 'Settings' }
 		]
 	};

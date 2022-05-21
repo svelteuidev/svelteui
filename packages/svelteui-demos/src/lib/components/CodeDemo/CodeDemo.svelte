@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import { ActionIcon, css, dark } from '@svelteuidev/core';
+	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
@@ -74,8 +74,8 @@
 			<div class="toggle">
 				<ActionIcon on:click={toggleCodeVisibility}>
 					<svg
-						width="15"
-						height="15"
+						width="20"
+						height="20"
 						viewBox="0 0 15 15"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -92,13 +92,15 @@
 	</div>
 	{#if code && codeVisible}
 		<div class="code" transition:slide>
-			<Prism
-				language="svelte"
-				{code}
-				override={{
-					padding: '$8'
-				}}
-			/>
+			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
+				<Prism
+					language="svelte"
+					{code}
+					override={{
+						padding: '$8'
+					}}
+				/>
+			</Box>
 		</div>
 	{/if}
 </div>

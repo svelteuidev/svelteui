@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SvelteUIProvider, Container, Title, Button, Group } from '@svelteuidev/core';
+	import { SvelteUIProvider, Container, Title, Button, Group, Anchor } from '@svelteuidev/core';
 
 	let isDark = false;
 	function toggleTheme() {
@@ -15,6 +15,8 @@
 		<Title weight="bold" override={{ letterSpacing: '$tight' }}>
 			This is the testing route for the demos
 		</Title>
+		<Anchor href="/">Home</Anchor>
+		<Anchor href="examples">Examples</Anchor>
 	</Group>
 	<hr />
 	<Container>

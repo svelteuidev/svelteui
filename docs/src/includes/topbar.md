@@ -18,7 +18,7 @@
 	let description =
 		'A Svelte library with a variety of components, actions, transition and utility functions!';
 	let img = 'https://svelteui.org/static/new-banner.png';
-	$: title = $current_page.title ? $current_page.title + ' — ' + maintitle : maintitle;
+	$: title = $current_page.title ? $current_page.title + ' | ' + maintitle : maintitle;
 	$: url = `https://svelteui.org/${$current_page.url}`;
 </script>
 

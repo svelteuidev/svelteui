@@ -17,7 +17,7 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"@svelteuidev/demos": ["../packages/svelteui-demos/src/lib"],
+			"@svelteuidev/demos": ["../packages/svelteui-demos/package"],
 			"components": ["./src/components"]
 		}
 	},
