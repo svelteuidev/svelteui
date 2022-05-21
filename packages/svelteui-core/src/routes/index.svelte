@@ -7,6 +7,7 @@
 		Checkbox,
 		CloseButton,
 		Code,
+		Divider,
 		Image,
 		Loader,
 		Switch,

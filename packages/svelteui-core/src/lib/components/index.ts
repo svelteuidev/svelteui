@@ -8,6 +8,7 @@ export * from './Center';
 export * from './Checkbox';
 export * from './Code';
 export * from './Container';
+export * from './Divider';
 export * from './Fragment';
 export * from './Group';
 export * from './Image';
