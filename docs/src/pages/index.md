@@ -35,7 +35,7 @@ index: true
 </script>
 
 <svelte:head>
-	{@html backgroundStyles}
+{@html backgroundStyles}
 </svelte:head>
 
 <SvelteUIProvider class="homepage_styles">
@@ -69,8 +69,7 @@ index: true
 			Less Code. Elegant Solutions.
 		</Title>
 		<Text size="xl" align="center" root="p">
-			Spend less time writing UI code and more time building a great experience for your
-			customers.
+			Spend less time writing UI code and more time building a great experience.
 			<br />
 			Don't like what you see? Customize every component anyway you like!
 		</Text>
