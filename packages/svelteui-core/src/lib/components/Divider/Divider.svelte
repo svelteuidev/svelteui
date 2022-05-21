@@ -92,7 +92,7 @@
 	let observable: boolean = false;
 	let err;
 
-	if (isVertical && label || $$slots.label) {
+	if (isVertical && (label || $$slots.label)) {
 		observable = true;
 		err = DividerErrors[0];
 	}
