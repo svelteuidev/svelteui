@@ -6,6 +6,7 @@ export declare type CurrentComponents =
 	| 'Button'
 	| 'Code'
 	| 'CloseButton'
+	| 'Divider'
 	| 'Group'
 	| 'Image'
 	| 'Loader'

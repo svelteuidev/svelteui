@@ -17,6 +17,7 @@ export * from './InputWrapper';
 export * from './Loader';
 export * from './NativeSelect';
 export * from './Overlay';
+export * from './Popper';
 export * from './Select';
 export * from './ServerRender';
 export * from './SimpleGrid';
