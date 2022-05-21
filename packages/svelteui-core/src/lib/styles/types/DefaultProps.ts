@@ -9,7 +9,7 @@ export interface DefaultProps<T = string> {
 	/** Used for components to bind to elements */
 	element?: T;
 	/** Used for forwarding actions from component */
-	use: ActionArray;
+	use?: ActionArray;
 }
 
 /* Default Props to be used everywhere. Here in the same spot to copy

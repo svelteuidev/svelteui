@@ -11,21 +11,21 @@ import type {
 import type { Component } from '$lib/internal';
 
 export interface TextProps extends DefaultProps {
-	className: string;
-	override: Override['props'];
-	align: SvelteUITextAlignment;
-	color: TextColors;
-	root: HTMLTextElements | Component;
-	transform: SvelteUITextTransform;
-	variant: TextVariant;
-	size: SvelteUINumberSize;
-	weight: SvelteUINumberFontSize;
-	gradient: SvelteUIGradient;
-	inline: boolean;
-	lineClamp: number;
-	underline: boolean;
-	inherit: boolean;
-	href: string;
+	className?: string;
+	override?: Override['props'];
+	align?: SvelteUITextAlignment;
+	color?: TextColors;
+	root?: HTMLTextElements | Component;
+	transform?: SvelteUITextTransform;
+	variant?: TextVariant;
+	size?: SvelteUINumberSize;
+	weight?: SvelteUINumberFontSize;
+	gradient?: SvelteUIGradient;
+	inline?: boolean;
+	lineClamp?: number;
+	underline?: boolean;
+	inherit?: boolean;
+	href?: string;
 }
 
 export type TextVariant = 'link' | 'text' | 'gradient';

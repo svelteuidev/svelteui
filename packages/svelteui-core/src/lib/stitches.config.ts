@@ -118,7 +118,12 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				normal: '2px',
 				bold: '3px',
 				extrabold: '4px',
-				black: '5px'
+				black: '5px',
+				xs: '1px',
+				sm: '2px',
+				md: '3px',
+				lg: '4px',
+				xl: '5px'
 			},
 			borderStyles: {},
 			transitions: {}
