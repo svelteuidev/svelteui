@@ -6,6 +6,9 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$GroupProps['use'] = [];
+	/** Used for components to bind to elements */
 	export let element: $$GroupProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$GroupProps['className'] = '';
@@ -91,6 +94,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box bind:element css={{ ...GroupStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={className} css={{ ...GroupStyles, ...override }} {...$$restProps}>
 	<slot />
 </Box>

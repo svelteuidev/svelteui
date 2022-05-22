@@ -10,6 +10,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$CheckboxProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$CheckboxProps['element'] = undefined;
 	/** Used for custom classes to be applied to the checkbox e.g. Tailwind classes */
 	export let className: $$CheckboxProps['className'] = '';
 	export { className as class };
@@ -169,7 +171,7 @@ A checkbox input component using the theme styles with support for a label and i
     ```
 -->
 
-<Box class="checkbox {className} {CheckboxStyles({ css: override })}" {...$$restProps}>
+<Box bind:element class="checkbox {className} {CheckboxStyles({ css: override })}" {...$$restProps}>
 	<div class="inner">
 		<input
 			use:useActions={use}

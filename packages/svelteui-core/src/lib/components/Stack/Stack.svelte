@@ -1,9 +1,12 @@
 <script lang="ts">
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { CSS } from '$lib/styles';
 	import type { StackProps as $$StackProps } from './Stack.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$StackProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$StackProps['element'] = undefined;
 	export let className: $$StackProps['className'] = '';
 	export { className as class };
 	export let override: $$StackProps['override'] = {};
@@ -50,6 +53,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
 	<slot />
 </Box>

@@ -47,8 +47,8 @@ Add inline styles to any element or component with sx.
 {#if isHTMLElement}
 	<!-- prettier-ignore -->
 	<svelte:element
-		this={root}
 		bind:this={element}
+		this={root}
 		use:forwardEvents
 		use:useActions={use}
 		class="{className} {BoxStyles({ css })}"
@@ -60,6 +60,7 @@ Add inline styles to any element or component with sx.
 	<svelte:component
 		this={root}
 		bind:this={element}
+		use={[forwardEvents, [useActions, use]]}
 		class="{className} {BoxStyles({ css })}"
 		{...$$restProps}
 	>

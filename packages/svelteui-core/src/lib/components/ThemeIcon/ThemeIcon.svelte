@@ -4,6 +4,10 @@
 	import Box from '../Box/Box.svelte';
 	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$ThemeIconProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ThemeIconProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$ThemeIconProps['className'] = '';
 	export { className as class };
@@ -56,6 +60,11 @@ Render icon inside element with theme colors
     </ThemeIcon>
     ```
 -->
-<Box class="{className} {ThemeIconStyles({ css: override, variation: variant })}" {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class="{className} {ThemeIconStyles({ css: override, variation: variant })}"
+	{...$$restProps}
+>
 	<slot />
 </Box>

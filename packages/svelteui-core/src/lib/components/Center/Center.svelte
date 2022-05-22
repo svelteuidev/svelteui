@@ -2,6 +2,10 @@
 	import Box from '../Box/Box.svelte';
 	import type { CenterProps as $$CenterProps } from './Center.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$CenterProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$CenterProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$CenterProps['className'] = '';
 	export { className as class };
@@ -30,6 +34,6 @@ Centers content vertically and horizontally.
 	</Center>
     ```
 -->
-<Box css={{ ...CenterStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={className} {...$$restProps} css={{ ...CenterStyles, ...override }}>
 	<slot>This is centered</slot>
 </Box>

@@ -2,9 +2,13 @@
 	import { css, randomID } from '$lib/styles';
 	import { radius as radiusSizes, sizes } from './Switch.styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$SwitchProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$SwitchProps['element'] = undefined;
 	/** Used for custom classes to be applied to the switch e.g. Tailwind classes */
 	export let className: $$SwitchProps['className'] = '';
 	export { className as class };
@@ -139,7 +143,9 @@ A user can use this component to enable/disable something, normally used for boo
 -->
 <div class="switch {className}" class:disabled>
 	<input
+		bind:this={element}
 		{id}
+		use:useActions={use}
 		use:forwardEvents
 		bind:checked
 		type="checkbox"

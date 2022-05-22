@@ -2,9 +2,13 @@
 	import ImageIcon from './ImageIcon.svelte';
 	import { css } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { ImageProps as $$ImageProps } from './Image.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$ImageProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ImageProps['element'] = undefined;
 	/** Override prop for custom theming the component's placeholder */
 	export let override: $$ImageProps['override'] = {};
 	/** Override prop for custom theming the component's placeholder */
@@ -104,6 +108,8 @@ Dynamic Image component with optional placeholder for loading and error state
 -->
 <figure class="{FigureStyles()} {className}">
 	<img
+		bind:this={element}
+		use:useActions={use}
 		use:forwardEvents
 		class="image {ImageStyles({ css: override })}"
 		{src}

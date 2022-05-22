@@ -1,7 +1,13 @@
 <script lang="ts">
 	import { css } from '$lib/styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { ImageProps as $$ImageProps } from '../Image.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$ImageProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ImageProps['element'] = undefined;
 	/** Override prop for custom theming the component's placeholder */
 	export let override: $$ImageProps['override'] = {};
 	/** Predefined radius size from theme or number to set border-radius in px */
@@ -12,6 +18,9 @@
 	export let width: $$ImageProps['width'] = undefined;
 	/** The height of the image that defaults to the original image height adjusted to the width */
 	export let height: $$ImageProps['height'] = undefined;
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: BackgroundImageStyles = css({
 		focusRing: 'auto',
@@ -49,6 +58,11 @@ BackgroundImage component can be used to add any content on image. It is useful 
 	It is suggested to wrap your component in a container element
 -->
 
-<div class={BackgroundImageStyles({ css: override })}>
+<div
+	bind:this={element}
+	use:forwardEvents
+	use:useActions={use}
+	class={BackgroundImageStyles({ css: override })}
+>
 	<slot>Text</slot>
 </div>

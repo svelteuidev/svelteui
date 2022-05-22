@@ -335,6 +335,7 @@ Base component to create custom inputs
 		<svelte:component
 			this={root}
 			bind:value
+			use={[forwardEvents, [useActions, use]]}
 			class="input {className} {`${variant}Variant`} {invalid ? 'invalid' : null} {disabled
 				? 'disabled'
 				: null} {icon ? 'withIcon' : null}"

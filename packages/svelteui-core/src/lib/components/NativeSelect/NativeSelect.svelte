@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { randomID } from '$lib/styles';
-	import { createEventForwarder } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import Input from '../Input/Input.svelte';
 	import InputWrapper from '../InputWrapper/InputWrapper.svelte';
 	import ChevronUpDown from './ChevronUpDown.svelte';
 	import type { NativeSelectProps as $$NativeSelectProps } from './NativeSelect.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$NativeSelectProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$NativeSelectProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$NativeSelectProps['className'] = '';
 	export { className as class };
@@ -117,7 +121,8 @@ Capture user feedback limited to large set of options
 	{...wrapperProps}
 >
 	<Input
-		use={[[forwardEvents]]}
+		bind:element
+		use={[forwardEvents, [useActions, use]]}
 		bind:value
 		root="select"
 		id={uuid}

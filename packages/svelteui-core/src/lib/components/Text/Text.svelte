@@ -3,8 +3,14 @@
 	import { getTextColor } from './Text.styles';
 	import { TextErrors } from './Text.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { TextProps as $$TextProps } from './Text.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$TextProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$TextProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$TextProps['className'] = '';
 	export { className as class };
@@ -36,6 +42,9 @@
 	export let inherit: $$TextProps['inherit'] = false;
 	/** Applies an href to the anchor tag */
 	export let href: $$TextProps['href'] = '';
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	let isHTMLComponent;
 	let isComponent;
@@ -95,11 +104,14 @@
 		observable = true;
 		err = TextErrors[0];
 	}
-	if ((variant === 'link' && href.length < 1) || (variant === 'link' && root !== 'a')) {
-		observable = true;
-		err = TextErrors[1];
-	}
-	$: if (observable) override = { display: 'none' };
+	/** Disable error due to conflicts with Anchor compoenet 
+	 * 
+	 if ((variant === 'link' && href.length < 1) || (variant === 'link' && root !== 'a')) {
+		 observable = true;
+		 err = TextErrors[1];
+		}
+		$: if (observable) override = { display: 'none' };
+	*/
 </script>
 
 <Error {observable} component="Text" code={err} />
@@ -121,19 +133,33 @@ Display text and links with theme styles.
 
 {#if isHTMLComponent}
 	<!-- prettier-ignore -->
-	<svelte:element this={root} {href} class="text {className} {TextStyles({ css: override })}">
+	<svelte:element
+		bind:this={element}
+		this={root} 
+		use:forwardEvents
+		use:useActions={use}
+		{href} 
+		class="text {className} {TextStyles({ css: override })}"
+	>
 		<slot>Enter some text</slot>
 	</svelte:element>
 {:else if isComponent}
 	<svelte:component
 		this={root}
+		bind:this={element}
+		use={[forwardEvents, [useActions, use]]}
 		class="text {className} {TextStyles({ css: override })}"
 		{...$$props}
 	>
 		<slot>Enter some text</slot>
 	</svelte:component>
 {:else}
-	<div class="text {className} {TextStyles({ css: override })}">
+	<div
+		bind:this={element}
+		use:forwardEvents
+		use:useActions={use}
+		class="text {className} {TextStyles({ css: override })}"
+	>
 		<slot>Enter some text</slot>
 	</div>
 {/if}

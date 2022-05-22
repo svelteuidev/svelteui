@@ -10,6 +10,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$ActionIconProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ActionIconProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$ActionIconProps['className'] = '';
 	export { className as class };
@@ -120,6 +122,7 @@ Icon button to indicate secondary action.
 -->
 <!-- prettier-ignore -->
 <svelte:element
+	bind:this={element}
 	this={root}
 	class:loading
 	class:disabled

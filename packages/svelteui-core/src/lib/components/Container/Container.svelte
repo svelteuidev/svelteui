@@ -4,6 +4,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$ContainerProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$ContainerProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$ContainerProps['className'] = '';
 	export { className as class };
@@ -53,6 +55,12 @@ Center content horizontally with predefined max-width
     </Container>
     ```
 -->
-<Box {use} css={{ ...ContainerStyles, ...override }} class={className} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={className}
+	css={{ ...ContainerStyles, ...override }}
+	{...$$restProps}
+>
 	<slot />
 </Box>

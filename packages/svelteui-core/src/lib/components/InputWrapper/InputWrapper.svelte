@@ -5,6 +5,10 @@
 	import LabelElement from './LabelElement.svelte';
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$InputWrapperProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$InputWrapperProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$InputWrapperProps['className'] = '';
 	export { className as class };
@@ -82,7 +86,12 @@
 	});
 </script>
 
-<Box class="{className} {InputWrapperStyles({ css: override })}" {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class="{className} {InputWrapperStyles({ css: override })}"
+	{...$$restProps}
+>
 	{#if label}
 		<LabelElement {...labelProps} {label} {id} {labelElement} {required} />
 	{/if}

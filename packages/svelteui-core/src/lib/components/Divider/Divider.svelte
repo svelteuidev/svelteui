@@ -9,6 +9,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$DividerProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$DividerProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$DividerProps['className'] = '';
 	export { className as class };
@@ -132,6 +134,7 @@ Renders horizontal or vertical line with support for label string or component.
     ```
 -->
 <Box
+	bind:element
 	{use}
 	css={{ ...DividerStyles, ...override }}
 	class="{className} {isHorizontal ? 'horizontal' : ''} {isVertical ? 'vertical' : ''} {showsLabel

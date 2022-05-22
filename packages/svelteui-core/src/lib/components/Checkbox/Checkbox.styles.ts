@@ -1,4 +1,4 @@
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
 export interface CheckboxProps extends DefaultProps {
@@ -11,7 +11,7 @@ export interface CheckboxProps extends DefaultProps {
 
 	label: Component | string;
 	radius: SvelteUINumberSize | number;
-	size: SvelteUINumberSize;
+	size: SvelteUISize;
 	transitionDuration: number;
 	wrapperProps: { [key: string]: any };
 }

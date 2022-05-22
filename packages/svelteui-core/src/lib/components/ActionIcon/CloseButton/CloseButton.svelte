@@ -1,14 +1,21 @@
 <script lang="ts">
 	import ActionIcon from '../ActionIcon.svelte';
 	import CloseIcon from './CloseIcon.svelte';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { CloseButtonProps as $$CloseButtonProps } from '../ActionIcon.styles';
 
-	export let iconSize: $$CloseButtonProps['iconSize'] = 'md';
+	/** Used for forwarding actions from component */
+	export let use: $$CloseButtonProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$CloseButtonProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$CloseButtonProps['className'] = '';
 	export { className as class };
 	/** Override prop for custom theming the component */
 	export let override: $$CloseButtonProps['override'] = {};
+	/** Controls the size of the icon */
+	export let iconSize: $$CloseButtonProps['iconSize'] = 'md';
 	/** The component or HTML tag to be used as the root component for the text */
 	export let root: $$CloseButtonProps['root'] = 'button';
 	/** Button color from theme'yellow' | 'orange';} */
@@ -34,6 +41,9 @@
 	/** If external is set to true, target = _blank */
 	export let external: $$CloseButtonProps['external'] = false;
 
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
+
 	const iconSizes = {
 		xs: 12,
 		sm: 14,
@@ -57,6 +67,8 @@ CloseButton is a premade ActionIcon with close icon
 -->
 
 <ActionIcon
+	bind:element
+	{use}
 	{className}
 	{override}
 	{root}

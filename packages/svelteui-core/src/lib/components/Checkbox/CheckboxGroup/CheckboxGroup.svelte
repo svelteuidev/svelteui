@@ -4,6 +4,10 @@
 	import Checkbox from '../Checkbox.svelte';
 	import type { CheckboxGroupProps as $$CheckboxGroupProps } from './CheckboxGroup.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$CheckboxGroupProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$CheckboxGroupProps['element'] = undefined;
 	/** Used for custom classes to be applied to the checkbox group e.g. Tailwind classes */
 	export let className: $$CheckboxGroupProps['className'] = '';
 	export { className as class };
@@ -50,10 +54,11 @@ the items passed.
     ```
 -->
 
-<InputWrapper class={className} {label} {override} {size} {...$$restProps}>
+<InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
 	<Group {direction} {spacing} {align}>
 		{#each items as item}
 			<Checkbox
+				{use}
 				label={item.label}
 				value={item.value}
 				checked={value.includes(item.value)}

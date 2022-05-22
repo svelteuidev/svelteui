@@ -5,6 +5,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$SimpleGridProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$SimpleGridProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$SimpleGridProps['className'] = '';
 	export { className as class };
@@ -62,6 +64,12 @@ Responsive grid where each item takes equal amount of space
     </SimpleGrid>
     ```
 -->
-<Box {use} css={{ ...SimpleGridStyles, ...override }} class={className} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	css={{ ...SimpleGridStyles, ...override }}
+	class={className}
+	{...$$restProps}
+>
 	<slot />
 </Box>

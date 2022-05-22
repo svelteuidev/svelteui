@@ -4,6 +4,10 @@
 	import { titleSizes } from './Title.styles';
 	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$TitleProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$TitleProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$TitleProps['className'] = '';
 	export { className as class };
@@ -34,8 +38,8 @@
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: $$TitleProps['href'] = '';
 
-	let element: HTMLHeadingElements;
-	$: element = `h${order}` as HTMLHeadingElements;
+	let node: HTMLHeadingElements;
+	$: node = `h${order}` as HTMLHeadingElements;
 
 	$: TitleStyles = css({
 		margin: 0
@@ -57,10 +61,12 @@ Display text that uses title styling and title HTML tags.
 -->
 
 <Text
+	bind:element
 	class="title {className} {TitleStyles({ css: override })}"
-	root={element}
-	{align}
+	root={node}
 	size={titleSizes[order].fontSize}
+	{use}
+	{align}
 	{color}
 	{transform}
 	{variant}

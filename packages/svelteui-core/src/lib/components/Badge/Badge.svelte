@@ -81,7 +81,7 @@ Display badge, pill or tag
     ```
 -->
 <Box
-	use={[[forwardEvents], [useActions, use]]}
+	use={[forwardEvents, [useActions, use]]}
 	bind:element
 	class="{className} {BadgeStyles({ css: override, variation: variant })}"
 	{...$$restProps}

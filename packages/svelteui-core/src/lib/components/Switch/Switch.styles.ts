@@ -1,6 +1,6 @@
 import type { DefaultProps, Override, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
-export interface SwitchProps extends DefaultProps {
+export interface SwitchProps extends DefaultProps<HTMLInputElement> {
 	override: Override['props'];
 	overrideLabel: Override['props'];
 	color: SvelteUIColor;

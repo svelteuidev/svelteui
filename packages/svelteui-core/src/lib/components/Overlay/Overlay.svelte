@@ -5,6 +5,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$OverlayProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$OverlayProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$OverlayProps['className'] = '';
 	export { className as class };
@@ -56,6 +58,7 @@ Overlays given element with div element with any color and opacity
 {#if blur}
 	<Box
 		{use}
+		bind:element
 		id="outterOverlay"
 		css={{ ...baseStyles, backdropFilter: `blur(${blur}px)` }}
 		class={className}
@@ -69,6 +72,7 @@ Overlays given element with div element with any color and opacity
 {:else}
 	<Box
 		{use}
+		bind:element
 		id="innerOverlay"
 		css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }}
 		{...$$restProps}
