@@ -19,7 +19,7 @@
 </script>
 
 <script>
-	import { Stack, Group, Button } from '@svelteuidev/core';
+	import { Stack, Button } from '@svelteuidev/core';
 	import { hash } from '@svelteuidev/utilities';
 
 	const id = hash('my-library', true);

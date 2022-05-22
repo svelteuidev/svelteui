@@ -33,7 +33,7 @@
 <script lang="ts">
 	import { SimpleGrid, Center } from '@svelteuidev/core';
 
-	export let props: any = {};
+	export let props = {};
 </script>
 
 <SimpleGrid {...props}>

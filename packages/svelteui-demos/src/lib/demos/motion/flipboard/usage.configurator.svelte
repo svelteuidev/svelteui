@@ -5,7 +5,7 @@
 		return propStr.replaceAll('=', ': ').replaceAll('{', '').replaceAll('}', '');
 	}
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { flipboard } from '@svelteuidev/motion';
 <\/script>

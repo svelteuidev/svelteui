@@ -1,10 +1,10 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { ControlsRenderer } from './index';
 	import type { DemoControlComposite } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';
 
-	export let value: Record<string, any>;
 	export let label: DemoControlComposite['label'];
 	export let controls: DemoControlComposite['controls'];
 

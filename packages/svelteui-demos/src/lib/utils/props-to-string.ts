@@ -1,5 +1,6 @@
 import type { DemoControl } from '../types';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 interface PropToString {
 	type: DemoControl['type'];
 	name: string;
