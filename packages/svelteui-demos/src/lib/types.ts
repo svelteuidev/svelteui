@@ -1,6 +1,8 @@
 import type { SvelteComponent } from 'svelte';
 import type { SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 interface ControlCondition {
 	control: string;
 	comparator: '===' | '!==';

@@ -43,7 +43,7 @@
 <script lang="ts">
 	import { Center } from '@svelteuidev/core';
 
-	export let props: any = {};
+	export let props = {};
 </script>
 
 <Center>

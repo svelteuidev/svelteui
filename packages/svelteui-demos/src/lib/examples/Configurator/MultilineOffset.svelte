@@ -34,7 +34,7 @@
 <script lang="ts">
 	import { NativeSelect } from '@svelteuidev/core';
 
-	export let props: any = {};
+	export let props = {};
 </script>
 
 <div>

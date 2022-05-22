@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type {
 		ConfiguratorDemoType,
 		ConfiguratorDemoConfiguration,
@@ -7,7 +8,7 @@
 	} from '$lib/types';
 	import { ControlsRenderer } from './controls';
 	import { propsToString, isEnabled } from '../../utils';
-	import { css, dark, Box } from '@svelteuidev/core';
+	import { css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 
 	export let component: ConfiguratorDemoType['default'];
@@ -24,7 +25,7 @@
 	let demoControls: DemoControl[] = [];
 	let data: Record<string, any> = {};
 	let conditionalData: Record<string, any> = {};
-	let children, componentProps, controls;
+	let children, componentProps;
 
 	// Filter out control type which we use only for making typescript work as we wanted
 	$: demoControls = configurator.filter(isDemoControl);
@@ -63,7 +64,7 @@
 	});
 
 	$: code = codeTemplate
-		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children)
+		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children).trim()
 		: '';
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
@@ -164,15 +165,13 @@
 	</div>
 	{#if code}
 		<div class="code">
-			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
-				<Prism
-					language="svelte"
-					{code}
-					override={{
-						padding: '$8'
-					}}
-				/>
-			</Box>
+			<Prism
+				language="svelte"
+				{code}
+				override={{
+					padding: '$8'
+				}}
+			/>
 		</div>
 	{/if}
 </div>

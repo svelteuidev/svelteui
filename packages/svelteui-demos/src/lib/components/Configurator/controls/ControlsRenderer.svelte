@@ -1,14 +1,12 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { controls as controlsComponents } from './index';
 	import type { DemoControl } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { upperFirst, isEnabled } from '../../../utils';
 
 	export let value: Record<string, any> = {};
 	export let controls: DemoControl[];
 	export let onChange: (data) => void;
-
-	const dispatch = createEventDispatcher();
 
 	// Contain data for all possible controls even for conditional, we want to keep track of all data
 	let data: Record<string, any> = controls.reduce(dataReducer, {});
@@ -24,11 +22,11 @@
 	// $: triggerChange(value, data);
 
 	$: controlsData = controls.map((control) => {
-		const { type, label, name, initialValue, defaultValue, ...props } = control;
+		const { type, label, name, ...props } = control;
 
 		return {
 			component: controlsComponents[type],
-			label: upperFirst(control.label || control.name),
+			label: upperFirst(label || name),
 			value: data[name],
 			onChange(e) {
 				const value = e.currentTarget ? e.currentTarget.value : e.detail;
