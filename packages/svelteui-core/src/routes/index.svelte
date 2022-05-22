@@ -33,28 +33,18 @@
 	import Gear from '../icons/Gear.svelte';
 
 	import type { PopperProps } from '$lib/components/Popper/Popper.styles';
+	import { fade, slide, fly } from 'svelte/transition';
 
 	let ref;
 	let mounted = false;
-	let withArrow = false;
+	let withArrow = true;
 	let arrowSize = 4;
+	let arrowDistance = 4;
 	let gutter = 4;
+	let transition = fade;
 	let placement: PopperProps["placement"] = "start";
 	let position: PopperProps["position"] = "bottom";
 </script>
-
-<!-- <SimpleGrid
-	breakpoints={[
-		{ maxWidth: 980, cols: 3, spacing: 'md' },
-		{ maxWidth: 755, cols: 2, spacing: 'sm' },
-		{ maxWidth: 600, cols: 1, spacing: 'sm' }
-	]}
-	cols={3}
->
-	{#each [...Array(5).keys()] as _, i}
-		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-	{/each}
-</SimpleGrid> -->
 
 <Center>
 	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
@@ -66,7 +56,9 @@
 	{mounted}
 	{withArrow}
 	{arrowSize}
+	{arrowDistance}
 	{gutter}
+	{transition}
 	arrowOverride={{ backgroundColor: '$gray100' }}
 >
 	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
@@ -105,9 +97,25 @@
 </SimpleGrid>
 
 <Space h={30} />
+<Title>Arrow Distance</Title>
+<SimpleGrid cols={2}>
+	<Button on:click={() => arrowDistance -= 1}>-</Button>
+	<Button on:click={() => arrowDistance += 1}>+</Button>
+	<Text>ArrowDistance: {arrowDistance}</Text>
+</SimpleGrid>
+
+<Space h={30} />
 <Title>Gutter</Title>
 <SimpleGrid cols={2}>
 	<Button on:click={() => gutter -= 1}>-</Button>
 	<Button on:click={() => gutter += 1}>+</Button>
 	<Text>Gutter: {gutter}</Text>
+</SimpleGrid>
+
+<Space h={30} />
+<Title>Transitions</Title>
+<SimpleGrid cols={3}>
+	<Button on:click={() => transition = fade}>Fade</Button>
+	<Button on:click={() => transition = slide}>Slide</Button>
+	<Button on:click={() => transition = fly}>Fly</Button>
 </SimpleGrid>

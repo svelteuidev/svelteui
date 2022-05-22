@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { css } from '$lib/styles';
 	import { useActions } from '$lib/internal';
@@ -12,22 +11,36 @@
 	export { className as class };
 	/** Css prop for custom theming the component */
 	export let override: $$PopperProps['override'] = {};
+	/** The positioning of the popper relative to the reference */
 	export let position: $$PopperProps['position'] = 'top';
+	/** The placement of the popper relative to the reference */
 	export let placement: $$PopperProps['placement'] = 'center';
+	/** Spacing between the reference and the popper, in pixels */
 	export let gutter: $$PopperProps['gutter'] = 5;
-	export let arrowSize: $$PopperProps['arrowSize'] = 2;
-	export let arrowDistance: $$PopperProps['arrowDistance'] = 2;
+	/** The size of the arrow, in pixels */
+	export let arrowSize: $$PopperProps['arrowSize'] = 4;
+	/** The distance of the arrow to the container's left or right */
+	export let arrowDistance: $$PopperProps['arrowDistance'] = 4;
+	/** Css prop for custom theming the arrow of the popper */
 	export let arrowOverride: $$PopperProps['arrowOverride'] = {};
+	/** The arrow class name */
 	export let arrowClassName: $$PopperProps['arrowClassName'] = "";
+	/** Renders the popper arrow if true */
 	export let withArrow: $$PopperProps['withArrow'] = false;
+	/** Popper z-index */
 	export let zIndex: $$PopperProps['zIndex'] = 1;
-	export let transition: $$PopperProps['transition'] = fade; //@todo: check this
-	export let transitionDuration: $$PopperProps['transitionDuration'] = 100; //@todo: check this
-	export let exitTransition: $$PopperProps['exitTransition'] = fade; //@todo: check this
-	export let exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration; //@todo: check this
-	export let mounted: $$PopperProps['mounted'] = false; //@todo: check this
-	export let dir: $$PopperProps['dir'] = 'ltr'; //@todo: this come later from a global config
-	export let reference: $$PopperProps['reference'] = null; //@todo: check this
+	/** The transition of the popper mount/unmount */
+	export let transition: $$PopperProps['transition'] = fade;
+	/** The transition duration of the popper mount/unmount */
+	export let transitionDuration: $$PopperProps['transitionDuration'] = 100;
+	/** The exit transition of the popper mount/unmount, defaults to the transition */
+	export let exitTransition: $$PopperProps['exitTransition'] = transition;
+	/** The exit transition duration of the popper mount/unmount, defaults to the transitionDuration */
+	export let exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration;
+	/** If enabled, shows popper, if false, hides popper */
+	export let mounted: $$PopperProps['mounted'] = false;
+	/** The element that servers as the reference for the popper positioning */
+	export let reference: $$PopperProps['reference'] = null;
 
 	let element;
 	let popperPosition;
@@ -37,48 +50,7 @@
         top: popperPosition.top,
         left: popperPosition.left,
 		pointerEvents: 'none',
-		zIndex: zIndex,
-
-		'& .left': {
-			right: dir === 'ltr' ? -arrowSize : 'unset',
-			left: dir === 'rtl' ? -arrowSize : 'unset',
-			borderLeft: dir === 'ltr' ? 0 : undefined,
-			borderRight: dir === 'rtl' ? 0 : undefined,
-			borderBottom: 0
-		},
-		'& .right': {
-			left: dir === 'ltr' ? -arrowSize : 'unset',
-			right: dir === 'rtl' ? -arrowSize : 'unset',
-			borderRight: dir === 'ltr' ? 0 : undefined,
-			borderLeft: dir === 'rtl' ? 0 : undefined,
-			borderTop: 0
-		},
-		'& .top': {
-			bottom: -arrowSize,
-			borderLeft: dir === 'ltr' ? 0 : undefined,
-			borderRight: dir === 'rtl' ? 0 : undefined,
-			borderTop: 0
-		},
-		'& .bottom': {
-			top: -arrowSize,
-			borderRight: dir === 'ltr' ? 0 : undefined,
-			borderLeft: dir === 'rtl' ? 0 : undefined,
-			borderBottom: 0
-		},
-		'& .start': {
-			top: arrowSize * arrowDistance,
-			left: dir === 'ltr' ? arrowSize * arrowDistance : undefined,
-			right: dir === 'rtl' ? arrowSize * arrowDistance : undefined
-		},
-		'& .center': {
-			top: `calc(50% - ${arrowSize}px)`,
-			left: `calc(50% - ${arrowSize}px)`
-		},
-		'& .end': {
-			bottom: arrowSize * arrowDistance,
-			right: dir === 'ltr' ? arrowSize * arrowDistance : undefined,
-			left: dir === 'rtl' ? arrowSize * arrowDistance : undefined
-		}
+		zIndex: zIndex
 	});
 
 	$: ArrowStyles = css({
@@ -92,45 +64,36 @@
 		left: popperPosition.arrowLeft
 	});
 
-	onMount(() => {
-		calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
-	});
-
-	function onResize() {
-		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
-	}
-
-	function calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter) {
-		if (!reference) return { top: 0, left: 0 };
+	function calculatePlacement(reference, element, position, placement, withArrow, arrowSize, arrowDistance, gutter) {
+		if (!reference || !element) return { top: 0, left: 0 };
 		const referenceData = reference.getBoundingClientRect();
 
 		let top = referenceData.bottom;
 		let left = referenceData.x - referenceData.left;
-		let arrowTop = -1 * arrowSize;
-		let arrowLeft = arrowSize * 2;
+		let arrowTop = -1 * arrowSize - 1;
+		let arrowLeft = arrowSize + arrowDistance;
 
 		const positionPlacement = `${position}-${placement}`;
-
 		switch(positionPlacement) {
 			case "top-start":
 				left = referenceData.x;
 				top = referenceData.top - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
-				arrowTop = element.clientHeight - arrowSize;
+				arrowTop = element.clientHeight - arrowSize - 1;
 				break;
 			case "top-center":
 				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
 				top = referenceData.top - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
-				arrowTop = element.clientHeight - arrowSize;
+				arrowTop = element.clientHeight - arrowSize - 1;
 				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "top-end":
 				left = referenceData.x + referenceData.width - element.clientWidth;
 				top = referenceData.top - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
-				arrowTop = element.clientHeight - arrowSize;
-				arrowLeft = element.clientWidth - arrowSize * 4;
+				arrowTop = element.clientHeight - arrowSize - 1;
+				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "bottom-start":
 				left = referenceData.x;
@@ -147,49 +110,49 @@
 				left = referenceData.x + referenceData.width - element.clientWidth;
 				top = referenceData.bottom + gutter;
 				if (withArrow) top += arrowSize;
-				arrowLeft = element.clientWidth - arrowSize * 4;
+				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "left-start":
 				left = referenceData.x - element.clientWidth - gutter;
 				top = referenceData.top;
 				if (withArrow) left -= arrowSize;
-				arrowTop = arrowSize * 2;
-				arrowLeft = element.clientWidth - arrowSize;
+				arrowTop = arrowSize + arrowDistance;
+				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-center":
 				left = referenceData.x - element.clientWidth - gutter;
 				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left -= arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
-				arrowLeft = element.clientWidth - arrowSize;
+				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-end":
 				left = referenceData.x - element.clientWidth - gutter;
 				top = referenceData.bottom - element.clientHeight;
 				if (withArrow) left -= arrowSize;
-				arrowTop = element.clientHeight - arrowSize * 4;
-				arrowLeft = element.clientWidth - arrowSize;
+				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
+				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "right-start":
 				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.top;
 				if (withArrow) left += arrowSize;
-				arrowTop = arrowSize * 2;
-				arrowLeft = -1 * arrowSize;
+				arrowTop = arrowSize + arrowDistance;
+				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-center":
 				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left += arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
-				arrowLeft = -1 * arrowSize;
+				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-end":
 				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.bottom - element.clientHeight;
 				if (withArrow) left += arrowSize;
-				arrowTop = element.clientHeight - arrowSize * 4;
-				arrowLeft = -1 * arrowSize;
+				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
+				arrowLeft = -1 * arrowSize - 1;
 				break;
 		}
 
@@ -201,9 +164,30 @@
 		}
 	}
 
-	$: {
-		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
+	function onResize() {
+		popperPosition = calculatePlacement(
+			reference,
+			element,
+			position,
+			placement,
+			withArrow,
+			arrowSize,
+			arrowDistance,
+			gutter
+		);
 	}
+
+
+	$: popperPosition = calculatePlacement(
+		reference,
+		element,
+		position,
+		placement,
+		withArrow,
+		arrowSize,
+		arrowDistance,
+		gutter
+	);
 </script>
 
 <svelte:window on:resize={onResize} />
