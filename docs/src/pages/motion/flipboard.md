@@ -11,37 +11,8 @@ docs: 'motion/flipboard.md'
 ---
 
 <script>
-    import { Box, Button } from '@svelteuidev/core';
-	import { flipboard } from '@svelteuidev/motion';
-    import { Heading, Preview } from 'components';
-
-    let visible = false;
-
-    const toggleVisible = () => {
-        visible = !visible;
-    };
-
-    const code = `
-    <script>
-        import { flipboard } from '@svelteuidev/motion';
-        import { Button } from '@svelteuidev/core';
-
-        let visible = false;
-
-        const toggleVisible = () => {
-            visible = !visible;
-        };
-    <\/script>
-
-    <div>
-        {#if visible}
-            <p in:flipboard={{ duration: 2000 }}>Now the transition is playing<\/p>
-        {:else}
-            <p>Click the button to play the transition<\/p>
-        {\/if}
-    <\/div>
-    <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}<\/Button>
-    `
+    import { Demo, MotionDemos } from "@svelteuidev/demos";
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -50,16 +21,7 @@ docs: 'motion/flipboard.md'
 
 The flipboard transition displays text with a glitch like effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the flipboard transition on non text nodes, it will result in an error.
 
-<Preview override={{'.grid': {maxW: 300, w: 300}}} cols={1} {code}>
-    <div>
-        {#if visible}
-            <p in:flipboard={{ duration: 2000 }}>Now the transition is playing</p>
-        {:else}
-            <p>Click the button to play the transition</p>
-        {/if}
-    </div>
-    <Button fullWidth on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
-</Preview>
+<Demo demo={MotionDemos.flipboardDemo} />
 
 ## Params
 

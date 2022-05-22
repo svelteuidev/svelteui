@@ -12,3 +12,5 @@ export * as CenterDemos from './demos/core/Center';
 
 // Other packages
 export * as PrismDemos from './demos/prism';
+export * as UtilityDemos from './demos/utilities';
+export * as MotionDemos from './demos/motion';
