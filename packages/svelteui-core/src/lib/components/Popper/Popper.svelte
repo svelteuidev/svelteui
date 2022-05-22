@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { css } from '$lib/styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
@@ -46,14 +47,15 @@
 	export let reference: $$PopperProps['reference'] = null;
 
 	let popperPosition;
+	let originalPopperPosition;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: PopperStyles = css({
 		position: 'absolute',
-		top: popperPosition.top,
-		left: popperPosition.left,
+		top: popperPosition?.top,
+		left: popperPosition?.left,
 		pointerEvents: 'none',
 		zIndex: zIndex
 	});
@@ -65,97 +67,104 @@
 		transform: 'rotate(45deg)',
 		border: '1px solid transparent',
 		zIndex: zIndex,
-		top: popperPosition.arrowTop,
-		left: popperPosition.arrowLeft
+		top: popperPosition?.arrowTop,
+		left: popperPosition?.arrowLeft
 	});
 
 	// prettier-ignore
-	function calculatePlacement(reference, element, position, placement, withArrow, arrowSize, arrowDistance, gutter) {
-		if (!reference || !element) return { top: 0, left: 0 };
+	function calculatePlacement(props) {
+		if (!reference || !element) return;
+
+		const { position } = props;		
 		const referenceData = reference.getBoundingClientRect();
+		
+		// take into consideration the page scroll
+		const referenceTop = referenceData.top + window.scrollY;
+		const referenceBottom = referenceData.bottom + window.scrollY;
+		const referenceLeft = referenceData.x + window.scrollX;
 
 		let top = referenceData.bottom;
-		let left = referenceData.x - referenceData.left;
+		let left = referenceLeft;
 		let arrowTop = -1 * arrowSize - 1;
 		let arrowLeft = arrowSize + arrowDistance;
 
 		const positionPlacement = `${position}-${placement}`;
 		switch(positionPlacement) {
 			case "top-start":
-				left = referenceData.x;
-				top = referenceData.top - element.clientHeight - gutter;
+				left = referenceLeft;
+				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				break;
 			case "top-center":
-				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
-				top = referenceData.top - element.clientHeight - gutter;
+				left = referenceLeft + referenceData.width / 2 - element.clientWidth / 2;
+				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "top-end":
-				left = referenceData.x + referenceData.width - element.clientWidth;
-				top = referenceData.top - element.clientHeight - gutter;
+				left = referenceLeft + referenceData.width - element.clientWidth;
+				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "bottom-start":
-				left = referenceData.x;
-				top = referenceData.bottom + gutter;
+				left = referenceLeft;
+				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				break;
 			case "bottom-center":
-				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
-				top = referenceData.bottom + gutter;
+				left = referenceLeft + referenceData.width / 2 - element.clientWidth / 2;
+				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "bottom-end":
-				left = referenceData.x + referenceData.width - element.clientWidth;
-				top = referenceData.bottom + gutter;
+				left = referenceLeft + referenceData.width - element.clientWidth;
+				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "left-start":
-				left = referenceData.x - element.clientWidth - gutter;
-				top = referenceData.top;
+				left = referenceLeft - element.clientWidth - gutter;
+				top = referenceTop;
 				if (withArrow) left -= arrowSize;
 				arrowTop = arrowSize + arrowDistance;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-center":
-				left = referenceData.x - element.clientWidth - gutter;
-				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
+				left = referenceLeft - element.clientWidth - gutter;
+				top = referenceBottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left -= arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-end":
-				left = referenceData.x - element.clientWidth - gutter;
-				top = referenceData.bottom - element.clientHeight;
+				left = referenceLeft - element.clientWidth - gutter;
+				top = referenceBottom - element.clientHeight;
 				if (withArrow) left -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "right-start":
-				left = referenceData.x + referenceData.width + gutter;
-				top = referenceData.top;
+				left = referenceLeft + referenceData.width + gutter;
+				top = referenceTop;
 				if (withArrow) left += arrowSize;
 				arrowTop = arrowSize + arrowDistance;
 				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-center":
-				left = referenceData.x + referenceData.width + gutter;
-				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
+				left = referenceLeft + referenceData.width + gutter;
+				top = referenceBottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left += arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
 				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-end":
-				left = referenceData.x + referenceData.width + gutter;
-				top = referenceData.bottom - element.clientHeight;
+				left = referenceLeft + referenceData.width + gutter;
+				top = referenceBottom - element.clientHeight;
 				if (withArrow) left += arrowSize;
 				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
 				arrowLeft = -1 * arrowSize - 1;
@@ -164,38 +173,82 @@
 
 		return {
 			top: top,
+			bottom: top + element.clientHeight,
 			left: left,
+			right: left + element.clientWidth,
 			arrowTop: arrowTop,
 			arrowLeft: arrowLeft
 		}
 	}
 
-	function onResize() {
-		popperPosition = calculatePlacement(
-			reference,
-			element,
-			position,
-			placement,
-			withArrow,
-			arrowSize,
-			arrowDistance,
-			gutter
-		);
+	function adaptHidden() {
+		if (!popperPosition) return;
+
+		const windowStartY = window.scrollY;
+		const windowEndY = window.scrollY + window.innerHeight;
+		const windowStartX = window.scrollX;
+		const windowEndX = window.scrollX + window.innerWidth;
+		const hiddenUp = (originalPopperPosition || popperPosition).bottom > windowEndY;
+		const hiddenDown = (originalPopperPosition || popperPosition).top < windowStartY;
+		const hiddenLeft = (originalPopperPosition || popperPosition).right > windowEndX;
+		const hiddenRight = (originalPopperPosition || popperPosition).left < windowStartX;
+
+		const hidden = hiddenUp || hiddenDown || hiddenLeft || hiddenRight;
+
+		// reset to the original position if the popper already fits
+		// inside the page viewport
+		if (!hidden) {
+			originalPopperPosition = null;
+			return calculatePlacement({ ...$$props });
+		}
+
+		// if the popper position is outside the page viewport, save
+		// the original position so that later it can check if its
+		// already safe to return to it
+		if (hidden && !originalPopperPosition){
+			originalPopperPosition = popperPosition;
+		}
+
+		// adapt the popper position so that it becomes visible when
+		// the page scrolls and hides it in its original position
+		if (hiddenUp) {
+			return calculatePlacement({ ...$$props, element: element, position: "top" });
+		}
+		if (hiddenDown) {
+			return calculatePlacement({...$$props, element: element, position: "bottom" });
+		}
+		if (hiddenLeft) {
+			return calculatePlacement({...$$props, element: element, position: "left" });
+		}
+		if (hiddenRight) {
+			return calculatePlacement({...$$props, element: element, position: "right" });
+		}
 	}
 
-	$: popperPosition = calculatePlacement(
-		reference,
-		element,
-		position,
-		placement,
-		withArrow,
-		arrowSize,
-		arrowDistance,
-		gutter
-	);
+	function updatePopper() {
+		popperPosition = calculatePlacement({ ...$$props });
+		popperPosition = adaptHidden();
+	}
+
+	function onResize() {
+		updatePopper();
+	}
+
+	function onScroll() {
+		updatePopper();
+	}
+
+	$: {
+		// resets a previous popper positioning if an update
+		// to adapt to the position was made (popper outside
+		// viewport) and then updates the popper position
+		originalPopperPosition = null;
+		popperPosition = calculatePlacement({ ...$$props });
+		popperPosition = adaptHidden();
+	}
 </script>
 
-<svelte:window on:resize={onResize} />
+<svelte:window on:resize={onResize} on:scroll={onScroll} />
 
 <!--
 @component

@@ -1,7 +1,7 @@
 import type { TransitionConfig, EasingFunction } from 'svelte/transition';
 import type { DefaultProps, Override } from '$lib/styles';
 
-export interface PopperProps extends DefaultProps {
+export interface PopperProps extends DefaultProps<HTMLElement> {
 	position?: 'top' | 'left' | 'bottom' | 'right';
 	placement?: 'start' | 'center' | 'end';
 	gutter?: number;
