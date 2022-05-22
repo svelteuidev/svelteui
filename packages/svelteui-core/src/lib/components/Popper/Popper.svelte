@@ -77,88 +77,89 @@
 		// take into consideration the page scroll 
 		const referenceTop = referenceData.top + window.scrollY;
 		const referenceBottom = referenceData.bottom + window.scrollY;
+		const referenceLeft = referenceData.x + window.scrollX;
 
 		let top = referenceData.bottom;
-		let left = referenceData.x - referenceData.left;
+		let left = referenceLeft;
 		let arrowTop = -1 * arrowSize - 1;
 		let arrowLeft = arrowSize + arrowDistance;
 
 		const positionPlacement = `${position}-${placement}`;
 		switch(positionPlacement) {
 			case "top-start":
-				left = referenceData.x;
+				left = referenceLeft;
 				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				break;
 			case "top-center":
-				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
+				left = referenceLeft + referenceData.width / 2 - element.clientWidth / 2;
 				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "top-end":
-				left = referenceData.x + referenceData.width - element.clientWidth;
+				left = referenceLeft + referenceData.width - element.clientWidth;
 				top = referenceTop - element.clientHeight - gutter;
 				if (withArrow) top -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize - 1;
 				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "bottom-start":
-				left = referenceData.x;
+				left = referenceLeft;
 				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				break;
 			case "bottom-center":
-				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
+				left = referenceLeft + referenceData.width / 2 - element.clientWidth / 2;
 				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "bottom-end":
-				left = referenceData.x + referenceData.width - element.clientWidth;
+				left = referenceLeft + referenceData.width - element.clientWidth;
 				top = referenceBottom + gutter;
 				if (withArrow) top += arrowSize;
 				arrowLeft = element.clientWidth - arrowSize * 4 - arrowDistance;
 				break;
 			case "left-start":
-				left = referenceData.x - element.clientWidth - gutter;
+				left = referenceLeft - element.clientWidth - gutter;
 				top = referenceTop;
 				if (withArrow) left -= arrowSize;
 				arrowTop = arrowSize + arrowDistance;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-center":
-				left = referenceData.x - element.clientWidth - gutter;
+				left = referenceLeft - element.clientWidth - gutter;
 				top = referenceBottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left -= arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "left-end":
-				left = referenceData.x - element.clientWidth - gutter;
+				left = referenceLeft - element.clientWidth - gutter;
 				top = referenceBottom - element.clientHeight;
 				if (withArrow) left -= arrowSize;
 				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
 				arrowLeft = element.clientWidth - arrowSize - 1;
 				break;
 			case "right-start":
-				left = referenceData.x + referenceData.width + gutter;
+				left = referenceLeft + referenceData.width + gutter;
 				top = referenceTop;
 				if (withArrow) left += arrowSize;
 				arrowTop = arrowSize + arrowDistance;
 				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-center":
-				left = referenceData.x + referenceData.width + gutter;
+				left = referenceLeft + referenceData.width + gutter;
 				top = referenceBottom - referenceData.height / 2 - element.clientHeight / 2;
 				if (withArrow) left += arrowSize;
 				arrowTop = element.clientHeight / 2 - arrowSize;
 				arrowLeft = -1 * arrowSize - 1;
 				break;
 			case "right-end":
-				left = referenceData.x + referenceData.width + gutter;
+				left = referenceLeft + referenceData.width + gutter;
 				top = referenceBottom - element.clientHeight;
 				if (withArrow) left += arrowSize;
 				arrowTop = element.clientHeight - arrowSize * 4 - arrowDistance;
