@@ -5,7 +5,7 @@
 	"compilerOptions": {
 		"moduleResolution": "node",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": ["ESNext", "DOM"],
 		"target": "es2020",
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,

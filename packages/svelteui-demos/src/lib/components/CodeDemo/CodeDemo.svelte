@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
+	import { expoInOut } from 'svelte/easing';
 	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
@@ -91,7 +92,7 @@
 		{/if}
 	</div>
 	{#if code && codeVisible}
-		<div class="code" transition:slide>
+		<div class="code" in:slide={{ duration: 200, easing: expoInOut }}>
 			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
 				<Prism
 					language="svelte"

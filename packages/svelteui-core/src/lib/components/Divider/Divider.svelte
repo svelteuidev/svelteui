@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { dark } from '$lib/styles';
+	import { dark } from '$lib/styles';
+	import { DividerErrors } from './Divider.errors';
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
-    import { DividerErrors } from './Divider.errors';
-    import Error from '$lib/internal/errors/Error.svelte';
+	import Error from '$lib/internal/errors/Error.svelte';
+	import type { CSS } from '$lib/styles';
 	import type { DividerProps as $$DividerProps } from './Divider.styles';
 
 	/** Used for forwarding actions from component */
@@ -13,21 +14,22 @@
 	export { className as class };
 	/** Css prop for custom theming the component */
 	export let override: $$DividerProps['override'] = {};
-    /** Color of the divider line from theme */
+	/** Color of the divider line from theme */
 	export let color: $$DividerProps['color'] = 'gray';
-    /** The orientation of the divider, can be 'horizontal' or 'vertical' */
+	/** The orientation of the divider, can be 'horizontal' or 'vertical' */
 	export let orientation: $$DividerProps['orientation'] = 'horizontal';
-    /** The size of the divider height in horizontal orientation and width in vertical orientation */
+	/** The size of the divider height in horizontal orientation and width in vertical orientation */
 	export let size: $$DividerProps['size'] = 'xs';
-    /** The label text to be added to the horizontal orientation, vertical not supported */
+	/** The label text to be added to the horizontal orientation, vertical not supported */
 	export let label: $$DividerProps['label'] = null;
-    /** The positioning of the label in the orizontal orientation */
+	/** The positioning of the label in the orizontal orientation */
 	export let labelPosition: $$DividerProps['labelPosition'] = 'left';
-    /** The props to be passed to the Text component in the label */
+	/** The props to be passed to the Text component in the label */
 	export let labelProps: $$DividerProps['labelProps'] = null;
-    /** The variant of the divider, applied to its border-style */
+	/** The variant of the divider, applied to its border-style */
 	export let variant: $$DividerProps['variant'] = 'solid';
 
+	let DividerStyles: CSS;
 	$: showsLabel = (label || $$slots.label) && orientation === 'horizontal';
 	$: isVertical = orientation === 'vertical';
 	$: isHorizontal = orientation === 'horizontal';
@@ -54,10 +56,10 @@
 		'& .label': {
 			display: 'flex',
 			alignItems: 'center',
-			color: color === "dark" ? '$dark100' : `$${color}600`,
-            [`${dark.selector} &`]: {
-                color: color === "dark" ? '$dark100' : `$${color}500`,
-            },
+			color: color === 'dark' ? '$dark100' : `$${color}600`,
+			[`${dark.selector} &`]: {
+				color: color === 'dark' ? '$dark100' : `$${color}500`
+			},
 
 			'&.left': {
 				'&::before': {
@@ -79,9 +81,9 @@
 				borderTopStyle: `${variant}`,
 				borderTopColor: `$${color}400`,
 				marginRight: '$xs',
-                [`${dark.selector} &`]: {
-                    borderTopColor: `$${color}300`
-                }
+				[`${dark.selector} &`]: {
+					borderTopColor: `$${color}300`
+				}
 			},
 
 			'&::after': {
@@ -95,7 +97,7 @@
 		}
 	};
 
-    // --------------Error Handling-------------------
+	// --------------Error Handling-------------------
 	let observable: boolean = false;
 	let err;
 
