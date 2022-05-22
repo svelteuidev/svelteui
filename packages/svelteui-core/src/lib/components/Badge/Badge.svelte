@@ -1,9 +1,15 @@
 <script lang="ts">
 	import { css } from '$lib/styles';
 	import { getVariantStyles, sizes } from './Badge.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
 	import type { BadgeProps as $$BadgeProps } from './Badge.styles';
 
+	/** Used for forwarding actions from component */
+	export let use: $$BadgeProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$BadgeProps['element'] = undefined;
 	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
 	export let className: $$BadgeProps['className'] = '';
 	export { className as class };
@@ -15,6 +21,9 @@
 	export let size: $$BadgeProps['size'] = 'md';
 	export let radius: $$BadgeProps['radius'] = 'xl';
 	export let fullWidth: $$BadgeProps['fullWidth'] = false;
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
 
@@ -71,7 +80,12 @@ Display badge, pill or tag
 	</Box>
     ```
 -->
-<Box class="{className} {BadgeStyles({ css: override, variation: variant })}" {...$$restProps}>
+<Box
+	use={[[forwardEvents], [useActions, use]]}
+	bind:element
+	class="{className} {BadgeStyles({ css: override, variation: variant })}"
+	{...$$restProps}
+>
 	{#if $$slots.leftSection}
 		<span class="leftSection">
 			<slot name="leftSection" />

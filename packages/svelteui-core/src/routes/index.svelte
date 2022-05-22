@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { portal } from '@svelteuidev/actions';
 	import {
 		ActionIcon,
 		Anchor,
@@ -42,12 +43,12 @@
 	let arrowDistance = 4;
 	let gutter = 4;
 	let transition = fade;
-	let placement: PopperProps["placement"] = "start";
-	let position: PopperProps["position"] = "bottom";
+	let placement: PopperProps['placement'] = 'start';
+	let position: PopperProps['position'] = 'bottom';
 </script>
 
 <Center>
-	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
+	<Button bind:element={ref} on:click={() => (mounted = !mounted)}>Click here</Button>
 </Center>
 <Popper
 	reference={ref}
@@ -71,51 +72,51 @@
 <Space h={30} />
 <Title>Placements</Title>
 <SimpleGrid cols={3}>
-	<Button on:click={() => placement = "start"}>Start</Button>
-	<Button on:click={() => placement = "center"}>Center</Button>
-	<Button on:click={() => placement = "end"}>End</Button>
+	<Button on:click={() => (placement = 'start')}>Start</Button>
+	<Button on:click={() => (placement = 'center')}>Center</Button>
+	<Button on:click={() => (placement = 'end')}>End</Button>
 </SimpleGrid>
 
 <Space h={30} />
 <Title>Positions</Title>
 <SimpleGrid cols={4}>
-	<Button on:click={() => position = "top"}>Top</Button>
-	<Button on:click={() => position = "left"}>Left</Button>
-	<Button on:click={() => position = "bottom"}>Bottom</Button>
-	<Button on:click={() => position = "right"}>Right</Button>
+	<Button on:click={() => (position = 'top')}>Top</Button>
+	<Button on:click={() => (position = 'left')}>Left</Button>
+	<Button on:click={() => (position = 'bottom')}>Bottom</Button>
+	<Button on:click={() => (position = 'right')}>Right</Button>
 </SimpleGrid>
 
 <Space h={30} />
-<Switch bind:checked={withArrow} label="With arrow"/>
+<Switch bind:checked={withArrow} label="With arrow" />
 
 <Space h={30} />
 <Title>Arrow Size</Title>
 <SimpleGrid cols={2}>
-	<Button on:click={() => arrowSize -= 1}>-</Button>
-	<Button on:click={() => arrowSize += 1}>+</Button>
+	<Button on:click={() => (arrowSize -= 1)}>-</Button>
+	<Button on:click={() => (arrowSize += 1)}>+</Button>
 	<Text>ArrowSize: {arrowSize}</Text>
 </SimpleGrid>
 
 <Space h={30} />
 <Title>Arrow Distance</Title>
 <SimpleGrid cols={2}>
-	<Button on:click={() => arrowDistance -= 1}>-</Button>
-	<Button on:click={() => arrowDistance += 1}>+</Button>
+	<Button on:click={() => (arrowDistance -= 1)}>-</Button>
+	<Button on:click={() => (arrowDistance += 1)}>+</Button>
 	<Text>ArrowDistance: {arrowDistance}</Text>
 </SimpleGrid>
 
 <Space h={30} />
 <Title>Gutter</Title>
 <SimpleGrid cols={2}>
-	<Button on:click={() => gutter -= 1}>-</Button>
-	<Button on:click={() => gutter += 1}>+</Button>
+	<Button on:click={() => (gutter -= 1)}>-</Button>
+	<Button on:click={() => (gutter += 1)}>+</Button>
 	<Text>Gutter: {gutter}</Text>
 </SimpleGrid>
 
 <Space h={30} />
 <Title>Transitions</Title>
 <SimpleGrid cols={3}>
-	<Button on:click={() => transition = fade}>Fade</Button>
-	<Button on:click={() => transition = slide}>Slide</Button>
-	<Button on:click={() => transition = fly}>Fly</Button>
+	<Button on:click={() => (transition = fade)}>Fade</Button>
+	<Button on:click={() => (transition = slide)}>Slide</Button>
+	<Button on:click={() => (transition = fly)}>Fly</Button>
 </SimpleGrid>

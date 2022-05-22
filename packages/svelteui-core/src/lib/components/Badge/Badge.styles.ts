@@ -8,7 +8,7 @@ import type {
 	VariantThemeFunction
 } from '$lib/styles';
 
-export interface BadgeProps extends DefaultProps {
+export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	color?: SvelteUIColor;
 	variant?: BadgeVariant;
 	gradient?: SvelteUIGradient;
