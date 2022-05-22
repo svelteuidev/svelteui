@@ -92,7 +92,7 @@
 		{/if}
 	</div>
 	{#if code && codeVisible}
-		<div class="code" in:slide={{ duration: 200, easing: expoInOut }}>
+		<div class="code" transition:slide={{ duration: 200, easing: expoInOut }}>
 			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
 				<Prism
 					language="svelte"

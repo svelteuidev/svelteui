@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type * as Stitches from '@stitches/core';
 	import type { DemoControlColor } from '$lib/types';
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
