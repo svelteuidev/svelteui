@@ -16,7 +16,10 @@
 	export let gutter: $$PopperProps['gutter'] = 5;
 	export let arrowSize: $$PopperProps['arrowSize'] = 2;
 	export let arrowDistance: $$PopperProps['arrowDistance'] = 2;
+	export let arrowOverride: $$PopperProps['arrowOverride'] = {};
+	export let arrowClassName: $$PopperProps['arrowClassName'] = "";
 	export let withArrow: $$PopperProps['withArrow'] = false;
+	export let zIndex: $$PopperProps['zIndex'] = 10;
 	export let transition: $$PopperProps['transition'] = 'fade'; //@todo: check this
 	export let transitionDuration: $$PopperProps['transitionDuration'] = 100; //@todo: check this
 	export let exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration; //@todo: check this
@@ -26,6 +29,7 @@
 	export let reference: $$PopperProps['reference'] = null; //@todo: check this
 
 	let element;
+	let popperPosition;
 
 	$: PopperStyles = css({
 		position: 'absolute',
@@ -33,18 +37,10 @@
         left: popperPosition.left,
 		pointerEvents: 'none',
 		visibility: 'hidden',
+		zIndex: zIndex,
 
 		'&.mounted': {
 			visibility: 'visible'
-		},
-
-		'& .arrow': {
-			width: arrowSize * 2,
-			height: arrowSize * 2,
-			position: 'absolute',
-			transform: 'rotate(45deg)',
-			border: '1px solid transparent',
-			zIndex: 1
 		},
 		'& .left': {
 			right: dir === 'ltr' ? -arrowSize : 'unset',
@@ -88,89 +84,132 @@
 		}
 	});
 
-	let popperPosition;
+	$: ArrowStyles = css({
+		width: arrowSize * 2,
+		height: arrowSize * 2,
+		position: 'absolute',
+		transform: 'rotate(45deg)',
+		border: '1px solid transparent',
+		zIndex: zIndex,
+		top: popperPosition.arrowTop,
+		left: popperPosition.arrowLeft
+	});
 
 	onMount(() => {
-		calculatePlacement(reference, position, placement);
+		calculatePlacement(reference, position, placement, withArrow, arrowSize);
 	});
 
 	function onResize() {
-		popperPosition = calculatePlacement(reference, position, placement);
+		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize);
 	}
 
-	function calculatePlacement(reference, position, placement) {
+	function calculatePlacement(reference, position, placement, withArrow, arrowSize) {
 		if (!reference) return { top: 0, left: 0 };
 		const referenceData = reference.getBoundingClientRect();
 
 		let top = referenceData.bottom;
 		let left = referenceData.x - referenceData.left;
+		let arrowTop = -1 * arrowSize;
+		let arrowLeft = arrowSize * 2;
 
 		const positionPlacement = `${position}-${placement}`;
 
 		switch(positionPlacement) {
 			case "top-start":
 				left = referenceData.x;
-				top = referenceData.top - element.clientHeight;
+				top = referenceData.top - element.clientHeight - gutter;
+				if (withArrow) top -= arrowSize;
+				arrowTop = element.clientHeight - arrowSize;
 				break;
 			case "top-center":
 				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
-				top = referenceData.top - element.clientHeight;
+				top = referenceData.top - element.clientHeight - gutter;
+				if (withArrow) top -= arrowSize;
+				arrowTop = element.clientHeight - arrowSize;
+				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "top-end":
 				left = referenceData.x + referenceData.width - element.clientWidth;
-				top = referenceData.top - element.clientHeight;
+				top = referenceData.top - element.clientHeight - gutter;
+				if (withArrow) top -= arrowSize;
+				arrowTop = element.clientHeight - arrowSize;
+				arrowLeft = element.clientWidth - arrowSize * 4;
 				break;
 			case "bottom-start":
 				left = referenceData.x;
-				top = referenceData.bottom;
+				top = referenceData.bottom + gutter;
+				if (withArrow) top += arrowSize;
 				break;
 			case "bottom-center":
 				left = referenceData.x + referenceData.width / 2 - element.clientWidth / 2;
-				top = referenceData.bottom;
+				top = referenceData.bottom + gutter;
+				if (withArrow) top += arrowSize;
+				arrowLeft = element.clientWidth / 2 - arrowSize;
 				break;
 			case "bottom-end":
 				left = referenceData.x + referenceData.width - element.clientWidth;
-				top = referenceData.bottom;
+				top = referenceData.bottom + gutter;
+				if (withArrow) top += arrowSize;
+				arrowLeft = element.clientWidth - arrowSize * 4;
 				break;
 			case "left-start":
-				left = referenceData.x - element.clientWidth;
+				left = referenceData.x - element.clientWidth - gutter;
 				top = referenceData.top;
+				if (withArrow) left -= arrowSize;
+				arrowTop = arrowSize * 2;
+				arrowLeft = element.clientWidth - arrowSize;
 				break;
 			case "left-center":
-				left = referenceData.x - element.clientWidth;
-				top = referenceData.bottom + referenceData.height / 2 - element.clientHeight / 2;
+				left = referenceData.x - element.clientWidth - gutter;
+				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
+				if (withArrow) left -= arrowSize;
+				arrowTop = element.clientHeight / 2 - arrowSize;
+				arrowLeft = element.clientWidth - arrowSize;
 				break;
 			case "left-end":
-				left = referenceData.x - element.clientWidth;
-				top = referenceData.bottom + referenceData.height - element.clientHeight;
+				left = referenceData.x - element.clientWidth - gutter;
+				top = referenceData.bottom - element.clientHeight;
+				if (withArrow) left -= arrowSize;
+				arrowTop = element.clientHeight - arrowSize * 4;
+				arrowLeft = element.clientWidth - arrowSize;
 				break;
 			case "right-start":
-				left = referenceData.x + referenceData.width;
+				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.top;
+				if (withArrow) left += arrowSize;
+				arrowTop = arrowSize * 2;
+				arrowLeft = -1 * arrowSize;
 				break;
 			case "right-center":
-				left = referenceData.x + referenceData.width;
+				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.bottom - referenceData.height / 2 - element.clientHeight / 2;
+				if (withArrow) left += arrowSize;
+				arrowTop = element.clientHeight / 2 - arrowSize;
+				arrowLeft = -1 * arrowSize;
 				break;
 			case "right-end":
-				left = referenceData.x + referenceData.width;
+				left = referenceData.x + referenceData.width + gutter;
 				top = referenceData.bottom - element.clientHeight;
+				if (withArrow) left += arrowSize;
+				arrowTop = element.clientHeight - arrowSize * 4;
+				arrowLeft = -1 * arrowSize;
 				break;
 		}
 
 		return {
 			top: top,
-			left: left
+			left: left,
+			arrowTop: arrowTop,
+			arrowLeft: arrowLeft
 		}
 	}
 
 	$: {
-		popperPosition = calculatePlacement(reference, position, placement);
+		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize);
 	}
 
 	// @TODOS:
 	// use transition
-	// show arrow
 	// show gutter
 </script>
 
@@ -198,9 +237,14 @@ Overlays given element with div element with any color and opacity
 
 <div
 	bind:this={element}
-	class="{PopperStyles()} {className}"
+	class="{PopperStyles({ css: override })} {className}"
 	class:mounted={mounted}
 	transition:fade
 >
+	<div style="position: relative;">
+		{#if withArrow}
+			<div class="arrow {arrowClassName} {ArrowStyles({ css: arrowOverride })}" />
+		{/if}
+	</div>
 	<slot />
 </div>

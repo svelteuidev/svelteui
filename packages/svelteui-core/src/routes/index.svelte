@@ -36,6 +36,8 @@
 
 	let ref;
 	let mounted = false;
+	let withArrow = false;
+	let arrowSize = 4;
 	let placement: PopperProps["placement"] = "start";
 	let position: PopperProps["position"] = "bottom";
 </script>
@@ -53,11 +55,21 @@
 	{/each}
 </SimpleGrid> -->
 
-<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
-<Popper reference={ref} {placement} {position} {mounted}>
+<Center>
+	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
+</Center>
+<Popper
+	reference={ref}
+	{placement}
+	{position}
+	{mounted}
+	{withArrow}
+	{arrowSize}
+	arrowOverride={{ backgroundColor: '$gray100' }}
+>
 	<Box css={{ backgroundColor: '$gray100', padding: '30px' }}>
-		<Center>
-			<Text>This is a text</Text>
+		<Center css={{ width: 100 }}>
+			<Text>This is a text very long text</Text>
 		</Center>
 	</Box>
 </Popper>
@@ -77,4 +89,15 @@
 	<Button on:click={() => position = "left"}>Left</Button>
 	<Button on:click={() => position = "bottom"}>Bottom</Button>
 	<Button on:click={() => position = "right"}>Right</Button>
+</SimpleGrid>
+
+<Space h={30} />
+<Switch bind:checked={withArrow} label="With arrow"/>
+
+<Space h={30} />
+<Title>Arrow Size</Title>
+<SimpleGrid cols={2}>
+	<Button on:click={() => arrowSize -= 1}>-</Button>
+	<Button on:click={() => arrowSize += 1}>+</Button>
+	<Text>ArrowSize: {arrowSize}</Text>
 </SimpleGrid>
