@@ -38,6 +38,7 @@
 	let mounted = false;
 	let withArrow = false;
 	let arrowSize = 4;
+	let gutter = 4;
 	let placement: PopperProps["placement"] = "start";
 	let position: PopperProps["position"] = "bottom";
 </script>
@@ -65,9 +66,10 @@
 	{mounted}
 	{withArrow}
 	{arrowSize}
+	{gutter}
 	arrowOverride={{ backgroundColor: '$gray100' }}
 >
-	<Box css={{ backgroundColor: '$gray100', padding: '30px' }}>
+	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
 		<Center css={{ width: 100 }}>
 			<Text>This is a text very long text</Text>
 		</Center>
@@ -100,4 +102,12 @@
 	<Button on:click={() => arrowSize -= 1}>-</Button>
 	<Button on:click={() => arrowSize += 1}>+</Button>
 	<Text>ArrowSize: {arrowSize}</Text>
+</SimpleGrid>
+
+<Space h={30} />
+<Title>Gutter</Title>
+<SimpleGrid cols={2}>
+	<Button on:click={() => gutter -= 1}>-</Button>
+	<Button on:click={() => gutter += 1}>+</Button>
+	<Text>Gutter: {gutter}</Text>
 </SimpleGrid>

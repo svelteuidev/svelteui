@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { css } from '$lib/styles';
+	import { useActions } from '$lib/internal';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
 	/** Used for forwarding actions from component */
@@ -19,11 +20,11 @@
 	export let arrowOverride: $$PopperProps['arrowOverride'] = {};
 	export let arrowClassName: $$PopperProps['arrowClassName'] = "";
 	export let withArrow: $$PopperProps['withArrow'] = false;
-	export let zIndex: $$PopperProps['zIndex'] = 10;
-	export let transition: $$PopperProps['transition'] = 'fade'; //@todo: check this
+	export let zIndex: $$PopperProps['zIndex'] = 1;
+	export let transition: $$PopperProps['transition'] = fade; //@todo: check this
 	export let transitionDuration: $$PopperProps['transitionDuration'] = 100; //@todo: check this
+	export let exitTransition: $$PopperProps['exitTransition'] = fade; //@todo: check this
 	export let exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration; //@todo: check this
-	export let transitionTimingFunction: $$PopperProps['transitionTimingFunction'] = 'linear'; //@todo: check this
 	export let mounted: $$PopperProps['mounted'] = false; //@todo: check this
 	export let dir: $$PopperProps['dir'] = 'ltr'; //@todo: this come later from a global config
 	export let reference: $$PopperProps['reference'] = null; //@todo: check this
@@ -36,12 +37,8 @@
         top: popperPosition.top,
         left: popperPosition.left,
 		pointerEvents: 'none',
-		visibility: 'hidden',
 		zIndex: zIndex,
 
-		'&.mounted': {
-			visibility: 'visible'
-		},
 		'& .left': {
 			right: dir === 'ltr' ? -arrowSize : 'unset',
 			left: dir === 'rtl' ? -arrowSize : 'unset',
@@ -96,14 +93,14 @@
 	});
 
 	onMount(() => {
-		calculatePlacement(reference, position, placement, withArrow, arrowSize);
+		calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
 	});
 
 	function onResize() {
-		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize);
+		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
 	}
 
-	function calculatePlacement(reference, position, placement, withArrow, arrowSize) {
+	function calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter) {
 		if (!reference) return { top: 0, left: 0 };
 		const referenceData = reference.getBoundingClientRect();
 
@@ -205,12 +202,8 @@
 	}
 
 	$: {
-		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize);
+		popperPosition = calculatePlacement(reference, position, placement, withArrow, arrowSize, gutter);
 	}
-
-	// @TODOS:
-	// use transition
-	// show gutter
 </script>
 
 <svelte:window on:resize={onResize} />
@@ -219,32 +212,49 @@
 @component
 **UNSTABLE**: new API, yet to be vetted.
 
-Overlays given element with div element with any color and opacity
+Shows content that is positioned based on the reference element provided as well as the psitioning
+and placement options.
 	
 @see https://svelteui.org/core/overlay
 @example
     ```svelte
-	<Box sx={{ height: 100, position: 'relative' }}>
-       	<Overlay opacity={0.6} color="#000" blur={2} />
-        Overlay with a blur
-    </Box>
-	<Box sx={{ height: 100, position: 'relative' }}>
-       	<Overlay gradient={`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)`} />
-        Overlay with a gradient
-    </Box>
+	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
+	<Popper
+		reference={ref}
+		placement="center"
+		position="bottom"
+		{mounted}
+		withArrow={true}
+		arrowOverride={{ backgroundColor: '$gray100' }}
+	>
+		<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+			<Center css={{ width: 100 }}>
+				<Text>This is a very long text</Text>
+			</Center>
+		</Box>
+	</Popper>
     ```
 -->
 
-<div
-	bind:this={element}
-	class="{PopperStyles({ css: override })} {className}"
-	class:mounted={mounted}
-	transition:fade
->
-	<div style="position: relative;">
-		{#if withArrow}
-			<div class="arrow {arrowClassName} {ArrowStyles({ css: arrowOverride })}" />
-		{/if}
+{#if mounted}
+	<div
+		bind:this={element}
+		use:useActions={use}
+		class="{PopperStyles({ css: override })} {className}"
+		in:transition={{ duration: transitionDuration }}
+		out:exitTransition={{ duration: exitTransitionDuration }}
+	>
+		<div class="arrow-wrapper">
+			{#if withArrow}
+				<div class="arrow {arrowClassName} {ArrowStyles({ css: arrowOverride })}" />
+			{/if}
+		</div>
+		<slot />
 	</div>
-	<slot />
-</div>
+{/if}
+
+<style>
+	.arrow-wrapper {
+		position: relative;
+	}
+</style>

@@ -1,4 +1,6 @@
-import type { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { fade } from 'svelte/transition';
+import type { TransitionConfig } from 'svelte/transition';
+import type { CSS, DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
 
 export interface PopperProps extends DefaultProps {
 	position?: 'top' | 'left' | 'bottom' | 'right';
@@ -7,40 +9,16 @@ export interface PopperProps extends DefaultProps {
 	arrowSize?: number;
 	arrowDistance?: number;
 	withArrow?: boolean;
+	arrowOverride?: Override['props'];
+	arrowClassName?: string;
 	zIndex?: number;
 	transition?: Transition;
 	transitionDuration?: number;
+	exitTransition?: Transition;
 	exitTransitionDuration?: number;
-	transitionTimingFunction?: string;
 	mounted?: boolean;
 	dir?: 'ltr' | 'rtl';
-	reference?: any; // @TODO: not any
+	reference?: Element;
 }
 
-export interface TransitionStyles {
-	common?: CSS;
-	in: CSS;
-	out: CSS;
-	transitionProperty: CSS['transitionProperty'];
-}
-
-export type TransitionName =
-	| 'fade'
-	| 'skew-up'
-	| 'skew-down'
-	| 'rotate-right'
-	| 'rotate-left'
-	| 'slide-down'
-	| 'slide-up'
-	| 'slide-right'
-	| 'slide-left'
-	| 'scale-y'
-	| 'scale-x'
-	| 'scale'
-	| 'pop'
-	| 'pop-top-left'
-	| 'pop-top-right'
-	| 'pop-bottom-left'
-	| 'pop-bottom-right';
-
-export type Transition = TransitionName | TransitionStyles;
+export type Transition = (node: Element, params: Record<string, any>) => TransitionConfig;
