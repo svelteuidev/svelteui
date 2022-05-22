@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { css } from '$lib/styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
@@ -46,14 +47,15 @@
 	export let reference: $$PopperProps['reference'] = null;
 
 	let popperPosition;
+	let originalPopperPosition;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: PopperStyles = css({
 		position: 'absolute',
-		top: popperPosition.top,
-		left: popperPosition.left,
+		top: popperPosition?.top,
+		left: popperPosition?.left,
 		pointerEvents: 'none',
 		zIndex: zIndex
 	});
@@ -65,16 +67,18 @@
 		transform: 'rotate(45deg)',
 		border: '1px solid transparent',
 		zIndex: zIndex,
-		top: popperPosition.arrowTop,
-		left: popperPosition.arrowLeft
+		top: popperPosition?.arrowTop,
+		left: popperPosition?.arrowLeft
 	});
 
 	// prettier-ignore
-	function calculatePlacement(reference, element, position, placement, withArrow, arrowSize, arrowDistance, gutter) {
-		if (!reference || !element) return { top: 0, left: 0 };
+	function calculatePlacement(props) {
+		if (!reference || !element) return;
+
+		const { position } = props;		
 		const referenceData = reference.getBoundingClientRect();
 		
-		// take into consideration the page scroll 
+		// take into consideration the page scroll
 		const referenceTop = referenceData.top + window.scrollY;
 		const referenceBottom = referenceData.bottom + window.scrollY;
 		const referenceLeft = referenceData.x + window.scrollX;
@@ -169,38 +173,82 @@
 
 		return {
 			top: top,
+			bottom: top + element.clientHeight,
 			left: left,
+			right: left + element.clientWidth,
 			arrowTop: arrowTop,
 			arrowLeft: arrowLeft
 		}
 	}
 
-	function onResize() {
-		popperPosition = calculatePlacement(
-			reference,
-			element,
-			position,
-			placement,
-			withArrow,
-			arrowSize,
-			arrowDistance,
-			gutter
-		);
+	function adaptHidden() {
+		if (!popperPosition) return;
+
+		const windowStartY = window.scrollY;
+		const windowEndY = window.scrollY + window.innerHeight;
+		const windowStartX = window.scrollX;
+		const windowEndX = window.scrollX + window.innerWidth;
+		const hiddenUp = (originalPopperPosition || popperPosition).bottom > windowEndY;
+		const hiddenDown = (originalPopperPosition || popperPosition).top < windowStartY;
+		const hiddenLeft = (originalPopperPosition || popperPosition).right > windowEndX;
+		const hiddenRight = (originalPopperPosition || popperPosition).left < windowStartX;
+
+		const hidden = hiddenUp || hiddenDown || hiddenLeft || hiddenRight;
+
+		// reset to the original position if the popper already fits
+		// inside the page viewport
+		if (!hidden) {
+			originalPopperPosition = null;
+			return calculatePlacement({ ...$$props });
+		}
+
+		// if the popper position is outside the page viewport, save
+		// the original position so that later it can check if its
+		// already safe to return to it
+		if (hidden && !originalPopperPosition){
+			originalPopperPosition = popperPosition;
+		}
+
+		// adapt the popper position so that it becomes visible when
+		// the page scrolls and hides it in its original position
+		if (hiddenUp) {
+			return calculatePlacement({ ...$$props, element: element, position: "top" });
+		}
+		if (hiddenDown) {
+			return calculatePlacement({...$$props, element: element, position: "bottom" });
+		}
+		if (hiddenLeft) {
+			return calculatePlacement({...$$props, element: element, position: "left" });
+		}
+		if (hiddenRight) {
+			return calculatePlacement({...$$props, element: element, position: "right" });
+		}
 	}
 
-	$: popperPosition = calculatePlacement(
-		reference,
-		element,
-		position,
-		placement,
-		withArrow,
-		arrowSize,
-		arrowDistance,
-		gutter
-	);
+	function updatePopper() {
+		popperPosition = calculatePlacement({ ...$$props });
+		popperPosition = adaptHidden();
+	}
+
+	function onResize() {
+		updatePopper();
+	}
+
+	function onScroll() {
+		updatePopper();
+	}
+
+	$: {
+		// resets a previous popper positioning if an update
+		// to adapt to the position was made (popper outside
+		// viewport) and then updates the popper position
+		originalPopperPosition = null;
+		popperPosition = calculatePlacement({ ...$$props });
+		popperPosition = adaptHidden();
+	}
 </script>
 
-<svelte:window on:resize={onResize} />
+<svelte:window on:resize={onResize} on:scroll={onScroll} />
 
 <!--
 @component
