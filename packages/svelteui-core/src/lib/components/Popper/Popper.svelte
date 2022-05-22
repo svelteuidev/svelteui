@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { css } from '$lib/styles';
-	import { useActions } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
 	/** Used for forwarding actions from component */
 	export let use: $$PopperProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$PopperProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$PopperProps['className'] = '';
 	export { className as class };
@@ -24,7 +27,7 @@
 	/** Css prop for custom theming the arrow of the popper */
 	export let arrowOverride: $$PopperProps['arrowOverride'] = {};
 	/** The arrow class name */
-	export let arrowClassName: $$PopperProps['arrowClassName'] = "";
+	export let arrowClassName: $$PopperProps['arrowClassName'] = '';
 	/** Renders the popper arrow if true */
 	export let withArrow: $$PopperProps['withArrow'] = false;
 	/** Popper z-index */
@@ -42,13 +45,15 @@
 	/** The element that servers as the reference for the popper positioning */
 	export let reference: $$PopperProps['reference'] = null;
 
-	let element;
 	let popperPosition;
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: PopperStyles = css({
 		position: 'absolute',
-        top: popperPosition.top,
-        left: popperPosition.left,
+		top: popperPosition.top,
+		left: popperPosition.left,
 		pointerEvents: 'none',
 		zIndex: zIndex
 	});
@@ -64,6 +69,7 @@
 		left: popperPosition.arrowLeft
 	});
 
+	// prettier-ignore
 	function calculatePlacement(reference, element, position, placement, withArrow, arrowSize, arrowDistance, gutter) {
 		if (!reference || !element) return { top: 0, left: 0 };
 		const referenceData = reference.getBoundingClientRect();
@@ -177,7 +183,6 @@
 		);
 	}
 
-
 	$: popperPosition = calculatePlacement(
 		reference,
 		element,
@@ -224,6 +229,7 @@ and placement options.
 	<div
 		bind:this={element}
 		use:useActions={use}
+		use:forwardEvents
 		class="{PopperStyles({ css: override })} {className}"
 		in:transition={{ duration: transitionDuration }}
 		out:exitTransition={{ duration: exitTransitionDuration }}
