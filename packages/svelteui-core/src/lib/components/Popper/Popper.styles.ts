@@ -8,16 +8,15 @@ export interface PopperProps extends DefaultProps {
 	gutter?: number;
 	arrowSize?: number;
 	arrowDistance?: number;
-	withArrow?: boolean;
 	arrowOverride?: Override['props'];
 	arrowClassName?: string;
+	withArrow?: boolean;
 	zIndex?: number;
 	transition?: Transition;
 	transitionDuration?: number;
 	exitTransition?: Transition;
 	exitTransitionDuration?: number;
 	mounted?: boolean;
-	dir?: 'ltr' | 'rtl';
 	reference?: Element;
 }
 
