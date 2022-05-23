@@ -43,9 +43,9 @@
 	/** Input value */
 	export let value: $$InputProps['value'] = '';
 	/** Sets border color to red and aria-invalid=true on input element */
-	export let invalid: boolean = false;
+	export let invalid: $$InputProps['invalid'] = false;
 	/** Will input have multiple lines? */
-	export let multiline: boolean = false;
+	export let multiline: $$InputProps['multiline'] = false;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
