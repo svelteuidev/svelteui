@@ -4,6 +4,7 @@ export * from './use-css-variable';
 export * from './use-download';
 export * from './use-focus';
 export * from './use-hot-key';
+export * from './use-io';
 export * from './use-lazy';
 export * from './use-lock-scroll';
 export * from './use-long-press';

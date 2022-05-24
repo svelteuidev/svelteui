@@ -1,8 +1,8 @@
-export type Action = (
+export type Action<T = any> = (
 	node: HTMLElement,
-	parameters?: unknown
+	parameters?: T
 ) => {
-	update?: (parameters: unknown) => unknown;
+	update?: (parameters: T) => any | void;
 	destroy?: () => void;
 };
 
