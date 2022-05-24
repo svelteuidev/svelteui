@@ -71,7 +71,7 @@
 
 <Space h={30} />
 <Title>Placements</Title>
-<SimpleGrid cols={3}>
+<SimpleGrid spacing="xl" cols={3}>
 	<Button on:click={() => (placement = 'start')}>Start</Button>
 	<Button on:click={() => (placement = 'center')}>Center</Button>
 	<Button on:click={() => (placement = 'end')}>End</Button>

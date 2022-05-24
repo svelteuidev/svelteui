@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { flipboard } from '$lib';
+	import { Box, Center } from '@svelteuidev/core';
+	import { Animation, TextAnimation } from '$lib';
 	import { onMount } from 'svelte';
 
 	let v = false;
@@ -12,6 +13,10 @@
 <p>This is a test route to test the motion package</p>
 <hr />
 
-{#if v}
-	<p transition:flipboard>Transition</p>
-{/if}
+<Center override={{ bc: '$blue50', width: 300 }}>
+	<Animation animation="spin" duration={1}>
+		<Box css={{ bc: '$blue200' }}>Hello</Box>
+	</Animation>
+</Center>
+
+<TextAnimation animation="hue">Test Text</TextAnimation>

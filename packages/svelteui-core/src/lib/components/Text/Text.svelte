@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { css, dark } from '$lib/styles';
+	import { css, dark, theme } from '$lib/styles';
 	import { getTextColor } from './Text.styles';
 	import { TextErrors } from './Text.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
@@ -42,6 +42,8 @@
 	export let inherit: $$TextProps['inherit'] = false;
 	/** Applies an href to the anchor tag */
 	export let href: $$TextProps['href'] = '';
+	/** Controls the letter-spacing of the text */
+	export let tracking: $$TextProps['tracking'] = 'normal';
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -61,6 +63,7 @@
 		fontFamily: inherit ? 'inherit' : '$standard',
 		fontSize: inherit ? 'inherit' : typeof size === 'string' ? `$${size}` : `${size}px`,
 		fontWeight: inherit ? 'inherit' : `$${weight}`,
+		letterSpacing: theme.letterSpacings[tracking]?.value,
 		lineHeight: inherit
 			? 'inherit'
 			: inline
