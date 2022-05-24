@@ -59,12 +59,12 @@
 
 	let openTimeoutRef: number, closeTimeoutRef: number;
 	let _opened = false;
+	let tooltipRefElement = null;
 	let ToolTipStyles: CSS;
 
 	$: visible = (typeof opened === 'boolean' ? opened : _opened) && !disabled;
 
 	$: ToolTipStyles = {
-		position: 'relative',
 		display: 'inline-block',
 
 		'& .body': {
@@ -142,7 +142,6 @@
 	{...$$restProps}
 >
 	<Popper
-		reference={element}
 		{transitionDuration}
 		{position}
 		{placement}
@@ -150,6 +149,7 @@
 		{withArrow}
 		{arrowSize}
 		{zIndex}
+		reference={tooltipRefElement}
 		mounted={visible}
 		arrowDistance={3}
 	>
@@ -165,5 +165,7 @@
 			{label}
 		</Box>
 	</Popper>
-	<slot />
+	<div bind:this={tooltipRefElement}>
+		<slot />
+	</div>
 </Box>
