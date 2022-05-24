@@ -16,7 +16,8 @@ export interface PopperProps extends DefaultProps<HTMLElement> {
 	exitTransition?: Transition;
 	exitTransitionDuration?: number;
 	mounted?: boolean;
-	reference?: Element;
+	reference?: HTMLElement;
+	withinPortal?: boolean;
 }
 
 export type Transition = (node: Element, params: TransitionParams) => TransitionConfig;
