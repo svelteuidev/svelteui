@@ -6,18 +6,17 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$PortalProps['use'] = [];
-
 	/** Used for components to bind to elements */
 	export let element: $$PortalProps['element'] = undefined;
-
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$PortalProps['className'] = '';
 	export { className as class };
+	/** DOM element or CSS selector to be appended to */
+	export let target: $$PortalProps['target'] = 'body';
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 	/** T */
-	export let target: $$PortalProps['target'] = 'body';
 </script>
 
 <div

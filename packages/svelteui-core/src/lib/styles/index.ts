@@ -1,4 +1,5 @@
 export * from './utils';
+export * from './functions';
 
 export { colors } from './default-colors';
 export {
@@ -39,7 +40,8 @@ import type {
 	SvelteUINumberFontSize,
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
-	VariantThemeFunction
+	VariantThemeFunction,
+	Transition
 } from './types';
 export type {
 	SvelteUIProviderProps,
@@ -63,5 +65,6 @@ export type {
 	SvelteUINumberFontSize,
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
-	VariantThemeFunction
+	VariantThemeFunction,
+	Transition
 };
