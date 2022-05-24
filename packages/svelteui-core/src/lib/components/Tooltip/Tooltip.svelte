@@ -87,9 +87,8 @@
 			[`${dark.selector} &`]: {
 				bg: theme.colors[`${color}300`].value
 			},
-			border: 0,
 			background: theme.colors[`${color}900`].value,
-			zIndex: 1
+			zIndex: 0
 		}
 	};
 
