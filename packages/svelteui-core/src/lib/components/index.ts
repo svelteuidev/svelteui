@@ -31,3 +31,4 @@ export * from './Text';
 export * from './ThemeIcon';
 export * from './Title';
 export * from './Tooltip';
+export * from './TypographyProvider';
