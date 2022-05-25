@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { css, dark } from '$lib/styles';
 	import Input from '../Input/Input.svelte';
-    import { defaultFormatter, defaultParser } from './NumberInput.styles';
+    import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
 	/** Used for forwarding actions from component */
@@ -18,12 +19,6 @@
 	export let iconWidth: $$NumberInputProps['iconWidth'] = 36;
 	/** Props spread to icon component */
 	export let iconProps: $$NumberInputProps['iconProps'] = { size: 20, color: 'currentColor' };
-	/** Right section of input, similar to icon but on the right */
-	export let rightSection: $$NumberInputProps['rightSection'] = null;
-	/** Width of right section, is used to calculate input padding-right */
-	export let rightSectionWidth: $$NumberInputProps['rightSectionWidth'] = 36;
-	/** Props spread to rightSection div element */
-	export let rightSectionProps: $$NumberInputProps['rightSectionProps'] = {};
 	/** Properties spread to root element */
 	export let wrapperProps: $$NumberInputProps['wrapperProps'] = {};
 	/** Sets required on input element */
@@ -40,10 +35,10 @@
     export let invalid: $$NumberInputProps['invalid'] = false;
     /** Input value */
 	export let value: $$NumberInputProps['value'] = undefined;
-    export let defaultValue: $$NumberInputProps['defaultValue'] = undefined;
+    export let defaultValue: $$NumberInputProps['defaultValue'] = 0;
     export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
-    export let min: $$NumberInputProps['min'] = 0;
-    export let max: $$NumberInputProps['max'] = 10;
+    export let min: $$NumberInputProps['min'] = -Infinity;
+    export let max: $$NumberInputProps['max'] = Infinity;
     export let step: $$NumberInputProps['step'] = 1;
     export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 100;
     export let hideControls: $$NumberInputProps['hideControls'] = false;
@@ -51,6 +46,146 @@
     export let noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false;
     export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
     export let parser: $$NumberInputProps['parser'] = defaultParser;
+
+	function formatNumber(val: string | number = ''): string {
+		let parsedStr = typeof val === 'number' ? String(val) : val;
+
+		if (decimalSeparator) {
+			// replaces all periods '.' for the given decimal separator
+			parsedStr = parsedStr.replace(/\./g, decimalSeparator);
+		}
+
+		return formatter(parsedStr);
+	}
+
+	function parseNumber(val: string): string {
+		let number = val;
+
+		if (decimalSeparator) {
+			// replaces all decimal separators for a period '.'
+			number = number.replace(new RegExp(`\\${decimalSeparator}`, 'g'), '.');
+		}
+
+		return parser(number);
+	}
+
+	function onInput(e) {
+		const val = e.target.value;
+		if (val === '' || val === '-') {
+			value = undefined; // @TODO: check this
+		} else {
+			const parsedNumber = parseNumber(val);
+			if (Number.isNaN(parseNumber)) return;
+			value = parseFloat(parsedNumber)
+		}
+		
+	}
+
+	function onStep(event, up) {
+		value = up ? value + step : value - step;
+		
+		this.holdTimeout = setTimeout(() => {
+			onStep(event, up);
+		}, stepHoldInterval);
+	}
+
+	function onStepDone() {
+		clearTimeout(this.holdTimeout);
+		this.holdTimeout = null;
+	}
+
+	$: ControlStyles = css({
+		display: 'flex',
+		flexDirection: 'column',
+		height: 'calc(100% - 2px)',
+		margin: 1,
+		marginRight: 1,
+
+		'& .control': {
+			margin: 0,
+			position: 'relative',
+			flex: '0 0 50%',
+			boxSizing: 'border-box',
+			width: CONTROL_SIZES[size],
+			padding: 0,
+			WebkitTapHighlightColor: 'transparent',
+			borderBottom: "1px solid $gray400",
+			borderLeft: "1px solid $gray400",
+			borderTop: 0,
+			borderRight: 0,
+			backgroundColor: 'transparent',
+			marginRight: 1,
+
+			[`${dark.selector} &`]: {
+				borderBottom: "1px solid $dark400",
+				borderLeft: "1px solid $dark400"
+			},
+	
+			'&:not(:disabled):hover': {
+				backgroundColor: "$gray50",
+	
+				[`${dark.selector} &`]: {
+					backgroundColor: "$dark600"
+				},
+			},
+
+			'&::after': {
+				position: 'absolute',
+				top: 'calc(50% - 2.5px)',
+				left: 'calc(50% - 4.5px)',
+				content: '""',
+				display: 'block',
+				width: 0,
+				height: 0,
+				borderStyle: 'solid',
+			},
+			'&.control-up': {
+				borderTopRightRadius: `$${radius}`,
+	
+				'&::after': {
+					borderWidth: '0px 5px 5px 5px',
+					borderColor: "transparent transparent $black transparent",
+					
+					[`${dark.selector} &`]: {
+						borderColor: "transparent transparent $dark50 transparent"
+					},
+				},
+	
+				'&:disabled::after': {
+					borderBottomColor: "$gray500",
+					[`${dark.selector} &`]: {
+						borderBottomColor: "$dark200"
+					},
+				},
+			},
+			'&.control-down': {
+				borderTopRightRadius: `$${radius}`,
+				borderBottom: 0,
+	
+				'&::after': {
+					borderWidth: '5px 5px 0px 5px',
+					borderColor: "$black transparent transparent transparent",
+					
+					[`${dark.selector} &`]: {
+						borderColor: "$dark50 transparent transparent transparent"
+					},
+				},
+	
+				'&:disabled::after': {
+					borderTopColor: "$gray500",
+					[`${dark.selector} &`]: {
+						borderTopColor: "$dark200"
+					},
+				},
+			}
+		}
+	})
+
+	$: value = value === undefined ? defaultValue : value;
+
+	// @todo: propagate on:input event with parsed value
+	// @todo: onstep allow hold and add more
+
 </script>
 
 <!--
@@ -75,4 +210,37 @@ Base component to create custom inputs
     ```
 -->
 
-<Input />
+<Input
+	override={{ '& .rightSection': { width: 'auto' } }}
+	value={formatNumber(value)}
+	on:input={onInput}
+>
+	<div slot="rightSection" class="controls {ControlStyles()}">
+		<button
+			class="control control-up"
+			type="button"
+			tabIndex={-1}
+			aria-hidden
+			disabled={value >= max}
+			on:mousedown={(event) => onStep(event, true)}
+			on:mouseup={onStepDone}
+			on:mouseleave={onStepDone}
+        />
+        <button
+			class=" control control-down"
+			type="button"
+			tabIndex={-1}
+			aria-hidden
+			disabled={value <= min}
+			on:mousedown={(event) => onStep(event, false)}
+			on:mouseup={onStepDone}
+			on:mouseleave={onStepDone}
+        />
+	</div>
+</Input>
+
+<style>
+	.rightSection {
+
+	}
+</style>
