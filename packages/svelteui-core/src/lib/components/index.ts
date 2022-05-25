@@ -17,6 +17,7 @@ export * from './InputWrapper';
 export * from './Kbd';
 export * from './Loader';
 export * from './NativeSelect';
+export * from './ObserverRender';
 export * from './Overlay';
 export * from './Paper';
 export * from './Popper';
