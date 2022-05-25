@@ -18,3 +18,11 @@ export const POSITIONS = {
 	right: 'flex-end',
 	apart: 'space-between'
 };
+
+export const SIZES = {
+	xs: 'xs',
+	sm: 'sm',
+	md: 'md',
+	lg: 'lg',
+	xl: 'xl'
+};

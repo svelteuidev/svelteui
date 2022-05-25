@@ -19,7 +19,7 @@
 	/** Default spacing between columns, used when none of breakpoints can be applied */
 	export let spacing: $$SimpleGridProps['spacing'] = 'md';
 
-	const gridBreakpoints = getSortedBreakpoints(theme, breakpoints).reduce((acc, breakpoint) => {
+	$: gridBreakpoints = getSortedBreakpoints(theme, breakpoints).reduce((acc, breakpoint) => {
 		const property = 'maxWidth' in breakpoint ? 'max-width' : 'min-width';
 		const breakpointSize = size({
 			size: property === 'max-width' ? breakpoint.maxWidth : breakpoint.minWidth,
@@ -28,10 +28,7 @@
 
 		acc[`@media (${property}: ${breakpointSize + (property === 'max-width' ? 0 : 1)}px)`] = {
 			gridTemplateColumns: `repeat(${breakpoint.cols}, minmax(0, 1fr))`,
-			gap: size({
-				size: breakpoint.spacing || spacing,
-				sizes: theme.spacing
-			})
+			gap: size({ size: breakpoint.spacing || spacing, sizes: theme.spacing })
 		};
 
 		return acc;
@@ -41,7 +38,7 @@
 		boxSizing: 'border-box',
 		display: 'grid',
 		gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`,
+		gap: size({ size: spacing, sizes: theme.spacing }),
 		...gridBreakpoints
 	};
 </script>

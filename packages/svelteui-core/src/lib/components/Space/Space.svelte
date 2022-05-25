@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Box from '../Box/Box.svelte';
+	import { Box } from '../Box';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
 
 	/** Used for forwarding actions from component */

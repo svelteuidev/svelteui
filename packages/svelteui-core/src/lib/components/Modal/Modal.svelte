@@ -1,15 +1,11 @@
 <script lang="ts">
 	import { CloseButton } from '../ActionIcon';
 	import { Text } from '../Text';
-	// import { Paper } from '../Paper';
+	import { Paper } from '../Paper';
 	import { Overlay } from '../Overlay';
 	import { OptionalPortal } from '../Portal';
 	import { Box } from '../Box';
 	import type { ModalProps as $$ModalProps } from './Modal.styles';
-
-	class Paper {
-		$$prop_def: {};
-	}
 
 	/** Mounts modal if true */
 	export let opened: $$ModalProps['opened'] = null;

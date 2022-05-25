@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { css, vFunc } from '$lib/styles';
+	import { css, vFunc, fns } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { ButtonErrors } from './Button.errors';
@@ -56,6 +56,8 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
+	const { themeColor } = fns;
+
 	/** Css function to generate button styles */
 	$: ButtonStyles = css({
 		focusRing: 'auto',
@@ -81,7 +83,7 @@
 		flexGrow: 0,
 		width: fullSize ? '100%' : 'auto',
 		'&:hover': {
-			backgroundColor: variant === 'gradient' ? null : `$${color}700`,
+			backgroundColor: variant === 'gradient' ? null : themeColor(color, 7),
 			backgroundSize: variant === 'gradient' ? '200%' : null
 		},
 		'&:active': {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { dark, theme } from '$lib/styles';
+	import { dark, theme, fns } from '$lib/styles';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
 	import type { CSS } from '$lib/styles';
@@ -16,9 +16,9 @@
 	/** Css prop for custom theming the component */
 	export let override: $$TooltipProps['override'] = {};
 	/** Tooltip content */
-	export let label: $$TooltipProps['label'] = '';
+	export let label: $$TooltipProps['label'] = null;
 	/** Tooltip opened state for controlled variant */
-	export let opened: $$TooltipProps['opened'] = true;
+	export let opened: $$TooltipProps['opened'] = null;
 	/** Open delay in ms, 0 to disable delay */
 	export let openDelay: $$TooltipProps['openDelay'] = 0;
 	/** Close delay in ms, 0 to disable delay */
@@ -35,6 +35,7 @@
 	export let width: $$TooltipProps['width'] = 'auto';
 	/** Allow multiline tooltip content */
 	export let wrapLines: $$TooltipProps['wrapLines'] = false;
+	//** Disallows pointer events if set to false */
 	export let allowPointerEvents: $$TooltipProps['allowPointerEvents'] = false;
 	/** Get tooltip refrence element */
 	export let tooltipRef: $$TooltipProps['tooltipRef'] = null;
@@ -61,6 +62,7 @@
 	let _opened = false;
 	let tooltipRefElement = null;
 	let ToolTipStyles: CSS;
+	const { themeColor } = fns;
 
 	$: visible = (typeof opened === 'boolean' ? opened : _opened) && !disabled;
 
@@ -69,10 +71,10 @@
 
 		'& .body': {
 			[`${dark.selector} &`]: {
-				bc: theme.colors['dark300'].value,
-				color: theme.colors['dark900'].value
+				bc: themeColor(color, 3),
+				color: themeColor('dark', 9)
 			},
-			backgroundColor: theme.colors['dark900'].value,
+			backgroundColor: themeColor(color, 9),
 			lineHeight: theme.lineHeights.md,
 			fontSize: theme.fontSizes.sm,
 			borderRadius: theme.radii[radius].value,
@@ -85,9 +87,9 @@
 
 		'& .arrow': {
 			[`${dark.selector} &`]: {
-				bg: theme.colors[`${color}300`].value
+				bg: themeColor(color, 3)
 			},
-			background: theme.colors[`${color}900`].value,
+			background: themeColor(color, 9),
 			zIndex: 0
 		}
 	};
@@ -132,8 +134,8 @@
 		handleClose();
 		typeof onMouseLeave === 'function' && onMouseLeave(event);
 	}}
-	on:focus={handleOpen}
-	on:blur={handleClose}
+	on:focus!capture={handleOpen}
+	on:blur!capture={handleClose}
 	class={className}
 	css={{ ...ToolTipStyles, ...override }}
 	{use}
@@ -161,10 +163,20 @@
 				width
 			}}
 		>
-			{label}
+			{#if typeof label === 'function'}
+				<svelte:component this={label} />
+			{:else if typeof label === 'string'}
+				{label}
+			{:else if typeof label === 'number'}
+				{label}
+			{:else if $$slots.label}
+				<slot name="label" />
+			{:else}
+				{label}
+			{/if}
 		</Box>
 	</Popper>
-	<div bind:this={tooltipRefElement}>
+	<span bind:this={tooltipRefElement}>
 		<slot />
-	</div>
+	</span>
 </Box>

@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { SvelteUIProvider } from '$lib';
-	import { Button, Text, Center, Container, Stack, Group } from '$lib';
+	import { hotkey } from '@svelteuidev/actions';
+	import { Button, Text, Center, Container, Stack, Group, Kbd } from '$lib';
+	import { os as _os } from '@svelteuidev/utilities';
 	import type { SvelteUIGradient } from '$lib';
 
 	let darkMode: boolean = false;
+	const os = _os();
+	const mod = os === 'macos' ? '⌘' : 'ctrl';
+
 	const toggleTheme = () => {
 		darkMode = !darkMode;
 	};
@@ -28,16 +33,24 @@
 >
 	<Center override={{ pt: '$4' }}>
 		<Group direction={mobile ? 'column' : 'row'} spacing="xl" position="center" noWrap>
-			<Button
-				gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
-				on:click={toggleTheme}
-				variant="gradient">{darkMode ? 'Dark' : 'Light'} Mode</Button
-			>
+			<Stack spacing="md">
+				<Button
+					on:click={toggleTheme}
+					gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
+					variant="gradient"
+					use={[[hotkey, [['mod+J', toggleTheme]]]]}
+				>
+					{darkMode ? 'Dark' : 'Light'} Mode
+				</Button>
+				<Group position="center">
+					<Kbd>{mod}</Kbd> + <Kbd>J</Kbd>
+				</Group>
+			</Stack>
 			<Stack>
 				<Text weight="bold" size={40} align="center" root="h1">Welcome to a SvelteUI package!</Text>
-				<Text weight="medium" size="xl" align="center" root="p"
-					>This is a test route to test the core package</Text
-				>
+				<Text weight="medium" size="xl" align="center" root="p">
+					This is a test route to test the core package
+				</Text>
 			</Stack>
 		</Group>
 	</Center>

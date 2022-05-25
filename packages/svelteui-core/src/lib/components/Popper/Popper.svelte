@@ -3,7 +3,6 @@
 	import { css } from '$lib/styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import { PopperContainer } from './PopperContainer';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
 	/** Used for forwarding actions from component */
