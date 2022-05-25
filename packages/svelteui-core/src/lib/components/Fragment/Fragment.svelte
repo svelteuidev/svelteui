@@ -1,24 +1,51 @@
 <script lang="ts">
-	import { get_current_component } from 'svelte/internal';
-	import { useActions, createEventForwarder } from '$lib/internal';
+	import { Overlay } from '../Overlay';
+	import { Center } from '../Center';
+	import { Text } from '../Text';
+	import { setContext, onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte';
 	import type { FragmentProps as $$FragmentProps } from './Fragment.styles';
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	export let mode: $$FragmentProps['mode'] = 'fragment';
+	export let context: $$FragmentProps['context'] = null;
+	export let onCreate: $$FragmentProps['onCreate'] = null;
+	export let onMountFn: $$FragmentProps['onMount'] = null;
+	export let beforeUpdateFn: $$FragmentProps['beforeUpdate'] = null;
+	export let afterUpdateFn: $$FragmentProps['afterUpdate'] = null;
+	export let onDestroyFn: $$FragmentProps['onDestroy'] = null;
 
-	/** Used for forwarding actions from component */
-	export let use: $$FragmentProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$FragmentProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$FragmentProps['className'] = '';
-	export { className as class };
-	export let root: $$FragmentProps['root'] = null;
+	if (context) {
+		Object.keys(context).forEach((key) => {
+			setContext(key, context[key]);
+		});
+	}
+	if (onCreate) bind(onCreate)();
+	if (onMountFn) onMount(bind(onMount));
+	if (beforeUpdateFn) beforeUpdate(bind(beforeUpdate));
+	if (afterUpdateFn) afterUpdate(bind(afterUpdate));
+	if (onDestroyFn) onDestroy(bind(onDestroy));
+
+	function bind(callback) {
+		return () => callback({ props: $$restProps });
+	}
+
+	/** action for rendering fragment content */
+	function fragment(node) {
+		node.parentElement.appendChild(node.content);
+		node.setAttribute('style', 'display: none;');
+
+		return {
+			destroy() {
+				if (node && node.parentElement) {
+					node.parentElement.removeChild(node.content);
+				}
+			}
+		};
+	}
 </script>
 
 <!--
 @component
-Fragments let you group a list of children without adding extra nodes to the DOM.
+Fragments let you group a list of children without adding extra nodes to the DOM. It also allows you to test lifecycle methods, state, or context without needing to create a new component.
 	
 @see https://svelteui.org/core/fragment
 @example
@@ -30,18 +57,16 @@ Fragments let you group a list of children without adding extra nodes to the DOM
 	</Fragment>
     ```
 -->
-{#if root}
-	<!-- prettier-ignore -->
-	<svelte:element
-		this={root}
-		use:useActions={use}
-		use:forwardEvents
-		bind:this={element}
-		class={className}
-		{...$$restProps}
-	>
-		<slot />
-	</svelte:element>
-{:else}
+
+{#if mode === 'fragment'}
+	<template use:fragment>
+		<slot {...$$restProps} />
+	</template>
+{:else if mode === 'lifecycle'}
 	<slot {...$$restProps} />
+{:else}
+	<Text size="xl" align="center" override={{ mt: '15rem' }}>
+		You must set the mode prop to either `fragment` or `lifecycle` on the Fragment component
+	</Text>
+	<Overlay zIndex={0} />
 {/if}
