@@ -25,11 +25,11 @@
 <svelte:head>
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content={img} />
+	<meta property="og:image:secure_url" content={img} />
+	<meta property="og:image:secure" content={img} />
 	<meta property="og:url" content={url} />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={img} />
 	<meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 
