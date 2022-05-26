@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { SvelteUIProvider } from '$lib';
+	import { page } from '$app/stores';
+	import { SvelteUIProvider, Seo, Button, Text, Center, Container, Stack, Group, Kbd } from '$lib';
+	import { Anchor } from '$lib';
 	import { hotkey } from '@svelteuidev/actions';
-	import { Button, Text, Center, Container, Stack, Group, Kbd } from '$lib';
 	import { os as _os } from '@svelteuidev/utilities';
 	import type { SvelteUIGradient } from '$lib';
 
@@ -21,10 +22,15 @@
 	let x: number;
 	let y: number;
 	$: mobile = x < 525;
+
+	$: currentPage =
+		$page.routeId === ''
+			? 'Homepage'
+			: `${$page.routeId[0].toUpperCase()}${$page.routeId.slice(1)}`;
 </script>
 
 <svelte:window bind:innerWidth={x} bind:innerHeight={y} />
-
+<Seo title={currentPage} titleTemplate="%t% | SvelteUI" />
 <SvelteUIProvider
 	override={{ overflow: 'hidden' }}
 	withGlobalStyles
@@ -42,8 +48,8 @@
 				>
 					{darkMode ? 'Dark' : 'Light'} Mode
 				</Button>
-				<Group position="center">
-					<Kbd>{mod}</Kbd> + <Kbd>J</Kbd>
+				<Group position="center" spacing="xs">
+					<Kbd>{mod}</Kbd>+<Kbd>J</Kbd>
 				</Group>
 			</Stack>
 			<Stack>
@@ -52,6 +58,11 @@
 					This is a test route to test the core package
 				</Text>
 			</Stack>
+			{#if currentPage === 'Homepage'}
+				<Anchor href="/test">Go to test page</Anchor>
+			{:else}
+				<Anchor href="/">Go to homepage</Anchor>
+			{/if}
 		</Group>
 	</Center>
 	<hr />
