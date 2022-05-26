@@ -1,3 +1,5 @@
+import type { Writable } from 'svelte/store';
+
 /** Function type */
 export type Fn = () => void;
 
@@ -17,3 +19,11 @@ export interface Pauseable {
 	 */
 	resume: Fn;
 }
+
+// prettier-ignore
+export type Action<T = any> = (node: HTMLElement, parameters?: T) => {
+	update?: (parameters: T) => any | void;
+	destroy?: () => void;
+};
+
+export { Writable };

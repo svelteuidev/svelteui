@@ -1,8 +1,16 @@
 import { writable } from 'svelte/store';
+import type { Action, Writable } from '../../types';
+
+// prettier-ignore
 
 export interface UseFocusWithinOptions {
 	onFocus?(event: FocusEvent): void;
 	onBlur?(event: FocusEvent): void;
+}
+
+export interface FocusWithin {
+	focused: Writable<boolean>;
+	focuswithin: Action;
 }
 
 function containsRelatedTarget(event: FocusEvent) {
@@ -12,7 +20,7 @@ function containsRelatedTarget(event: FocusEvent) {
 	return false;
 }
 
-export function focusWithin({ onBlur, onFocus }: UseFocusWithinOptions = {}) {
+export function focusWithin({ onBlur, onFocus }: UseFocusWithinOptions = {}): FocusWithin {
 	const focused = writable(false);
 	let focusedRef = false;
 
@@ -22,7 +30,6 @@ export function focusWithin({ onBlur, onFocus }: UseFocusWithinOptions = {}) {
 	};
 
 	const handleFocusIn = (event: FocusEvent) => {
-		console.log('focus in fired');
 		if (!focusedRef) {
 			setFocused(true);
 			onFocus?.(event);
@@ -30,7 +37,6 @@ export function focusWithin({ onBlur, onFocus }: UseFocusWithinOptions = {}) {
 	};
 
 	const handleFocusOut = (event: FocusEvent) => {
-		console.log('focus out fired');
 		if (focusedRef && !containsRelatedTarget(event)) {
 			setFocused(false);
 			onBlur?.(event);
