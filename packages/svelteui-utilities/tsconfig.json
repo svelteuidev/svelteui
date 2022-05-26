@@ -21,7 +21,6 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"@svelteuidev/actions": ["../svelteui-actions/src/lib"],
-			"@svelteuidev/utilities": ["../svelteui-utilities/src/lib"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
 			"@svelteuidev/core": ["../svelteui-core/src/lib"],
 			"@svelteuidev/prism": ["../svelteui-prism/src/lib"]
@@ -29,7 +28,6 @@
 	},
 	"references": [
 		{ "path": "../svelteui-actions" },
-		{ "path": "../svelteui-utilities" },
 		{ "path": "../svelteui-motion" },
 		{ "path": "../svelteui-core" },
 		{ "path": "../svelteui-prism" }
