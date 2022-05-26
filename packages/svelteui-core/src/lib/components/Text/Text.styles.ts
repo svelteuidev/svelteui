@@ -6,8 +6,7 @@ import type {
 	SvelteUITextTransform,
 	SvelteUINumberSize,
 	SvelteUINumberFontSize,
-	DefaultProps,
-	CSS
+	DefaultProps
 } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
