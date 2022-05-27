@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/dates",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Calendars, date and time pickers based on SvelteUI components",
   "keywords": [
     "svelte",
@@ -19,7 +19,7 @@
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui",
     "directory": "packages/svelteui-dates"
   },
   "license": "MIT",
@@ -64,6 +64,6 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/core": "0.6.2"
+    "@svelteuidev/core": "0.6.3"
   }
 }

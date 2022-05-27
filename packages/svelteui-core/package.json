@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/core",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Svelte component library for creating fully functional and accessible web applications quickly",
   "keywords": [
     "svelte",
@@ -17,14 +17,13 @@
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui",
     "directory": "packages/svelteui-core"
   },
   "license": "MIT",
   "author": "Kamell Perry <kamellperry33@gmail.com>",
   "sideEffects": false,
   "type": "module",
-  "main": "index.js",
   "module": "./package/index.js",
   "types": "types/index.d.ts",
   "files": [
@@ -65,7 +64,7 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/actions": "0.6.2",
+    "@svelteuidev/actions": "0.6.3",
     "svelte": "3.47.0"
   }
 }

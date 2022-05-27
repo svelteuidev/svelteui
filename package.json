@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui"
+    "url": "https://github.com/svelteuidev/svelteui"
   },
   "license": "MIT",
   "author": "Kamell Perry",

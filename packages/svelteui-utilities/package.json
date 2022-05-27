@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/utilities",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Svelte utilities library with generally useful functions to assist in development.",
   "keywords": [
     "svelte",
@@ -16,7 +16,7 @@
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui",
     "directory": "packages/svelteui-utilities"
   },
   "license": "MIT",

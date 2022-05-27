@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/motion",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
   "keywords": [
     "svelte",
@@ -17,7 +17,7 @@
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui",
     "directory": "packages/svelteui-motion"
   },
   "license": "MIT",
