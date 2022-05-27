@@ -35,9 +35,9 @@
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "svelte-kit dev",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "format": "prettier --write --plugin-search-dir=. .",
     "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
     "pub": "npm publish package/",
     "pub:test": "npm publish package/",
