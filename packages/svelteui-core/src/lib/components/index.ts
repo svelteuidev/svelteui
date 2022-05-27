@@ -16,6 +16,7 @@ export * from './Input';
 export * from './InputWrapper';
 export * from './Loader';
 export * from './NativeSelect';
+export * from './NumberInput';
 export * from './Overlay';
 export * from './Popper';
 export * from './Select';

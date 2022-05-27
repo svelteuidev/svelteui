@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import { css, dark } from '$lib/styles';
 	import Input from '../Input/Input.svelte';
-    import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
+	import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
 	/** Used for forwarding actions from component */
@@ -32,20 +33,25 @@
 	/** Input size */
 	export let size: $$NumberInputProps['size'] = 'sm';
 	/** Sets border color to red and aria-invalid=true on input element */
-    export let invalid: $$NumberInputProps['invalid'] = false;
-    /** Input value */
+	export let invalid: $$NumberInputProps['invalid'] = false;
+	/** Input value */
 	export let value: $$NumberInputProps['value'] = undefined;
-    export let defaultValue: $$NumberInputProps['defaultValue'] = 0;
-    export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
-    export let min: $$NumberInputProps['min'] = -Infinity;
-    export let max: $$NumberInputProps['max'] = Infinity;
-    export let step: $$NumberInputProps['step'] = 1;
-    export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 100;
-    export let hideControls: $$NumberInputProps['hideControls'] = false;
-    export let precision: $$NumberInputProps['precision'] = 0;
-    export let noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false;
-    export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
-    export let parser: $$NumberInputProps['parser'] = defaultParser;
+	export let defaultValue: $$NumberInputProps['defaultValue'] = 0;
+	export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
+	export let min: $$NumberInputProps['min'] = -Infinity;
+	export let max: $$NumberInputProps['max'] = Infinity;
+	export let step: $$NumberInputProps['step'] = 1;
+	export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 100;
+	export let hideControls: $$NumberInputProps['hideControls'] = false;
+	export let precision: $$NumberInputProps['precision'] = 0;
+	export let noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false;
+	export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
+	export let parser: $$NumberInputProps['parser'] = defaultParser;
+
+	const dispatch = createEventDispatcher();
+
+	let _value;
+	let holdTimeout = null;
 
 	function formatNumber(val: string | number = ''): string {
 		let parsedStr = typeof val === 'number' ? String(val) : val;
@@ -69,29 +75,55 @@
 		return parser(number);
 	}
 
+	function _valueC(val) {
+		if (val === undefined && typeof defaultValue === 'number') {
+			return defaultValue;
+		}
+		if (typeof val !== 'number') {
+			return undefined;
+		}
+		return val;
+	}
+
 	function onInput(e) {
 		const val = e.target.value;
 		if (val === '' || val === '-') {
-			value = undefined; // @TODO: check this
+			_value = undefined; // @TODO: check this
 		} else {
 			const parsedNumber = parseNumber(val);
 			if (Number.isNaN(parseNumber)) return;
-			value = parseFloat(parsedNumber)
+			_value = parseFloat(parsedNumber);
 		}
-		
 	}
 
 	function onStep(event, up) {
-		value = up ? value + step : value - step;
+		const tmpValue = up ? _value + step : _value - step;
+		console.log("tmpValue", typeof tmpValue);
 		
-		this.holdTimeout = setTimeout(() => {
+		_value = parseFloat(tmpValue.toFixed(precision));
+
+		holdTimeout = setTimeout(() => {
 			onStep(event, up);
 		}, stepHoldInterval);
 	}
 
 	function onStepDone() {
-		clearTimeout(this.holdTimeout);
-		this.holdTimeout = null;
+		clearTimeout(holdTimeout);
+		holdTimeout = null;
+	}
+
+	function onKeyDown(event) {
+		// @todo: still not working
+		if (event.key === 'ArrowUp') {
+			onStep(event, true);
+		} else if (event.key === 'ArrowDown') {
+			onStep(event, false);
+		}
+	}
+
+	function onKeyUp(event) {
+		if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+		onStepDone();
 	}
 
 	$: ControlStyles = css({
@@ -109,24 +141,24 @@
 			width: CONTROL_SIZES[size],
 			padding: 0,
 			WebkitTapHighlightColor: 'transparent',
-			borderBottom: "1px solid $gray400",
-			borderLeft: "1px solid $gray400",
+			borderBottom: '1px solid $gray400',
+			borderLeft: '1px solid $gray400',
 			borderTop: 0,
 			borderRight: 0,
 			backgroundColor: 'transparent',
 			marginRight: 1,
 
 			[`${dark.selector} &`]: {
-				borderBottom: "1px solid $dark400",
-				borderLeft: "1px solid $dark400"
+				borderBottom: '1px solid $dark400',
+				borderLeft: '1px solid $dark400'
 			},
-	
+
 			'&:not(:disabled):hover': {
-				backgroundColor: "$gray50",
-	
+				backgroundColor: '$gray50',
+
 				[`${dark.selector} &`]: {
-					backgroundColor: "$dark600"
-				},
+					backgroundColor: '$dark600'
+				}
 			},
 
 			'&::after': {
@@ -137,55 +169,56 @@
 				display: 'block',
 				width: 0,
 				height: 0,
-				borderStyle: 'solid',
+				borderStyle: 'solid'
 			},
 			'&.control-up': {
 				borderTopRightRadius: `$${radius}`,
-	
+
 				'&::after': {
 					borderWidth: '0px 5px 5px 5px',
-					borderColor: "transparent transparent $black transparent",
-					
+					borderColor: 'transparent transparent $black transparent',
+
 					[`${dark.selector} &`]: {
-						borderColor: "transparent transparent $dark50 transparent"
-					},
+						borderColor: 'transparent transparent $dark50 transparent'
+					}
 				},
-	
+
 				'&:disabled::after': {
-					borderBottomColor: "$gray500",
+					borderBottomColor: '$gray500',
 					[`${dark.selector} &`]: {
-						borderBottomColor: "$dark200"
-					},
-				},
+						borderBottomColor: '$dark200'
+					}
+				}
 			},
 			'&.control-down': {
 				borderTopRightRadius: `$${radius}`,
 				borderBottom: 0,
-	
+
 				'&::after': {
 					borderWidth: '5px 5px 0px 5px',
-					borderColor: "$black transparent transparent transparent",
-					
+					borderColor: '$black transparent transparent transparent',
+
 					[`${dark.selector} &`]: {
-						borderColor: "$dark50 transparent transparent transparent"
-					},
+						borderColor: '$dark50 transparent transparent transparent'
+					}
 				},
-	
+
 				'&:disabled::after': {
-					borderTopColor: "$gray500",
+					borderTopColor: '$gray500',
 					[`${dark.selector} &`]: {
-						borderTopColor: "$dark200"
-					},
-				},
+						borderTopColor: '$dark200'
+					}
+				}
 			}
 		}
-	})
+	});
 
-	$: value = value === undefined ? defaultValue : value;
+	$: _value = _valueC(value);
 
 	// @todo: propagate on:input event with parsed value
-	// @todo: onstep allow hold and add more
+	$: dispatch('input', value); // @todo: check this
 
+	// @todo: onstep allow hold and add more
 </script>
 
 <!--
@@ -212,35 +245,33 @@ Base component to create custom inputs
 
 <Input
 	override={{ '& .rightSection': { width: 'auto' } }}
-	value={formatNumber(value)}
+	value={formatNumber(_value)}
 	on:input={onInput}
+	on:onkeyup={onKeyUp}
+	on:onkeydown={onKeyDown}
 >
 	<div slot="rightSection" class="controls {ControlStyles()}">
-		<button
-			class="control control-up"
-			type="button"
-			tabIndex={-1}
-			aria-hidden
-			disabled={value >= max}
-			on:mousedown={(event) => onStep(event, true)}
-			on:mouseup={onStepDone}
-			on:mouseleave={onStepDone}
-        />
-        <button
-			class=" control control-down"
-			type="button"
-			tabIndex={-1}
-			aria-hidden
-			disabled={value <= min}
-			on:mousedown={(event) => onStep(event, false)}
-			on:mouseup={onStepDone}
-			on:mouseleave={onStepDone}
-        />
+		{#if !hideControls}
+			<button
+				class="control control-up"
+				type="button"
+				tabIndex={-1}
+				aria-hidden
+				disabled={_value >= max}
+				on:mousedown={(event) => onStep(event, true)}
+				on:mouseup={onStepDone}
+				on:mouseleave={onStepDone}
+			/>
+			<button
+				class=" control control-down"
+				type="button"
+				tabIndex={-1}
+				aria-hidden
+				disabled={_value <= min}
+				on:mousedown={(event) => onStep(event, false)}
+				on:mouseup={onStepDone}
+				on:mouseleave={onStepDone}
+			/>
+		{/if}
 	</div>
 </Input>
-
-<style>
-	.rightSection {
-
-	}
-</style>
