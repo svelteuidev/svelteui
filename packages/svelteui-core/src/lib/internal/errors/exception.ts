@@ -1,4 +1,4 @@
-import { UserException } from './user-exception';
+import { UserException } from './user-exception.js';
 import type { ErrorCtx, CurrentComponents } from './types';
 
 export function exception(component: CurrentComponents, code: ErrorCtx): string {

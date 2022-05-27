@@ -1,4 +1,4 @@
-import { rgba, dark, fns } from '../../index';
+import { rgba, dark, fns } from '../../index.js';
 import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '../../types';
 
 export const vFunc = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {

@@ -1,4 +1,4 @@
-import type { ConfigurableWindow } from '../../utils';
+import type { ConfigurableWindow } from '../../utils/index.js';
 import type { Pauseable } from '../../types';
 
 export interface RafFnOptions extends ConfigurableWindow {

@@ -1,1 +1,1 @@
-export * from './fns';
+export * from './fns/index.js';

@@ -1,4 +1,4 @@
-import { theme } from '../../../index';
+import { theme } from '../../../index.js';
 import type { SvelteUIColor } from '../../../index';
 
 type ColorShades = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;

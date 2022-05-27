@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { onMount } from 'svelte';
-import { browser, defaultWindow } from '../../utils';
+import { browser, defaultWindow } from '../../utils/index.js';
 import type { Writable } from '../../types';
 
 export interface BrowserContextState {

@@ -1,2 +1,2 @@
-export * from './flipboard';
-export * from './typewriter';
+export * from './flipboard/index.js';
+export * from './typewriter/index.js';

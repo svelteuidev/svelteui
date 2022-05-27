@@ -1,4 +1,4 @@
-import { getScrollWidth } from './get-scroll-width';
+import { getScrollWidth } from './get-scroll-width.js';
 
 export const getLockStyles = ({ disableBodyPadding }) => {
 	const scrollWidth = disableBodyPadding ? null : getScrollWidth();

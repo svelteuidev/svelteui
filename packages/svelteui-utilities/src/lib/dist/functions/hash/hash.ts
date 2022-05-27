@@ -1,4 +1,4 @@
-import { browser } from '../../utils';
+import { browser } from '../../utils/index.js';
 
 /**
  * Util generates a random hash with a specified prefix. If you are looking to generate a random ID, then you should use the id utility.
@@ -9,11 +9,7 @@ import { browser } from '../../utils';
  *
  * @param prefix prefix that is applied to the hash - defaults to `svelteui`
  *
-<<<<<<< HEAD
- * @see https://svelteui.org/docs/utilities/hash
-=======
  * @see https://svelteui.org/utilities/hash
->>>>>>> 1398598c370da73cdcd90f1af59a36b92862d1b1
  */
 export function hash(prefix: string = 'svelteui', persist: boolean = false): string {
 	if (persist && browser) {

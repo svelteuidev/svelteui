@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
-	import { clipboard } from './clipboard';
+	import { clipboard } from './clipboard.js';
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
 	import 'prism-svelte';
@@ -8,8 +8,8 @@
 	import 'prismjs/plugins/line-highlight/prism-line-highlight';
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
-	import { config } from './Prism.config';
-	import { PrismErrors } from './Prism.errors';
+	import { config } from './Prism.config.js';
+	import { PrismErrors } from './Prism.errors.js';
 	import type { PrismStyles as $$PrismStyles } from './Prism.styles';
 
 	/** Used for custom classes to be applied to the prism e.g. Tailwind classes */
