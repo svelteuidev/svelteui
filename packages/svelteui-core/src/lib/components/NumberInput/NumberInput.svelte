@@ -36,28 +36,42 @@
 	export let invalid: $$NumberInputProps['invalid'] = false;
 	/** Input value */
 	export let value: $$NumberInputProps['value'] = undefined;
+	/** Input default value, set as the value if none is provided */
 	export let defaultValue: $$NumberInputProps['defaultValue'] = 0;
+	/** The decimal separator to be used if the value is decimal, used by the formatter and parser */
 	export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
+	/** The minimum value the input will allow */
 	export let min: $$NumberInputProps['min'] = -Infinity;
+	/** The maximum value the input will allow */
 	export let max: $$NumberInputProps['max'] = Infinity;
+	/** The number by which the value will be incremented/decremented */
 	export let step: $$NumberInputProps['step'] = 1;
+	/** The delay in miliseconds before stepping the value when holding the controls */
+	export let stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 0;
+	/** The interval in miliseconds between each stepping of the value when holding the controls */
 	export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 100;
+	/** Hides the increment/decrement controls */
 	export let hideControls: $$NumberInputProps['hideControls'] = false;
+	/** Amount of decimal digits */
 	export let precision: $$NumberInputProps['precision'] = 0;
+	/** Prevents value clamp on input blur */
 	export let noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false;
+	/** Formats the value into the input string shown */
 	export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
+	/** Parses the value provided by the formatter */
 	export let parser: $$NumberInputProps['parser'] = defaultParser;
 
 	const dispatch = createEventDispatcher();
 
 	let _value;
+	let inputRef;
 	let holdTimeout = null;
 
-	function formatNumber(val: string | number = ''): string {
+	function formatNumber(val: string | number = ''): string {		
 		let parsedStr = typeof val === 'number' ? String(val) : val;
 
+		// replaces all periods '.' for the given decimal separator
 		if (decimalSeparator) {
-			// replaces all periods '.' for the given decimal separator
 			parsedStr = parsedStr.replace(/\./g, decimalSeparator);
 		}
 
@@ -67,8 +81,8 @@
 	function parseNumber(val: string): string {
 		let number = val;
 
+		// replaces all decimal separators for a period '.'
 		if (decimalSeparator) {
-			// replaces all decimal separators for a period '.'
 			number = number.replace(new RegExp(`\\${decimalSeparator}`, 'g'), '.');
 		}
 
@@ -85,26 +99,31 @@
 		return val;
 	}
 
-	function onInput(e) {
-		const val = e.target.value;
-		if (val === '' || val === '-') {
-			_value = undefined; // @TODO: check this
+	function onInput() {
+		if (this.value === '' || this.value === '-') {
+			_value = undefined;
 		} else {
-			const parsedNumber = parseNumber(val);
+			const parsedNumber = parseNumber(this.value);
 			if (Number.isNaN(parseNumber)) return;
-			_value = parseFloat(parsedNumber);
+
+			const clamped = Math.min(Math.max(parseFloat(parsedNumber), min), max);
+			_value = parseFloat(clamped.toFixed(precision));
 		}
 	}
 
-	function onStep(event, up) {
-		const tmpValue = up ? _value + step : _value - step;
-		console.log("tmpValue", typeof tmpValue);
-		
-		_value = parseFloat(tmpValue.toFixed(precision));
-
+	function stepInterval(up) {
 		holdTimeout = setTimeout(() => {
-			onStep(event, up);
+			onStep(up, false);
 		}, stepHoldInterval);
+	}
+
+	function onStep(up, first = true) {
+		const tmpValue = up ? _value + step : _value - step;
+		const clamp = Math.min(Math.max(tmpValue, min), max);
+		_value = parseFloat(clamp.toFixed(precision));
+
+		if (first) setTimeout(() => stepInterval(up), stepHoldDelay);
+		else stepInterval(up);
 	}
 
 	function onStepDone() {
@@ -112,18 +131,24 @@
 		holdTimeout = null;
 	}
 
-	function onKeyDown(event) {
+	function onKeyDown() {
 		// @todo: still not working
-		if (event.key === 'ArrowUp') {
-			onStep(event, true);
-		} else if (event.key === 'ArrowDown') {
-			onStep(event, false);
+		if (this.key === 'ArrowUp') {
+			onStep(true);
+		} else if (this.key === 'ArrowDown') {
+			onStep(false);
 		}
 	}
 
-	function onKeyUp(event) {
-		if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+	function onKeyUp() {
+		// @todo: still not working
+		if (this.key !== 'ArrowUp' && this.key !== 'ArrowDown') return;
 		onStepDone();
+	}
+
+	function onBlur() {
+		if (noClampOnBlur) return;
+		inputRef.value = formatNumber(_value);
 	}
 
 	$: ControlStyles = css({
@@ -218,7 +243,7 @@
 	// @todo: propagate on:input event with parsed value
 	$: dispatch('input', value); // @todo: check this
 
-	// @todo: onstep allow hold and add more
+	// @todo: verify clamp logic
 </script>
 
 <!--
@@ -230,25 +255,30 @@ Base component to create custom inputs
 @see https://svelteui.org/core/input
 @example
     ```svelte
-    <Input
-      icon={Twitter}
-      placeholder="Your twitter"
-      rightSectionWidth={70}
-      override={{ '& .rightSection': { pointerEvents: 'none' } }}
-    >
-		<Badge slot='rightSection' color="blue" variant="filled">
-			new
-		</Badge>
-	<Input />
+    <NumberInput defaultValue={2} />
+	<NumberInput defaultValue={0} step={0.2} precision={2} decimalSeparator="/" />
     ```
 -->
 
 <Input
-	override={{ '& .rightSection': { width: 'auto' } }}
+	{root}
+	{icon}
+	{iconWidth}
+	{iconProps}
+	{wrapperProps}
+	{required}
+	{radius}
+	{variant}
+	{disabled}
+	{invalid}
+	class="{className}"
+	override={{ ...override, '& .rightSection': { width: 'auto' } }}
 	value={formatNumber(_value)}
 	on:input={onInput}
 	on:onkeyup={onKeyUp}
 	on:onkeydown={onKeyDown}
+	on:blur={onBlur}
+	bind:element={inputRef}
 >
 	<div slot="rightSection" class="controls {ControlStyles()}">
 		{#if !hideControls}
@@ -258,7 +288,7 @@ Base component to create custom inputs
 				tabIndex={-1}
 				aria-hidden
 				disabled={_value >= max}
-				on:mousedown={(event) => onStep(event, true)}
+				on:mousedown={() => onStep(true)}
 				on:mouseup={onStepDone}
 				on:mouseleave={onStepDone}
 			/>
@@ -268,7 +298,7 @@ Base component to create custom inputs
 				tabIndex={-1}
 				aria-hidden
 				disabled={_value <= min}
-				on:mousedown={(event) => onStep(event, false)}
+				on:mousedown={() => onStep(false)}
 				on:mouseup={onStepDone}
 				on:mouseleave={onStepDone}
 			/>

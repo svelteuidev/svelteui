@@ -36,4 +36,5 @@
 </script>
 
 <NumberInput />
-<NumberInput step={0.2} precision={2} />
+<NumberInput step={0.2} precision={2} decimalSeparator="/" />
+<NumberInput invalid={true} stepHoldDelay={1000}/>

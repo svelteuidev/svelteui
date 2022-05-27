@@ -8,6 +8,7 @@ export interface NumberInputProps extends InputBaseProps {
 	max?: number;
 	min?: number;
 	step?: number;
+	stepHoldDelay?: number;
 	stepHoldInterval?: number;
 	hideControls?: boolean;
 	precision?: number;

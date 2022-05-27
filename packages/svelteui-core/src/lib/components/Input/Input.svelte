@@ -9,6 +9,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$InputProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$InputProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$InputProps['className'] = '';
 	export { className as class };
@@ -301,6 +303,7 @@ Base component to create custom inputs
 	{#if isHTMLElement && root === 'input'}
 		<input
 			bind:value
+			bind:this={element}
 			use:useActions={use}
 			use:forwardEvents
 			{required}
