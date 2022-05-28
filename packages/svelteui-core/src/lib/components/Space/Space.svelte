@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Box from '../Box/Box.svelte';
+	import { theme, fns } from '$lib/styles';
+	import { Box } from '../Box';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
 
 	/** Used for forwarding actions from component */
@@ -16,17 +17,18 @@
 	/** Height, set to add vertical spacing */
 	export let h: $$SpaceProps['h'] = 0;
 
+	const { size } = fns;
+
 	$: SpaceStyles = {
-		width: typeof w === 'number' ? `${w}px` : `$${w}`,
-		minWidth: typeof w === 'number' ? `${w}px` : `$${w}`,
-		height: typeof h === 'number' ? `${h}px` : `$${h}`,
-		minHeight: typeof h === 'number' ? `${h}px` : `$${h}`
+		width: typeof w === 'number' ? `${w}px` : size({ size: w, sizes: theme.space }),
+		minWidth: typeof w === 'number' ? `${w}px` : size({ size: w, sizes: theme.space }),
+		height: typeof h === 'number' ? `${h}px` : size({ size: h, sizes: theme.space }),
+		minHeight: typeof h === 'number' ? `${h}px` : size({ size: h, sizes: theme.space })
 	};
 </script>
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Add horizontal or vertical spacing from theme.
 	

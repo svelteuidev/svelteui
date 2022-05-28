@@ -26,7 +26,10 @@ export interface TextProps extends DefaultProps {
 	underline?: boolean;
 	inherit?: boolean;
 	href?: string;
+	tracking?: Tracking;
 }
+
+export type Tracking = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest' | number;
 
 export type TextVariant = 'link' | 'text' | 'gradient';
 

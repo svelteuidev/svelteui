@@ -40,7 +40,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 A checkbox group component using the theme styles and builds a set of checkboxes according to
 the items passed.

@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/utilities",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Svelte utilities library with generally useful functions to assist in development.",
   "keywords": [
     "svelte",
@@ -16,7 +16,7 @@
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui",
+    "url": "https://github.com/svelteuidev/svelteui",
     "directory": "packages/svelteui-utilities"
   },
   "license": "MIT",
@@ -34,9 +34,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "coverage": "vitest run --coverage",
     "dev": "svelte-kit dev",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "format": "prettier --write --plugin-search-dir=. .",
     "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
     "pub": "npm publish package/",
     "pub:test": "npm publish package/",
@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.333",
-    "@svelteuidev/tsconfig": "^*",
     "autoprefixer": "10.4.4",
     "cssnano": "5.1.7",
     "jsdom": "19.0.0",

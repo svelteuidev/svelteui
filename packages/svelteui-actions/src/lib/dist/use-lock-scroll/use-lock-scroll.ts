@@ -1,8 +1,8 @@
 import { createStyleTag } from './utils/create-style-tag.js';
-import { getLockStyles } from './utils/get-lock-styles';
-import { injectStyles } from './utils/inject-style-tag';
-import { insertStyleTag } from './utils/insert-style-tag';
-import { ENVIRONMENT, defaultWindow } from '../utils/environment';
+import { getLockStyles } from './utils/get-lock-styles.js';
+import { injectStyles } from './utils/inject-style-tag.js';
+import { insertStyleTag } from './utils/insert-style-tag.js';
+import { ENVIRONMENT, defaultWindow } from '../utils/environment.js';
 import type { Action } from '../types';
 
 interface LockScrollOptions {

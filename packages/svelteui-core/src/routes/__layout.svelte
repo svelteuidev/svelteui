@@ -1,9 +1,15 @@
 <script lang="ts">
-	import { SvelteUIProvider } from '$lib';
-	import { Button, Text, Center, Container, Stack, Group } from '$lib';
+	import { page } from '$app/stores';
+	import { SvelteUIProvider, Seo, Button, Text, Center, Container, Stack, Group, Kbd } from '$lib';
+	import { Anchor, Divider } from '$lib';
+	import { hotkey } from '@svelteuidev/actions';
+	import { os as _os } from '@svelteuidev/utilities';
 	import type { SvelteUIGradient } from '$lib';
 
 	let darkMode: boolean = false;
+	const os = _os();
+	const mod = os === 'macos' ? '⌘' : 'ctrl';
+
 	const toggleTheme = () => {
 		darkMode = !darkMode;
 	};
@@ -16,10 +22,15 @@
 	let x: number;
 	let y: number;
 	$: mobile = x < 525;
+
+	$: currentPage =
+		$page.routeId === ''
+			? 'Homepage'
+			: `${$page.routeId[0].toUpperCase()}${$page.routeId.slice(1)}`;
 </script>
 
 <svelte:window bind:innerWidth={x} bind:innerHeight={y} />
-
+<Seo title={currentPage} titleTemplate="%t% | SvelteUI" />
 <SvelteUIProvider
 	override={{ overflow: 'hidden' }}
 	withGlobalStyles
@@ -28,21 +39,34 @@
 >
 	<Center override={{ pt: '$4' }}>
 		<Group direction={mobile ? 'column' : 'row'} spacing="xl" position="center" noWrap>
-			<Button
-				gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
-				on:click={toggleTheme}
-				variant="gradient">{darkMode ? 'Dark' : 'Light'} Mode</Button
-			>
+			<Stack spacing="md">
+				<Button
+					on:click={toggleTheme}
+					gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
+					variant="gradient"
+					use={[[hotkey, [['mod+J', toggleTheme]]]]}
+				>
+					{darkMode ? 'Dark' : 'Light'} Mode
+				</Button>
+				<Group position="center" spacing="xs">
+					<Kbd>{mod}</Kbd>+<Kbd>J</Kbd>
+				</Group>
+			</Stack>
 			<Stack>
 				<Text weight="bold" size={40} align="center" root="h1">Welcome to a SvelteUI package!</Text>
-				<Text weight="medium" size="xl" align="center" root="p"
-					>This is a test route to test the core package</Text
-				>
+				<Text weight="medium" size="xl" align="center" root="p">
+					This is a test route to test the core package
+				</Text>
 			</Stack>
+			{#if currentPage === 'Homepage'}
+				<Anchor href="/test">Go to test page</Anchor>
+			{:else}
+				<Anchor href="/">Go to homepage</Anchor>
+			{/if}
 		</Group>
 	</Center>
-	<hr />
-	<Container override={{ py: '$10' }} id="main-container" size="xl">
+	<Divider />
+	<Container override={{ padding: '$10' }} id="main-container" size="xl">
 		<slot />
 	</Container>
 </SvelteUIProvider>

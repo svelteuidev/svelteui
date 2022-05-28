@@ -1,56 +1,124 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { SvelteComponent } from 'svelte';
-import { bubble, listen } from 'svelte/internal';
+import { bubble, listen, prevent_default, stop_propagation } from 'svelte/internal';
 
 /*
- * "Borrowed" from Tropix126/fluent-svelte
  * Adapted from rgossiaux/svelte-headlessui
  * which is modified from hperrin/svelte-material-ui
  *
  * Gotta love the open source community right 😅 */
 
+type ForwardException = string | { name: string; shouldExclude: () => boolean };
+
+const MODIFIER_DIVIDER = '!';
+const modifierRegex = new RegExp(
+	`^[^${MODIFIER_DIVIDER}]+(?:${MODIFIER_DIVIDER}(?:preventDefault|stopPropagation|passive|nonpassive|capture|once|self))+$`
+);
+
 /** Function for forwarding DOM events to the component's declaration */
-export function createEventForwarder(component: SvelteComponent, exclude: string[] = []) {
-	type EventCallback = (event: unknown) => void;
-
+export function createEventForwarder(component: SvelteComponent, except: ForwardException[] = []) {
 	// This is our pseudo $on function. It is defined on component mount.
-	let $on: (eventType: string, callback: EventCallback) => () => void;
-
+	let $on: (eventType: string, callback: (event: any) => void) => () => void;
 	// This is a list of events bound before mount.
-	const events: [string, EventCallback][] = [];
+	const events: [string, (event: any) => void][] = [];
 
-	// Monkeypatch SvelteComponent.$on with our own forward-compatible version
-	component.$on = (eventType: string, callback: EventCallback) => {
+	// And we override the $on function to forward all bound events.
+	component.$on = (fullEventType: string, callback: (event: any) => void) => {
+		const eventType = fullEventType;
 		let destructor = () => {};
-		if (exclude.includes(eventType)) {
-			// Bail out of the event forwarding and run the normal Svelte $on() code
-			const callbacks =
-				component.$$.callbacks[eventType] || (component.$$.callbacks[eventType] = []);
-			callbacks.push(callback);
-			return () => {
-				const index = callbacks.indexOf(callback);
-				if (index !== -1) callbacks.splice(index, 1);
-			};
+		for (const exception of except) {
+			if (typeof exception === 'string' && exception === eventType) {
+				// Bail out of the event forwarding and run the normal Svelte $on() code
+				const callbacks =
+					component.$$.callbacks[eventType] || (component.$$.callbacks[eventType] = []);
+				callbacks.push(callback);
+				return () => {
+					const index = callbacks.indexOf(callback);
+					if (index !== -1) callbacks.splice(index, 1);
+				};
+			}
+			if (typeof exception === 'object' && exception['name'] === eventType) {
+				const oldCallback = callback;
+				callback = (...props) => {
+					if (!(typeof exception === 'object' && exception['shouldExclude']())) {
+						oldCallback(...props);
+					}
+				};
+			}
 		}
 		if ($on) {
-			destructor = $on(eventType, callback); // The event was bound programmatically.
+			// The event was bound programmatically.
+			destructor = $on(eventType, callback);
 		} else {
-			events.push([eventType, callback]); // The event was bound before mount by Svelte.
+			// The event was bound before mount by Svelte.
+			events.push([eventType, callback]);
 		}
-		return () => destructor();
+		return () => {
+			destructor();
+		};
 	};
+
+	function forward(e: Event) {
+		// Internally bubble the event up from Svelte components.
+		bubble(component, e);
+	}
 
 	return (node: HTMLElement | SVGElement) => {
 		const destructors: (() => void)[] = [];
 		const forwardDestructors: { [k: string]: () => void } = {};
-		const forward = (e: Event) => bubble(component, e);
 
 		// This function is responsible for listening and forwarding
 		// all bound events.
-		$on = (eventType, callback) => {
-			const handler = callback;
+		$on = (fullEventType, callback) => {
+			let eventType = fullEventType;
+			let handler = callback;
 			// DOM addEventListener options argument.
-			const options: boolean | AddEventListenerOptions = false;
+			let options: boolean | AddEventListenerOptions = false;
+			const modifierMatch = eventType.match(modifierRegex);
+			if (modifierMatch) {
+				// Parse the event modifiers.
+				// Supported modifiers:
+				// - preventDefault
+				// - stopPropagation
+				// - passive
+				// - nonpassive
+				// - capture
+				// - once
+				const parts = eventType.split(MODIFIER_DIVIDER);
+				eventType = parts[0];
+				const eventOptions: {
+					passive?: true;
+					nonpassive?: true;
+					capture?: true;
+					once?: true;
+					preventDefault?: true;
+					stopPropagation?: true;
+				} = Object.fromEntries(parts.slice(1).map((mod) => [mod, true]));
+				if (eventOptions.passive) {
+					options = options || ({} as AddEventListenerOptions);
+					options.passive = true;
+				}
+				if (eventOptions.nonpassive) {
+					options = options || ({} as AddEventListenerOptions);
+					options.passive = false;
+				}
+				if (eventOptions.capture) {
+					options = options || ({} as AddEventListenerOptions);
+					options.capture = true;
+				}
+				if (eventOptions.once) {
+					options = options || ({} as AddEventListenerOptions);
+					options.once = true;
+				}
+				if (eventOptions.preventDefault) {
+					handler = prevent_default(handler);
+				}
+				if (eventOptions.stopPropagation) {
+					handler = stop_propagation(handler);
+				}
+			}
 
 			// Listen for the event directly, with the given options.
 			const off = listen(node, eventType, handler, options);
@@ -72,16 +140,16 @@ export function createEventForwarder(component: SvelteComponent, exclude: string
 			return destructor;
 		};
 
-		// Listen to all the events added before mount.
-		for (const event of events) {
-			$on(event[0], event[1]);
+		for (let i = 0; i < events.length; i++) {
+			// Listen to all the events added before mount.
+			$on(events[i][0], events[i][1]);
 		}
 
 		return {
 			destroy: () => {
 				// Remove all event listeners.
-				for (const destructor of destructors) {
-					destructor();
+				for (let i = 0; i < destructors.length; i++) {
+					destructors[i]();
 				}
 
 				// Remove all event forwarders.

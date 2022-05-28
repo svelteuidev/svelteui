@@ -1,3 +1,3 @@
-export { useActions } from './forwarding/forward-actions';
-export { createEventForwarder } from './forwarding/forward-events';
-export { ENVIRONMENT } from './environnement';
+export { useActions } from './forwarding/forward-actions.js';
+export { createEventForwarder } from './forwarding/forward-events.js';
+export { ENVIRONMENT } from './environnement.js';

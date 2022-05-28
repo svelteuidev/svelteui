@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fns, theme } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { StackProps as $$StackProps } from './Stack.styles';
@@ -14,12 +15,14 @@
 	export let align: $$StackProps['align'] = 'stretch';
 	export let justify: $$StackProps['justify'] = 'center';
 
+	const { size } = fns;
+
 	$: StackStyles = {
 		display: 'flex',
 		flexDirection: 'column',
-		alignItems: `${align}`,
+		alisizegnItems: `${align}`,
 		justifyContent: `${justify}`,
-		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`
+		gap: size({ size: spacing, sizes: theme.space })
 	};
 
 	// --------------Error Handling-------------------
@@ -38,7 +41,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Compose elements and components in a vertical flex container.
 	

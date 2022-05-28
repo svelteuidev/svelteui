@@ -11,7 +11,8 @@ export type {
 	Override,
 	LoaderType,
 	CSS,
-	VariantThemeFunction
+	VariantThemeFunction,
+	Transition
 } from './SvelteUITheme';
 export type {
 	SvelteUIFontSizes,

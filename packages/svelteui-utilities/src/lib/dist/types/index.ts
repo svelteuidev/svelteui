@@ -1,2 +1,2 @@
-import type { Fn, Pauseable } from './Shared';
-export type { Fn, Pauseable };
+import type { Fn, Pauseable, Action, Writable } from './Shared';
+export type { Fn, Pauseable, Action, Writable };

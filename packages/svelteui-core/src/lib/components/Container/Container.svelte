@@ -35,7 +35,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Center content horizontally with predefined max-width
 	

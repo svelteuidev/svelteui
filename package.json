@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://https://github.com/svelteuidev/svelteui"
+    "url": "https://github.com/svelteuidev/svelteui"
   },
   "license": "MIT",
   "author": "Kamell Perry",
@@ -39,10 +39,11 @@
     "lint": "turbo run lint --parallel",
     "package": "npm run clean && turbo run package --parallel",
     "pre-commit": "lint-staged",
+    "pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
     "prepare": "husky install",
     "pub": "turbo run pub --parallel",
     "release": "changeset publish",
-    "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types",
+    "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types && npm run pre-release",
     "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
     "repo:rebase": "sh scripts/git/rebase-branches.sh",
     "repo:sync": "sh scripts/git/sync-branches.sh",

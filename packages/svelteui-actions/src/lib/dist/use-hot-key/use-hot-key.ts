@@ -1,4 +1,4 @@
-import { getHotkeyHandler, getHotkeyMatcher } from './parse-hotkey';
+import { getHotkeyHandler, getHotkeyMatcher } from './parse-hotkey.js';
 import type { Action } from '../types/ActionTypes';
 export { getHotkeyHandler };
 

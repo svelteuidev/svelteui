@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { css, vFunc } from '$lib/styles';
+	import { css, vFunc, fns } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { ButtonErrors } from './Button.errors';
@@ -37,7 +37,7 @@
 		variant: 'circle'
 	};
 	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: $$ButtonProps['href'] = '';
+	export let href: $$ButtonProps['href'] = null;
 	/** If external is set to true, target = _blank */
 	export let external: $$ButtonProps['external'] = false;
 	/** disabled will set button to disabled state */
@@ -55,6 +55,8 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
+
+	const { themeColor } = fns;
 
 	/** Css function to generate button styles */
 	$: ButtonStyles = css({
@@ -81,7 +83,7 @@
 		flexGrow: 0,
 		width: fullSize ? '100%' : 'auto',
 		'&:hover': {
-			backgroundColor: variant === 'gradient' ? null : `$${color}700`,
+			backgroundColor: variant === 'gradient' ? null : themeColor(color, 7),
 			backgroundSize: variant === 'gradient' ? '200%' : null
 		},
 		'&:active': {
@@ -119,7 +121,7 @@
 		observable = true;
 		err = ButtonErrors[0];
 	}
-	if (external && !loading) {
+	if ((external && typeof href !== 'string') || href?.length < 1) {
 		observable = true;
 		err = ButtonErrors[1];
 	}

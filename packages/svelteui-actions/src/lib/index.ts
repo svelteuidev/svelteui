@@ -1,4 +1,4 @@
-export * from './dist';
+export * from './dist/index.js';
 import type {
 	Action,
 	Fn,

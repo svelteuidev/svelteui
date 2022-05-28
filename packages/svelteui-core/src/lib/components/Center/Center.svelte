@@ -22,7 +22,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Centers content vertically and horizontally.
 	

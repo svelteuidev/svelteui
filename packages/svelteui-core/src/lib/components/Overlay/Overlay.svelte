@@ -38,7 +38,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Overlays given element with div element with any color and opacity
 	

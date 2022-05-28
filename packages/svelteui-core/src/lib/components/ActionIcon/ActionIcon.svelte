@@ -108,7 +108,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Icon button to indicate secondary action.
 

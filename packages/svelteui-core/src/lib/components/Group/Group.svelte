@@ -1,9 +1,8 @@
 <script lang="ts">
+	import { theme, fns } from '$lib/styles';
 	import { onMount } from 'svelte';
 	import { POSITIONS } from './Group.styles';
-	import { GroupErrors } from './Group.errors';
 	import Box from '../Box/Box.svelte';
-	import Error from '$lib/internal/errors/Error.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
 	/** Used for forwarding actions from component */
@@ -28,12 +27,14 @@
 	/** Defines align-items css property */
 	export let align: $$GroupProps['align'] = 'center';
 	/** The children being rendered */
-
 	let children: $$GroupProps['children'];
+
 	/** can only get access to children at runtime */
-	onMount(() => {
+	$: onMount(() => {
 		children = element.childElementCount;
 	});
+
+	const { size } = fns;
 
 	$: GroupStyles = {
 		boxSizing: 'border-box',
@@ -50,15 +51,16 @@
 				: POSITIONS[position]),
 		flexWrap: noWrap ? 'nowrap' : 'wrap',
 		justifyContent: direction === 'row' ? POSITIONS[position] : undefined,
-		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`,
+		gap: size({ size: spacing, sizes: theme.space }),
 
 		'& > *': {
 			boxSizing: 'border-box',
 			maxWidth:
 				grow && direction === 'row'
 					? `calc(${100 / children}% - ${
-							typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`
-					  })px`
+							size({ size: spacing, sizes: theme.space }) -
+							size({ size: spacing, sizes: theme.space }) / children
+					  }px)`
 					: undefined,
 			flexGrow: grow ? 1 : 0
 		}
@@ -66,20 +68,12 @@
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
-	let err;
 
-	if (grow && children === null) {
-		observable = true;
-		err = GroupErrors[0];
-	}
 	$: if (observable) override = { display: 'none' };
 </script>
 
-<Error {observable} component="Group" code={err} />
-
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Compose elements and components in a vertical flex container.
 	

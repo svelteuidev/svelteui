@@ -115,7 +115,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Renders horizontal or vertical line with support for label string or component.
 

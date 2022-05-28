@@ -1,5 +1,5 @@
-import { browser } from './modules/browser';
-import { minifiedCss } from './assets/error-styles';
+import { browser } from './modules/browser.js';
+import { minifiedCss } from './assets/error-styles.js';
 import type { CurrentComponents } from './types';
 
 const style: HTMLStyleElement = browser ? document.createElement('style') : undefined;

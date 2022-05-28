@@ -90,7 +90,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Capture user feedback limited to large set of options
 	

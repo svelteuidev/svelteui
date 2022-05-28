@@ -31,7 +31,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Add inline styles to any element or component with sx.
 	

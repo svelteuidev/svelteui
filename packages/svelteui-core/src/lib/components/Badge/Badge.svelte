@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { css } from '$lib/styles';
+	import { css, theme, fns } from '$lib/styles';
 	import { getVariantStyles, sizes } from './Badge.styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
@@ -26,6 +26,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
+	const { size: sizeFn } = fns;
 
 	$: BadgeStyles = css({
 		focusRing: 'auto',
@@ -34,7 +35,8 @@
 		WebkitTapHighlightColor: 'transparent',
 		lineHeight: `${height - 2}px`,
 		textDecoration: 'none',
-		padding: typeof size === 'number' ? `0 $${size}px` : `0 $${size}`,
+		padding:
+			typeof size === 'number' ? `0 $${size}px` : `0 ${sizeFn({ size, sizes: theme.space })}px`,
 		boxSizing: 'border-box',
 		display: fullWidth ? 'flex' : 'inline-flex',
 		alignItems: 'center',

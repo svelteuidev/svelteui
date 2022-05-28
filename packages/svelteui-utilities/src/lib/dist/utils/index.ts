@@ -18,6 +18,6 @@ export {
 	defaultDocument,
 	browser
 } from './_configurable.js';
-export * from './is';
-export * from './time';
-export * from './random-id';
+export * from './is/index.js';
+export * from './time/index.js';
+export * from './random-id/index.js';
