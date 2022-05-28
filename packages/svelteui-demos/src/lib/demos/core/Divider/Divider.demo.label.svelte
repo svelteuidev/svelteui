@@ -11,9 +11,9 @@
     <Divider label='Label in the center' labelPosition='center' \/>
     <Divider label='Label on the right' labelPosition='right' \/>
     <Divider labelPosition='center'>
-        <div>
+        <div slot='label'>
             <MagnifyingGlass \/>
-            Search results
+            <span style="vertical-align: middle;">Search results<\/span>
         <\/div>
     <\/Divider>
     <Divider
@@ -44,9 +44,9 @@
 <Divider label='Label on the right' labelPosition='right' />
 
 <Divider labelPosition='center'>
-    <div>
+    <div slot='label'>
         <MagnifyingGlass />
-        Search results
+        <span style="vertical-align: middle;">Search results</span>
     </div>
 </Divider>
 
