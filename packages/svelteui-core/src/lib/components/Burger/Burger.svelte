@@ -11,14 +11,14 @@
 		className: $$BurgerProps['className'] = '',
 		override: $$BurgerProps['override'] = {},
 		opened: $$BurgerProps['opened'] = false,
-		color: $$BurgerProps['color'] = 'blue',
+		color: $$BurgerProps['color'] = undefined,
 		size: $$BurgerProps['size'] = 'md';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: _color = color || $colorScheme === 'dark' ? 'white' : 'black';
+	$: _color = color ? color : $colorScheme === 'dark' ? 'white' : 'black';
 
 	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }));
 </script>
