@@ -7,6 +7,8 @@
 
 	/** Used for forwarding actions from component */
 	export let use: $$NumberInputProps['use'] = [];
+	/** Used for components to bind to elements */
+	export let element: $$NumberInputProps['element'] = undefined;
 	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
 	export let className: $$NumberInputProps['className'] = '';
 	export { className as class };
@@ -47,9 +49,9 @@
 	/** The number by which the value will be incremented/decremented */
 	export let step: $$NumberInputProps['step'] = 1;
 	/** The delay in miliseconds before stepping the value when holding the controls */
-	export let stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 0;
+	export let stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 250;
 	/** The interval in miliseconds between each stepping of the value when holding the controls */
-	export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 100;
+	export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 150;
 	/** Hides the increment/decrement controls */
 	export let hideControls: $$NumberInputProps['hideControls'] = false;
 	/** Amount of decimal digits */
@@ -60,12 +62,19 @@
 	export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
 	/** Parses the value provided by the formatter */
 	export let parser: $$NumberInputProps['parser'] = defaultParser;
+	/** Function that allows incrementing the value outside the component, useful for external controls */
+	export function increment() {
+		onStep(true, false)
+	}
+	/** Function that allows decrementing the value outside the component, useful for external controls */
+	export function decrement() {
+		onStep(false, false)
+	}
 
 	const dispatch = createEventDispatcher();
 
-	let _value;
-	let inputRef;
 	let holdTimeout = null;
+	let holdDelayTimeout = null;
 
 	function formatNumber(val: string | number = ''): string {		
 		let parsedStr = typeof val === 'number' ? String(val) : val;
@@ -89,7 +98,65 @@
 		return parser(number);
 	}
 
-	function _valueC(val) {
+	function onInput() {
+		if (this.value === '' || this.value === '-') {
+			value = undefined;
+		} else {
+			const parsedNumber = parseNumber(this.value);
+			if (Number.isNaN(parseNumber)) return;
+
+			const clamped = Math.min(Math.max(parseFloat(parsedNumber), min), max);
+			value = parseFloat(clamped.toFixed(precision));
+		}
+	}
+
+	function stepInterval(up) {
+		holdTimeout = setTimeout(() => {
+			onStep(up, true, false);
+		}, stepHoldInterval);
+	}
+
+	function onStep(up, hold = true, first = true) {
+		const tmpValue = up ? value + step : value - step;
+		const clamp = Math.min(Math.max(tmpValue, min), max);
+		value = parseFloat(clamp.toFixed(precision));
+
+		if (!hold) return;
+
+		if (first) {
+			holdDelayTimeout = setTimeout(() => stepInterval(up), stepHoldDelay);
+		}
+		else {
+			stepInterval(up);
+		}
+	}
+
+	function onStepDone() {
+		if (holdDelayTimeout) clearTimeout(holdDelayTimeout);
+		if (holdTimeout) clearTimeout(holdTimeout);
+		holdDelayTimeout = null;
+		holdTimeout = null;
+	}
+
+	function onKeyDown(event) {
+		if (event.key === 'ArrowUp') {
+			onStep(true, false);
+		} else if (event.key === 'ArrowDown') {
+			onStep(false, false);
+		}
+	}
+
+	function onKeyUp(event) {
+		if (event.key !== 'ArrowUp' || event.key !== 'ArrowDown') return;
+		onStepDone();
+	}
+
+	function onBlur() {
+		if (noClampOnBlur) return;
+		(element as HTMLInputElement).value = formatNumber(value);
+	}
+
+	function _valueC(val: number): number | undefined {
 		if (val === undefined && typeof defaultValue === 'number') {
 			return defaultValue;
 		}
@@ -99,57 +166,7 @@
 		return val;
 	}
 
-	function onInput() {
-		if (this.value === '' || this.value === '-') {
-			_value = undefined;
-		} else {
-			const parsedNumber = parseNumber(this.value);
-			if (Number.isNaN(parseNumber)) return;
-
-			const clamped = Math.min(Math.max(parseFloat(parsedNumber), min), max);
-			_value = parseFloat(clamped.toFixed(precision));
-		}
-	}
-
-	function stepInterval(up) {
-		holdTimeout = setTimeout(() => {
-			onStep(up, false);
-		}, stepHoldInterval);
-	}
-
-	function onStep(up, first = true) {
-		const tmpValue = up ? _value + step : _value - step;
-		const clamp = Math.min(Math.max(tmpValue, min), max);
-		_value = parseFloat(clamp.toFixed(precision));
-
-		if (first) setTimeout(() => stepInterval(up), stepHoldDelay);
-		else stepInterval(up);
-	}
-
-	function onStepDone() {
-		clearTimeout(holdTimeout);
-		holdTimeout = null;
-	}
-
-	function onKeyDown() {
-		// @todo: still not working
-		if (this.key === 'ArrowUp') {
-			onStep(true);
-		} else if (this.key === 'ArrowDown') {
-			onStep(false);
-		}
-	}
-
-	function onKeyUp() {
-		// @todo: still not working
-		if (this.key !== 'ArrowUp' && this.key !== 'ArrowDown') return;
-		onStepDone();
-	}
-
-	function onBlur() {
-		if (noClampOnBlur) return;
-		inputRef.value = formatNumber(_value);
-	}
+	$: value = _valueC(value);
 
 	$: ControlStyles = css({
 		display: 'flex',
@@ -237,13 +254,6 @@
 			}
 		}
 	});
-
-	$: _value = _valueC(value);
-
-	// @todo: propagate on:input event with parsed value
-	$: dispatch('input', value); // @todo: check this
-
-	// @todo: verify clamp logic
 </script>
 
 <!--
@@ -256,11 +266,13 @@ Base component to create custom inputs
 @example
     ```svelte
     <NumberInput defaultValue={2} />
-	<NumberInput defaultValue={0} step={0.2} precision={2} decimalSeparator="/" />
+	<NumberInput max={10} min={0} step={0.5} precision={1} />
+	<NumberInput defaultValue={0} step={0.2} precision={2} decimalSeparator="," />
     ```
 -->
 
 <Input
+	{use}
 	{root}
 	{icon}
 	{iconWidth}
@@ -273,12 +285,12 @@ Base component to create custom inputs
 	{invalid}
 	class="{className}"
 	override={{ ...override, '& .rightSection': { width: 'auto' } }}
-	value={formatNumber(_value)}
+	value={formatNumber(value)}
+	bind:element={element}
 	on:input={onInput}
-	on:onkeyup={onKeyUp}
-	on:onkeydown={onKeyDown}
+	on:keyup={onKeyUp}
+	on:keydown={onKeyDown}
 	on:blur={onBlur}
-	bind:element={inputRef}
 >
 	<div slot="rightSection" class="controls {ControlStyles()}">
 		{#if !hideControls}
@@ -287,7 +299,7 @@ Base component to create custom inputs
 				type="button"
 				tabIndex={-1}
 				aria-hidden
-				disabled={_value >= max}
+				disabled={value >= max}
 				on:mousedown={() => onStep(true)}
 				on:mouseup={onStepDone}
 				on:mouseleave={onStepDone}
@@ -297,7 +309,7 @@ Base component to create custom inputs
 				type="button"
 				tabIndex={-1}
 				aria-hidden
-				disabled={_value <= min}
+				disabled={value <= min}
 				on:mousedown={() => onStep(false)}
 				on:mouseup={onStepDone}
 				on:mouseleave={onStepDone}
