@@ -103,7 +103,7 @@
 			value = undefined;
 		} else {
 			const parsedNumber = parseNumber(this.value);
-			if (Number.isNaN(parseNumber)) return;
+			if (parsedNumber === undefined || Number.isNaN(parseNumber)) return;
 
 			const clamped = Math.min(Math.max(parseFloat(parsedNumber), min), max);
 			value = parseFloat(clamped.toFixed(precision));
@@ -120,6 +120,10 @@
 		const tmpValue = up ? value + step : value - step;
 		const clamp = Math.min(Math.max(tmpValue, min), max);
 		value = parseFloat(clamp.toFixed(precision));
+
+		// dispatches change events so that listeners can get
+		// the original value, not formatted
+		dispatch('change', value);
 
 		if (!hold) return;
 
@@ -258,11 +262,12 @@
 
 <!--
 @component
-**DISCLAIMER**: In most cases, you should not use Input component in your application. Input component is a base for other inputs and was not designed to be used directly.
+**UNSTABLE**: new API, yet to be vetted.
 
-Base component to create custom inputs
+Number input component that allows inputting numbers and incremeting/decrementing them, as well as set steps, minimum and maximum
+values and add custom parsers and formatters.
 	
-@see https://svelteui.org/core/input
+@see https://svelteui.org/core/number-input
 @example
     ```svelte
     <NumberInput defaultValue={2} />
