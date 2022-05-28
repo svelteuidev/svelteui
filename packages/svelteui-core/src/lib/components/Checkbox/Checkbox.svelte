@@ -157,7 +157,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 A checkbox input component using the theme styles with support for a label and indeterminate state.
 	

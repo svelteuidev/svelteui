@@ -72,6 +72,8 @@
 	}}
 	on:init={(event) => {
 		const { observer: _observer, node: _node } = event.detail;
+		observer = _observer;
+		node = _node;
 	}}
 >
 	>

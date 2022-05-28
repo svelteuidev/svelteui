@@ -246,6 +246,13 @@
 		popperPosition = calculatePlacement({ ...$$props });
 		popperPosition = adaptHidden();
 	}
+
+	const noop = () => {
+		if (position) {
+			return;
+		}
+	};
+	noop();
 </script>
 
 <svelte:window on:resize={onResize} on:scroll={onScroll} />

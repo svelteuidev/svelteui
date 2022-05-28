@@ -4,6 +4,7 @@ export * from './Badge';
 export * from './Box';
 export * from './BrowserRender';
 export * from './Button';
+export * from './Card';
 export * from './Center';
 export * from './Checkbox';
 export * from './Code';

@@ -54,6 +54,7 @@
 	/** Determines whether modal should be rendered within Portal, defaults to true */
 	export let withinPortal: $$ModalProps['withinPortal'] = null;
 	/** Called when close button clicked and when escape key is pressed */
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	export let onClose: $$ModalProps['onClose'] = (args?: any) => {};
 
 	const DELETE_ME_LATER = null;

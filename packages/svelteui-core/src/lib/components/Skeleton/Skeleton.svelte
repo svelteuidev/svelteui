@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme, dark, fns } from '$lib/styles';
+	import { dark, fns } from '$lib/styles';
 	import { Box } from '../Box';
 	import { fade } from './Skeleton.styles';
 	import type { CSS } from '$lib/styles';

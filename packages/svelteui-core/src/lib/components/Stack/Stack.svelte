@@ -41,7 +41,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Compose elements and components in a vertical flex container.
 	

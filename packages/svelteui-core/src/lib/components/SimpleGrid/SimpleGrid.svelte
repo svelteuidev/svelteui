@@ -45,7 +45,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Responsive grid where each item takes equal amount of space
 	

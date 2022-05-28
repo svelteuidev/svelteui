@@ -15,10 +15,6 @@ const config = {
 			plugins: [autoprefixer(), cssnano()]
 		}
 	}),
-	compilerOptions: {
-		generate: 'ssr',
-		hydratable: true
-	},
 	kit: {
 		package: {
 			exports: (filepath) => {

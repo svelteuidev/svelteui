@@ -7,6 +7,7 @@ export interface EyeDropperOpenOptions {
 }
 
 export interface EyeDropper {
+	// eslint-disable-next-line @typescript-eslint/no-misused-new
 	new (): EyeDropper;
 	open: (options?: EyeDropperOpenOptions) => Promise<{ sRGBHex: string }>;
 	[Symbol.toStringTag]: 'EyeDropper';

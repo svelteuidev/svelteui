@@ -42,7 +42,9 @@
 	/** Tooltip id to bind aria-describedby */
 	export let tooltipId: $$TooltipProps['tooltipId'] = null;
 	/** Functions */
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	export let onMouseEnter = (args?: any) => {};
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	export let onMouseLeave = (args?: any) => {};
 
 	/** --------PopperProps--------------------------------------- */

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Overlay } from '../Overlay';
-	import { Center } from '../Center';
 	import { Text } from '../Text';
 	import { setContext, onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte';
 	import type { FragmentProps as $$FragmentProps } from './Fragment.styles';

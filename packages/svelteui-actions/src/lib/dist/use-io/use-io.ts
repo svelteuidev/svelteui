@@ -30,7 +30,7 @@ export function io(node: HTMLElement, options: Options = {}): ReturnType<Action>
 		y: undefined
 	};
 
-	let scrollDirection: ScrollDirection = {
+	const scrollDirection: ScrollDirection = {
 		vertical: undefined,
 		horizontal: undefined
 	};

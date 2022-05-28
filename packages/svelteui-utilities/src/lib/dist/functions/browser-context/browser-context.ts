@@ -5,7 +5,7 @@ import type { Writable } from '../../types';
 
 export interface BrowserContextState {
 	trigger: string;
-	state?: any;
+	state?: unknown;
 	length?: number;
 	hash?: string;
 	host?: string;

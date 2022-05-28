@@ -37,7 +37,7 @@
 		variant: 'circle'
 	};
 	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: $$ButtonProps['href'] = '';
+	export let href: $$ButtonProps['href'] = null;
 	/** If external is set to true, target = _blank */
 	export let external: $$ButtonProps['external'] = false;
 	/** disabled will set button to disabled state */
@@ -121,7 +121,7 @@
 		observable = true;
 		err = ButtonErrors[0];
 	}
-	if (external && !loading) {
+	if ((external && typeof href !== 'string') || href?.length < 1) {
 		observable = true;
 		err = ButtonErrors[1];
 	}

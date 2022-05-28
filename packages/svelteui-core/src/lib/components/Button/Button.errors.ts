@@ -23,7 +23,8 @@ export const ButtonErrors: readonly ErrorCtx[] = Object.freeze([
 	},
 	{
 		error: true,
-		message: 'If using the external prop, a href prop must be associated with it',
+		message:
+			'If using the external prop, a href prop must be associated with it. If you have an href prop there must be content inside.',
 		solution: `
                 If your component looks like this:
                 

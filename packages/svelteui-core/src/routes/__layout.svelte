@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { SvelteUIProvider, Seo, Button, Text, Center, Container, Stack, Group, Kbd } from '$lib';
-	import { Anchor } from '$lib';
+	import { Anchor, Divider } from '$lib';
 	import { hotkey } from '@svelteuidev/actions';
 	import { os as _os } from '@svelteuidev/utilities';
 	import type { SvelteUIGradient } from '$lib';
@@ -65,7 +65,7 @@
 			{/if}
 		</Group>
 	</Center>
-	<hr />
+	<Divider />
 	<Container override={{ padding: '$10' }} id="main-container" size="xl">
 		<slot />
 	</Container>

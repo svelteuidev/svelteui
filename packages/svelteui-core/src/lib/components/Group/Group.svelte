@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { theme, fns } from '$lib/styles';
 	import { onMount } from 'svelte';
-	import { POSITIONS, SIZES } from './Group.styles';
+	import { POSITIONS } from './Group.styles';
 	import Box from '../Box/Box.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
@@ -68,14 +68,12 @@
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
-	let err;
 
 	$: if (observable) override = { display: 'none' };
 </script>
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Compose elements and components in a vertical flex container.
 	

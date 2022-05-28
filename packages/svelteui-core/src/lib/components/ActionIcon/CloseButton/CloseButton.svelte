@@ -1,8 +1,6 @@
 <script lang="ts">
 	import ActionIcon from '../ActionIcon.svelte';
 	import CloseIcon from './CloseIcon.svelte';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
 	import type { CloseButtonProps as $$CloseButtonProps } from '../ActionIcon.styles';
 
 	/** Used for forwarding actions from component */
@@ -41,9 +39,6 @@
 	/** If external is set to true, target = _blank */
 	export let external: $$CloseButtonProps['external'] = false;
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
 	const iconSizes = {
 		xs: 12,
 		sm: 14,
@@ -55,7 +50,6 @@
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 CloseButton is a premade ActionIcon with close icon
 
