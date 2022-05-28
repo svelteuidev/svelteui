@@ -19,14 +19,15 @@
 		{ from: 'red', to: 'pink', deg: 45 }
 	];
 
+	const path = $page.routeId.split(' ');
 	let x: number;
 	let y: number;
-	$: mobile = x < 525;
 
+	$: mobile = x < 525;
 	$: currentPage =
 		$page.routeId === ''
 			? 'Homepage'
-			: `${$page.routeId[0].toUpperCase()}${$page.routeId.slice(1)}`;
+			: `${path[path.length - 1][0].toUpperCase()}${$page?.routeId.slice(1)}`;
 </script>
 
 <svelte:window bind:innerWidth={x} bind:innerHeight={y} />

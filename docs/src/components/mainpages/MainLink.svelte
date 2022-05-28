@@ -1,6 +1,6 @@
 <script lang="ts">
 	// @ts-nocheck
-	import { Text, ThemeIcon } from '@svelteuidev/core';
+	import { Text, ThemeIcon, theme } from '@svelteuidev/core';
 
 	export let color = 'blue';
 	export let href = '';
@@ -33,7 +33,7 @@
 		},
 
 		'& .body': {
-			marginLeft: '$sm'
+			marginLeft: +theme.space.md.value
 		}
 	};
 </script>

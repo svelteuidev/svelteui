@@ -8,5 +8,9 @@ export function size(props: GetSize): number {
 		return props.size;
 	}
 
-	return +props.sizes[props.size]?.value ?? +props.sizes.md?.value;
+	if (typeof props.sizes[props.size] === 'number') {
+		return props.sizes[props.size];
+	}
+
+	return +props.sizes[props.size]?.value || +props.sizes.md?.value;
 }

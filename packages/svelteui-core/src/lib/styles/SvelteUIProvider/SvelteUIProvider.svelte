@@ -1,13 +1,11 @@
 <script lang="ts" context="module">
-	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from './types';
-	const _config: $$SvelteUIProviderProps['config'] = {
-		light: { bg: 'White', color: 'Black' },
-		dark: { bg: '#1A1B1E', color: '#C1C2C5' }
-	};
+	import { _config } from './svelteui.config';
+	import { colorScheme } from './svelteui.stores';
+	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from '../types';
 </script>
 
 <script lang="ts">
-	import { dark, theme, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from './index';
+	import { dark, theme, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 
@@ -21,6 +19,10 @@
 	export let ssr: $$SvelteUIProviderProps['ssr'] = false;
 	export let override: $$SvelteUIProviderProps['override'] = {};
 	export let config: $$SvelteUIProviderProps['config'] = _config;
+
+	$: {
+		$colorScheme = themeObserver;
+	}
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -64,6 +66,7 @@
 	use:useActions={use}
 	use:forwardEvents
 	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light' ? theme : dark}"
+	{...$$restProps}
 >
 	<slot />
 </div>
