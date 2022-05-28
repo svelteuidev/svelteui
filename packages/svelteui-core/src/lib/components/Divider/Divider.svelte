@@ -42,7 +42,7 @@
 			borderTopWidth: typeof size === 'number' ? `${size}px` : `$${size}`,
 			borderTopColor: `$${color}400`,
 			borderTopStyle: variant,
-			margin: 0
+			margin: "12px 0px 12px 0px"
 		},
 		'&.vertical': {
 			border: 0,
