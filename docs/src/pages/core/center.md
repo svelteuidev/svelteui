@@ -11,32 +11,9 @@ docs: 'core/center.md'
 ---
 
 <script>
-    import { Center, Box } from '@svelteuidev/core';
     import { ArrowLeft } from "radix-icons-svelte";
-    import { Heading, Preview } from 'components';
-    import { Demo, CenterDemos } from '@svelteuidev/demos'
-
-    const center = `
-    <script>
-        import { Center, Box } from '@svelteuidev/core';
-    <\/script>
-    
-    <Center>
-        All elements inside Center are centered
-    <\/Center>
-    `
-    const centerInline = `
-    <script>
-        import { Center, Box } from '@svelteuidev/core';
-    <\/script>
-    
-    <Box css={{color: '$blue600'}} root='a' href="/" target="_blank">
-        <Center inline>
-            <ArrowLeft size={14} />
-            <Box ml={5}>Back to the homepage<\/Box>
-        <\/Center>
-    <\/Box>
-    `
+    import { Heading } from 'components';
+    import { Demo, CenterDemos } from '@svelteuidev/demos';
 </script>
 
 <Heading />
