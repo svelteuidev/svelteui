@@ -24,11 +24,13 @@ const config = {
 		},
 		/** @type {import('vite').UserConfig} */
 		vite: {
-			server: {
-				fs: {
-					allow: ['./package']
-				}
-			},
+			server: process.env.VITEST
+				? {}
+				: {
+						fs: {
+							allow: ['./package']
+						}
+				  },
 			test: {
 				globals: true,
 				environment: 'jsdom',
