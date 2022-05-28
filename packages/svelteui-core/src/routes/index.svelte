@@ -24,6 +24,7 @@
 		Input,
 		InputWrapper,
 		NativeSelect,
+		NumberInput,
 		Fragment,
 		Overlay,
 		SimpleGrid,
