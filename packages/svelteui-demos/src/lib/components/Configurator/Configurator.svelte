@@ -86,7 +86,7 @@
 		border: '1px solid $gray200',
 		borderRadius: '$sm',
 
-		'.preview': {
+		'& .preview': {
 			display: 'flex',
 
 			[mobileBreakpoint]: {
@@ -114,7 +114,7 @@
 			}
 		},
 
-		'.controls': {
+		'& .preview > .controls': {
 			boxSizing: 'border-box',
 			width: 270,
 			padding: '$8',
@@ -127,11 +127,11 @@
 			}
 		},
 
-		'.control + .control': {
+		'& .preview > .controls .control + .control': {
 			marginTop: '$8'
 		},
 
-		'.code': {
+		'& .code': {
 			borderTop: '1px solid $gray200',
 			overflow: 'hidden',
 			borderBottomRightRadius: '$sm',
@@ -141,11 +141,11 @@
 		[`.${dark} &`]: {
 			borderColor: '$gray800',
 
-			'.preview > .component': {
+			'& .preview > .component': {
 				background: previewBackground ? previewBackground.dark : undefined
 			},
 
-			'.controls, .code': {
+			'& .preview > .controls, .code': {
 				borderColor: '$gray800'
 			}
 		}
