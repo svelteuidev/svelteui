@@ -44,7 +44,7 @@
     "pub": "turbo run pub --parallel",
     "release": "changeset publish",
     "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types && npm run pre-release",
-    "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
+    "repo:prepush": "npm run sort && npm run format && npm run lint",
     "repo:rebase": "sh scripts/git/rebase-branches.sh",
     "repo:sync": "sh scripts/git/sync-branches.sh",
     "repo:update": "sh scripts/git/update-branches.sh",
