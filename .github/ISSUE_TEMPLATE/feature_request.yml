@@ -22,4 +22,4 @@ body:
         - 'Yes'
         - 'No'
     validations:
-      required: false
+      required: true

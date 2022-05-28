@@ -49,7 +49,7 @@ body:
         3. Scroll down to '....'
         4. See the error
     validations:
-      required: false
+      required: true
   - type: dropdown
     id: fix
     attributes:
@@ -58,7 +58,7 @@ body:
         - 'Yes'
         - 'No'
     validations:
-      required: false
+      required: true
   - type: dropdown
     id: participate
     attributes:
@@ -67,7 +67,7 @@ body:
         - 'Yes'
         - 'No'
     validations:
-      required: false
+      required: true
   - type: textarea
     attributes:
       label: Relevant Assets
