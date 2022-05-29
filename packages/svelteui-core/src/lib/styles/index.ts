@@ -1,5 +1,7 @@
 export * from './utils/index.js';
 export * from './functions/index.js';
+export * from './engine/index.js';
+export * from './SvelteUIProvider/index.js';
 
 export { colors } from './default-colors.js';
 export {
@@ -14,8 +16,6 @@ export {
 	NormalizeCSS,
 	SvelteUIGlobalCSS
 } from '../stitches.config.js';
-
-export { default as SvelteUIProvider } from './SvelteUIProvider.svelte';
 
 /** types exporting */
 import type {

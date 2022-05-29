@@ -63,7 +63,7 @@
 
 	$: InputStyles = css({
 		[`${dark.selector} &`]: {
-			input:
+			'& .input':
 				variant === 'headless'
 					? {}
 					: {

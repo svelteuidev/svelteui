@@ -1,8 +1,9 @@
 import type { TextInputProps } from '../TextInput/TextInput.styles';
 
 export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
-	value?: number | undefined;
-	defaultValue?: number | undefined;
+	value?: number;
+	defaultValue?: number;
+	invalid?: boolean;
 	decimalSeparator?: string;
 	max?: number;
 	min?: number;

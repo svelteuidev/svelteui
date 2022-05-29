@@ -1,8 +1,10 @@
 <script lang="ts">
 	import {
 		ActionIcon,
+		Affix,
 		Anchor,
 		BackgroundImage,
+		Burger,
 		Button,
 		Checkbox,
 		CloseButton,
@@ -39,7 +41,15 @@
 		Card,
 		Seo,
 		fns,
-		theme
+		createStyles,
+		colorScheme
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
+
+	let opened = false;
 </script>
+
+<Center>
+	<Burger {opened} on:click={() => (opened = !opened)} />
+	Hello
+</Center>

@@ -13,6 +13,8 @@
 	export { className as class };
 	/** DOM element or CSS selector to be appended to */
 	export let target: $$PortalProps['target'] = 'body';
+	export let position: string = 'relative',
+		zIndex: number = 1;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -26,6 +28,7 @@
 	use:portal={target}
 	class={className}
 	hidden
+	style="position: {position}; zIndex: {zIndex};"
 >
 	<slot />
 </div>

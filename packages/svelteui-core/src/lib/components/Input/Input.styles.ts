@@ -17,10 +17,10 @@ export interface InputBaseProps extends DefaultProps {
 	disabled: boolean;
 	size: SvelteUISize;
 	root: Component | keyof HTMLElementTagNameMap;
+	value: string;
 }
 
 export interface InputProps extends InputBaseProps {
-	value: string;
 	invalid?: boolean;
 	multiline?: boolean;
 }

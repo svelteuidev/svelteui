@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { css, dark } from '$lib/styles';
-	import TextInput from '../TextInput/TextInput.svelte';
+	import { TextInput } from '../TextInput';
 	import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 

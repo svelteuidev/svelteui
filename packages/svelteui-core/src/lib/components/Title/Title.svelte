@@ -37,6 +37,7 @@
 	export let inherit: $$TitleProps['inherit'] = false;
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: $$TitleProps['href'] = '';
+	export let tracking: $$TitleProps['tracking'] = 'normal';
 
 	let node: HTMLHeadingElements;
 	$: node = `h${order}` as HTMLHeadingElements;
@@ -77,6 +78,8 @@ Display text that uses title styling and title HTML tags.
 	{underline}
 	{inherit}
 	{href}
+	{tracking}
+	{...$$restProps}
 >
 	<slot />
 </Text>
