@@ -36,12 +36,22 @@ interface HorizontalSectionStyles {
 	fixed: boolean;
 	zIndex: number;
 	section: 'navbar' | 'aside';
+	hidden: boolean;
 }
 
 export default createStyles(
 	(
 		theme,
-		{ height, width, fixed, position, hiddenBreakpoint, zIndex, section }: HorizontalSectionStyles,
+		{
+			height,
+			width,
+			fixed,
+			position,
+			hiddenBreakpoint,
+			zIndex,
+			section,
+			hidden
+		}: HorizontalSectionStyles,
 		dark,
 		ctx
 	) => {
@@ -82,16 +92,15 @@ export default createStyles(
 				flexDirection: 'column',
 				backgroundColor: 'white',
 				[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${themeColor('gray', 2)}`,
-				...breakpoints
-			},
-
-			hidden: {
+				...breakpoints,
 				[`@media (max-width: ${size({
 					size: hiddenBreakpoint,
 					sizes: appShellTheme.breakpoints
-				})}px)`]: {
-					display: 'none'
-				}
+				})}px)`]: hidden
+					? {
+							display: 'none'
+					  }
+					: {}
 			}
 		};
 	}

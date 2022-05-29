@@ -60,7 +60,7 @@ export const vFunc = (color: SvelteUIColor, gradient: SvelteUIGradient): Variant
 				border: `1px solid ${themeColor('dark', 5)}`,
 				backgroundColor: themeColor('dark', 5),
 				color: 'White',
-				'&:hover': { backgroundColor: themeColor(color, 4) }
+				'&:hover': { backgroundColor: themeColor('dark', 4) }
 			},
 			border: `1px solid ${themeColor('gray', 4)}`,
 			backgroundColor: 'White',

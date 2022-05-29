@@ -35,10 +35,10 @@ function getPositionStyles(props: AppShellStylesParams, theme: AppShellTheme): C
 
 	return {
 		minHeight: '100vh',
-		paddingTop: `calc(var(--mantine-header-height, 0px) + ${padding}px)`,
-		paddingBottom: `calc(var(--mantine-footer-height, 0px) + ${padding}px)`,
-		paddingLeft: `calc(var(--mantine-navbar-width, 0px) + ${padding}px)`,
-		paddingRight: `calc(var(--mantine-aside-width, 0px) + ${padding}px)`,
+		paddingTop: `calc(var(--svelteui-header-height, 0px) + ${padding}px)`,
+		paddingBottom: `calc(var(--svelteui-footer-height, 0px) + ${padding}px)`,
+		paddingLeft: `calc(var(--svelteui-navbar-width, 0px) + ${padding}px)`,
+		paddingRight: `calc(var(--svelteui-aside-width, 0px) + ${padding}px)`,
 
 		[`@media (max-width: ${navbarOffset}px)`]: {
 			paddingLeft: padding

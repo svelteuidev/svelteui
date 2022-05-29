@@ -29,11 +29,12 @@
 	/** Sets the maximum lines of text using CSS -webkit-line-clamp property */
 	export let lineClamp: $$AnchorProps['lineClamp'] = undefined;
 	/** Underlines the text */
-	export let underline: $$AnchorProps['underline'] = undefined;
+	export let underline: $$AnchorProps['underline'] = true;
 	/** If it should inherit font properties from the parent component */
 	export let inherit: $$AnchorProps['inherit'] = false;
 	/** Applies an href to the button component and converts it to an anchor tag */
 	export let href: $$AnchorProps['href'] = '';
+	export let tracking: $$AnchorProps['tracking'] = 'normal';
 
 	$: AnchorStyles = css({
 		backgroundColor: 'transparent',
@@ -74,6 +75,7 @@ root.
 	{underline}
 	{inherit}
 	{href}
+	{tracking}
 	{...$$restProps}
 >
 	<slot>Enter some anchor text</slot>

@@ -37,7 +37,7 @@
 	/** Sets the maximum lines of text using CSS -webkit-line-clamp property */
 	export let lineClamp: $$TextProps['lineClamp'] = undefined;
 	/** Underlines the text */
-	export let underline: $$TextProps['underline'] = undefined;
+	export let underline: $$TextProps['underline'] = false;
 	/** If it should inherit font properties from the parent component */
 	export let inherit: $$TextProps['inherit'] = false;
 	/** Applies an href to the anchor tag */
@@ -92,7 +92,7 @@
 			  }
 			: {}),
 		'&:hover':
-			variant === 'link' && underline === undefined
+			variant === 'link' && underline === true
 				? {
 						textDecoration: 'underline'
 				  }

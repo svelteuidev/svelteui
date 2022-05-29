@@ -38,14 +38,15 @@
 		{}
 	);
 
-	$: ({ classes, cx, getStyles } = useStyles({
+	$: ({ getStyles } = useStyles({
 		fixed,
 		height,
 		hiddenBreakpoint,
 		position,
 		width,
 		zIndex,
-		section
+		section,
+		hidden
 	}));
 
 	const injectRoot = globalCss({
@@ -61,7 +62,7 @@
 	{use}
 	bind:element
 	root={section === 'navbar' ? 'nav' : 'aside'}
-	class="{cx(hidden && classes.hidden, className)} {getStyles({ css: override })}"
+	class="{className} {getStyles({ css: override })}"
 	{...$$restProps}
 >
 	<slot />
