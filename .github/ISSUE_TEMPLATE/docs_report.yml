@@ -1,5 +1,5 @@
-name: Report an issue with svelteui-docs.vercel.app website
-description: Nothing is perfect, especially these docs, help me find and fix mistakes, bad wording, etc.
+name: Report an issue with svelteui.org website
+description: Nothing is perfect, especially these docs, help us find and fix mistakes, bad wording, etc.
 body:
   - type: markdown
     attributes:
@@ -20,4 +20,4 @@ body:
         - 'Yes'
         - 'No'
     validations:
-      required: false
+      required: true
