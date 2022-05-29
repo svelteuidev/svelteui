@@ -12,6 +12,9 @@
 		override: AppShellProviderProps['override'] = {},
 		value: AppShellProviderProps['value'];
 	export { className as class };
+
+	const noop = () => value;
+	noop();
 </script>
 
 <Box bind:element class={className} css={{ ...override }} {use} {...$$restProps}>

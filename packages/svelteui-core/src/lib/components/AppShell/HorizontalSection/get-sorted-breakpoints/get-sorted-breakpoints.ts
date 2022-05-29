@@ -2,7 +2,7 @@
 import { fns } from '$lib/styles';
 import type { SvelteUISize } from '$lib/styles';
 
-type Breakpoints<T> = Partial<Record<SvelteUISize | (string & {}), T>>;
+type Breakpoints<T> = Partial<Record<SvelteUISize | (string & Record<never, never>), T>>;
 
 export interface AppShellTheme {
 	spacing: Record<SvelteUISize, number>;
