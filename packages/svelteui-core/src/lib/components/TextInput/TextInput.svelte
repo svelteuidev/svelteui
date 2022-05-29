@@ -30,6 +30,8 @@
 	export let descriptionProps: $$TextInputProps['descriptionProps'] = {};
 	/** Props spread to error element */
 	export let errorProps: $$TextInputProps['errorProps'] = {};
+	/** Sets border color to red and aria-invalid=true on input element */
+	export let invalid: $$TextInputProps['invalid'] = false;
 	/** htmlFor label prop */
 	export let id: $$TextInputProps['id'] = 'input-id';
 	/** Render label as label with htmlFor or as div */
@@ -45,6 +47,7 @@
     // Flag that enables the override of the right section slot
     // of the Input component only if it was provided
 	const _showRightSection = showRightSection === undefined ? !!$$slots.rightSection : showRightSection;
+	$: _invalid = invalid || !!error;
 </script>
 
 <!--
@@ -91,9 +94,9 @@ Input for text that also uses labels for the input
 		{required}
 		{size}
 		{id}
-		invalid={!!error}
         showRightSection={_showRightSection}
 		{...$$restProps}
+		invalid={_invalid}
 	>
         <slot slot='rightSection' name='rightSection'></slot>
 	</Input>
