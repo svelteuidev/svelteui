@@ -94,7 +94,7 @@ Input for text that also uses labels for the input
 		{required}
 		{size}
 		{id}
-        showRightSection={_showRightSection}
+		showRightSection={_showRightSection}
 		{...$$restProps}
 		invalid={_invalid}
 	>
