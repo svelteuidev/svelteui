@@ -36,13 +36,15 @@
 	export let labelElement: $$TextInputProps['labelElement'] = 'label';
 	/** Controls all elements font-size */
 	export let size: $$TextInputProps['size'] = 'sm';
+	/** Determines if the right section is shown, defaults to true if the slot is provided */
+	export let showRightSection: $$TextInputProps['showRightSection'] = undefined;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
     // Flag that enables the override of the right section slot
     // of the Input component only if it was provided
-	const showRightSection = !!$$slots.rightSection;
+	const _showRightSection = showRightSection === undefined ? !!$$slots.rightSection : showRightSection;
 </script>
 
 <!--
@@ -89,7 +91,8 @@ Input for text that also uses labels for the input
 		{required}
 		{size}
 		{id}
-        {showRightSection}
+		invalid={!!error}
+        showRightSection={_showRightSection}
 		{...$$restProps}
 	>
         <slot slot='rightSection' name='rightSection'></slot>
