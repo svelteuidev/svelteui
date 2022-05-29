@@ -24,6 +24,8 @@
 	export let iconWidth: $$InputProps['iconWidth'] = 36;
 	/** Props spread to icon component */
 	export let iconProps: $$InputProps['iconProps'] = { size: 20, color: 'currentColor' };
+	/** Determines if the right section is shown, defaults to true if the slot is provided */
+	export let showRightSection: $$InputProps['showRightSection'] = $$slots.rightSection;
 	/** Width of right section, is used to calculate input padding-right */
 	export let rightSectionWidth: $$InputProps['rightSectionWidth'] = 36;
 	/** Props spread to rightSection div element */
@@ -54,7 +56,6 @@
 
 	let isHTMLElement;
 	let isComponent;
-	const withRightSection = $$slots.rightSection;
 	$: {
 		isHTMLElement = root && typeof root === 'string';
 		isComponent = root && typeof root === 'function';
@@ -105,7 +106,7 @@
 								: 12,
 						paddingRight:
 							variant === 'default' || variant === 'filled'
-								? withRightSection
+								? showRightSection
 									? rightSectionWidth
 									: null
 								: null,
@@ -353,7 +354,7 @@ Base component to create custom inputs
 			<slot />
 		</svelte:component>
 	{/if}
-	{#if withRightSection}
+	{#if showRightSection}
 		<div {...rightSectionProps} class="rightSection">
 			<slot name="rightSection" />
 		</div>

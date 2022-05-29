@@ -40,7 +40,9 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	const withRightSection = $$slots.rightSection;
+    // Flag that enables the override of the right section slot
+    // of the Input component only if it was provided
+	const showRightSection = !!$$slots.rightSection;
 </script>
 
 <!--
@@ -86,13 +88,10 @@ Input for text that also uses labels for the input
 		{overrideInput}
 		{required}
 		{size}
-        {id}
+		{id}
+        {showRightSection}
 		{...$$restProps}
 	>
-		<div slot="rightSection">
-			{#if withRightSection}
-				<slot name="rightSection" />
-			{/if}
-		</div>
+        <slot slot='rightSection' name='rightSection'></slot>
 	</Input>
 </InputWrapper>
