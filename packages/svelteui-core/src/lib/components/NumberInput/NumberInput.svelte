@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { css, dark } from '$lib/styles';
-	import Input from '../Input/Input.svelte';
+	import { TextInput } from '../TextInput';
 	import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
@@ -273,10 +273,11 @@ values and add custom parsers and formatters.
     <NumberInput defaultValue={2} />
 	<NumberInput max={10} min={0} step={0.5} precision={1} />
 	<NumberInput defaultValue={0} step={0.2} precision={2} decimalSeparator="," />
+	<NumberInput label='Your age' required defaultValue={0} />
     ```
 -->
 
-<Input
+<TextInput
 	{use}
 	{root}
 	{icon}
@@ -291,6 +292,7 @@ values and add custom parsers and formatters.
 	class="{className}"
 	override={{ ...override, '& .rightSection': { width: 'auto' } }}
 	value={formatNumber(value)}
+	{...$$restProps}
 	bind:element={element}
 	on:input={onInput}
 	on:keyup={onKeyUp}
@@ -321,4 +323,4 @@ values and add custom parsers and formatters.
 			/>
 		{/if}
 	</div>
-</Input>
+</TextInput>

@@ -31,6 +31,7 @@
 		Overlay,
 		SimpleGrid,
 		Container,
+		TextInput,
 		Tooltip,
 		Kbd,
 		Paper,

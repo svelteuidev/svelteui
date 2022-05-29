@@ -35,6 +35,7 @@ export * from './Space';
 export * from './Stack';
 export * from './Switch';
 export * from './Text';
+export * from './TextInput';
 export * from './ThemeIcon';
 export * from './Title';
 export * from './Tooltip';
