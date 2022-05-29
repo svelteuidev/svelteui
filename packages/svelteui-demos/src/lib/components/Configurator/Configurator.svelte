@@ -127,7 +127,7 @@
 			}
 		},
 
-		'& .preview > .controls .control + .control': {
+		'& .preview > .controls > .control + .control': {
 			marginTop: '$8'
 		},
 
