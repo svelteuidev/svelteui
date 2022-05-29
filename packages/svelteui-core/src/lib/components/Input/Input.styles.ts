@@ -5,10 +5,11 @@ export interface InputBaseProps extends DefaultProps {
 	icon: Component | HTMLOrSVGElement;
 	iconWidth: number;
 	iconProps: { size: number; color: 'currentColor' | string };
-	rightSection: Component | HTMLOrSVGElement;
+	showRightSection: boolean;
 	rightSectionWidth: number;
 	rightSectionProps: Record<string, unknown>;
 	wrapperProps: Record<string, unknown>;
+	id: string;
 	required: boolean;
 	radius: SvelteUINumberSize;
 	variant: InputVariant;
