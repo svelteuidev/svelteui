@@ -24,14 +24,16 @@
 	export let iconWidth: $$InputProps['iconWidth'] = 36;
 	/** Props spread to icon component */
 	export let iconProps: $$InputProps['iconProps'] = { size: 20, color: 'currentColor' };
-	/** Right section of input, similar to icon but on the right */
-	export let rightSection: $$InputProps['rightSection'] = null;
+	/** Determines if the right section is shown, defaults to true if the slot is provided */
+	export let showRightSection: $$InputProps['showRightSection'] = $$slots.rightSection;
 	/** Width of right section, is used to calculate input padding-right */
 	export let rightSectionWidth: $$InputProps['rightSectionWidth'] = 36;
 	/** Props spread to rightSection div element */
 	export let rightSectionProps: $$InputProps['rightSectionProps'] = {};
 	/** Properties spread to root element */
 	export let wrapperProps: $$InputProps['wrapperProps'] = {};
+	/** Id of the component to be linked to a label */
+	export let id: $$InputProps['id'] = 'input-id';
 	/** Sets required on input element */
 	export let required: $$InputProps['required'] = false;
 	/** Input border-radius from theme or number to set border-radius in px */
@@ -54,7 +56,6 @@
 
 	let isHTMLElement;
 	let isComponent;
-	const withRightSection = !!rightSection;
 	$: {
 		isHTMLElement = root && typeof root === 'string';
 		isComponent = root && typeof root === 'function';
@@ -105,7 +106,7 @@
 								: 12,
 						paddingRight:
 							variant === 'default' || variant === 'filled'
-								? withRightSection
+								? showRightSection
 									? rightSectionWidth
 									: null
 								: null,
@@ -308,6 +309,7 @@ Base component to create custom inputs
 			use:forwardEvents
 			{required}
 			{disabled}
+			{id}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -325,6 +327,7 @@ Base component to create custom inputs
 			on:change={onChange}
 			{required}
 			{disabled}
+			{id}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -344,13 +347,14 @@ Base component to create custom inputs
 				: null} {icon ? 'withIcon' : null}"
 			{disabled}
 			{required}
+			{id}
 			aria-invalid={invalid}
 			{...$$restProps}
 		>
 			<slot />
 		</svelte:component>
 	{/if}
-	{#if $$slots.rightSection}
+	{#if showRightSection}
 		<div {...rightSectionProps} class="rightSection">
 			<slot name="rightSection" />
 		</div>

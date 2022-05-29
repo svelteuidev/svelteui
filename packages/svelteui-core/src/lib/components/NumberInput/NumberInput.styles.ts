@@ -1,6 +1,6 @@
-import type { InputBaseProps } from '../Input/Input.styles';
+import type { TextInputProps } from '../TextInput/TextInput.styles';
 
-export interface NumberInputProps extends InputBaseProps {
+export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	value?: number | undefined;
 	defaultValue?: number | undefined;
 	invalid?: boolean;
