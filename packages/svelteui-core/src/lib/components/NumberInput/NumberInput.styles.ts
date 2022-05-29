@@ -3,13 +3,12 @@ import type { TextInputProps } from '../TextInput/TextInput.styles';
 export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	value?: number | undefined;
 	defaultValue?: number | undefined;
-	invalid?: boolean;
 	decimalSeparator?: string;
 	max?: number;
 	min?: number;
 	step?: number;
 	stepHoldDelay?: number;
-	stepHoldInterval?: number;
+	stepHoldInterval?: number | ((step: number) => number);
 	hideControls?: boolean;
 	precision?: number;
 	noClampOnBlur?: boolean;
