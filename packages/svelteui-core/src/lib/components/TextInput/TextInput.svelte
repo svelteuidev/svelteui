@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import InputWrapper from '../InputWrapper/InputWrapper.svelte';
-	import Input from '../Input/Input.svelte';
+	import { InputWrapper } from '../InputWrapper';
+	import { Input } from '../Input';
 	import type { TextInputProps as $$TextInputProps } from './TextInput.styles';
 
 	/** Used for forwarding actions from component */
