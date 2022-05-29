@@ -82,7 +82,7 @@
 				borderTopWidth: typeof size === 'number' ? `${size}px` : `$${size}`,
 				borderTopStyle: `${variant}`,
 				borderTopColor: `$${color}400`,
-				marginRight: '$xs',
+				marginRight: '10px',
 				[`${dark.selector} &`]: {
 					borderTopColor: `$${color}300`
 				}
@@ -94,7 +94,7 @@
 				borderTopWidth: typeof size === 'number' ? `${size}px` : `$${size}`,
 				borderTopStyle: `${variant}`,
 				borderTopColor: `$${color}300`,
-				marginLeft: '$xs'
+				marginLeft: '10px'
 			}
 		}
 	};
