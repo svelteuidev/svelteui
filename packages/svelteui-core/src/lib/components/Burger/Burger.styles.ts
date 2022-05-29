@@ -9,7 +9,7 @@ export interface BurgerProps extends DefaultProps<HTMLButtonElement | HTMLAnchor
 
 export interface BurgerStyleParams {
 	opened?: boolean;
-	color: SvelteUIColor | string;
+	color: SvelteUIColor;
 	size: SvelteUINumberSize;
 }
 
