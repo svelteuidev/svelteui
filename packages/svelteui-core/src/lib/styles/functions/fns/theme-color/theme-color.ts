@@ -3,7 +3,7 @@ import type { SvelteUIColor } from '../../../index';
 
 type ColorShades = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export function themeColor<T = SvelteUIColor>(color: T, shade: ColorShades = 0) {
+export function themeColor(color: SvelteUIColor, shade: ColorShades = 0) {
 	let _shade = '50';
 
 	if (!isSvelteUIColor(color)) return color;

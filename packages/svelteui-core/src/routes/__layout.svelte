@@ -71,3 +71,53 @@
 		<slot />
 	</Container>
 </SvelteUIProvider>
+
+<!-- 
+
+	<script lang="ts">
+		import { SvelteUIProvider, AppShell, Navbar, Header, Footer, Aside, ShellSection } from '$lib';
+		import { theme, fns } from '$lib';
+	</script>
+	
+	<SvelteUIProvider withGlobalStyles withNormalizeCSS>
+		<AppShell
+		override={{
+			main: { 'dark-theme &': { bc: fns.themeColor('dark', 8) }, bc: fns.themeColor('gray', 0) }
+		}}
+		fixed
+		>
+		<Navbar slot="navbar" width={{ base: 200 }} height={500} override={{ padding: `${'$xs'}px` }}>
+			<div>Navbar Content</div>
+			<ShellSection>
+				<div>Navbar Content in section</div>
+			</ShellSection>
+		</Navbar>
+		<Header slot="header" height={60} override={{ padding: `${'$xs'}px` }}>
+			<div>Header Content</div>
+			<ShellSection>
+				<div>Header Content in section</div>
+			</ShellSection>
+		</Header>
+		
+		<div>Main Content</div>
+		<ShellSection grow>
+			<div>Main Content in section</div>
+		</ShellSection>
+		
+		<Aside width={{ base: 200 }} slot="aside">
+			<div>Aside Content</div>
+			<ShellSection grow>
+				<div>Aside Content in section</div>
+			</ShellSection>
+		</Aside>
+		
+		<Footer slot="footer">
+			<div>Footer Content</div>
+			<ShellSection grow>
+				<div>Footer Content in section</div>
+			</ShellSection>
+		</Footer>
+	</AppShell>
+</SvelteUIProvider>
+
+-->

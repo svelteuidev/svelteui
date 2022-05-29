@@ -1,6 +1,7 @@
 export * from './ActionIcon';
 export * from './Affix';
 export * from './Anchor';
+export * from './AppShell';
 export * from './Badge';
 export * from './Box';
 export * from './BrowserRender';
@@ -26,7 +27,6 @@ export * from './Overlay';
 export * from './Paper';
 export * from './Popper';
 export * from './Portal';
-export * from './Select';
 export * from './Seo';
 export * from './ServerRender';
 export * from './SimpleGrid';
