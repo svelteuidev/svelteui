@@ -17,7 +17,7 @@
 	/** Css prop for custom theming the component */
 	export let overrideInput: $$TextInputProps['overrideInput'] = {};
 	/** Input label, displayed before input */
-	export let label: $$TextInputProps['label'] = 'label';
+	export let label: $$TextInputProps['label'] = '';
 	/** Input description, displayed after label */
 	export let description: $$TextInputProps['description'] = null;
 	/** Displays error message after input */
