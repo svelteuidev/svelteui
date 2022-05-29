@@ -15,6 +15,9 @@
 		codeTemplate,
 		configurator: [
             { name: 'placeholder', type: 'string', initialValue: 'Your age' },
+            { name: 'label', type: 'string', initialValue: 'Your age' },
+            { name: 'description', type: 'string' },
+            { name: 'error', type: 'string' },
             { 
                 name: 'variant',
                 type: 'select',
