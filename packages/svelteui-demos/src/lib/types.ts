@@ -81,9 +81,16 @@ export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 	toggle?: boolean;
 }
 
+export type CodeTemplateFunction = (props: string, children?: string) => string;
+
+export interface CodeTemplateOptions {
+	component: string;
+	from: string;
+}
+
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 	configurator: ConfiguratorDemoControl[];
-	codeTemplate?: (props: string, children?: string) => string;
+	codeTemplate?: CodeTemplateFunction | CodeTemplateOptions;
 	multiline?: boolean | number;
 	multilineEndNewLine?: boolean;
 	center?: boolean;

@@ -10,16 +10,9 @@
 
 	const dispatch = createEventDispatcher();
 
-	function onInput(e) {
-		dispatch('change', e.currentTarget.value);
+	function onChange(e) {
+		dispatch('change', e.detail);
 	}
 </script>
 
-<!-- TODO: switch to NumberInput when it will be implemented -->
-<NumberInput
-	{label}
-	{min}
-	{max}
-	bind:value
-	on:input={onInput}
-/>
+<NumberInput {label} {min} {max} {value} on:change={onChange} />
