@@ -16,6 +16,8 @@
 	export let override: $$NumberInputProps['override'] = {};
 	/** The component or HTML tag to be used as the root component for the text */
 	export let root: $$NumberInputProps['root'] = 'input';
+	/** The placeholder for the input */
+	export let placeholder: $$NumberInputProps['placeholder'] = undefined;
 	/** Adds icon on the left side of input */
 	export let icon: $$NumberInputProps['icon'] = null;
 	/** Width of icon section in px */
@@ -34,12 +36,10 @@
 	export let disabled: $$NumberInputProps['disabled'] = false;
 	/** Input size */
 	export let size: $$NumberInputProps['size'] = 'sm';
-	/** Sets border color to red and aria-invalid=true on input element */
-	export let invalid: $$NumberInputProps['invalid'] = false;
 	/** Input value */
 	export let value: $$NumberInputProps['value'] = undefined;
 	/** Input default value, set as the value if none is provided */
-	export let defaultValue: $$NumberInputProps['defaultValue'] = 0;
+	export let defaultValue: $$NumberInputProps['defaultValue'] = undefined;
 	/** The decimal separator to be used if the value is decimal, used by the formatter and parser */
 	export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
 	/** The minimum value the input will allow */
@@ -73,6 +73,8 @@
 
 	const dispatch = createEventDispatcher();
 
+	let isKeyDown = false;
+	let stepCount = 0;
 	let holdTimeout = null;
 	let holdDelayTimeout = null;
 
@@ -111,15 +113,22 @@
 	}
 
 	function stepInterval(up) {
+		const interval = typeof stepHoldInterval === 'number'
+			? stepHoldInterval
+			: stepHoldInterval(stepCount);
+
 		holdTimeout = setTimeout(() => {
 			onStep(up, true, false);
-		}, stepHoldInterval);
+		}, interval);
 	}
 
 	function onStep(up, hold = true, first = true) {
-		const tmpValue = up ? value + step : value - step;
+		const _value = value === undefined ? 0 : value
+		const tmpValue = up ? _value + step : _value - step;
 		const clamp = Math.min(Math.max(tmpValue, min), max);
+
 		value = parseFloat(clamp.toFixed(precision));
+		stepCount += 1;
 
 		// dispatches change events so that listeners can get
 		// the original value, not formatted
@@ -140,18 +149,20 @@
 		if (holdTimeout) clearTimeout(holdTimeout);
 		holdDelayTimeout = null;
 		holdTimeout = null;
+		stepCount = 0;
 	}
 
 	function onKeyDown(event) {
-		if (event.key === 'ArrowUp') {
-			onStep(true, false);
-		} else if (event.key === 'ArrowDown') {
-			onStep(false, false);
-		}
+		if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+		if (isKeyDown) return;
+
+		isKeyDown = true;
+		onStep(event.key === 'ArrowUp');
 	}
 
 	function onKeyUp(event) {
-		if (event.key !== 'ArrowUp' || event.key !== 'ArrowDown') return;
+		if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;
+		isKeyDown = false;
 		onStepDone();
 	}
 
@@ -171,6 +182,7 @@
 	}
 
 	$: value = _valueC(value);
+	$: showControls = !hideControls && variant !== 'unstyled' && !disabled
 
 	$: ControlStyles = css({
 		display: 'flex',
@@ -285,13 +297,15 @@ values and add custom parsers and formatters.
 	{iconProps}
 	{wrapperProps}
 	{required}
+	{size}
 	{radius}
 	{variant}
 	{disabled}
-	{invalid}
+	{placeholder}
 	class="{className}"
 	override={{ ...override, '& .rightSection': { width: 'auto' } }}
 	value={formatNumber(value)}
+	showRightSection={showControls}
 	{...$$restProps}
 	bind:element={element}
 	on:input={onInput}
@@ -300,7 +314,7 @@ values and add custom parsers and formatters.
 	on:blur={onBlur}
 >
 	<div slot="rightSection" class="controls {ControlStyles()}">
-		{#if !hideControls}
+		{#if showControls}
 			<button
 				class="control control-up"
 				type="button"

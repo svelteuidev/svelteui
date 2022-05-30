@@ -28,6 +28,9 @@ const config = {
 		},
 		/** @type {import('vite').UserConfig} */
 		vite: {
+			optimizeDeps: {
+				exclude: ['radix-icons-svelte']
+			},
 			test: {
 				globals: true,
 				environment: 'jsdom'

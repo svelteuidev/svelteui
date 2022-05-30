@@ -48,8 +48,3 @@
 
 	let opened = false;
 </script>
-
-<Center>
-	<Burger {opened} on:click={() => (opened = !opened)} />
-	Hello
-</Center>

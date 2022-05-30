@@ -20,7 +20,7 @@
 	$: StackStyles = {
 		display: 'flex',
 		flexDirection: 'column',
-		alisizegnItems: `${align}`,
+		alignItems: `${align}`,
 		justifyContent: `${justify}`,
 		gap: size({ size: spacing, sizes: theme.space })
 	};

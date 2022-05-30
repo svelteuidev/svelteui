@@ -8,14 +8,14 @@ import type {
 	SvelteUINumberFontSize,
 	DefaultProps
 } from '$lib/styles';
-import type { Component } from '$lib/internal';
+import type { Component, LiteralUnion } from '$lib/internal';
 
 export interface TextProps extends DefaultProps {
 	className?: string;
 	override?: Override['props'];
 	align?: SvelteUITextAlignment;
 	color?: TextColors;
-	root?: HTMLTextElements | Component;
+	root?: LiteralUnion<HTMLTextElements | Component, string>;
 	transform?: SvelteUITextTransform;
 	variant?: TextVariant;
 	size?: SvelteUINumberSize;

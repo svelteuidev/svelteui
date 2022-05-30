@@ -4,13 +4,12 @@
 		TypographyProvider,
 		Seo,
 		AppShell,
-		Navbar,
 		Header,
 		Title,
 		Divider
 	} from '$lib';
 	import { fns } from '$lib';
-	import { HeadContent, NavContent } from '../pages';
+	import { HeadContent } from '../pages';
 	import { page } from '$app/stores';
 
 	let opened = false;
@@ -33,22 +32,13 @@
 	<TypographyProvider>
 		<AppShell
 			override={{
-				main: { bc: isDark ? fns.themeColor('dark', 8) : fns.themeColor('gray', 0) }
+				main: { bc: isDark ? fns.themeColor('dark', 8) : fns.themeColor('gray', 0) },
+				'& .main': { px: 0 }
 			}}
 			fixed
 			navbarOffsetBreakpoint="sm"
 			asideOffsetBreakpoint="sm"
 		>
-			<Navbar
-				hidden={!opened}
-				fixed
-				slot="navbar"
-				hiddenBreakpoint="sm"
-				width={{ sm: 200, lg: 250 }}
-				override={{ p: '$mdPX' }}
-			>
-				<NavContent {isDark} />
-			</Navbar>
 			<Header fixed slot="header" height={60} override={{ p: '$mdPX' }}>
 				<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
 			</Header>

@@ -48,10 +48,10 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	let isHTMLComponent;
-	let isComponent;
+	let isHTMLElement: boolean;
+	let isComponent: boolean;
 	$: {
-		isHTMLComponent = root && typeof root === 'string';
+		isHTMLElement = root && typeof root === 'string';
 		isComponent = root && typeof root === 'function';
 	}
 
@@ -134,7 +134,7 @@ Display text and links with theme styles.
     ```
 -->
 
-{#if isHTMLComponent}
+{#if isHTMLElement}
 	<!-- prettier-ignore -->
 	<svelte:element
 		bind:this={element}

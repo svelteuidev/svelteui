@@ -9,6 +9,7 @@ export interface InputBaseProps extends DefaultProps {
 	rightSectionWidth: number;
 	rightSectionProps: Record<string, unknown>;
 	wrapperProps: Record<string, unknown>;
+	placeholder: string;
 	id: string;
 	required: boolean;
 	radius: SvelteUINumberSize;
