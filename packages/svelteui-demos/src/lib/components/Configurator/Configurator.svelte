@@ -63,9 +63,7 @@
 		multilineEndNewLine
 	});
 
-	$: code = codeTemplate
-		? codeTemplate(propsCode.length > 0 ? ` ${propsCode}` : propsCode, children).trim()
-		: '';
+	$: code = generateCode(codeTemplate, propsCode, children).trim();
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
 		return control && control.type !== '_DO_NOT_USE_';
@@ -78,6 +76,60 @@
 
 	function onChange(newData) {
 		data = newData;
+	}
+
+	function generateCode(
+		codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'],
+		propsCode: string,
+		children?: string
+	): string {
+		if (!codeTemplate) {
+			return '';
+		}
+
+		// add space before props when they are set
+		const preSpace = !multiline && propsCode.length > 0 ? ' ' : '';
+		let postSpace = '';
+
+		// add space before '/>'
+		if (!children) {
+			if (!multiline) {
+				postSpace = ' ';
+			} else {
+				if (!propsCode.length && multilineEndNewLine) {
+					postSpace = ' ';
+				}
+			}
+		}
+
+		const props = `${preSpace}${propsCode}${postSpace}`;
+
+		if (typeof codeTemplate === 'function') {
+			// replace used for fix excess trailing space when children didn't set and codeTemplate still has children
+			return codeTemplate(props, children).replace(/(<.+)( >)/, (match, p1) => `${p1}>`);
+		}
+
+		const { component, from } = codeTemplate;
+
+		if (children) {
+			return `
+<script>
+  import { ${component} } from '${from}';
+<\/script>
+
+<${component}${props}>
+  ${children}
+</${component}>
+`;
+		}
+
+		return `
+<script>
+  import { ${component} } from '${from}';
+<\/script>
+
+<${component}${props}/>
+`;
 	}
 
 	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
@@ -161,6 +213,9 @@
 		</div>
 		<div class="controls">
 			<ControlsRenderer value={data} controls={demoControls} {onChange} />
+			<!--			<button {data}> test </button>-->
+			<!--			<button {data} />-->
+			<!--			<button />-->
 		</div>
 	</div>
 	{#if code}
