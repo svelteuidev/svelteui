@@ -3,16 +3,6 @@
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
 
-	const codeTemplate = (props: string, children: string) => `
-<script>
-  import { Button } from '@svelteuidev/core';
-<\/script>
-
-<Button${props}>
-  ${children}
-</Button>
-`;
-
 	export const configuration: ConfiguratorDemoConfiguration = {
 		configurator: [
 			{
@@ -33,7 +23,7 @@
 			{ name: 'color', type: 'color', initialValue: 'teal', defaultValue: 'blue' },
 			{ name: 'children', type: 'string', initialValue: 'Settings' }
 		],
-		codeTemplate,
+		codeTemplate: { component: 'Button', from: '@svelteuidev/core' },
 		multiline: true
 	};
 </script>

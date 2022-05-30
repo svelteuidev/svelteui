@@ -1,20 +1,10 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
-<script>
-  import { Button } from '@svelteuidev/core';
-<\/script>
-
-<Button${props}>
-  ${children}
-</Button>
-`;
-
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
 
 	export const configuration: ConfiguratorDemoConfiguration = {
-		codeTemplate,
+		codeTemplate: { component: 'Button', from: '@svelteuidev/core' },
 		configurator: [
 			{
 				name: 'variant',

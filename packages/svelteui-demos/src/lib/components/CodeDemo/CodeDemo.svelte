@@ -96,7 +96,7 @@
 			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
 				<Prism
 					language="svelte"
-					{code}
+					code={code.trim()}
 					override={{
 						padding: '$8'
 					}}
