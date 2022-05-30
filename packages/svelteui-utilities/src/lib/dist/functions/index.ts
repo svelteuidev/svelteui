@@ -5,4 +5,5 @@ export * from './hash/index.js';
 export * from './mouse-position/index.js';
 export * from './os/index.js';
 export * from './raf-fn/index.js';
+export * from './use-regex/index.js';
 export * from './viewport-size/index.js';

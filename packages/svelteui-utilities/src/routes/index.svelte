@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { focusWithin, viewportSize, mousePosition, browserContext, eyeDropper } from '$lib';
+	import { focusWithin, viewportSize, mousePosition, eyeDropper, useRegexFactory } from '$lib';
 	import { Input, Button, Box, Text, Space, Group, Code, Center, Stack } from '@svelteuidev/core';
 
 	const { focused, focuswithin } = focusWithin();
@@ -7,9 +7,12 @@
 	$: ({ width, height } = $viewport);
 	const { position, mouseposition } = mousePosition();
 	$: ({ x, y } = $position);
-	const location = browserContext();
-	console.log($location);
+	// const location = browserContext();
 	const { isSupported, sRGBHex, open } = eyeDropper({ initialValue: '#ffffff' });
+
+	const useRegex = useRegexFactory();
+	const regex = useRegex('getAllOf', 'tester', { test: true, testType: 'test' });
+	console.log(regex);
 </script>
 
 <svelte:body />
