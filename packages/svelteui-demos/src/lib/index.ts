@@ -10,6 +10,7 @@ export * as ButtonDemos from './demos/core/Button';
 export * as CenterDemos from './demos/core/Center';
 export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
+export * as NumberInputDemos from './demos/core/NumberInput';
 
 // Other packages
 export * as PrismDemos from './demos/prism';

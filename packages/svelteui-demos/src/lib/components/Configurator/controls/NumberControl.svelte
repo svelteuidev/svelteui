@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DemoControlNumber } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
-	import { Input, InputWrapper } from '@svelteuidev/core';
+	import { NumberInput } from '@svelteuidev/core';
 
 	export let value: number;
 	export let label: DemoControlNumber['label'];
@@ -11,25 +11,15 @@
 	const dispatch = createEventDispatcher();
 
 	function onInput(e) {
-		let newValue = e.currentTarget.value * 1;
-		let lastNumber = e.currentTarget.value[e.currentTarget.value.length - 1] * 1;
-
-		// all these validations will be done in NumberInput when it will be implemented
-		if (min !== undefined && newValue < min) {
-			newValue = min;
-			value = min;
-		}
-
-		if (max !== undefined && newValue > max) {
-			newValue = Math.max(Math.min(lastNumber, max), min);
-			value = Math.max(Math.min(lastNumber, max), min);
-		}
-
-		dispatch('change', newValue);
+		dispatch('change', e.currentTarget.value);
 	}
 </script>
 
 <!-- TODO: switch to NumberInput when it will be implemented -->
-<InputWrapper {label}>
-	<Input type="number" bind:value on:input={onInput} />
-</InputWrapper>
+<NumberInput
+	{label}
+	{min}
+	{max}
+	bind:value
+	on:input={onInput}
+/>

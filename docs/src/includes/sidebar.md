@@ -40,6 +40,7 @@
   - [Input](core/input)
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)
+  - [NumberInput](core/number-input)
   - [Switch](core/switch)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
