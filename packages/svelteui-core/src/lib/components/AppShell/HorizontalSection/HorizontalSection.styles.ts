@@ -51,12 +51,8 @@ export default createStyles(
 			zIndex,
 			section,
 			hidden
-		}: HorizontalSectionStyles,
-		dark,
-		ctx
+		}: HorizontalSectionStyles
 	) => {
-		const { themeColor, size } = ctx.fns;
-
 		const breakpoints =
 			typeof width === 'object' && width !== null
 				? getSortedBreakpoints(width, appShellTheme).reduce((acc, [breakpoint, breakpointSize]) => {
@@ -71,9 +67,9 @@ export default createStyles(
 
 		return {
 			root: {
-				[`${dark.selector} &`]: {
-					backgroundColor: themeColor('dark', 7),
-					[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${themeColor(
+				[`${theme.dark} &`]: {
+					backgroundColor: theme.fn.themeColor('dark', 7),
+					[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${theme.fn.themeColor(
 						'dark',
 						5
 					)}`
@@ -91,9 +87,12 @@ export default createStyles(
 				display: 'flex',
 				flexDirection: 'column',
 				backgroundColor: 'white',
-				[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${themeColor('gray', 2)}`,
+				[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${theme.fn.themeColor(
+					'gray',
+					2
+				)}`,
 				...breakpoints,
-				[`@media (max-width: ${size({
+				[`@media (max-width: ${theme.fn.size({
 					size: hiddenBreakpoint,
 					sizes: appShellTheme.breakpoints
 				})}px)`]: hidden

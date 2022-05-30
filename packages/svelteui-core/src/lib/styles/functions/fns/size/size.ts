@@ -1,4 +1,4 @@
-interface GetSize {
+export interface GetSize {
 	size: string | number;
 	sizes: Record<string, any>;
 }

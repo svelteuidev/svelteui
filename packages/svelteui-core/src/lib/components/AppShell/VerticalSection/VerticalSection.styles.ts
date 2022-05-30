@@ -28,20 +28,15 @@ interface VerticalSectionStyles {
 }
 
 export default createStyles(
-	(
-		theme,
-		{ height, borderPosition, fixed, position, zIndex }: VerticalSectionStyles,
-		dark,
-		ctx
-	) => {
-		const { themeColor } = ctx.fns;
+	(theme, { height, borderPosition, fixed, position, zIndex }: VerticalSectionStyles) => {
 		return {
 			root: {
-				[`${dark.selector} &`]: {
-					backgroundColor: themeColor('dark', 7),
+				[`${theme.dark} &`]: {
+					backgroundColor: theme.fn.themeColor('dark', 7),
 					borderBottom:
-						borderPosition === 'bottom' ? `1px solid ${themeColor('dark', 5)}` : undefined,
-					borderTop: borderPosition === 'top' ? `1px solid ${themeColor('dark', 5)}` : undefined
+						borderPosition === 'bottom' ? `1px solid ${theme.fn.themeColor('dark', 5)}` : undefined,
+					borderTop:
+						borderPosition === 'top' ? `1px solid ${theme.fn.themeColor('dark', 5)}` : undefined
 				},
 				...position,
 				zIndex,
@@ -52,8 +47,9 @@ export default createStyles(
 				boxSizing: 'border-box',
 				backgroundColor: 'white',
 				borderBottom:
-					borderPosition === 'bottom' ? `1px solid ${themeColor('gray', 2)}` : undefined,
-				borderTop: borderPosition === 'top' ? `1px solid ${themeColor('gray', 2)}` : undefined
+					borderPosition === 'bottom' ? `1px solid ${theme.fn.themeColor('gray', 2)}` : undefined,
+				borderTop:
+					borderPosition === 'top' ? `1px solid ${theme.fn.themeColor('gray', 2)}` : undefined
 			}
 		};
 	}

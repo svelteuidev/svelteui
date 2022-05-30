@@ -1,25 +1,19 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { css } from '../index.js';
 import { cssFactory } from './css.js';
 import { colorScheme } from '../SvelteUIProvider/svelteui.stores';
 import { fromEntries } from './utils/from-entries/from-entries.js';
 import { theme as themeObj, dark as darkObj, fns as newFns } from '../index.js';
-import type { theme as _theme, dark as _dark, fns as Fns } from '../index';
 import type { CSS } from '../types';
+import type { SvelteUITheme } from './types';
 
-interface DirtyObject {
+export interface DirtyObject {
 	[key: string]: CSS;
 	root: CSS;
 }
 
-interface Context {
-	fns: typeof Fns;
-	colorScheme?: 'light' | 'dark';
-}
-
 export function createStyles<Params = void>(
-	getCssObjectOrCssObject:
-		| ((theme: typeof _theme, params: Params, dark?: typeof _dark, ctx?: Context) => DirtyObject)
-		| DirtyObject
+	getCssObjectOrCssObject: ((theme: SvelteUITheme, params: Params) => DirtyObject) | DirtyObject
 ) {
 	const getCssObject =
 		typeof getCssObjectOrCssObject === 'function'
@@ -28,15 +22,22 @@ export function createStyles<Params = void>(
 
 	function useStyles(params: Params = {} as Params) {
 		let observer;
-		const theme = themeObj;
-		const dark = darkObj;
-		colorScheme.subscribe((val) => {
-			observer = val;
-		});
-		const ctx: Context = { fns: newFns, colorScheme: observer };
+		colorScheme.subscribe((val) => (observer = val));
+
+		/** create our new theme object */
+		const theme: SvelteUITheme = {
+			// @ts-ignore
+			...themeObj,
+			colorScheme: observer,
+			dark: darkObj.selector,
+			fn: {
+				themeColor: newFns.themeColor,
+				size: newFns.size
+			}
+		};
 
 		/** store the created dirty object in a variable */
-		const cssObjectDirty: DirtyObject = getCssObject(theme, params, dark, ctx);
+		const cssObjectDirty: DirtyObject = getCssObject(theme, params);
 		/** clone the dirty object to modify it's properties */
 		const sanitizeObject = Object.assign({}, cssObjectDirty);
 
@@ -64,7 +65,6 @@ export function createStyles<Params = void>(
 
 		return {
 			cx,
-			ctx,
 			theme,
 			classes,
 			getStyles: css(cssObjectClean)

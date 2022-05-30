@@ -8,7 +8,7 @@ export type LoaderType = 'bars' | 'circle' | 'dots';
 
 export type VariantThemeFunction = Record<string, Record<string, string | Record<string, unknown>>>;
 
-export type Transition<> = (node: Element, params: Record<string, unknown>) => TransitionConfig;
+export type Transition = (node: Element, params: Record<string, unknown>) => TransitionConfig;
 
 export interface Override {
 	props: CSS;

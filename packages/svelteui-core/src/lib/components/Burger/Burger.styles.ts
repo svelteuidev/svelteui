@@ -21,9 +21,8 @@ export const sizes = {
 	xl: 42
 };
 
-export default createStyles((theme, { color, size, opened }: BurgerStyleParams, dark, ctx) => {
-	const { size: sizeFn, themeColor } = ctx.fns;
-	const sizeValue = sizeFn({ size, sizes });
+export default createStyles((theme, { color, size, opened }: BurgerStyleParams) => {
+	const sizeValue = theme.fn.size({ size, sizes });
 
 	return {
 		root: {
@@ -40,13 +39,13 @@ export default createStyles((theme, { color, size, opened }: BurgerStyleParams, 
 			boxSizing: 'border-box',
 
 			'&, &:before, &:after': {
-				[`${dark.selector} &`]: {
+				[`${theme.dark} &`]: {
 					backgroundColor: 'white'
 				},
 				display: 'block',
 				width: sizeValue,
 				height: Math.ceil(sizeValue / 12),
-				backgroundColor: themeColor(color, 6),
+				backgroundColor: theme.fn.themeColor(color, 6),
 				outline: '1px solid transparent',
 				transitionProperty: 'background-color, transform',
 				transitionDuration: '300ms',

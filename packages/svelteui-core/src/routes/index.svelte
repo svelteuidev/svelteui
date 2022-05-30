@@ -41,8 +41,7 @@
 		Card,
 		Seo,
 		fns,
-		createStyles,
-		colorScheme
+		createStyles
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 
