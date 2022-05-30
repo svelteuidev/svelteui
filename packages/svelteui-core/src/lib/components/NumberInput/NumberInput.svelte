@@ -106,10 +106,9 @@
 		} else {
 			const parsedNumber = parseNumber(this.value);
 			if (parsedNumber === undefined || Number.isNaN(parseNumber)) return;
-
-			const clamped = Math.min(Math.max(parseFloat(parsedNumber), min), max);
-			value = parseFloat(clamped.toFixed(precision));
+			value = parseFloat(parsedNumber);
 		}
+		dispatch('change', value);
 	}
 
 	function stepInterval(up) {
@@ -125,9 +124,9 @@
 	function onStep(up, hold = true, first = true) {
 		const _value = value === undefined ? 0 : value
 		const tmpValue = up ? _value + step : _value - step;
-		const clamp = Math.min(Math.max(tmpValue, min), max);
 
-		value = parseFloat(clamp.toFixed(precision));
+		const clamped = _clamp(tmpValue);
+		value = parseFloat(clamped.toFixed(precision));
 		stepCount += 1;
 
 		// dispatches change events so that listeners can get
@@ -168,7 +167,16 @@
 
 	function onBlur() {
 		if (noClampOnBlur) return;
+
+		const clamped = _clamp(value);
+		value = parseFloat(clamped.toFixed(precision));;
+		dispatch('change', value);
+
 		(element as HTMLInputElement).value = formatNumber(value);
+	}
+
+	function _clamp(value) {
+		return Math.min(Math.max(value, min), max); 
 	}
 
 	function _valueC(val: number): number | undefined {
