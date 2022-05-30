@@ -1,6 +1,7 @@
 {
   "name": "@svelteuidev/dates",
   "version": "0.6.3",
+  "private": true,
   "description": "Calendars, date and time pickers based on SvelteUI components",
   "keywords": [
     "svelte",
@@ -41,7 +42,6 @@
     "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
-    "pub": "npm publish package/",
     "pub:test": "npm publish package/",
     "sort": "npx sort-package-json",
     "watch": "svelte-kit package -w"
