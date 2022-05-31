@@ -13,6 +13,7 @@ export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
 export * as NumberInputDemos from './demos/core/NumberInput';
 export * as PaperDemos from './demos/core/Paper';
+export * as PopperDemos from './demos/core/Popper';
 
 // Other packages
 export * as PrismDemos from './demos/prism';
