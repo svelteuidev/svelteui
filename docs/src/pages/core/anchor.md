@@ -40,6 +40,13 @@ Anchor is a wrapper around the [Text](core/text.md) component that uses `a` as t
 
 To use Anchor with svelte-routing `Link` component and other similar components set `root` prop:
 
-<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism language='svelte' code={routing} />
-</Box>
+```svelte
+<script>
+    import { Link } from "svelte-routing";
+    import { Anchor } from '@svelteuidev/core';
+</script>
+
+<Anchor root={Link} to="/">
+    Svelte router link
+</Anchor>
+```

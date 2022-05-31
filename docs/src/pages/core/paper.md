@@ -15,24 +15,6 @@ docs: 'core/paper.md'
     import { Prism } from '@svelteuidev/prism';
     import { Box } from '@svelteuidev/core';
     import { Heading } from 'components';
-
-    const shadows = `
-<script>
-    import { Paper } from '@svelteuidev/core';
-<\/script>
-
-<Paper shadow="xs" \/>
-<Paper shadow="13px 18px 25px #e5e5e5, 1px 3px 3px #e5e5e5, -1px 3px 3px #e5e5e5" \/>
-    `;
-
-    const radius = `
-<script>
-    import { Paper } from '@svelteuidev/core';
-<\/script>
-
-<Paper radius="lg" \/>
-<Paper radius={10} \/>
-    `;
 </script>
 
 <Heading />
@@ -47,14 +29,24 @@ Paper component renders white or dark background with shadow, border-radius and 
 
 You can use the predefined shadows from the [theme](theming/default-theme#shadows) or you own:
 
-<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism language='svelte' code={shadows} />
-</Box>
+```svelte
+<script>
+    import { Paper } from '@svelteuidev/core';
+</script>
+
+<Paper shadow="xs" />
+<Paper shadow="13px 18px 25px #e5e5e5, 1px 3px 3px #e5e5e5, -1px 3px 3px #e5e5e5" />
+```
 
 ## Radius
 
 You can use the predefined radius value from the [theme](theming/default-theme#radius) or use a number value that will be set to px:
 
-<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism language='svelte' code={radius} />
-</Box>
+```svelte
+<script>
+    import { Paper } from '@svelteuidev/core';
+</script>
+
+<Paper radius="lg" />
+<Paper radius={10} />
+```
