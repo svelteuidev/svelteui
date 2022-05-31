@@ -171,6 +171,12 @@
 				break;
 		}
 
+		// remove any offset measurements related to the parent
+		// element of the popper
+		const offsetParent = element.offsetParent as HTMLElement;
+		left -= offsetParent.offsetLeft;
+		top -= offsetParent.offsetTop;
+
 		return {
 			top: top,
 			bottom: top + element.clientHeight,
