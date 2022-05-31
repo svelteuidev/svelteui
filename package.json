@@ -42,8 +42,8 @@
     "pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
     "prepare": "husky install",
     "pub": "turbo run pub --parallel",
-    "release": "changeset publish",
-    "release:prepare": "npm run clean && npm run repo:prepush && npm run package && npm run generate-types && npm run pre-release",
+    "release": "npm run pub",
+    "release:prepare": "npm run clean && npm run repo:prepush && npm run pre-release && npm run package && npm run generate-types",
     "repo:prepush": "npm run sort && npm run format && npm run lint && npm test",
     "repo:rebase": "sh scripts/git/rebase-branches.sh",
     "repo:sync": "sh scripts/git/sync-branches.sh",
@@ -55,7 +55,6 @@
     "*.--parallel": "prettier --write"
   },
   "devDependencies": {
-    "@changesets/cli": "2.22.0",
     "c8": "7.11.0",
     "cz-customizable": "6.3.0",
     "husky": "7.0.4",
