@@ -12,8 +12,6 @@ docs: 'core/anchor.md'
 
 <script>
     import { Demo, AnchorDemos } from '@svelteuidev/demos';
-    import { Prism } from '@svelteuidev/prism';
-    import { Box } from '@svelteuidev/core';
     import { Heading } from 'components';
 
     const routing = `

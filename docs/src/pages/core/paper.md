@@ -12,8 +12,6 @@ docs: 'core/paper.md'
 
 <script>
     import { Demo, PaperDemos } from '@svelteuidev/demos';
-    import { Prism } from '@svelteuidev/prism';
-    import { Box } from '@svelteuidev/core';
     import { Heading } from 'components';
 </script>
 

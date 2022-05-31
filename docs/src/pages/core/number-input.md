@@ -11,10 +11,8 @@ docs: 'core/number-input.md'
 ---
 
 <script>
-    import { Box } from '@svelteuidev/core';
-    import { Prism } from '@svelteuidev/prism';
     import { Demo, NumberInputDemos } from '@svelteuidev/demos';
-    import { CodeBlock, Heading, Preview } from 'components';
+    import { CodeBlock, Heading } from 'components';
 </script>
 
 <style global>
