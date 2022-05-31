@@ -60,6 +60,7 @@
   - [Box](core/box)
   - [BrowserRender](core/browser-render)
   - [Divider](core/divider)
+  - [Paper](core/paper)
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
 - ### SvelteUI Actions
