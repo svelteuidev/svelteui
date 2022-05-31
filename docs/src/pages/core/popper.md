@@ -46,3 +46,14 @@ Popper position is controlled by these props:
 * `gutter` - spacing between the reference element and the popper dropdown, in px
 * `withArrow` - displays an arrow between the reference element and the popper dropdown, takes into consideration the `position` and `placement`
 * `arrowSize` - the arrow size in px
+
+<Demo demo={PopperDemos.configurator} />
+
+# z-index
+
+By default, Popper has `z-index: 1`, but it can be changed with the `zIndex` prop:
+
+
+```svelte
+<Popper zIndex={10} {...$$restProps} />
+```

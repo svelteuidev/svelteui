@@ -61,6 +61,7 @@
   - [BrowserRender](core/browser-render)
   - [Divider](core/divider)
   - [Paper](core/paper)
+  - [Popper](core/popper)
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
 - ### SvelteUI Actions
