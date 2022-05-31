@@ -2,7 +2,7 @@
   import { MainLink } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
-	import { StarFilled, QuestionMarkCircled, GithubLogo, Cube, Download } from 'radix-icons-svelte';
+	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled } from 'radix-icons-svelte';
 </script>
 
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
@@ -42,6 +42,8 @@
   - [NativeSelect](core/native-select)
   - [NumberInput](core/number-input)
   - [Switch](core/switch)
+  - **<HamburgerMenu/><Space />Navigation**
+  - [Anchor](core/anchor)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
   - [Image](core/image)
