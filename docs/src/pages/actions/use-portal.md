@@ -77,5 +77,5 @@ The use-portal action does not dispatch any custom events.
 ## Definition
 
 ```ts
-export function persistenttab(node: HTMLElement, attributes: Record<string, number | string>): ReturnType<Action>;
+export function portal(node: HTMLElement, target: Target): ReturnType<Action>;
 ```

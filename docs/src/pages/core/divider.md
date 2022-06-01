@@ -19,7 +19,7 @@ docs: 'core/divider.md'
 
 ## Usage
 
-Divider component renders an horizontal or vertical line. The border style can be customized by with the `variant` and `color` prop.
+Divider component renders an horizontal or vertical line. The border style can be customized with the `variant` and `color` prop.
 
 <Demo demo={DividerDemos.usage} />
 
