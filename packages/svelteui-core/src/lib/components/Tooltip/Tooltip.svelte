@@ -56,7 +56,7 @@
 	/** Spacing between the reference and the popper, in pixels */
 	export let gutter: $$TooltipProps['gutter'] = 5;
 	/** Renders the popper arrow if true */
-	export let withArrow: $$TooltipProps['withArrow'] = true;
+	export let withArrow: $$TooltipProps['withArrow'] = false;
 	/** The transition duration of the popper mount/unmount */
 	export let transitionDuration: $$TooltipProps['transitionDuration'] = 100;
 
