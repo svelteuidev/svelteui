@@ -3,7 +3,6 @@ import type { PopperProps } from '../Popper/Popper.styles';
 
 export interface TooltipProps extends PopperProps {
 	label: any;
-	children: any;
 	opened?: boolean;
 	openDelay?: number;
 	closeDelay?: number;
