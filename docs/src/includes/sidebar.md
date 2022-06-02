@@ -50,6 +50,7 @@
   - [ThemeIcon](core/theme-icon)
   - **<ExclamationTriangle/><Space />Feedback**
   - [Loader](core/loader)
+  - [Skeleton](core/skeleton)
   - **<Stack/><Space />Overlay**
   - [Overlay](core/overlay)
   - **<LetterCaseToggle/><Space />Typography**
