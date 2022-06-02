@@ -1,3 +1,4 @@
+import { createStyles } from '$lib/styles';
 import type { TextProps } from '../Text/Text.styles';
 
 export interface TitleProps extends TextProps {
@@ -34,3 +35,11 @@ export const titleSizes = {
 		lineHeight: 1.5
 	}
 };
+
+export default createStyles(() => {
+	return {
+		root: {
+			margin: 0
+		}
+	};
+});

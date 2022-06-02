@@ -1,6 +1,6 @@
+import { createStyles, vFunc } from '$lib/styles';
 import type {
 	SvelteUIColor,
-	SvelteUISize,
 	SvelteUINumberSize,
 	SvelteUIGradient,
 	DefaultProps
@@ -35,15 +35,15 @@ export type ButtonVariant =
 	| 'gradient'
 	| 'subtle';
 
-export interface ButtonStylesProps {
+export interface ButtonStylesParams {
+	variant: ButtonVariant;
+
 	color: SvelteUIColor;
-	size: SvelteUISize;
+	size: SvelteUINumberSize;
 	radius: SvelteUINumberSize;
-	fullWidth: boolean;
+	fullSize: boolean;
 	compact: boolean;
-	gradientFrom: string;
-	gradientTo: string;
-	gradientDeg: number;
+	gradient: SvelteUIGradient;
 }
 
 export interface GetVariantStyles {
@@ -104,3 +104,63 @@ export const sizes = {
 		padding: '0 14px'
 	}
 };
+
+export default createStyles(
+	(theme, { color, compact, fullSize, gradient, radius, size, variant }: ButtonStylesParams) => {
+		return {
+			root: {
+				focusRing: 'auto',
+				cursor: 'pointer',
+				position: 'relative',
+				boxSizing: 'border-box',
+				textDecoration: 'none',
+				outline: 'none',
+				userSelect: 'none',
+				appearance: 'none',
+				textAlign: 'center',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				background: null,
+				borderRadius: typeof radius === 'number' ? radius : `$${radius}`,
+				height: sizes[compact ? `compact-${size}` : size].height,
+				padding: sizes[compact ? `compact-${size}` : size].padding,
+				fontFamily: '$standard',
+				fontWeight: '$SemiBold',
+				fontSize: `$${size}`,
+				lineHeight: 1,
+				flexGrow: 0,
+				width: fullSize ? '100%' : 'auto',
+				'&:hover': {
+					backgroundColor: variant === 'gradient' ? null : theme.fn.themeColor(color, 7),
+					backgroundSize: variant === 'gradient' ? '200%' : null
+				},
+				'&:active': {
+					transform: 'translateY(1px)'
+				}
+			},
+			loading: {
+				pointerEvents: 'none',
+				'&::before': {
+					content: '""',
+					position: 'absolute',
+					inset: -1,
+					backgroundColor: 'rgba(255, 255, 255, .5)',
+					borderRadius: `$${radius}`,
+					cursor: 'not-allowed'
+				}
+			},
+			disabled: {
+				pointerEvents: 'none',
+				borderColor: 'transparent',
+				backgroundColor: 'rgb(233, 236, 239)',
+				background: 'rgb(233, 236, 239)',
+				color: 'rgb(173, 181, 189)',
+				cursor: 'not-allowed'
+			},
+			variants: {
+				variation: vFunc(color, gradient)
+			}
+		};
+	}
+);

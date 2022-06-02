@@ -49,11 +49,21 @@ Fragments let you group a list of children without adding extra nodes to the DOM
 @see https://svelteui.org/core/fragment
 @example
     ```svelte
-	<Fragment>
+	// alternative to <svelte:fragment>
+	<Fragment slot='myslot'>
 		<div>Child 1</div>
 		<div>Child 2</div>
 		<div>Child 3</div>
 	</Fragment>
+
+	// lifecyle usage
+	<Fragment
+		onCreate={() => {
+			setContext('some context key', theValue)
+		}}
+	>
+	    children can now access this context value
+  	</Fragment>
     ```
 -->
 

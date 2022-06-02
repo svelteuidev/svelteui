@@ -1,33 +1,23 @@
 <script lang="ts">
+	import useStyles from './Code.styles';
 	import CopyIcon from './CopyIcon.svelte';
-	import { css, dark, rgba } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { clipboard, useActions, createEventForwarder } from '$lib/internal';
 	import { CodeErrors } from './Code.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { CodeProps as $$CodeProps } from './Code.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$CodeProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$CodeProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$CodeProps['className'] = '';
+	export let use: $$CodeProps['use'] = [],
+		element: $$CodeProps['element'] = undefined,
+		className: $$CodeProps['className'] = '',
+		override: $$CodeProps['override'] = {},
+		color: $$CodeProps['color'] = 'gray',
+		block: $$CodeProps['block'] = false,
+		width: $$CodeProps['width'] = 100,
+		copy: $$CodeProps['copy'] = false,
+		message: $$CodeProps['message'] = 'Copied',
+		noMono: $$CodeProps['noMono'] = false;
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$CodeProps['override'] = {};
-	/** Code color and background from the default theme */
-	export let color: $$CodeProps['color'] = 'gray';
-	/** True for code block, false for inline code */
-	export let block: $$CodeProps['block'] = false;
-	/** The width of the code block when set to block */
-	export let width: $$CodeProps['width'] = 100;
-	/** With copy prop will allow for string in the associated method prop to be copied*/
-	export let copy: $$CodeProps['copy'] = false;
-	/** Message prop will be the text that is copied when the copy prop is enabled */
-	export let message: $$CodeProps['message'] = 'Copied';
-	/** Changes the font of the text to match the standard font */
-	export let noMono: $$CodeProps['noMono'] = false;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -39,42 +29,6 @@
 		copied = true;
 		setTimeout(() => (copied = false), 3000);
 	}
-
-	/** Css function to generate button styles */
-	const darkColor = dark.colors[`${color}800`].value;
-
-	$: CodeStyles = css({
-		focusRing: 'auto',
-		[`${dark.selector} &`]: {
-			backgroundColor: color === 'dark' ? `$${color}400` : rgba(darkColor, 0.35),
-			color: color === 'dark' ? '$dark50' : 'White'
-		},
-		position: 'relative',
-		lineHeight: noMono ? 0 : 1.55,
-		padding: `2px 10px`,
-		borderRadius: '$sm',
-		color: '$dark700',
-		backgroundColor: `$${color}50`,
-		fontFamily: noMono ? '$standard' : '$mono',
-		fontSize: '$sm',
-		width: block ? `${width}%` : 'auto',
-		'& .copy': {
-			[`${dark.selector} &`]: {
-				backgroundColor: 'rgba(52, 58, 64, 0.35);',
-				color: 'White'
-			},
-			position: 'sticky',
-			bottom: '60%',
-			left: '99%',
-			zIndex: '2',
-			backgroundColor: 'White'
-		},
-		'&.block': {
-			margin: 0,
-			padding: '10px',
-			overflowX: 'auto'
-		}
-	});
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
@@ -96,6 +50,9 @@
 	}
 
 	$: if (observable) override = { display: 'none' };
+	// --------------Error Handling-------------------
+
+	$: ({ cx, getStyles } = useStyles({ color, block, noMono, width }));
 </script>
 
 <Error {observable} component="Code" code={err} />
@@ -117,8 +74,7 @@ Inline or block code without syntax highlighting
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class:block
-		class={CodeStyles({ css: override })}
+		class={cx(className, getStyles({ css: override }))}
 		{...$$restProps}>
 		{#if !noMono}
 			<code class={className}><slot>Write some code</slot></code>
@@ -134,7 +90,7 @@ Inline or block code without syntax highlighting
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class="{className} {CodeStyles({ css: override })}"
+		class={cx(className, getStyles({ css: override }))}
 		{...$$restProps}
 	>
 		<slot>Write some code</slot>

@@ -56,6 +56,7 @@
   - [Skeleton](core/skeleton)
   - **<Stack/><Space />Overlay**
   - [Overlay](core/overlay)
+  - [Tooltip](core/tooltip)
   - **<LetterCaseToggle/><Space />Typography**
   - [Code](core/code)
   - [Text](core/text)
@@ -66,6 +67,7 @@
   - [Divider](core/divider)
   - [Paper](core/paper)
   - [Popper](core/popper)
+  - [Portal](core/portal)
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
 - ### SvelteUI Actions
