@@ -46,6 +46,7 @@
   - [Anchor](core/anchor)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
+  - [Card](core/card)
   - [Image](core/image)
   - [ThemeIcon](core/theme-icon)
   - **<ExclamationTriangle/><Space />Feedback**
