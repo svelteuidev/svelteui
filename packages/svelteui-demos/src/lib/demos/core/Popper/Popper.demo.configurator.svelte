@@ -8,16 +8,14 @@
   let reference;
 <\/script>
 
-<Center>
-	<Button bind:element={reference}>Reference element</Button>
-    <Popper mounted={true} arrowOverride={{ backgroundColor: '$gray100' }} {reference} ${props}>
-        <Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-			<Center>
-				Popper content
-			</Center>
-		</Box>
-    </Popper>
-</Center>
+<Button bind:element={reference}>Reference element</Button>
+<Popper mounted={true} arrowOverride={{ backgroundColor: '$gray100' }} {reference} ${props}>
+    <Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+        <Center>
+            Popper content
+        </Center>
+    </Box>
+</Popper>
 `;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
