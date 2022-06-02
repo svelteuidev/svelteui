@@ -1,23 +1,17 @@
 <script lang="ts">
+	import useStyles from './SimpleGrid.styles';
+	import { Box } from '../Box';
 	import { getSortedBreakpoints, size, theme } from './get-sorted-breakpoints';
-	import Box from '../Box/Box.svelte';
 	import type { SimpleGridProps as $$SimpleGridProps } from './SimpleGrid.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$SimpleGridProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$SimpleGridProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$SimpleGridProps['className'] = '';
+	export let use: $$SimpleGridProps['use'] = [],
+		element: $$SimpleGridProps['element'] = undefined,
+		className: $$SimpleGridProps['className'] = '',
+		override: $$SimpleGridProps['override'] = {},
+		breakpoints: $$SimpleGridProps['breakpoints'] = [],
+		cols: $$SimpleGridProps['cols'] = 1,
+		spacing: $$SimpleGridProps['spacing'] = 'md';
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$SimpleGridProps['override'] = {};
-	/** Breakpoints data to change items per row and spacing based on max-width */
-	export let breakpoints: $$SimpleGridProps['breakpoints'] = [];
-	/** Default amount of columns, used when none of breakpoints can be applied  */
-	export let cols: $$SimpleGridProps['cols'] = 1;
-	/** Default spacing between columns, used when none of breakpoints can be applied */
-	export let spacing: $$SimpleGridProps['spacing'] = 'md';
 
 	$: gridBreakpoints = getSortedBreakpoints(theme, breakpoints).reduce((acc, breakpoint) => {
 		const property = 'maxWidth' in breakpoint ? 'max-width' : 'min-width';
@@ -34,13 +28,7 @@
 		return acc;
 	}, {});
 
-	$: SimpleGridStyles = {
-		boxSizing: 'border-box',
-		display: 'grid',
-		gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-		gap: size({ size: spacing, sizes: theme.spacing }),
-		...gridBreakpoints
-	};
+	$: ({ cx, getStyles } = useStyles({ cols, spacing, gridBreakpoints }));
 </script>
 
 <!--
@@ -60,12 +48,6 @@ Responsive grid where each item takes equal amount of space
     </SimpleGrid>
     ```
 -->
-<Box
-	bind:element
-	{use}
-	css={{ ...SimpleGridStyles, ...override }}
-	class={className}
-	{...$$restProps}
->
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

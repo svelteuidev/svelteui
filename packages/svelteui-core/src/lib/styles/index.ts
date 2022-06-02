@@ -41,7 +41,8 @@ import type {
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
 	VariantThemeFunction,
-	Transition
+	Transition,
+	SvelteUIOrAnyColor
 } from './types';
 export type {
 	SvelteUIProviderProps,
@@ -66,5 +67,6 @@ export type {
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
 	VariantThemeFunction,
-	Transition
+	Transition,
+	SvelteUIOrAnyColor
 };

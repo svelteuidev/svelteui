@@ -1,10 +1,5 @@
-import type { ColorShades, GetSize, theme as DefaultTheme } from '../../index';
-import type { SvelteUIColor } from '../../types';
-
-export interface Fn {
-	themeColor: (color: SvelteUIColor, shade?: ColorShades) => string;
-	size: (props: GetSize) => number;
-}
+import type { theme as DefaultTheme } from '../../index';
+import type { Fn } from '../../functions';
 
 export interface SvelteUITheme {
 	colors: typeof DefaultTheme.colors;

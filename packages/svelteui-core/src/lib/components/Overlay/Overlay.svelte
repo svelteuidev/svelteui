@@ -1,29 +1,21 @@
 <script lang="ts">
+	import { Center } from '../Center';
 	import { getDefaultZIndex } from './Overlay.styles';
 	import type { OverlayProps as $$OverlayProps } from './Overlay.styles';
 	import Box from '../Box/Box.svelte';
 
-	/** Used for forwarding actions from component */
-	export let use: $$OverlayProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$OverlayProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$OverlayProps['className'] = '';
+	export let use: $$OverlayProps['use'] = [],
+		element: $$OverlayProps['element'] = undefined,
+		className: $$OverlayProps['className'] = '',
+		override: $$OverlayProps['override'] = {},
+		opacity: $$OverlayProps['opacity'] = 0.6,
+		color: $$OverlayProps['color'] = '#fff',
+		blur: $$OverlayProps['blur'] = 0,
+		gradient: $$OverlayProps['gradient'] = '',
+		zIndex: $$OverlayProps['zIndex'] = getDefaultZIndex('modal'),
+		radius: $$OverlayProps['radius'] = 0,
+		center = false;
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$OverlayProps['override'] = {};
-	/** Overlay opacity */
-	export let opacity: $$OverlayProps['opacity'] = 0.6;
-	/** Overlay background-color */
-	export let color: $$OverlayProps['color'] = '#fff';
-	/** Overlay background blur in px */
-	export let blur: $$OverlayProps['blur'] = 0;
-	/** Use gradient instead of background-color */
-	export let gradient: $$OverlayProps['gradient'] = '';
-	/** Overlay z-index */
-	export let zIndex: $$OverlayProps['zIndex'] = getDefaultZIndex('modal');
-	/** Value from theme.radius or number to set border-radius in px */
-	export let radius: $$OverlayProps['radius'] = 0;
 
 	$: background = gradient ? { backgroundImage: gradient } : { backgroundColor: color };
 	$: baseStyles = {
@@ -52,6 +44,9 @@ Overlays given element with div element with any color and opacity
        	<Overlay gradient={`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)`} />
         Overlay with a gradient
     </Box>
+	<Overlay center>
+		This content sits on top of the overlay
+	</Overlay>
     ```
 -->
 {#if blur}
@@ -76,5 +71,13 @@ Overlays given element with div element with any color and opacity
 		css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }}
 		{...$$restProps}
 		class={className}
-	/>
+	>
+		{#if center}
+			<Center>
+				<slot />
+			</Center>
+		{:else}
+			<slot />
+		{/if}
+	</Box>
 {/if}

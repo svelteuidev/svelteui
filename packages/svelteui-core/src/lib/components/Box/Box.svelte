@@ -4,17 +4,12 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { BoxProps as $$BoxProps } from './Box.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$BoxProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$BoxProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$BoxProps['className'] = '';
+	export let use: $$BoxProps['use'] = [],
+		element: $$BoxProps['element'] = undefined,
+		className: $$BoxProps['className'] = '',
+		css: $$BoxProps['override'] = {},
+		root: $$BoxProps['root'] = undefined;
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let css: $$BoxProps['override'] = {};
-	/** The component or HTML tag to be used as the root component for the text */
-	export let root: $$BoxProps['root'] = undefined;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());

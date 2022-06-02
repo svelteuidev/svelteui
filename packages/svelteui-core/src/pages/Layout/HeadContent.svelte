@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Logo from './Logo.svelte';
 	import { Group, ActionIcon, Text, Anchor, Burger, Tooltip } from '$lib';
-	import { Sun, Moon } from 'radix-icons-svelte';
+	import { Sun, Moon, GithubLogo } from 'radix-icons-svelte';
 	import { hotkey } from '@svelteuidev/actions';
 	import { os as _os } from '@svelteuidev/utilities';
 
@@ -26,13 +26,31 @@
 			<Text size="xl" override={{ d: 'none', '@sm': { d: 'block' } }}>SvelteUI Core</Text>
 		</Group>
 	</Anchor>
-	<Tooltip label={`${mod} + J`}>
-		<ActionIcon variant="default" on:click={toggle} size={30} use={[[hotkey, [['mod+J', toggle]]]]}>
-			{#if isDark}
-				<Moon />
-			{:else}
-				<Sun />
-			{/if}
-		</ActionIcon>
-	</Tooltip>
+	<Group>
+		<Tooltip withArrow label="GitHub">
+			<ActionIcon
+				root="a"
+				variant="default"
+				size={30}
+				href="https://github.com/svelteuidev/svelteui"
+				external
+			>
+				<GithubLogo color="black" />
+			</ActionIcon>
+		</Tooltip>
+		<Tooltip withArrow label={`${mod} + J`}>
+			<ActionIcon
+				variant="default"
+				on:click={toggle}
+				size={30}
+				use={[[hotkey, [['mod+J', toggle]]]]}
+			>
+				{#if isDark}
+					<Moon />
+				{:else}
+					<Sun />
+				{/if}
+			</ActionIcon>
+		</Tooltip>
+	</Group>
 </Group>

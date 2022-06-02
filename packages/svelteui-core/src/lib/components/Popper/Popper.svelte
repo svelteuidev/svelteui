@@ -1,76 +1,33 @@
 <script lang="ts">
+	import useStyles from './Popper.styles';
 	import { fade } from 'svelte/transition';
-	import { css } from '$lib/styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$PopperProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$PopperProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$PopperProps['className'] = '';
+	export let use: $$PopperProps['use'] = [],
+		element: $$PopperProps['element'] = undefined,
+		className: $$PopperProps['className'] = '',
+		override: $$PopperProps['override'] = {},
+		position: $$PopperProps['position'] = 'top',
+		placement: $$PopperProps['placement'] = 'center',
+		gutter: $$PopperProps['gutter'] = 5,
+		arrowSize: $$PopperProps['arrowSize'] = 4,
+		arrowDistance: $$PopperProps['arrowDistance'] = 4,
+		arrowClassName: $$PopperProps['arrowClassName'] = 'arrow',
+		withArrow: $$PopperProps['withArrow'] = false,
+		zIndex: $$PopperProps['zIndex'] = 1,
+		transition: $$PopperProps['transition'] = fade,
+		transitionDuration: $$PopperProps['transitionDuration'] = 100,
+		exitTransition: $$PopperProps['exitTransition'] = transition,
+		exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration,
+		mounted: $$PopperProps['mounted'] = false,
+		reference: $$PopperProps['reference'] = null;
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$PopperProps['override'] = {};
-	/** The positioning of the popper relative to the reference */
-	export let position: $$PopperProps['position'] = 'top';
-	/** The placement of the popper relative to the reference */
-	export let placement: $$PopperProps['placement'] = 'center';
-	/** Spacing between the reference and the popper, in pixels */
-	export let gutter: $$PopperProps['gutter'] = 5;
-	/** The size of the arrow, in pixels */
-	export let arrowSize: $$PopperProps['arrowSize'] = 4;
-	/** The distance of the arrow to the container's left or right */
-	export let arrowDistance: $$PopperProps['arrowDistance'] = 4;
-	/** Css prop for custom theming the arrow of the popper */
-	export let arrowOverride: $$PopperProps['arrowOverride'] = {};
-	/** The arrow class name */
-	export let arrowClassName: $$PopperProps['arrowClassName'] = '';
-	/** Renders the popper arrow if true */
-	export let withArrow: $$PopperProps['withArrow'] = false;
-	/** Popper z-index */
-	export let zIndex: $$PopperProps['zIndex'] = 1;
-	/** The transition of the popper mount/unmount */
-	export let transition: $$PopperProps['transition'] = fade;
-	/** The transition duration of the popper mount/unmount */
-	export let transitionDuration: $$PopperProps['transitionDuration'] = 100;
-	/** The exit transition of the popper mount/unmount, defaults to the transition */
-	export let exitTransition: $$PopperProps['exitTransition'] = transition;
-	/** The exit transition duration of the popper mount/unmount, defaults to the transitionDuration */
-	export let exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration;
-	/** If enabled, shows popper, if false, hides popper */
-	export let mounted: $$PopperProps['mounted'] = false;
-	/** The element that servers as the reference for the popper positioning */
-	export let reference: $$PopperProps['reference'] = null;
-	/** Whether to render the target element in a Portal
-	 * export let withinPortal: $$PopperProps['withinPortal'] = false;
-	 */
 
 	let popperPosition, originalPopperPosition;
-
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-
-	$: PopperStyles = css({
-		position: 'absolute',
-		top: popperPosition?.top,
-		left: popperPosition?.left,
-		pointerEvents: 'none',
-		zIndex: zIndex
-	});
-
-	$: ArrowStyles = css({
-		width: arrowSize * 2,
-		height: arrowSize * 2,
-		position: 'absolute',
-		transform: 'rotate(45deg)',
-		border: '1px solid transparent',
-		zIndex: zIndex,
-		top: popperPosition?.arrowTop,
-		left: popperPosition?.arrowLeft
-	});
 
 	function calculatePlacement(props) {
 		if (!reference || !element) return;
@@ -253,11 +210,9 @@
 		popperPosition = adaptHidden();
 	}
 
-	const noop = () => {
-		if (position) {
-			return;
-		}
-	};
+	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex, popperPosition }));
+
+	const noop = () => position;
 	noop();
 </script>
 
@@ -296,13 +251,13 @@ and placement options.
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class="{PopperStyles({ css: override })} {className}"
+		class={cx(className, getStyles({ css: override }))}
 		in:transition={{ duration: transitionDuration }}
 		out:exitTransition={{ duration: exitTransitionDuration }}
 	>
 		<div class="arrow-wrapper">
 			{#if withArrow}
-				<div class="arrow {arrowClassName} {ArrowStyles({ css: arrowOverride })}" />
+				<div class={cx(arrowClassName, { arrowClassName: true }, classes.arrowStyles)} />
 			{/if}
 		</div>
 		<slot />
