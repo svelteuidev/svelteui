@@ -12,6 +12,7 @@ export * as CardDemos from './demos/core/Card';
 export * as CenterDemos from './demos/core/Center';
 export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
+export * as KbdDemos from './demos/core/Kbd';
 export * as NumberInputDemos from './demos/core/NumberInput';
 export * as PaperDemos from './demos/core/Paper';
 export * as PopperDemos from './demos/core/Popper';
