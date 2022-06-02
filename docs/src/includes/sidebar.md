@@ -44,6 +44,7 @@
   - [Switch](core/switch)
   - **<HamburgerMenu/><Space />Navigation**
   - [Anchor](core/anchor)
+  - [Burger](core/burger)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
   - [Image](core/image)
