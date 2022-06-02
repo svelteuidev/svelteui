@@ -42,6 +42,7 @@
   - [NativeSelect](core/native-select)
   - [NumberInput](core/number-input)
   - [Switch](core/switch)
+  - [TextInput](core/text-input)
   - **<HamburgerMenu/><Space />Navigation**
   - [Anchor](core/anchor)
   - **<Dashboard/><Space />Data Display**
