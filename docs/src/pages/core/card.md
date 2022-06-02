@@ -53,16 +53,6 @@ Note that Card relies on mapping direct children and you cannot use fragments or
         <Card.Section>Won't work</Card.Section>
     </div>
 
-    <>
-        <Card.Section>Won't work either</Card.Section>
-    </>
-
     <Card.Section>Works fine</Card.Section>
 </Card.Container>
 ```
-
-## Custom root element
-
-You can set component prop on Card to use provide custom root element, for example, you can make whole card a link:
-
-<Demo demo={CardDemos.link} />
