@@ -16,6 +16,7 @@ export * as NumberInputDemos from './demos/core/NumberInput';
 export * as PaperDemos from './demos/core/Paper';
 export * as PopperDemos from './demos/core/Popper';
 export * as SkeletonDemos from './demos/core/Skeleton';
+export * as TextInputDemos from './demos/core/TextInput';
 
 // Other packages
 export * as PrismDemos from './demos/prism';
