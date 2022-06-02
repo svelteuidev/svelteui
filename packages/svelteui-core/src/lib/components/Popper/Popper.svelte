@@ -25,7 +25,9 @@
 		reference: $$PopperProps['reference'] = null;
 	export { className as class };
 
+
 	let popperPosition, originalPopperPosition;
+
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
@@ -128,11 +130,11 @@
 				break;
 		}
 
-		// remove any offset measurements related to the parent
-		// element of the popper
-		const offsetParent = element.offsetParent as HTMLElement;
-		left -= offsetParent.offsetLeft;
-		top -= offsetParent.offsetTop;
+		// calculates all offsets of the parent components and
+        // removes them from the positioning of the popper
+        const { offsetTop, offsetLeft } = offsets;
+        left -= offsetLeft;
+        top -= offsetTop;
 
 		return {
 			top: top,
@@ -147,14 +149,15 @@
 	function adaptHidden() {
 		if (!popperPosition) return;
 
+        const { offsetTop, offsetLeft } = offsets;
 		const windowStartY = window.scrollY;
 		const windowEndY = window.scrollY + window.innerHeight;
 		const windowStartX = window.scrollX;
 		const windowEndX = window.scrollX + window.innerWidth;
-		const hiddenUp = (originalPopperPosition || popperPosition).bottom > windowEndY;
-		const hiddenDown = (originalPopperPosition || popperPosition).top < windowStartY;
-		const hiddenLeft = (originalPopperPosition || popperPosition).right > windowEndX;
-		const hiddenRight = (originalPopperPosition || popperPosition).left < windowStartX;
+		const hiddenUp = (originalPopperPosition || popperPosition).bottom + offsetTop > windowEndY;
+		const hiddenDown = (originalPopperPosition || popperPosition).top + offsetTop < windowStartY;
+		const hiddenLeft = (originalPopperPosition || popperPosition).right + offsetLeft > windowEndX;
+		const hiddenRight = (originalPopperPosition || popperPosition).left + offsetLeft < windowStartX;
 
 		const hidden = hiddenUp || hiddenDown || hiddenLeft || hiddenRight;
 
@@ -193,6 +196,25 @@
 		popperPosition = adaptHidden();
 	}
 
+    function getOffsets(element) {
+        if (!element) return;
+
+        let offsetTop = 0;
+        let offsetLeft = 0;
+        let parent = element.offsetParent;
+
+        while(parent) {
+            offsetTop += parent.offsetTop;
+            offsetLeft += parent.offsetLeft;
+            parent = parent.offsetParent;
+        }
+
+        return {
+            offsetTop: offsetTop,
+            offsetLeft: offsetLeft
+        }
+    }
+
 	function onResize() {
 		updatePopper();
 	}
@@ -206,6 +228,7 @@
 		// to adapt to the position was made (popper outside
 		// viewport) and then updates the popper position
 		originalPopperPosition = null;
+		offsets = getOffsets(element);
 		popperPosition = calculatePlacement({ ...$$props });
 		popperPosition = adaptHidden();
 	}
