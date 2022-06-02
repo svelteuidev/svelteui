@@ -45,6 +45,7 @@
   - [TextInput](core/text-input)
   - **<HamburgerMenu/><Space />Navigation**
   - [Anchor](core/anchor)
+  - [Burger](core/burger)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
   - [Card](core/card)
@@ -55,6 +56,7 @@
   - [Loader](core/loader)
   - [Skeleton](core/skeleton)
   - **<Stack/><Space />Overlay**
+  - [Affix](core/affix)
   - [Overlay](core/overlay)
   - [Tooltip](core/tooltip)
   - **<LetterCaseToggle/><Space />Typography**

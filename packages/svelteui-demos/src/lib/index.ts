@@ -6,7 +6,9 @@ export * as CodeDemoExamples from './examples/CodeDemo';
 export * as ConfiguratorExamples from './examples/Configurator';
 
 // @svelteui/core
+export * as AffixDemos from './demos/core/Affix';
 export * as AnchorDemos from './demos/core/Anchor';
+export * as BurgerDemos from './demos/core/Burger';
 export * as ButtonDemos from './demos/core/Button';
 export * as CardDemos from './demos/core/Card';
 export * as CenterDemos from './demos/core/Center';
