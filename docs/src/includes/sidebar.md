@@ -49,6 +49,7 @@
   - [Badge](core/badge)
   - [Card](core/card)
   - [Image](core/image)
+  - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
   - **<ExclamationTriangle/><Space />Feedback**
   - [Loader](core/loader)
