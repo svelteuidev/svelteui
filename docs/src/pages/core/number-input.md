@@ -12,7 +12,7 @@ docs: 'core/number-input.md'
 
 <script>
     import { Demo, NumberInputDemos } from '@svelteuidev/demos';
-    import { CodeBlock, Heading } from 'components';
+    import { Heading } from 'components';
 </script>
 
 <style global>

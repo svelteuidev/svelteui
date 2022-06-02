@@ -18,7 +18,7 @@
 </script>
 
 <script lang="ts">
-	import { Center, NumberInput, Stack } from '@svelteuidev/core';
+	import { Center, Stack, NumberInput } from '@svelteuidev/core';
 </script>
 
 <Center>

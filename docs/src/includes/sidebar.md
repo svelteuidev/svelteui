@@ -42,14 +42,18 @@
   - [NativeSelect](core/native-select)
   - [NumberInput](core/number-input)
   - [Switch](core/switch)
+  - [TextInput](core/text-input)
   - **<HamburgerMenu/><Space />Navigation**
   - [Anchor](core/anchor)
   - **<Dashboard/><Space />Data Display**
   - [Badge](core/badge)
+  - [Card](core/card)
   - [Image](core/image)
+  - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
   - **<ExclamationTriangle/><Space />Feedback**
   - [Loader](core/loader)
+  - [Skeleton](core/skeleton)
   - **<Stack/><Space />Overlay**
   - [Overlay](core/overlay)
   - [Tooltip](core/tooltip)

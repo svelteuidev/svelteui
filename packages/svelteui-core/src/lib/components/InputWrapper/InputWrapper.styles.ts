@@ -4,7 +4,7 @@ import type { DefaultProps, SvelteUISize } from '$lib/styles';
 export interface InputWrapperBaseProps extends DefaultProps {
 	label: string;
 	description: string;
-	error: string;
+	error: string | boolean;
 	required: boolean;
 	labelProps: Record<string, unknown>;
 	descriptionProps: Record<string, unknown>;
