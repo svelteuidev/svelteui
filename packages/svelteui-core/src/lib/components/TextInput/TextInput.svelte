@@ -38,6 +38,8 @@
 	export let labelElement: $$TextInputProps['labelElement'] = 'label';
 	/** Controls all elements font-size */
 	export let size: $$TextInputProps['size'] = 'sm';
+	/** Text input value */
+	export let value: $$TextInputProps['value'] = '';
 	/** Determines if the right section is shown, defaults to true if the slot is provided */
 	export let showRightSection: $$TextInputProps['showRightSection'] = undefined;
 
@@ -97,6 +99,7 @@ Input for text that also uses labels for the input
 		showRightSection={_showRightSection}
 		{...$$restProps}
 		invalid={_invalid}
+		bind:value={value}
 	>
         <slot slot='rightSection' name='rightSection'></slot>
 	</Input>
