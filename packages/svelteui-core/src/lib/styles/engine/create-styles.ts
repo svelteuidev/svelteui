@@ -12,6 +12,14 @@ export interface DirtyObject {
 	root: CSS;
 }
 
+/**
+ * custom made css-in-js styling function with high customizable and many features
+ *
+ * allows you to subscribe to the current theme context
+ *
+ * @param getCssObjectOrCssObject - either an object of styles or a function that returns an object of styles
+ * @returns
+ */
 export function createStyles<Params = void>(
 	getCssObjectOrCssObject: ((theme: SvelteUITheme, params: Params) => DirtyObject) | DirtyObject
 ) {
@@ -32,7 +40,8 @@ export function createStyles<Params = void>(
 			dark: darkObj.selector,
 			fn: {
 				themeColor: newFns.themeColor,
-				size: newFns.size
+				size: newFns.size,
+				radius: newFns.radius
 			}
 		};
 
@@ -43,9 +52,11 @@ export function createStyles<Params = void>(
 
 		/** takes all keys and maps them to the proper string values */
 		Object.keys(sanitizeObject).map((value) => {
+			if (value === 'variants') return;
 			sanitizeObject[`& .${value}`] = sanitizeObject[value];
 			delete sanitizeObject[value];
 		});
+
 		/** delete the root property as it is not needed */
 		delete sanitizeObject['& .root'];
 

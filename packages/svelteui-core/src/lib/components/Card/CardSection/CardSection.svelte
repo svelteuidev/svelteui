@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { theme, fns } from '$lib/styles';
+	import useStyles from './CardSection.styles';
 	import { Box } from '../../Box';
-	import type { CSS } from '$lib/styles';
 	import type { CardSectionProps as $$CardSectionProps } from './CardSection.styles';
 
 	export let use: $$CardSectionProps['use'] = [],
@@ -13,23 +12,13 @@
 		last: $$CardSectionProps['last'] = false;
 	export { className as class };
 
-	const { size } = fns;
-
-	let CardSectionStyles: CSS;
-	$: CardSectionStyles = {
-		display: 'block',
-		marginLeft: -1 * size({ size: padding, sizes: theme.space }),
-		marginRight: -1 * size({ size: padding, sizes: theme.space }),
-		marginTop: first ? -1 * size({ size: padding, sizes: theme.space }) : undefined,
-		marginBottom: last ? -1 * size({ size: padding, sizes: theme.space }) : undefined
-	};
+	$: ({ cx, getStyles } = useStyles({ first, last, padding }));
 </script>
 
 <Box
 	id="card_section"
 	bind:element
-	class={className}
-	css={{ ...CardSectionStyles, ...override }}
+	class={cx(className, getStyles({ css: override }))}
 	{use}
 	{...$$restProps}
 >

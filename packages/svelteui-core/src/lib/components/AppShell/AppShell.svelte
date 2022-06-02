@@ -20,7 +20,7 @@
 		asideOffsetBreakpoint: $$AppShellProps['asideOffsetBreakpoint'] = undefined;
 	export { className as class };
 
-	$: ({ classes, getStyles } = useStyles({
+	$: ({ cx, classes, getStyles } = useStyles({
 		padding,
 		fixed,
 		navbarOffsetBreakpoint,
@@ -32,7 +32,7 @@
 	{use}
 	bind:element
 	value={{ fixed, zIndex }}
-	class="{className} {getStyles({ css: override })}"
+	class={cx(className, getStyles({ css: override }))}
 >
 	<Box>
 		{#if $$slots.header}

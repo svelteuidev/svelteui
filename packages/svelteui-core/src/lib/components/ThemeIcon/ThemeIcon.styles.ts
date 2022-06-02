@@ -1,4 +1,4 @@
-import { dark, rgba } from '$lib/styles';
+import { dark, rgba, createStyles } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUINumberSize,
@@ -9,6 +9,14 @@ import type {
 
 export interface ThemeIconProps extends DefaultProps {
 	size: SvelteUINumberSize;
+	radius: SvelteUINumberSize;
+	color: SvelteUIColor;
+	variant: ThemeIconVariant;
+	gradient: SvelteUIGradient;
+}
+
+interface ThemeIconStyleParams {
+	iconSize: string | number;
 	radius: SvelteUINumberSize;
 	color: SvelteUIColor;
 	variant: ThemeIconVariant;
@@ -121,3 +129,24 @@ const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantTh
 		}
 	};
 };
+
+export default createStyles(
+	(_, { color, gradient, iconSize, radius, variant }: ThemeIconStyleParams) => {
+		return {
+			root: {
+				display: 'inline-flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				boxSizing: 'border-box',
+				width: iconSize,
+				height: iconSize,
+				minWidth: iconSize,
+				minHeight: iconSize,
+				borderRadius: `$${radius}`,
+				variants: {
+					variation: getVariantStyles(color, variant, gradient)
+				}
+			}
+		};
+	}
+);

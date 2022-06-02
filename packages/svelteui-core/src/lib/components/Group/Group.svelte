@@ -1,31 +1,21 @@
 <script lang="ts">
-	import { theme, fns } from '$lib/styles';
+	import useStyles from './Group.styles';
 	import { onMount } from 'svelte';
-	import { POSITIONS } from './Group.styles';
 	import Box from '../Box/Box.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$GroupProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$GroupProps['element'] = undefined;
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: $$GroupProps['className'] = '';
+	export let use: $$GroupProps['use'] = [],
+		element: $$GroupProps['element'] = undefined,
+		className: $$GroupProps['className'] = '',
+		override: $$GroupProps['override'] = {},
+		position: $$GroupProps['position'] = 'left',
+		noWrap: $$GroupProps['noWrap'] = false,
+		grow: $$GroupProps['grow'] = false,
+		spacing: $$GroupProps['spacing'] = 'md',
+		direction: $$GroupProps['direction'] = 'row',
+		align: $$GroupProps['align'] = 'center';
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: $$GroupProps['override'] = {};
-	/** Defines justify-content property */
-	export let position: $$GroupProps['position'] = 'left';
-	/** Defined flex-wrap property */
-	export let noWrap: $$GroupProps['noWrap'] = false;
-	/** Defines flex-grow property for each element, true -> 1, false -> 0 */
-	export let grow: $$GroupProps['grow'] = false;
-	/** Space between elements */
-	export let spacing: $$GroupProps['spacing'] = 'md';
-	/** Defines flex-direction property, row for horizontal, column for vertical */
-	export let direction: $$GroupProps['direction'] = 'row';
-	/** Defines align-items css property */
-	export let align: $$GroupProps['align'] = 'center';
+
 	/** The children being rendered */
 	let children: $$GroupProps['children'];
 
@@ -34,42 +24,15 @@
 		children = element.childElementCount;
 	});
 
-	const { size } = fns;
-
-	$: GroupStyles = {
-		boxSizing: 'border-box',
-		display: 'flex',
-		flexDirection: direction,
-		alignItems:
-			align ||
-			(direction === 'row'
-				? 'center'
-				: grow
-				? 'stretch'
-				: position === 'apart'
-				? 'flex-start'
-				: POSITIONS[position]),
-		flexWrap: noWrap ? 'nowrap' : 'wrap',
-		justifyContent: direction === 'row' ? POSITIONS[position] : undefined,
-		gap: size({ size: spacing, sizes: theme.space }),
-
-		'& > *': {
-			boxSizing: 'border-box',
-			maxWidth:
-				grow && direction === 'row'
-					? `calc(${100 / children}% - ${
-							size({ size: spacing, sizes: theme.space }) -
-							size({ size: spacing, sizes: theme.space }) / children
-					  }px)`
-					: undefined,
-			flexGrow: grow ? 1 : 0
-		}
-	};
-
-	// --------------Error Handling-------------------
-	let observable: boolean = false;
-
-	$: if (observable) override = { display: 'none' };
+	$: ({ cx, getStyles } = useStyles({
+		align,
+		children,
+		direction,
+		grow,
+		noWrap,
+		position,
+		spacing
+	}));
 </script>
 
 <!--
@@ -88,6 +51,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box bind:element {use} class={className} css={{ ...GroupStyles, ...override }} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

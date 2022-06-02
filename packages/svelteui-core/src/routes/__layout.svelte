@@ -6,7 +6,9 @@
 		AppShell,
 		Header,
 		Title,
-		Divider
+		Divider,
+		Container,
+		Text
 	} from '$lib';
 	import { fns } from '$lib';
 	import { HeadContent } from '../pages';
@@ -46,8 +48,12 @@
 			<Title weight="extrabold" tracking="tight" align="center">
 				This is a test route to test the core package
 			</Title>
+			<Text align="center">TO DO: NativeSelect</Text>
+			<Text align="center">TO DO: add inline documentation to undocumented components</Text>
 			<Divider />
-			<slot>This is the main content</slot>
+			<Container size="xl" override={{ px: '$10' }}>
+				<slot>This is the main content</slot>
+			</Container>
 		</AppShell>
 	</TypographyProvider>
 </SvelteUIProvider>

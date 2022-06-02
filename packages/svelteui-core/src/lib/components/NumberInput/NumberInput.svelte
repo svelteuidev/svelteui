@@ -1,74 +1,47 @@
 <script lang="ts">
+	import useStyles from './NumberInput.styles';
 	import { createEventDispatcher } from 'svelte';
-	import { css, dark } from '$lib/styles';
 	import { TextInput } from '../TextInput';
-	import { CONTROL_SIZES, defaultFormatter, defaultParser } from './NumberInput.styles';
+	import { defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$NumberInputProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$NumberInputProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$NumberInputProps['className'] = '';
+	export let use: $$NumberInputProps['use'] = [],
+		element: $$NumberInputProps['element'] = undefined,
+		className: $$NumberInputProps['className'] = '',
+		override: $$NumberInputProps['override'] = {},
+		root: $$NumberInputProps['root'] = 'input',
+		placeholder: $$NumberInputProps['placeholder'] = undefined,
+		icon: $$NumberInputProps['icon'] = null,
+		iconWidth: $$NumberInputProps['iconWidth'] = 36,
+		iconProps: $$NumberInputProps['iconProps'] = { size: 20, color: 'currentColor' },
+		wrapperProps: $$NumberInputProps['wrapperProps'] = {},
+		required: $$NumberInputProps['required'] = false,
+		radius: $$NumberInputProps['radius'] = 'sm',
+		variant: $$NumberInputProps['variant'] = 'default',
+		disabled: $$NumberInputProps['disabled'] = false,
+		size: $$NumberInputProps['size'] = 'sm',
+		value: $$NumberInputProps['value'] = undefined,
+		defaultValue: $$NumberInputProps['defaultValue'] = undefined,
+		decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.',
+		min: $$NumberInputProps['min'] = -Infinity,
+		max: $$NumberInputProps['max'] = Infinity,
+		step: $$NumberInputProps['step'] = 1,
+		stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 250,
+		stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 150,
+		hideControls: $$NumberInputProps['hideControls'] = false,
+		precision: $$NumberInputProps['precision'] = 0,
+		noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false,
+		formatter: $$NumberInputProps['formatter'] = defaultFormatter,
+		parser: $$NumberInputProps['parser'] = defaultParser;
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$NumberInputProps['override'] = {};
-	/** The component or HTML tag to be used as the root component for the text */
-	export let root: $$NumberInputProps['root'] = 'input';
-	/** The placeholder for the input */
-	export let placeholder: $$NumberInputProps['placeholder'] = undefined;
-	/** Adds icon on the left side of input */
-	export let icon: $$NumberInputProps['icon'] = null;
-	/** Width of icon section in px */
-	export let iconWidth: $$NumberInputProps['iconWidth'] = 36;
-	/** Props spread to icon component */
-	export let iconProps: $$NumberInputProps['iconProps'] = { size: 20, color: 'currentColor' };
-	/** Properties spread to root element */
-	export let wrapperProps: $$NumberInputProps['wrapperProps'] = {};
-	/** Sets required on input element */
-	export let required: $$NumberInputProps['required'] = false;
-	/** Input border-radius from theme or number to set border-radius in px */
-	export let radius: $$NumberInputProps['radius'] = 'sm';
-	/** Defines input appearance, defaults to default in light color scheme and filled in dark */
-	export let variant: $$NumberInputProps['variant'] = 'default';
-	/** Disabled input state */
-	export let disabled: $$NumberInputProps['disabled'] = false;
-	/** Input size */
-	export let size: $$NumberInputProps['size'] = 'sm';
-	/** Input value */
-	export let value: $$NumberInputProps['value'] = undefined;
-	/** Input default value, set as the value if none is provided */
-	export let defaultValue: $$NumberInputProps['defaultValue'] = undefined;
-	/** The decimal separator to be used if the value is decimal, used by the formatter and parser */
-	export let decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.';
-	/** The minimum value the input will allow */
-	export let min: $$NumberInputProps['min'] = -Infinity;
-	/** The maximum value the input will allow */
-	export let max: $$NumberInputProps['max'] = Infinity;
-	/** The number by which the value will be incremented/decremented */
-	export let step: $$NumberInputProps['step'] = 1;
-	/** The delay in miliseconds before stepping the value when holding the controls */
-	export let stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 250;
-	/** The interval in miliseconds between each stepping of the value when holding the controls */
-	export let stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 150;
-	/** Hides the increment/decrement controls */
-	export let hideControls: $$NumberInputProps['hideControls'] = false;
-	/** Amount of decimal digits */
-	export let precision: $$NumberInputProps['precision'] = 0;
-	/** Prevents value clamp on input blur */
-	export let noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false;
-	/** Formats the value into the input string shown */
-	export let formatter: $$NumberInputProps['formatter'] = defaultFormatter;
-	/** Parses the value provided by the formatter */
-	export let parser: $$NumberInputProps['parser'] = defaultParser;
+
 	/** Function that allows incrementing the value outside the component, useful for external controls */
 	export function increment() {
-		onStep(true, false)
+		onStep(true, false);
 	}
 	/** Function that allows decrementing the value outside the component, useful for external controls */
 	export function decrement() {
-		onStep(false, false)
+		onStep(false, false);
 	}
 
 	const dispatch = createEventDispatcher();
@@ -78,7 +51,7 @@
 	let holdTimeout = null;
 	let holdDelayTimeout = null;
 
-	function formatNumber(val: string | number = ''): string {		
+	function formatNumber(val: string | number = ''): string {
 		let parsedStr = typeof val === 'number' ? String(val) : val;
 
 		// replaces all periods '.' for the given decimal separator
@@ -112,9 +85,8 @@
 	}
 
 	function stepInterval(up) {
-		const interval = typeof stepHoldInterval === 'number'
-			? stepHoldInterval
-			: stepHoldInterval(stepCount);
+		const interval =
+			typeof stepHoldInterval === 'number' ? stepHoldInterval : stepHoldInterval(stepCount);
 
 		holdTimeout = setTimeout(() => {
 			onStep(up, true, false);
@@ -122,7 +94,7 @@
 	}
 
 	function onStep(up, hold = true, first = true) {
-		const _value = value === undefined ? 0 : value
+		const _value = value === undefined ? 0 : value;
 		const tmpValue = up ? _value + step : _value - step;
 
 		const clamped = _clamp(tmpValue);
@@ -137,8 +109,7 @@
 
 		if (first) {
 			holdDelayTimeout = setTimeout(() => stepInterval(up), stepHoldDelay);
-		}
-		else {
+		} else {
 			stepInterval(up);
 		}
 	}
@@ -169,14 +140,14 @@
 		if (noClampOnBlur) return;
 
 		const clamped = _clamp(value);
-		value = parseFloat(clamped.toFixed(precision));;
+		value = parseFloat(clamped.toFixed(precision));
 		dispatch('change', value);
 
 		(element as HTMLInputElement).value = formatNumber(value);
 	}
 
 	function _clamp(value) {
-		return Math.min(Math.max(value, min), max); 
+		return Math.min(Math.max(value, min), max);
 	}
 
 	function _valueC(val: number): number | undefined {
@@ -190,94 +161,9 @@
 	}
 
 	$: value = _valueC(value);
-	$: showControls = !hideControls && variant !== 'unstyled' && !disabled
+	$: showControls = !hideControls && variant !== 'unstyled' && !disabled;
 
-	$: ControlStyles = css({
-		display: 'flex',
-		flexDirection: 'column',
-		height: 'calc(100% - 2px)',
-		margin: 1,
-		marginRight: 1,
-
-		'& .control': {
-			margin: 0,
-			position: 'relative',
-			flex: '0 0 50%',
-			boxSizing: 'border-box',
-			width: CONTROL_SIZES[size],
-			padding: 0,
-			WebkitTapHighlightColor: 'transparent',
-			borderBottom: '1px solid $gray400',
-			borderLeft: '1px solid $gray400',
-			borderTop: 0,
-			borderRight: 0,
-			backgroundColor: 'transparent',
-			marginRight: 1,
-
-			[`${dark.selector} &`]: {
-				borderBottom: '1px solid $dark400',
-				borderLeft: '1px solid $dark400'
-			},
-
-			'&:not(:disabled):hover': {
-				backgroundColor: '$gray50',
-
-				[`${dark.selector} &`]: {
-					backgroundColor: '$dark600'
-				}
-			},
-
-			'&::after': {
-				position: 'absolute',
-				top: 'calc(50% - 2.5px)',
-				left: 'calc(50% - 4.5px)',
-				content: '""',
-				display: 'block',
-				width: 0,
-				height: 0,
-				borderStyle: 'solid'
-			},
-			'&.control-up': {
-				borderTopRightRadius: `$${radius}`,
-
-				'&::after': {
-					borderWidth: '0px 5px 5px 5px',
-					borderColor: 'transparent transparent $black transparent',
-
-					[`${dark.selector} &`]: {
-						borderColor: 'transparent transparent $dark50 transparent'
-					}
-				},
-
-				'&:disabled::after': {
-					borderBottomColor: '$gray500',
-					[`${dark.selector} &`]: {
-						borderBottomColor: '$dark200'
-					}
-				}
-			},
-			'&.control-down': {
-				borderTopRightRadius: `$${radius}`,
-				borderBottom: 0,
-
-				'&::after': {
-					borderWidth: '5px 5px 0px 5px',
-					borderColor: '$black transparent transparent transparent',
-
-					[`${dark.selector} &`]: {
-						borderColor: '$dark50 transparent transparent transparent'
-					}
-				},
-
-				'&:disabled::after': {
-					borderTopColor: '$gray500',
-					[`${dark.selector} &`]: {
-						borderTopColor: '$dark200'
-					}
-				}
-			}
-		}
-	});
+	$: ({ cx, classes, getStyles } = useStyles({ radius, size }));
 </script>
 
 <!--
@@ -310,18 +196,18 @@ values and add custom parsers and formatters.
 	{variant}
 	{disabled}
 	{placeholder}
-	class="{className}"
-	override={{ ...override, '& .rightSection': { width: 'auto' } }}
+	class={className}
+	override={{ '& .rightSection': { width: 'auto' } }}
 	value={formatNumber(value)}
 	showRightSection={showControls}
 	{...$$restProps}
-	bind:element={element}
+	bind:element
 	on:input={onInput}
 	on:keyup={onKeyUp}
 	on:keydown={onKeyDown}
 	on:blur={onBlur}
 >
-	<div slot="rightSection" class="controls {ControlStyles()}">
+	<div slot="rightSection" class={cx(className, classes.controls, getStyles({ css: override }))}>
 		{#if showControls}
 			<button
 				class="control control-up"

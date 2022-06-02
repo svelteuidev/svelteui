@@ -1,3 +1,4 @@
+import { createStyles } from '$lib/styles';
 import type { SvelteUINumberSize, DefaultProps, CSS } from '$lib/styles';
 
 export interface StackProps extends DefaultProps {
@@ -5,3 +6,20 @@ export interface StackProps extends DefaultProps {
 	align: CSS['alignItems'];
 	justify: CSS['justifyContent'];
 }
+interface StackStyleParam {
+	spacing: SvelteUINumberSize;
+	align: CSS['alignItems'];
+	justify: CSS['justifyContent'];
+}
+
+export default createStyles((theme, { align, justify, spacing }: StackStyleParam) => {
+	return {
+		root: {
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: `${align}`,
+			justifyContent: `${justify}`,
+			gap: theme.fn.size({ size: spacing, sizes: theme.space })
+		}
+	};
+});

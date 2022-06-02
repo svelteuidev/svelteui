@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { css } from '$lib/styles';
-	import { getVariantStyles, sizes } from './ActionIcon.styles';
+	import useStyles from './ActionIcon.styles';
 	import { ActionIconErrors } from './ActionIcon.errors';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
@@ -8,90 +7,27 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$ActionIconProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$ActionIconProps['element'] = undefined;
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$ActionIconProps['className'] = '';
+	export let use: $$ActionIconProps['use'] = [],
+		element: $$ActionIconProps['element'] = undefined,
+		className: $$ActionIconProps['className'] = '',
+		override: $$ActionIconProps['override'] = {},
+		root: $$ActionIconProps['root'] = 'button',
+		color: $$ActionIconProps['color'] = 'gray',
+		variant: $$ActionIconProps['variant'] = 'hover',
+		size: $$ActionIconProps['size'] = 'md',
+		radius: $$ActionIconProps['radius'] = 'sm',
+		loaderProps: $$ActionIconProps['loaderProps'] = {
+			size: 'xs',
+			color: 'gray',
+			variant: 'circle'
+		},
+		loading: $$ActionIconProps['loading'] = false,
+		disabled: $$ActionIconProps['disabled'] = false,
+		href: $$ActionIconProps['href'] = '',
+		external: $$ActionIconProps['external'] = false;
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: $$ActionIconProps['override'] = {};
-	/** The component or HTML tag to be used as the root component for the text */
-	export let root: $$ActionIconProps['root'] = 'button';
-	/** Button color from theme'yellow' | 'orange';} */
-	export let color: $$ActionIconProps['color'] = 'gray';
-	/** Controls button appearance */
-	export let variant: $$ActionIconProps['variant'] = 'hover';
-	/** Predefined button size */
-	export let size: $$ActionIconProps['size'] = 'md';
-	/** Button border-radius from theme or number to set border-radius in px */
-	export let radius: $$ActionIconProps['radius'] = 'sm';
-	/** Props passed to Loader component */
-	export let loaderProps: $$ActionIconProps['loaderProps'] = {
-		size: 'xs',
-		color: 'gray',
-		variant: 'circle'
-	};
-	/** loading will set button to loading state */
-	export let loading: $$ActionIconProps['loading'] = false;
-	/** disabled will set button to disabled state */
-	export let disabled: $$ActionIconProps['disabled'] = false;
-	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: $$ActionIconProps['href'] = '';
-	/** If external is set to true, target = _blank */
-	export let external: $$ActionIconProps['external'] = false;
 
-	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-
-	$: ActionIconStyles = css({
-		focusRing: 'auto',
-		position: 'relative',
-		appearance: 'none',
-		WebkitAppearance: 'none',
-		WebkitTapHighlightColor: 'transparent',
-		boxSizing: 'border-box',
-		height: typeof size === 'string' ? sizes[size] : `${size}px`,
-		minHeight: typeof size === 'string' ? sizes[size] : `${size}px`,
-		width: typeof size === 'string' ? sizes[size] : `${size}px`,
-		minWidth: typeof size === 'string' ? sizes[size] : `${size}px`,
-		borderRadius: `$${radius}`,
-		padding: 0,
-		lineHeight: 1,
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		cursor: 'pointer',
-		textDecoration: 'none',
-		'&:not(:disabled):active': {
-			transform: 'translateY(1px)'
-		},
-		[`&.loading`]: {
-			'&::before': {
-				content: '""',
-				position: 'absolute',
-				top: -1,
-				left: -1,
-				right: -1,
-				bottom: -1,
-				backgroundColor: 'rgba(255, 255, 255, .5)',
-				borderRadius: `$${radius}`,
-				cursor: 'not-allowed'
-			}
-		},
-		[`&.disabled`]: {
-			pointerEvents: 'none',
-			borderColor: 'transparent',
-			backgroundColor: 'rgb(233, 236, 239)',
-			background: 'rgb(233, 236, 239)',
-			color: 'rgb(173, 181, 189)',
-			cursor: 'not-allowed'
-		},
-		variants: {
-			variation: getVariantStyles(color, variant)
-		}
-	});
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
@@ -102,6 +38,8 @@
 		err = ActionIconErrors[0];
 	}
 	$: if (observable) override = { display: 'none' };
+	// --------------End Error Handling-------------------
+	$: ({ cx, getStyles } = useStyles({ color, radius, size, variant }));
 </script>
 
 <Error {observable} component="ActionIcon" code={err} />
@@ -121,19 +59,19 @@ Icon button to indicate secondary action.
 -->
 <!-- prettier-ignore -->
 <svelte:element
-	bind:this={element}
 	this={root}
-	class:loading
-	class:disabled
+	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents
-	class="{className} {ActionIconStyles({ css: override, variation: variant })}"
-	disabled={disabled || loading}
-	{...$$restProps}
+	class:loading
+	class:disabled
 	tabindex="0"
-	{href}
-	rel={external ? 'noreferrer noopener' : null}
+	disabled={disabled || loading}
+	class={cx(className ,getStyles({ css: override, variation: variant }))}
 	target={external ? '_blank' : null}
+	rel={external ? 'noreferrer noopener' : null}
+	{href}
+	{...$$restProps}
 >
 	{#if loading}
 		<Loader size={loaderProps.size} color={loaderProps.color} variant={loaderProps.variant} />

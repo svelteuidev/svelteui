@@ -1,43 +1,19 @@
 <script lang="ts">
-	import { fns, theme } from '$lib/styles';
+	import useStyles from './Stack.styles';
 	import Box from '../Box/Box.svelte';
-	import Error from '$lib/internal/errors/Error.svelte';
 	import type { StackProps as $$StackProps } from './Stack.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$StackProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$StackProps['element'] = undefined;
-	export let className: $$StackProps['className'] = '';
+	export let use: $$StackProps['use'] = [],
+		element: $$StackProps['element'] = undefined,
+		className: $$StackProps['className'] = '',
+		override: $$StackProps['override'] = {},
+		spacing: $$StackProps['spacing'] = 'md',
+		align: $$StackProps['align'] = 'stretch',
+		justify: $$StackProps['justify'] = 'center';
 	export { className as class };
-	export let override: $$StackProps['override'] = {};
-	export let spacing: $$StackProps['spacing'] = 'md';
-	export let align: $$StackProps['align'] = 'stretch';
-	export let justify: $$StackProps['justify'] = 'center';
 
-	const { size } = fns;
-
-	$: StackStyles = {
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: `${align}`,
-		justifyContent: `${justify}`,
-		gap: size({ size: spacing, sizes: theme.space })
-	};
-
-	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
-
-	// if () {
-	// 	observable = true;
-	// 	err = {};
-	// }
-
-	$: if (observable) override = { display: 'none' };
+	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }));
 </script>
-
-<Error {observable} component="Stack" code={err} />
 
 <!--
 @component
@@ -55,6 +31,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box bind:element {use} css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

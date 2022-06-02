@@ -10,6 +10,7 @@
 		target: $$AffixProps['target'] = 'body',
 		position: $$AffixProps['position'] = { bottom: 0, right: 0 },
 		zIndex: $$AffixProps['zIndex'] = 200;
+	export { className as class };
 </script>
 
 <Portal {zIndex} {target}>

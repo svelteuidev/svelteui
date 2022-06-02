@@ -10,7 +10,7 @@
 		element: $$BurgerProps['element'] = undefined,
 		className: $$BurgerProps['className'] = '',
 		override: $$BurgerProps['override'] = {},
-		opened: $$BurgerProps['opened'] = false,
+		opened: $$BurgerProps['opened'] = true,
 		color: $$BurgerProps['color'] = undefined,
 		size: $$BurgerProps['size'] = 'md';
 	export { className as class };
@@ -19,7 +19,6 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: _color = color ? color : $colorScheme === 'dark' ? 'white' : 'black';
-
 	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }));
 </script>
 
@@ -27,8 +26,8 @@
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
 	override={{ padding: 5 }}
-	class="{className} {getStyles({ css: override })}"
+	class={cx(className, getStyles({ css: override }))}
 	{...$$restProps}
 >
-	<div class={cx(classes.burger, opened && 'opened')} />
+	<div class={cx(classes.burger, { opened: opened })} />
 </UnstyledButton>
