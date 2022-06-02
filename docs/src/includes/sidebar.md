@@ -51,6 +51,7 @@
   - **<ExclamationTriangle/><Space />Feedback**
   - [Loader](core/loader)
   - **<Stack/><Space />Overlay**
+  - [Affix](core/affix)
   - [Overlay](core/overlay)
   - **<LetterCaseToggle/><Space />Typography**
   - [Code](core/code)
