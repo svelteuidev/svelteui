@@ -21,6 +21,7 @@ export * as PopperDemos from './demos/core/Popper';
 export * as SkeletonDemos from './demos/core/Skeleton';
 export * as TextInputDemos from './demos/core/TextInput';
 export * as TooltipDemos from './demos/core/Tooltip';
+export * as UnstyledButtonDemos from './demos/core/UnstyledButton';
 
 // Other packages
 export * as PrismDemos from './demos/prism';

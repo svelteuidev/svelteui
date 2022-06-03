@@ -44,6 +44,7 @@
   - [NumberInput](core/number-input)
   - [Switch](core/switch)
   - [TextInput](core/text-input)
+  - [UnstyledButton](core/unstyled-button)
   - **<HamburgerMenu/><Space w="md" />Navigation**
   - [Anchor](core/anchor)
   - [Burger](core/burger)
@@ -80,6 +81,7 @@
   - [use-css-variable](composables/use-css-variable)
   - [use-download](composables/use-download)
   - [use-focus](composables/use-focus)
+  - [use-hot-key](composables/use-hot-key)
   - [use-lazy](composables/use-lazy)
   - [use-long-press](composables/use-long-press)
   - [use-persistent-tab](composables/use-persistent-tab)
