@@ -81,6 +81,7 @@
   - [use-css-variable](composables/use-css-variable)
   - [use-download](composables/use-download)
   - [use-focus](composables/use-focus)
+  - [use-hot-key](composables/use-hot-key)
   - [use-lazy](composables/use-lazy)
   - [use-long-press](composables/use-long-press)
   - [use-persistent-tab](composables/use-persistent-tab)

@@ -19,6 +19,6 @@ docs: 'core/unstyled-button.md'
 
 ## Usage
 
-The UnstyledButton component is a button that does not contain any style from the theme and defaults to a button HTML element, which can be controlled with the prop `root`.
+The UnstyledButton component is a button that does not contain any style from the theme and defaults to a button HTML element, which can be controlled with the prop `root`. This component is used by [Burger](core/burger).
 
 <Demo demo={UnstyledButtonDemos.usage} />
