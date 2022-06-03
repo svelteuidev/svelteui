@@ -44,6 +44,7 @@
   - [NumberInput](core/number-input)
   - [Switch](core/switch)
   - [TextInput](core/text-input)
+  - [UnstyledButton](core/unstyled-button)
   - **<HamburgerMenu/><Space w="md" />Navigation**
   - [Anchor](core/anchor)
   - [Burger](core/burger)
