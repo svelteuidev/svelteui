@@ -20,17 +20,10 @@
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
-			"@svelteuidev/actions": ["../svelteui-actions/src/lib"],
-			"@svelteuidev/utilities": ["../svelteui-utilities/src/lib"],
 			"@svelteuidev/core": ["../svelteui-core/src/lib"],
-			"@svelteuidev/prism": ["../svelteui-prism/src/lib"]
+			"@svelteuidev/composables": ["../svelteui-composables/src/lib"]
 		}
 	},
-	"references": [
-		{ "path": "../svelteui-actions" },
-		{ "path": "../svelteui-utilities" },
-		{ "path": "../svelteui-core" },
-		{ "path": "../svelteui-prism" }
-	],
+	"references": [{ "path": "../svelteui-core" }, { "path": "../svelteui-composables" }],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

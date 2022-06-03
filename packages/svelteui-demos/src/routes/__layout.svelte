@@ -7,7 +7,13 @@
 	}
 </script>
 
-<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={isDark ? 'dark' : 'light'} ssr>
+<SvelteUIProvider
+	override={{ mb: 200 }}
+	withGlobalStyles
+	withNormalizeCSS
+	themeObserver={isDark ? 'dark' : 'light'}
+	ssr
+>
 	<Group override={{ my: '$5' }} position="center">
 		<Button on:click={toggleTheme} variant="outline">
 			{isDark ? 'Dark' : 'Light'} Mode

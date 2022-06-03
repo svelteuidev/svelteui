@@ -2,10 +2,9 @@
 	import Logo from './Logo.svelte';
 	import { Group, ActionIcon, Text, Anchor, Burger, Tooltip } from '$lib';
 	import { Sun, Moon, GithubLogo } from 'radix-icons-svelte';
-	import { hotkey } from '@svelteuidev/actions';
-	import { os as _os } from '@svelteuidev/utilities';
+	import { useOs, hotkey } from '@svelteuidev/composables';
 
-	const os = _os();
+	const os = useOs();
 	const mod = os === 'macos' ? '⌘' : 'ctrl';
 
 	export let isDark: boolean;

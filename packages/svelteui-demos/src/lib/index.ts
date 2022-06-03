@@ -24,5 +24,5 @@ export * as TooltipDemos from './demos/core/Tooltip';
 
 // Other packages
 export * as PrismDemos from './demos/prism';
-export * as UtilityDemos from './demos/utilities';
+export * as ComposableDemos from './demos/composables';
 export * as MotionDemos from './demos/motion';

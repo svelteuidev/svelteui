@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { io } from '@svelteuidev/actions';
+	import { io } from '@svelteuidev/composables';
 	import { Box } from '../Box';
 	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender.styles';
 

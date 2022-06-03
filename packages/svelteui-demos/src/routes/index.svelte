@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Demo, ButtonDemos } from '$lib/index';
+	import { Demo, ButtonDemos, ComposableDemos } from '$lib/index';
 </script>
 
 <h1 style="margin-bottom: 20px">Configurator</h1>

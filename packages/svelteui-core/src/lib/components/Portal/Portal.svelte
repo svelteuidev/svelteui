@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { portal } from '@svelteuidev/actions';
+	import { portal } from '@svelteuidev/composables';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { PortalProps as $$PortalProps } from './Portal.styles';

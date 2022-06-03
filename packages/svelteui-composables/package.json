@@ -1,7 +1,6 @@
 {
   "name": "@svelteuidev/composables",
   "version": "0.6.3",
-  "private": true,
   "description": "Svelte actions and utilities library",
   "keywords": [
     "svelte",
@@ -30,7 +29,9 @@
   "types": "types/index.d.ts",
   "files": [
     "index.js",
-    "dist/**/*.{js,svelte}",
+    "actions/**/*.{js,svelte}",
+    "shared/**/*.{js,svelte}",
+    "utilities/**/*.{js,svelte}",
     "types/**/*.d.ts"
   ],
   "scripts": {

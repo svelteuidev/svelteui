@@ -8,10 +8,9 @@ module.exports = {
 		},
 		{ value: 'docs', name: 'docs: A change made in the documentation' },
 		{ value: '@svelteui/core', name: '@svelteui/core: A change made in core package' },
-		{ value: '@svelteui/actions', name: '@svelteui/actions: A change made in actions package' },
 		{
-			value: '@svelteui/utilities',
-			name: '@svelteui/utilities: A change made in utilities package'
+			value: '@svelteui/composables',
+			name: '@svelteui/composables: A change made in composables package'
 		},
 		{ value: '@svelteui/motion', name: '@svelteui/motion: A change made in motion package' },
 		{ value: '@svelteui/prism', name: '@svelteui/prism: A change made in prism package' },

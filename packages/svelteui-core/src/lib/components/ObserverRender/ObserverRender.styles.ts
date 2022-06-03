@@ -1,4 +1,4 @@
-import type { useIoConfig } from '@svelteuidev/actions';
+import type { useIoConfig } from '@svelteuidev/composables';
 import type { DefaultProps } from '$lib/styles';
 
 export interface ObserverRenderProps extends DefaultProps {

@@ -1,40 +1,29 @@
 <script lang="ts">
-	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
-	import { clipboard } from './clipboard.js';
-	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
+	import { onMount } from 'svelte';
+	import { config } from './Prism.config.js';
+	import { clipboard } from './clipboard.js';
+	import { PrismErrors } from './Prism.errors.js';
+	import { css, dark, ActionIcon, CopyIcon, Error, ThemeIcon } from '@svelteuidev/core';
 	import 'prism-svelte';
 	import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-	import 'prismjs/plugins/line-highlight/prism-line-highlight';
+	import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
-	import { config } from './Prism.config.js';
-	import { PrismErrors } from './Prism.errors.js';
 	import type { PrismStyles as $$PrismStyles } from './Prism.styles';
 
-	/** Used for custom classes to be applied to the prism e.g. Tailwind classes */
-	export let className: $$PrismStyles['className'] = '';
+	export let className: $$PrismStyles['className'] = '',
+		override: $$PrismStyles['override'] = {},
+		size: $$PrismStyles['size'] = 'md',
+		code: $$PrismStyles['code'] = '',
+		language: $$PrismStyles['language'] = 'javascript',
+		lineNumbers: $$PrismStyles['lineNumbers'] = false,
+		highlightLines: $$PrismStyles['highlightLines'] = null,
+		normalizeWhiteSpace: $$PrismStyles['normalizeWhiteSpace'] = true,
+		normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = config,
+		copy: $$PrismStyles['copy'] = true,
+		copyTimeout: $$PrismStyles['copyTimeout'] = 3000;
 	export { className as class };
-
-	/** Override prop for custom theming the component */
-	export let override: $$PrismStyles['override'] = {};
-	/** The size of the text inside the highlighting from the default theme */
-	export let size: $$PrismStyles['size'] = 'md';
-	/** The code to be shown highlighted */
-	export let code: $$PrismStyles['code'] = '';
-	/** The language which the code is written, used to define the highlight */
-	export let language: $$PrismStyles['language'] = 'javascript';
-	/** If it should show the line numbers next to the code */
-	export let lineNumbers: $$PrismStyles['lineNumbers'] = false;
-	/** The lines to be highlighted e.g. 1-5,9,10 */
-	export let highlightLines: $$PrismStyles['highlightLines'] = null;
-	/** If white space should be normalized in the code provided */
-	export let normalizeWhiteSpace: $$PrismStyles['normalizeWhiteSpace'] = true;
-	/** Settings to configure the normalization of white space */
-	export let normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = config;
-	/** The time in ms for the copy button to return to its normal state after copy */
-	export let copy: $$PrismStyles['copy'] = true;
-	export let copyTimeout: $$PrismStyles['copyTimeout'] = 3000;
 
 	onMount(() => {
 		if (normalizeWhiteSpace) {
@@ -73,7 +62,7 @@
 
 		'& .copy': {
 			position: 'absolute',
-			right: '$md',
+			right: '$mdPX',
 			zIndex: 2,
 			background: 'transparent'
 		},
@@ -263,6 +252,7 @@
 		err = PrismErrors[0];
 	}
 	$: if (observable) override = { display: 'none' };
+	// --------------Error Handling-------------------
 </script>
 
 <Error {observable} component="Text" code={err} />

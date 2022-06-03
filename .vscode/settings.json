@@ -17,6 +17,7 @@
 		"tableave",
 		"typecheck",
 		"usedownload",
+		"uselazy",
 		"vercel"
 	],
 	"deno.enable": true,

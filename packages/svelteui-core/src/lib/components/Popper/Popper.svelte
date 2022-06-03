@@ -25,8 +25,7 @@
 		reference: $$PopperProps['reference'] = null;
 	export { className as class };
 
-
-	let popperPosition, originalPopperPosition;
+	let offsets, popperPosition, originalPopperPosition;
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -131,10 +130,10 @@
 		}
 
 		// calculates all offsets of the parent components and
-        // removes them from the positioning of the popper
-        const { offsetTop, offsetLeft } = offsets;
-        left -= offsetLeft;
-        top -= offsetTop;
+		// removes them from the positioning of the popper
+		const { offsetTop, offsetLeft } = offsets;
+		left -= offsetLeft;
+		top -= offsetTop;
 
 		return {
 			top: top,
@@ -149,7 +148,7 @@
 	function adaptHidden() {
 		if (!popperPosition) return;
 
-        const { offsetTop, offsetLeft } = offsets;
+		const { offsetTop, offsetLeft } = offsets;
 		const windowStartY = window.scrollY;
 		const windowEndY = window.scrollY + window.innerHeight;
 		const windowStartX = window.scrollX;
@@ -196,24 +195,24 @@
 		popperPosition = adaptHidden();
 	}
 
-    function getOffsets(element) {
-        if (!element) return;
+	function getOffsets(element) {
+		if (!element) return;
 
-        let offsetTop = 0;
-        let offsetLeft = 0;
-        let parent = element.offsetParent;
+		let offsetTop = 0;
+		let offsetLeft = 0;
+		let parent = element.offsetParent;
 
-        while(parent) {
-            offsetTop += parent.offsetTop;
-            offsetLeft += parent.offsetLeft;
-            parent = parent.offsetParent;
-        }
+		while (parent) {
+			offsetTop += parent.offsetTop;
+			offsetLeft += parent.offsetLeft;
+			parent = parent.offsetParent;
+		}
 
-        return {
-            offsetTop: offsetTop,
-            offsetLeft: offsetLeft
-        }
-    }
+		return {
+			offsetTop: offsetTop,
+			offsetLeft: offsetLeft
+		};
+	}
 
 	function onResize() {
 		updatePopper();
