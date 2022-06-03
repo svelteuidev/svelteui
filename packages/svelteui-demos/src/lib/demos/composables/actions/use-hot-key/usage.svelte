@@ -21,6 +21,7 @@
 </script>
 
 <script>
+	import { Center, Text } from '@svelteuidev/core';
 	import { hotkey } from '@svelteuidev/composables';
 
     function onSubmit() {
@@ -28,6 +29,7 @@
     }
 </script>
 
-
-<p>Press ⌘+Enter or Ctrl+Enter to trigger an alert</p>
-<div use:hotkey={[['mod+Enter', () => onSubmit()]]}/>
+<Center>
+    <Text>Press ⌘+Enter or Ctrl+Enter to trigger an alert</Text>
+    <div use:hotkey={[['mod+Enter', () => onSubmit()]]}/>
+</Center>
