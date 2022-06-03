@@ -35,7 +35,8 @@
 			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },
 			{ name: 'required', type: 'boolean', initialValue: true, defaultValue: true },
 			{ name: 'invalid', type: 'boolean', initialValue: false, defaultValue: false }
-		]
+		],
+		multiline: true
 	};
 </script>
 

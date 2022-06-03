@@ -27,19 +27,14 @@ docs: 'core/text-input.md'
 
 <Demo demo={TextInputDemos.configurator} />
 
-## Controlled
+## Bindings
 
 ```svelte
 <script>
-    import { TextInput } from '@svelteuidev/core';
-
-    let value;
-    function onInput(e) {
-        value = e.target.value;
-    }
+	import { TextInput } from '@svelteuidev/core';
 </script>
 
-<TextInput value={value} on:change={onChange} />
+<TextInput bind:value />
 ```
 
 ## Invalid state and error

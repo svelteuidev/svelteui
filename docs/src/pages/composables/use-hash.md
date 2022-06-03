@@ -4,13 +4,13 @@ group: 'svelteuidev-utilities'
 packageGroup: '@svelteuidev/utilities'
 slug: /utilities/hash/
 description: 'Util generates a random hash with a specified prefix.'
-import: "import { hash } from '@svelteuidev/utilities';"
+import: "import { useHash } from '@svelteuidev/utilities';"
 source: 'svelteui-utilities/src/lib/dist/functions/hash/hash.ts'
 docs: 'utilities/hash.md'
 ---
 
 <script>
-    import { UtilityDemos, Demo } from "@svelteuidev/demos";
+    import { ComposableDemos, Demo } from "@svelteuidev/demos";
     import { Heading } from 'components';
 </script>
 
@@ -20,13 +20,13 @@ docs: 'utilities/hash.md'
 
 The `hash` utility function generates a random hash with a specified prefix. The first argument determines the prefix used. If no prefix is specified it defaults to 'svelteui'. If you are looking to generate a random ID, then you should use the [uuid (not yet implemented)](utilities/uuid) utility.
 
-<Demo demo={UtilityDemos.hashDemo} />
+<Demo demo={ComposableDemos.useHashDemo.usage} />
 
 ## Persistent hash
 
 The `hash` utility also takes a second argument which is a boolean value. If set to true the hash value will be saved in local storage, and therefore persist through the browser.
 
-<Demo demo={UtilityDemos.hashDemoPersist} />
+<Demo demo={ComposableDemos.useHashDemo.persist} />
 
 ## Typescript
 
