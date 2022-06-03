@@ -28,6 +28,7 @@
   - [Utilities](theming/utilities)
 - ### SvelteUI Core
   - **<Layout /><Space w="md" />Layout**
+  - [AppShell](core/app-shell)
   - [Container](core/container)
   - [Center](core/center)
   - [SimpleGrid](core/simple-grid)
@@ -48,6 +49,7 @@
   - **<HamburgerMenu/><Space w="md" />Navigation**
   - [Anchor](core/anchor)
   - [Burger](core/burger)
+  - [Seo](core/seo)
   - **<Dashboard/><Space w="md" />Data Display**
   - [Badge](core/badge)
   - [Card](core/card)
@@ -65,10 +67,12 @@
   - [Code](core/code)
   - [Text](core/text)
   - [Title](core/title)
+  - [TypographyProvider](core/typography-provider)
   - **<BoxModel/><Space w="md" />Miscellaneous**
   - [Box](core/box)
   - [BrowserRender](core/browser-render)
   - [Divider](core/divider)
+  - [ObserverRender](core/observer-render)
   - [Paper](core/paper)
   - [Popper](core/popper)
   - [Portal](core/portal)

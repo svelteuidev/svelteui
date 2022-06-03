@@ -16,12 +16,12 @@
 </script>
 
 <script lang="ts">
-	import { Center, SimpleGrid, UnstyledButton } from '@svelteuidev/core';
+	import { Center, Group, UnstyledButton } from '@svelteuidev/core';
 </script>
 
 <Center>
-    <SimpleGrid cols={2}>
-        <UnstyledButton>Click here</UnstyledButton>
-        <UnstyledButton root='a'>Click here</UnstyledButton>
-    </SimpleGrid>
+	<Group>
+		<UnstyledButton>Click here</UnstyledButton>
+		<UnstyledButton root="a">Click here</UnstyledButton>
+	</Group>
 </Center>
