@@ -22,6 +22,13 @@ The `hotkey` action can be passed to DOM elements or be passed to SvelteUI compo
 
 <Demo demo={ComposableDemos.usehotkeyDemo.usage} />
 
+## Supported formats
+
+* `mod+S` – detects `⌘+S` on macOS and `Ctrl+S` on Windows and Linux (depending on the mod key configured)
+* `ctrl+shift+X` – handles multiple modifiers
+* `alt + shift + L` – you can use whitespace inside hotkey
+* `ArrowLeft` – you can use special keys using this [format](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values)
+
 ## Params
 
 | Param   | Description                                       |
