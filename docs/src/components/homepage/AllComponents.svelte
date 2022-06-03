@@ -1,8 +1,8 @@
 <script lang="ts">
 	// @ts-nocheck
-	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon } from '@svelteuidev/core';
+	// prettier-ignore
+	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon, Tooltip } from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
-	import { ToolTip } from 'components';
 	import { components } from '../../data';
 	import Container from '@svelteuidev/core/components/Container/Container.svelte';
 	// import type { CSS } from '@svelteuidev/core'
@@ -10,7 +10,7 @@
 	const styles = {
 		focusRing: 'auto',
 		display: 'block',
-		padding: '$xl',
+		padding: '$xlPX',
 		borderRadius: '$md',
 		border: `1px solid $gray300`,
 		backgroundColor: 'white',
@@ -42,13 +42,13 @@
 							{item.title}
 						</Text>
 					</Group>
-					<ToolTip tip={`Go to ${item.title} docs`}>
+					<Tooltip label={`Go to ${item.title} docs`}>
 						<a href={item.link}>
 							<ActionIcon variant="light" size="lg">
 								<ArrowRight color="black" />
 							</ActionIcon>
 						</a>
-					</ToolTip>
+					</Tooltip>
 				</Group>
 				<Container>
 					{#if item?.content}

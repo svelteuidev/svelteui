@@ -2,7 +2,7 @@
   import { MainLink } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
-	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled } from 'radix-icons-svelte';
+	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
 </script>
 
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
@@ -17,6 +17,7 @@
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
+  - [Version 0.6.5](changelog/v0-6-5)
 - ### Theming
   - [SvelteUIProvider](theming/svelteui-provider)
   - [Creating styles](theming/create-styles)
@@ -73,7 +74,7 @@
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
 - ### SvelteUI Composables
-  - **<BoxModel/><Space w="md" />Actions**
+  - **<LightningBolt/><Space w="md" />Actions**
   - [use-click-outside](composables/use-click-outside)
   - [use-clipboard](composables/use-clipboard)
   - [use-css-variable](composables/use-css-variable)
@@ -85,7 +86,7 @@
   - [use-portal](composables/use-portal)
   - [use-page-leave](composables/use-page-leave)
   - [use-tab-leave](composables/use-tab-leave)
-  - **<BoxModel/><Space w="md" />Utilities**
+  - **<Archive/><Space w="md" />Utilities**
   - [use-os](composables/use-os)
   - [use-raf-fn](composables/use-raf-fn)
   - [use-hash](composables/use-hash)

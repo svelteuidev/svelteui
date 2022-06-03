@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Box, ActionIcon, SimpleGrid, ThemeIcon } from '@svelteuidev/core';
+	import { Box, ActionIcon, SimpleGrid, Tooltip } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import { slide } from 'svelte/transition';
 	// @ts-ignore
-	import { ToolTip, mobile } from 'components';
+	import { mobile } from 'components';
 
 	/** @type { 'row' | 'column' } */
 	export let direction = 'row';
@@ -19,7 +19,6 @@
 	export let cols = 3;
 	/** @type {number} */
 	export let width = null;
-
 
 	const css = {
 		bc: 'white',
@@ -46,7 +45,7 @@
 		<slot />
 	</SimpleGrid>
 	<Box id="code-button" css={{ position: 'absolute', bottom: 0, right: 10 }}>
-		<ToolTip tip={showCode ? 'hide code' : 'show code'}>
+		<Tooltip tip={showCode ? 'hide code' : 'show code'}>
 			<ActionIcon
 				on:click={() => (showCode = !showCode)}
 				override={{ width: 'max-content', px: '$3' }}
@@ -55,7 +54,7 @@
 			>
 				{'<></>'}
 			</ActionIcon>
-		</ToolTip>
+		</Tooltip>
 	</Box>
 </Box>
 {#if showCode}

@@ -25,7 +25,7 @@
 	"typeAcquisition": {
 		"include": [
 			"@svelteuidev/core",
-			"@svelteuidev/actions",
+			"@svelteuidev/composables",
 			"@svelteuidev/utilities",
 			"@svelteuidev/motion",
 			"@svelteuidev/prism"

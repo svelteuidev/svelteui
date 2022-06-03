@@ -2,7 +2,7 @@
 	// @ts-ignore
 	import { current_page } from '@svelte-docs/get/routes';
 	import { Stack, Box, Title, Text, Group, Center, Tooltip } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/actions';
+	import { clipboard } from '@svelteuidev/composables';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
 	import { screenW } from 'components';
 
@@ -48,8 +48,8 @@
 			{/if}
 			<Tooltip
 				closeDelay={200}
-				position="top"
-				placement={$screenW < 800 ? 'end' : 'center'}
+				withArrow
+				position={$screenW < 500 ? 'top' : 'right'}
 				label={copied ? 'Copied' : 'Copy'}
 				color={copied ? 'green' : 'gray'}
 			>

@@ -15,12 +15,8 @@ title: 'Installation'
 			label: "@svelteuidev/core"
 		},
 		{
-			value: "@svelteuidev/actions",
-			label: "@svelteuidev/actions"
-		},
-		{
-			value: "@svelteuidev/utilities",
-			label: "@svelteuidev/utilities"
+			value: "@svelteuidev/composables",
+			label: "@svelteuidev/composables"
 		},
 		{
 			value: "@svelteuidev/motion",
@@ -33,7 +29,7 @@ title: 'Installation'
 	];
 
 
-	let packages = ["@svelteuidev/core", "@svelteuidev/actions"];
+	let packages = ["@svelteuidev/core", "@svelteuidev/composables"];
 	let templates = ["npx degit sveltejs/template my-svelte-project", "npm init svelte@next my-app"]
     $: value = 'Svelte'
 	$: sanitizedPKG = packages.join(' ')
