@@ -43,14 +43,13 @@
 	}`;
 
 	$: PrismCss = css({
-		length: 0,
 		color: '$gray900',
 		backgroundColor: '$gray50',
 		fontSize: `$${size}`,
 		lineHeight: `$${size}`,
 		position: 'relative',
-		paddingTop: '$xs',
-		paddingBottom: '$xs',
+		paddingTop: '$xsPX',
+		paddingBottom: '$xsPX',
 
 		pre: {
 			margin: 0
@@ -267,5 +266,9 @@
 	{/if}
 	<pre
 		class={prismClasses}
-		data-line={highlightLines}><code class="language-{language}">{@html prettyCode}</code></pre>
+		data-line={highlightLines}>
+		<code class="language-{language}">
+			{@html prettyCode}
+		</code>
+	</pre>
 </div>
