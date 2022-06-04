@@ -45,15 +45,17 @@ index: true
 			<br class="line-br" />
 			<span class="gradient-animation">Regardless of design experience</span>
 		</h1>
-		<p class="content">SvelteUI includes more than 25+ customizable components. Check out the source code, or read the documentation & get started!</p>
-		<Group direction={$mobile ? 'column' : 'row'} position="center">
+		<p class="content">SvelteUI includes more than 40+ customizable components. Check out the source code, or read the documentation & get started!</p>
+		<Group class='dark-theme' direction={$mobile ? 'column' : 'row'} position="center">
 			<Button
 				fullSize={$mobile ? true : false}
 				href="introduction"
 				size="xl"
+				variant='gradient'
+				gradient={{from: 'blue', to: 'cyan', deg: 45 }}
 				override={{ '&:hover': { textDecoration: 'none' } }}
 			>
-				<Text weight="bold" override={{ color: 'white' }}>Get Started</Text>
+				<Text weight="bold" override={{ color: 'white !important' }}>Get Started</Text>
 			</Button>
 			<Button fullSize={$mobile ? true : false} override={srcCodeButton} size="xl" variant="default" href="https://github.com/svelteuidev/svelteui">
 				<GithubLogo size={25} slot="leftIcon" />
@@ -73,9 +75,7 @@ index: true
 			<br />
 			Don't like what you see? Customize every component anyway you like!
 		</Text>
-		<Preview code={HomePageExampleCode} width={100} cols={1}>
-			<HomePageExample />
-		</Preview>
+		<HomePageExample />
 	</Container>
 	<Container override={{py: '7rem'}} size="xl">
 		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">All Components</Title>

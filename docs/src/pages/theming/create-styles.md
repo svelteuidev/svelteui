@@ -5,107 +5,15 @@ docs: 'theming/create-styles.md'
 ---
 
 <script>
-	import { Heading, Preview, mobile } from 'components';
-	import { css, dark, theme, Space } from '@svelteuidev/core';
-	import { Prism } from '@svelteuidev/prism';
-
-	const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
-
-	const codeDemoOne = `
-    <script>
-    	import { css, dark, theme } from '@svelteuidev/core';
-
-        const demoStyles = css({
-            length: 0,
-            [\`$\{dark.selector} &\`]: {
-                // using of SvelteUI utilities
-                // bc === backgroundColor
-                bc: theme.colors['dark500'].value
-            },
-            // subscribe to color scheme changes right in your styles
-            backgroundColor: theme.colors['gray100'].value,
-            maxWidth: 400,
-            width: '100%',
-            height: 180,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            borderRadius: theme.radii.sm.value,
-            fontSize: theme.fontSizes.xs.value,
-
-            // Dynamic media queries, define breakpoints in theme, use anywhere
-            // You can use the theme object, or tokens, it's up to you
-            '@sm': {
-                '.child': {
-                    fontSize: '$md'
-                }
-            },
-
-            '.child': {
-                [\`$\{dark.selector} &\`]: {
-                    bc: theme.colors['dark800'].value,
-                    color: 'White'
-                },
-                backgroundColor: 'White',
-                padding: theme.space.md.value,
-                borderRadius: theme.radii.sm.value,
-                boxShadow: theme.shadows.md,
-                color: 'Black'
-            }
-        });
-    <\/script>
+	import { Heading } from 'components';
+    import { Demo, CreateStylesDemos } from "@svelteuidev/demos";
+	import { Space } from '@svelteuidev/core';
     
-    <div class={demoStyles()}>
-        <div class='child'>css function demo<\/div>
-    <\/div>
-    `;
-
-	const demoStyles = css({
-		length: 0,
-		[`${dark.selector} &`]: {
-			// using of SvelteUI utilities
-			// bc === backgroundColor
-			bc: theme.colors['dark500'].value
-		},
-		// subscribe to color scheme changes right in your styles
-		backgroundColor: theme.colors['gray100'].value,
-		maxWidth: 400,
-		width: '100%',
-		height: 180,
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginLeft: 'auto',
-		marginRight: 'auto',
-		borderRadius: theme.radii.sm.value,
-		fontSize: theme.fontSizes.xs.value,
-
-		// Dynamic media queries, define breakpoints in theme, use anywhere
-		// You can use the theme object, or tokens, it's up to you
-		'@sm': {
-			'.child': {
-				fontSize: '$md'
-			}
-		},
-
-		'.child': {
-			[`${dark.selector} &`]: {
-				bc: theme.colors['dark800'].value,
-				color: 'White'
-			},
-			backgroundColor: 'White',
-			padding: theme.space.md.value,
-			borderRadius: theme.radii.sm.value,
-			boxShadow: theme.shadows.md,
-			color: 'Black'
-		}
-	});
+	const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
 </script>
 
 <svelte:head>
-	{@html styles}
+{@html styles}
 </svelte:head>
 
 <Heading />
@@ -114,7 +22,7 @@ docs: 'theming/create-styles.md'
 
 This section will cover creating your own themes on top of the already provided light and dark themes, as well as how to use SvelteUI styling features throughout your application.
 
-All SvelteUI components are built with the CSS-in-JS library [Stitches](https://stitches.dev/). It is recommended that you use the `css` function to create styles for the rest of your application because it is the easiest way to use the SvelteUI theme, but it is not required. You can use any other styling tools and languages alongside SvelteUI if you prefer.
+All SvelteUI components are built with the CSS-in-JS library [Stitches](https://stitches.dev/). It is recommended that you use the `createStyles` function to create styles for the rest of your application because it is the easiest way to use the SvelteUI theme, but it is not required. You can use any other styling tools and languages alongside SvelteUI if you prefer.
 
 ## Features
 
@@ -128,11 +36,37 @@ If you choose to go with the SvelteUI styling engine then you get access to thes
 
 ## Styling with SvelteUI
 
-<Preview showCode={$mobile ? false : true} width={100} cols={1} code={codeDemoOne}>
-    <div class={demoStyles()}>
-        <div class='child'>css function demo</div>
-    </div>
-</Preview>
+When creating styles in SvelteUI, you should use the `createStyles` function. It allows you to subscribe tho the current theme context from anywhere. Basic usage looks like this:
+
+<Demo demo={CreateStylesDemos.basic} />
+
+When using `createStyles` you must:
+
+- Pass in an object, or a function the returns an object.
+- The object must contain a root property. These are the styles that will be the top level of your element composition (i.e a container).
+
+The `createStyles` function theme object differs from the general theme object. It extends the normal one, giving you extra utilities.
+
+| property              | value                                     | description                                                                                                              |
+| --------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `theme.dark`          | `dark-theme`                              | dark theme selector                                                                                                      |
+| `theme.fn.themeColor` | `(color, shade) => SvelteUIColor`         | function that takes a color and shade, then returns the color's hex value                                                |
+| `theme.fn.size`       | `({"{ size, sizing }"}) => SvelteUISpace` | function that takes an object with a size value (number / 'xs-xl') and an object of sizes, then returns the sizing value |
+| `theme.fn.radius`     | `(radii) => SvelteUIRadius`               | function that takes a size value (number / 'xs-xl'), then returns a radius value                                         |
+
+## Style Parameters
+
+You can receive any amount of parameters as second argument of createStyles function, later you will need to pass those parameters as argument to useStyles function:
+
+<Demo demo={CreateStylesDemos.params} />
+
+## Merging Classes (cx function)
+
+To merge class names use cx function, it has the same api as classnames package.
+
+!important: Do not use external libraries like classnames or clsx with class names created with createStyles function as it will produce styles collisions.
+
+<Demo demo={CreateStylesDemos.cx} />
 
 <Space h="xl" />
 
@@ -142,35 +76,45 @@ You can add variants to your styles by using the `variants` key. There is no lim
 
 ```svelte
 <script>
-    import { css } from '@svelteuidev/core'
+    import { createStyles } from '@svelteuidev/core'
 
-    const styles = css({
-        // base styles
-        // the required key to define your variants
-        variants: {
-            // you can think of each property on the variant property as an identifier
-            color: {
-                // then each property on the "identifier" is the desired variant style
-                violet: {
-                    backgroundColor: 'blueviolet',
-                    color: 'white',
-                    '&:hover': {
-                        backgroundColor: 'darkviolet',
+    const useStyles = createStyles((theme) => {
+        return {
+            root: {
+                ...baseStyles
+            }
+            // the required key to define your variants
+            variants: {
+                // you can think of each property on the variant property as an identifier
+                color: {
+                    // then each property on the "identifier" is the desired variant style
+                    violet: {
+                        backgroundColor: 'blueviolet',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: 'darkviolet',
+                        },
                     },
-                },
-                gray: {
-                    backgroundColor: 'gainsboro',
-                    '&:hover': {
-                        backgroundColor: 'lightgray',
+                    gray: {
+                        backgroundColor: 'gainsboro',
+                        '&:hover': {
+                            backgroundColor: 'lightgray',
+                        },
                     },
                 },
             },
-        },
+        }
     })
+
+    $: ({getStyles} = useStyles())
 </script>
 
 // declare your variants in the object passed into styles
-<button class={styles({ css: overrides, color: 'violet', moreVariants: ... })}>Some content</button>
+<button
+    class={getStyles({ css: overrides, color: 'violet', moreVariants: ... })}
+>
+    Some content
+</button>
 ```
 
 Styling with SvelteUI is most similar to styling with vanilla css, or css-preprocessors (scss/sass) with extra features. You can choose your preferred method of styling, but we **strongly** recommend you read this [styling guide](https://stitches.dev/docs/styling) to get up to speed.
@@ -187,23 +131,23 @@ You can create new themes with the `createTheme` function. We recommend using th
 
 ```svelte
 <script>
-    import { createTheme } from '@svelteuidev/core'
+	import { createTheme } from '@svelteuidev/core';
 
-    const newTheme = createTheme({
-        colors: {
-            hiContrast: 'hsl(206,2%,93%)',
-            loContrast: 'hsl(206,8%,8%)',
+	const newTheme = createTheme({
+		colors: {
+			hiContrast: 'hsl(206,2%,93%)',
+			loContrast: 'hsl(206,8%,8%)',
 
-            gray100: 'hsl(206,8%,12%)',
-            gray200: 'hsl(206,7%,14%)',
-            gray300: 'hsl(206,7%,15%)',
-            gray400: 'hsl(206,7%,24%)',
-            gray500: 'hsl(206,7%,30%)',
-            gray600: 'hsl(206,5%,53%)',
-        },
-        space: {},
-        fonts: {},
-    });
+			gray100: 'hsl(206,8%,12%)',
+			gray200: 'hsl(206,7%,14%)',
+			gray300: 'hsl(206,7%,15%)',
+			gray400: 'hsl(206,7%,24%)',
+			gray500: 'hsl(206,7%,30%)',
+			gray600: 'hsl(206,5%,53%)'
+		},
+		space: {},
+		fonts: {}
+	});
 </script>
 ```
 
@@ -224,7 +168,7 @@ To apply the new theme, add it to your SvelteUIProvider
 </script>
 
 <SvelteUIProvider class={newTheme} themeObserver={null}>
-    <Box>Content nested in the new theme.</Box>
+	<Box>Content nested in the new theme.</Box>
 </SvelteUIProvider>
 ```
 
@@ -287,13 +231,13 @@ You can add styles based on themes by retrieving the dynamically generated theme
 </script>
 
 <SvelteUIProvider class={newTheme}>
-    <div class={styles()}>Some content</div>
+	<div class={styles()}>Some content</div>
 </SvelteUIProvider>
 ```
 
 ## Global styles
 
-For handling things like global resets or custom global styling, you can use the  globalCss function to generate it. SvelteUI comes with global styles and a css reset by default. More information on that in the [SvelteUIProvider section](theming/svelteui-provider).
+For handling things like global resets or custom global styling, you can use the globalCss function to generate it. SvelteUI comes with global styles and a css reset by default. More information on that in the [SvelteUIProvider section](theming/svelteui-provider).
 
 ```ts
 import { globalCss } from '@svelteuidev/core'
@@ -305,7 +249,7 @@ const globalStyles = globalCss({
 // then import it in your top level component i.e __layout.svelte or App.svelte
 <script>
     import { globalStyles } from 'styles.js'
-    
+
     globalStyles();
 </script>
 
@@ -320,18 +264,18 @@ For creating css animations, you can either use the svelte transition api, or Sv
 
 ```svelte
 <script>
-    import { keyframes, Button } from '@svelteuidev/core'
+	import { keyframes, Button } from '@svelteuidev/core';
 
-    const scaleUp = keyframes({
-        '0%': { transform: 'scale(1)' },
-        '100%': { transform: 'scale(1.5)' },
-    });
+	const scaleUp = keyframes({
+		'0%': { transform: 'scale(1)' },
+		'100%': { transform: 'scale(1.5)' }
+	});
 
-    const styles = {
-        '&:hover': {
-            animation: `${scaleUp} 200ms`,
-        },
-    }
+	const styles = {
+		'&:hover': {
+			animation: `${scaleUp} 200ms`
+		}
+	};
 </script>
 
 <Button override={styles}>I will grow on hover</Button>

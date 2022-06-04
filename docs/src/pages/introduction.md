@@ -29,10 +29,6 @@ Instead of remaking the same components, recreating custom actions, transitions,
 - Minimal to no third-party dependency usage.
 - Easy setup - **Zero Configuration**
 
-### Undocumented Components
-
-> The docs are still under construction. Some of the library's exported components & functions are still undocumented.
-
 <br />
 
 ## Packages

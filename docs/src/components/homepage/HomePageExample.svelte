@@ -1,88 +1,194 @@
-<script>
-	import { Container, Title, Text, Button, css } from '@svelteuidev/core';
-	const HeroImage = css({
-		length: 0,
-		backgroundColor: '#11284b',
-		backgroundSize: 'cover',
-		backgroundPosition: 'center',
-		backgroundImage:
-			'linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80)',
-		paddingTop: '60px',
-		paddingBottom: '60px',
-		'& .inner': {
-			flexDirection: 'column',
-			justifyContent: 'space-between',
-			'@md': {
-				display: 'flex'
+<script lang="ts">
+	import {
+		createStyles,
+		Button,
+		Group,
+		TextInput,
+		Stack,
+		Switch,
+		Badge,
+		Tooltip,
+		Checkbox,
+		Box,
+		Card,
+		ActionIcon,
+		Text,
+		NativeSelect
+	} from '@svelteuidev/core';
+	import { Animation } from '@svelteuidev/motion';
+	import CardDemo from './_Card.svelte';
+	import { mobile } from 'components';
+	import { slide } from 'svelte/transition';
+	import { sineInOut } from 'svelte/easing';
+	import { Prism } from '@svelteuidev/prism';
+	export let title = 'Examples',
+		author = 'brisklemonade',
+		code = `<script>const hello = 'world'<\/script>`,
+		language = 'svelte',
+		center = false;
+	let previewState = 'preview';
+
+	const BREAKPOINT = '@media (max-width: 755px)';
+
+	const useStyles = createStyles((theme) => {
+		const { themeColor, size } = theme.fn;
+		return {
+			root: {
+				[`${theme.dark} &`]: {
+					border: `1px solid ${themeColor('dark', 6)}`,
+					backgroundColor: themeColor('dark', 6)
+				},
+				borderRadius: theme.radii.md.value,
+				border: `1px solid ${themeColor('gray', 2)}`,
+				backgroundColor: 'white',
+
+				'&:not(:first-of-type)': {
+					marginTop: +theme.space.xl.value * 2
+				}
+			},
+
+			container: {
+				[BREAKPOINT]: {
+					[`${theme.dark} &`]: {
+						borderBottom: `1px solid ${themeColor('dark', 4)}`
+					},
+					borderBottom: `1px solid ${themeColor('gray', 2)}`
+				}
+			},
+
+			body: {
+				[`${theme.dark} &`]: {
+					backgroundColor: themeColor('dark', 6)
+				},
+				backgroundColor: themeColor('gray', 0),
+				padding: '$mdPX $mdPX',
+				borderBottomRightRadius: 8 - 1,
+				borderBottomLeftRadius: 8 - 1,
+
+				[BREAKPOINT]: {
+					padding: 0
+				}
+			},
+
+			bodyRaw: {
+				padding: 0
+			},
+
+			bodyWithCode: {
+				[`${theme.dark} &`]: {
+					backgroundColor: themeColor('dark', 8)
+				},
+				padding: 0,
+				backgroundColor: 'white'
+			},
+
+			previewDimmed: {
+				[`${theme.dark} &`]: {
+					backgroundColor: themeColor('dark', 6)
+				},
+				backgroundColor: themeColor('gray', 0)
+			},
+
+			code: {
+				borderBottomRightRadius: 8 - 1,
+				borderBottomLeftRadius: 8 - 1,
+				borderTopRightRadius: 0,
+				borderTopLeftRadius: 0
+			},
+
+			preview: {
+				[`${theme.dark} &`]: {
+					backgroundColor: themeColor('dark', 7)
+				},
+				backgroundColor: 'white',
+				padding: size({ size: 'md', sizes: theme.space }),
+				borderRadius: theme.radii.md.value,
+				position: 'relative',
+
+				[BREAKPOINT]: {
+					padding: size({ size: 'xs', sizes: theme.space }),
+					borderTopRightRadius: 0,
+					borderTopLeftRadius: 0
+				}
 			}
-		},
-		'& .image': {
-			display: 'none',
-			'@md': {
-				display: 'block'
-			}
-		},
-		'& .content': {
-			marginRight: 0,
-			paddingBottom: '40px',
-			paddingTop: '40px',
-			'@md': {
-				marginRight: '60px'
-			}
-		},
-		'& .title': {
-			maxWidth: '100%',
-			fontSize: 34,
-			lineHeight: 1.15,
-			color: 'white',
-			fontFamily: `Greycliff CF, $standard`,
-			fontWeight: 900,
-			'@md': {
-				maxWidth: 700,
-				lineHeight: 1.05,
-				fontSize: 48
-			}
-		},
-		'& .description': {
-			maxWidth: '100%',
-			color: 'white',
-			opacity: 0.75,
-			'@md': {
-				maxWidth: 500
-			}
-		},
-		'& .control': {
-			width: '100%',
-			paddingLeft: 50,
-			paddingRight: 50,
-			fontFamily: `Greycliff CF, $standard`,
-			fontSize: 22,
-			'@md': {
-				width: 'auto'
-			}
-		}
+		};
 	});
+
+	$: ({ cx, classes, getStyles } = useStyles());
 </script>
 
-<div class={HeroImage()}>
-	<Container size="lg">
-		<div class="inner">
-			<div class="content">
-				<Title class="title">
-					SvelteUI is
-					<Text component="span" inherit variant="gradient">the best</Text>{' '}
-					UI library for Svelte 😁
-				</Title>
-
-				<Text class="description" override={{ mt: 30 }}>
-					SvelteUI contains more than just components. With Actions, Transitions, and Utilities
-					available to you, development will be fun and easy!
-				</Text>
-
-				<Button variant="gradient" size="xl" class="control" override={{ mt: 40 }}>
-					Get started
-				</Button>
-			</div>
-		</div>
-	</Container>
+<div class={getStyles()}>
+	<Card.Container
+		class={classes.container}
+		override={{
+			bblr: '0px !important',
+			bbrr: '0px !important',
+			d: 'flex !important',
+			jc: 'space-between'
+		}}
+	>
+		<Group>
+			<Text weight="bold" override={{ mr: 15 }}>{title}</Text>
+			<Text size="xs" override={{ d: 'flex', gap: '$2' }}>
+				Made by
+				<Box
+					root="a"
+					href={`https://github.com/${author}`}
+					rel="noreferrer noopener"
+					target="_blank"
+					css={{ m: 0, textDecoration: 'none' }}
+				>
+					<Text size="xs" color="gray">
+						@{author}
+					</Text>
+				</Box>
+			</Text>
+		</Group>
+	</Card.Container>
+	<div
+		class={cx(classes.body, {
+			[classes.bodyWithCode]: false,
+			[classes.bodyRaw]: false
+		})}
+	>
+		<Box class={classes.preview} css={{ zIndex: 1 }}>
+			{#if previewState === 'preview'}
+				<Box css={center ? { d: 'flex', jc: 'center' } : {}}>
+					<Group position="center" direction={$mobile ? 'column' : 'row'}>
+						<Animation duration={15} animation="float">
+							<Button ripple>Click Me</Button>
+						</Animation>
+						<Stack align="center">
+							<Animation duration={11} animation="float">
+								<TextInput
+									placeholder="me@example.com"
+									label="Email"
+									description="Type your email"
+									required
+								/>
+							</Animation>
+							<Animation duration={14} animation="float">
+								<Switch offLabel="off" onLabel="on" size="lg" />
+							</Animation>
+						</Stack>
+						<Animation duration={10} animation="float">
+							<CardDemo />
+						</Animation>
+						<Animation duration={13} animation="float">
+							<Tooltip label="I am a tooltip" withArrow>
+								<Badge variant="light">Hover Me</Badge>
+							</Tooltip>
+						</Animation>
+						<Animation duration={10} animation="float">
+							<Checkbox label="Agree to give me all of your money?" />
+						</Animation>
+					</Group>
+				</Box>
+			{:else}
+				<div transition:slide={{ duration: 350, easing: sineInOut }}>
+					<Prism {language} {code} />
+				</div>
+			{/if}
+		</Box>
+	</div>
 </div>
