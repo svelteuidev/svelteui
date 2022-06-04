@@ -49,7 +49,7 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
-	$: ({ getStyles, cx } = useStyles({
+	$: ({ getStyles, cx, classes } = useStyles({
 		color,
 		compact,
 		fullSize,
@@ -80,11 +80,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class:disabled
 		class:compact
 		class:uppercase
-		class:loading
-		class={cx(className, getStyles({ css: override, variation: variant }))}
+		class={cx(className, getStyles({ css: override, variation: variant }), { disabled, loading })}
 		role="button"
 		rel="noreferrer noopener"
 		target={external ? '_blank' : '_self'}
@@ -119,11 +117,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(className, getStyles({ css: override, variation: variant }))}
-		class:disabled
+		class={cx(className, getStyles({ css: override, variation: variant }), { disabled, loading })}
 		class:compact
 		class:uppercase
-		class:loading
 		{disabled}
 		{...$$restProps}
 		tabindex="0"

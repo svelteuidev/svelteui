@@ -12,7 +12,7 @@
 	} from '$lib';
 	import { fns } from '$lib';
 	import { HeadContent } from '../pages';
-	import { page } from '$app/stores';
+	// import { page } from '$app/stores';
 
 	let opened = false;
 	let isDark = false;
@@ -22,14 +22,11 @@
 	function toggleOpened() {
 		opened = !opened;
 	}
-	const path = $page.routeId.split(' ');
-	$: currentPage =
-		$page.routeId === ''
-			? 'Homepage'
-			: `${path[path.length - 1][0].toUpperCase()}${$page?.routeId.slice(1)}`;
+	// const path = $page?.routeId?.split(' ');
+	// $: currentPage = $page?.routeId === '' ? 'Homepage' : `${path?.[path?.length - 1]?.[0].toUpperCase()}${$page?.routeId?.slice(1)}`;
 </script>
 
-<Seo title={currentPage} titleTemplate="%t% | SvelteUI" />
+<Seo titleTemplate="%t% | SvelteUI" />
 <SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={isDark ? 'dark' : 'light'}>
 	<TypographyProvider>
 		<AppShell

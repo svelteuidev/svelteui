@@ -137,26 +137,26 @@ export default createStyles(
 				},
 				'&:active': {
 					transform: 'translateY(1px)'
-				}
-			},
-			loading: {
-				pointerEvents: 'none',
-				'&::before': {
-					content: '""',
-					position: 'absolute',
-					inset: -1,
-					backgroundColor: 'rgba(255, 255, 255, .5)',
-					borderRadius: `$${radius}`,
+				},
+				'&.disabled': {
+					pointerEvents: 'none',
+					borderColor: 'transparent',
+					backgroundColor: 'rgb(233, 236, 239)',
+					background: 'rgb(233, 236, 239)',
+					color: 'rgb(173, 181, 189)',
 					cursor: 'not-allowed'
+				},
+				'&.loading': {
+					pointerEvents: 'none',
+					'&::before': {
+						content: '""',
+						position: 'absolute',
+						inset: -1,
+						backgroundColor: 'rgba(255, 255, 255, .5)',
+						borderRadius: `$${radius}`,
+						cursor: 'not-allowed'
+					}
 				}
-			},
-			disabled: {
-				pointerEvents: 'none',
-				borderColor: 'transparent',
-				backgroundColor: 'rgb(233, 236, 239)',
-				background: 'rgb(233, 236, 239)',
-				color: 'rgb(173, 181, 189)',
-				cursor: 'not-allowed'
 			},
 			variants: {
 				variation: vFunc(color, gradient)
