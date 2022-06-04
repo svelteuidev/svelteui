@@ -2,14 +2,7 @@
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
-    <script>
-        import { useHash } from '@svelteuidev/composables';
-
-		const id = useHash('sveleteui');
-    <\/script>
-
-    <p>Generated hash: {id}</p>
-	`;
+`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 

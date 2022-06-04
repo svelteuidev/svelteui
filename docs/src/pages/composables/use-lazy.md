@@ -51,10 +51,6 @@ With the `use-lazy` action, you can set attributes on an element when it is visi
 | ---------- | ----------------------------------------------------------------------------------------------- |
 | attributes | an object whose properties are the attributes to be applied, and the values are the attr values |
 
-## Events
-
-The use-lazy action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

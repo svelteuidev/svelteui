@@ -11,7 +11,7 @@ docs: 'core/simple-grid.md'
 ---
 
 <script>
-    import { SimpleGrid, Center, InputWrapper } from '@svelteuidev/core';
+    import { SimpleGrid, Center, InputWrapper, NumberInput } from '@svelteuidev/core';
     import { Heading, Preview } from 'components';
 
     let cols = 3
@@ -62,18 +62,16 @@ instead you specify number of columns per row:
             <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
         {/each}
     </SimpleGrid>
-    <InputWrapper label='Cols' override={{ input: {w: '100%', py: '$5'}}}>
-        <input type='number' min='1' max='5' bind:value={cols} />
-    </InputWrapper>
+    <NumberInput label='Cols' bind:value={cols} min={1} max={5} />
 </Preview>
 
 ## Breakpoints
 
 Provide an array to `breakpoints` prop to define responsive behavior:
 
-- `maxWidth` or `minWidth` – max-width or min-width at which media query will work
-- `cols` – number of columns per row at given max-width
-- `spacing` – optional spacing at given max-width, if not provided spacing from component prop will be used instead
+- `maxWidth` or `minWidth` - max-width or min-width at which media query will work
+- `cols` - number of columns per row at given max-width
+- `spacing` - optional spacing at given max-width, if not provided spacing from component prop will be used instead
 
 Resize browser to see breakpoints behavior:
 
@@ -94,10 +92,10 @@ Resize browser to see breakpoints behavior:
 
 In this example:
 
-- If screen width is more than 980px then component `cols` and `spacing` is used – 4 columns, lg spacing
-- screen width < 980px and > 755px – cols = 3, spacing = sm
-- screen width < 755px and > 600px – cols = 2, spacing = sm
-- screen width < 600px – cols = 1, spacing = sm
+- If screen width is more than 980px then component `cols` and `spacing` is used - 4 columns, lg spacing
+- screen width < 980px and > 755px - cols = 3, spacing = sm
+- screen width < 755px and > 600px - cols = 2, spacing = sm
+- screen width < 600px - cols = 1, spacing = sm
 
 ## min-width breakpoints
 

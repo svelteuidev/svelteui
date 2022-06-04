@@ -18,13 +18,13 @@ docs: 'utilities/raf-fn.md'
 
 ## Usage
 
-The `rafFn` utility takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
+The `useRafFn` composable takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
 
 <Demo demo={ComposableDemos.useRafFnDemo.usage} />
 
 ## Immediate Option
 
-The `rafFn` utility also takes a second argument of options, which is an object that has one property. The immediate option is set to true by default. If it is set to false, then the callback function won't be ran unless the `resume` function is called.
+The `useRafFn` composable also takes a second argument of options, which is an object that has one property. The immediate option is set to true by default. If it is set to false, then the callback function won't be ran unless the `resume` function is called.
 
 <Demo demo={ComposableDemos.useRafFnDemo.options} />
 
@@ -46,5 +46,5 @@ export interface RafFnOptions extends ConfigurableWindow {
 ## Definition
 
 ```ts
-function rafFn(fn: Fn, options: RafFnOptions = {}): Pauseable;
+function useRafFn(fn: Fn, options: RafFnOptions = {}): Pauseable;
 ```

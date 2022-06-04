@@ -5,6 +5,7 @@
 		"cssvariable",
 		"flipboard",
 		"focuswithin",
+		"lockscroll",
 		"mousedown",
 		"mouseposition",
 		"okaidia",
@@ -20,6 +21,7 @@
 		"usedownload",
 		"usehotkey",
 		"uselazy",
+		"uselockscroll",
 		"vercel"
 	],
 	"deno.enable": true,

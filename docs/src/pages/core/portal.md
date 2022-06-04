@@ -20,25 +20,23 @@ docs: 'core/portal.md'
 
 Portal is a wrapper component that renders any component or element at the end of the `document.body` or of a given `target` element.
 
-Use Portal to render a component or element at a different place (defaults to the end of `document.body`). Portal is useful when you want to prevent parent styles from interfering which the child, usually all these styles are related to `position` and `z-index` properties (which can be provided as props) and portals are used for components with fixed position, for example, modals ou drawers.
+Use Portal to render a component or element at a different place (defaults to the end of `document.body`). Portal is useful when you want to prevent parent styles from interfering which the child, usually all these styles are related to `position` and `z-index` properties (which can be provided as props) and portals are used for components with fixed position, for example, modals or drawers.
 
 ```svelte
 <script>
-    import { Portal } from "@svelteuidev/core";
+	import { Portal } from '@svelteuidev/core';
 
-    let opened = false;
+	let opened = false;
 </script>
 
 <main style="position: relative; z-index: 1">
-    {#if opened}
-        <Portal zIndex={5}>
-            <div>Your modal content</div>
-        </Portal>
-    {/if}
+	{#if opened}
+		<Portal zIndex={5}>
+			<div>Your modal content</div>
+		</Portal>
+	{/if}
 
-    <button on:click={() => (opened = !opened)} type="button">
-        Open modal
-    </button>
+	<button on:click={() => (opened = !opened)} type="button"> Open modal </button>
 </main>
 ```
 
@@ -50,10 +48,10 @@ You can specify the DOM node where portal will be rendered by passing the `targe
 
 ```svelte
 <script>
-    import { Portal } from "@svelteuidev/core";
+	import { Portal } from '@svelteuidev/core';
 
-    const container = document.createElement('div');
-    document.body.appendChild(container);
+	const container = document.createElement('div');
+	document.body.appendChild(container);
 </script>
 
 <Portal target={container}>My portal</Portal>
@@ -67,7 +65,7 @@ Alternatively, you can specify a selector to render portal in existing element:
 
 ## Server side rendering
 
-Portal is not supported during server side rendering. All components inside Portal are rendered only after the application was mounted to the DOM.
+Portal is not supported during server side rendering. All components inside Portal are rendered only after the application gets mounted to the DOM.
 
 ## OptionalPortal
 
@@ -75,7 +73,7 @@ OptionalPortal component lets you configure whether children should be rendered 
 
 ```svelte
 <script>
-    import { OptionalPortal } from "@svelteuidev/core";
+	import { OptionalPortal } from '@svelteuidev/core';
 </script>
 
 <OptionalPortal withinPortal>This text is rendered in Portal</OptionalPortal>

@@ -1,12 +1,12 @@
 ---
-title: os
-group: 'svelteuidev-utilities'
-packageGroup: '@svelteuidev/utilities'
-slug: /utilities/os/
+title: use-os
+group: 'svelteuidev-composables'
+packageGroup: '@svelteuidev/composables'
+slug: /composables/os/
 description: 'Get user os'
-import: "import { useOs } from '@svelteuidev/utilities';"
-source: 'svelteui-utilities/src/lib/dist/functions/os/os.ts'
-docs: 'utilities/os.md'
+import: "import { useOs } from '@svelteuidev/composables';"
+source: 'svelteui-composables/src/lib/dist/functions/os/os.ts'
+docs: 'composables/use-os.md'
 ---
 
 <script lang='ts'>
@@ -18,19 +18,19 @@ docs: 'utilities/os.md'
 
 ## Usage
 
-The `os` utility function detects a user's Operating System. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If the OS cannot be identified as well as during server side rendering, `undetermined` will be returned.
+The `useOs` composable detects a user's Operating System. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If the OS cannot be identified as well as during server side rendering, `undetermined` will be returned.
 
 <Demo demo={ComposableDemos.useOsDemo.usage} />
 
 ## Typescript
 
 ```ts
-import type { OS } from '@svelteuidev/utilities';
+import type { OS } from '@svelteuidev/composables';
 // OS type is 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux'
 ```
 
 ## Definition
 
 ```ts
-export function os(): OS;
+export function useOs(): OS;
 ```

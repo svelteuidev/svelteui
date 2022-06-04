@@ -71,10 +71,6 @@ With the `use-css-variable` action, an object of properties will be treated as c
 | ----- | -------------------------------------------------------------------- |
 | props | The object that possesses the variables, and their associated values |
 
-## Events
-
-The `use-css-variable` action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

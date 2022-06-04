@@ -42,10 +42,6 @@ The `use-page-leave` action calls given function when mouse leaves the page.
 | -------- | ---------------------------------------------- |
 | callback | The callback to be fired when the page is left |
 
-## Events
-
-The `use-page-leave` action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

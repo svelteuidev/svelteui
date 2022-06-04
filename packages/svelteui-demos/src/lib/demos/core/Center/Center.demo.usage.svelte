@@ -22,6 +22,6 @@
 	import { Center, Box } from '@svelteuidev/core';
 </script>
 
-<Center override={{ width: 400, height: 200, bc: '$blue50', m: 'auto' }}>
+<Center override={{ maxW: 400, height: 200, bc: '$blue50', m: 'auto', p: '$5' }}>
 	<Box css={{ bc: '$blue200' }}>All elements inside Center are centered</Box>
 </Center>

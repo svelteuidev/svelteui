@@ -19,21 +19,21 @@ docs: 'core/popper.md'
 
 ## Usage
 
-Popper is an utility component used under the hood in `Menu`(not implement yet), `Popover` (not implement yet) and [`Tooltip`](core/tooltip). You can use it to create your own dropdowns and popovers.
+Popper is a utility component used under the hood in `Menu`(not implement yet), `Popover` (not implement yet) and [Tooltip](core/tooltip). You can use it to create your own dropdowns and popovers.
 
 To use Popper, add the following required props:
 
-* `reference` - element (HTML element) based on which popper will be positioned
-* `mounted` - current poppper opened state: `true` to display, `false` to hide
+- `reference` - element (HTML element) based on which popper will be positioned
+- `mounted` - current popper opened state: `true` to display, `false` to hide
 
 ```svelte
 <script>
-    import { Popper } from '@svelteuidev/core';
+	import { Popper } from '@svelteuidev/core';
 </script>
 
-<Button bind:element={reference} on:click={() => mounted = !mounted }>Click here</Button>
+<Button bind:element={reference} on:click={() => (mounted = !mounted)}>Click here</Button>
 <Popper {reference} {mounted}>
-    <div>Popper content</div>
+	<div>Popper content</div>
 </Popper>
 ```
 
@@ -41,18 +41,17 @@ To use Popper, add the following required props:
 
 Popper position is controlled by these props:
 
-* `position` - left, right, bottom or top
-* `placement` - start, right or center
-* `gutter` - spacing between the reference element and the popper dropdown, in px
-* `withArrow` - displays an arrow between the reference element and the popper dropdown, takes into consideration the `position` and `placement`
-* `arrowSize` - the arrow size in px
+- `position` - left, right, bottom or top
+- `placement` - start, right or center
+- `gutter` - spacing between the reference element and the popper dropdown, in px
+- `withArrow` - displays an arrow between the reference element and the popper dropdown, takes into consideration the `position` and `placement`
+- `arrowSize` - the arrow size in px
 
 <Demo demo={PopperDemos.configurator} />
 
 # z-index
 
 By default, Popper has `z-index: 1`, but it can be changed with the `zIndex` prop:
-
 
 ```svelte
 <Popper zIndex={10} {...$$restProps} />

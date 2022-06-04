@@ -42,10 +42,6 @@ The `use-tab-leave` action calls given function when the current tab is switched
 | -------- | ------------------------------------------------- |
 | callback | The callback to be fired when the tab is switched |
 
-## Events
-
-The `use-tab-leave` action does not dispatch any custom events.
-
 ## Definition
 
 ```tsx

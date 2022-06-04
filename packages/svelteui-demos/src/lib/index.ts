@@ -1,9 +1,9 @@
 // Demo components
 export { Demo, CodeDemo, Configurator } from './components';
 
-// examples
-export * as CodeDemoExamples from './examples/CodeDemo';
-export * as ConfiguratorExamples from './examples/Configurator';
+// Theming demos
+export * as CreateStylesDemos from './demos/createStyles';
+export * as ThemeDemos from './demos/theme';
 
 // @svelteui/core
 export * as AppShellDemos from './demos/core/AppShell';
@@ -18,6 +18,7 @@ export * as DividerDemos from './demos/core/Divider';
 export * as KbdDemos from './demos/core/Kbd';
 export * as NumberInputDemos from './demos/core/NumberInput';
 export * as ObserverRenderDemos from './demos/core/ObserverRender';
+export * as OverlayDemos from './demos/core/Overlay';
 export * as PaperDemos from './demos/core/Paper';
 export * as PopperDemos from './demos/core/Popper';
 export * as SeoDemos from './demos/core/Seo';

@@ -43,7 +43,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 **[`@svelteui/motion`](motion/typewriter)** - collection of transitions to utilize on dom elements
 
-**[`@svelteui/prism`](others/prism.md)** - code highlight component built with prism action (coming in v0.6.0 release)
+**[`@svelteui/prism`](others/prism)** - code highlight component built with prism action (coming in v0.6.0 release)
 
 <br />
 

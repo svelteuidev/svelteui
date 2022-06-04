@@ -100,7 +100,7 @@ By default, code has gray color, you can change it to any color from [theme colo
 
 For syntax highlight consult the [prism package](others/prism).
 
-<Preview cols={1} code={prismCode}>
+<Preview width={90} cols={1} code={prismCode}>
     <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
         <Prism language='svelte' code={prismExampleCode} />
     </Box>

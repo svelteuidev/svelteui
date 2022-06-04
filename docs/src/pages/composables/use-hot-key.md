@@ -23,13 +23,13 @@ docs: 'composables/use-hot-key.md'
 - hotkey - hotkey string e.g. ctrl+E, shift+alt+L, mod+S
 - handler - event handler called when given combination was pressed
 
-<Demo demo={ComposableDemos.usehotkeyDemo.usage} />
+<Demo demo={ComposableDemos.useHotKeyDemo.usage} />
 
 ## Targeting elements
 
 `use-hot-key` can only work with the document element; if you need to support other elements then you'll need to create your own event listener. The package includes a getHotkeyHandler function that should be used in conjunction with on:keydown:
 
-<Demo demo={ComposableDemos.usehotkeyDemo.target} />
+<Demo demo={ComposableDemos.useHotKeyDemo.target} />
 
 ## Supported formats
 
@@ -43,10 +43,6 @@ docs: 'composables/use-hot-key.md'
 | Param   | Description                                       |
 | ------- | ------------------------------------------------- |
 | hotkeys | An array of hot keys and their respective actions |
-
-## Events
-
-The use-hotkey action does not dispatch any custom events.
 
 ## Definition
 

@@ -50,31 +50,21 @@ docs: 'core/group.md'
 
 ## Group children
 
-Group component uses the `children` prop to add styles to its children
-
-```svelte
-<Group children={3}>
-    <Button>1</Button>
-    <Button>2</Button>
-    <Button>3</Button>
-</Group>
-```
-
 **!important** Group will work only with elements and Components that render elements. Strings, numbers, fragments and other parts will
 not have correct styles:
 
 ```svelte
 <script>
-    // Invalid Group usage, do not do this
-    import { Group, Fragment } from '@svelteuidev/core';
+	// Invalid Group usage, do not do this
+	import { Group, Fragment } from '@svelteuidev/core';
 </script>
 
 <Group children={3}>
-    First string
-    <Fragment>
-    <div>element inside fragment</div>
-    </Fragment>
-    {20}
+	First string
+	<Fragment>
+		<div>element inside fragment</div>
+	</Fragment>
+	{20}
 </Group>
 ```
 

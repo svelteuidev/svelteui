@@ -70,10 +70,6 @@ You can specify a dom node where portal will be rendered by passing target argum
 | ------ | ---------------------------------------------- |
 | target | DOM element or CSS selector to be appended to. |
 
-## Events
-
-The use-portal action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

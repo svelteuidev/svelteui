@@ -58,15 +58,6 @@ The `use-focus` action is the simplest action out of all. It has a single purpos
     <Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
 </Preview>
 
-
-## Params
-
-This `use-focus` action does not take any params.
-
-## Events
-
-The use-focus action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

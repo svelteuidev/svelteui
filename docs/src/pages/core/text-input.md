@@ -32,6 +32,8 @@ docs: 'core/text-input.md'
 ```svelte
 <script>
 	import { TextInput } from '@svelteuidev/core';
+
+	let value = '';
 </script>
 
 <TextInput bind:value />

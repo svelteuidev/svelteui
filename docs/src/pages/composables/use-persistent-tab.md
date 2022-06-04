@@ -55,10 +55,6 @@ With the `use-persistent-tab` action, you can prevent current tab from being clo
 | ------- | ---------------------------------------------------- |
 | enabled | Determines whether the action should execute or not. |
 
-## Events
-
-The use-persistent-tab action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

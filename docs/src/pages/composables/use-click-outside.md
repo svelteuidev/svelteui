@@ -67,10 +67,6 @@ With the `use-click-outside` action, a callback function will be fired whenever 
 | enabled  | Sets the action to an enabled state if true, if false, action will not trigger |
 | callback | The callback to be fired once the user clicks outside of the DOM node          |
 
-## Events
-
-The `use-click-outside` action does not dispatch any custom events.
-
 ## Definition
 
 ```ts

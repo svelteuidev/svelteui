@@ -11,6 +11,7 @@ docs: 'core/overlay.md'
 ---
 
 <script>
+    import { Demo, OverlayDemos } from '@svelteuidev/demos';
     import { Button, Group, Box, Overlay, Text } from '@svelteuidev/core';
     import { Heading, Preview } from 'components';
 
@@ -99,6 +100,12 @@ You can change overlay opacity (from 0 to 1), color (CSS color value, not connec
     </Group>
 </Preview>
 
+## Display Content
+
+Overlay has a default slot that allows you to display any content over the overlay. A `center` prop can be used to center the content horizontally.
+
+<Demo demo={OverlayDemos.content} />
+
 ## With gradient
 
 <Preview cols={1} code={overlayGradient}>
@@ -136,6 +143,7 @@ Note that blur [is not supported in Firefox](https://caniuse.com/css-backdrop-fi
     <Group children={1} position="center">
         <Button on:click={() => visible = !visible}>Toggle overlay</Button>
     </Group>
+
 </Preview>
 
 ## Custom component

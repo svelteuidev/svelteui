@@ -27,7 +27,8 @@
 	export const type: CodeDemoType['type'] = 'demo';
 
 	export const configuration: CodeDemoConfiguration = {
-		code
+		code,
+		spacing: false
 	};
 </script>
 
