@@ -21,6 +21,7 @@ export interface PopperProps extends DefaultProps<HTMLElement> {
 }
 interface PopperStyleParams {
 	popperPosition: Record<string, number>;
+	arrowPosition: Record<string, number>;
 	arrowSize: number;
 	zIndex: number;
 }
@@ -34,7 +35,7 @@ interface TransitionParams {
 	tick?: (t: number, u: number) => void;
 }
 
-export default createStyles((_, { popperPosition, arrowSize, zIndex }: PopperStyleParams) => {
+export default createStyles((_, { popperPosition, arrowPosition, arrowSize, zIndex }: PopperStyleParams) => {
 	return {
 		root: {
 			position: 'absolute',
@@ -50,8 +51,10 @@ export default createStyles((_, { popperPosition, arrowSize, zIndex }: PopperSty
 			transform: 'rotate(45deg)',
 			border: '1px solid transparent',
 			zIndex: zIndex,
-			top: popperPosition?.arrowTop,
-			left: popperPosition?.arrowLeft
+			top: arrowPosition?.top,
+			left: arrowPosition?.left,
+			right: arrowPosition?.right,
+			bottom: arrowPosition?.bottom
 		}
 	};
 });

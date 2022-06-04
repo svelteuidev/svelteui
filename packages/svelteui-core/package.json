@@ -47,6 +47,7 @@
     "watch": "svelte-kit package -w"
   },
   "dependencies": {
+    "@floating-ui/dom": "0.5.2",
     "@stitches/core": "1.2.8"
   },
   "devDependencies": {
