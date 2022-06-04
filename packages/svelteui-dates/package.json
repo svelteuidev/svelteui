@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/dates",
-  "version": "0.6.3",
+  "version": "0.6.5",
   "private": true,
   "description": "Calendars, date and time pickers based on SvelteUI components",
   "keywords": [
@@ -63,6 +63,6 @@
     "typescript": "4.6.3"
   },
   "peerDependencies": {
-    "@svelteuidev/core": "0.6.3"
+    "@svelteuidev/core": "0.6.5"
   }
 }
