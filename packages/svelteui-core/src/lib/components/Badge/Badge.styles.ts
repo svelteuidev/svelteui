@@ -1,4 +1,4 @@
-import { dark, rgba } from '$lib/styles';
+import { dark, rgba, createStyles } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUIColor,
@@ -8,7 +8,7 @@ import type {
 	VariantThemeFunction
 } from '$lib/styles';
 
-export interface BadgeProps extends DefaultProps {
+export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	color?: SvelteUIColor;
 	variant?: BadgeVariant;
 	gradient?: SvelteUIGradient;
@@ -169,3 +169,58 @@ const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantTh
 		}
 	};
 };
+
+interface BadgeStyleParams {
+	color?: SvelteUIColor;
+	variant?: BadgeVariant;
+	gradient?: SvelteUIGradient;
+	size?: SvelteUISize;
+	radius?: SvelteUINumberSize;
+	fullWidth?: boolean;
+}
+
+export default createStyles(
+	(theme, { color, fullWidth, gradient, radius, size, variant }: BadgeStyleParams) => {
+		const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
+		return {
+			root: {
+				focusRing: 'auto',
+				fontSize,
+				height,
+				WebkitTapHighlightColor: 'transparent',
+				lineHeight: `${height - 2}px`,
+				textDecoration: 'none',
+				padding:
+					typeof size === 'number'
+						? `0 $${size}px`
+						: `0 ${theme.fn.size({ size, sizes: theme.space })}px`,
+				boxSizing: 'border-box',
+				display: fullWidth ? 'flex' : 'inline-flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				width: fullWidth ? '100%' : 'auto',
+				textTransform: 'uppercase',
+				borderRadius: `$${radius}`,
+				fontWeight: 700,
+				letterSpacing: 0.25,
+				cursor: 'default',
+				textOverflow: 'ellipsis',
+				overflow: 'hidden'
+			},
+			leftSection: {
+				marginRight: '$3'
+			},
+			rightSection: {
+				marginLeft: '$3'
+			},
+			inner: {
+				whiteSpace: 'nowrap',
+				overflow: 'hidden',
+				textOverflow: 'ellipsis'
+			},
+			variants: {
+				variation: getVariantStyles(color, variant, size, gradient)
+			}
+		};
+	}
+);

@@ -15,10 +15,6 @@ const config = {
 			plugins: [autoprefixer(), cssnano()]
 		}
 	}),
-	compilerOptions: {
-		generate: 'ssr',
-		hydratable: true
-	},
 	kit: {
 		package: {
 			exports: (filepath) => {
@@ -32,6 +28,9 @@ const config = {
 		},
 		/** @type {import('vite').UserConfig} */
 		vite: {
+			optimizeDeps: {
+				exclude: ['radix-icons-svelte']
+			},
 			test: {
 				globals: true,
 				environment: 'jsdom'

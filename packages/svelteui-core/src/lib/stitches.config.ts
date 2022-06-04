@@ -9,11 +9,16 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			colors,
 			space: {
 				0: '0rem',
-				xs: '10px',
-				sm: '12px',
-				md: '16px',
-				lg: '20px',
-				xl: '24px',
+				xs: 10,
+				sm: 12,
+				md: 16,
+				lg: 20,
+				xl: 24,
+				xsPX: '10px',
+				smPX: '12px',
+				mdPX: '16px',
+				lgPX: '20px',
+				xlPX: '24px',
 				1: '0.125rem',
 				2: '0.25rem',
 				3: '0.375rem',
@@ -118,17 +123,29 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				normal: '2px',
 				bold: '3px',
 				extrabold: '4px',
-				black: '5px'
+				black: '5px',
+				xs: '1px',
+				sm: '2px',
+				md: '3px',
+				lg: '4px',
+				xl: '5px'
+			},
+			breakpoints: {
+				xs: 576,
+				sm: 768,
+				md: 992,
+				lg: 1200,
+				xl: 1400
 			},
 			borderStyles: {},
 			transitions: {}
 		},
 		media: {
-			sm: '(min-width: 640px)',
-			md: '(min-width: 768px)',
-			lg: '(min-width: 1024px)',
-			xl: '(min-width: 1280px)',
-			xxl: '(min-width: 1536px)'
+			xs: '(min-width: 576px)',
+			sm: '(min-width: 768px)',
+			md: '(min-width: 992px)',
+			lg: '(min-width: 1200px)',
+			xl: '(min-width: 1400px)'
 		},
 		utils: {
 			focusRing: (value: 'auto' | 'always' | 'never') => ({
@@ -144,6 +161,9 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				}
 			}),
 			/** padding top */
+			p: (value: Stitches.ScaleValue<'space'>) => ({
+				padding: value
+			}),
 			pt: (value: Stitches.ScaleValue<'space'> | number | string) => ({
 				paddingTop: value
 			}),

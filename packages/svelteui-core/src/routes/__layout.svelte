@@ -1,48 +1,55 @@
 <script lang="ts">
-	import { SvelteUIProvider } from '$lib';
-	import { Button, Text, Center, Container, Stack, Group } from '$lib';
-	import type { SvelteUIGradient } from '$lib';
+	import {
+		SvelteUIProvider,
+		TypographyProvider,
+		Seo,
+		AppShell,
+		Header,
+		Title,
+		Divider,
+		Container,
+		Text
+	} from '$lib';
+	import { fns } from '$lib';
+	import { HeadContent } from '../pages';
+	// import { page } from '$app/stores';
 
-	let darkMode: boolean = false;
-	const toggleTheme = () => {
-		darkMode = !darkMode;
-	};
-
-	const GRADIENTS: SvelteUIGradient[] = [
-		{ from: 'blue', to: 'cyan', deg: 45 },
-		{ from: 'red', to: 'pink', deg: 45 }
-	];
-
-	let x: number;
-	let y: number;
-	$: mobile = x < 525;
+	let opened = false;
+	let isDark = false;
+	function toggleTheme() {
+		isDark = !isDark;
+	}
+	function toggleOpened() {
+		opened = !opened;
+	}
+	// const path = $page?.routeId?.split(' ');
+	// $: currentPage = $page?.routeId === '' ? 'Homepage' : `${path?.[path?.length - 1]?.[0].toUpperCase()}${$page?.routeId?.slice(1)}`;
 </script>
 
-<svelte:window bind:innerWidth={x} bind:innerHeight={y} />
+<Seo titleTemplate="%t% | SvelteUI" />
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={isDark ? 'dark' : 'light'}>
+	<TypographyProvider>
+		<AppShell
+			override={{
+				main: { bc: isDark ? fns.themeColor('dark', 8) : fns.themeColor('gray', 0) },
+				'& .main': { px: 0 }
+			}}
+			fixed
+			navbarOffsetBreakpoint="sm"
+			asideOffsetBreakpoint="sm"
+		>
+			<Header fixed slot="header" height={60} override={{ p: '$mdPX' }}>
+				<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
+			</Header>
 
-<SvelteUIProvider
-	override={{ overflow: 'hidden' }}
-	withGlobalStyles
-	withNormalizeCSS
-	themeObserver={darkMode ? 'dark' : 'light'}
->
-	<Center override={{ pt: '$4' }}>
-		<Group direction={mobile ? 'column' : 'row'} spacing="xl" position="center" noWrap>
-			<Button
-				gradient={darkMode ? GRADIENTS[1] : GRADIENTS[0]}
-				on:click={toggleTheme}
-				variant="gradient">{darkMode ? 'Dark' : 'Light'} Mode</Button
-			>
-			<Stack>
-				<Text weight="bold" size={40} align="center" root="h1">Welcome to a SvelteUI package!</Text>
-				<Text weight="medium" size="xl" align="center" root="p"
-					>This is a test route to test the core package</Text
-				>
-			</Stack>
-		</Group>
-	</Center>
-	<hr />
-	<Container override={{ py: '$10' }} id="main-container" size="xl">
-		<slot />
-	</Container>
+			<Title weight="extrabold" tracking="tight" align="center">
+				This is a test route to test the core package
+			</Title>
+			<Text align="center">TO DO: add inline documentation to undocumented components</Text>
+			<Divider />
+			<Container size="xl" override={{ px: '$10' }}>
+				<slot>This is the main content</slot>
+			</Container>
+		</AppShell>
+	</TypographyProvider>
 </SvelteUIProvider>

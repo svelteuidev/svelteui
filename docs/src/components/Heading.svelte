@@ -1,10 +1,10 @@
 <script lang="ts">
 	// @ts-ignore
 	import { current_page } from '@svelte-docs/get/routes';
-	import { Stack, Box, Title, Text, Group, Center } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/actions';
+	import { Stack, Box, Title, Text, Group, Center, Tooltip } from '@svelteuidev/core';
+	import { clipboard } from '@svelteuidev/composables';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
-	import { screenW, ToolTip } from 'components';
+	import { screenW } from 'components';
 
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/tree/main/packages/',
@@ -42,17 +42,23 @@
 		{/if}
 	</Stack>
 	{#if $current_page.meta?.import}
-		<Group noWrap children={$screenW > 975 ? 2 : 1} spacing={$screenW < 650 ? 10 : 70}>
+		<Group noWrap spacing={$screenW < 650 ? 10 : 70}>
 			{#if $screenW > 975}
 				<Text color="dimmed">Import</Text>
 			{/if}
-			<Box css={importStyles}>
-				<ToolTip tip={copied ? 'Copied' : 'Copy'}>
+			<Tooltip
+				closeDelay={200}
+				withArrow
+				position={$screenW < 500 ? 'top' : 'right'}
+				label={copied ? 'Copied' : 'Copy'}
+				color={copied ? 'green' : 'gray'}
+			>
+				<Box css={importStyles}>
 					<code use:clipboard={$current_page.meta.import} on:useclipboard={onCopy}>
 						{$current_page.meta.import}
 					</code>
-				</ToolTip>
-			</Box>
+				</Box>
+			</Tooltip>
 		</Group>
 	{/if}
 	{#if $current_page.meta?.source}

@@ -1,1 +1,1 @@
-export * from './Prism';
+export * from './Prism/index.js';

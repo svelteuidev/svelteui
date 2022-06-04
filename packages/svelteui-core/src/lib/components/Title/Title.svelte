@@ -1,45 +1,32 @@
 <script lang="ts">
-	import Text from '../Text/Text.svelte';
-	import { css } from '$lib/styles';
+	import useStyles from './Title.styles';
+	import { Text } from '../Text';
 	import { titleSizes } from './Title.styles';
 	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title.styles';
 
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: $$TitleProps['className'] = '';
+	export let use: $$TitleProps['use'] = [],
+		element: $$TitleProps['element'] = undefined,
+		className: $$TitleProps['className'] = '',
+		override: $$TitleProps['override'] = {},
+		align: $$TitleProps['align'] = 'left',
+		order: $$TitleProps['order'] = 1,
+		color: $$TitleProps['color'] = 'dark',
+		transform: $$TitleProps['transform'] = 'none',
+		variant: $$TitleProps['variant'] = 'text',
+		weight: $$TitleProps['weight'] = 'normal',
+		gradient: $$TitleProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
+		inline: $$TitleProps['inline'] = true,
+		lineClamp: $$TitleProps['lineClamp'] = undefined,
+		underline: $$TitleProps['underline'] = undefined,
+		inherit: $$TitleProps['inherit'] = false,
+		href: $$TitleProps['href'] = '',
+		tracking: $$TitleProps['tracking'] = 'normal';
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: $$TitleProps['override'] = {};
-	/** The alignment to be applied to the text */
-	export let align: $$TitleProps['align'] = 'left';
-	/** Defines the style and compoennt to be used */
-	export let order: $$TitleProps['order'] = 1;
-	/** Code color for the text from the default theme */
-	export let color: $$TitleProps['color'] = 'dark';
-	/** Sets the text-transform CSS property of the text*/
-	export let transform: $$TitleProps['transform'] = 'none';
-	/** The variant of the text that dictates how the text behaves and/or looks like */
-	export let variant: $$TitleProps['variant'] = 'text';
-	/** The size of the text from the default theme */
-	export let weight: $$TitleProps['weight'] = 'normal';
-	/** Controls gradient settings in gradient variant only */
-	export let gradient: $$TitleProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 };
-	/** If enabled sets the line-height to 1 to center the text */
-	export let inline: $$TitleProps['inline'] = true;
-	/** Sets the maximum lines of text using CSS -webkit-line-clamp property */
-	export let lineClamp: $$TitleProps['lineClamp'] = undefined;
-	/** Underlines the text */
-	export let underline: $$TitleProps['underline'] = undefined;
-	/** If it should inherit font properties from the parent component */
-	export let inherit: $$TitleProps['inherit'] = false;
-	/** Applies an href to the button component and converts it to an anchor tag */
-	export let href: $$TitleProps['href'] = '';
 
-	let element: HTMLHeadingElements;
-	$: element = `h${order}` as HTMLHeadingElements;
+	let node: HTMLHeadingElements;
+	$: node = `h${order}` as HTMLHeadingElements;
 
-	$: TitleStyles = css({
-		margin: 0
-	});
+	$: ({ cx, getStyles } = useStyles());
 </script>
 
 <!--
@@ -57,10 +44,12 @@ Display text that uses title styling and title HTML tags.
 -->
 
 <Text
-	class="title {className} {TitleStyles({ css: override })}"
-	root={element}
-	{align}
+	bind:element
+	class={cx(className, { title: true }, getStyles({ css: override }))}
+	root={node}
 	size={titleSizes[order].fontSize}
+	{use}
+	{align}
 	{color}
 	{transform}
 	{variant}
@@ -71,6 +60,8 @@ Display text that uses title styling and title HTML tags.
 	{underline}
 	{inherit}
 	{href}
+	{tracking}
+	{...$$restProps}
 >
 	<slot />
 </Text>

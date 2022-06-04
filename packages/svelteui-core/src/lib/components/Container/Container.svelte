@@ -1,39 +1,28 @@
 <script lang="ts">
+	import useStyles from './Container.styles';
 	import Box from '../Box/Box.svelte';
 	import type { ContainerProps as $$ContainerProps } from './Container.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$ContainerProps['use'] = [];
-	/** Used for custom classes to be applied to the text e.g. Tailwind classes */
-	export let className: $$ContainerProps['className'] = '';
+	export let use: $$ContainerProps['use'] = [],
+		element: $$ContainerProps['element'] = undefined,
+		className: $$ContainerProps['className'] = '',
+		override: $$ContainerProps['override'] = {},
+		size: $$ContainerProps['size'] = 'md',
+		fluid: $$ContainerProps['fluid'] = false,
+		sizes: $$ContainerProps['sizes'] = {
+			xs: 540,
+			sm: 720,
+			md: 960,
+			lg: 1140,
+			xl: 1320
+		};
 	export { className as class };
-	/** Css prop for custom theming the component */
-	export let override: $$ContainerProps['override'] = {};
-	/** Predefined container max-width or number for max-width in px */
-	export let size: $$ContainerProps['size'] = 'md';
-	/** If fluid is set to true, size prop is ignored and Container always take 100% of width */
-	export let fluid: $$ContainerProps['fluid'] = false;
-	/** Container sizes */
-	export let sizes: $$ContainerProps['sizes'] = {
-		xs: 540,
-		sm: 720,
-		md: 960,
-		lg: 1140,
-		xl: 1320
-	};
 
-	$: ContainerStyles = {
-		paddingLeft: `$${size}`,
-		paddingRight: `$${size}`,
-		maxWidth: fluid ? '100%' : typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md,
-		marginLeft: 'auto',
-		marginRight: 'auto'
-	};
+	$: ({ cx, getStyles } = useStyles({ fluid, size, sizes }));
 </script>
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Center content horizontally with predefined max-width
 	
@@ -53,6 +42,6 @@ Center content horizontally with predefined max-width
     </Container>
     ```
 -->
-<Box {use} css={{ ...ContainerStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

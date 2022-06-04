@@ -17,10 +17,9 @@ This guide will help you get familiar with core SvelteUI concepts. Please read t
 
 ## SvelteUI packages
 
-- `@svelteuidev/actions` – collection of 11+ svelte actions for state and UI management.
-- `@svelteuidev/core` – core components library with 25+ components
+- `@svelteuidev/core` – core components library with 40+ components
+- `@svelteuidev/composables` – collection of 20+ useful actions and utilities
 - `@svelteui/motion` - collection of transitions and animations
-- `@svelteui/utilities` - collection of helpful utility functions
 - `@svelteuidev/prism` – [code highlight](others/prism) built with [PrismJS](https://prismjs.com/).
 
 ## Dark Theme

@@ -2,7 +2,7 @@
   import { MainLink } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
-	import { StarFilled, QuestionMarkCircled, GithubLogo, Cube, Download } from 'radix-icons-svelte';
+	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
 </script>
 
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
@@ -17,6 +17,7 @@
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
+  - [Version 0.6.5](changelog/v0-6-5)
 - ### Theming
   - [SvelteUIProvider](theming/svelteui-provider)
   - [Creating styles](theming/create-styles)
@@ -26,57 +27,85 @@
   - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
 - ### SvelteUI Core
-  - **<Layout /><Space />Layout**
+  - **<Layout /><Space w="md" />Layout**
+  - [AppShell](core/app-shell)
   - [Container](core/container)
   - [Center](core/center)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
   - [Group](core/group)
-  - **<Input/><Space />Inputs & Actions**
+  - **<Input/><Space w="md" />Inputs & Actions**
   - [ActionIcon](core/action-icon)
   - [Button](core/button)
   - [Checkbox](core/checkbox)
   - [Input](core/input)
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)
+  - [NumberInput](core/number-input)
   - [Switch](core/switch)
-  - **<Dashboard/><Space />Data Display**
+  - [TextInput](core/text-input)
+  - [UnstyledButton](core/unstyled-button)
+  - **<HamburgerMenu/><Space w="md" />Navigation**
+  - [Anchor](core/anchor)
+  - [Burger](core/burger)
+  - [Seo](core/seo)
+  - **<Dashboard/><Space w="md" />Data Display**
   - [Badge](core/badge)
+  - [Card](core/card)
   - [Image](core/image)
+  - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
-  - **<ExclamationTriangle/><Space />Feedback**
+  - **<ExclamationTriangle/><Space w="md" />Feedback**
   - [Loader](core/loader)
-  - **<Stack/><Space />Overlay**
+  - [Skeleton](core/skeleton)
+  - **<Stack/><Space w="md" />Overlay**
+  - [Affix](core/affix)
   - [Overlay](core/overlay)
-  - **<LetterCaseToggle/><Space />Typography**
+  - [Tooltip](core/tooltip)
+  - **<LetterCaseToggle/><Space w="md" />Typography**
   - [Code](core/code)
   - [Text](core/text)
   - [Title](core/title)
-  - **<BoxModel/><Space />Miscellaneous**
+  - [TypographyProvider](core/typography-provider)
+  - **<BoxModel/><Space w="md" />Miscellaneous**
   - [Box](core/box)
   - [BrowserRender](core/browser-render)
+  - [Divider](core/divider)
+  - [ObserverRender](core/observer-render)
+  - [Paper](core/paper)
+  - [Popper](core/popper)
+  - [Portal](core/portal)
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
-- ### SvelteUI Actions
-  - [use-click-outside](actions/use-click-outside)
-  - [use-clipboard](actions/use-clipboard)
-  - [use-css-variable](actions/use-css-variable)
-  - [use-download](actions/use-download)
-  - [use-focus](actions/use-focus)
-  - [use-lazy](actions/use-lazy)
-  - [use-long-press](actions/use-long-press)
-  - [use-persistent-tab](actions/use-persistent-tab)
-  - [use-portal](actions/use-portal)
-  - [use-page-leave](actions/use-page-leave)
-  - [use-tab-leave](actions/use-tab-leave)
-- ### SvelteUI Utilities
-  - [os](utilities/os)
-  - [rafFn](utilities/raf-fn)
-  - [hash](utilities/hash)
+- ### SvelteUI Composables
+  - **<LightningBolt/><Space w="md" />Actions**
+  - [use-click-outside](composables/use-click-outside)
+  - [use-clipboard](composables/use-clipboard)
+  - [use-css-variable](composables/use-css-variable)
+  - [use-download](composables/use-download)
+  - [use-focus](composables/use-focus)
+  - [use-hot-key](composables/use-hot-key)
+  - [use-io](composables/use-io)
+  - [use-lazy](composables/use-lazy)
+  - [use-lock-scroll](composables/use-lock-scroll)
+  - [use-long-press](composables/use-long-press)
+  - [use-persistent-tab](composables/use-persistent-tab)
+  - [use-portal](composables/use-portal)
+  - [use-page-leave](composables/use-page-leave)
+  - [use-tab-leave](composables/use-tab-leave)
+  - **<Archive/><Space w="md" />Utilities**
+  - [use-browser-context](composables/use-browser-context)
+  - [use-eye-dropper](composables/use-eye-dropper)
+  - [use-focus-within](composables/use-focus-within)
+  - [use-hash](composables/use-hash)
+  - [use-mouse-position](composables/use-mouse-position)
+  - [use-os](composables/use-os)
+  - [use-raf-fn](composables/use-raf-fn)
+  - [use-viewport-size](composables/use-viewport-size)
 - ### SvelteUI Motion
   - **Transitions**
   - [Typewriter](motion/typewriter)
   - [Flipboard](motion/flipboard)
-- ### SvelteUI Others
+- ### Other Packages
   - [Prism](others/prism)

@@ -105,7 +105,7 @@ and includes InputWrapper
 
 ## Usage
 
-Input component is used as base for all other inputs ([Select](/core/select/), [TextInput (not yet implemented)](/core/text-input/), [Textarea (not yet implemented)](/core/textarea/) and others).
+Input component is used as base for all other inputs ([TextInput](core/text-input), [Textarea (not yet implemented)](core/textarea) and others).
 The single purpose of Input is to provide shared styles and features to other inputs.
 Use other components listed above to build forms (as they provide better accessibility)
 and Input component as base for your own custom inputs with SvelteUI theme.

@@ -1,28 +1,21 @@
 <script lang="ts">
-	import Box from '../Box/Box.svelte';
+	import useStyles from './Space.styles';
+	import { Box } from '../Box';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
 
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: $$SpaceProps['className'] = '';
+	export let use: $$SpaceProps['use'] = [],
+		element: $$SpaceProps['element'] = undefined,
+		className: $$SpaceProps['className'] = '',
+		override: $$SpaceProps['override'] = {},
+		w: $$SpaceProps['w'] = 0,
+		h: $$SpaceProps['h'] = 0;
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: $$SpaceProps['override'] = {};
-	/** Width, set to add horizontal spacing */
-	export let w: $$SpaceProps['w'] = 0;
-	/** Height, set to add vertical spacing */
-	export let h: $$SpaceProps['h'] = 0;
 
-	$: SpaceStyles = {
-		width: typeof w === 'number' ? `${w}px` : `$${w}`,
-		minWidth: typeof w === 'number' ? `${w}px` : `$${w}`,
-		height: typeof h === 'number' ? `${h}px` : `$${h}`,
-		minHeight: typeof h === 'number' ? `${h}px` : `$${h}`
-	};
+	$: ({ cx, getStyles } = useStyles({ h, w }));
 </script>
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Add horizontal or vertical spacing from theme.
 	
@@ -34,6 +27,6 @@ Add horizontal or vertical spacing from theme.
 		<Space w={30} /> // Width will be set to 30px
     ```
 -->
-<Box css={{ ...SpaceStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

@@ -40,7 +40,7 @@ docs: 'core/input-wrapper.md'
 ```svelte
 // Incorrect usage, input is not accessible
 <InputWrapper label="Input label">
-  <TextInput />
+	<TextInput />
 </InputWrapper>
 
 // TextInput already includes InputWrapper
@@ -49,10 +49,10 @@ docs: 'core/input-wrapper.md'
 
 ## Usage
 
-InputWrapper is used to wrap for all SvelteUI inputs ([Select (not yet implemented)](/core/select/), [TextInput (not yet implemented)](/core/text-input/), [Textarea (not yet implemented)](/core/textarea/) and others).
+InputWrapper is used to wrap for all SvelteUI inputs ([Select (not yet implemented)](core/select), [TextInput](core/text-input), [NumberInput](core/number-input) and others).
 It includes label with optional required asterisk, description and error message.
 
-All SvelteUI inputs support the same props as InputWrapper. You can combine it with [Input](/core/input/) component
+All SvelteUI inputs support the same props as InputWrapper. You can combine it with [Input](core/input) component
 to build your own custom inputs with the same style and behavior.
 
 <Preview cols={1} width={90} code={inputWrapper}>
@@ -74,18 +74,18 @@ To implement this, use `labelElement`:
 
 ```svelte
 <script>
-    import { InputWrapper } from '@svelteuidev/core';
+	import { InputWrapper } from '@svelteuidev/core';
 </script>
 
 <InputWrapper id="with-label">
-    <input id="with-label" />
+	<input id="with-label" />
 </InputWrapper>
 
 // id is not required for div label as it is not connected to any element
 
 <InputWrapper labelElement="div">
-    <input type="radio" name="radio" value="1" />
-    <input type="radio" name="radio" value="2" />
-    <input type="radio" name="radio" value="3" />
+	<input type="radio" name="radio" value="1" />
+	<input type="radio" name="radio" value="2" />
+	<input type="radio" name="radio" value="3" />
 </InputWrapper>
 ```

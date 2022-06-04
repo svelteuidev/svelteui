@@ -1,5 +1,6 @@
 import { theme } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUIColor, LoaderType } from '$lib/styles';
+import type { Component } from '$lib/internal';
+import type { SvelteUINumberSize, SvelteUIColor, LoaderType, DefaultProps } from '$lib/styles';
 
 export const LOADER_SIZES = {
 	xs: 18,
@@ -20,7 +21,7 @@ export interface LoaderPropsExtended extends Partial<SVGElement> {
 	variant?: LoaderType;
 }
 
-export interface LoaderProps {
+export interface LoaderProps extends DefaultProps<Omit<Component, 'prototype'>> {
 	variant: LoaderPropsExtended['variant'];
 	color: LoaderPropsExtended['color'];
 	size: LoaderPropsExtended['size'];

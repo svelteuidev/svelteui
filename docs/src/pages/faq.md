@@ -57,4 +57,4 @@ This allows you to increase specificity over the styles you don’t control. You
 
 ## Can I use other css-in-js libraries or SCSS/SASS with SvelteUI?
 
-Yes, but keep in mind that SvelteUI already uses [stitches](https://stitches.dev), so you might end up with style conflicts and have to overwrite styles with! important. Before selecting other libraries, please consider using SvelteUI's [builtin solution](theming/create-styles.md).
+Yes, but keep in mind that SvelteUI already uses [stitches](https://stitches.dev), so you might end up with style conflicts and have to overwrite styles with! important. Before selecting other libraries, please consider using SvelteUI's [builtin solution](theming/create-styles).

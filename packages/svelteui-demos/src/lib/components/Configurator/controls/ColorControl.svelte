@@ -1,7 +1,8 @@
 <script lang="ts">
+	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type * as Stitches from '@stitches/core';
 	import type { DemoControlColor } from '$lib/types';
-	import { InputWrapper, Group, css } from '@svelteuidev/core';
+	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
 	export let value: string;
@@ -24,22 +25,30 @@
 		'yellow',
 		'orange'
 	];
+
 	const colorStyles = css({
 		focusRing: 'auto',
 		border: 0,
 		appearance: 'none',
 		height: 25,
 		cursor: 'pointer',
-		display: 'flex',
+		display: 'block',
 		alignItems: 'center',
 		justifyContent: 'center',
 		color: 'rgb(255, 255, 255)',
-		flex: '1 0 calc(15% - 4px)',
+		flexGrow: '1 !important',
+		flexShrink: 0,
+		flexBasis: 'calc(15% - 4px)',
 		boxShadow: 'rgb(0 0 0 / 10%) 0px 0px 0px 1px inset, rgb(0 0 0 / 15%) 0px 0px 4px inset',
 		borderRadius: 4,
+		position: 'relative',
 
 		svg: {
-			display: 'none'
+			display: 'none',
+			position: 'absolute',
+			left: '50%',
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
 		},
 
 		'&.active svg': {
@@ -56,7 +65,11 @@
 
 		listOfColors.forEach((color) => {
 			variants[color] = {
-				background: `$${color}500`
+				background: `$${color}500`,
+
+				[`.${dark} &`]: {
+					background: `$${color}700`
+				}
 			};
 		});
 

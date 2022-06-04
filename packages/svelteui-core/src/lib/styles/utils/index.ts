@@ -1,4 +1,4 @@
-export { toRgba } from './to-rgba/to-rgba';
-export { rgba } from './rgba/rgba';
-export { vFunc } from './get-variant-theme/get-variant-theme';
-export { randomID } from './random-id/random-id';
+export { toRgba } from './to-rgba/to-rgba.js';
+export { rgba } from './rgba/rgba.js';
+export { vFunc } from './get-variant-theme/get-variant-theme.js';
+export { randomID } from './random-id/random-id.js';

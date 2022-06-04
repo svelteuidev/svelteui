@@ -11,35 +11,8 @@ docs: 'motion/typewriter.md'
 ---
 
 <script lang='ts'>
-    import { Box, Button } from '@svelteuidev/core';
-	import { typewriter } from '@svelteuidev/motion';
-    import { Heading, Preview } from 'components';
-
-    let visible = false;
-    const toggleVisible = () => {
-        visible = !visible;
-    };
-
-    const code = `
-    <script>
-        import { typewriter } from '@svelteuidev/motion';
-        import { Button } from '@svelteuidev/core';
-
-        let visible = false;
-        const toggleVisible = () => {
-            visible = !visible;
-        };
-    <\/script>
-
-    <div>
-        {#if visible}
-            <p in:typewriter>Now the transition is playing<\/p>
-        {:else}
-            <p>Click the button to play the transition<\/p>
-        {\/if}
-    <\/div>
-    <Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}<\/Button>
-    `
+    import { Demo, MotionDemos } from "@svelteuidev/demos";
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -48,16 +21,7 @@ docs: 'motion/typewriter.md'
 
 The typewriter transition will give your text a typed effect. Just like every other transition, it is triggered by an element entering or leaving the DOM as a result of a state change. If you attempt to use the typewriter transition on non text nodes, it will result in an error.
 
-<Preview override={{'.grid': {maxW: 300, w: 300}}} cols={1} {code}>
-        <div>
-            {#if visible}
-                <p in:typewriter>Now the transition is playing</p>
-            {:else}
-                <p>Click the button to play the transition</p>
-            {/if}
-        </div>
-        <Button fullWidth on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
-</Preview>
+<Demo demo={MotionDemos.typewriterDemo} />
 
 ## Params
 

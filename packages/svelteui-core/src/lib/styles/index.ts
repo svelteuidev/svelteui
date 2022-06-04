@@ -1,6 +1,9 @@
-export * from './utils';
+export * from './utils/index.js';
+export * from './functions/index.js';
+export * from './engine/index.js';
+export * from './SvelteUIProvider/index.js';
 
-export { colors } from './default-colors';
+export { colors } from './default-colors.js';
 export {
 	css,
 	dark,
@@ -12,9 +15,7 @@ export {
 	createTheme,
 	NormalizeCSS,
 	SvelteUIGlobalCSS
-} from '../stitches.config';
-
-export { default as SvelteUIProvider } from './SvelteUIProvider.svelte';
+} from '../stitches.config.js';
 
 /** types exporting */
 import type {
@@ -39,7 +40,9 @@ import type {
 	SvelteUINumberFontSize,
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
-	VariantThemeFunction
+	VariantThemeFunction,
+	Transition,
+	SvelteUIOrAnyColor
 } from './types';
 export type {
 	SvelteUIProviderProps,
@@ -63,5 +66,7 @@ export type {
 	SvelteUINumberFontSize,
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
-	VariantThemeFunction
+	VariantThemeFunction,
+	Transition,
+	SvelteUIOrAnyColor
 };

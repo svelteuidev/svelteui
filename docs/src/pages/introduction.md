@@ -29,23 +29,17 @@ Instead of remaking the same components, recreating custom actions, transitions,
 - Minimal to no third-party dependency usage.
 - Easy setup - **Zero Configuration**
 
-### Undocumented Components
-
-> The docs are still under construction. Some of the library's exported components & functions are still undocumented.
-
 <br />
 
 ## Packages
 
-**[`@svelteui/core`](core/button)** - core components library
+**[`@svelteui/core`](core/button)** - core components library with 40+ components
 
-**[`@svelteui/actions`](actions/use-click-outside)** - library of useful actions
+**[`@svelteui/composables`](composables/use-click-outside)** - collection of 20+ useful actions and utilities
 
 **[`@svelteui/motion`](motion/typewriter)** - collection of transitions to utilize on dom elements
 
-**[`@svelteui/utilities`](utilities/os)** - collection of helpful utility functions
-
-**[`@svelteui/prism`](others/prism.md)** - code highlight component built with prism action (coming in v0.6.0 release)
+**[`@svelteui/prism`](others/prism)** - code highlight component built with prism action (coming in v0.6.0 release)
 
 <br />
 

@@ -21,7 +21,10 @@ module.exports = {
 		node: true
 	},
 	rules: {
+		'no-useless-escape': 'off',
+		'no-extra-boolean-cast': 'off',
 		'@typescript-eslint/no-inferrable-types': 'off',
-		'@typescript-eslint/no-extra-boolean-cast': 'off'
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/no-empty-function': 'off'
 	}
 };

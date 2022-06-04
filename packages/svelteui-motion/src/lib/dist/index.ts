@@ -1,2 +1,2 @@
-export * from './animations';
-export * from './transitions';
+export * from './animations/index.js';
+export * from './transitions/index.js';

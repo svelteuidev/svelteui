@@ -1,41 +1,22 @@
 <script lang="ts">
+	import useStyles from './Stack.styles';
 	import Box from '../Box/Box.svelte';
-	import Error from '$lib/internal/errors/Error.svelte';
-	import type { CSS } from '$lib/styles';
 	import type { StackProps as $$StackProps } from './Stack.styles';
 
-	export let className: $$StackProps['className'] = '';
+	export let use: $$StackProps['use'] = [],
+		element: $$StackProps['element'] = undefined,
+		className: $$StackProps['className'] = '',
+		override: $$StackProps['override'] = {},
+		spacing: $$StackProps['spacing'] = 'md',
+		align: $$StackProps['align'] = 'stretch',
+		justify: $$StackProps['justify'] = 'center';
 	export { className as class };
-	export let override: $$StackProps['override'] = {};
-	export let spacing: $$StackProps['spacing'] = 'md';
-	export let align: $$StackProps['align'] = 'stretch';
-	export let justify: $$StackProps['justify'] = 'center';
 
-	$: StackStyles = {
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: `${align}`,
-		justifyContent: `${justify}`,
-		gap: typeof spacing === 'number' ? `${spacing}px` : `$${spacing}`
-	};
-
-	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
-
-	// if () {
-	// 	observable = true;
-	// 	err = {};
-	// }
-
-	$: if (observable) override = { display: 'none' };
+	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }));
 </script>
-
-<Error {observable} component="Stack" code={err} />
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Compose elements and components in a vertical flex container.
 	
@@ -50,6 +31,6 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box css={{ ...StackStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot />
 </Box>

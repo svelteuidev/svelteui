@@ -1,24 +1,20 @@
 <script lang="ts">
+	import useStyles from './Center.styles';
 	import Box from '../Box/Box.svelte';
 	import type { CenterProps as $$CenterProps } from './Center.styles';
 
-	/** Used for custom classes to be applied to the button e.g. Tailwind classes */
-	export let className: $$CenterProps['className'] = '';
+	export let use: $$CenterProps['use'] = [],
+		element: $$CenterProps['element'] = undefined,
+		className: $$CenterProps['className'] = '',
+		override: $$CenterProps['override'] = {},
+		inline: $$CenterProps['inline'] = false;
 	export { className as class };
-	/** Override prop for custom theming the component */
-	export let override: $$CenterProps['override'] = {};
-	export let inline: $$CenterProps['inline'] = false;
 
-	$: CenterStyles = {
-		display: inline ? 'inline-flex' : 'flex',
-		alignItems: 'center',
-		justifyContent: 'center'
-	};
+	$: ({ cx, getStyles } = useStyles({ inline }));
 </script>
 
 <!--
 @component
-**UNSTABLE**: new API, yet to be vetted.
 
 Centers content vertically and horizontally.
 	
@@ -30,6 +26,6 @@ Centers content vertically and horizontally.
 	</Center>
     ```
 -->
-<Box css={{ ...CenterStyles, ...override }} class={className} {...$$restProps}>
+<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	<slot>This is centered</slot>
 </Box>

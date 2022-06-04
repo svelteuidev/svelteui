@@ -8,7 +8,7 @@
 	const styles = {
 		focusRing: 'auto',
 		display: 'block',
-		padding: '$xl',
+		padding: '$xlPX',
 		borderRadius: '$md',
 		border: `1px solid $gray300`,
 		backgroundColor: 'white',

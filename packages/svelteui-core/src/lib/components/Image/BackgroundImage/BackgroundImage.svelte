@@ -1,32 +1,23 @@
 <script lang="ts">
-	import { css } from '$lib/styles';
+	import useStyles from './BackgroundImage.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { ImageProps as $$ImageProps } from '../Image.styles';
 
-	/** Override prop for custom theming the component's placeholder */
-	export let override: $$ImageProps['override'] = {};
-	/** Predefined radius size from theme or number to set border-radius in px */
-	export let radius: $$ImageProps['radius'] = 0;
-	/** The image src to be used */
-	export let src: $$ImageProps['src'] = '';
-	/** The width of the image that defaults to 100% */
-	export let width: $$ImageProps['width'] = undefined;
-	/** The height of the image that defaults to the original image height adjusted to the width */
-	export let height: $$ImageProps['height'] = undefined;
+	export let use: $$ImageProps['use'] = [],
+		element: $$ImageProps['element'] = undefined,
+		className: $$ImageProps['className'] = '',
+		override: $$ImageProps['override'] = {},
+		radius: $$ImageProps['radius'] = 0,
+		src: $$ImageProps['src'] = '',
+		width: $$ImageProps['width'] = undefined,
+		height: $$ImageProps['height'] = undefined;
+	export { className as class };
 
-	$: BackgroundImageStyles = css({
-		focusRing: 'auto',
-		backgroundSize: 'cover',
-		backgroundPosition: 'center',
-		display: 'block',
-		width: width !== undefined ? `${width}%` : 'auto',
-		height: height !== undefined ? `${height}%` : 'auto',
-		border: 0,
-		textDecoration: 'none',
-		color: 'White',
-		backgroundImage: `url(${src})`,
-		borderRadius: typeof radius === 'string' ? `$${radius}` : radius,
-		padding: '16px'
-	});
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
+
+	$: ({ cx, getStyles } = useStyles({ height, radius, src, width }));
 </script>
 
 <!--
@@ -49,6 +40,11 @@ BackgroundImage component can be used to add any content on image. It is useful 
 	It is suggested to wrap your component in a container element
 -->
 
-<div class={BackgroundImageStyles({ css: override })}>
+<div
+	bind:this={element}
+	use:forwardEvents
+	use:useActions={use}
+	class={cx(className, getStyles({ css: override }))}
+>
 	<slot>Text</slot>
 </div>

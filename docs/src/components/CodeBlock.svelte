@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Box, Button } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/actions';
+	import { clipboard } from '@svelteuidev/composables';
 
 	export let message = '';
 	export let copy = false;

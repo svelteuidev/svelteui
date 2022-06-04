@@ -1,3 +1,4 @@
+export type { Primitive } from './primitive';
+export type { LiteralUnion } from './literal-union';
 export type { Component } from './Component';
-export type { SvelteNode } from './Svelte';
-export type { Fn, Function } from './Helpers';
+export type { Fn, Function } from './helpers';
