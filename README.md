@@ -52,11 +52,13 @@ The [docs](https://svelteui.org/) are still under construction. Some of the libr
 
 ## Packages
 
-- [`@svelteui/core`](https://svelteui.org/core/button) – core components library with 8+ components
-- [`@svelteui/actions`](https://svelteui.org/actions/use-click-outside) – library of useful actions
-- [`@svelteui/motion`](https://svelteui.org/motion/typewriter) – library of transitions to utilize on dom elements
-- [`@svelteui/utilities`](https://svelteui.org/utilities/os) – library of helpful utility functions
-- [`@svelteui/prism`](https://svelteui.org/others/prism) – code highlight component built with prism
+**[`@svelteui/core`](https://svelteui.org/core/button)** - core components library with 40+ components
+
+**[`@svelteui/composables`](https://svelteui.org/composables/use-click-outside)** - collection of 20+ useful actions and utilities
+
+**[`@svelteui/motion`](https://svelteui.org/motion/typewriter)** - collection of transitions to utilize on dom elements
+
+**[`@svelteui/prism`](https://svelteui.org/others/prism)** - code highlight component built with prism action
 
 <br />
 
