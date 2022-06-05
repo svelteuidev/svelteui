@@ -18,6 +18,7 @@ export {
 } from '../stitches.config.js';
 
 /** types exporting */
+import type { Color } from './default-colors';
 import type {
 	SvelteUIProviderProps,
 	DefaultProps,
@@ -68,5 +69,6 @@ export type {
 	SvelteUITextTransform,
 	VariantThemeFunction,
 	Transition,
-	SvelteUIOrAnyColor
+	SvelteUIOrAnyColor,
+	Color
 };

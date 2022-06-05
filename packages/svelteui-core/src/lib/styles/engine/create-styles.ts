@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { css } from '../index.js';
 import { cssFactory } from './css.js';
-import { colorScheme } from '../SvelteUIProvider/svelteui.stores';
 import { fromEntries } from './utils/from-entries/from-entries.js';
-import { theme as themeObj, dark as darkObj, fns as newFns } from '../index.js';
+import { useSvelteUITheme } from '../SvelteUIProvider/default-theme';
 import type { CSS } from '../types';
 import type { SvelteUITheme } from './types';
 
@@ -29,21 +28,8 @@ export function createStyles<Params = void>(
 			: () => getCssObjectOrCssObject;
 
 	function useStyles(params: Params = {} as Params) {
-		let observer;
-		colorScheme.subscribe((val) => (observer = val));
-
 		/** create our new theme object */
-		const theme: SvelteUITheme = {
-			// @ts-ignore
-			...themeObj,
-			colorScheme: observer,
-			dark: darkObj.selector,
-			fn: {
-				themeColor: newFns.themeColor,
-				size: newFns.size,
-				radius: newFns.radius
-			}
-		};
+		const theme: SvelteUITheme = useSvelteUITheme();
 
 		/** store the created dirty object in a variable */
 		const cssObjectDirty: DirtyObject = getCssObject(theme, params);

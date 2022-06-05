@@ -1,28 +1,40 @@
 <script lang="ts" context="module">
-	import { _config } from './svelteui.config';
+	import { config as _config } from './svelteui.config';
+	import { key, useSvelteUIThemeContext } from './svelteui.provider';
 	import { colorScheme } from './svelteui.stores';
+	import { useSvelteUITheme } from './default-theme';
 	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from '../types';
+	import type { SvelteUIProviderContextType } from './svelteui.provider';
 </script>
 
 <script lang="ts">
-	import { dark, theme, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../index';
+	import { dark, theme as light, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
+	import { setContext } from 'svelte';
 
-	export let use: $$SvelteUIProviderProps['use'] = [];
-	export let className: $$SvelteUIProviderProps['className'] = '';
+	export let use: $$SvelteUIProviderProps['use'] = [],
+		className: $$SvelteUIProviderProps['className'] = '',
+		element: $$SvelteUIProviderProps['element'] = undefined,
+		theme: $$SvelteUIProviderProps['theme'] = useSvelteUITheme(),
+		styles: $$SvelteUIProviderProps['styles'] = {},
+		defaultProps: $$SvelteUIProviderProps['defaultProps'] = {},
+		themeObserver: $$SvelteUIProviderProps['themeObserver'] = 'light',
+		withNormalizeCSS: $$SvelteUIProviderProps['withNormalizeCSS'] = false,
+		withGlobalStyles: $$SvelteUIProviderProps['withGlobalStyles'] = false,
+		ssr: $$SvelteUIProviderProps['ssr'] = false,
+		override: $$SvelteUIProviderProps['override'] = {},
+		config: $$SvelteUIProviderProps['config'] = _config,
+		inherit: $$SvelteUIProviderProps['inherit'] = false;
 	export { className as class };
-	export let element: $$SvelteUIProviderProps['element'] = undefined;
-	export let themeObserver: $$SvelteUIProviderProps['themeObserver'] = 'light';
-	export let withNormalizeCSS: $$SvelteUIProviderProps['withNormalizeCSS'] = false;
-	export let withGlobalStyles: $$SvelteUIProviderProps['withGlobalStyles'] = false;
-	export let ssr: $$SvelteUIProviderProps['ssr'] = false;
-	export let override: $$SvelteUIProviderProps['override'] = {};
-	export let config: $$SvelteUIProviderProps['config'] = _config;
 
-	$: {
-		$colorScheme = themeObserver;
-	}
+	let ctx: SvelteUIProviderContextType;
+
+	setContext<SvelteUIProviderContextType>(key, {
+		theme: useSvelteUITheme(),
+		styles: {},
+		defaultProps: {}
+	});
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -44,6 +56,16 @@
 	const globalStylesDark = `<style\tid="svelteui-inject" type="text\/css">body{background-color: ${darkBackground};color: ${darkColor};}<\/style>`; //eslint-disable-line
 	const ProviderStyles = css({});
 
+	$: ctx = useSvelteUIThemeContext();
+	$: overrides = {
+		themeOverride: inherit ? { ...ctx.theme, ...theme } : theme,
+		styles: inherit ? { ...ctx.styles, ...styles } : styles,
+		defaultProps: inherit ? { ...ctx.styles, ...defaultProps } : defaultProps
+	};
+
+	$: {
+		$colorScheme = themeObserver;
+	}
 	$: if (withNormalizeCSS) NormalizeCSS();
 	SvelteUIGlobalCSS();
 </script>
@@ -65,7 +87,7 @@
 	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents
-	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light' ? theme : dark}"
+	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light' ? light : dark}"
 	{...$$restProps}
 >
 	<slot />
