@@ -16,5 +16,5 @@
 </script>
 
 <script>
-	import { ObserverRender, Text, Paper } from '@svelteuidev/core';
+	// import { } from '@svelteuidev/core';
 </script>

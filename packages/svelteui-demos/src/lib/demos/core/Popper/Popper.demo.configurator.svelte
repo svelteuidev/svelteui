@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { Box, Button, Popper } from '@svelteuidev/core';
 
@@ -47,8 +47,22 @@
 				defaultValue: 'start'
 			},
 			{ name: 'gutter', type: 'number', min: -20, max: 20, initialValue: 5, defaultValue: 5 },
-			{ name: 'arrowSize', label: "Arrow size", type: 'number', min: 0, max: 15, initialValue: 5, defaultValue: 5 },
-			{ name: 'withArrow', label: 'With arrow', type: 'boolean', initialValue: true, defaultValue: true }
+			{
+				name: 'arrowSize',
+				label: 'Arrow size',
+				type: 'number',
+				min: 0,
+				max: 15,
+				initialValue: 5,
+				defaultValue: 5
+			},
+			{
+				name: 'withArrow',
+				label: 'With arrow',
+				type: 'boolean',
+				initialValue: true,
+				defaultValue: true
+			}
 		]
 	};
 </script>
@@ -58,22 +72,15 @@
 	import { Box, Button, Center, Popper } from '@svelteuidev/core';
 
 	export let props: PopperStyles.PopperProps = {};
-    
-    let reference;
+
+	let reference;
 </script>
 
 <Center>
 	<Button bind:element={reference}>Reference element</Button>
-    <Popper
-        mounted={true}
-        arrowOverride={{ backgroundColor: '$gray100' }}
-        {reference}
-        {...props}
-    >
-        <Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-			<Center>
-				Popper content
-			</Center>
+	<Popper mounted={true} arrowOverride={{ backgroundColor: '$gray100' }} {reference} {...props}>
+		<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+			<Center>Popper content</Center>
 		</Box>
-    </Popper>
+	</Popper>
 </Center>

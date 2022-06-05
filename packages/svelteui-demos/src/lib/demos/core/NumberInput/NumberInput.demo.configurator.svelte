@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { NumberInput } from '@svelteuidev/core';
 <\/script>
@@ -42,7 +42,8 @@
 				initialValue: false,
 				defaultValue: false
 			}
-		]
+		],
+		multiline: true
 	};
 </script>
 
@@ -53,6 +54,6 @@
 	export let props: Partial<NumberInputStyles.NumberInputProps> = {};
 </script>
 
-<Center>
+d<Center>
 	<NumberInput {...props} />
 </Center>

@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
 <\/script>
@@ -16,8 +16,8 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-            { name: 'label', type: 'string', initialValue: 'Label' },
-            {
+			{ name: 'label', type: 'string', initialValue: 'Label' },
+			{
 				name: 'color',
 				type: 'color',
 				initialValue: 'gray',
@@ -25,7 +25,7 @@
 				when: { control: 'variant', comparator: '!==', value: 'gradient' }
 			},
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
-            {
+			{
 				name: 'position',
 				type: 'select',
 				data: [
@@ -37,7 +37,7 @@
 				initialValue: 'top',
 				defaultValue: 'top'
 			},
-            {
+			{
 				name: 'placement',
 				type: 'select',
 				data: [
@@ -48,7 +48,13 @@
 				initialValue: 'center',
 				defaultValue: 'center'
 			},
-			{ name: 'withArrow', label: 'With arrow', type: 'boolean', initialValue: true, defaultValue: true }
+			{
+				name: 'withArrow',
+				label: 'With arrow',
+				type: 'boolean',
+				initialValue: true,
+				defaultValue: true
+			}
 		]
 	};
 </script>
@@ -57,11 +63,11 @@
 	import type { TooltipStyles } from '@svelteuidev/core';
 	import { Center, Button, Tooltip } from '@svelteuidev/core';
 
-	export let props: TooltipStyles.TooltipProps = { label: "" };
+	export let props: TooltipStyles.TooltipProps = { label: '' };
 </script>
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>
 	<Tooltip opened {...props}>
-        <Button>With tooltip</Button>
-    </Tooltip>
+		<Button>With tooltip</Button>
+	</Tooltip>
 </Center>
