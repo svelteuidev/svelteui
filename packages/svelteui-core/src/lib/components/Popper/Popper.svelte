@@ -1,10 +1,10 @@
 <script lang="ts">
 	import useStyles from './Popper.styles';
-	import { beforeUpdate, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { arrow, computePosition, offset, flip, shift } from '@floating-ui/dom';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
+	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 	export let use: $$PopperProps['use'] = [],
 		element: $$PopperProps['element'] = undefined,
@@ -42,19 +42,20 @@
 	function updatePopper(props) {
 		if (!element || !reference) return;
 
-		const placementString = props.placement !== 'center'
-			? `${props.position}-${props.placement}`
-			: props.position;
+		const placementString = placement !== 'center'
+			? `${position}-${placement}`
+			: position;
 
-		const middleware = [offset(props.gutter), flip(), shift({ padding: '10px' })];
+		const middleware = [offset(gutter), flip(), shift({ padding: 10 })];
 		if (props.withArrow) middleware.push(arrow({ element: arrowElement }));
 
 
 		computePosition(reference, element, {
-			placement: placementString,
+			placement: placementString as Placement,
 			middleware: middleware,
 		}).then(({ x, y, placement, middlewareData }) => {
-			Object.assign(popperPosition, {
+
+			Object.assign(element.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
@@ -66,23 +67,18 @@
 				bottom: 'top',
 				left: 'right',
 			}[placement.split('-')[0]];
-			Object.assign(arrowPosition, {
+
+			// @todo: adapt to add arrowDistance prop
+
+			Object.assign(arrowElement.style, {
 				left: arrowX != null ? `${arrowX}px` : '',
     			top: arrowY != null ? `${arrowY}px` : '',
-				[staticSide]: '-4px'
+				[staticSide]: '-3px'
 			});
 		});
 	}
 
-	onMount(() => {
-		updatePopper({...$$props});
-	});
-
-	beforeUpdate(() => {
-		updatePopper({...$$props});
-	})
-
-	// $: if (global.window) updatePopper({ ...$$props });
+	$: updatePopper({ ...$$props })
 	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex, popperPosition, arrowPosition }));
 
 	const noop = () => position;
