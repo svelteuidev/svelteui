@@ -38,12 +38,8 @@
 			</ActionIcon>
 		</Tooltip>
 		<Tooltip withArrow label={`${mod} + J`}>
-			<ActionIcon
-				variant="default"
-				on:click={toggle}
-				size={30}
-				use={[[hotkey, [['mod+J', toggle]]]]}
-			>
+			<ActionIcon variant="default" on:click={toggle} size={30}>
+				<div use:hotkey={[['mod+J', () => toggle()]]} />
 				{#if isDark}
 					<Moon />
 				{:else}
