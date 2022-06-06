@@ -1,8 +1,9 @@
 <script lang="ts">
 	import useStyles from './Popper.styles';
+	import { calculateArrowPlacement } from './Popper.styles';
 	import { fade } from 'svelte/transition';
-	import { arrow, computePosition, offset, flip, shift } from '@floating-ui/dom';
-	import { get_current_component } from 'svelte/internal';
+	import { arrow, autoUpdate, computePosition, offset, flip, shift } from '@floating-ui/dom';
+	import { get_current_component, onDestroy } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
@@ -26,66 +27,72 @@
 		reference: $$PopperProps['reference'] = null;
 	export { className as class };
 
+	let cleanup = () => {};
 	let arrowElement;
-	let popperPosition = {
-		top: 0,
-		left: 0
-	};
-	let arrowPosition = {
-		top: 0,
-		left: 0
-	};
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	function updatePopper(props) {
+	onDestroy(() => {
+		cleanup();
+	});
+
+	function updatePopper(_props) {
 		if (!element || !reference) return;
 
-		const placementString = placement !== 'center'
-			? `${position}-${placement}`
-			: position;
+		const _placement = placement;
+		const placementString = placement !== 'center' ? `${position}-${placement}` : position;
 
 		const middleware = [offset(gutter), flip(), shift({ padding: 10 })];
-		if (props.withArrow) middleware.push(arrow({ element: arrowElement }));
-
+		if (withArrow) middleware.push(arrow({ element: arrowElement, padding: arrowDistance }));
 
 		computePosition(reference, element, {
 			placement: placementString as Placement,
-			middleware: middleware,
+			middleware: middleware
 		}).then(({ x, y, placement, middlewareData }) => {
-
 			Object.assign(element.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
 
 			const { x: arrowX, y: arrowY } = middlewareData.arrow;
+			const _position = placement.split('-')[0];
 			const staticSide = {
 				top: 'bottom',
 				right: 'left',
 				bottom: 'top',
-				left: 'right',
-			}[placement.split('-')[0]];
+				left: 'right'
+			}[_position];
 
 			// @todo: adapt to add arrowDistance prop
-
 			Object.assign(arrowElement.style, {
-				left: arrowX != null ? `${arrowX}px` : '',
-    			top: arrowY != null ? `${arrowY}px` : '',
-				[staticSide]: '-3px'
+				left: arrowX != null ? `${arrowX}px` : 'unset',
+				top: arrowY != null ? `${arrowY}px` : 'unset',
+				[staticSide]: `${-1 * arrowSize}px`,
+				...(_placement !== 'center'
+					? calculateArrowPlacement(arrowSize, arrowDistance, _position, _placement)
+					: {})
 			});
 		});
 	}
 
-	$: updatePopper({ ...$$props })
-	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex, popperPosition, arrowPosition }));
+	$: {
+		// setup the auto update once the element and reference are mounted
+		// so that udpates to the popper are made when the parent elements
+		// are resized, scroll, etc
+		if (element && reference) {
+			cleanup = autoUpdate(reference, element, () => {
+				updatePopper({ ...$$props });
+			});
+		}
+	}
+
+	$: updatePopper({ ...$$props });
+	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
 
 	const noop = () => position;
 	noop();
 </script>
-
-<!-- <svelte:window on:resize={onResize} on:scroll={onScroll} /> -->
 
 <!--
 @component
@@ -125,7 +132,10 @@ and placement options.
 		out:exitTransition={{ duration: exitTransitionDuration }}
 	>
 		{#if withArrow}
-			<div class={cx(arrowClassName, { arrowClassName: true }, classes.arrowStyles)} bind:this={arrowElement} />
+			<div
+				class={cx(arrowClassName, { arrowClassName: true }, classes.arrowStyles)}
+				bind:this={arrowElement}
+			/>
 		{/if}
 		<slot />
 	</div>
