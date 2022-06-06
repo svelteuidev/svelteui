@@ -4,7 +4,7 @@
 
 - SvelteUI allows you to create fully functional and accessible web applications in less time than ever before. Regardless of design experience.
 
-- This package relies on the @svelteuidev/actions package, so they will come together!
+- This package relies on the @svelteuidev/composables package, so they will come together!
 
 ## Documentation
 
