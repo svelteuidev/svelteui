@@ -48,23 +48,4 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 	import { GithubLogo } from 'radix-icons-svelte';
-
-	let ref;
-	let mounted = true;
 </script>
-
-<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
-<Popper
-	reference={ref}
-	placement="center"
-	position="bottom"
-	{mounted}
-	withArrow={true}
-	arrowOverride={{ backgroundColor: '$gray100' }}
->
-	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-		<Center css={{ width: 100 }}>
-			<Text>This is a very long text</Text>
-		</Center>
-	</Box>
-</Popper>
