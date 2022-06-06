@@ -14,8 +14,8 @@
 		position: $$PopperProps['position'] = 'top',
 		placement: $$PopperProps['placement'] = 'center',
 		gutter: $$PopperProps['gutter'] = 5,
-		arrowSize: $$PopperProps['arrowSize'] = 4,
-		arrowDistance: $$PopperProps['arrowDistance'] = 4,
+		arrowSize: $$PopperProps['arrowSize'] = 3,
+		arrowDistance: $$PopperProps['arrowDistance'] = 3,
 		arrowClassName: $$PopperProps['arrowClassName'] = 'arrow',
 		withArrow: $$PopperProps['withArrow'] = false,
 		zIndex: $$PopperProps['zIndex'] = 1,
@@ -64,7 +64,6 @@
 				left: 'right'
 			}[_position];
 
-			// @todo: adapt to add arrowDistance prop
 			Object.assign(arrowElement.style, {
 				left: arrowX != null ? `${arrowX}px` : 'unset',
 				top: arrowY != null ? `${arrowY}px` : 'unset',
@@ -111,7 +110,7 @@ and placement options.
 		position="bottom"
 		{mounted}
 		withArrow={true}
-		arrowOverride={{ backgroundColor: '$gray100' }}
+		override={{ '& .arrow': { backgroundColor: '$gray100' } }}
 	>
 		<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
 			<Center css={{ width: 100 }}>
