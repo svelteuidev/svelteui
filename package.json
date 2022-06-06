@@ -28,6 +28,7 @@
     "clean": "rimraf packages/*/{node_modules,package,.turbo,types} packages/*/.svelte-kit/{generated,runtime,types}",
     "clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types}",
     "cm": "git add . && ./node_modules/cz-customizable/standalone.js",
+    "cm:noadd": "./node_modules/cz-customizable/standalone.js",
     "coverage": "turbo run coverage --parallel",
     "dev": "turbo run dev --parallel",
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
