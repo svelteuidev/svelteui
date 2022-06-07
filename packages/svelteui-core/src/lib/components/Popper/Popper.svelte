@@ -88,9 +88,6 @@
 
 	$: updatePopper({ ...$$props });
 	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
-
-	const noop = () => position;
-	noop();
 </script>
 
 <!--
