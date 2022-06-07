@@ -31,6 +31,8 @@
     "cm:noadd": "./node_modules/cz-customizable/standalone.js",
     "coverage": "turbo run coverage --parallel",
     "dev": "turbo run dev --parallel",
+    "docs:build": "cd docs && npm run build",
+    "docs:deploy": "npm run docs:build && deno run -A --unstable ./scripts/docs/build.ts && cd docs && npm run deploy:nobuild",
     "docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
     "docs:typecheck": "cd docs && npm run check",
     "fix:bugs": "npm run clean:all && npm i && npm run dev",

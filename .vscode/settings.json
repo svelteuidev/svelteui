@@ -8,6 +8,7 @@
 		"lockscroll",
 		"mousedown",
 		"mouseposition",
+		"nobuild",
 		"okaidia",
 		"onuseclipboard",
 		"onusedownload",
