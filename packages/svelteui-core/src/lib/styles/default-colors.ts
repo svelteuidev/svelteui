@@ -1,5 +1,15 @@
-export const colors: Record<string, string> = {
+import type { SvelteUIColor } from './types';
+
+type Scale = '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+
+type ValidColor = `${SvelteUIColor}${Scale}`;
+
+export type Color = ValidColor | 'primary' | 'white' | 'black';
+
+export const colors: Record<Color, string> = {
 	primary: '#228be6',
+	white: '#ffffff',
+	black: '#000000',
 	dark50: '#C1C2C5',
 	dark100: '#A6A7AB',
 	dark200: '#909296',
@@ -139,6 +149,5 @@ export const colors: Record<string, string> = {
 	orange600: '#fd7e14',
 	orange700: '#f76707',
 	orange800: '#e8590c',
-	orange900: '#d9480f',
-	black: '#000000'
+	orange900: '#d9480f'
 };

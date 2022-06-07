@@ -3,6 +3,7 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
+		"composite": true,
 		"moduleResolution": "node",
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],

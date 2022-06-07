@@ -44,6 +44,8 @@
     "package": "svelte-kit package",
     "pub:test": "npm publish package/",
     "sort": "npx sort-package-json",
+    "test": "vitest --run",
+    "test:watch": "vitest",
     "watch": "svelte-kit package -w"
   },
   "dependencies": {
