@@ -65,24 +65,29 @@ SvelteUI provides all components the `override` prop for overriding styles easil
     </Button>
 </Preview>
 
-## Overriding styles with the css function
+## Overriding styles with the createStyles function
 
-When styling using the [css function](theming/create-styles#styling-with-svelteui), you can also override styles by passing an object to the css property in the function returned from the css function. It may sound confusing at first, but it is much simpler than you may think:
+When styling using the [createStyles function](theming/create-styles#styling-with-svelteui), you can also override styles by passing an object to the css property in the function returned from the createStyles function. It may sound confusing at first, but it is much simpler than you may think:
 
 ```svelte
 <script>
-	import { css } from '@svelteuidev/core';
+	import { createStyles } from '@svelteuidev/core';
 
-    let condition = false
+	let condition = false;
 
-    const styles = css({
-        backgroundColor: 'black',
-        color: 'white'
-    })
+	const useStyles = createStyles((theme, { condition }) => ({
+		root: {
+			backgroundColor: 'black',
+			color: theme.fn.themeColor('red', 7),
+			fontSize: condition ? '22px' : '16px'
+		}
+	}));
+
+	$: ({ getStyles } = useStyles({ condition }));
 </script>
 
 // the returned function can take an object, and the override happens in the css property
-<div class={styles({ css: {color: condition ?  green : red } })}>Some content</div>
+<div class={getStyles({ css: { backgroundColor: '$grape400' } })}>Some content</div>
 ```
 
 ## Overriding the HTML tag

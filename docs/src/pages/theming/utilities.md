@@ -53,7 +53,7 @@ we create a custom set that can be used for styling SvelteUI components or eleme
 
 ## Usage
 
-You can use any of the utilities through the `override` prop or using the `css` function.
+You can use any of the utilities through the `override` prop, the `css` function, or the `createStyles` function.
 
 <Preview cols={1} {code}>
     <Box css={demoStyles} />

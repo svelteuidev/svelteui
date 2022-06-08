@@ -7,7 +7,7 @@
 	import { screenW } from 'components';
 
 	const links = {
-		github: 'https://github.com/svelteuidev/svelteui/tree/main/packages/',
+		github: 'https://github.com/svelteuidev/svelteui/blob/main/packages/',
 		docs: 'https://github.com/svelteuidev/svelteui/blob/main/docs/src/pages/',
 		npm: 'https://www.npmjs.com/package/'
 	};
