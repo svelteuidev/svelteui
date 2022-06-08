@@ -1,0 +1,8 @@
+.gitignore
+package.json
+
+.svelte-kit
+**/.svelte-kit
+
+package
+**/package
