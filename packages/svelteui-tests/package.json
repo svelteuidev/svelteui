@@ -1,25 +1,18 @@
 {
-  "name": "@svelteuidev/prism",
+  "name": "@svelteuidev/tests",
   "version": "0.6.6",
-  "description": "Code highlight with SvelteUI theme",
+  "description": "Svelte testing library utilities",
   "keywords": [
     "svelte",
-    "sveltekit",
-    "ui",
-    "components",
-    "ui-kit",
+    "svelteui",
     "library",
-    "frontend",
-    "code",
-    "highlight",
-    "syntax",
-    "syntax-highlight"
+    "testing"
   ],
   "homepage": "https://svelteui.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/svelteuidev/svelteui",
-    "directory": "packages/svelteui-prism"
+    "directory": "packages/svelteui-tests"
   },
   "license": "MIT",
   "author": "Kamell Perry <kamellperry33@gmail.com>",
@@ -34,38 +27,22 @@
   ],
   "scripts": {
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "dev": "svelte-kit dev",
     "format": "prettier --write --plugin-search-dir=. .",
     "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
-    "pub": "npm publish package/",
-    "pub:test": "npm publish package/",
     "sort": "npx sort-package-json",
     "watch": "svelte-kit package -w"
   },
-  "dependencies": {
-    "@svelteuidev/composables": "0.6.6",
-    "@svelteuidev/core": "0.6.6",
-    "prism-svelte": "0.5.0",
-    "prismjs": "1.28.0"
-  },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.333",
+    "@testing-library/svelte": "3.1.1",
     "autoprefixer": "10.4.4",
     "cssnano": "5.1.7",
+    "jsdom": "19.0.0",
     "postcss": "8.4.12",
     "sass": "1.50.0",
-    "svelte": "3.48.0",
-    "svelte-check": "2.5.0",
-    "svelte-preprocess": "4.10.5",
-    "svelte2tsx": "0.5.7",
     "tslib": "2.3.1",
     "typescript": "4.6.3"
-  },
-  "peerDependencies": {
-    "@svelteuidev/composables": "0.6.6",
-    "@svelteuidev/core": "0.6.6",
-    "svelte": "3.48.0"
   }
 }

@@ -15,7 +15,8 @@ module.exports = {
 		{ value: '@svelteui/motion', name: '@svelteui/motion: A change made in motion package' },
 		{ value: '@svelteui/prism', name: '@svelteui/prism: A change made in prism package' },
 		{ value: '@svelteui/demos', name: '@svelteui/demos: A change made in demos package' },
-		{ value: '@svelteui/dates', name: '@svelteui/dates: A change made in dates package' }
+		{ value: '@svelteui/dates', name: '@svelteui/dates: A change made in dates package' },
+		{ value: '@svelteui/tests', name: '@svelteui/tests: A change made in testing package' }
 	],
 
 	allowTicketNumber: false,

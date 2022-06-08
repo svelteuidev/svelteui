@@ -7,16 +7,13 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
 
-	/** Used for forwarding actions from component */
-	export let use: $$LoaderProps['use'] = [];
-	/** Used for components to bind to elements */
-	export let element: $$LoaderProps['element'] = undefined;
-	/** Defines width of loader */
-	export let size: $$LoaderProps['size'] | number = 'md';
-	/** Loader color from theme */
-	export let color: $$LoaderProps['color'] = 'blue';
-	/** Loader appearance */
-	export let variant: $$LoaderProps['variant'] = 'circle';
+    export let use: $$LoaderProps['use'] = [],
+		element: $$LoaderProps['element'] = undefined,
+		className: $$LoaderProps['className'] = '',
+		size: $$LoaderProps['size']  = 'md',
+		color: $$LoaderProps['color'] = 'blue',
+		variant: $$LoaderProps['variant'] = 'circle';
+    export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -47,5 +44,6 @@ The Loader component creates a loading icon. There are three different Loaders w
 	use={[forwardEvents, [useActions, use]]}
 	color={color === 'white' ? 'white' : getCorrectShade(color)}
 	size={LOADER_SIZES[size]}
+    class={className}
 	{...$$restProps}
 />
