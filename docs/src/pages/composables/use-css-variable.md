@@ -1,12 +1,12 @@
 ---
 title: 'use-css-variable'
-group: 'svelteuidev-actions'
-packageGroup: '@svelteuidev/actions'
-slug: /actions/use-css-variable/
+group: 'svelteuidev-composables'
+packageGroup: '@svelteuidev/composables'
+slug: /composables/use-css-variable/
 description: 'Whenever some of their values change, update css properties on the fly'
-import: "import { cssvariable } from '@svelteuidev/actions';"
-docs: 'actions/use-css-variable.md'
-source: 'svelteui-actions/src/lib/dist/use-css-variable/use-css-variable.ts'
+import: "import { cssvariable } from '@svelteuidev/composables';"
+docs: 'composables/use-css-variable.md'
+source: 'svelteui-composables/src/lib/actions/use-css-variable/use-css-variable.ts'
 ---
 
 <script lang='ts'>
@@ -52,11 +52,12 @@ source: 'svelteui-actions/src/lib/dist/use-css-variable/use-css-variable.ts'
 With the `use-css-variable` action, an object of properties will be treated as css custom variables. By defining this object inside of a `$: ` reactive block, `use-css-variable` can update those css properties on the fly whenever some of its values change.
 
 <Preview cols={1} {code}>
-    <div use:cssvariable={styleVars}>
-        <p>This text is normal</p>
-        <p class="example-text">This text is using the variable</p>
-    </div>
-    <Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
+
+<div use:cssvariable={styleVars}>
+<p>This text is normal</p>
+<p class="example-text">This text is using the variable</p>
+</div>
+<Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
 </Preview>
 
 <style>

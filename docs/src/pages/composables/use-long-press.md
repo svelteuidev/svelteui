@@ -1,12 +1,12 @@
 ---
 title: 'use-long-press'
-group: 'svelteuidev-actions'
-packageGroup: '@svelteuidev/actions'
-slug: /actions/use-long-press/
+group: 'svelteuidev-composables'
+packageGroup: '@svelteuidev/composables'
+slug: /composables/use-long-press/
 description: 'Creates a longpress event when mousedown is above a duration in milliseconds'
-import: "import { longpress } from '@svelteuidev/actions';"
-docs: 'actions/use-long-press.md'
-source: 'svelteui-actions/src/lib/dist/use-long-press/use-long-press.ts'
+import: "import { longpress } from '@svelteuidev/composables';"
+docs: 'composables/use-long-press.md'
+source: 'svelteui-composables/src/lib/actions/use-long-press/use-long-press.ts'
 ---
 
 <script>
@@ -53,17 +53,21 @@ With the `use-long-press` action, a `long press` event is created when `mousedow
 <input type=range bind:value={duration} max={2000} step={100} />
 {duration}ms
 
-<Button 
-    use={[[longpress, duration]]}
-    on:uselongpress={() => pressed = true}
-    on:mouseenter={() => pressed = false}
-    on:touchstart={() => pressed = false}
+<Button
+use={[[longpress, duration]]}
+on:uselongpress={() => pressed = true}
+on:mouseenter={() => pressed = false}
+on:touchstart={() => pressed = false}
+
 >
+
     press and hold
+
 </Button>
 
 {#if pressed}
-    <p>congratulations, you pressed and held for {duration} ms</p>
+
+<p>congratulations, you pressed and held for {duration} ms</p>
 {/if}
 </Preview>
 
@@ -84,5 +88,8 @@ on:uselongpress?: (callback: (any) => unknown) => void;
 ## Definition
 
 ```ts
-export function lazy(node: HTMLElement, attributes: Record<string, number | string>): ReturnType<Action>;
+export function lazy(
+	node: HTMLElement,
+	attributes: Record<string, number | string>
+): ReturnType<Action>;
 ```

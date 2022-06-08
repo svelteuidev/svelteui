@@ -6,7 +6,7 @@ slug: /composables/use-mouse-position/
 description: 'Get mouse position relative to viewport or given element.'
 import: "import { useMousePosition } from '@svelteuidev/composables';"
 docs: 'composables/use-mouse-position.md'
-source: 'svelteui-composables/src/lib/dist/use-mouse-position/use-mouse-position.ts'
+source: 'svelteui-composables/src/lib/utilities/use-mouse-position/use-mouse-position.ts'
 ---
 
 <script lang='ts'>

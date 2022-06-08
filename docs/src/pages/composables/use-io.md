@@ -6,7 +6,7 @@ slug: /composables/use-io/
 description: 'Detect when an element enters or leaves the viewport.'
 import: "import { io } from '@svelteuidev/composables';"
 docs: 'composables/use-io.md'
-source: 'svelteui-composables/src/lib/dist/use-io/use-io.ts'
+source: 'svelteui-composables/src/lib/actions/use-io/use-io.ts'
 ---
 
 <script lang='ts'>

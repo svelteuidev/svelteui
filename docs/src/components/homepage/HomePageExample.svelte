@@ -56,7 +56,7 @@
 				}
 			},
 
-			body: {
+			bodyPreview: {
 				[`${theme.dark} &`]: {
 					backgroundColor: themeColor('dark', 6)
 				},
@@ -106,14 +106,19 @@
 				position: 'relative',
 
 				[BREAKPOINT]: {
-					padding: size({ size: 'xs', sizes: theme.space }),
+					padding: 0,
 					borderTopRightRadius: 0,
-					borderTopLeftRadius: 0
+					borderTopLeftRadius: 0,
+					'& .noCode': {
+						padding: size({ size: 'xs', sizes: theme.space })
+					}
 				}
 			}
 		};
 	});
 
+    /** Prism patch until next version */
+	const override = { pre: { overflow: 'scroll', px: '$lgPX' } };
 	$: ({ cx, classes, getStyles } = useStyles());
 </script>
 
@@ -146,14 +151,14 @@
 		</Group>
 	</Card.Container>
 	<div
-		class={cx(classes.body, {
+		class={cx(classes.bodyPreview, {
 			[classes.bodyWithCode]: false,
 			[classes.bodyRaw]: false
 		})}
 	>
 		<Box class={classes.preview} css={{ zIndex: 1 }}>
 			{#if previewState === 'preview'}
-				<Box css={center ? { d: 'flex', jc: 'center' } : {}}>
+				<Box class='noCode' css={center ? { d: 'flex', jc: 'center' } : {}}>
 					<Group position="center" direction={$mobile ? 'column' : 'row'}>
 						<Animation duration={15} animation="float">
 							<Button ripple>Click Me</Button>
@@ -186,7 +191,7 @@
 				</Box>
 			{:else}
 				<div transition:slide={{ duration: 350, easing: sineInOut }}>
-					<Prism {language} {code} />
+					<Prism {override} {language} {code} />
 				</div>
 			{/if}
 		</Box>

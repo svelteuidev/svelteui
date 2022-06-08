@@ -1,12 +1,12 @@
 ---
 title: 'use-clipboard'
-group: 'svelteuidev-actions'
-packageGroup: '@svelteuidev/actions'
-slug: /actions/use-clipboard/
+group: 'svelteuidev-composables'
+packageGroup: '@svelteuidev/composables'
+slug: /composables/use-clipboard/
 description: 'Copies text to the clipboard when DOM element is clicked'
-import: "import { clipboard } from '@svelteuidev/actions';"
-docs: 'actions/use-clipboard.md'
-source: 'svelteui-actions/src/lib/dist/use-clipboard/use-clipboard.ts'
+import: "import { clipboard } from '@svelteuidev/composables';"
+docs: 'composables/use-clipboard.md'
+source: 'svelteui-composables/src/lib/actions/use-clipboard/use-clipboard.ts'
 ---
 
 <script lang='ts'>
@@ -52,13 +52,12 @@ source: 'svelteui-actions/src/lib/dist/use-clipboard/use-clipboard.ts'
 With the use-clipboard action, text passed into the text param will be copied to the users clipboard.
 
 <Preview cols={1} {code}>
-    <Button
-        use={[[clipboard, textToCopy]]}
-        on:useclipboard={onCopy}
-        color={copied ? 'green' : 'blue'}
-    >
-        {copied ? 'copied' : 'Click me to copy text'}
-    </Button>
+<Button
+use={[[clipboard, textToCopy]]}
+on:useclipboard={onCopy}
+color={copied ? 'green' : 'blue'} >
+{copied ? 'copied' : 'Click me to copy text'}
+</Button>
 </Preview>
 
 ## Params
