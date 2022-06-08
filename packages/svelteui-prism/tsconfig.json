@@ -22,9 +22,14 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"@svelteuidev/core": ["../svelteui-core/src/lib"],
-			"@svelteuidev/composables": ["../svelteui-composables/src/lib"]
+			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
+			"@svelteuidev/tests": ["../svelteui-tests/src/lib"]
 		}
 	},
-	"references": [{ "path": "../svelteui-core" }, { "path": "../svelteui-composables" }],
+	"references": [
+		{ "path": "../svelteui-core" },
+		{ "path": "../svelteui-composables" },
+		{ "path": "../svelteui-tests" }
+	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "static/prism.js"]
 }
