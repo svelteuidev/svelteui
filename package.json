@@ -41,7 +41,6 @@
     "postinstall": "npx patch-package",
     "lint": "turbo run lint --parallel",
     "package": "npm run clean && turbo run package --parallel",
-    "package:tests": "npm run clean && turbo run package --filter=@svelteuidev/tests",
     "pre-commit": "lint-staged",
     "pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
     "prepare": "husky install",
