@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/composables",
-  "version": "0.6.6",
+  "version": "0.6.8",
   "description": "Svelte actions and utilities library",
   "keywords": [
     "svelte",
@@ -45,6 +45,7 @@
     "pub": "npm publish package/",
     "pub:test": "npm publish package/",
     "sort": "npx sort-package-json",
+    "update:lockfile": "npm i",
     "watch": "svelte-kit package -w"
   },
   "devDependencies": {

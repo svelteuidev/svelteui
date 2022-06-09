@@ -5,7 +5,7 @@ index: true
 ---
 
 <script>
-	import { Features, Device, mobile, AllComponents, HomePageExample, Preview, HomePageExampleCode } from 'components';
+	import { Features, Device, mobile, AllComponents, HomePageExample, Preview, HomePageExampleCode, Waves } from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import { portal } from "@svelteuidev/actions";
 	import {
@@ -76,12 +76,6 @@ index: true
 			Don't like what you see? Customize every component anyway you like!
 		</Text>
 		<HomePageExample />
-	</Container>
-	<Container override={{py: '7rem'}} size="xl">
-		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">All Components</Title>
-		<Space h='xl' />
-		<Space h='xl' />
-		<AllComponents />
 	</Container>
 </SvelteUIProvider>
 

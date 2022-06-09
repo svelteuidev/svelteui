@@ -47,8 +47,8 @@ CloseButton is a premade ActionIcon with close icon
 
 <ActionIcon
 	bind:element
+	class={className}
 	{use}
-	{className}
 	{override}
 	{root}
 	{color}

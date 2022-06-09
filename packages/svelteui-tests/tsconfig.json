@@ -1,0 +1,36 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "./.svelte-kit/tsconfig.json",
+	"display": "Svelte",
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "es2020",
+		"lib": ["es2020", "DOM"],
+		"target": "es2020",
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"allowJs": true,
+		"checkJs": true,
+		"paths": {
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
+			"@svelteuidev/core": ["../svelteui-core/src/lib"],
+			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
+			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
+			"@svelteuidev/prism": ["../svelteui-prism/src/lib"]
+		}
+	},
+	"references": [
+		{ "path": "../svelteui-core" },
+		{ "path": "../svelteui-composables" },
+		{ "path": "../svelteui-motion" },
+		{ "path": "../svelteui-prism" }
+	],
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
+}

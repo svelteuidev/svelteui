@@ -6,7 +6,7 @@ slug: /composables/use-focus-within/
 description: 'Detect if any element within has focus.'
 import: "import { useFocusWithin } from '@svelteuidev/composables';"
 docs: 'composables/use-focus-within.md'
-source: 'svelteui-composables/src/lib/dist/use-focus-within/use-focus-within.ts'
+source: 'svelteui-composables/src/lib/utilities/use-focus-within/use-focus-within.ts'
 ---
 
 <script lang='ts'>

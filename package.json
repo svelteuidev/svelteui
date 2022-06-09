@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.6.6",
+  "version": "0.6.8",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -52,7 +52,8 @@
     "repo:sync": "sh scripts/git/sync-branches.sh",
     "repo:update": "sh scripts/git/update-branches.sh",
     "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
-    "test": "turbo run test --parallel"
+    "test": "turbo run test --parallel",
+    "update:lockfile": "turbo run update:lockfile --parallel && rimraf packages/*/node_modules"
   },
   "lint-staged": {
     "*.--parallel": "prettier --write"

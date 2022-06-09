@@ -35,6 +35,10 @@
 			"outputs": [],
 			"cache": false
 		},
+		"update:lockfile": {
+			"outputs": [],
+			"cache": false
+		},
 		"coverage": {
 			"dependsOn": ["^format", "^lint"],
 			"outputs": ["coverage/**"],

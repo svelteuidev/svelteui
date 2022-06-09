@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { Badge, Button, Card, Group, Image, Text, colorScheme, fns } from '@svelteuidev/core';
+	import { useViewportSize } from "@svelteuidev/composables";
+
+	const viewport = useViewportSize()
+	$: ({ width, height } = $viewport)
 
 	const { themeColor } = fns;
 	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
 </script>
 
-<Card.Container override={{ width: 340 }} shadow="sm" p="lg">
+<Card.Container override={{maxW: 340}} shadow="sm" p="lg">
 	<Card.Section first padding="lg">
 		<Image
 			src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
@@ -15,8 +19,13 @@
 	</Card.Section>
 
 	<Group position="apart" override={{ marginBottom: '5px', marginTop: '$smPX' }}>
-		<Text weight={500}>Portugal Porto Adventures</Text>
-		<Badge color="pink" variant="light">On Sale</Badge>
+	    {#if width < 500}
+		    <Badge color="pink" variant="light">On Sale</Badge>
+		    <Text size='lg' weight={500} tracking='tight' override={{mb: '$mdPX'}}>Portugal Porto Adventures</Text>
+		{:else}
+		    <Text size='lg' weight={500} tracking='tight' override={{mb: '$mdPX'}}>Portugal Porto Adventures</Text>
+		    <Badge color="pink" variant="light">On Sale</Badge>
+		{/if}
 	</Group>
 
 	<Text size="sm" override={{ color: secondaryColor, lineHeight: 1.5 }}>

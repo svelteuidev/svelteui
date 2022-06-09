@@ -6,7 +6,7 @@ slug: /composables/use-browser-context/
 description: 'Get access to the reactive browser location API.'
 import: "import { useBrowserContext } from '@svelteuidev/composables';"
 docs: 'composables/use-browser-context.md'
-source: 'svelteui-composables/src/lib/dist/use-browser-context/use-browser-context.ts'
+source: 'svelteui-composables/src/lib/utilities/use-browser-context/use-browser-context.ts'
 ---
 
 <script lang='ts'>

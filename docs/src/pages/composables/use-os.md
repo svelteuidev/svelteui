@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/os/
 description: 'Get user os'
 import: "import { useOs } from '@svelteuidev/composables';"
-source: 'svelteui-composables/src/lib/dist/functions/os/os.ts'
+source: 'svelteui-composables/src/lib/utilities/use-os/use-os.ts'
 docs: 'composables/use-os.md'
 ---
 
