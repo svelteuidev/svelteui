@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/motion",
-  "version": "0.6.6",
+  "version": "0.6.8",
   "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
   "keywords": [
     "svelte",
@@ -41,6 +41,7 @@
     "pub": "npm publish package/",
     "pub:test": "npm publish package/",
     "sort": "npx sort-package-json",
+    "update:lockfile": "npm i",
     "watch": "svelte-kit package -w"
   },
   "devDependencies": {

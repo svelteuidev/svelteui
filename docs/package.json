@@ -4,11 +4,11 @@
 	"version": "0.5.6",
 	"dependencies": {
 		"@svelte-docs/server": "^0.1.6",
-		"@svelteuidev/actions": "0.6.6",
-		"@svelteuidev/core": "0.6.6",
-		"@svelteuidev/motion": "0.6.6",
-		"@svelteuidev/prism": "0.6.6",
-		"@svelteuidev/composables": "0.6.6",
+		"@svelteuidev/actions": "0.6.8",
+		"@svelteuidev/core": "0.6.8",
+		"@svelteuidev/motion": "0.6.8",
+		"@svelteuidev/prism": "0.6.8",
+		"@svelteuidev/composables": "0.6.8",
 		"radix-icons-svelte": "^1.2.1"
 	},
 	"devDependencies": {

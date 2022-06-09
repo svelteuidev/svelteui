@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/tests",
-  "version": "0.6.6",
+  "version": "0.6.8",
   "description": "Svelte testing library utilities",
   "keywords": [
     "svelte",
@@ -32,6 +32,7 @@
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "package": "svelte-kit package",
     "sort": "npx sort-package-json",
+    "update:lockfile": "npm i",
     "watch": "svelte-kit package -w"
   },
   "devDependencies": {
