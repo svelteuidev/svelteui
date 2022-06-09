@@ -19,6 +19,6 @@ jobs:
       - run: npm run format
       - run: npm run lint
       - run: |
-        npm run package:tests
-        npm run test
+          npm run package:tests
+          npm run test
 
