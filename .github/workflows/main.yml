@@ -15,9 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: node --version
-      - run: npm ci
+      - run: npm i
       - run: npm run format
       - run: npm run lint
       - run: npm run package
       - run: npm run test
-
