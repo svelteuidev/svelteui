@@ -12,68 +12,67 @@ docs: 'core/overlay.md'
 
 <script>
     import { Demo, OverlayDemos } from '@svelteuidev/demos';
-    import { Button, Group, Box, Overlay, Text } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
+    import { Heading } from 'components';
 
     let visible = false
     let count = 0
     
-    const overlay = `
-    <script>
-        import { Overlay, Button, Box, Text } from '@svelteuidev/core'
-    <\/script>
+    // const overlay = `
+    // <script>
+    //     import { Overlay, Button, Box, Text } from '@svelteuidev/core'
+    // <\/script>
 
-    <Box css={{ height: 100, position: 'relative' }}>
-        {#if visible}
-            <Overlay opacity={0.6} color="#000" zIndex={5} \/>
-        {/if}
-        <Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
-            {!visible ? 'Click as much as you like' : "Won't click, haha"}
-        <\/Button>
-    <\/Box>
-    <Group children={2} direction='column' position="center">
-        <Text>Count: {count}<\/Text>
-        <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
-    <\/Group>
-    `
-    const overlayGradient = `
-    <script>
-        import { Overlay, Button, Box } from '@svelteuidev/core'
-    <\/script>
+    // <Box css={{ height: 100, position: 'relative' }}>
+    //     {#if visible}
+    //         <Overlay opacity={0.6} color="#000" zIndex={5} \/>
+    //     {/if}
+    //     <Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
+    //         {!visible ? 'Click as much as you like' : "Won't click, haha"}
+    //     <\/Button>
+    // <\/Box>
+    // <Group children={2} direction='column' position="center">
+    //     <Text>Count: {count}<\/Text>
+    //     <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
+    // <\/Group>
+    // `
+    // const overlayGradient = `
+    // <script>
+    //     import { Overlay, Button, Box } from '@svelteuidev/core'
+    // <\/script>
 
-    <Box
-      css={{
-        position: 'relative',
-        height: 200,
-        width: '100%',
-        maxWidth: 400,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-        <Button>Under overlay<\/Button>
-        <Overlay gradient={\`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)\`} \/>
-    <\/Box>
-    `
-    const overlayBlur = `
-    <script>
-        import { Overlay, Box, Group, Button } from '@svelteuidev/core'
-    <\/script>
+    // <Box
+    //   css={{
+    //     position: 'relative',
+    //     height: 200,
+    //     width: '100%',
+    //     maxWidth: 400,
+    //     marginLeft: 'auto',
+    //     marginRight: 'auto',
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //   }}
+    // >
+    //     <Button>Under overlay<\/Button>
+    //     <Overlay gradient={\`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)\`} \/>
+    // <\/Box>
+    // `
+    // const overlayBlur = `
+    // <script>
+    //     import { Overlay, Box, Group, Button } from '@svelteuidev/core'
+    // <\/script>
 
-    <Box css={{ height: 100, position: 'relative' }}>
-        {#if visible}
-            <Overlay opacity={0.6} color="#000" zIndex={5} blur={2} \/>
-        {/if}
-        Overlay with a blur
-    <\/Box>
+    // <Box css={{ height: 100, position: 'relative' }}>
+    //     {#if visible}
+    //         <Overlay opacity={0.6} color="#000" zIndex={5} blur={2} \/>
+    //     {/if}
+    //     Overlay with a blur
+    // <\/Box>
 
-    <Group children={1} position="center">
-        <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
-    <\/Group>
-    `
+    // <Group children={1} position="center">
+    //     <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
+    // <\/Group>
+    // `
 </script>
 
 <Heading />
@@ -85,20 +84,7 @@ It is used to build components like [Modal](/core/modal/) and [LoadingOverlay](/
 
 You can change overlay opacity (from 0 to 1), color (CSS color value, not connected to SvelteUI theme) and z-index (number).
 
-<Preview cols={1} code={overlay}>
-    <Box css={{ height: 100, position: 'relative' }}>
-        {#if visible}
-            <Overlay opacity={0.6} color="#000" zIndex={5} />
-        {/if}
-        <Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
-            {!visible ? 'Click as much as you like' : "Won't click, haha"}
-        </Button>
-    </Box>
-    <Group children={2} direction='column' position="center">
-        <Text>Count: {count}</Text>
-        <Button on:click={() => visible = !visible}>Toggle overlay</Button>
-    </Group>
-</Preview>
+<Demo demo={OverlayDemos.usage} />
 
 ## Display Content
 
@@ -108,43 +94,14 @@ Overlay has a default slot that allows you to display any content over the overl
 
 ## With gradient
 
-<Preview cols={1} code={overlayGradient}>
-    <Box
-      css={{
-        position: 'relative',
-        height: 200,
-        width: '100%',
-        maxWidth: 400,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-        <Button>Under overlay</Button>
-        <Overlay gradient={`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)`} />
-    </Box>
-</Preview>
+<Demo demo={OverlayDemos.gradient} />
 
 ## With blur
 
 To blur the overlay backdrop, set the `blur` prop with a number. This will set the backdrop blur in px.
 Note that blur [is not supported in Firefox](https://caniuse.com/css-backdrop-filter).
 
-<Preview cols={1} code={overlayBlur}>
-    <Box css={{ height: 100, position: 'relative' }}>
-        {#if visible}
-            <Overlay opacity={0.6} color="#000" zIndex={5} blur={2} />
-        {/if}
-        Overlay with a blur
-    </Box>
-
-    <Group children={1} position="center">
-        <Button on:click={() => visible = !visible}>Toggle overlay</Button>
-    </Group>
-
-</Preview>
+<Demo demo={OverlayDemos.blur} />
 
 ## Custom component
 

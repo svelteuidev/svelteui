@@ -11,29 +11,8 @@ docs: 'core/space.md'
 ---
 
 <script>
-    import { Space, Text } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const spaceHorizontal = `
-    <script>
-        import { Space } from '@svelteuidev/core'
-    <\/script>
-
-    <Text>First line<\/Text>
-    <Space h="md" \/>
-    <Text>Second line<\/Text>
-    `
-    const spaceVertical = `
-    <script>
-        import { Space } from '@svelteuidev/core'
-    <\/script>
-
-    <div style='display: flex;'>
-        <Text>First line<\/Text>
-        <Space w="md" \/>
-        <Text>Second line<\/Text>
-    <\/div>
-    `
+    import { Demo, SpaceDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -42,21 +21,11 @@ docs: 'core/space.md'
 
 Use Space component to add horizontal or vertical spacing between elements:
 
-<Preview cols={1} code={spaceHorizontal}>
-    <Text>First line</Text>
-    <Space h="md" />
-    <Text>Second line</Text>
-</Preview>
+<Demo demo={SpaceDemos.configurator} />
 
 <br />
 
-<Preview cols={1} code={spaceVertical}>
-    <div style='display: flex;'>
-        <Text>First line</Text>
-        <Space w="md" />
-        <Text>Second line</Text>
-    </div>
-</Preview>
+<Demo demo={SpaceDemos.configuratorW} />
 
 ## Where to use
 

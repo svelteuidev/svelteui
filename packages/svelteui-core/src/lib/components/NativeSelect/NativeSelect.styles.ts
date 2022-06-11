@@ -1,4 +1,5 @@
 import type { DefaultProps, Override, SvelteUISize } from '$lib/styles';
+import type { Component } from '$lib/internal';
 import type { InputBaseProps } from '../Input/Input.styles';
 import type { InputWrapperBaseProps } from '../InputWrapper/InputWrapper.styles';
 
@@ -11,10 +12,11 @@ export interface SelectItem {
 }
 
 export interface NativeSelectProps extends DefaultProps, InputBaseProps, InputWrapperBaseProps {
-	id: string;
-	placeholder: string;
-	data: (string | SelectItem)[];
-	inputStyle: Override['props'];
-	wrapperProps: Record<string, unknown>;
-	size: SvelteUISize;
+	id?: string;
+	placeholder?: string;
+	data?: (string | SelectItem)[];
+	inputStyle?: Override['props'];
+	wrapperProps?: Record<string, unknown>;
+	size?: SvelteUISize;
+	rightSection?: HTMLElement | Component;
 }

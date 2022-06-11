@@ -31,10 +31,10 @@
   - [AppShell](core/app-shell)
   - [Container](core/container)
   - [Center](core/center)
+  - [Group](core/group)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
-  - [Group](core/group)
   - **<Input/><Space w="md" />Inputs & Actions**
   - [ActionIcon](core/action-icon)
   - [Button](core/button)

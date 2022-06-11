@@ -11,153 +11,122 @@ docs: 'core/checkbox.md'
 ---
 
 <script>
-    import { Checkbox, CheckboxGroup, Text, Title } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
+    import { Demo, CheckboxDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 
-    const items = [
-		{
-			value: "@svelteuidev/core",
-			label: "@svelteuidev/core"
-		},
-		{
-			value: "@svelteuidev/actions",
-			label: "@svelteuidev/actions"
-		},
-		{
-			value: "@svelteuidev/utilities",
-			label: "@svelteuidev/utilities"
-		},
-		{
-			value: "@svelteuidev/motion",
-			label: "@svelteuidev/motion"
-		},
-		{
-			value: "@svelteuidev/prism",
-			label: "@svelteuidev/prism"
-		}
-	];
-    let packages = ["@svelteuidev/core", "@svelteuidev/actions"];
+    // const items = [
+	// 	{
+	// 		value: "@svelteuidev/core",
+	// 		label: "@svelteuidev/core"
+	// 	},
+	// 	{
+	// 		value: "@svelteuidev/actions",
+	// 		label: "@svelteuidev/actions"
+	// 	},
+	// 	{
+	// 		value: "@svelteuidev/utilities",
+	// 		label: "@svelteuidev/utilities"
+	// 	},
+	// 	{
+	// 		value: "@svelteuidev/motion",
+	// 		label: "@svelteuidev/motion"
+	// 	},
+	// 	{
+	// 		value: "@svelteuidev/prism",
+	// 		label: "@svelteuidev/prism"
+	// 	}
+	// ];
+    // let packages = ["@svelteuidev/core", "@svelteuidev/actions"];
 
-    const checkbox = `
-    <script>
-        import { Checkbox } from '@svelteuidev/core'
-    <\/script>
+    // const checkbox = `
+    // <script>
+    //     import { Checkbox } from '@svelteuidev/core'
+    // <\/script>
 
-    <Checkbox label="I agree to sell my privacy"\/>
-    <Checkbox
-        label="I agree to sell my privacy"
-        color="red"
-        radius="xl"
-        size="xl"
-    \/>
-    <Checkbox
-        label="I agree to sell my privacy"
-        color="violet"
-        radius="xs"
-        size="md"
-        disabled
-    \/>
-    `
-    const checkboxStates = `
-    <script>
-        import { Checkbox } from '@svelteuidev/core'
-    <\/script>
+    // <Checkbox label="I agree to sell my privacy"\/>
+    // <Checkbox
+    //     label="I agree to sell my privacy"
+    //     color="red"
+    //     radius="xl"
+    //     size="xl"
+    // \/>
+    // <Checkbox
+    //     label="I agree to sell my privacy"
+    //     color="violet"
+    //     radius="xs"
+    //     size="md"
+    //     disabled
+    // \/>
+    // `
+    // const checkboxStates = `
+    // <script>
+    //     import { Checkbox } from '@svelteuidev/core'
+    // <\/script>
 
-    <Checkbox checked={false} label="Default checkbox" \/>
-    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
-    <Checkbox checked label="Checked checkbox" \/>
-    <Checkbox disabled label="Disabled checkbox" \/>
-    <Checkbox disabled checked label="Disabled checked checkbox" \/>
-    <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" \/>
-    `
-    const checkboxSizes = `
-    <script>
-        import { Checkbox } from '@svelteuidev/core'
-    <\/script>
+    // <Checkbox checked={false} label="Default checkbox" \/>
+    // <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
+    // <Checkbox checked label="Checked checkbox" \/>
+    // <Checkbox disabled label="Disabled checkbox" \/>
+    // <Checkbox disabled checked label="Disabled checked checkbox" \/>
+    // <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" \/>
+    // `
+    // const checkboxSizes = `
+    // <script>
+    //     import { Checkbox } from '@svelteuidev/core'
+    // <\/script>
 
-    {#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
-        <Checkbox size={size} label={\`$\{size\} checkbox\`}\/>
-    {/each}
-    `
-    const checkboxIndeterminateState = `
-    <script>
-        import { Checkbox } from '@svelteuidev/core'
-    <\/script>
+    // {#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
+    //     <Checkbox size={size} label={\`$\{size\} checkbox\`}\/>
+    // {/each}
+    // `
+    // const checkboxIndeterminateState = `
+    // <script>
+    //     import { Checkbox } from '@svelteuidev/core'
+    // <\/script>
 
-    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
-    <Checkbox checked={true} indeterminate label="Indeterminate checkbox" \/>
-    `
-    const checkboxCheckboxGroup = `
-    <script>
-        import { CheckboxGroup } from '@svelteuidev/core'
-    <\/script>
+    // <Checkbox checked={false} indeterminate label="Indeterminate checkbox" \/>
+    // <Checkbox checked={true} indeterminate label="Indeterminate checkbox" \/>
+    // `
+    // const checkboxCheckboxGroup = `
+    // <script>
+    //     import { CheckboxGroup } from '@svelteuidev/core'
+    // <\/script>
 
-    <CheckboxGroup
-	 	items={items} 
-	 	bind:value={packages} 
-	 	label={"Choose your packages"} 
-	 \/>
-     <Title align='center'>Packages<\/Title>
-     <Text align='center'>{packages}<\/Text>
-    `
+    // <CheckboxGroup
+	//  	items={items} 
+	//  	bind:value={packages} 
+	//  	label={"Choose your packages"} 
+	//  \/>
+    //  <Title align='center'>Packages<\/Title>
+    //  <Text align='center'>{packages}<\/Text>
+    // `
 </script>
 
 <Heading />
 
 ## Usage
 
-<Preview cols={1} code={checkbox}>
-    <Checkbox label="I agree to sell my privacy"/>
-    <Checkbox
-        label="I agree to sell my privacy"
-        color="red"
-        radius="xl"
-        size="xl"
-    />
-    <Checkbox
-        label="I agree to sell my privacy"
-        color="violet"
-        radius="xs"
-        size="md"
-        disabled
-    />
-</Preview>
+<Demo demo={CheckboxDemos.configurator} />
 
 ## States
 
-<Preview cols={1} code={checkboxStates}>
-    <Checkbox checked={false} label="Default checkbox" />
-    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" />
-    <Checkbox checked label="Checked checkbox" />
-    <Checkbox disabled label="Disabled checkbox" />
-    <Checkbox disabled checked label="Disabled checked checkbox" />
-    <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" />
-</Preview>
+<Demo demo={CheckboxDemos.states} />
+
+## Replace icon
+
+<Demo demo={CheckboxDemos.icon} />
 
 ## Sizes
 
-Checkbox has 5 predefined sizes: xs, sm, md, lg, xl. Size defines label font-size, input width and height:
+Checkbox has 5 predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Size defines label font-size and input width and height:
 
-```svelte
-<Checkbox size="xl" /> // -> predefined xl size
-```
-
-<Preview cols={1} code={checkboxSizes}>
-{#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
-    <Checkbox size={size} label={`${size} checkbox`}/>
-{/each}
-</Preview>
+<Demo demo={CheckboxDemos.sizes} />
 
 ## Indeterminate state
 
-Checkbox supports indeterminate state. When `indeterminate` prop is true,
-`checked` prop is ignored:
+Checkbox supports indeterminate state. When `indeterminate` prop is true, `checked` prop is ignored:
 
-<Preview cols={1} code={checkboxIndeterminateState}>
-    <Checkbox checked={false} indeterminate label="Indeterminate checkbox" />
-    <Checkbox checked={true} indeterminate label="Indeterminate checkbox" />
-</Preview>
-
+<Demo demo={CheckboxDemos.indeterminate} />
 
 ## Accessibility
 
@@ -169,14 +138,24 @@ Provide `aria-label` in case you use checkbox without label for screen reader su
 <Checkbox aria-label="My checkbox" /> // -> ok, label is not visible but will be announced by screen reader
 ```
 
-## CheckboxGroup
+# CheckboxGroup
 
-<Preview cols={1} code={checkboxCheckboxGroup}>
-    <CheckboxGroup
-	 	items={items} 
-	 	bind:value={packages} 
-	 	label={"Choose your packages"} 
-	 />
-     <Title align='center'>Packages</Title>
-     <Text align='center'>{packages}</Text>
-</Preview>
+<Demo demo={CheckboxDemos.groupConfigurator} />
+
+## Controlled
+
+```svelte
+<script>
+    import { CheckboxGroup } from '@svelteuidev/core';
+
+    const items = [
+        { label: 'Svelte', value: 'svelte' },
+        { label: 'React', value: 'react' },
+        { label: 'Vue', value: 'vue' },
+        { label: 'Angular', value: 'angular' },
+        { label: 'Solid', value: 'solid' }
+    ];
+</script>
+
+<CheckboxGroup {items} value={['svelte']} />
+```

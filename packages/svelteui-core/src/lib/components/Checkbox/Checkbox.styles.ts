@@ -3,17 +3,17 @@ import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } fr
 import type { Component } from '$lib/internal';
 
 export interface CheckboxProps extends DefaultProps {
-	color: SvelteUIColor;
-	id: string;
-	checked: boolean;
-	disabled: boolean;
-	indeterminate: boolean;
-	value: string;
-	label: Component | string;
-	radius: SvelteUINumberSize | number;
-	size: SvelteUISize;
-	transitionDuration: number;
-	wrapperProps: { [key: string]: any };
+	color?: SvelteUIColor;
+	id?: string;
+	checked?: boolean;
+	disabled?: boolean;
+	indeterminate?: boolean;
+	value?: string;
+	label?: Component | string;
+	radius?: SvelteUINumberSize | number;
+	size?: SvelteUISize;
+	transitionDuration?: number;
+	wrapperProps?: { [key: string]: any };
 }
 
 interface CheckboxStyleParams {

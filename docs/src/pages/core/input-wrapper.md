@@ -11,24 +11,8 @@ docs: 'core/input-wrapper.md'
 ---
 
 <script>
-    import { InputWrapper, Input } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const inputWrapper = `
-    <script>
-        import { InputWrapper, Input } from '@svelteuidev/core'
-    <\/script>
-
-    <InputWrapper
-        id="input-demo"
-        required
-        label="Credit card information"
-        description="Please enter your credit card information, we need some money"
-        error="Your credit card expired"
-    >
-        <Input id="input-demo" placeholder="Your email" \/>
-    <\/InputWrapper>
-    `
+    import { Demo, InputWrapperDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -55,17 +39,7 @@ It includes label with optional required asterisk, description and error message
 All SvelteUI inputs support the same props as InputWrapper. You can combine it with [Input](core/input) component
 to build your own custom inputs with the same style and behavior.
 
-<Preview cols={1} width={90} code={inputWrapper}>
-    <InputWrapper
-        id="input-demo"
-        required
-        label="Credit card information"
-        description="Please enter your credit card information, we need some money"
-        error="Your credit card expired"
-    >
-        <Input id="input-demo" placeholder="Your email" />
-    </InputWrapper>
-</Preview>
+<Demo demo={InputWrapperDemos.configurator} />
 
 ## Change label element
 

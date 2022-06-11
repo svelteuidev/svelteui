@@ -12,7 +12,7 @@
 		element: $$CheckboxProps['element'] = undefined,
 		className: $$CheckboxProps['className'] = '',
 		override: $$CheckboxProps['override'] = {},
-		color: $$CheckboxProps['color'] = 'gray',
+		color: $$CheckboxProps['color'] = 'blue',
 		id: $$CheckboxProps['id'] = randomID(),
 		disabled: $$CheckboxProps['disabled'] = false,
 		value: $$CheckboxProps['value'] = null,
@@ -59,7 +59,7 @@ A checkbox input component using the theme styles with support for a label and i
 			{value}
 			{id}
 		/>
-		<ThemeIcon class={classes.iconWrapper} {size}>
+		<ThemeIcon class={classes.iconWrapper} variant={null} {size}>
 			<slot>
 				<CheckboxIcon class={classes.icon} {indeterminate} />
 			</slot>
