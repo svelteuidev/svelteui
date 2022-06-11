@@ -13,66 +13,6 @@ docs: 'core/overlay.md'
 <script>
     import { Demo, OverlayDemos } from '@svelteuidev/demos';
     import { Heading } from 'components';
-
-    let visible = false
-    let count = 0
-    
-    // const overlay = `
-    // <script>
-    //     import { Overlay, Button, Box, Text } from '@svelteuidev/core'
-    // <\/script>
-
-    // <Box css={{ height: 100, position: 'relative' }}>
-    //     {#if visible}
-    //         <Overlay opacity={0.6} color="#000" zIndex={5} \/>
-    //     {/if}
-    //     <Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
-    //         {!visible ? 'Click as much as you like' : "Won't click, haha"}
-    //     <\/Button>
-    // <\/Box>
-    // <Group children={2} direction='column' position="center">
-    //     <Text>Count: {count}<\/Text>
-    //     <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
-    // <\/Group>
-    // `
-    // const overlayGradient = `
-    // <script>
-    //     import { Overlay, Button, Box } from '@svelteuidev/core'
-    // <\/script>
-
-    // <Box
-    //   css={{
-    //     position: 'relative',
-    //     height: 200,
-    //     width: '100%',
-    //     maxWidth: 400,
-    //     marginLeft: 'auto',
-    //     marginRight: 'auto',
-    //     display: 'flex',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //   }}
-    // >
-    //     <Button>Under overlay<\/Button>
-    //     <Overlay gradient={\`linear-gradient(105deg, black 20%, #312f2f 50%, $gray400 100%)\`} \/>
-    // <\/Box>
-    // `
-    // const overlayBlur = `
-    // <script>
-    //     import { Overlay, Box, Group, Button } from '@svelteuidev/core'
-    // <\/script>
-
-    // <Box css={{ height: 100, position: 'relative' }}>
-    //     {#if visible}
-    //         <Overlay opacity={0.6} color="#000" zIndex={5} blur={2} \/>
-    //     {/if}
-    //     Overlay with a blur
-    // <\/Box>
-
-    // <Group children={1} position="center">
-    //     <Button on:click={() => visible = !visible}>Toggle overlay<\/Button>
-    // <\/Group>
-    // `
 </script>
 
 <Heading />
