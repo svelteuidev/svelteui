@@ -6,13 +6,19 @@ import { useSvelteUITheme } from '../SvelteUIProvider/default-theme';
 import type { CSS } from '../types';
 import type { SvelteUITheme } from './types';
 
+type CreateRef = (refName: string) => string;
+
 export interface DirtyObject {
 	[key: string]: CSS;
 	root: CSS;
 }
 
+function createRef(refName: string) {
+	return `__svelteui-ref-${refName || ''}`;
+}
+
 /**
- * custom made css-in-js styling function with high customizable and many features
+ * custom made css-in-js styling function that is highly customizable and has many features
  *
  * allows you to subscribe to the current theme context
  *
@@ -20,26 +26,29 @@ export interface DirtyObject {
  * @returns
  */
 export function createStyles<Params = void>(
-	getCssObjectOrCssObject: ((theme: SvelteUITheme, params: Params) => DirtyObject) | DirtyObject
+	input: ((theme: SvelteUITheme, params: Params, createRef: CreateRef) => DirtyObject) | DirtyObject
 ) {
-	const getCssObject =
-		typeof getCssObjectOrCssObject === 'function'
-			? getCssObjectOrCssObject
-			: () => getCssObjectOrCssObject;
+	const getCssObject = typeof input === 'function' ? input : () => input;
 
 	function useStyles(params: Params = {} as Params) {
 		/** create our new theme object */
 		const theme: SvelteUITheme = useSvelteUITheme();
+		const { cx } = cssFactory();
 
 		/** store the created dirty object in a variable */
-		const cssObjectDirty: DirtyObject = getCssObject(theme, params);
+		const cssObjectDirty: DirtyObject = getCssObject(theme, params, createRef);
 		/** clone the dirty object to modify it's properties */
 		const sanitizeObject = Object.assign({}, cssObjectDirty);
 
 		/** takes all keys and maps them to the proper string values */
+		let ref: string;
 		Object.keys(sanitizeObject).map((value) => {
 			if (value === 'variants') return;
+
 			sanitizeObject[`& .${value}`] = sanitizeObject[value];
+
+			if ('ref' in sanitizeObject[value]) ref = sanitizeObject[value].ref as string;
+
 			delete sanitizeObject[value];
 		});
 
@@ -47,7 +56,6 @@ export function createStyles<Params = void>(
 		delete sanitizeObject['& .root'];
 
 		const { root } = cssObjectDirty;
-		const { cx } = cssFactory();
 
 		/** create our clean object that will get passed to the css function */
 		const cssObjectClean = root !== undefined ? { ...root, ...sanitizeObject } : cssObjectDirty;
@@ -55,7 +63,14 @@ export function createStyles<Params = void>(
 		/** transform keys from dirty object into strings to be consumed by classes */
 		const classes = fromEntries(
 			Object.keys(cssObjectDirty).map((keys) => {
-				const value = keys.toString();
+				const getRefName: string[] = ref?.split('-') ?? [];
+				let value = keys.toString();
+
+				/** if we get a valid ref, then add that value to the array */
+				if (ref && ref?.split('-')[getRefName?.length - 1] === keys) {
+					value = `${value} ${ref}`;
+				}
+
 				return [keys, value];
 			})
 		);

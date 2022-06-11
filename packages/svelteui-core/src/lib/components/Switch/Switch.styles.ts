@@ -103,6 +103,7 @@ export default createStyles(
 				alignItems: 'center',
 				fontSize: sizes[size].insideLabelFont,
 				fontWeight: 600,
+				'&:hover': { cursor: 'pointer' },
 				'&::before': {
 					zIndex: 1,
 					borderRadius: radii[radius],
@@ -164,7 +165,8 @@ export default createStyles(
 			label: {
 				fontSize: sizes[size].labelFont,
 				lineHeight: `${sizes[size].height}px`,
-				fontWeight: 600
+				fontWeight: 600,
+				paddingLeft: theme.fn.size({ size: 'sm', sizes: theme.space })
 			}
 		};
 	}
