@@ -20,7 +20,7 @@
 		icon: $$NativeSelectProps['icon'] = null,
 		iconWidth: $$NativeSelectProps['iconWidth'] = 36,
 		iconProps: $$NativeSelectProps['iconProps'] = { size: 20, color: 'currentColor' },
-		rightSection: $$NativeSelectProps['showRightSection'] = null,
+		rightSection: $$NativeSelectProps['rightSection'] = null,
 		rightSectionWidth: $$NativeSelectProps['rightSectionWidth'] = 36,
 		rightSectionProps: $$NativeSelectProps['rightSectionProps'] = {},
 		required: $$NativeSelectProps['required'] = false,

@@ -151,7 +151,7 @@ export default createStyles(
 						color: 'White'
 					}
 				},
-				'&:disabled': {
+				'&.disabled': {
 					backgroundColor: 'Gray',
 					borderColor: 'White',
 					cursor: 'not-allowed',

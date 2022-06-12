@@ -11,14 +11,8 @@ docs: 'core/browser-render.md'
 ---
 
 <script>
-    import { BrowserRender } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const browserRender = `
-    <BrowserRender>
-        This will only render on the Browser.
-    <\/BrowserRender>
-    `
+    import { Demo, BrowserRenderDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -27,10 +21,6 @@ docs: 'core/browser-render.md'
 
 BrowserRender allows for you to block the rendering of child content that doesn't function or makes sense in a server side rendering environment. For example rendering the canvas or another browser based api.
 
-<Preview code={browserRender} cols={1}>
-    <BrowserRender>
-        This will only render on the Browser.
-    </BrowserRender>
-</Preview>
+<Demo demo={BrowserRenderDemos.usage} />
 
 Note that this component doesn't render any extra nodes to the DOM like the [Fragment](core/fragment) component.

@@ -11,43 +11,15 @@ docs: 'core/stack.md'
 ---
 
 <script>
-    import { Stack, Button, NativeSelect } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const alignList = ['stretch', 'center', 'flex-start', 'flex-end']
-    let align = 'stretch'
-    const justifyList = ['center', 'flex-start', 'flex-end', 'space-between', 'space-around']
-    let justify = 'center'
-    const spacingList = ['xs', 'sm', 'md', 'lg', 'xl']
-    let spacing = 'md'
-
-    $: stack = `
-    <script>
-        import { Stack } from '@svelteuidev/core'
-    <\/script>
-
-    <Stack align='${align}' spacing='${spacing}' justify='${justify}' override={{ height: 300 }} position>
-        <Button variant="outline">1<\/Button>
-        <Button variant="outline">2<\/Button>
-        <Button variant="outline">3<\/Button>
-    <\/Stack>
-    `
+    import { Demo, StackDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
 
 ## Usage
 
-<Preview cols={1} width={75} code={stack}>
-    <Stack align={align} spacing={spacing} justify={justify} override={{ height: 300 }} position>
-        <Button variant="outline">1</Button>
-        <Button variant="outline">2</Button>
-        <Button variant="outline">3</Button>
-    </Stack>
-    <NativeSelect data={alignList} bind:value={align} label='Align' />
-    <NativeSelect data={justifyList} bind:value={justify} label='Justify' />
-    <NativeSelect data={spacingList} bind:value={spacing} label='Spacing' />
-</Preview>
+<Demo demo={StackDemos.configurator} />
 
 ## Browser support
 

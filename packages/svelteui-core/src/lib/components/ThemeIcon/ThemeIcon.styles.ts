@@ -8,11 +8,11 @@ import type {
 } from '$lib/styles';
 
 export interface ThemeIconProps extends DefaultProps {
-	size: SvelteUINumberSize;
-	radius: SvelteUINumberSize;
-	color: SvelteUIColor;
-	variant: ThemeIconVariant;
-	gradient: SvelteUIGradient;
+	size?: SvelteUINumberSize;
+	radius?: SvelteUINumberSize;
+	color?: SvelteUIColor;
+	variant?: ThemeIconVariant;
+	gradient?: SvelteUIGradient;
 }
 
 interface ThemeIconStyleParams {

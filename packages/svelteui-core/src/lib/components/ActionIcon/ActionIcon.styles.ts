@@ -8,20 +8,20 @@ import type {
 } from '$lib/styles';
 
 export interface ActionIconProps extends DefaultProps {
-	root: keyof HTMLElementTagNameMap;
-	color: SvelteUIColor;
-	variant: ActionIconVariant;
-	size: SvelteUINumberSize;
-	radius: SvelteUINumberSize | number;
-	loaderProps: LoaderProps;
-	loading: boolean;
-	disabled: boolean;
-	href: string;
-	external: boolean;
+	root?: keyof HTMLElementTagNameMap;
+	color?: SvelteUIColor;
+	variant?: ActionIconVariant;
+	size?: SvelteUINumberSize;
+	radius?: SvelteUINumberSize | number;
+	loaderProps?: LoaderProps;
+	loading?: boolean;
+	disabled?: boolean;
+	href?: string;
+	external?: boolean;
 }
 
 export interface CloseButtonProps extends ActionIconProps {
-	iconSize: SvelteUINumberSize;
+	iconSize?: SvelteUINumberSize;
 }
 
 export type ActionIconVariant =
@@ -90,29 +90,28 @@ export default createStyles((_, { color, radius, size, variant }: ActionIconStyl
 			textDecoration: 'none',
 			'&:not(:disabled):active': {
 				transform: 'translateY(1px)'
-			}
-		},
-
-		loading: {
-			'&::before': {
-				content: '""',
-				position: 'absolute',
-				top: -1,
-				left: -1,
-				right: -1,
-				bottom: -1,
-				backgroundColor: 'rgba(255, 255, 255, .5)',
-				borderRadius: `$${radius}`,
+			},
+			'&.disabled': {
+				pointerEvents: 'none',
+				borderColor: 'transparent',
+				backgroundColor: 'rgb(233, 236, 239)',
+				background: 'rgb(233, 236, 239)',
+				color: 'rgb(173, 181, 189)',
 				cursor: 'not-allowed'
+			},
+			'&.loading': {
+				'&::before': {
+					content: '""',
+					position: 'absolute',
+					top: -1,
+					left: -1,
+					right: -1,
+					bottom: -1,
+					backgroundColor: 'rgba(255, 255, 255, .5)',
+					borderRadius: `$${radius}`,
+					cursor: 'not-allowed'
+				}
 			}
-		},
-		disabled: {
-			pointerEvents: 'none',
-			borderColor: 'transparent',
-			backgroundColor: 'rgb(233, 236, 239)',
-			background: 'rgb(233, 236, 239)',
-			color: 'rgb(173, 181, 189)',
-			cursor: 'not-allowed'
 		},
 		variants: {
 			variation: getVariantStyles(color, variant)
