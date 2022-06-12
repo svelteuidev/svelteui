@@ -31,7 +31,7 @@ docs: 'core/card.md'
 
 Note that due to certain limitations of svelte, this is not automatic behavior. Because of this, `first` and `last` props are exported to declare positioning.
 
-This may change in the future, as the Group component used to export a `children` prop however, with this update the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
+This may change in the future, as the Group component used to export a `children` prop however, the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
 
 ```svelte
 <Card.Container p="xl">

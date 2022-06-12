@@ -2,7 +2,7 @@
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
   import { Switch } from '@svelteuidev/core';
 <\/script>
 
@@ -16,22 +16,25 @@
 			{ name: 'label', type: 'string', initialValue: 'I agree to sell my privacy' },
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'radius', type: 'size', initialValue: 'xl', defaultValue: 'xl' },
-            {
+			{
 				name: 'color',
 				type: 'color',
 				initialValue: 'blue',
 				defaultValue: 'blue'
 			},
-            { name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },
-		]
+			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false }
+		],
+		multiline: true
 	};
 </script>
 
 <script lang="ts">
+	import { Switch, Center } from '@svelteuidev/core';
 	import type { SwitchStyles } from '@svelteuidev/core';
-	import { Switch } from '@svelteuidev/core';
 
 	export let props: SwitchStyles.SwitchProps = {};
 </script>
 
-<Switch checked {...props} />
+<Center>
+	<Switch checked {...props} />
+</Center>

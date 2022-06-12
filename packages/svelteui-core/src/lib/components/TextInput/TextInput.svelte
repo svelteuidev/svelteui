@@ -22,7 +22,8 @@
 		labelElement: $$TextInputProps['labelElement'] = 'label',
 		size: $$TextInputProps['size'] = 'sm',
 		showRightSection: $$TextInputProps['showRightSection'] = undefined,
-		value: $$TextInputProps['value'] = '';
+		value: $$TextInputProps['value'] = '',
+		placeholder: $$TextInputProps['placeholder'] = '';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -79,6 +80,7 @@ Input for text that also uses labels for the input
 		{required}
 		{size}
 		{id}
+		{placeholder}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}

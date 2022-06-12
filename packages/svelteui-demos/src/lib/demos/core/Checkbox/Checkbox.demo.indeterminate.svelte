@@ -3,14 +3,22 @@
 
 	const code = 
 `<script>
-    import { Checkbox } from '@svelteuidev/core';
+    import { Checkbox, Stack } from '@svelteuidev/core';
+
+    let items = [
+        { label: 'Receive email notifications', value: false },
+        { label: 'Receive sms notifications', value: false },
+        { label: 'Receive push notifications', value: false }
+    ]
+    $: globalValue = items.every(i => i.value);
 <\/script>
 
-<Checkbox checked size='xs' label='xs checkbox' />
-<Checkbox checked size='sm' label='sm checkbox' />
-<Checkbox checked size='md' label='md checkbox' />
-<Checkbox checked size='lg' label='lg checkbox' />
-<Checkbox checked size='xl' label='xl checkbox' />`;
+<Checkbox label='Receive all notifications' indeterminate={!globalValue} checked={globalValue} />
+    <Stack>
+        {#each items as item, index}
+            <Checkbox bind:checked={items[index].value} label={item.label} />
+    {/each}
+</Stack>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 

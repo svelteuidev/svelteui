@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { Code } from '@svelteuidev/core';
 <\/script>
 
@@ -17,7 +16,9 @@
 </script>
 
 <script lang="ts">
-	import { Code } from '@svelteuidev/core';
+	import { Code, Center } from '@svelteuidev/core';
 </script>
 
-<Code>This code will be inline</Code>
+<Center>
+	<Code>This code will be inline</Code>
+</Center>

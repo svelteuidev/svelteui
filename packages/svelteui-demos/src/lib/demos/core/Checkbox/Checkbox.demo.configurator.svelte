@@ -1,4 +1,3 @@
-
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
@@ -15,8 +14,8 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-            { name: 'label', type: 'string', initialValue: 'I agree to sell my privacy' },
-            {
+			{ name: 'label', type: 'string', initialValue: 'I agree to sell my privacy' },
+			{
 				name: 'color',
 				type: 'color',
 				initialValue: 'blue',
@@ -32,9 +31,11 @@
 
 <script lang="ts">
 	import type { CheckboxStyles } from '@svelteuidev/core';
-	import { Checkbox } from '@svelteuidev/core';
+	import { Checkbox, Center } from '@svelteuidev/core';
 
 	export let props: CheckboxStyles.CheckboxProps = {};
 </script>
 
-<Checkbox checked {...props} />
+<Center>
+	<Checkbox checked {...props} />
+</Center>

@@ -1,15 +1,11 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
-    import { Box } from '@svelteuidev/core';
+	const code = `<script>
     import { Prism } from '@svelteuidev/prism';
 <\/script>
 
-<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism language='svelte' code={prismExampleCode} />
-</Box>
+<Prism language='svelte' code={prismExampleCode} />
 `;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -23,15 +19,15 @@
 	import { Box } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 
-    const prismExampleCode = `
+	const prismExampleCode = `
     <script>
         import { Button } from '@svelteuidev/core';
     <\/script>
 
     <Button>Hello<\/Button>
-    `
+    `;
 </script>
 
-<Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-    <Prism language='svelte' code={prismExampleCode} />
+<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
+	<Prism language="svelte" code={prismExampleCode} />
 </Box>

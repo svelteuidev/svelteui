@@ -25,11 +25,11 @@ Paper component renders white or dark background with shadow, border-radius and 
 
 ## Shadow
 
-You can use the predefined shadows from the [theme](theming/default-theme#shadows) or you own:
+You can use the predefined shadows from the [theme](theming/default-theme#shadows), or supply your own:
 
 ```svelte
 <script>
-    import { Paper } from '@svelteuidev/core';
+	import { Paper } from '@svelteuidev/core';
 </script>
 
 <Paper shadow="xs" />
@@ -42,7 +42,7 @@ You can use the predefined radius value from the [theme](theming/default-theme#r
 
 ```svelte
 <script>
-    import { Paper } from '@svelteuidev/core';
+	import { Paper } from '@svelteuidev/core';
 </script>
 
 <Paper radius="lg" />

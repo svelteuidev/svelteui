@@ -49,11 +49,9 @@
 
 <script lang="ts">
 	import type { NumberInputStyles } from '@svelteuidev/core';
-	import { NumberInput, Center } from '@svelteuidev/core';
+	import { NumberInput } from '@svelteuidev/core';
 
 	export let props: Partial<NumberInputStyles.NumberInputProps> = {};
 </script>
 
-d<Center>
-	<NumberInput {...props} />
-</Center>
+<NumberInput {...props} />

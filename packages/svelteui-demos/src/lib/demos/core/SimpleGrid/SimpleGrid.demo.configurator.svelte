@@ -2,7 +2,7 @@
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
   import { SimpleGrid } from '@svelteuidev/core';
 <\/script>
 
@@ -19,7 +19,7 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-			{ name: 'cols', type: 'number', initialValue: 3 },
+			{ name: 'cols', type: 'number', initialValue: 3, min: 1, max: 5 },
 			{ name: 'spacing', type: 'size', initialValue: 'md', defaultValue: 'md' }
 		]
 	};
@@ -33,7 +33,7 @@
 </script>
 
 <SimpleGrid {...props}>
-    {#each [...Array(5).keys()] as _, i}
-        <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-    {/each}
+	{#each [...Array(5).keys()] as _, i}
+		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+	{/each}
 </SimpleGrid>

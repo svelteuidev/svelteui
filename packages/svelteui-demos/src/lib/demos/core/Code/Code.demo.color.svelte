@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { Code } from '@svelteuidev/core';
 <\/script>
 
@@ -19,9 +18,11 @@
 </script>
 
 <script lang="ts">
-	import { Code } from '@svelteuidev/core';
+	import { Code, Group } from '@svelteuidev/core';
 </script>
 
-<Code color="red">This code is red</Code>
-<Code color="teal">This code is teal</Code>
-<Code color="blue">This code is blue</Code>
+<Group position="center">
+	{#each ['red', 'teal', 'blue'] as color}
+		<Code {color}>This code is {color}</Code>
+	{/each}
+</Group>

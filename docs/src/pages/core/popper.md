@@ -29,6 +29,8 @@ To use Popper, add the following required props:
 ```svelte
 <script>
 	import { Popper } from '@svelteuidev/core';
+
+	let mounted = false;
 </script>
 
 <Button bind:element={reference} on:click={() => (mounted = !mounted)}>Click here</Button>

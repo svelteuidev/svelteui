@@ -15,12 +15,6 @@ docs: 'core/number-input.md'
     import { Heading } from 'components';
 </script>
 
-<style global>
-    input {
-        margin: 0;
-    }
-</style>
-
 <Heading />
 
 ## Usage
@@ -31,15 +25,15 @@ docs: 'core/number-input.md'
 
 ```svelte
 <script>
-    import { NumberInput } from '@svelteuidev/core';
+	import { NumberInput } from '@svelteuidev/core';
 
-    let value;
-    function onChange(e) {
-        value = e.detail;
-    }
+	let value;
+	function onChange(e) {
+		value = e.detail;
+	}
 </script>
 
-<NumberInput value={value} on:change={onChange} />
+<NumberInput {value} on:change={onChange} />
 ```
 
 ## Clamp on blur
@@ -64,7 +58,7 @@ Props `min` and `max` define the upper and lower values of the input value. When
 
 ## Increment and decrement on hold
 
-Props `stepHoldDelay` and `stepHoldInterval` define the behaviour when the controls are clicked and hold.
+Props `stepHoldDelay` and `stepHoldInterval` define the behavior when the controls are clicked and held.
 
 <Demo demo={NumberInputDemos.hold} />
 
@@ -72,8 +66,8 @@ Props `stepHoldDelay` and `stepHoldInterval` define the behaviour when the contr
 
 To use decimal steps it is required to pass the following props:
 
-* `step` - as a decimal number, e.g. `0.05`
-* `precision` - the number of decimal places to show
+- `step` - as a decimal number, e.g. `0.05`
+- `precision` - the number of decimal places to show
 
 <Demo demo={NumberInputDemos.decimal} />
 
@@ -87,9 +81,9 @@ To chahnge the default decimal separator - `.` - it is only required to use the 
 
 Controls are not rendered in the cases:
 
-* `hideControls` prop is set to `true`
-* NumberInput is `disabled`
-* `variant` prop is `unstyled`
+- `hideControls` prop is set to `true`
+- NumberInput is `disabled`
+- `variant` prop is `unstyled`
 
 <Demo demo={NumberInputDemos.controls} />
 
@@ -116,5 +110,6 @@ Provide `aria-label` in case you use component without label for screen reader s
 ```svelte
 <NumberInput /> // -> not ok, input is not labeled
 <NumberInput label="Your age" /> // -> ok, input and label are connected
-<NumberInput aria-label="Your age" /> // -> ok, label is not visible but will be announced by screen reader
+<NumberInput aria-label="Your age" /> // -> ok, label is not visible but will be announced by screen
+reader
 ```

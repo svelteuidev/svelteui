@@ -25,7 +25,8 @@
 		size: $$InputProps['size'] = 'sm',
 		value: $$InputProps['value'] = '',
 		invalid: $$InputProps['invalid'] = false,
-		multiline: $$InputProps['multiline'] = false;
+		multiline: $$InputProps['multiline'] = false,
+		placeholder: $$InputProps['placeholder'] = '';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -99,6 +100,7 @@ Base component to create custom inputs
 			{required}
 			{disabled}
 			{id}
+			{placeholder}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
