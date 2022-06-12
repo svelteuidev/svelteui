@@ -1,5 +1,5 @@
 <script>
-  import { MainLink } from "components";
+  import { MainLink, Logo } from "components";
   import { Space } from "@svelteuidev/core";
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
 	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
@@ -9,6 +9,7 @@
 - <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
 - <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
 - <MainLink color='dark' href='contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
+- <MainLink color={null} href='https://svelteuidev.github.io/svelteui-collections/'><Logo slot='icon' size={30} />SvelteUI Collections</MainLink>
 - <MainLink color='indigo' href='faq'><QuestionMarkCircled slot='icon' size={20} />FAQ</MainLink>
 
 <hr />

@@ -87,7 +87,7 @@ This library will forward all events to the underlying elements, so you can add 
 <Button>
 ```
 
-As of now adding event modifiers to components is not supported, however it will be in the future. If you need to use event modifiers, then you can wrap your component in regular dom elements and use them on the wrapper.
+Event modifiers can also be used. However, instead of using the standard `|` (pipe operator), they must be separated by a `!` due to those limitations mentioned previously.
 
 ## Svelte Actions
 
