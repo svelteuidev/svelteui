@@ -26,6 +26,9 @@ const config = {
 		},
 		/** @type {import('vite').UserConfig} */
 		vite: {
+			deps: {
+				inline: ['radix-icons-svelte']
+			},
 			test: {
 				globals: true,
 				environment: 'jsdom'
