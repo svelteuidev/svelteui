@@ -83,3 +83,10 @@
 <div class={getStyles()}>
 	<button class={classes.button} type="button"> Hover container to change button color </button>
 </div>
+
+<Card>
+	<Card.Section>First Child</Card.Section>
+	<div>Second Child</div>
+	<div>Third Child</div>
+	<Card.Section>First Child</Card.Section>
+</Card>

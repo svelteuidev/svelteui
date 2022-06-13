@@ -1,7 +1,7 @@
 import { createStyles } from '$lib/styles';
 import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
-export interface CardProps extends DefaultProps {
+export interface CardProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	p: SvelteUINumberSize;
 }
 
