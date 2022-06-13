@@ -54,6 +54,9 @@
 				left: `${x}px`,
 				top: `${y}px`
 			});
+			
+			// return early if no arrow is wanted in the popper
+			if (!withArrow) return;
 
 			const { x: arrowX, y: arrowY } = middlewareData.arrow;
 			const _position = placement.split('-')[0];
