@@ -50,7 +50,8 @@
 </script>
 
 <script lang="ts">
-	import { CheckboxGroup, Center, type CheckboxGroupStyles } from '@svelteuidev/core';
+	import { CheckboxGroup, Center } from '@svelteuidev/core';
+	import type { CheckboxGroupStyles } from '@svelteuidev/core';
 
 	export let props: CheckboxGroupStyles.CheckboxGroupProps = {};
 </script>
