@@ -117,13 +117,13 @@
 		};
 	});
 
-    /** Prism patch until next version */
+	/** Prism patch until next version */
 	const override = { pre: { overflow: 'scroll', px: '$lgPX' } };
 	$: ({ cx, classes, getStyles } = useStyles());
 </script>
 
 <div class={getStyles()}>
-	<Card.Container
+	<Card
 		class={classes.container}
 		override={{
 			bblr: '0px !important',
@@ -149,7 +149,7 @@
 				</Box>
 			</Text>
 		</Group>
-	</Card.Container>
+	</Card>
 	<div
 		class={cx(classes.bodyPreview, {
 			[classes.bodyWithCode]: false,
@@ -158,7 +158,7 @@
 	>
 		<Box class={classes.preview} css={{ zIndex: 1 }}>
 			{#if previewState === 'preview'}
-				<Box class='noCode' css={center ? { d: 'flex', jc: 'center' } : {}}>
+				<Box class="noCode" css={center ? { d: 'flex', jc: 'center' } : {}}>
 					<Group position="center" direction={$mobile ? 'column' : 'row'}>
 						<Animation duration={15} animation="float">
 							<Button ripple>Click Me</Button>

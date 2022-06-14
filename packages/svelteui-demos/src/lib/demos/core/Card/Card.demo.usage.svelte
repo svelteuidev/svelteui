@@ -2,6 +2,13 @@
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
+<script>
+	import { Badge, Button, Card, Group, Image, Text, useSvelteUITheme } from '@svelteuidev/core';
+
+	const { themeColor } = useSvelteUITheme().fn
+	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
+<\/script>
+
 <div style='width: 340px; margin: auto'>
     <Card.Container shadow='sm' p='lg'>
         <Card.Section first padding='lg'>
@@ -39,14 +46,14 @@
 </script>
 
 <script lang="ts">
-	import { Badge, Button, Card, Group, Image, Text, colorScheme, fns } from '@svelteuidev/core';
+	import { Badge, Button, Card, Group, Image, Text, colorScheme, useSvelteUITheme } from '@svelteuidev/core';
 
-	const { themeColor } = fns;
+	const { themeColor } = useSvelteUITheme().fn;
 	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
 </script>
 
 <div style="width: 340px; margin: auto">
-	<Card.Container shadow="sm" p="lg">
+	<Card shadow="sm" p="lg">
 		<Card.Section first padding="lg">
 			<Image
 				src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
@@ -68,5 +75,5 @@
 		<Button variant="light" color="blue" fullSize override={{ marginTop: '14px' }}>
 			Book classic tour now
 		</Button>
-	</Card.Container>
+	</Card>
 </div>
