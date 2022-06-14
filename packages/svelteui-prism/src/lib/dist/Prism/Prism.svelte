@@ -52,7 +52,8 @@
 		paddingBottom: '$xsPX',
 
 		pre: {
-			margin: 0
+			margin: 0,
+			overflow: 'scroll'
 		},
 		'pre[data-line]': {
 			paddingTop: 0,
@@ -264,10 +265,7 @@
 			</ThemeIcon>
 		</ActionIcon>
 	{/if}
-	<pre
-		class={prismClasses}
-		data-line={highlightLines}
-	>
+	<pre class={prismClasses} data-line={highlightLines}>
 		{@html prettyCode}
 	</pre>
 </div>

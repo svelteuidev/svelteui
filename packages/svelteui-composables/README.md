@@ -38,15 +38,15 @@ npm i @svelteuidev/composables
 
 ### Utils:
 
-- [useOs](https://svelteui.org/composables/use-os)
-- [useRafFn](https://svelteui.org/composables/use-raf-fn)
-- [useHash](https://svelteui.org/composables/use-hash)
-- [useMousePosition](https://svelteui.org/composables/use-mouse-position)
-- [useEyeDropper](https://svelteui.org/composables/use-eye-dropper)
-- [useRegex](https://svelteui.org/composables/use-regex)
-- [useFocusWithin](https://svelteui.org/composables/use-focus-within)
-- [useViewport](https://svelteui.org/composables/use-viewport)
-- [useBrowserContext](https://svelteui.org/composables/use-browser-context)
+- [useOs](https://svelteui.org/composables/use-os) - Get the user's os
+- [useRafFn](https://svelteui.org/composables/use-raf-fn) - Call a function on every requestAnimationFrame
+- [useHash](https://svelteui.org/composables/use-hash) - Generates a random hash with a specified prefix.
+- [useMousePosition](https://svelteui.org/composables/use-mouse-position) - Get mouse position relative to viewport or given element
+- [useEyeDropper](https://svelteui.org/composables/use-eye-dropper) - Get access to a reactive EyeDropper API.
+- [useRegex](https://svelteui.org/composables/use-regex) - Get common regex patterns, add your own, or test them.
+- [useFocusWithin](https://svelteui.org/composables/use-focus-within) - Detect if any element within has focus.
+- [useViewportSize](https://svelteui.org/composables/use-viewport-size) - Get viewport width and height.
+- [useBrowserContext](https://svelteui.org/composables/use-browser-context) - Get access to the reactive browser location API.
 
 ## License
 

@@ -1,2 +1,2 @@
 export { io } from './use-io.js';
-export * as useIoConfig from './use-io.config.js';
+export * as IoConfig from './use-io.config.js';
