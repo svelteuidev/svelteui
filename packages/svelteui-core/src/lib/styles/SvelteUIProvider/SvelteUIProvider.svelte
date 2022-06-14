@@ -84,6 +84,7 @@
 </svelte:head>
 
 <div
+	id="SVELTEUI_PROVIDER"
 	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents

@@ -7,6 +7,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
+
 	export let use: $$PopperProps['use'] = [],
 		element: $$PopperProps['element'] = undefined,
 		className: $$PopperProps['className'] = '',
