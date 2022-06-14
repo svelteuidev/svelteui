@@ -1,5 +1,12 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUIShadow, Transition } from '$lib/styles';
+import type { LiteralUnion } from '$lib/internal';
+import type {
+	DefaultProps,
+	SvelteUINumberSize,
+	SvelteUIShadow,
+	Transition,
+	SvelteUISize
+} from '$lib/styles';
 
 export interface ModalProps extends DefaultProps {
 	opened: boolean;
@@ -11,7 +18,7 @@ export interface ModalProps extends DefaultProps {
 	overlayColor?: string;
 	overlayBlur?: number;
 	radius?: SvelteUINumberSize;
-	size?: string | number;
+	size?: LiteralUnion<SvelteUISize, number | string>;
 	transition?: Transition;
 	transitionDuration?: number;
 	transitionTimingFunction?: string;
@@ -45,6 +52,7 @@ export const sizes = {
 };
 
 export default createStyles((theme, { centered, overflow, size, zIndex }: ModalStylesParams) => {
+	const customSize = size in sizes === false;
 	return {
 		close: {},
 		overlay: {},
@@ -83,7 +91,7 @@ export default createStyles((theme, { centered, overflow, size, zIndex }: ModalS
 				backgroundColor: theme.fn.themeColor('dark', 7)
 			},
 			position: 'relative',
-			width: theme.fn.size({ sizes, size }),
+			width: typeof size === 'string' && customSize ? size : theme.fn.size({ sizes, size }),
 			outline: 0,
 			backgroundColor: 'white',
 			marginTop: centered ? 'auto' : undefined,

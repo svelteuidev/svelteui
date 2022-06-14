@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Center } from '../Center';
 	import { getDefaultZIndex } from './Overlay.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { get_current_component } from 'svelte/internal';
 	import type { OverlayProps as $$OverlayProps } from './Overlay.styles';
 	import Box from '../Box/Box.svelte';
 
@@ -16,6 +18,9 @@
 		radius: $$OverlayProps['radius'] = 0,
 		center = false;
 	export { className as class };
+
+	/** An action that forwards inner dom node events from parent component */
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: background = gradient ? { backgroundImage: gradient } : { backgroundColor: color };
 	$: baseStyles = {
@@ -51,7 +56,7 @@ Overlays given element with div element with any color and opacity
 -->
 {#if blur}
 	<Box
-		{use}
+		use={[forwardEvents, [useActions, use]]}
 		bind:element
 		id="outterOverlay"
 		css={{ ...baseStyles, backdropFilter: `blur(${blur}px)` }}
@@ -65,7 +70,7 @@ Overlays given element with div element with any color and opacity
 	</Box>
 {:else}
 	<Box
-		{use}
+		use={[forwardEvents, [useActions, use]]}
 		bind:element
 		id="innerOverlay"
 		css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }}

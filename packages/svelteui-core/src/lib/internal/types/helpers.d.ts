@@ -1,2 +1,2 @@
 export type Function = () => void;
-export type Fn<T, R> = (args: T) => R;
+export type FunctionType<T, R> = (args: T) => R;
