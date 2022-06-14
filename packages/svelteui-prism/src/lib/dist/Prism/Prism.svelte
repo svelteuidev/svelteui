@@ -266,9 +266,8 @@
 	{/if}
 	<pre
 		class={prismClasses}
-		data-line={highlightLines}>
-		<code class="language-{language}">
-			{@html prettyCode}
-		</code>
+		data-line={highlightLines}
+	>
+		{@html prettyCode}
 	</pre>
 </div>
