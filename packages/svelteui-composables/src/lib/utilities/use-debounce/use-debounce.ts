@@ -1,4 +1,4 @@
-import { createFilterWrapper, debounceFilter } from '$lib/shared/utils';
+import { createFilterWrapper, debounceFilter } from '$lib/shared/utils/index.js';
 import type { DebounceFilterOptions, FunctionArgs } from '$lib/shared/utils';
 
 /**
