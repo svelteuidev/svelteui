@@ -59,7 +59,7 @@
 	$: {
 		onMount(() => {
 			if (!trapFocus) {
-				typeof window !== undefined ? window.addEventListener('keydown', closeOnEscapePress) : null;
+				typeof window !== "undefined" ? window.addEventListener('keydown', closeOnEscapePress) : null;
 			}
 		});
 	}

@@ -33,7 +33,10 @@ const config = {
 			},
 			test: {
 				globals: true,
-				environment: 'jsdom'
+				environment: 'jsdom',
+				deps: {
+					inline: ['radix-icons-svelte']
+				}
 			},
 			server: {
 				fs: {

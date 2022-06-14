@@ -18,10 +18,10 @@
 		const firstChild = element.children[0] as HTMLDivElement;
 		const lastChild = element.children[nodeLength - 1] as HTMLDivElement;
 
-		if (firstChild.id === 'svelteui_card_section') {
+		if (firstChild?.id === 'svelteui_card_section') {
 			firstChild.style.marginTop = `${-1 * theme.fn.size({ size: padding, sizes: theme.space })}px`;
 		}
-		if (lastChild.id === 'svelteui_card_section') {
+		if (lastChild?.id === 'svelteui_card_section') {
 			// prettier-ignore
 			lastChild.style.marginBottom = `${-1 * theme.fn.size({ size: padding, sizes: theme.space })}px`;
 		}
