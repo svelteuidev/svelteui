@@ -1,0 +1,49 @@
+@import 'styles/layout.css';
+@import 'styles/typography.css';
+@import 'styles/highlight.css';
+
+:root {
+	--font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--font-mono: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+	--primary: #228be6;
+	--secondary: rgb(75, 85, 99);
+	--dark: #1a202c;
+	--light: #e2e8f0;
+
+	--white: #ffffff;
+	--code: #f8f9fa;
+
+	--tag: #f4f5f7;
+	--tag-border: #d2d6dc;
+	--tag-text: #161e2e;
+
+	--text: var(--dark);
+
+	--topbar-height: 50px;
+	--sidebar-width: 250px;
+
+	--quote: var(--tag);
+	--quote-side: var(--tag-text);
+
+	--example-border: var(--light);
+
+	--props-border: var(--light);
+	--props-devider: var(--code);
+	--props-types-bg: var(--tag);
+	--props-types-border: var(--tag-border);
+	--props-types-text: var(--tag-text);
+	--props-oneof-text: var(--hl-builtin);
+	--props-default-text: var(--light);
+
+	--hl-background: var(--code);
+	--hl-text: #212529;
+	--hl-comment: #868e96;
+	--hl-keyword: #c92a2a;
+	--hl-string: #364fc7;
+	--hl-number: #1c7ed6;
+	--hl-name: #5f3dc4;
+	--hl-attr: #5c940d;
+	--hl-builtin: #8b6caf;
+}

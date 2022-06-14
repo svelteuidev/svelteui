@@ -1,16 +1,3 @@
-/* Theme tunning: for full list ov variables visit the https://alexxnb.github.io/svelte-docs/theming */
-
-html {
-	scroll-behavior: smooth;
-}
-:root {
-	--primary: #228be6 !important;
-	--tag: #f4f5f7 !important;
-	--tag-text: #161e2e !important;
-	--tag-border: #d2d6dc !important;
-	--secondary: rgb(75, 85, 99) !important;
-}
-
 .logo {
 	padding-top: 0.5rem;
 }
@@ -39,12 +26,6 @@ html {
 	padding-right: 1em !important;
 	padding-left: 1em !important;
 	padding-bottom: 5rem !important;
-}
-
-blockquote {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 100%;
 }
 
 /* ---------------------------Media Query's below----------------------------------- */
