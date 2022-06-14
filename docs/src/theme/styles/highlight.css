@@ -1,0 +1,84 @@
+/*
+*   You can just import theme from the higlight.js package:
+*   Example: @import 'highlight.js/styles/solarized-light.css'
+*/
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 0.5em;
+	background: var(--hl-background);
+	color: var(--hl-text);
+	font-family: var(--font-mono);
+}
+  
+.hljs-comment,
+.hljs-quote {
+	color: var(--hl-comment);
+}
+  
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+	color: var(--hl-keyword);
+}
+  
+.hljs-number{
+	color: var(--hl-number);
+}
+  
+.hljs-string,
+.hljs-meta .hljs-meta-string,
+.hljs-literal,
+.hljs-doctag,
+.hljs-regexp {
+	color: var(--hl-string);
+}
+  
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+	color: var(--hl-name);
+}
+  
+.hljs-attribute,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-class .hljs-title,
+.hljs-type {
+	color: var(--hl-attr);
+}
+  
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-link {
+	color: var(--hl-string);
+}
+  
+.hljs-built_in{
+	color: var(--hl-builtin);
+}
+
+.hljs-deletion {
+	color: #dc322f;
+}
+  
+.hljs-formula {
+	background: #eee8d5;
+}
+  
+.hljs-emphasis {
+	font-style: italic;
+}
+  
+.hljs-strong {
+	font-weight: bold;
+}
