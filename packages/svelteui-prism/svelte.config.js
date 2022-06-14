@@ -29,6 +29,9 @@ const config = {
 			deps: {
 				inline: ['radix-icons-svelte']
 			},
+			optimizeDeps: {
+				exclude: ['radix-icons-svelte']
+			},
 			test: {
 				globals: true,
 				environment: 'jsdom'
