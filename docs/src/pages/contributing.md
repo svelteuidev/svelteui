@@ -3,7 +3,7 @@ title: 'Contributing'
 ---
 
 <script>
-    import { CodeBlock, MinorHeading } from 'components'
+    import { CodeBlock, MinorHeading, BottomNav } from 'components'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -93,3 +93,5 @@ individual packages have scripts, but they should not be interacted with directl
 - `package` - generates built versions of packages (needed for cross package development)
 - `repo:prepush` - runs sort, format, lint and test (run this before pushing your code)
 - `cm` - runs git commands to add and commit through commitizen (this is the recommended way to commit as it follows the convention automatically)
+
+<BottomNav both slug={{ prev: 'basics', next: 'faq' }} title={{ prev: 'Learn the Basics', next: 'FAQ' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />

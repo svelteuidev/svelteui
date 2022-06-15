@@ -3,7 +3,7 @@ title: FAQ
 ---
 
 <script>
-    import { CodeBlock, MinorHeading } from 'components'
+    import { CodeBlock, MinorHeading, BottomNav } from 'components'
 	import { Box, Space } from '@svelteuidev/core'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
@@ -58,3 +58,5 @@ This allows you to increase specificity over the styles you don’t control. You
 ## Can I use other css-in-js libraries or SCSS/SASS with SvelteUI?
 
 Yes, but keep in mind that SvelteUI already uses [stitches](https://stitches.dev), so you might end up with style conflicts and have to overwrite styles with! important. Before selecting other libraries, please consider using SvelteUI's [builtin solution](theming/create-styles).
+
+<BottomNav type='prev' slug='contributing' title='Contributing' group='Getting Started' />

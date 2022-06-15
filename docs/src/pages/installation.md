@@ -3,7 +3,7 @@ title: 'Installation'
 ---
 
 <script>
-	import { CodeBlock, MinorHeading, NextSteps, Installation, StartGuide } from 'components'
+	import { CodeBlock, MinorHeading, NextSteps, Installation, StartGuide, BottomNav } from 'components'
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
     
@@ -33,6 +33,8 @@ title: 'Installation'
 {value === 'svelte' ? templates[0] : templates[1]}
 </CodeBlock>
 
+## Choose your packages
+
 ### NPM
 
 <CodeBlock copy message={`npm i ${sanitizedPKG}`}>npm i {sanitizedPKG}</CodeBlock>
@@ -44,3 +46,5 @@ title: 'Installation'
 ## Next steps
 
 <NextSteps />
+
+<BottomNav both slug={{ prev: 'introduction', next: 'basics' }} title={{ prev: 'Introduction', next: 'Learn the basics' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />

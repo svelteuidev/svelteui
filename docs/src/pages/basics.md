@@ -3,7 +3,7 @@ title: Learn the basics
 ---
 
 <script>
-    import { CodeBlock, MinorHeading } from 'components'
+    import { CodeBlock, MinorHeading, BottomNav } from 'components'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -141,3 +141,5 @@ All components support a class prop which is useful for things like global styli
 
 <Button class='animation-bounce'>I have a tailwind animation<Button>
 ```
+
+<BottomNav both slug={{ prev: 'installation', next: 'contributing' }} title={{ prev: 'Installation', next: 'Contributing' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />

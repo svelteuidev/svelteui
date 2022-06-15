@@ -3,7 +3,7 @@ title: 'Introduction'
 ---
 
 <script>
-    import { CodeBlock, MinorHeading, MainLink } from 'components'
+    import { CodeBlock, MinorHeading, MainLink, BottomNav } from 'components'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -47,5 +47,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord:
 
-- [Join Discord community](https://discord.gg/2J2xmzCS79) – it will be the easiest way to get help.
+- [Join Discord community](https://discord.gg/2J2xmzCS79) - it will be the easiest way to get help.
 - [Github Discussions](https://github.com/svelteuidev/svelteui/discussions) - you can discuss anything relating to the project here.
+
+<BottomNav slug='installation' title='Installation' group='Getting Started' />
