@@ -1,15 +1,18 @@
-export {};
+import type { LiteralUnion } from 'type-fest';
 
-type PatternBank = Array<PatternBankItem<string>>;
+type PatternBankPatterns = 'getAllOf';
 
-interface PatternBankItem<T> {
-	name: T;
+type PatternBank = Array<PatternBankItem>;
+
+interface PatternBankItem {
+	name: LiteralUnion<PatternBankPatterns, string>;
 	pattern: string;
 }
 
 interface UseRegexOptions {
 	test?: boolean;
-	testType?: 'test' | 'search' | 'match' | 'match-all';
+	testType: 'test' | 'search' | 'match' | 'match-all';
+	testString: string;
 }
 
 // prettier-ignore
@@ -19,12 +22,17 @@ const PATTERN_BANK: PatternBank = [
 
 const useRegexOptions: UseRegexOptions = {
 	test: false,
-	testType: 'test'
+	testType: 'test',
+	testString: ''
 };
 
 // expect 'getAllOf' to "match" "against"
 // for the three values
-type useRegexFn = (name: string, matcher: string, options?: UseRegexOptions) => any;
+type useRegexFn = (
+	name: LiteralUnion<PatternBankPatterns, string>,
+	matcher: string,
+	options?: UseRegexOptions
+) => any;
 
 type useRegexFactoryFn = (extensions: PatternBank) => useRegexFn;
 
@@ -32,36 +40,36 @@ export function useRegexFactory(extensions: PatternBank = []): ReturnType<useReg
 	// "settings of the constructor"
 	const patternBank: PatternBank = [...PATTERN_BANK, ...extensions];
 
-	function useRegex(name: string, matcher: string, options: UseRegexOptions = useRegexOptions) {
+	function useRegex(name, matcher, options = useRegexOptions) {
 		let pattern: string;
-		const { test, testType }: UseRegexOptions = { ...useRegexOptions, ...options };
+		const { test, testType, testString }: UseRegexOptions = { ...useRegexOptions, ...options };
 
 		/** get the pattern from the object at name */
-		for (const _pattern of patternBank) {
+		patternBank.forEach((_pattern) => {
 			if (name === _pattern.name) pattern = _pattern.pattern;
-		}
+		});
 		// set pattern equal to the pattern retrieved with the matcher
 		pattern = pattern.replace(/%svelteui%/g, matcher);
 
-		const regex = new RegExp(pattern);
+		const regex = new RegExp(pattern, testType === 'match-all' ? 'g' : null);
 
 		if (test) {
 			let value: unknown;
 			switch (testType) {
 				case 'test':
-					value = regex.test(matcher);
+					value = regex.test(testString);
 					break;
 
 				case 'search':
-					value = matcher.search(regex);
+					value = testString.search(regex);
 					break;
 
 				case 'match':
-					value = matcher.match(regex);
+					value = testString.match(regex);
 					break;
 
 				case 'match-all':
-					value = matcher.matchAll(regex);
+					value = testString.matchAll(regex);
 					break;
 				default:
 					break;
