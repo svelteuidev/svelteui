@@ -1,7 +1,7 @@
 import { describe } from 'vitest';
 import { itSupportsClassName } from '@svelteuidev/tests';
 
-import { default as ActionIcon } from './ActionIcon.svelte';
+import { ActionIcon } from './index';
 
 describe('ActionIcon', () => {
 	itSupportsClassName(ActionIcon);

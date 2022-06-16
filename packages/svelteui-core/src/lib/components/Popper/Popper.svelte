@@ -7,6 +7,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
+
 	export let use: $$PopperProps['use'] = [],
 		element: $$PopperProps['element'] = undefined,
 		className: $$PopperProps['className'] = '',
@@ -54,6 +55,9 @@
 				left: `${x}px`,
 				top: `${y}px`
 			});
+			
+			// return early if no arrow is wanted in the popper
+			if (!withArrow) return;
 
 			const { x: arrowX, y: arrowY } = middlewareData.arrow;
 			const _position = placement.split('-')[0];

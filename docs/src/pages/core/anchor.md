@@ -33,5 +33,5 @@ Anchor is a wrapper around the [Text](core/text.md) component that uses `a` as t
 	import { Anchor } from '@svelteuidev/core';
 </script>
 
-<Anchor component={Link} to="/">Svelte router link</Anchor>
+<Anchor root={Link} to="/">Svelte router link</Anchor>
 ```

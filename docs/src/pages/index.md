@@ -67,7 +67,7 @@ index: true
 		<Features />
 	</Container>
 	<Container override={{ py: '7rem' }} size="xl">
-		<Title weight="extrabold" override={{ letterSpacing: '$tight' }} align="center">
+		<Title weight="extrabold" tracking='tight' align="center">
 			Less Code. Elegant Solutions.
 		</Title>
 		<Text size="xl" align="center" root="p">
@@ -77,6 +77,19 @@ index: true
 		</Text>
 		<HomePageExample />
 	</Container>
+	<Container override={{ py: '4rem' }} size="xl">
+		<Title weight="extrabold" tracking='tight' align="center">
+			Ready to get started?
+		</Title>
+		<Group position='center' override={{mt: '$10'}} direction={$mobile ? 'column' : 'row'}>
+			<Button href='installation' fullSize={$mobile ? true : false} size='lg'>
+				Yes I am
+			</Button>
+			<Button href='introduction' fullSize={$mobile ? true : false} size='lg' variant='outline'>
+				I'd like to learn more
+			</Button>
+		</Group>
+		</Container>
 </SvelteUIProvider>
 
 <style>

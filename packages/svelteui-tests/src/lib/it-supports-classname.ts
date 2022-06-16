@@ -4,7 +4,7 @@ import type { SvelteComponent } from 'svelte';
 
 export function itSupportsClassName<P>(
 	Component: typeof SvelteComponent,
-	props: P,
+	props?: P,
 	isChild: boolean = false
 ) {
 	it('supports className prop', () => {

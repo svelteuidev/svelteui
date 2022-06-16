@@ -3,7 +3,7 @@ module.exports = {
 	basepath: '/',
 
 	// theme
-	theme: 'light',
+	theme: './src/theme',
 
 	title: {
 		// constant part of page title
@@ -37,7 +37,8 @@ module.exports = {
 		//  Then you can use:
 		//  import Button from './Button.svelte';
 		//  import { Input } from 'mylib';
-		components: './src/components/index.js'
+		components: './src/components/index.js',
+		'@ui': './src/theme/ui/index.js'
 	},
 
 	preprocess: [

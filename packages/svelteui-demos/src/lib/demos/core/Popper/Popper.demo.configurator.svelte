@@ -3,18 +3,21 @@
 
 	const codeTemplate = (props: string) => `
 <script>
-  import { Box, Button, Popper } from '@svelteuidev/core';
+	import { Box, Button, Popper } from '@svelteuidev/core';
 
-  let reference;
+	let reference;
+	let mounted = false;
+
+	const toggleMount = () => {
+		mounted = !mounted;
+	};
 <\/script>
 
-<Button bind:element={reference}>Reference element</Button>
-<Popper mounted={true} arrowOverride={{ backgroundColor: '$gray100' }} {reference} ${props}>
-    <Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-        <Center>
-            Popper content
-        </Center>
-    </Box>
+<Button bind:element={reference} on:click={toggleMount}>Reference element</Button>
+<Popper {mounted} {reference} ${props}>
+	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+		<Center>Popper content</Center>
+	</Box>
 </Popper>
 `;
 
@@ -63,24 +66,28 @@
 				initialValue: true,
 				defaultValue: true
 			}
-		]
+		],
+		previewMaxWidth: 200
 	};
 </script>
 
 <script lang="ts">
-	import type { PopperStyles } from '@svelteuidev/core';
 	import { Box, Button, Center, Popper } from '@svelteuidev/core';
+	import type { PopperStyles } from '@svelteuidev/core';
 
 	export let props: PopperStyles.PopperProps = {};
 
 	let reference;
+	let mounted = false;
+
+	const toggleMount = () => {
+		mounted = !mounted;
+	};
 </script>
 
-<Center>
-	<Button bind:element={reference}>Reference element</Button>
-	<Popper mounted={true} arrowOverride={{ backgroundColor: '$gray100' }} {reference} {...props}>
-		<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-			<Center>Popper content</Center>
-		</Box>
-	</Popper>
-</Center>
+<Button bind:element={reference} on:click={toggleMount}>Reference element</Button>
+<Popper arrowOverride={{ backgroundColor: '$gray100' }} {reference} {...props} {mounted}>
+	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+		<Center>Popper content</Center>
+	</Box>
+</Popper>

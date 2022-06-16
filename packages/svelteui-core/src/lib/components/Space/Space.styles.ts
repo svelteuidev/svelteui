@@ -2,8 +2,8 @@ import { createStyles } from '$lib/styles';
 import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export interface SpaceProps extends DefaultProps {
-	w: SvelteUINumberSize;
-	h: SvelteUINumberSize;
+	w?: SvelteUINumberSize;
+	h?: SvelteUINumberSize;
 }
 
 interface SpaceStyleParams {

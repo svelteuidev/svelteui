@@ -42,11 +42,9 @@
 
 <script lang="ts">
 	import type { TextInputStyles } from '@svelteuidev/core';
-	import { TextInput, Center } from '@svelteuidev/core';
+	import { TextInput } from '@svelteuidev/core';
 
 	export let props: Partial<TextInputStyles.TextInputProps> = {};
 </script>
 
-<Center>
-	<TextInput {...props} />
-</Center>
+<TextInput {...props} />

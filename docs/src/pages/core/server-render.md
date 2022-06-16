@@ -11,14 +11,8 @@ docs: 'core/server-render.md'
 ---
 
 <script>
-    import { ServerRender, Text } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const serverRender = `
-    <ServerRender>
-        This will only function in a SSR environment.
-    <\/ServerRender>
-    `
+    import { Demo, ServerRenderDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -27,11 +21,6 @@ docs: 'core/server-render.md'
 
 ServerRender allows for you to block the rendering of child content that doesn't function or makes sense in a browser environment.
 
-<Preview code={serverRender} cols={1}>
-    <ServerRender>
-        This will only function in a SSR environment.
-    </ServerRender>
-    <Text>There is server rendered code above, but you can't see it 😝</Text>
-</Preview>
+<Demo demo={ServerRenderDemos.usage} />
 
 Note that this component doesn't render any extra nodes to the DOM like the [Fragment](core/fragment) component.

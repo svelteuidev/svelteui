@@ -23,6 +23,7 @@
 		InputWrapper,
 		Kbd,
 		Loader,
+		Modal,
 		NativeSelect,
 		NumberInput,
 		ObserverRender,
@@ -44,7 +45,8 @@
 		Tooltip,
 		TypographyProvider,
 		UnstyledButton,
-		createStyles
+		createStyles,
+		useSvelteUITheme
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 	import { GithubLogo } from 'radix-icons-svelte';

@@ -11,59 +11,17 @@ docs: 'core/simple-grid.md'
 ---
 
 <script>
-    import { SimpleGrid, Center, InputWrapper, NumberInput } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    let cols = 3
-
-    const simpleGrid = `
-    <script>
-        import { SimpleGrid } from '@svelteuidev/core'
-    <\/script>
-
-
-    <SimpleGrid cols={cols}>
-        {#each [...Array(5).keys()] as _, i}
-            <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}<\/Center>
-        {/each}
-    <\/SimpleGrid>
-    `
-    const simpleGridBreakpoints = `
-    <script>
-        import { SimpleGrid } from '@svelteuidev/core'
-    <\/script>
-
-    <SimpleGrid
-        breakpoints={[
-            { maxWidth: 980, cols: 3, spacing: 'md' },
-            { maxWidth: 755, cols: 2, spacing: 'sm' },
-            { maxWidth: 600, cols: 1, spacing: 'sm' }
-        ]}
-        cols={3}
-    >
-        {#each [...Array(5).keys()] as _, i}
-            <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}<\/Center>
-        {/each}
-    <\/SimpleGrid>
-    `
+    import { Demo, SimpleGridDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
 
 ## Usage
 
-SimpleGrid is a simple flexbox container where each child is treated as a column.
-Each column takes equal amount of space and unlike [Grid](/core/grid/) component you do not control column span,
-instead you specify number of columns per row:
+SimpleGrid is a simple flexbox container where each child is treated as a column. Each column takes equal amount of space and unlike [Grid](/core/grid/) component you do not control column span, instead you specify number of columns per row:
 
-<Preview cols={1} width={100} code={simpleGrid}>
-    <SimpleGrid cols={cols}>
-        {#each [...Array(5).keys()] as _, i}
-            <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-        {/each}
-    </SimpleGrid>
-    <NumberInput label='Cols' bind:value={cols} min={1} max={5} />
-</Preview>
+<Demo demo={SimpleGridDemos.configurator} />
 
 ## Breakpoints
 
@@ -75,20 +33,7 @@ Provide an array to `breakpoints` prop to define responsive behavior:
 
 Resize browser to see breakpoints behavior:
 
-<Preview cols={1} width={100} code={simpleGridBreakpoints}>
-    <SimpleGrid
-        breakpoints={[
-            { maxWidth: 980, cols: 3, spacing: 'md' },
-            { maxWidth: 755, cols: 2, spacing: 'sm' },
-            { maxWidth: 600, cols: 1, spacing: 'sm' }
-        ]}
-        cols={3}
-    >
-        {#each [...Array(5).keys()] as _, i}
-            <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-        {/each}
-    </SimpleGrid>
-</Preview>
+<Demo demo={SimpleGridDemos.breakpoints} />
 
 In this example:
 

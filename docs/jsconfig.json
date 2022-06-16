@@ -18,7 +18,8 @@
 		"checkJs": true,
 		"paths": {
 			"@svelteuidev/demos": ["../packages/svelteui-demos/package"],
-			"components": ["./src/components"]
+			"components": ["./src/components"],
+			"@ui": ["./src/theme/ui"]
 		}
 	},
 	"references": [{ "path": "../packages/svelteui-demos" }],

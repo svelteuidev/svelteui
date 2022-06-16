@@ -3,7 +3,7 @@ title: Learn the basics
 ---
 
 <script>
-    import { CodeBlock, MinorHeading } from 'components'
+    import { CodeBlock, MinorHeading, BottomNav } from 'components'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -87,7 +87,7 @@ This library will forward all events to the underlying elements, so you can add 
 <Button>
 ```
 
-As of now adding event modifiers to components is not supported, however it will be in the future. If you need to use event modifiers, then you can wrap your component in regular dom elements and use them on the wrapper.
+Event modifiers can also be used. However, instead of using the standard `|` (pipe operator), they must be separated by a `!` due to those limitations mentioned previously.
 
 ## Svelte Actions
 
@@ -141,3 +141,5 @@ All components support a class prop which is useful for things like global styli
 
 <Button class='animation-bounce'>I have a tailwind animation<Button>
 ```
+
+<BottomNav both slug={{ prev: 'installation', next: 'contributing' }} title={{ prev: 'Installation', next: 'Contributing' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />

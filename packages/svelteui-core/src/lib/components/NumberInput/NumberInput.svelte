@@ -9,6 +9,7 @@
 		element: $$NumberInputProps['element'] = undefined,
 		className: $$NumberInputProps['className'] = '',
 		override: $$NumberInputProps['override'] = {},
+		overrideControls: $$NumberInputProps['override'] = {},
 		root: $$NumberInputProps['root'] = 'input',
 		placeholder: $$NumberInputProps['placeholder'] = undefined,
 		icon: $$NumberInputProps['icon'] = null,
@@ -197,7 +198,7 @@ values and add custom parsers and formatters.
 	{disabled}
 	{placeholder}
 	class={className}
-	override={{ '& .rightSection': { width: 'auto' } }}
+	override={{ '& .rightSection': { width: 'auto' }, ...override }}
 	value={formatNumber(value)}
 	showRightSection={showControls}
 	{...$$restProps}
@@ -207,7 +208,10 @@ values and add custom parsers and formatters.
 	on:keydown={onKeyDown}
 	on:blur={onBlur}
 >
-	<div slot="rightSection" class={cx(className, classes.controls, getStyles({ css: override }))}>
+	<div
+		slot="rightSection"
+		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
+	>
 		{#if showControls}
 			<button
 				class="control control-up"

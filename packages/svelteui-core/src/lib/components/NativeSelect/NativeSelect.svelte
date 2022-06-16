@@ -20,7 +20,7 @@
 		icon: $$NativeSelectProps['icon'] = null,
 		iconWidth: $$NativeSelectProps['iconWidth'] = 36,
 		iconProps: $$NativeSelectProps['iconProps'] = { size: 20, color: 'currentColor' },
-		rightSection: $$NativeSelectProps['showRightSection'] = null,
+		rightSection: $$NativeSelectProps['rightSection'] = null,
 		rightSectionWidth: $$NativeSelectProps['rightSectionWidth'] = 36,
 		rightSectionProps: $$NativeSelectProps['rightSectionProps'] = {},
 		required: $$NativeSelectProps['required'] = false,
@@ -40,10 +40,11 @@
 	const uuid = randomID(id);
 
 	/** Map through the data and format it*/
-	let formattedData = []
-	$: data && (formattedData = data.map((item) =>
-		typeof item === 'string' ? { label: item, value: item } : item
-	))
+	let formattedData = [];
+	$: data &&
+		(formattedData = data.map((item) =>
+			typeof item === 'string' ? { label: item, value: item } : item
+		));
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -100,6 +101,7 @@ Capture user feedback limited to large set of options
 		{disabled}
 		{iconWidth}
 		{iconProps}
+		{placeholder}
 		{rightSection}
 		{rightSectionWidth}
 		{rightSectionProps}

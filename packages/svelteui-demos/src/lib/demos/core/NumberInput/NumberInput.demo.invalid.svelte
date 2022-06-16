@@ -19,11 +19,18 @@
 
 <script lang="ts">
 	import { Center, Stack, NumberInput } from '@svelteuidev/core';
+
+	let value: number;
 </script>
 
 <Center>
-    <Stack position="center">
-        <NumberInput error label='Your age' defaultValue={19} />
-        <NumberInput error='You must be at least 18' label='Your age' defaultValue={16} />
-    </Stack>
+	<Stack position="center">
+		<NumberInput error label="Your age" defaultValue={19} />
+		<NumberInput
+			bind:value
+			error={value < 18 ? 'You must be at least 18' : null}
+			label="Your age"
+			defaultValue={16}
+		/>
+	</Stack>
 </Center>

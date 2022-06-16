@@ -11,47 +11,19 @@ docs: 'core/group.md'
 ---
 
 <script>
-    import { Group, Button, NativeSelect, Switch } from '@svelteuidev/core';
-    import { Heading, Preview } from 'components';
-
-    const positionList = ['apart', 'center', 'left', 'right']
-    let position = 'apart'
-    const spacingList = ['xs', 'sm', 'md', 'lg', 'xl']
-    let spacing = 'md'
-    let grow = false
-
-    $: group = `
-    <script>
-        import { Group } from '@svelteuidev/core'
-    <\/script>
-
-    <Group ${grow ? 'grow ' : ''}children={3} spacing='${spacing}' position='${position}'>
-        <Button variant="outline">1<\/Button>
-        <Button variant="outline">2<\/Button>
-        <Button variant="outline">3<\/Button>
-    <\/Group>
-    `
+    import { Demo, GroupDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
 
 ## Usage
 
-<Preview cols={1} width={75} code={group}>
-    <Group grow={grow} children={3} spacing={spacing} position={position}>
-        <Button variant="outline">1</Button>
-        <Button variant="outline">2</Button>
-        <Button variant="outline">3</Button>
-    </Group>
-    <NativeSelect data={positionList} bind:value={position} label='Position' />
-    <NativeSelect data={spacingList} bind:value={spacing} label='Spacing' />
-    <Switch size='lg' on:change={() => grow = !grow} />
-</Preview>
+<Demo demo={GroupDemos.configurator} />
 
 ## Group children
 
-**!important** Group will work only with elements and Components that render elements. Strings, numbers, fragments and other parts will
-not have correct styles:
+**!important** Group will work only with elements and Components that render elements. Strings, numbers, fragments and other parts will not have correct styles:
 
 ```svelte
 <script>
