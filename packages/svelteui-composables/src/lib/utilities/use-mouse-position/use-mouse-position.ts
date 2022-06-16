@@ -1,10 +1,7 @@
 import { writable } from 'svelte/store';
 import type { Action, Writable } from '../../shared/utilities/types';
 
-export interface MousePosition {
-	position: Writable<{ x: number; y: number }>;
-	mouseposition: Action;
-}
+export type MousePosition = [Writable<{ x: number; y: number }>, Action];
 
 export function useMousePosition(append: boolean = false): MousePosition {
 	const position = writable({ x: 0, y: 0 });
@@ -28,17 +25,16 @@ export function useMousePosition(append: boolean = false): MousePosition {
 		}
 	};
 
-	return {
-		position,
-		mouseposition: (node: HTMLElement) => {
-			const element = !append ? node : document;
-			element.addEventListener('mousemove', setMousePosition as any);
+	const mouseposition = (node: HTMLElement) => {
+		const element = !append ? node : document;
+		element.addEventListener('mousemove', setMousePosition as any);
 
-			return {
-				destroy: () => {
-					element.removeEventListener('mousemove', setMousePosition as any);
-				}
-			};
-		}
+		return {
+			destroy: () => {
+				element.removeEventListener('mousemove', setMousePosition as any);
+			}
+		};
 	};
+
+	return [position, mouseposition];
 }

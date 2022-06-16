@@ -4,10 +4,7 @@ import type { Action, Writable } from '../../shared/utilities/types';
 
 type ObserverRect = Omit<DOMRectReadOnly, 'toJSON'>;
 
-export interface ElementSize {
-	size: Writable<ObserverRect>;
-	elementsize: Action;
-}
+export type ElementSize = [Writable<ObserverRect>, Action];
 
 const defaultState: ObserverRect = {
 	x: 0,
@@ -23,33 +20,31 @@ const defaultState: ObserverRect = {
 export function useElementSize(): ElementSize {
 	const size = writable(defaultState);
 
-	return {
-		size,
-		elementsize: (node: HTMLElement) => {
-			let frameID = 0;
+	const elementsize = (node: HTMLElement) => {
+		let frameID = 0;
 
-			const observer = browser
-				? new ResizeObserver((entries: any) => {
-						const entry = entries[0];
+		const observer = browser
+			? new ResizeObserver((entries: any) => {
+					const entry = entries[0];
 
-						if (entry) {
-							cancelAnimationFrame(frameID);
+					if (entry) {
+						cancelAnimationFrame(frameID);
 
-							frameID = requestAnimationFrame(() => {
-								size.set(entry.contentRect);
-							});
-						}
-				  })
-				: null;
+						frameID = requestAnimationFrame(() => {
+							size.set(entry.contentRect);
+						});
+					}
+			  })
+			: null;
 
-			observer.observe(node);
+		observer.observe(node);
 
-			return {
-				destroy: () => {
-					observer.disconnect();
-					cancelAnimationFrame(frameID);
-				}
-			};
-		}
+		return {
+			destroy: () => {
+				observer.disconnect();
+				cancelAnimationFrame(frameID);
+			}
+		};
 	};
+	return [size, elementsize];
 }

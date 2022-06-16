@@ -8,10 +8,7 @@ export interface UseFocusWithinOptions {
 	onBlur?(event: FocusEvent): void;
 }
 
-export interface FocusWithin {
-	focused: Writable<boolean>;
-	focuswithin: Action;
-}
+type FocusWithin = [Writable<boolean>, Action];
 
 function containsRelatedTarget(event: FocusEvent) {
 	if (event.currentTarget instanceof HTMLElement && event.relatedTarget instanceof HTMLElement) {
@@ -43,18 +40,17 @@ export function useFocusWithin({ onBlur, onFocus }: UseFocusWithinOptions = {}):
 		}
 	};
 
-	return {
-		focused,
-		focuswithin: (node: HTMLElement) => {
-			node?.addEventListener('focusin', handleFocusIn);
-			node?.addEventListener('focusout', handleFocusOut);
+	const focuswithin = (node: HTMLElement) => {
+		node?.addEventListener('focusin', handleFocusIn);
+		node?.addEventListener('focusout', handleFocusOut);
 
-			return {
-				destroy: () => {
-					node?.removeEventListener('focusin', handleFocusIn);
-					node?.removeEventListener('focusout', handleFocusOut);
-				}
-			};
-		}
+		return {
+			destroy: () => {
+				node?.removeEventListener('focusin', handleFocusIn);
+				node?.removeEventListener('focusout', handleFocusOut);
+			}
+		};
 	};
+
+	return [focused, focuswithin];
 }
