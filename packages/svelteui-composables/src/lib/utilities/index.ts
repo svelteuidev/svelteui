@@ -9,8 +9,5 @@ export * from './use-raf-fn/index.js';
 export * from './use-regex/index.js';
 export * from './use-throttle/index.js';
 export * from './use-viewport-size/index.js';
-<<<<<<< Updated upstream
 export * from './use-web-worker/index.js';
-=======
 export * from './use-element-size/index.js';
->>>>>>> Stashed changes
