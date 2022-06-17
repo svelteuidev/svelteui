@@ -3,16 +3,15 @@
 	import { key, useSvelteUIThemeContext } from './svelteui.provider';
 	import { colorScheme } from './svelteui.stores';
 	import { useSvelteUITheme } from './default-theme';
+	import { dark, theme as light, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../index';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { getContext, get_current_component } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from '../types';
 	import type { SvelteUIProviderContextType } from './svelteui.provider';
 </script>
 
 <script lang="ts">
-	import { dark, theme as light, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../index';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
-	import { setContext } from 'svelte';
-
 	export let use: $$SvelteUIProviderProps['use'] = [],
 		className: $$SvelteUIProviderProps['className'] = '',
 		element: $$SvelteUIProviderProps['element'] = undefined,
@@ -29,12 +28,6 @@
 	export { className as class };
 
 	let ctx: SvelteUIProviderContextType;
-
-	setContext<SvelteUIProviderContextType>(key, {
-		theme: useSvelteUITheme(),
-		styles: {},
-		defaultProps: {}
-	});
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -57,17 +50,20 @@
 	const ProviderStyles = css({});
 
 	$: ctx = useSvelteUIThemeContext();
+	$: if (withNormalizeCSS) NormalizeCSS();
+	$: colorScheme.set(themeObserver);
 	$: overrides = {
 		themeOverride: inherit ? { ...ctx.theme, ...theme } : theme,
 		styles: inherit ? { ...ctx.styles, ...styles } : styles,
 		defaultProps: inherit ? { ...ctx.styles, ...defaultProps } : defaultProps
 	};
-
-	$: {
-		$colorScheme = themeObserver;
-	}
-	$: if (withNormalizeCSS) NormalizeCSS();
 	SvelteUIGlobalCSS();
+	// $: console.log(overrides.themeOverride);
+	$: setContext<SvelteUIProviderContextType>(key, {
+		theme: overrides.themeOverride ?? useSvelteUITheme(),
+		styles: {},
+		defaultProps: {}
+	});
 </script>
 
 <svelte:head>
@@ -88,7 +84,9 @@
 	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents
-	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light' ? light : dark}"
+	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light'
+		? overrides.themeOverride
+		: dark}"
 	{...$$restProps}
 >
 	<slot />

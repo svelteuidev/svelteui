@@ -1,9 +1,10 @@
-import { theme } from '../../../index.js';
-import type { SvelteUIColor } from '../../../index';
+import { useSvelteUIThemeContext } from '../../../SvelteUIProvider';
+import type { SvelteUIOrAnyColor, SvelteUIColor } from '../../../index';
 
 export type ColorShades = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-export function themeColor(color: SvelteUIColor, shade: ColorShades = 0) {
+export function themeColor(color: SvelteUIOrAnyColor, shade: ColorShades = 0) {
+	const theme = useSvelteUIThemeContext().theme;
 	let _shade = '50';
 
 	if (!isSvelteUIColor(color)) return color;

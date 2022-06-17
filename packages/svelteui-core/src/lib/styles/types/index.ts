@@ -1,4 +1,5 @@
 export type { SvelteUIProviderProps } from './SvelteUIProvider';
+export type { DeepPartial } from './DeepPartial';
 export type { DefaultProps } from './DefaultProps';
 export type { ColorScheme, DefaultBackground, DefaultColor } from './ColorScheme';
 export type { SvelteUIColor, SvelteUIOrAnyColor } from './SvelteUIColor';

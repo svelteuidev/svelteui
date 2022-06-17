@@ -43,7 +43,8 @@ import type {
 	SvelteUITextTransform,
 	VariantThemeFunction,
 	Transition,
-	SvelteUIOrAnyColor
+	SvelteUIOrAnyColor,
+	DeepPartial
 } from './types';
 export type {
 	SvelteUIProviderProps,
@@ -70,5 +71,6 @@ export type {
 	VariantThemeFunction,
 	Transition,
 	SvelteUIOrAnyColor,
-	Color
+	Color,
+	DeepPartial
 };

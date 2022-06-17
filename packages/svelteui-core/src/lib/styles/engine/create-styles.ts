@@ -3,8 +3,9 @@ import { css } from '../index.js';
 import { cssFactory } from './css.js';
 import { fromEntries } from './utils/from-entries/from-entries.js';
 import { useSvelteUITheme } from '../SvelteUIProvider/default-theme';
+import { useSvelteUIThemeContext } from '../SvelteUIProvider';
 import type { CSS } from '../types';
-import type { SvelteUITheme } from './types';
+import type { SvelteUITheme, SvelteUIThemeOverride } from './types';
 
 type CreateRef = (refName: string) => string;
 
@@ -26,13 +27,19 @@ function createRef(refName: string) {
  * @returns
  */
 export function createStyles<Params = void>(
-	input: ((theme: SvelteUITheme, params: Params, createRef: CreateRef) => DirtyObject) | DirtyObject
+	input:
+		| ((
+				theme: SvelteUITheme | SvelteUIThemeOverride,
+				params: Params,
+				createRef: CreateRef
+		  ) => DirtyObject)
+		| DirtyObject
 ) {
 	const getCssObject = typeof input === 'function' ? input : () => input;
 
 	function useStyles(params: Params = {} as Params) {
 		/** create our new theme object */
-		const theme: SvelteUITheme = useSvelteUITheme();
+		const theme: SvelteUITheme | SvelteUIThemeOverride = useSvelteUIThemeContext().theme;
 		const { cx } = cssFactory();
 
 		/** store the created dirty object in a variable */

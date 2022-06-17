@@ -46,42 +46,40 @@
 		TypographyProvider,
 		UnstyledButton,
 		createStyles,
-		useSvelteUITheme
+		useSvelteUITheme,
+		useSvelteUIThemeContext
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 	import { GithubLogo } from 'radix-icons-svelte';
+	import type { SvelteUITheme, SvelteUIThemeOverride } from '$lib/styles';
+	import { getContext } from 'svelte';
 
-	const useStyles = createStyles((theme, _params, getRef) => {
-		return {
-			button: {
-				// assign reference to selector
-				ref: getRef('button'),
+	function mergeTheme(
+		currentTheme: SvelteUITheme,
+		themeOverride?: SvelteUIThemeOverride
+	): Omit<SvelteUITheme, 'fn' | 'dark'> {
+		if (!themeOverride) {
+			return currentTheme;
+		}
 
-				// and add any other properties
-				backgroundColor: theme.colors.blue600.value,
-				color: theme.colors.white.value,
-				padding: `$smPX $lgPX`,
-				borderRadius: theme.radii.md.value,
-				cursor: 'pointer',
-				border: 0
-			},
-			root: {
-				display: 'flex',
-				justifyContent: 'center',
-				backgroundColor: theme.colors.gray100.value,
-				padding: +theme.space.xl.value,
+		// @ts-ignore
+		return Object.keys(currentTheme).reduce((acc, key) => {
+			acc[key] =
+				typeof themeOverride[key] === 'object'
+					? { ...currentTheme[key], ...themeOverride[key] }
+					: typeof themeOverride[key] === 'number'
+					? themeOverride[key]
+					: themeOverride[key] || currentTheme[key];
+			return acc;
+		}, {} as SvelteUITheme);
+	}
 
-				// reference button with nested selector
-				[`&:hover .${getRef('button')}`]: {
-					backgroundColor: theme.colors.violet600.value
-				}
-			}
-		};
-	});
-
-	$: ({ getStyles, classes } = useStyles());
+	// export function mergeThemeWithFunctions(
+	// 	currentTheme: SvelteUITheme,
+	// 	themeOverride?: SvelteUIThemeOverride
+	// ): SvelteUITheme {
+	// 	return attachFunctions(mergeTheme(currentTheme, themeOverride));
+	// }
 </script>
 
-<div class={getStyles()}>
-	<button class={classes.button} type="button"> Hover container to change button color </button>
-</div>
+<Button>Hello World</Button>

@@ -1,2 +1,2 @@
 export type { Selectors } from './Selectors';
-export type { SvelteUITheme } from './SvelteUITheme';
+export type { SvelteUITheme, SvelteUIThemeOverride } from './SvelteUITheme';

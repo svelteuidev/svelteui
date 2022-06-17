@@ -3,7 +3,7 @@ import type { SvelteUITheme } from '../engine/types';
 import type { ColorScheme, DefaultProps, CSS } from './index';
 
 export interface SvelteUIProviderProps extends DefaultProps<HTMLDivElement> {
-	theme?: SvelteUITheme;
+	theme?: Partial<SvelteUITheme>;
 	styles?: ProviderStyles;
 	defaultProps?: SvelteUIDefaultProps;
 	themeObserver?: ColorScheme;

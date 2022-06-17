@@ -1,4 +1,4 @@
-import type { theme as DefaultTheme } from '../../index';
+import type { theme as DefaultTheme, DeepPartial } from '../../index';
 import type { Fn } from '../../functions';
 
 export interface SvelteUITheme {
@@ -21,3 +21,5 @@ export interface SvelteUITheme {
 	dark: string;
 	fn: Fn;
 }
+
+export type SvelteUIThemeOverride = DeepPartial<Omit<SvelteUITheme, 'fn' | 'dark'>>;
