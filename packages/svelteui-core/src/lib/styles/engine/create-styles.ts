@@ -27,19 +27,13 @@ function createRef(refName: string) {
  * @returns
  */
 export function createStyles<Params = void>(
-	input:
-		| ((
-				theme: SvelteUITheme | SvelteUIThemeOverride,
-				params: Params,
-				createRef: CreateRef
-		  ) => DirtyObject)
-		| DirtyObject
+	input: ((theme: SvelteUITheme, params: Params, createRef: CreateRef) => DirtyObject) | DirtyObject
 ) {
 	const getCssObject = typeof input === 'function' ? input : () => input;
 
 	function useStyles(params: Params = {} as Params) {
 		/** create our new theme object */
-		const theme: SvelteUITheme | SvelteUIThemeOverride = useSvelteUIThemeContext().theme;
+		const theme: SvelteUITheme = useSvelteUIThemeContext().theme;
 		const { cx } = cssFactory();
 
 		/** store the created dirty object in a variable */

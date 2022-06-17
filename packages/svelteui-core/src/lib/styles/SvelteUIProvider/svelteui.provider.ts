@@ -1,5 +1,5 @@
 import { getContext } from 'svelte';
-import type { SvelteUITheme, SvelteUIThemeOverride } from '../engine/types';
+import type { SvelteUITheme } from '../engine/types';
 import type { CSS } from '../types';
 
 export type ProviderStyles = Record<
@@ -10,7 +10,7 @@ export type ProviderStyles = Record<
 export type SvelteUIDefaultProps = Record<string, Record<string, any>>;
 
 export interface SvelteUIProviderContextType {
-	theme: SvelteUITheme | SvelteUIThemeOverride;
+	theme: SvelteUITheme;
 	styles: ProviderStyles;
 	defaultProps: SvelteUIDefaultProps;
 }
