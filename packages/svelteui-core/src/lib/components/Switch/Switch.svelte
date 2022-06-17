@@ -3,7 +3,6 @@
 	import { randomID } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { Gear } from 'radix-icons-svelte';
 	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
 	export let use: $$SwitchProps['use'] = [],
