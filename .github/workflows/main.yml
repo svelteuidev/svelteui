@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container: node:${{ matrix.node-version }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v1
       - uses: actions/cache@v3
         id: cache-dependencies
         with:
