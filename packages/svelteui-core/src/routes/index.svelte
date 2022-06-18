@@ -64,7 +64,6 @@
 			return currentTheme;
 		}
 
-		// @ts-ignore
 		return Object.keys(currentTheme).reduce((acc, key) => {
 			acc[key] =
 				typeof themeOverride[key] === 'object'
