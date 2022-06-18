@@ -13,10 +13,24 @@ jobs:
     runs-on: ubuntu-latest
     container: node:${{ matrix.node-version }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: |
+            **/package-lock.json
+            ./package-lock.json
+          key: ${{ runner.os }}-${{ hashFiles('./package-lock.json') }}-${{ hashFiles('packages/*/package-lock.json') }}
+      - uses: actions/cache@v3
+        id: cache-packages
+        with:
+          path: packages/**
+          key: ${{ runner.os }}-${{ hashFiles('packages/*') }}
       - run: node --version
       - run: npm i
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
       - run: npm run format
       - run: npm run lint
       - run: npm run package
+        if: steps.cache-packages.outputs.cache-hit != 'true'
       - run: npm run test
