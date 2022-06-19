@@ -1,5 +1,6 @@
 import { createStitches, defaultThemeMap } from '@stitches/core';
 import { colors } from './styles';
+import type { LiteralUnion } from '$lib/internal';
 import type * as Stitches from '@stitches/core';
 
 export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
@@ -164,48 +165,48 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			p: (value: Stitches.ScaleValue<'space'>) => ({
 				padding: value
 			}),
-			pt: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			pt: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingTop: value
 			}),
-			pr: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			pr: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingRight: value
 			}),
-			pb: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			pb: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingBottom: value
 			}),
-			pl: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			pl: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingLeft: value
 			}),
-			px: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			px: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingLeft: value,
 				paddingRight: value
 			}),
-			py: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			py: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				paddingTop: value,
 				paddingBottom: value
 			}),
 			/** margin */
-			m: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			m: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				margin: value
 			}),
 			/** margin-top */
-			mt: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			mt: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginTop: value
 			}),
-			mr: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			mr: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginRight: value
 			}),
-			mb: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			mb: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginBottom: value
 			}),
-			ml: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			ml: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginLeft: value
 			}),
-			mx: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			mx: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginLeft: value,
 				marginRight: value
 			}),
-			my: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			my: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				marginTop: value,
 				marginBottom: value
 			}),
@@ -320,7 +321,9 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				userSelect: value
 			}),
 			w: (value: Stitches.ScaleValue<'space'>) => ({ width: value }),
-			h: (value: Stitches.ScaleValue<'space'> | number | string) => ({ height: value }),
+			h: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
+				height: value
+			}),
 			minW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				minWidth: value
 			}),
@@ -337,7 +340,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			maxH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
 				maxHeight: value
 			}),
-			size: (value: Stitches.ScaleValue<'space'> | number | string) => ({
+			size: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				width: value,
 				height: value
 			}),
@@ -415,6 +418,7 @@ const dark = createTheme('dark-theme', {
 	}
 });
 
+/** Global styles for SvelteUI */
 const SvelteUIGlobalCSS = globalCss({
 	a: {
 		focusRing: 'auto'
@@ -429,9 +433,7 @@ const SvelteUIGlobalCSS = globalCss({
 	}
 });
 
-/**
- * Normalize css function
- */
+/** Normalize css function */
 const NormalizeCSS = globalCss({
 	html: {
 		fontFamily: 'sans-serif',

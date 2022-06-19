@@ -53,6 +53,4 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 	import { GithubLogo } from 'radix-icons-svelte';
-
-	// const theme = useSvelteUIThemeContext().theme;
 </script>
