@@ -1,5 +1,5 @@
-import { useSvelteUITheme } from '$lib/styles/SvelteUIProvider';
-import type { SvelteUITheme } from '$lib/styles/engine/types';
+// import { useSvelteUIThemeContext } from '$lib/styles';
+import type { SvelteUITheme } from '$lib/styles';
 import type { CSS } from '$lib/styles';
 
 type Sx = CSS | ((theme: SvelteUITheme) => CSS);

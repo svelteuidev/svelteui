@@ -418,6 +418,14 @@ const dark = createTheme('dark-theme', {
 const SvelteUIGlobalCSS = globalCss({
 	a: {
 		focusRing: 'auto'
+	},
+	body: {
+		[`${dark.selector} &`]: {
+			backgroundColor: '$dark700',
+			color: '$dark50'
+		},
+		backgroundColor: '$white',
+		color: '$black'
 	}
 });
 

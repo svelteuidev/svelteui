@@ -2,10 +2,9 @@
 import { css } from '../index.js';
 import { cssFactory } from './css.js';
 import { fromEntries } from './utils/from-entries/from-entries.js';
-import { useSvelteUITheme } from '../SvelteUIProvider/default-theme';
-import { useSvelteUIThemeContext } from '../SvelteUIProvider';
-import type { CSS } from '../types';
-import type { SvelteUITheme, SvelteUIThemeOverride } from './types';
+import { useSvelteUIThemeContext } from '$lib/styles';
+import type { CSS } from '$lib/styles';
+import type { SvelteUITheme } from '$lib/styles';
 
 type CreateRef = (refName: string) => string;
 

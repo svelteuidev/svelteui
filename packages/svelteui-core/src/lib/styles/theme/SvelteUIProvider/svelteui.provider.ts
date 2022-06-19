@@ -1,6 +1,6 @@
 import { getContext } from 'svelte';
-import type { SvelteUITheme } from '../engine/types';
-import type { CSS } from '../types';
+import type { SvelteUITheme } from '../types';
+import type { CSS, ColorScheme, DefaultProps, DeepPartial } from '../types';
 
 export type ProviderStyles = Record<
 	string,
@@ -15,7 +15,24 @@ export interface SvelteUIProviderContextType {
 	defaultProps: SvelteUIDefaultProps;
 }
 
+export interface SvelteUIProviderProps extends DefaultProps<HTMLDivElement> {
+	theme?: DeepPartial<SvelteUITheme>;
+	styles?: ProviderStyles;
+	defaultProps?: SvelteUIDefaultProps;
+	themeObserver?: ColorScheme;
+	withNormalizeCSS?: boolean;
+	withGlobalStyles?: boolean;
+	ssr?: boolean;
+	inherit?: boolean;
+}
+
+/** --------------------- */
+
 export const key = {};
+
+export const ssrStyles = (fn: () => string): string => {
+	return `<style\tid="stitches">${fn()}<\/style>`;
+};
 
 export function useSvelteUIThemeContext(): SvelteUIProviderContextType {
 	return getContext(key);
