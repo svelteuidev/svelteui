@@ -30,6 +30,13 @@ export interface SvelteUIProviderProps extends DefaultProps<HTMLDivElement> {
 
 export const key = {};
 
+export const globalStyles = (themeObserver: ColorScheme): string => {
+	const globalStylesLight = `<style\tid="svelteui-inject" type="text\/css">body{background-color:white;color:black;}<\/style>`;
+	const globalStylesDark = `<style\tid="svelteui-inject" type="text\/css">body{background-color:#1A1B1E;color:#C1C2C5;}<\/style>`;
+	if (themeObserver === 'light') return globalStylesLight;
+	return globalStylesDark;
+};
+
 export const ssrStyles = (fn: () => string): string => {
 	return `<style\tid="stitches">${fn()}<\/style>`;
 };

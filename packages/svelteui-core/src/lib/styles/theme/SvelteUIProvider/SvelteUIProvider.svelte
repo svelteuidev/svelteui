@@ -4,7 +4,7 @@
 	import { mergeTheme } from '../';
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
-	import { key, ssrStyles, useSvelteUIThemeContext } from './svelteui.provider';
+	import { key, ssrStyles, globalStyles, useSvelteUIThemeContext } from './svelteui.provider';
 	import { dark, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
@@ -51,6 +51,9 @@
 <svelte:head>
 	{#if ssr}
 		{@html ssrStyles(getCssText)}
+	{/if}
+	{#if withGlobalStyles}
+		{@html globalStyles(themeObserver)}
 	{/if}
 </svelte:head>
 

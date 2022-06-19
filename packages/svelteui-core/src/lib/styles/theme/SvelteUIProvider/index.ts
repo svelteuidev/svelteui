@@ -4,6 +4,7 @@ export { colorScheme } from './svelteui.stores';
 export {
 	key,
 	ssrStyles,
+	globalStyles,
 	useSvelteUIDefaultProps,
 	useSvelteUIThemeContext
 } from './svelteui.provider';
