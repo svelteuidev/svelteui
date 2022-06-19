@@ -1,10 +1,10 @@
 <script lang="ts" context="module">
 	import { setContext } from 'svelte';
-	import { get_current_component } from 'svelte/internal';
+	import { beforeUpdate, get_current_component } from 'svelte/internal';
 	import { mergeTheme } from '../';
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
-	import { key, ssrStyles, globalStyles, useSvelteUIThemeContext } from './svelteui.provider';
+	import { key, ssrStyles, useSvelteUIThemeContext } from './svelteui.provider';
 	import { dark, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
@@ -27,6 +27,12 @@
 		inherit: $$SvelteUIProviderProps['inherit'] = false;
 	export { className as class };
 
+	beforeUpdate(() => {
+		const htmlClassList: DOMTokenList = document.documentElement.classList;
+		if ($colorScheme === 'dark') htmlClassList.add(dark.className);
+		if ($colorScheme === 'light') htmlClassList.remove(dark.className);
+	});
+
 	const ctx = useSvelteUIThemeContext();
 	const forwardEvents = createEventForwarder(get_current_component());
 	const ProviderStyles = css({});
@@ -34,7 +40,6 @@
 
 	$: if (withGlobalStyles) SvelteUIGlobalCSS();
 	$: if (withNormalizeCSS) NormalizeCSS();
-	$: colorScheme.set(themeObserver);
 	$: overrides = {
 		themeOverride: inherit ? { ...ctx.theme, ...theme } : theme,
 		styles: inherit ? { ...ctx.styles, ...styles } : styles,
@@ -45,15 +50,13 @@
 		styles: {},
 		defaultProps: {}
 	});
+	$: colorScheme.set(themeObserver);
 	$: mergedTheme = mergeTheme(DEFAULT_THEME, overrides.themeOverride);
 </script>
 
 <svelte:head>
 	{#if ssr}
 		{@html ssrStyles(getCssText)}
-	{/if}
-	{#if withGlobalStyles}
-		{@html globalStyles(themeObserver)}
 	{/if}
 </svelte:head>
 

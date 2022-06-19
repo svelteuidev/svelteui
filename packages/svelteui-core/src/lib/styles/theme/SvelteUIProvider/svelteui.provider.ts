@@ -1,6 +1,5 @@
 import { getContext } from 'svelte';
-import type { SvelteUITheme } from '../types';
-import type { CSS, ColorScheme, DefaultProps, DeepPartial } from '../types';
+import type { CSS, ColorScheme, DefaultProps, DeepPartial, SvelteUITheme } from '../types';
 
 export type ProviderStyles = Record<
 	string,
