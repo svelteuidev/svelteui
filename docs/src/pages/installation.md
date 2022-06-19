@@ -8,7 +8,7 @@ title: 'Installation'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
     
 	let packages = ["@svelteuidev/core", "@svelteuidev/composables"];
-	let templates = ["npx degit sveltejs/template my-svelte-project", "npm init svelte@next my-app"]
+	let templates = ["npm create vite@latest", "npm init svelte@next my-app"]
     let value = 'svelte'
 	$: sanitizedPKG = packages || ["@svelteuidev/core", "@svelteuidev/composables"].join(' ')
 </script>
