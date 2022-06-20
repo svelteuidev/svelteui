@@ -4,6 +4,7 @@ export * from './engine/index.js';
 export {
 	css,
 	dark,
+	reset,
 	theme,
 	config,
 	globalCss,

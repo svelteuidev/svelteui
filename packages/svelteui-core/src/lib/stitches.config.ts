@@ -3,8 +3,8 @@ import { colors } from './styles';
 import type { LiteralUnion } from '$lib/internal';
 import type * as Stitches from '@stitches/core';
 
-export const { css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches(
-	{
+export const { css, globalCss, keyframes, getCssText, theme, createTheme, config, reset } =
+	createStitches({
 		prefix: 'svelteui',
 		theme: {
 			colors,
@@ -403,8 +403,7 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 			maxInlineSize: 'space',
 			borderWidth: 'borderWeights'
 		}
-	}
-);
+	});
 
 /** Function for dark theme */
 const dark = createTheme('dark-theme', {
