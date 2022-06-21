@@ -1,6 +1,9 @@
 // Demo components
 export { Demo, CodeDemo, Configurator } from './components';
 
+// Miscellaneous demos
+export * as MiscDemos from './demos/misc';
+
 // Theming demos
 export * as CreateStylesDemos from './demos/createStyles';
 export * as ThemeDemos from './demos/theme';

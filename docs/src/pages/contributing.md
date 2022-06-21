@@ -4,6 +4,8 @@ title: 'Contributing'
 
 <script>
     import { CodeBlock, MinorHeading, BottomNav } from 'components'
+    import { Demo, MiscDemos } from '@svelteuidev/demos';
+    
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -66,7 +68,7 @@ Examples:
 - Install dependencies at the root of the monorepo with npm **(make sure to install with npm only)**
 - After your node modules have installed:
 
-**If developing in [svelteui-prism, svelteui-dates, or svelteui-demos]**
+**To start developing**
 
 1. run `npm run package`
    - If you want to watch for changes in one of the packages that they depend on, run `npm run watch` in their directory.
@@ -74,12 +76,13 @@ Examples:
 2. cd into the package you want to develop on
 3. run `npm run dev`
 
-**If developing in [svelteui-core, svelteui-actions, svelteui-utilities, or svelteui-motion]**
-
-1. cd into the package you want to develop on
-2. run `npm run dev`
-
 - To start docs - `cd docs && npm install && npm run dev`
+
+**Project Structure**
+
+You won't need to pay attention to every file within the project. All of the packages follow a similar pattern, so you should always start your journey within the `src/lib` of whatever package you choose to work on.
+
+<Demo demo={MiscDemos.contributing.tree} />
 
 ## NPM scripts
 
