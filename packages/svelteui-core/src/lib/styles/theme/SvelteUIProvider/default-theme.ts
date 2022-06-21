@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { theme, dark, fns, colorScheme } from '../index';
-import type { SvelteUITheme } from '../engine/types';
+import { theme, dark, fns, colorScheme } from '../../index';
+import type { SvelteUITheme } from '../types';
 
 export function useSvelteUITheme(): SvelteUITheme {
 	let observer;

@@ -47,5 +47,6 @@
 				{/if}
 			</ActionIcon>
 		</Tooltip>
+		<Anchor href="/test">Test</Anchor>
 	</Group>
 </Group>
