@@ -27,7 +27,7 @@
 </script>
 
 <Seo titleTemplate="%t% | SvelteUI" />
-<SvelteUIProvider ssr withGlobalStyles withNormalizeCSS themeObserver={isDark ? 'dark' : 'light'}>
+<SvelteUIProvider withGlobalStyles withNormalizeCSS themeObserver={isDark ? 'dark' : 'light'}>
 	<TypographyProvider>
 		<AppShell
 			override={{

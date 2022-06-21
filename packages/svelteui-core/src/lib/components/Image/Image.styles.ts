@@ -13,6 +13,7 @@ export interface ImageProps extends DefaultProps {
 	height: string | number;
 	caption: string;
 	usePlaceholder: boolean;
+	loader: boolean;
 }
 
 export interface ImageStylesParams {
