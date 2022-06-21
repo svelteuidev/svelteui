@@ -53,13 +53,6 @@
 		rgba
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
-
-	let value = 20;
 </script>
 
-<Progress {value} />
-<Space h="md" />
-<Group>
-	<Button on:click={() => (value += 10)}>Increase</Button>
-	<Button on:click={() => (value -= 10)}>Decrease</Button>
-</Group>
+<Button>Click me</Button>

@@ -7,6 +7,28 @@ import type {
 } from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
+export interface Props extends Partial<HTMLButtonElement> {
+	use?: ButtonProps['use'];
+	element?: ButtonProps['element'];
+	className?: ButtonProps['className'];
+	override?: ButtonProps['override'];
+	variant?: ButtonProps['variant'];
+	color?: ButtonProps['color'];
+	size?: ButtonProps['size'];
+	radius?: ButtonProps['radius'];
+	gradient?: ButtonProps['gradient'];
+	loaderPosition?: ButtonProps['loaderPosition'];
+	loaderProps?: ButtonProps['loaderProps'];
+	href?: ButtonProps['href'];
+	external?: ButtonProps['external'];
+	disabled?: ButtonProps['disabled'];
+	compact?: ButtonProps['compact'];
+	loading?: ButtonProps['loading'];
+	uppercase?: ButtonProps['uppercase'];
+	fullSize?: ButtonProps['fullSize'];
+	ripple?: ButtonProps['ripple'];
+}
+
 export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
 	variant: ButtonVariant;
 	color: SvelteUIColor;
