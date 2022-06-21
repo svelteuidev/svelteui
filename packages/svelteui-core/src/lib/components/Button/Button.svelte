@@ -9,7 +9,7 @@
 	import type { ButtonProps as $$ButtonProps, Props } from './Button.styles';
 
 	interface $$Props extends Props {
-		never: never;
+		never?: never;
 	}
 
 	export let use: $$ButtonProps['use'] = [],
