@@ -56,8 +56,8 @@
 				type: 'number',
 				min: 0,
 				max: 15,
-				initialValue: 5,
-				defaultValue: 5
+				initialValue: 3,
+				defaultValue: 3
 			},
 			{
 				name: 'withArrow',
@@ -86,7 +86,7 @@
 </script>
 
 <Button bind:element={reference} on:click={toggleMount}>Reference element</Button>
-<Popper arrowOverride={{ backgroundColor: '$gray100' }} {reference} {...props} {mounted}>
+<Popper override={{ '& .arrow': { backgroundColor: '$gray100' } }} {reference} {...props} {mounted}>
 	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
 		<Center>Popper content</Center>
 	</Box>
