@@ -29,6 +29,7 @@ export * from './Overlay';
 export * from './Paper';
 export * from './Popper';
 export * from './Portal';
+export * from './Progress';
 export * from './Seo';
 export * from './ServerRender';
 export * from './SimpleGrid';

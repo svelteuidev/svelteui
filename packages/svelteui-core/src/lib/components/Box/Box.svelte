@@ -13,6 +13,8 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
+	/** workaround for root type errors, this should be replaced by a better type system */
+	const castRoot = () => root as string;
 
 	let isHTMLElement;
 	let isComponent;
@@ -42,7 +44,7 @@ Add inline styles to any element or component with sx.
 	<!-- prettier-ignore -->
 	<svelte:element
 		bind:this={element}
-		this={root}
+		this={castRoot(root)}
 		use:forwardEvents
 		use:useActions={use}
 		class="{className} {BoxStyles({ css })}"

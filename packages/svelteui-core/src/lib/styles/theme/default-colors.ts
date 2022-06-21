@@ -151,3 +151,20 @@ export const colors: Record<Color, string> = {
 	orange800: '#e8590c',
 	orange900: '#d9480f'
 };
+
+export const colorNameMap = {
+	blue: 'blue',
+	cyan: 'cyan',
+	dark: 'dark',
+	grape: 'grape',
+	gray: 'gray',
+	green: 'green',
+	indigo: 'indigo',
+	lime: 'lime',
+	orange: 'orange',
+	pink: 'pink',
+	red: 'red',
+	teal: 'teal',
+	violet: 'violet',
+	yellow: 'yellow'
+};

@@ -2,7 +2,7 @@
 import { css } from '../index.js';
 import { cssFactory } from './css.js';
 import { fromEntries } from './utils/from-entries/from-entries.js';
-import { useSvelteUIThemeContext } from '$lib/styles';
+import { useSvelteUITheme, useSvelteUIThemeContext } from '$lib/styles';
 import type { CSS } from '$lib/styles';
 import type { SvelteUITheme } from '$lib/styles';
 
@@ -32,7 +32,7 @@ export function createStyles<Params = void>(
 
 	function useStyles(params: Params = {} as Params) {
 		/** create our new theme object */
-		const theme: SvelteUITheme = useSvelteUIThemeContext().theme;
+		const theme: SvelteUITheme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 		const { cx } = cssFactory();
 
 		/** store the created dirty object in a variable */

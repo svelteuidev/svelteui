@@ -1,5 +1,5 @@
 import type { TransitionConfig } from 'svelte/transition';
-import type { DeepPartial, theme, config, fns } from '../../index';
+import type { DeepPartial, SvelteUIColor, theme, config, fns } from '../../index';
 import type * as Stitches from '@stitches/core';
 
 export type CSS = Stitches.CSS<typeof config>;
@@ -35,6 +35,7 @@ export interface SvelteUITheme {
 	fn: Fn;
 	dark: string;
 	colorScheme: 'light' | 'dark';
+	colorNames: Record<SvelteUIColor, string>;
 	colors: DefaultTheme['colors'];
 	space: DefaultTheme['space'];
 	fontSizes: DefaultTheme['fontSizes'];
