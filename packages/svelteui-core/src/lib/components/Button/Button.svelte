@@ -8,7 +8,7 @@
 	import Ripple from './Ripple.svelte';
 	import type { ButtonProps as $$ButtonProps, Props } from './Button.styles';
 
-	interface $$Props extends Props {}
+	// interface $$Props extends Props {}
 
 	export let use: $$ButtonProps['use'] = [],
 		element: $$ButtonProps['element'] = undefined,
