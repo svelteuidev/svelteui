@@ -6,7 +6,7 @@ slug: /core/burger/
 category: 'navigation'
 description: 'Display links with theme styles'
 import: "import { Burger } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Burger/Burger.svelte'
+source: 'svelteui-core/src/lib/components/Burger/Burger.svelte'
 docs: 'core/burger.md'
 ---
 

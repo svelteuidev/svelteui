@@ -6,7 +6,7 @@ slug: /core/image/
 category: 'data-display'
 description: 'Image with optional placeholder for loading and error state'
 import: "import { Image } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Image/Image.svelte'
+source: 'svelteui-core/src/lib/components/Image/Image.svelte'
 docs: 'core/image.md'
 ---
 

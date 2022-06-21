@@ -6,7 +6,7 @@ slug: /core/switch/
 category: 'inputs'
 description: 'Capture boolean input from user'
 import: "import { Switch } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Switch/Switch.svelte'
+source: 'svelteui-core/src/lib/components/Switch/Switch.svelte'
 docs: 'core/switch.md'
 ---
 
@@ -65,5 +65,6 @@ Switch is a regular input with checkbox type. Provide `aria-label` if Switch is 
 ```svelte
 <Switch /> // -> not ok, input is not labeled
 <Switch label="I agree to everything" /> // -> ok, input and label is connected
-<Switch aria-label="I agree to everything" /> // -> ok, label is not visible but will be announced by screen reader
+<Switch aria-label="I agree to everything" /> // -> ok, label is not visible but will be announced by
+screen reader
 ```

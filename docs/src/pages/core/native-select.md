@@ -6,7 +6,7 @@ slug: /core/native-select/
 category: 'inputs'
 description: 'Capture user feedback limited to large set of options'
 import: "import { NativeSelect } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/NativeSelect/NativeSelect.svelte'
+source: 'svelteui-core/src/lib/components/NativeSelect/NativeSelect.svelte'
 docs: 'core/native-select.md'
 ---
 
@@ -47,10 +47,11 @@ You can replace icon in right section with `rightSection` named slot. Note that 
 
 ## Accessibility
 
-Provide `aria-label` in case you use component without label for screen reader support: 
+Provide `aria-label` in case you use component without label for screen reader support:
 
 ```svelte
 <NativeSelect /> // -> not ok, select is not labeled
 <NativeSelect label="My select" /> // -> ok, select and label is connected
-<NativeSelect aria-label="My select" /> // -> ok, label is not visible but will be announced by screen reader 
+<NativeSelect aria-label="My select" /> // -> ok, label is not visible but will be announced by screen
+reader
 ```

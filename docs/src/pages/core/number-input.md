@@ -6,7 +6,7 @@ slug: /core/number-input/
 category: 'inputs'
 description: 'Number input with optional controls'
 import: "import { NumberInput } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/NumberInput/NumberInput.svelte'
+source: 'svelteui-core/src/lib/components/NumberInput/NumberInput.svelte'
 docs: 'core/number-input.md'
 ---
 

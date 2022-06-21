@@ -6,7 +6,7 @@ slug: /core/theme-icon/
 category: 'data-display'
 description: 'Render icon inside element with theme colors'
 import: "import { ThemeIcon } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/ThemeIcon/ThemeIcon.svelte'
+source: 'svelteui-core/src/lib/components/ThemeIcon/ThemeIcon.svelte'
 docs: 'core/theme-icon.md'
 ---
 
@@ -29,10 +29,10 @@ ThemeIcon supports all colors from [theme.colors](/theming/extend-theme/#default
 
 ## Gradient variant
 
-To use gradient as ThemeIcon background: 
+To use gradient as ThemeIcon background:
 
-- set `variant` to `gradient` 
-- `color-from` and `color-to` are colors from `theme.colors` 
+- set `variant` to `gradient`
+- `color-from` and `color-to` are colors from `theme.colors`
 - `deg` is linear gradient deg
 
 <Demo demo={ThemeIconDemos.gradient} />

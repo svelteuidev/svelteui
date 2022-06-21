@@ -6,7 +6,7 @@ slug: /core/text-input/
 category: 'inputs'
 description: 'Text input with descriptions'
 import: "import { TextInput } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/TextInput/TextInput.svelte'
+source: 'svelteui-core/src/lib/components/TextInput/TextInput.svelte'
 docs: 'core/text-input.md'
 ---
 

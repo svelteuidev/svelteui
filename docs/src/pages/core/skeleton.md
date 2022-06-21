@@ -6,7 +6,7 @@ slug: /core/skeleton/
 category: 'feedback'
 description: 'Indicate content loading state'
 import: "import { Skeleton } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Skeleton/Skeleton.svelte'
+source: 'svelteui-core/src/lib/components/Skeleton/Skeleton.svelte'
 docs: 'core/skeleton.md'
 ---
 
@@ -21,11 +21,11 @@ docs: 'core/skeleton.md'
 
 Use Skeleton to create a placeholder for loading content. The component supports the following props:
 
-* `height` – height in px (number) or string for other CSS values
-* `width` – width in px (number) or string for other CSS values
-* `radius` – value from the theme or number to set `border-radius` in px
-* `circle` – if true `width`, `height` and `border-radius` will equal to value specified in height prop
-* `animate` – true by default, controls animation
+- `height` – height in px (number) or string for other CSS values
+- `width` – width in px (number) or string for other CSS values
+- `radius` – value from the theme or number to set `border-radius` in px
+- `circle` – if true `width`, `height` and `border-radius` will equal to value specified in height prop
+- `animate` – true by default, controls animation
 
 <Demo demo={SkeletonDemos.configurator} />
 
