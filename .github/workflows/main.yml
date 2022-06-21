@@ -14,9 +14,36 @@ jobs:
     container: node:${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v1
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version: ${{ matrix.node }}
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        id: cache-modules
+        with:
+          path: |
+            **/node_modules
+            ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-modules-${{ hashFiles('./package-lock.json') }}-${{ hashFiles('packages/*/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-modules
+      - name: Cache packages
+        uses: actions/cache@v3
+        id: cache-packages
+        with:
+          path: packages/**
+          key: ${{ runner.os }}-${{ hashFiles('packages/*') }}
       - run: node --version
       - run: npm i
+        if: steps.cache-modules.outputs.cache-hit != 'true'
       - run: npm run format
       - run: npm run lint
       - run: npm run package
+        if: steps.cache-packages.outputs.cache-hit != 'true'
       - run: npm run test
