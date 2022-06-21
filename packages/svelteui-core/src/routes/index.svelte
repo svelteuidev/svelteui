@@ -50,8 +50,7 @@
 		createStyles,
 		useSvelteUITheme,
 		useSvelteUIThemeContext,
-		rgba,
-		type ProgressProps
+		rgba
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 
