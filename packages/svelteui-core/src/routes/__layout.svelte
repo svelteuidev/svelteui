@@ -8,9 +8,9 @@
 		Title,
 		Divider,
 		Container,
-		Text
+		Text,
+		fns
 	} from '$lib';
-	import { fns } from '$lib';
 	import { HeadContent } from '../pages';
 	// import { page } from '$app/stores';
 

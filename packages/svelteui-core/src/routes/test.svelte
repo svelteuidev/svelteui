@@ -1,5 +1,9 @@
-<script lang="ts">
-	import { Title } from '$lib';
+<script lang="ts" context="module">
+	export const prerender = true;
 </script>
 
-<Title align="center">Look at the title of the web page</Title>
+<script lang="ts">
+	import { Button } from '$lib';
+</script>
+
+<Button>Test Route</Button>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import useStyles from './Image.styles';
 	import ImageIcon from './ImageIcon.svelte';
+	import { Skeleton } from '../Skeleton';
 	import { Text } from '../Text';
 	import { Box } from '../Box';
 	import { get_current_component } from 'svelte/internal';
@@ -18,7 +19,8 @@
 		width: $$ImageProps['width'] = '100%',
 		height: $$ImageProps['height'] = 'auto',
 		caption: $$ImageProps['caption'] = undefined,
-		usePlaceholder: $$ImageProps['usePlaceholder'] = false;
+		usePlaceholder: $$ImageProps['usePlaceholder'] = false,
+		loader: $$ImageProps['loader'] = false;
 	export { className as class };
 
 	let loaded: boolean = false;
@@ -50,16 +52,19 @@ Dynamic Image component with optional placeholder for loading and error state
 <Box class={cx(className, getStyles({ css: override }))}>
 	<figure class={classes.figure}>
 		<div class={classes.imageWrapper}>
-			<img
-				bind:this={element}
-				use:useActions={use}
-				use:forwardEvents
-				class={classes.image}
-				{src}
-				{alt}
-				on:load={onLoad}
-				on:error={onError}
-			/>
+			<Skeleton visible={loader ? loaded : false}>
+				<img
+					bind:this={element}
+					use:useActions={use}
+					use:forwardEvents
+					class={classes.image}
+					{src}
+					{alt}
+					on:load={onLoad}
+					on:error={onError}
+					{...$$restProps}
+				/>
+			</Skeleton>
 			{#if showPlaceholder}
 				<div class={classes.placeholder} title={alt}>
 					<slot name="placeholder">

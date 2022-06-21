@@ -89,6 +89,7 @@ Display text and links with theme styles.
 		use:useActions={use}
 		{href} 
 		class={cx(className, getStyles({ css: override }))}
+		{...$$restProps}
 	>
 		<slot>Enter some text</slot>
 	</svelte:element>
@@ -98,7 +99,7 @@ Display text and links with theme styles.
 		bind:this={element}
 		use={[forwardEvents, [useActions, use]]}
 		class={cx(className, getStyles({ css: override }))}
-		{...$$props}
+		{...$$restProps}
 	>
 		<slot>Enter some text</slot>
 	</svelte:component>
@@ -108,6 +109,7 @@ Display text and links with theme styles.
 		use:forwardEvents
 		use:useActions={use}
 		class={cx(className, getStyles({ css: override }))}
+		{...$$restProps}
 	>
 		<slot>Enter some text</slot>
 	</div>
