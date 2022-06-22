@@ -1,4 +1,5 @@
 <script>
+	// @ts-nocheck
 	import { Burger } from '@svelteuidev/core';
 	import { current_page } from '@svelte-docs/get/routes';
 	import maintitle from '@svelte-docs/get/maintitle';
@@ -12,8 +13,9 @@
 		window.scrollTo(0, 0);
 	});
 
-	let window_width = 0;
-	let show_sidebar = false;
+	let sidebar_details,
+		window_width = 0,
+		show_sidebar = false;
 
 	$: mobile = window_width < 800;
 	$: show_sidebar = mobile ? show_sidebar : false;
@@ -40,9 +42,12 @@
 			transition:fly={{ x: -100, duration: 300 }}
 			class="sidebar"
 			use:set_active_link
-			use:outside_click={() => (show_sidebar = false)}
+			use:outside_click={{
+				handler: () => (show_sidebar = !show_sidebar),
+				detail: sidebar_details
+			}}
 		>
-			<Sidebar />
+			<Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} />
 		</div>
 	{/if}
 {/if}

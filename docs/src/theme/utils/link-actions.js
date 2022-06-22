@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { current_page } from '@svelte-docs/get/routes';
 
 export function set_active_link(node) {
@@ -11,11 +13,77 @@ export function set_active_link(node) {
 	};
 }
 
-export function outside_click(node, handler) {
-	document.body.addEventListener('click', handler);
+export function outside_click(node, options) {
+	const { handler } = options;
+	const HTMLCollection = node.children[2].children;
+	let runner;
+
 	return {
+		update(newOptions) {
+			const { detail } = newOptions;
+			if (typeof detail !== 'undefined') {
+				runner = detail.expand;
+				Object.values(HTMLCollection).forEach((category) => {
+					if (runner) {
+						const categoryChild = category.children?.[1]?.children;
+						const sectionWithTitle = typeof categoryChild?.[0]?.children?.[1] !== 'undefined';
+						const sectionWithoutTitle = typeof categoryChild?.[0]?.children?.[1] === 'undefined';
+
+						if (sectionWithTitle) {
+							/** Will attach an event listener to each link that will listen for a click event
+							 * we need to loop through twice because the clickable links are nested in a title section */
+							const sectionLinkList = Array.from(categoryChild);
+
+							for (const link of sectionLinkList) {
+								const section = Array.from(link?.children?.[1]?.children);
+								for (const link of section) {
+									link?.addEventListener('click', handler);
+								}
+							}
+						} else if (sectionWithoutTitle) {
+							/** Will attach an event listener to each link that will listen for a click event
+							 * we only need to loop through once on links with no title section */
+							if (typeof categoryChild !== 'undefined') {
+								const section = Array.from(categoryChild);
+
+								for (const link of section) {
+									link?.addEventListener('click', handler);
+								}
+							}
+						}
+					}
+				});
+			}
+		},
 		destroy() {
-			document.body.removeEventListener('click', handler);
+			Object.values(HTMLCollection).forEach((category) => {
+				const categoryChild = category.children?.[1]?.children;
+				const sectionWithTitle = typeof categoryChild?.[0]?.children?.[1] !== 'undefined';
+				const sectionWithoutTitle = typeof categoryChild?.[0]?.children?.[1] === 'undefined';
+
+				if (sectionWithTitle) {
+					/** Will attach an event listener to each link that will listen for a click event
+					 * we need to loop through twice because the clickable links are nested in a title section */
+					const sectionLinkList = Array.from(categoryChild);
+
+					for (const link of sectionLinkList) {
+						const section = Array.from(link?.children?.[1]?.children);
+						for (const link of section) {
+							link?.removeEventListener('click', handler);
+						}
+					}
+				} else if (sectionWithoutTitle) {
+					/** Will attach an event listener to each link that will listen for a click event
+					 * we only need to loop through once on links with no title section */
+					if (typeof categoryChild !== 'undefined') {
+						const section = Array.from(categoryChild);
+
+						for (const link of section) {
+							link?.removeEventListener('click', handler);
+						}
+					}
+				}
+			});
 		}
 	};
 }

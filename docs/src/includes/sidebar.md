@@ -1,8 +1,11 @@
 <script>
   import { MainLink, Logo, ChevronDown } from "components";
   import { Space, UnstyledButton } from "@svelteuidev/core";
+  import { createEventDispatcher } from 'svelte'
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
 	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
+
+  const dispatch = createEventDispatcher();
 
   const sidebar = [
     { expand: false },
@@ -16,6 +19,11 @@
     display: 'flex',
     alignItems: 'center',
   }
+
+  function toggleSidebar(index) {
+    sidebar[index].expand = !sidebar[index].expand;
+    dispatch('toggleSidebar', { index, expand: sidebar[index].expand });
+  }
 </script>
 
 - <MainLink href='introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
@@ -27,15 +35,15 @@
 
 <hr />
 
-- ### <UnstyledButton {override} on:click={() => sidebar[0].expand = !sidebar[0].expand}><ChevronDown expanded={sidebar[0].expand} /><Space w='xs'/>Changelog</UnstyledButton>
-{#if sidebar[0].expand}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(0)}><ChevronDown expanded={sidebar[0].expand} /><Space w='xs'/>Changelog</UnstyledButton>
+  {#if sidebar[0].expand}
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
   - [Version 0.6.5](changelog/v0-6-5)
-{/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[1].expand = !sidebar[1].expand}><ChevronDown expanded={sidebar[1].expand} /><Space w='xs'/>Theming</UnstyledButton>
-{#if sidebar[1].expand}
+    {/if}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(1)}><ChevronDown expanded={sidebar[1].expand} /><Space w='xs'/>Theming</UnstyledButton>
+  {#if sidebar[1].expand}
   - [SvelteUIProvider](theming/svelteui-provider)
   - [Creating styles](theming/create-styles)
   - [Default Theme](theming/default-theme)
@@ -43,9 +51,9 @@
   - [Override styles](theming/override)
   - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
-{/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[2].expand = !sidebar[2].expand}><ChevronDown expanded={sidebar[2].expand} /><Space w='xs'/>SvelteUI Core</UnstyledButton>
-{#if sidebar[2].expand}
+    {/if}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(2)}><ChevronDown expanded={sidebar[2].expand} /><Space w='xs'/>SvelteUI Core</UnstyledButton>
+  {#if sidebar[2].expand}
 - **<Layout /><Space w="md" />Layout**
   - [AppShell](core/app-shell)
   - [Container](core/container)
@@ -97,9 +105,9 @@
   - [Portal](core/portal)
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
-{/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[3].expand = !sidebar[3].expand}><ChevronDown expanded={sidebar[3].expand} /><Space w='xs'/>SvelteUI Composables</UnstyledButton>
-{#if sidebar[3].expand}
+    {/if}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(3)}><ChevronDown expanded={sidebar[3].expand} /><Space w='xs'/>SvelteUI Composables</UnstyledButton>
+  {#if sidebar[3].expand}
 - **<LightningBolt/><Space w="md" />Actions**
   - [use-click-outside](composables/use-click-outside)
   - [use-clipboard](composables/use-clipboard)
@@ -124,14 +132,14 @@
   - [use-os](composables/use-os)
   - [use-raf-fn](composables/use-raf-fn)
   - [use-viewport-size](composables/use-viewport-size)
-{/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[4].expand = !sidebar[4].expand}><ChevronDown expanded={sidebar[4].expand} /><Space w='xs'/>SvelteUI Motion</UnstyledButton>
-{#if sidebar[4].expand}
+    {/if}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(4)}><ChevronDown expanded={sidebar[4].expand} /><Space w='xs'/>SvelteUI Motion</UnstyledButton>
+  {#if sidebar[4].expand}
 - **Transitions**
   - [Typewriter](motion/typewriter)
   - [Flipboard](motion/flipboard)
-{/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[5].expand = !sidebar[5].expand}><ChevronDown expanded={sidebar[5].expand} /><Space w='xs'/>Other Packages</UnstyledButton>
-{#if sidebar[5].expand}
+    {/if}
+- ### <UnstyledButton {override} on:click={() => toggleSidebar(5)}><ChevronDown expanded={sidebar[5].expand} /><Space w='xs'/>Other Packages</UnstyledButton>
+  {#if sidebar[5].expand}
   - [Prism](others/prism)
-{/if}
+    {/if}
