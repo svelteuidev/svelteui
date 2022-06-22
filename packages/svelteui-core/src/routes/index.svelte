@@ -2,6 +2,7 @@
 	import {
 		ActionIcon,
 		Affix,
+		Alert,
 		Anchor,
 		BackgroundImage,
 		Badge,

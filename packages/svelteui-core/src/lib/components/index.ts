@@ -1,5 +1,6 @@
 export * from './ActionIcon';
 export * from './Affix';
+export * from './Alert';
 export * from './Anchor';
 export * from './AppShell';
 export * from './Badge';
