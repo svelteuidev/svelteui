@@ -27,14 +27,14 @@
 
 <hr />
 
-- ### <UnstyledButton {override} on:click={() => sidebar[0].expand = !sidebar[0].expand}><ChevronDown expanded={sidebar[0].expand} /> Changelog</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[0].expand = !sidebar[0].expand}><ChevronDown expanded={sidebar[0].expand} /><Space w='xs'/>Changelog</UnstyledButton>
 {#if sidebar[0].expand}
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
   - [Version 0.6.5](changelog/v0-6-5)
 {/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[1].expand = !sidebar[1].expand}>Theming</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[1].expand = !sidebar[1].expand}><ChevronDown expanded={sidebar[1].expand} /><Space w='xs'/>Theming</UnstyledButton>
 {#if sidebar[1].expand}
   - [SvelteUIProvider](theming/svelteui-provider)
   - [Creating styles](theming/create-styles)
@@ -44,7 +44,7 @@
   - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
 {/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[2].expand = !sidebar[2].expand}>SvelteUI Core</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[2].expand = !sidebar[2].expand}><ChevronDown expanded={sidebar[2].expand} /><Space w='xs'/>SvelteUI Core</UnstyledButton>
 {#if sidebar[2].expand}
 - **<Layout /><Space w="md" />Layout**
   - [AppShell](core/app-shell)
@@ -98,7 +98,7 @@
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
 {/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[3].expand = !sidebar[3].expand}>SvelteUI Composables</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[3].expand = !sidebar[3].expand}><ChevronDown expanded={sidebar[3].expand} /><Space w='xs'/>SvelteUI Composables</UnstyledButton>
 {#if sidebar[3].expand}
 - **<LightningBolt/><Space w="md" />Actions**
   - [use-click-outside](composables/use-click-outside)
@@ -125,13 +125,13 @@
   - [use-raf-fn](composables/use-raf-fn)
   - [use-viewport-size](composables/use-viewport-size)
 {/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[4].expand = !sidebar[4].expand}>SvelteUI Motion</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[4].expand = !sidebar[4].expand}><ChevronDown expanded={sidebar[4].expand} /><Space w='xs'/>SvelteUI Motion</UnstyledButton>
 {#if sidebar[4].expand}
 - **Transitions**
   - [Typewriter](motion/typewriter)
   - [Flipboard](motion/flipboard)
 {/if}
-- ### <UnstyledButton {override} on:click={() => sidebar[5].expand = !sidebar[5].expand}>Other Packages</UnstyledButton>
+- ### <UnstyledButton {override} on:click={() => sidebar[5].expand = !sidebar[5].expand}><ChevronDown expanded={sidebar[5].expand} /><Space w='xs'/>Other Packages</UnstyledButton>
 {#if sidebar[5].expand}
   - [Prism](others/prism)
 {/if}
