@@ -12,6 +12,7 @@ export * as ThemeDemos from './demos/theme';
 export * as ActionIconDemos from './demos/core/ActionIcon';
 export * as AppShellDemos from './demos/core/AppShell';
 export * as AffixDemos from './demos/core/Affix';
+export * as AlertDemos from './demos/core/Alert';
 export * as AnchorDemos from './demos/core/Anchor';
 export * as BadgeDemos from './demos/core/Badge';
 export * as BoxDemos from './demos/core/Box';
