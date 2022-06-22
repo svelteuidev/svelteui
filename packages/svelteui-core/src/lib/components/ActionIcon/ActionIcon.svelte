@@ -67,7 +67,7 @@ Icon button to indicate secondary action.
 	class:disabled
 	tabindex="0"
 	disabled={disabled || loading}
-	class={cx(className ,getStyles({ css: override, variation: variant }))}
+	class={cx(className, getStyles({ css: override, variation: variant }))}
 	target={external ? '_blank' : null}
 	rel={external ? 'noreferrer noopener' : null}
 	{href}
