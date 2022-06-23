@@ -84,6 +84,7 @@
   - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
 - **<ExclamationTriangle/><Space w="md" />Feedback**
+  - [Alert](core/alert)
   - [Loader](core/loader)
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
