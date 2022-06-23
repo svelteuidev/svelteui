@@ -55,5 +55,3 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>
-
-<Button>Click me</Button>

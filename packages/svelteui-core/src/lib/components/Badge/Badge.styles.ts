@@ -97,7 +97,10 @@ export function getVariantStyles(
  *
  * Better implementation should be developed soon
  */
-const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {
+export const getVariant = (
+	color: SvelteUIColor,
+	gradient: SvelteUIGradient = { from: 'blue', to: 'cyan', deg: 45 }
+): VariantThemeFunction => {
 	const dtm = {
 		lightBg: dark.colors[`${color}800`].value,
 		lightHv: dark.colors[`${color}700`].value,

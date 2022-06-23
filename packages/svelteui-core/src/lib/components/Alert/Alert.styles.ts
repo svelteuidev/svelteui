@@ -1,4 +1,5 @@
-import { vFunc, createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles';
+import { getVariant } from '../Badge/Badge.styles';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
@@ -9,9 +10,10 @@ export interface AlertProps extends DefaultProps {
 	variant: AlertVariant;
 	icon: Component | HTMLOrSVGElement;
 	iconSize: number;
+	iconProps: Record<string, unknown>;
 	withCloseButton: boolean;
 	closeButtonLabel: string;
-	onClose(args?: any): any;
+	onClose(...args: any[]): any;
 }
 
 export type AlertVariant = 'filled' | 'outline' | 'light';
@@ -27,7 +29,7 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 		root: {
 			position: 'relative',
 			overflow: 'hidden',
-			padding: `${theme.space.smPX} ${theme.space.mdPX}`,
+			padding: `${theme.space.smPX.value} ${theme.space.mdPX.value}`,
 			borderRadius: theme.fn.radius(radius),
 			border: '1px solid transparent'
 		},
@@ -44,8 +46,8 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'space-between',
-			lineHeight: theme.lineHeights.sm,
-			fontSize: theme.fontSizes.sm,
+			lineHeight: theme.lineHeights.sm.value,
+			fontSize: theme.fontSizes.sm.value,
 			fontWeight: '$bold'
 		},
 		label: {
@@ -60,36 +62,36 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'flex-start',
-			marginRight: theme.space.mdPX,
+			marginRight: theme.space.mdPX.value,
 			marginTop: 1
 		},
 		message: {
-			lineHeight: theme.lineHeights.sm,
+			lineHeight: theme.lineHeights.sm.value,
 			textOverflow: 'ellipsis',
 			overflow: 'hidden',
-			fontSize: theme.fontSizes.sm,
+			fontSize: theme.fontSizes.sm.value,
 			color:
 				variant === 'filled'
-					? theme.colors.white
+					? theme.colors.white.value
 					: theme.colorScheme === 'dark'
 					? variant === 'light'
-						? theme.colors.white
+						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-					: theme.colors.black
+					: theme.colors.black.value
 		},
 		closeButton: {
 			marginTop: 2,
 			color:
 				variant === 'filled'
-					? theme.colors.white
+					? theme.colors.white.value
 					: theme.colorScheme === 'dark'
 					? variant === 'light'
-						? theme.colors.white
+						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-					: theme.colors.black
+					: theme.colors.black.value
 		},
 		variants: {
-			variation: vFunc(color, undefined)
+			variation: getVariant(color, undefined)
 		}
 	};
 });
