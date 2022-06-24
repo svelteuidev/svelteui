@@ -2,6 +2,8 @@
 	import type { LoaderPropsExtended } from './loader-props-extended';
 	export let size: LoaderPropsExtended['size'] = 25;
 	export let color: LoaderPropsExtended['color'] = 'blue';
+	export let className: LoaderPropsExtended['className'] = '';
+	export { className as class };
 </script>
 
 <svg
@@ -10,6 +12,7 @@
 	viewBox="0 0 38 38"
 	xmlns="http://www.w3.org/2000/svg"
 	stroke={color}
+	class={className}
 >
 	<g fill="none" fill-rule="evenodd">
 		<g transform="translate(2.5 2.5)" stroke-width="5">

@@ -86,6 +86,7 @@
 - **<ExclamationTriangle/><Space w="md" />Feedback**
   - [Alert](core/alert)
   - [Loader](core/loader)
+  - [Notification](core/notification)
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
   - [Affix](core/affix)

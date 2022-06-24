@@ -27,6 +27,7 @@
 		MediaQuery,
 		Modal,
 		NativeSelect,
+		Notification,
 		NumberInput,
 		ObserverRender,
 		Overlay,
