@@ -47,7 +47,7 @@
 						<CloseButton
 							class={classes.closeButton}
 							aria-label={closeButtonLabel}
-							variant="transparent"
+							variant='transparent'
 							size={iconSize}
 							{iconSize}
 							on:click={onClose}

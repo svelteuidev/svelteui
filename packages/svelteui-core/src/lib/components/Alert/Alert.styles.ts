@@ -1,4 +1,4 @@
-import { createStyles } from '$lib/styles';
+import { createStyles, dark } from '$lib/styles';
 import { getVariant } from '../Badge/Badge.styles';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { Component } from '$lib/internal';
@@ -70,25 +70,27 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 			textOverflow: 'ellipsis',
 			overflow: 'hidden',
 			fontSize: theme.fontSizes.sm.value,
-			color:
-				variant === 'filled'
-					? theme.colors.white.value
-					: theme.colorScheme === 'dark'
-					? variant === 'light'
+			color: variant === 'filled' ? theme.colors.white.value : theme.colors.black.value,
+			[`${dark.selector} &`]: {
+				color:
+					variant === 'filled'
+						? theme.colors.white.value
+						: variant === 'light'
 						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-					: theme.colors.black.value
+			}
 		},
 		closeButton: {
 			marginTop: 2,
-			color:
-				variant === 'filled'
-					? theme.colors.white.value
-					: theme.colorScheme === 'dark'
-					? variant === 'light'
+			color: variant === 'filled' ? theme.colors.white.value : theme.colors.black.value,
+			[`${dark.selector} &`]: {
+				color:
+					variant === 'filled'
+						? theme.colors.white.value
+						: variant === 'light'
 						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-					: theme.colors.black.value
+			}
 		},
 		variants: {
 			variation: getVariant(color, undefined)

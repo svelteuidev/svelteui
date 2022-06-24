@@ -33,6 +33,7 @@ export * as InputWrapperDemos from './demos/core/InputWrapper';
 export * as KbdDemos from './demos/core/Kbd';
 export * as LoaderDemos from './demos/core/Loader';
 export * as NativeSelectDemos from './demos/core/NativeSelect';
+export * as NotificationDemos from './demos/core/Notification';
 export * as NumberInputDemos from './demos/core/NumberInput';
 export * as ObserverRenderDemos from './demos/core/ObserverRender';
 export * as OverlayDemos from './demos/core/Overlay';

@@ -24,6 +24,7 @@ export * from './Loader';
 export * from './MediaQuery';
 export * from './Modal';
 export * from './NativeSelect';
+export * from './Notification';
 export * from './NumberInput';
 export * from './ObserverRender';
 export * from './Overlay';
