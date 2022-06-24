@@ -51,6 +51,10 @@
 			placement: placementString as Placement,
 			middleware: middleware
 		}).then(({ x, y, placement, middlewareData }) => {
+			// the element might have been removed between the
+			// composition computing and its callback
+			if (!element) return;
+
 			Object.assign(element.style, {
 				left: `${x}px`,
 				top: `${y}px`
