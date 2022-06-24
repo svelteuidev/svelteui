@@ -1,6 +1,20 @@
-import type { SvelteUIColor } from './types';
-
 type Scale = '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
+
+type SvelteUIColor =
+	| 'dark'
+	| 'gray'
+	| 'red'
+	| 'pink'
+	| 'grape'
+	| 'violet'
+	| 'indigo'
+	| 'blue'
+	| 'cyan'
+	| 'teal'
+	| 'green'
+	| 'lime'
+	| 'yellow'
+	| 'orange';
 
 type ValidColor = `${SvelteUIColor}${Scale}`;
 

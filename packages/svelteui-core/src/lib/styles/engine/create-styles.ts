@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css } from '../index.js';
 import { cssFactory } from './css.js';
 import { fromEntries } from './utils/from-entries/from-entries.js';
@@ -8,13 +8,48 @@ import type { SvelteUITheme } from '$lib/styles';
 
 type CreateRef = (refName: string) => string;
 
+type CSSObject = {
+	darkMode?: CSS;
+	ref?: string;
+} & CSS;
+
 export interface DirtyObject {
-	[key: string]: CSS;
-	root: CSS;
+	[key: string]: {
+		darkMode?: CSS;
+		ref?: string;
+	} & CSS;
+	root?: {
+		darkMode?: CSS;
+		ref?: string;
+	} & CSS;
+}
+
+export interface UseStylesOptions<Key extends string | 'root'> {
+	classNames?: Partial<Record<Key, string>>;
+	styles?: Partial<Record<Key, CSS>> | ((theme: SvelteUITheme) => Partial<Record<Key, CSS>>);
+	name: string;
 }
 
 function createRef(refName: string) {
 	return `__svelteui-ref-${refName || ''}`;
+}
+
+function createSanitizedObject(object: DirtyObject, theme: SvelteUITheme, ref: string) {
+	Object.keys(object).map((value) => {
+		/** special key mapping */
+		if (value === 'variants') return;
+		if ('ref' in object[value]) ref = object[value].ref as string;
+		if ('darkMode' in object[value]) {
+			object[value][`${theme.dark} &`] = object[value].darkMode;
+		}
+		/** general key mapping */
+		object[`& .${value}`] = object[value];
+
+		/** remove the old keys as they are not needed */
+		delete object[value];
+	});
+	/** delete the root property as it is not needed */
+	delete object['& .root'];
 }
 
 /**
@@ -25,15 +60,18 @@ function createRef(refName: string) {
  * @param getCssObjectOrCssObject - either an object of styles or a function that returns an object of styles
  * @returns
  */
-export function createStyles<Params = void>(
-	input: ((theme: SvelteUITheme, params: Params, createRef: CreateRef) => DirtyObject) | DirtyObject
+export function createStyles<Key extends string = string, Params = void>(
+	input:
+		| ((theme: SvelteUITheme, params: Params, createRef: CreateRef) => Record<Key, CSSObject>)
+		| Record<Key, CSSObject>
 ) {
 	const getCssObject = typeof input === 'function' ? input : () => input;
 
-	function useStyles(params: Params = {} as Params) {
+	function useStyles(params: Params = {} as Params, options?: UseStylesOptions<Key>) {
 		/** create our new theme object */
 		const theme: SvelteUITheme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 		const { cx } = cssFactory();
+		let ref: string;
 
 		/** store the created dirty object in a variable */
 		const cssObjectDirty: DirtyObject = getCssObject(theme, params, createRef);
@@ -41,19 +79,7 @@ export function createStyles<Params = void>(
 		const sanitizeObject = Object.assign({}, cssObjectDirty);
 
 		/** takes all keys and maps them to the proper string values */
-		let ref: string;
-		Object.keys(sanitizeObject).map((value) => {
-			if (value === 'variants') return;
-
-			sanitizeObject[`& .${value}`] = sanitizeObject[value];
-
-			if ('ref' in sanitizeObject[value]) ref = sanitizeObject[value].ref as string;
-
-			delete sanitizeObject[value];
-		});
-
-		/** delete the root property as it is not needed */
-		delete sanitizeObject['& .root'];
+		createSanitizedObject(sanitizeObject, theme, ref);
 
 		const { root } = cssObjectDirty;
 
@@ -61,20 +87,26 @@ export function createStyles<Params = void>(
 		const cssObjectClean = root !== undefined ? { ...root, ...sanitizeObject } : cssObjectDirty;
 
 		/** transform keys from dirty object into strings to be consumed by classes */
-		const classes = fromEntries(
+		const classes: Record<Key, string> = fromEntries(
 			Object.keys(cssObjectDirty).map((keys) => {
 				const getRefName: string[] = ref?.split('-') ?? [];
+				const keyIsRef = ref?.split('-')[getRefName?.length - 1] === keys;
 				let value = keys.toString();
 
 				/** if we get a valid ref, then add that value to the array */
-				if (ref && ref?.split('-')[getRefName?.length - 1] === keys) {
+				if (ref && keyIsRef) {
 					value = `${value} ${ref}`;
+				}
+				if (keys === 'root') {
+					value = css(cssObjectClean).toString();
 				}
 
 				return [keys, value];
 			})
 		);
 
+		/** generate our styles */
+		css(cssObjectClean);
 		return {
 			cx,
 			theme,
