@@ -16,6 +16,10 @@ module.exports = {
 		{ value: '@svelteui/prism', name: '@svelteui/prism: A change made in prism package' },
 		{ value: '@svelteui/demos', name: '@svelteui/demos: A change made in demos package' },
 		{ value: '@svelteui/dates', name: '@svelteui/dates: A change made in dates package' },
+		{
+			value: '@svelteui/preprocessors',
+			name: '@svelteui/preprocessors: A change made in preprocessors package'
+		},
 		{ value: '@svelteui/tests', name: '@svelteui/tests: A change made in testing package' }
 	],
 
