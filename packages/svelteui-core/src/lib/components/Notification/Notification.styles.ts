@@ -102,7 +102,7 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 			color: theme.fn.themeColor('gray', 9),
 			[`${dark.selector} &`]: {
 				color: theme.colors.white.value
-			},
+			}
 		},
 		description: {
 			color: theme.fn.themeColor('gray', 6),
@@ -116,7 +116,7 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 				color: theme.colors.black.value,
 				[`${dark.selector} &`]: {
 					color: theme.fn.themeColor('dark', 0)
-				},
+				}
 			}
 		},
 		closeButton: {

@@ -70,31 +70,27 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 			textOverflow: 'ellipsis',
 			overflow: 'hidden',
 			fontSize: theme.fontSizes.sm.value,
-			color:
-				variant === 'filled'
-					? theme.colors.white.value
-					: theme.colors.black.value,
+			color: variant === 'filled' ? theme.colors.white.value : theme.colors.black.value,
 			[`${dark.selector} &`]: {
-				color: variant === 'filled'
-					? theme.colors.white.value
-					: variant === 'light'
+				color:
+					variant === 'filled'
+						? theme.colors.white.value
+						: variant === 'light'
 						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-			},
+			}
 		},
 		closeButton: {
 			marginTop: 2,
-			color:
-				variant === 'filled'
-					? theme.colors.white.value
-					: theme.colors.black.value,
+			color: variant === 'filled' ? theme.colors.white.value : theme.colors.black.value,
 			[`${dark.selector} &`]: {
-				color: variant === 'filled'
-					? theme.colors.white.value
-					: variant === 'light'
+				color:
+					variant === 'filled'
+						? theme.colors.white.value
+						: variant === 'light'
 						? theme.colors.white.value
 						: theme.fn.themeColor('dark', 0)
-			},
+			}
 		},
 		variants: {
 			variation: getVariant(color, undefined)
