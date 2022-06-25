@@ -1,4 +1,4 @@
-import { createStyles, dark, vFunc } from '$lib/styles';
+import { createStyles, vFunc } from '$lib/styles';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 import type { CloseButtonProps } from '../ActionIcon/ActionIcon.styles';
@@ -30,6 +30,10 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 
 	return {
 		root: {
+			darkMode: {
+				backgroundColor: theme.fn.themeColor('dark', 6),
+				border: `1px solid ${theme.fn.themeColor('dark', 6)}`
+			},
 			boxSizing: 'border-box',
 			position: 'relative',
 			display: 'flex',
@@ -42,10 +46,6 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 			backgroundColor: theme.colors.white.value,
 			boxShadow: theme.shadows.lg,
 			border: `1px solid ${theme.fn.themeColor('gray', 2)}`,
-			[`${dark.selector} &`]: {
-				backgroundColor: theme.fn.themeColor('dark', 6),
-				border: `1px solid ${theme.fn.themeColor('dark', 6)}`
-			},
 			'&::before': {
 				content: "''",
 				display: 'block',
@@ -95,35 +95,35 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 			marginRight: 10
 		},
 		title: {
+			darkMode: {
+				color: theme.colors.white.value
+			},
 			lineHeight: 1.4,
 			marginBottom: 2,
 			overflow: 'hidden',
 			textOverflow: 'ellipsis',
-			color: theme.fn.themeColor('gray', 9),
-			[`${dark.selector} &`]: {
-				color: theme.colors.white.value
-			}
+			color: theme.fn.themeColor('gray', 9)
 		},
 		description: {
+			darkMode: {
+				color: theme.fn.themeColor('dark', 2)
+			},
 			color: theme.fn.themeColor('gray', 6),
 			lineHeight: 1.4,
 			overflow: 'hidden',
 			textOverflow: 'ellipsis',
-			[`${dark.selector} &`]: {
-				color: theme.fn.themeColor('dark', 2)
-			},
 			'&:only-child': {
-				color: theme.colors.black.value,
-				[`${dark.selector} &`]: {
+				darkMode: {
 					color: theme.fn.themeColor('dark', 0)
-				}
+				},
+				color: theme.colors.black.value
 			}
 		},
 		closeButton: {
-			color: theme.colors.black.value,
-			[`${dark.selector} &`]: {
+			darkMode: {
 				color: theme.colors.white.value
-			}
+			},
+			color: theme.colors.black.value
 		}
 	};
 });

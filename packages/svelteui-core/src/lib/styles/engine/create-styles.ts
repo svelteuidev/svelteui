@@ -25,9 +25,10 @@ export interface DirtyObject {
 }
 
 export interface UseStylesOptions<Key extends string | 'root'> {
+	override?: CSS;
 	classNames?: Partial<Record<Key, string>>;
 	styles?: Partial<Record<Key, CSS>> | ((theme: SvelteUITheme) => Partial<Record<Key, CSS>>);
-	name: string;
+	name?: string;
 }
 
 function createRef(refName: string) {
@@ -71,6 +72,7 @@ export function createStyles<Key extends string = string, Params = void>(
 		/** create our new theme object */
 		const theme: SvelteUITheme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 		const { cx } = cssFactory();
+		const { override } = options || {};
 		let ref: string;
 
 		/** store the created dirty object in a variable */
@@ -85,6 +87,7 @@ export function createStyles<Key extends string = string, Params = void>(
 
 		/** create our clean object that will get passed to the css function */
 		const cssObjectClean = root !== undefined ? { ...root, ...sanitizeObject } : cssObjectDirty;
+		const getStyles = css(cssObjectClean);
 
 		/** transform keys from dirty object into strings to be consumed by classes */
 		const classes: Record<Key, string> = fromEntries(
@@ -98,15 +101,14 @@ export function createStyles<Key extends string = string, Params = void>(
 					value = `${value} ${ref}`;
 				}
 				if (keys === 'root') {
-					value = css(cssObjectClean).toString();
+					/** generate our styles */
+					value = getStyles({ css: override }).toString();
 				}
 
 				return [keys, value];
 			})
 		);
 
-		/** generate our styles */
-		css(cssObjectClean);
 		return {
 			cx,
 			theme,
