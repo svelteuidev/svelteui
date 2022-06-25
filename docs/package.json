@@ -4,7 +4,6 @@
 	"version": "0.5.6",
 	"dependencies": {
 		"@svelte-docs/server": "^0.1.6",
-		"@svelteuidev/actions": "0.6.9",
 		"@svelteuidev/composables": "0.6.9",
 		"@svelteuidev/core": "0.6.9",
 		"@svelteuidev/dates": "0.6.9",

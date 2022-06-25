@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-download/use-download.ts'
 
 <script>
     import { Button, Text } from '@svelteuidev/core';
-	import { download } from '@svelteuidev/actions';
+	import { download } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
     import { fade } from 'svelte/transition'
 
@@ -21,7 +21,7 @@ source: 'svelteui-composables/src/lib/actions/use-download/use-download.ts'
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
-        import { download } from '@svelteuidev/actions';
+        import { download } from '@svelteuidev/composables';
 
         const file = new Blob([])
     <\/script>

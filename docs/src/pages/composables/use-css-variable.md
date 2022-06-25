@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-css-variable/use-css-variable.
 
 <script lang='ts'>
     import { Button } from '@svelteuidev/core';
-	import { cssvariable } from '@svelteuidev/actions';
+	import { cssvariable } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
 	let isRed = true;
@@ -19,7 +19,7 @@ source: 'svelteui-composables/src/lib/actions/use-css-variable/use-css-variable.
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
-        import { cssvariable } from '@svelteuidev/actions';
+        import { cssvariable } from '@svelteuidev/composables';
 
         let isRed = true;
 

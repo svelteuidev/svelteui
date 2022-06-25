@@ -1,5 +1,5 @@
 <script>
-  import { MainLink, Logo, ChevronDown } from "components";
+  import { MainLink, Logo, ChevronDown, NavigationTitle } from "components";
   import { Space, UnstyledButton } from "@svelteuidev/core";
   import { createEventDispatcher } from 'svelte'
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
@@ -8,18 +8,16 @@
   const dispatch = createEventDispatcher();
 
   const sidebar = [
-    { expand: false },
-    { expand: false },
-    { expand: false },
-    { expand: false },
-    { expand: false },
-    { expand: false },
+    { id: 1, expand: false },
+    { id: 2, expand: false },
+    { id: 3, expand: false },
+    { id: 4, expand: false },
+    { id: 5, expand: false },
+    { id: 6, expand: false },
+    { id: 7, expand: false },
+    { id: 8, expand: false },
   ]
-  const override = {
-    display: 'flex',
-    alignItems: 'center',
-  }
-
+ 
   function toggleSidebar(index) {
     sidebar[index].expand = !sidebar[index].expand;
     dispatch('toggleSidebar', { index, expand: sidebar[index].expand });
@@ -35,14 +33,14 @@
 
 <hr />
 
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(0)}><ChevronDown expanded={sidebar[0].expand} /><Space w='xs'/>Changelog</UnstyledButton>
+- ### <NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle>
   {#if sidebar[0].expand}
   - [Version 0.5.0](changelog/v0-5-0)
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
   - [Version 0.6.5](changelog/v0-6-5)
     {/if}
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(1)}><ChevronDown expanded={sidebar[1].expand} /><Space w='xs'/>Theming</UnstyledButton>
+- ### <NavigationTitle expanded={sidebar[1].expand} on:click={() => toggleSidebar(1)}>theming</NavigationTitle>
   {#if sidebar[1].expand}
   - [SvelteUIProvider](theming/svelteui-provider)
   - [Creating styles](theming/create-styles)
@@ -52,7 +50,7 @@
   - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
     {/if}
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(2)}><ChevronDown expanded={sidebar[2].expand} /><Space w='xs'/>SvelteUI Core</UnstyledButton>
+- ### <NavigationTitle expanded={sidebar[2].expand} on:click={() => toggleSidebar(2)}>svelteui core</NavigationTitle>
   {#if sidebar[2].expand}
 - **<Layout /><Space w="md" />Layout**
   - [AppShell](core/app-shell)
@@ -108,7 +106,7 @@
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
     {/if}
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(3)}><ChevronDown expanded={sidebar[3].expand} /><Space w='xs'/>SvelteUI Composables</UnstyledButton>
+- ### <NavigationTitle expanded={sidebar[3].expand} on:click={() => toggleSidebar(3)}>svelteui composables</NavigationTitle>
   {#if sidebar[3].expand}
 - **<LightningBolt/><Space w="md" />Actions**
   - [use-click-outside](composables/use-click-outside)
@@ -135,13 +133,21 @@
   - [use-raf-fn](composables/use-raf-fn)
   - [use-viewport-size](composables/use-viewport-size)
     {/if}
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(4)}><ChevronDown expanded={sidebar[4].expand} /><Space w='xs'/>SvelteUI Motion</UnstyledButton>
-  {#if sidebar[4].expand}
+- ### <NavigationTitle expanded={sidebar[4].expand} on:click={() => toggleSidebar(4)}>svelteui dates</NavigationTitle>
+{#if sidebar[4].expand}
+- COMING IN VERSION 0.7.0
+  {/if}
+- ### <NavigationTitle expanded={sidebar[5].expand} on:click={() => toggleSidebar(5)}>svelteui preprocessors</NavigationTitle>
+{#if sidebar[5].expand}
+- COMING IN VERSION 0.7.0
+  {/if}
+- ### <NavigationTitle expanded={sidebar[6].expand} on:click={() => toggleSidebar(6)}>svelteui motion</NavigationTitle>
+  {#if sidebar[6].expand}
 - **Transitions**
   - [Typewriter](motion/typewriter)
   - [Flipboard](motion/flipboard)
     {/if}
-- ### <UnstyledButton {override} on:click={() => toggleSidebar(5)}><ChevronDown expanded={sidebar[5].expand} /><Space w='xs'/>Other Packages</UnstyledButton>
-  {#if sidebar[5].expand}
+- ### <NavigationTitle expanded={sidebar[7].expand} on:click={() => toggleSidebar(7)}>other packages</NavigationTitle>
+  {#if sidebar[7].expand}
   - [Prism](others/prism)
     {/if}

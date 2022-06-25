@@ -10,12 +10,12 @@ source: 'svelteui-composables/src/lib/actions/use-page-leave/use-page-leave.ts'
 ---
 
 <script lang='ts'>
-	import { pageleave } from '@svelteuidev/actions';
+	import { pageleave } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
     const code = `
     <script>
-        import { pageleave } from '@svelteuidev/actions';
+        import { pageleave } from '@svelteuidev/composables';
 
         $: count = 0;
     <\/script>

@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-long-press/use-long-press.ts'
 
 <script>
     import { Button } from '@svelteuidev/core';
-    import { longpress } from '@svelteuidev/actions';
+    import { longpress } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components';
 
     let pressed = false;
@@ -20,7 +20,7 @@ source: 'svelteui-composables/src/lib/actions/use-long-press/use-long-press.ts'
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
-        import { longpress } from '@svelteuidev/actions'
+        import { longpress } from '@svelteuidev/composables'
 
         let pressed = false;
 	    let duration = 2000;

@@ -11,12 +11,12 @@ source: 'svelteui-composables/src/lib/actions/use-lazy/use-lazy.ts'
 
 <script>
     import { Button } from '@svelteuidev/core';
-	import { lazy } from '@svelteuidev/actions';
+	import { lazy } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
     const code = `
     <script>
-        import { lazy } from '@svelteuidev/actions'
+        import { lazy } from '@svelteuidev/composables'
     <\/script>
     
     <div style='height: 300px;'>

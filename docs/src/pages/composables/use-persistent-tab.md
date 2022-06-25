@@ -11,14 +11,14 @@ source: 'svelteui-composables/src/lib/actions/use-persistent-tab/use-persistent-
 
 <script>
     import { Button } from '@svelteuidev/core';
-    import { persistenttab } from '@svelteuidev/actions';
+    import { persistenttab } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components';
 
     let isNotClosable = false;
 
     const code = `
     <script>
-        import { persistenttab } from '@svelteuidev/actions'
+        import { persistenttab } from '@svelteuidev/composables'
 
         let isNotClosable = false;
     <\/script>

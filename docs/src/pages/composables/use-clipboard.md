@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-clipboard/use-clipboard.ts'
 
 <script lang='ts'>
     import { Button } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/actions';
+	import { clipboard } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
 	let textToCopy = 'This message was copied';
@@ -26,7 +26,7 @@ source: 'svelteui-composables/src/lib/actions/use-clipboard/use-clipboard.ts'
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
-        import { clipboard } from '@svelteuidev/actions';
+        import { clipboard } from '@svelteuidev/composables';
 
         let textToCopy = 'This message was copied';
         let copied = false;

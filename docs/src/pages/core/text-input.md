@@ -15,12 +15,6 @@ docs: 'core/text-input.md'
     import { Heading } from 'components';
 </script>
 
-<style global>
-    input {
-        margin: 0;
-    }
-</style>
-
 <Heading />
 
 ## Usage

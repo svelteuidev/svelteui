@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-focus/use-focus.ts'
 
 <script lang='ts'>
     import { Button, Input, InputWrapper } from '@svelteuidev/core';
-	import { focus } from '@svelteuidev/actions';
+	import { focus } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
 	let name = 'world';
@@ -23,7 +23,7 @@ source: 'svelteui-composables/src/lib/actions/use-focus/use-focus.ts'
     const code = `
     <script>
         import { Button, Input, InputWrapper } from '@svelteuidev/core';
-        import { focus } from '@svelteuidev/actions';
+        import { focus } from '@svelteuidev/composables';
 
         let name = 'world';
         let editing = false;

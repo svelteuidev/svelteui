@@ -7,7 +7,6 @@ index: true
 <script>
 	import { Features, Device, mobile, AllComponents, HomePageExample, Preview, HomePageExampleCode, Waves } from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
-	import { portal } from "@svelteuidev/actions";
 	import {
 		css,
 		Box,

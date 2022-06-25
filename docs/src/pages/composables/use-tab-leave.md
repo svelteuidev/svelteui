@@ -10,12 +10,12 @@ source: 'svelteui-composables/src/lib/actions/use-tab-leave/use-tab-leave.ts'
 ---
 
 <script lang='ts'>
-	import { tableave } from '@svelteuidev/actions';
+	import { tableave } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
     const code = `
     <script>
-        import { tableave } from '@svelteuidev/actions';
+        import { tableave } from '@svelteuidev/composables';
 
         $: count = 0;
     <\/script>

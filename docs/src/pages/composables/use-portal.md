@@ -10,7 +10,7 @@ source: 'svelteui-composables/src/lib/actions/use-portal/use-portal.ts'
 ---
 
 <script>
-    import { portal } from '@svelteuidev/actions';
+    import { portal } from '@svelteuidev/composables';
     import { Box, Button } from '@svelteuidev/core'
     import { Heading, Preview } from 'components';
 
@@ -18,7 +18,7 @@ source: 'svelteui-composables/src/lib/actions/use-portal/use-portal.ts'
 
     const code = `
     <script>
-        import { portal } from '@svelteuidev/actions';
+        import { portal } from '@svelteuidev/composables';
         import { Box, Button } from '@svelteuidev/core'
     <\/script>
     

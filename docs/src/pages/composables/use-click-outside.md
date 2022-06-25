@@ -11,7 +11,7 @@ source: 'svelteui-composables/src/lib/actions/use-click-outside/use-click-outsid
 
 <script lang='ts'>
     import { Button } from '@svelteuidev/core';
-	import { clickoutside } from '@svelteuidev/actions';
+	import { clickoutside } from '@svelteuidev/composables';
     import { Heading, Preview } from 'components'
 
 	let open = true;
@@ -19,7 +19,7 @@ source: 'svelteui-composables/src/lib/actions/use-click-outside/use-click-outsid
     const code = `
     <script>
         import { Button } from '@svelteuidev/core';
-        import { clickoutside } from '@svelteuidev/actions';
+        import { clickoutside } from '@svelteuidev/composables';
 
         let open = true;
     <\/script>
