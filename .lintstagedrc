@@ -1,1 +1,7 @@
-
+{
+	"packages/**/.{js,jsx,ts,tsx,html,svelte}": [
+		"npm run format",
+		"npm run lint"
+	],
+	"package.json": "npm run sort"
+}
