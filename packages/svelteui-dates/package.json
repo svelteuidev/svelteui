@@ -66,6 +66,7 @@
   },
   "peerDependencies": {
     "@svelteuidev/composables": "0.6.8",
-    "@svelteuidev/core": "0.6.8"
+    "@svelteuidev/core": "0.6.8",
+    "svelte": "3.47.0"
   }
 }
