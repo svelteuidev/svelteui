@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/composables",
-	"version": "0.6.8",
+	"version": "0.6.9",
 	"description": "Svelte actions and utilities library",
 	"keywords": [
 		"svelte",

@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/demos",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "private": true,
   "description": "Demos used in documentation",
   "keywords": [
@@ -44,10 +44,10 @@
     "watch": "svelte-kit package -w"
   },
   "dependencies": {
-    "@svelteuidev/composables": "0.6.8",
-    "@svelteuidev/core": "0.6.8",
-    "@svelteuidev/motion": "0.6.8",
-    "@svelteuidev/prism": "0.6.8"
+    "@svelteuidev/composables": "0.6.9",
+    "@svelteuidev/core": "0.6.9",
+    "@svelteuidev/motion": "0.6.9",
+    "@svelteuidev/prism": "0.6.9"
   },
   "devDependencies": {
     "@sveltejs/kit": "1.0.0-next.333",
