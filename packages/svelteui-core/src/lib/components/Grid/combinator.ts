@@ -1,5 +1,5 @@
-import _Grid from "./Grid.svelte";
-import Col from "./Col/Col.svelte";
+import _Grid from './Grid.svelte';
+import Col from './Col/Col.svelte';
 
 // Combine Grid and Col
 _Grid.Col = Col;
