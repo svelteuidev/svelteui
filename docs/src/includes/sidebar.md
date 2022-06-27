@@ -56,6 +56,7 @@
   - [AppShell](core/app-shell)
   - [Container](core/container)
   - [Center](core/center)
+  - [Grid](core/grid)
   - [Group](core/group)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
