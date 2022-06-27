@@ -15,6 +15,7 @@ export * from './Code';
 export * from './Container';
 export * from './Divider';
 export * from './Fragment';
+export * from './Grid';
 export * from './Group';
 export * from './Image';
 export * from './Input';
