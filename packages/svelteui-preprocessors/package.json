@@ -38,8 +38,6 @@
 		"package": "svelte-kit package",
 		"pub": "npm publish package/",
 		"sort": "npx sort-package-json",
-		"test": "vitest --run",
-		"test:watch": "vitest",
 		"update:lockfile": "npm i",
 		"watch": "svelte-kit package -w"
 	},
