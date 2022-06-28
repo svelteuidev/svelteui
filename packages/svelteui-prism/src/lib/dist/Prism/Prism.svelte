@@ -1,4 +1,6 @@
-<script lang="ts">
+
+<script lang="ts" data-manual>
+	// option 'data-manual' needed to use Prism with no automatic highlight on import
 	import Prism from 'prismjs';
 	import { onMount } from 'svelte';
 	import { config } from './Prism.config.js';
@@ -266,6 +268,8 @@
 		</ActionIcon>
 	{/if}
 	<pre class={prismClasses} data-line={highlightLines}>
-		{@html prettyCode}
+		<code>
+			{@html prettyCode}
+		</code>
 	</pre>
 </div>
