@@ -9,7 +9,7 @@
 <\/script>
 
 <Fragment
-    onCreate={() => {
+	on:create={() => {
       setContext('some context key', value)
     }}
 >
