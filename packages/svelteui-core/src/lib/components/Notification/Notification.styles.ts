@@ -14,7 +14,6 @@ export interface NotificationProps extends DefaultProps {
 	withCloseButton?: boolean;
 	closeButtonLabel?: string;
 	closeButtonProps?: CloseButtonProps;
-	onClose?(...args: any[]): any;
 }
 
 export interface NotificationStylesParams {

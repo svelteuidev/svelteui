@@ -32,7 +32,6 @@ export interface ModalProps extends DefaultProps {
 	centered?: boolean;
 	target?: HTMLElement | string;
 	withinPortal?: boolean;
-	onClose(args?: any): any;
 }
 
 export interface ModalStylesParams {

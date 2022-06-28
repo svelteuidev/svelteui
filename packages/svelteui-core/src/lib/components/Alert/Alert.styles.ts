@@ -13,7 +13,6 @@ export interface AlertProps extends DefaultProps {
 	iconProps: Record<string, unknown>;
 	withCloseButton: boolean;
 	closeButtonLabel: string;
-	onClose(...args: any[]): any;
 }
 
 export type AlertVariant = 'filled' | 'outline' | 'light';

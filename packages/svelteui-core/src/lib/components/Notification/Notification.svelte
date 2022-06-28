@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import useStyles from './Notification.styles';
 	import { Box } from '../Box';
 	import { CloseButton } from '../ActionIcon';
@@ -19,9 +20,14 @@
 		iconProps: $$NotificationProps['iconProps'] = {},
 		withCloseButton: $$NotificationProps['withCloseButton'] = true,
 		closeButtonLabel: $$NotificationProps['closeButtonLabel'] = undefined,
-		closeButtonProps: $$NotificationProps['closeButtonProps'] = {},
-		onClose: $$NotificationProps['onClose'] = () => {};
+		closeButtonProps: $$NotificationProps['closeButtonProps'] = {};
 	export { className as class };
+
+	const dispatch = createEventDispatcher();
+
+	function onClose() {
+		dispatch('close');
+	}
 
 	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
 </script>

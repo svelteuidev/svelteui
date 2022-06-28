@@ -1,31 +1,25 @@
 <script lang="ts">
 	import { Overlay } from '../Overlay';
 	import { Text } from '../Text';
-	import { setContext, onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte';
+	import { createEventDispatcher, setContext, onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte';
 	import type { FragmentProps as $$FragmentProps } from './Fragment.styles';
 
 	export let mode: $$FragmentProps['mode'] = 'fragment';
 	export let context: $$FragmentProps['context'] = null;
-	export let onCreate: $$FragmentProps['onCreate'] = null;
-	export let onMountFn: $$FragmentProps['onMount'] = null;
-	export let beforeUpdateFn: $$FragmentProps['beforeUpdate'] = null;
-	export let afterUpdateFn: $$FragmentProps['afterUpdate'] = null;
-	export let onDestroyFn: $$FragmentProps['onDestroy'] = null;
+
+	const dispatch = createEventDispatcher();
 
 	if (context) {
 		Object.keys(context).forEach((key) => {
 			setContext(key, context[key]);
 		});
 	}
-	if (onCreate) bind(onCreate)();
-	if (onMountFn) onMount(bind(onMount));
-	if (beforeUpdateFn) beforeUpdate(bind(beforeUpdate));
-	if (afterUpdateFn) afterUpdate(bind(afterUpdate));
-	if (onDestroyFn) onDestroy(bind(onDestroy));
 
-	function bind(callback) {
-		return () => callback({ props: $$restProps });
-	}
+	dispatch('create', { props: $$restProps });
+	onMount(() => dispatch('mount', { props: $$restProps }));
+	beforeUpdate(() => dispatch('before:update', { props: $$restProps }));
+	afterUpdate(() => dispatch('after:update', { props: $$restProps }));
+	onDestroy(() => dispatch('destroy', { props: $$restProps }));
 
 	/** action for rendering fragment content */
 	function fragment(node) {
@@ -58,7 +52,7 @@ Fragments let you group a list of children without adding extra nodes to the DOM
 
 	// lifecyle usage
 	<Fragment
-		onCreate={() => {
+		on:create={() => {
 			setContext('some context key', theValue)
 		}}
 	>
