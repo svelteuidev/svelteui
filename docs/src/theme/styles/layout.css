@@ -109,10 +109,6 @@ body {
 	font-weight: bolder;
 }
 
-.sidebar ul ul {
-	margin-left: 1em;
-}
-
 .main {
 	padding-top: var(--topbar-height);
 	margin-left: var(--sidebar-width);
