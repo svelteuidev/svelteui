@@ -7,11 +7,11 @@
 
 <Fragment
 	mode="lifecycle"
-	onCreate={() => console.log('Component Created')}
-	onMount={() => console.log('Component Mounted')}
-	beforeUpdate={() => console.log('Component is about to update')}
-	afterUpdate={() => console.log('Component just updated')}
-	onDestroy={() => console.log('Component Destroyed')}
+	on:create={() => console.log('Component Created')}
+	on:mount={() => console.log('Component Mounted')}
+	on:before:update={() => console.log('Component is about to update')}
+	on:after:update={() => console.log('Component just updated')}
+	on:destroy={() => console.log('Component Destroyed')}
 >
 	some content
 </Fragment>`;
@@ -29,11 +29,11 @@
 
 <Fragment
 	mode="lifecycle"
-	onCreate={() => console.log('Component Created')}
-	onMount={() => console.log('Component Mounted')}
-	beforeUpdate={() => console.log('Component is about to update')}
-	afterUpdate={() => console.log('Component just updated')}
-	onDestroy={() => console.log('Component Destroyed')}
+	on:create={() => console.log('Component Created')}
+	on:mount={() => console.log('Component Mounted')}
+	on:before:update={() => console.log('Component is about to update')}
+	on:after:update={() => console.log('Component just updated')}
+	on:destroy={() => console.log('Component Destroyed')}
 >
 	some content
 </Fragment>

@@ -1,15 +1,17 @@
 <script lang="ts">
 	/* eslint-disable  @typescript-eslint/no-explicit-any */
+	import { createEventDispatcher } from 'svelte';
 	import { controls as controlsComponents } from './index';
 	import type { DemoControl } from '$lib/types';
 	import { upperFirst, isEnabled } from '../../../utils';
 
 	export let value: Record<string, any> = {};
 	export let controls: DemoControl[];
-	export let onChange: (data) => void;
 
 	// Contain data for all possible controls even for conditional, we want to keep track of all data
 	let data: Record<string, any> = controls.reduce(dataReducer, {});
+
+	const dispatch = createEventDispatcher();
 
 	function dataReducer(acc, { name, initialValue, type, controls }) {
 		acc[name] =
@@ -18,8 +20,6 @@
 				: value[name] ?? controls.reduce(dataReducer, {});
 		return acc;
 	}
-
-	// $: triggerChange(value, data);
 
 	$: controlsData = controls.map((control) => {
 		const { type, label, name, ...props } = control;
@@ -36,17 +36,10 @@
 			hidden: !isEnabled(control, data)
 		};
 	});
-	//
-	// function triggerChange(value, data) {
-	// 	console.log('triggerChange', value, data);
-	// 	if (JSON.stringify(value) !== JSON.stringify(data)) {
-	// 		onChange(data);
-	// 	}
-	// }
 
 	function changeData(name: string, value: any) {
 		data = { ...data, [name]: value };
-		onChange(data);
+		dispatch('change', data);
 	}
 </script>
 
@@ -59,7 +52,6 @@
 				{value}
 				{...props}
 				on:change={onChange}
-				onChange=""
 			/>
 		</div>
 	{/if}

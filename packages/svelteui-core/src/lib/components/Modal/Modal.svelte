@@ -8,7 +8,7 @@
 	import { Box } from '../Box';
 	import { randomID, colorScheme, css } from '$lib/styles';
 	import { lockscroll } from '@svelteuidev/composables';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import type { ModalProps as $$ModalProps } from './Modal.styles';
@@ -36,10 +36,10 @@
 		trapFocus: $$ModalProps['trapFocus'] = false,
 		centered: $$ModalProps['centered'] = null,
 		target: $$ModalProps['target'] = '#SVELTEUI_PROVIDER',
-		withinPortal: $$ModalProps['withinPortal'] = true,
-		onClose: $$ModalProps['onClose'];
+		withinPortal: $$ModalProps['withinPortal'] = true;
 	export { className as class };
 
+	const dispatch = createEventDispatcher();
 	const castAny = (self: unknown) => self as any;
 	const baseId = randomID(id);
 	const titleId = `${baseId}-title`;
@@ -52,6 +52,10 @@
 			onClose();
 		}
 	};
+
+	function onClose() {
+		dispatch('close');
+	}
 
 	// Temporary, just add zIndex to Portal component
 	const zIndexStyles = css({ zIndex });

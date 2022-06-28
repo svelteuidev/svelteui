@@ -74,8 +74,8 @@
 		return acc;
 	}
 
-	function onChange(newData) {
-		data = newData;
+	function onChange(event) {
+		data = event.detail;
 	}
 
 	function generateCode(
@@ -212,7 +212,7 @@
 			</div>
 		</div>
 		<div class="controls">
-			<ControlsRenderer value={data} controls={demoControls} {onChange} />
+			<ControlsRenderer value={data} controls={demoControls} on:change={onChange} />
 			<!--			<button {data}> test </button>-->
 			<!--			<button {data} />-->
 			<!--			<button />-->

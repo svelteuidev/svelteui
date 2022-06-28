@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import useStyles from './Alert.styles';
 	import { Box } from '../Box';
 	import { CloseButton } from '../ActionIcon';
@@ -16,9 +17,14 @@
 		iconSize: $$AlertProps['iconSize'] = 16,
 		iconProps: $$AlertProps['iconProps'] = {},
 		withCloseButton: $$AlertProps['withCloseButton'] = false,
-		closeButtonLabel: $$AlertProps['closeButtonLabel'] = undefined,
-		onClose: $$AlertProps['onClose'] = () => {};
+		closeButtonLabel: $$AlertProps['closeButtonLabel'] = undefined;
 	export { className as class };
+
+	const dispatch = createEventDispatcher();
+
+	function onClose() {
+		dispatch('close');
+	}
 
 	$: ({ cx, classes, getStyles } = useStyles({ color, radius, variant }));
 </script>

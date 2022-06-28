@@ -26,6 +26,7 @@ export * as CodeDemos from './demos/core/Code';
 export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
 export * as FragmentDemos from './demos/core/Fragment';
+export * as GridDemos from './demos/core/Grid';
 export * as GroupDemos from './demos/core/Group';
 export * as ImageDemos from './demos/core/Image';
 export * as InputDemos from './demos/core/Input';

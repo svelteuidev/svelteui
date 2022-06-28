@@ -18,6 +18,7 @@
 		Container,
 		Divider,
 		Fragment,
+		Grid,
 		Group,
 		Image,
 		Input,
