@@ -1,5 +1,5 @@
-import { createStyles, rgba } from '@svelteuidev/core';
-import type { DefaultProps, SvelteUISize, SvelteUIColor, Selectors } from '@svelteuidev/core';
+import { createStyles } from '@svelteuidev/core';
+import type { DefaultProps, SvelteUISize, SvelteUIColor } from '@svelteuidev/core';
 
 export interface DayProps extends DefaultProps {
 	value: Date;
@@ -38,9 +38,10 @@ export const sizes = {
 
 export default createStyles(
 	(theme, { size, fullWidth, hideOutsideDates, primaryColor }: DayStyleParams) => {
+		const { rgba } = theme.fn;
 		return {
 			root: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: theme.fn.themeColor('dark', 0)
 				},
 				focusRing: 'auto',

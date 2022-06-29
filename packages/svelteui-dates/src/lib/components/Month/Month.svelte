@@ -55,14 +55,14 @@
 		dayjs(value).isAfter(dayjs(month).startOf('month')) &&
 		dayjs(value).isBefore(dayjs(month).endOf('month'));
 
-	$: ({ cx, classes, getStyles } = useStyles({ fullWidth }));
+	$: ({ cx, classes } = useStyles({ fullWidth }, { override }));
 </script>
 
 <Box
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
 	root="table"
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root)}
 	{...$$restProps}
 >
 	{#if !hideWeekdays}
@@ -84,7 +84,7 @@
 				{#each row as date, cellIndex}
 					{@const dayProps = getDayProps({date, month, hasValue, minDate, maxDate, value, excludeDate, disableOutsideEvents, range})}
 					{@const onKeyDownPayload = {rowIndex, cellIndex, date}}
-					<td>
+					<td class={classes.cell}>
 						<Day
 							on:click={() => {
 								typeof onChange === 'function' && onChange(date)

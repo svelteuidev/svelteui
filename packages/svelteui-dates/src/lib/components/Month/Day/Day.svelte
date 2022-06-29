@@ -32,7 +32,10 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, getStyles } = useStyles({ size, fullWidth, primaryColor, hideOutsideDates }));
+	$: ({ cx, classes } = useStyles(
+		{ size, fullWidth, primaryColor, hideOutsideDates },
+		{ override }
+	));
 </script>
 
 <button
@@ -45,7 +48,7 @@
 	data-autofocus={getDayAutofocus({ hasValue, selected, firstInMonth })}
 	data-svelteui-stop-propagation
 	class={cx(
-		getStyles({ css: override }),
+		classes.root,
 		{
 			outside,
 			weekend,
@@ -57,6 +60,7 @@
 		},
 		className
 	)}
+	{disabled}
 >
 	{typeof renderDay === 'function' ? renderDay(value) : value.getDate()}
 </button>
