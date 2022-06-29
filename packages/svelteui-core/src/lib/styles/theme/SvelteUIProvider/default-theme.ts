@@ -16,7 +16,9 @@ export function useSvelteUITheme(): SvelteUITheme {
 		fn: {
 			themeColor: fns.themeColor,
 			size: fns.size,
-			radius: fns.radius
+			radius: fns.radius,
+			rgba: fns.rgba,
+			variant: fns.variant
 		}
 	};
 	return DEFAULT_THEME;

@@ -52,8 +52,7 @@
 		UnstyledButton,
 		createStyles,
 		useSvelteUITheme,
-		useSvelteUIThemeContext,
-		rgba
+		useSvelteUIThemeContext
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>

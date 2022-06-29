@@ -29,6 +29,8 @@ export interface Fn {
 	themeColor: Fns['themeColor'];
 	size: Fns['size'];
 	radius: Fns['radius'];
+	variant: Fns['variant'];
+	rgba: Fns['rgba'];
 }
 
 export interface SvelteUITheme {

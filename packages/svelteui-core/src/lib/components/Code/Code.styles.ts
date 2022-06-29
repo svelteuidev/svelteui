@@ -1,4 +1,4 @@
-import { createStyles, rgba } from '$lib/styles';
+import { createStyles, fns } from '$lib/styles';
 import type { SvelteUIColor, DefaultProps } from '$lib/styles';
 
 export interface CodeProps extends DefaultProps<HTMLPreElement | Partial<HTMLElement>> {
@@ -16,6 +16,8 @@ interface CodeStyleParams {
 	block: boolean;
 	width: number;
 }
+
+const { rgba } = fns;
 
 export default createStyles((theme, { color, block, noMono, width }: CodeStyleParams) => {
 	const { themeColor }: typeof theme.fn = theme.fn;

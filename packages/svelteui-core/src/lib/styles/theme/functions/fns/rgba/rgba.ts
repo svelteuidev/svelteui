@@ -1,4 +1,4 @@
-import { toRgba } from '../to-rgba/to-rgba.js';
+import { toRgba } from '../../../utils';
 
 export function rgba(color: string, alpha: number = 1) {
 	if (typeof color !== 'string' || alpha > 1 || alpha < 0) {

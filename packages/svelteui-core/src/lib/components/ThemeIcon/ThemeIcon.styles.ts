@@ -1,4 +1,4 @@
-import { dark, rgba, createStyles } from '$lib/styles';
+import { dark, createStyles, fns } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUINumberSize,
@@ -31,6 +31,8 @@ export type ThemeIconVariant =
 	| 'subtle'
 	| 'default'
 	| 'white';
+
+const { rgba } = fns;
 
 export const sizes = {
 	xs: 16,

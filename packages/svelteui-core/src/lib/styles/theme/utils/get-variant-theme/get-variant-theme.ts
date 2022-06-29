@@ -1,8 +1,8 @@
-import { rgba, dark, fns } from '$lib/styles';
+import { dark, fns } from '$lib/styles';
 import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib/styles';
 
 export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
-	const { themeColor } = fns;
+	const { themeColor, rgba } = fns;
 
 	const variants = {
 		/** Filled variant */

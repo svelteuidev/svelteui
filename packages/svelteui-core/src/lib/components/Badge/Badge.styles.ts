@@ -1,4 +1,4 @@
-import { dark, rgba, createStyles } from '$lib/styles';
+import { dark, createStyles, fns } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUIColor,
@@ -18,6 +18,8 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 }
 
 export type BadgeVariant = 'light' | 'filled' | 'outline' | 'dot' | 'gradient';
+
+const { rgba } = fns;
 
 export const sizes = {
 	xs: {
