@@ -22,8 +22,6 @@
     <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
     <a href="https://github.com/svelteuidev/svelteui/issues">Request Feature</a>
-    ·
-    <a href="https://github.com/svelteuidev/svelteui/wiki/Roadmap">Read Roadmap</a>
   </p>
 </div>
 
@@ -42,12 +40,6 @@
 - Minimal third-party dependency usage
 - Easy setup - **Zero Configuration**
 
-### Undocumented Components & Functions
-
-The [docs](https://svelteui.org/) are still under construction. Some of the library's exported components & functions are still undocumented. [Here](https://github.com/svelteuidev/svelteui/issues/15) is where you can keep track of the progress.
-
-> Please keep in mind that any undocumented component could potentially receive breaking API changes or be heavily updated before being finalized.
-
 <br />
 
 ## Packages
@@ -55,6 +47,10 @@ The [docs](https://svelteui.org/) are still under construction. Some of the libr
 **[`@svelteui/core`](https://svelteui.org/core/button)** - core components library with 40+ components
 
 **[`@svelteui/composables`](https://svelteui.org/composables/use-click-outside)** - collection of 20+ useful actions and utilities
+
+**[`@svelteui/dates`](https://svelteui.org/dates/getting-started)** - calendars, date and time pickers based on SvelteUI components
+
+**[`@svelteui/preprocessors`](https://svelteui.org/preprocessors/view-source)** - Svelte preprocessor library to assist in many areas of development
 
 **[`@svelteui/motion`](https://svelteui.org/motion/typewriter)** - collection of transitions to utilize on dom elements
 
