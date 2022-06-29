@@ -5,7 +5,7 @@
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
 	import { key, ssrStyles, useSvelteUIThemeContext } from './svelteui.provider';
-	import { dark, css, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
+	import { createStyles, dark, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
 	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from './svelteui.provider';
@@ -34,9 +34,13 @@
 	});
 
 	const ctx = useSvelteUIThemeContext();
+	const useStyles = createStyles((_) => ({ root: {} }));
 	const forwardEvents = createEventForwarder(get_current_component());
-	const ProviderStyles = css({});
 	const DEFAULT_THEME = useSvelteUITheme();
+	const currentTheme = () => {
+		if (themeObserver === null) return null;
+		return themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
+	};
 
 	$: if (withGlobalStyles) SvelteUIGlobalCSS();
 	$: if (withNormalizeCSS) NormalizeCSS();
@@ -52,6 +56,7 @@
 	});
 	$: colorScheme.set(themeObserver);
 	$: mergedTheme = mergeTheme(DEFAULT_THEME, overrides.themeOverride);
+	$: ({ cx, classes } = useStyles(null, { override }));
 </script>
 
 <svelte:head>
@@ -65,9 +70,7 @@
 	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents
-	class="{className} {ProviderStyles({ css: override })} {themeObserver === 'light'
-		? mergedTheme
-		: dark}"
+	class={cx(className, classes.root, currentTheme())}
 	{...$$restProps}
 >
 	<slot />

@@ -9,7 +9,8 @@
 		Divider,
 		Container,
 		Text,
-		fns
+		fns,
+		createTheme
 	} from '$lib';
 	import { HeadContent } from '../pages';
 	// import { page } from '$app/stores';
