@@ -10,8 +10,8 @@ source: 'svelteui-composables/src/lib/utilities/use-eye-dropper/use-eye-dropper.
 ---
 
 <script lang='ts'>
-    import { Demo, ComposableDemos } from "@svelteuidev/demos";
-    import { Heading} from 'components'
+    import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />

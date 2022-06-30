@@ -1,8 +1,5 @@
 <script lang="ts">
-    import {
-  ActionIcon,
-  UnstyledButton,
-} from '@svelteuidev/core';
+import { ActionIcon, UnstyledButton } from '@svelteuidev/core';
 import useStyles, { type CalendarHeaderProps as $$CalendarHeaderProps } from "./CalendarHeader.styles";
 import SelectChevronIcon from "./SelectChevronIcon.svelte";
 import ArrowIcon from './ArrowIcon.svelte'
