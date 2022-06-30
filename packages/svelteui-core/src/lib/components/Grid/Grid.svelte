@@ -19,11 +19,11 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	const contextStore = writable({ cols: cols, grow: grow, spacing: spacing });
+	const contextStore = writable({ cols, grow, spacing });
 	setContext('grid', contextStore);
 
-	$: $contextStore = { cols: cols, grow: grow, spacing: spacing };
-	$: ({ cx, getStyles } = useStyles({ align, cols, grow, spacing, justify }));
+	$: $contextStore = { cols, grow, spacing };
+	$: ({ cx, classes } = useStyles({ align, cols, grow, spacing, justify }, { override }));
 </script>
 
 <!--
@@ -41,6 +41,6 @@ Flexbox grid with variable amount of columns
     </Grid>
     ```
 -->
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
 	<slot />
 </Box>

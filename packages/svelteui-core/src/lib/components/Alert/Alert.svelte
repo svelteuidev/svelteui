@@ -10,7 +10,7 @@
 		className: $$AlertProps['className'] = 'blue',
 		override: $$AlertProps['override'] = {},
 		title: $$AlertProps['title'] = undefined,
-		color: $$AlertProps['color'] = 'orange',
+		color: $$AlertProps['color'] = 'red',
 		radius: $$AlertProps['radius'] = 'sm',
 		variant: $$AlertProps['variant'] = 'light',
 		icon: $$AlertProps['icon'] = undefined,
@@ -38,9 +38,7 @@
 >
 	<div class={classes.wrapper}>
 		{#if icon}
-			<slot class={classes.icon} name="icon">
-				<svelte:component this={icon} class={classes.icon} {...iconProps} />
-			</slot>
+			<svelte:component this={icon} class={classes.icon} {...iconProps} />
 		{/if}
 
 		<div class={classes.content}>
@@ -53,7 +51,7 @@
 						<CloseButton
 							class={classes.closeButton}
 							aria-label={closeButtonLabel}
-							variant='transparent'
+							variant="transparent"
 							size={iconSize}
 							{iconSize}
 							on:click={onClose}

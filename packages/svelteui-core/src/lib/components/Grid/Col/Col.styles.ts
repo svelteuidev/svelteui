@@ -1,5 +1,8 @@
 import { createStyles } from '$lib/styles';
+import type { Writable } from 'svelte/store';
 import type { DefaultProps, SvelteUINumberSize, SvelteUITheme } from '$lib/styles';
+
+export type GridContext = Writable<{ cols: number; grow: boolean; spacing: SvelteUINumberSize }>;
 
 export interface ColProps extends DefaultProps {
 	span?: number;

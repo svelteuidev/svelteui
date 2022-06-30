@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
 	import useStyles from './Col.styles';
 	import { Box } from '../../Box';
-	import type { SvelteUINumberSize } from '$lib/styles';
-	import type { ColProps as $$ColProps } from './Col.styles';
-	import type { Writable } from 'svelte/store';
+	import { getContext } from 'svelte';
+	import type { ColProps as $$ColProps, GridContext } from './Col.styles';
 
 	export let use: $$ColProps['use'] = [],
 		element: $$ColProps['element'] = undefined,
@@ -26,21 +24,21 @@
 
 	// retrieves the reactive context so that Col has access
 	// to the Grid cols, grow and spacing parameters
-	const state: Writable<{ cols: number; grow: boolean; spacing: SvelteUINumberSize }> =
-		getContext('grid');
+	const state: GridContext = getContext('grid');
+	const { cols, grow, spacing } = $state;
 
 	function isSpanValid(span: number) {
 		return typeof span === 'number' && span > 0 && span % 1 === 0;
 	}
 
-	$: _span = span || $state.cols || 0;
-	$: valid = isSpanValid(_span) && _span <= $state.cols;
+	$: _span = span || cols || 0;
+	$: valid = isSpanValid(_span) && _span <= cols;
 
 	$: ({ cx, getStyles } = useStyles({
-		cols: $state.cols,
-		grow: $state.grow,
-		spacing: $state.spacing,
 		span: _span,
+		cols,
+		grow,
+		spacing,
 		offset,
 		offsetXs,
 		offsetSm,
