@@ -26,6 +26,7 @@
 		Kbd,
 		Loader,
 		MediaQuery,
+		Menu,
 		Modal,
 		NativeSelect,
 		Notification,
@@ -56,3 +57,7 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>
+
+<Menu trigger="hover" on:close={() => console.log('closed')} on:open={() => console.log('opened')}>
+	<Menu.Item>Test</Menu.Item>
+</Menu>

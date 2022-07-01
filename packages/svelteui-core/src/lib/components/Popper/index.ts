@@ -1,2 +1,3 @@
 export { default as Popper } from './Popper.svelte';
-export * as PopperStyles from './Popper.styles';
+export { calculateArrowPlacement } from './Popper.styles';
+export type { PopperProps, Transition } from './Popper.styles';

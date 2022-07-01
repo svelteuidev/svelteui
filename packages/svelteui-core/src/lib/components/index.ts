@@ -23,6 +23,7 @@ export * from './InputWrapper';
 export * from './Kbd';
 export * from './Loader';
 export * from './MediaQuery';
+export * from './Menu';
 export * from './Modal';
 export * from './NativeSelect';
 export * from './Notification';

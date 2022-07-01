@@ -59,7 +59,7 @@
 				left: `${x}px`,
 				top: `${y}px`
 			});
-			
+
 			// return early if no arrow is wanted in the popper
 			if (!withArrow) return;
 
@@ -94,6 +94,7 @@
 		}
 	}
 
+	$: _mounted = mounted;
 	$: updatePopper({ ...$$props });
 	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
 </script>
@@ -126,7 +127,7 @@ and placement options.
     ```
 -->
 
-{#if mounted}
+{#if _mounted}
 	<div
 		bind:this={element}
 		use:useActions={use}
