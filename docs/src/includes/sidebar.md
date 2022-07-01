@@ -82,6 +82,7 @@
   - [Image](core/image)
   - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
+  - [Timeline](core/timeline)
 - **<ExclamationTriangle/><Space w="md" />Feedback**
   - [Alert](core/alert)
   - [Loader](core/loader)
