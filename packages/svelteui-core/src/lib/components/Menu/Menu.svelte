@@ -1,16 +1,17 @@
 <script lang="ts">
-	import useStyles, { getNextItem, getPreviousItem} from './Menu.styles';
+	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-  import { Box } from "../Box";
-  import { Popper, type PopperProps } from "../Popper";
-  import { Paper } from "../Paper";
-  import { MenuIcon } from "./index";
-  import { clickoutside, useHash } from "@svelteuidev/composables";
-  import { createEventForwarder, useActions, getTransition } from '$lib/internal';
+	import { Box } from '../Box';
+	import { Popper } from '../Popper';
+	import { Paper } from '../Paper';
+	import { MenuIcon } from './index';
+	import { clickoutside, useHash } from '@svelteuidev/composables';
+	import { createEventForwarder, useActions, getTransition } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-  import type { Writable } from 'svelte/store'
+	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from './Menu.context';
+	import type { PopperProps } from '../Popper';
 	import type { MenuProps as $$MenuProps } from './Menu.styles';
 
 	export let use: $$MenuProps['use'] = [],
@@ -30,117 +31,116 @@
 		trapFocus: $$MenuProps['trapFocus'] = true,
 		withinPortal: $$MenuProps['withinPortal'] = true,
 		zIndex: $$MenuProps['zIndex'] = 300,
-    withArrow: PopperProps["withArrow"] = false,
-    gutter: PopperProps["gutter"] = 5,
-    placement: PopperProps["placement"] = 'start',
-    position: PopperProps["position"] = 'bottom',
-    transition: $$MenuProps['transition'] = 'scale',
-    transitionOptions: $$MenuProps["transitionOptions"] = { duration: 300 }
+		withArrow: PopperProps['withArrow'] = false,
+		gutter: PopperProps['gutter'] = 5,
+		placement: PopperProps['placement'] = 'start',
+		position: PopperProps['position'] = 'bottom',
+		transition: $$MenuProps['transition'] = 'scale',
+		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 300 };
 	export { className as class };
 
-  let delayTimeout: number; 
-  let referenceElement: HTMLButtonElement; 
-  let dropdownElement: HTMLDivElement;
-  let hovered: number = -1;
-  let _transition = getTransition(transition) as any
-  
-  const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
-    enabled: true,
-    callback: () => _opened && handleClose()
-  }
-  const uuid: string = useHash(menuId);
-  const forwardEvents = createEventForwarder(get_current_component());
-  const castKeyboardEvent = <T = KeyboardEvent>(event): T => event
+	let delayTimeout: number;
+	let referenceElement: HTMLButtonElement;
+	let dropdownElement: HTMLDivElement;
+	let hovered: number = -1;
+	let _transition = getTransition(transition) as any;
 
-  // can be turned into an action
-  const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
+	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
+		enabled: true,
+		callback: () => _opened && handleClose()
+	};
+	const uuid: string = useHash(menuId);
+	const forwardEvents = createEventForwarder(get_current_component());
+	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
+	// can be turned into an action
+	const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
 
-  const handleClose = () => {
-    console.log('close triggered', {opened, _opened});
-    if (_opened) {
-      opened = false
-    }
-  };
-  
-  const handleOpen = () => {
-    console.log('open triggered', {opened, _opened});
-    opened = true
-  };
-  
-  const toggleMenu = () => {
-    _opened ? handleClose() : handleOpen()
-  };
+	const handleClose = () => {
+		console.log('close triggered', { opened, _opened });
+		if (_opened) {
+			opened = false;
+		}
+	};
 
-  const handleMouseLeave = () => {
-    if (trigger === 'hover') {
-      if (delay > 0) {
-        delayTimeout = window.setTimeout(() => handleClose(), delay);
-      } else {
-        handleClose();
-      }
-    }
-  };
+	const handleOpen = () => {
+		console.log('open triggered', { opened, _opened });
+		opened = true;
+	};
 
-  const handleMouseEnter = () => {
-    window.clearTimeout(delayTimeout);
-  };
+	const toggleMenu = () => {
+		_opened ? handleClose() : handleOpen();
+	};
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (_opened) {
-      const elements = Array.from(
-        dropdownElement.querySelectorAll<HTMLButtonElement>('.svelteui-Menu-item')
-      );
+	const handleMouseLeave = () => {
+		if (trigger === 'hover') {
+			if (delay > 0) {
+				delayTimeout = window.setTimeout(() => handleClose(), delay);
+			} else {
+				handleClose();
+			}
+		}
+	};
 
-      if (event.code === 'Tab' && trapFocus) {
-        event.preventDefault();
-      }
+	const handleMouseEnter = () => {
+		window.clearTimeout(delayTimeout);
+	};
 
-      if (event.code === 'ArrowDown') {
-        event.preventDefault();
-        const prevIndex = getNextItem(hovered, elements);
-        hovered = prevIndex
-        elements[prevIndex].focus();
-      }
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (_opened) {
+			const elements = Array.from(
+				dropdownElement.querySelectorAll<HTMLButtonElement>('.svelteui-Menu-item')
+			);
 
-      if (event.code === 'ArrowUp') {
-        event.preventDefault();
-        const prevIndex = getPreviousItem(hovered, elements);
-        hovered = prevIndex
-        elements[prevIndex].focus();
-      }
+			if (event.code === 'Tab' && trapFocus) {
+				event.preventDefault();
+			}
 
-      if (event.code === 'Escape') {
-        handleClose();
-        focusReference();
-      }
-    }
-  };
+			if (event.code === 'ArrowDown') {
+				event.preventDefault();
+				const prevIndex = getNextItem(hovered, elements);
+				hovered = prevIndex;
+				elements[prevIndex].focus();
+			}
 
-  const handleItemClick = () => {
-    if (closeOnItemClick) {
-      handleClose();
-      trigger === 'click' && focusReference();
-    }
-  };
-    
+			if (event.code === 'ArrowUp') {
+				event.preventDefault();
+				const prevIndex = getPreviousItem(hovered, elements);
+				hovered = prevIndex;
+				elements[prevIndex].focus();
+			}
+
+			if (event.code === 'Escape') {
+				handleClose();
+				focusReference();
+			}
+		}
+	};
+
+	const handleItemClick = () => {
+		if (closeOnItemClick) {
+			handleClose();
+			trigger === 'click' && focusReference();
+		}
+	};
+
 	const contextStore: Writable<MenuContextValue> = writable({
-    hovered,
-    radius,
-    onItemHover: (hovered) => {},
-    onItemKeyDown: handleKeyDown,
-    onItemClick: handleItemClick,
-  });
+		hovered,
+		radius,
+		onItemHover: (hovered) => {},
+		onItemKeyDown: handleKeyDown,
+		onItemClick: handleItemClick
+	});
 	setContext<Writable<MenuContextValue>>('Menu', contextStore);
 
-  $: _opened = opened
-  $: $contextStore = {
-    hovered,
-    radius,
-    onItemHover: (hovered) => {},
-    onItemKeyDown: handleKeyDown,
-    onItemClick: handleItemClick,
-  }
+	$: _opened = opened;
+	$: $contextStore = {
+		hovered,
+		radius,
+		onItemHover: (hovered) => {},
+		onItemKeyDown: handleKeyDown,
+		onItemClick: handleItemClick
+	};
 	$: ({ cx, classes } = useStyles({ size }, { override }));
 </script>
 

@@ -1,19 +1,20 @@
 <script lang="ts">
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-    import { ActionIcon, type ActionIconStyles } from "../ActionIcon";
+	import { ActionIcon } from '../ActionIcon';
+	import type { ActionIconStyles } from '../ActionIcon';
 
-    type ActionIconProps = ActionIconStyles.ActionIconProps
-    interface $$Props extends Omit<ActionIconProps, 'className' | 'use'> {
-        size?: number
-		className?: string 
-		role?: string
-		title?: string
-    }
+	type ActionIconProps = ActionIconStyles.ActionIconProps;
+	interface $$Props extends Omit<ActionIconProps, 'className' | 'use'> {
+		size?: number;
+		className?: string;
+		role?: string;
+		title?: string;
+	}
 
-    export let size: $$Props["size"] = 15;
+	export let size: $$Props['size'] = 15;
 	export let className: string = '';
-	export { className as class }
+	export { className as class };
 
 	const forwardEvents = createEventForwarder(get_current_component());
 </script>
