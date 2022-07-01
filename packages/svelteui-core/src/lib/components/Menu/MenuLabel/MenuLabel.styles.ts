@@ -3,7 +3,7 @@ import { createStyles } from '$lib/styles';
 export default createStyles((theme) => {
 	return {
 		root: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				color: theme.fn.themeColor('dark', 2)
 			},
 			color: theme.fn.themeColor('gray', 6),

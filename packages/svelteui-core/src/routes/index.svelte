@@ -58,6 +58,9 @@
 	import Gear from '../icons/Gear.svelte';
 </script>
 
-<Menu trigger="hover" on:close={() => console.log('closed')} on:open={() => console.log('opened')}>
-	<Menu.Item>Test</Menu.Item>
+<Menu trigger="hover">
+	<Menu.Label>Application</Menu.Label>
+	<Menu.Item icon={Gear}>Settings</Menu.Item>
+	<Menu.Item icon={Gear}>Settings</Menu.Item>
+	<Menu.Item icon={Gear}>Settings</Menu.Item>
 </Menu>
