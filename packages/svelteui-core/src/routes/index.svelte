@@ -47,6 +47,7 @@
 		Text,
 		TextInput,
 		ThemeIcon,
+		Timeline,
 		Title,
 		Tooltip,
 		TypographyProvider,

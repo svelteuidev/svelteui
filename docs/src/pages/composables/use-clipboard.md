@@ -10,39 +10,8 @@ source: 'svelteui-composables/src/lib/actions/use-clipboard/use-clipboard.ts'
 ---
 
 <script lang='ts'>
-    import { Button } from '@svelteuidev/core';
-	import { clipboard } from '@svelteuidev/composables';
-    import { Heading, Preview } from 'components'
-
-	let textToCopy = 'This message was copied';
-	let copied = false;
-    let onCopy = () => {
-        copied = true;
-        setTimeout(function () {
-            copied = false;
-        }, 1000);
-    }
-
-    const code = `
-    <script>
-        import { Button } from '@svelteuidev/core';
-        import { clipboard } from '@svelteuidev/composables';
-
-        let textToCopy = 'This message was copied';
-        let copied = false;
-        setTimeout(function () {
-            copied = false;
-        }, 1000);
-    <\/script>
-
-    <Button
-        use={[[clipboard, textToCopy]]}
-        on:useclipboard={onCopy}
-        color={copied ? 'green' : 'blue'}
-    >
-        {copied ? 'copied' : 'Click me to copy text'}
-    <\/Button>
-    `
+    import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -51,14 +20,7 @@ source: 'svelteui-composables/src/lib/actions/use-clipboard/use-clipboard.ts'
 
 With the use-clipboard action, text passed into the text param will be copied to the users clipboard.
 
-<Preview cols={1} {code}>
-<Button
-use={[[clipboard, textToCopy]]}
-on:useclipboard={onCopy}
-color={copied ? 'green' : 'blue'} >
-{copied ? 'copied' : 'Click me to copy text'}
-</Button>
-</Preview>
+<Demo demo={ComposableDemos.useClipboardDemo.usage} />
 
 ## Params
 

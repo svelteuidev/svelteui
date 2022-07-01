@@ -44,6 +44,7 @@ export * from './Switch';
 export * from './Text';
 export * from './TextInput';
 export * from './ThemeIcon';
+export * from './Timeline';
 export * from './Title';
 export * from './Tooltip';
 export * from './TypographyProvider';

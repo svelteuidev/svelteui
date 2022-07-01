@@ -16,7 +16,7 @@ export function longpress(node: HTMLElement, duration: number): ReturnType<Actio
 
 	function handlePress() {
 		timer = window.setTimeout(() => {
-			node.dispatchEvent(new CustomEvent('uselongpress'));
+			node.dispatchEvent(new CustomEvent('longpress'));
 		}, duration);
 	}
 
