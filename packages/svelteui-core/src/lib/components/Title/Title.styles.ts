@@ -2,7 +2,7 @@ import { createStyles } from '$lib/styles';
 import type { TextProps } from '../Text/Text.styles';
 
 export interface TitleProps extends TextProps {
-	order: TitleOrder;
+	order?: TitleOrder;
 }
 
 export type TitleOrder = 1 | 2 | 3 | 4 | 5 | 6;

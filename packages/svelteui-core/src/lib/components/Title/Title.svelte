@@ -2,31 +2,21 @@
 	import useStyles from './Title.styles';
 	import { Text } from '../Text';
 	import { titleSizes } from './Title.styles';
-	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title.styles';
+	import type { TitleProps, HTMLHeadingElements } from './Title.styles';
 
-	export let use: $$TitleProps['use'] = [],
-		element: $$TitleProps['element'] = undefined,
-		className: $$TitleProps['className'] = '',
-		override: $$TitleProps['override'] = {},
-		align: $$TitleProps['align'] = 'left',
-		order: $$TitleProps['order'] = 1,
-		color: $$TitleProps['color'] = 'dark',
-		transform: $$TitleProps['transform'] = 'none',
-		variant: $$TitleProps['variant'] = 'text',
-		weight: $$TitleProps['weight'] = 'normal',
-		gradient: $$TitleProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		inline: $$TitleProps['inline'] = true,
-		lineClamp: $$TitleProps['lineClamp'] = undefined,
-		underline: $$TitleProps['underline'] = undefined,
-		inherit: $$TitleProps['inherit'] = false,
-		href: $$TitleProps['href'] = '',
-		tracking: $$TitleProps['tracking'] = 'normal';
+	interface $$Props extends TitleProps {}
+
+	export let element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		order: $$Props['order'] = 1;
 	export { className as class };
 
+	const classNames = 'title';
 	let node: HTMLHeadingElements;
-	$: node = `h${order}` as HTMLHeadingElements;
 
-	$: ({ cx, getStyles } = useStyles());
+	$: node = `h${order}` as HTMLHeadingElements;
+	$: ({ cx, classes } = useStyles(null, { override }));
 </script>
 
 <!--
@@ -45,22 +35,9 @@ Display text that uses title styling and title HTML tags.
 
 <Text
 	bind:element
-	class={cx(className, { title: true }, getStyles({ css: override }))}
+	class={cx(className, classNames, classes.root)}
 	root={node}
 	size={titleSizes[order].fontSize}
-	{use}
-	{align}
-	{color}
-	{transform}
-	{variant}
-	{weight}
-	{gradient}
-	{inline}
-	{lineClamp}
-	{underline}
-	{inherit}
-	{href}
-	{tracking}
 	{...$$restProps}
 >
 	<slot />
