@@ -6,6 +6,7 @@ export type { SvelteUIGradient } from './SvelteUIGradient';
 export type { SvelteUIMargins, SvelteUIMargin } from './SvelteUIMargin';
 export type { SvelteUIShadow } from './SvelteUIShadow';
 export type { SvelteUINumberSize, SvelteUISizes, SvelteUISize } from './SvelteUISize';
+export type { SvelteUIStyleSystemSize, SvelteUIStyleSystemProps } from './SvelteUIStyleSystem';
 export type {
 	Fn,
 	CSS,

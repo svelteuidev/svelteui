@@ -18,6 +18,7 @@ export type SvelteUIThemeOverride = DeepPartial<Omit<SvelteUITheme, 'fn' | 'dark
 
 export interface Override {
 	props: CSS;
+	// props: CSS | ((theme: SvelteUITheme) => CSS);
 }
 
 export interface HeadingStyle {
