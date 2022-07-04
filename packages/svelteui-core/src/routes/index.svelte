@@ -54,7 +54,8 @@
 		UnstyledButton,
 		createStyles,
 		useSvelteUITheme,
-		useSvelteUIThemeContext
+		useSvelteUIThemeContext,
+		colors
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>
@@ -65,3 +66,14 @@
 	<Menu.Item icon={Gear}>Settings</Menu.Item>
 	<Menu.Item icon={Gear}>Settings</Menu.Item>
 </Menu>
+
+<Box
+	css={(theme) => {
+		return {
+			bc: theme.colors.grape600.value,
+			size: 200,
+			outline: '$pink600',
+			'@lg': { color: '$blue600' }
+		};
+	}}
+/>

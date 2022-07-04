@@ -8,7 +8,7 @@
 	export let use: $$BoxProps['use'] = [],
 		element: $$BoxProps['element'] = undefined,
 		className: $$BoxProps['className'] = '',
-		css: $$BoxProps['override'] = {},
+		css: $$BoxProps['css'] = {},
 		root: $$BoxProps['root'] = undefined,
 		m: $$BoxProps['m'] = undefined,
 		my: $$BoxProps['my'] = undefined,
@@ -31,6 +31,7 @@
 	/** workaround for root type errors, this should be replaced by a better type system */
 	const castRoot = () => root as string;
 	const theme = useSvelteUIThemeContext().theme ?? useSvelteUITheme();
+	const getCSSStyles = typeof css === 'function' ? css : () => css;
 
 	let isHTMLElement;
 	let isComponent;
@@ -81,7 +82,7 @@ Add inline styles to any element or component with sx.
 		this={castRoot()}
 		use:forwardEvents
 		use:useActions={use}
-		class="{className} {BoxStyles({ css: {...css, ...systemStyles} })}"
+		class="{className} {BoxStyles({ css: {...getCSSStyles(theme), ...systemStyles} })}"
 		{...$$restProps}
 	>
 		<slot></slot>
@@ -91,7 +92,7 @@ Add inline styles to any element or component with sx.
 		this={root}
 		bind:this={element}
 		use={[forwardEvents, [useActions, use]]}
-		class="{className} {BoxStyles({ css: { ...css, ...systemStyles } })}"
+		class="{className} {BoxStyles({ css: { ...getCSSStyles(theme), ...systemStyles } })}"
 		{...$$restProps}
 	>
 		<slot />
@@ -101,7 +102,7 @@ Add inline styles to any element or component with sx.
 		bind:this={element}
 		use:forwardEvents
 		use:useActions={use}
-		class="{className} {BoxStyles({ css: { ...css, ...systemStyles } })}"
+		class="{className} {BoxStyles({ css: { ...getCSSStyles(theme), ...systemStyles } })}"
 		{...$$restProps}
 	>
 		<slot />
