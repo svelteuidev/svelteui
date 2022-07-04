@@ -1,3 +1,6 @@
 export { Timeline } from './combinator';
-export * as TimelineStyles from './Timeline.styles';
-export * as TimelineItemStyles from './TimelineItem/TimelineItem.styles';
+export type { TimelineProps, TimelineStyleParams } from './Timeline.styles';
+export type {
+	TimelineItemProps,
+	TimelineItemStyleParams
+} from './TimelineItem/TimelineItem.styles';
