@@ -1,14 +1,9 @@
 import { vFunc, dark, createStyles } from '$lib/styles';
 import type { LoaderProps } from '../Loader/Loader.styles';
-import type {
-	SvelteUIColor,
-	SvelteUINumberSize,
-	SvelteUIGradient,
-	DefaultProps
-} from '$lib/styles';
+import type { BoxProps } from '../Box';
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 
-export interface ActionIconProps extends DefaultProps {
-	root?: keyof HTMLElementTagNameMap;
+export interface ActionIconProps extends BoxProps {
 	color?: SvelteUIColor;
 	variant?: ActionIconVariant;
 	size?: SvelteUINumberSize;
