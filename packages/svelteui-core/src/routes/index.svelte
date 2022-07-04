@@ -68,6 +68,7 @@
 </Menu>
 
 <Box
+	mb="xl"
 	css={(theme) => {
 		return {
 			bc: theme.colors.grape600.value,
@@ -77,3 +78,5 @@
 		};
 	}}
 />
+
+<Badge variant="dot">New</Badge>

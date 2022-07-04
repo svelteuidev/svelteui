@@ -24,6 +24,14 @@ const DEFAULT_GRADIENT = {
 	deg: 45
 };
 
+/**
+ * THe Variant function is a function that takes a variant, optional color/gradient and returns the desired styles for four specific properties.
+ *
+ * Some styles will return tuples of strings where the first value is the dark version of the specific style, and the second value is the light version.
+ *
+ * @param VariantInput - an object that has a variant, color, and optional gradient property
+ * @returns an object with border, background, color, and hover property styles based on the variant
+ */
 export function variant({ variant, color, gradient }: VariantInput): VariantOutput {
 	const theme = useSvelteUIThemeContext().theme;
 	const primaryShade = 6;

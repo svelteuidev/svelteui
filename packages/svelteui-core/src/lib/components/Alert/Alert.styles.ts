@@ -1,5 +1,4 @@
 import { createStyles, dark } from '$lib/styles';
-import { getVariant } from '../Badge/Badge.styles';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
@@ -92,7 +91,7 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 			}
 		},
 		variants: {
-			variation: getVariant(color, undefined)
+			variation: {}
 		}
 	};
 });
