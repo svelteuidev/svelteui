@@ -1,5 +1,17 @@
 import { createStyles } from '$lib/styles';
+import type { Writable } from 'svelte/store';
 import type { DefaultProps, SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
+
+export type TimelineContext = Writable<{
+	active: number;
+	lineActive: boolean;
+	reverseActive: boolean;
+	align: 'left' | 'right';
+	bulletSize: number;
+	radius: SvelteUINumberSize;
+	color: SvelteUIColor;
+	lineWidth: number;
+}>;
 
 export interface TimelineProps extends DefaultProps {
 	active?: number;
@@ -11,13 +23,13 @@ export interface TimelineProps extends DefaultProps {
 	reverseActive?: boolean;
 }
 
-interface ThemeIconStyleParams {
+export interface TimelineStyleParams {
 	align?: 'left' | 'right';
 	bulletSize?: number;
 	lineWidth?: number;
 }
 
-export default createStyles((_, { align, bulletSize, lineWidth }: ThemeIconStyleParams) => {
+export default createStyles((_, { align, bulletSize, lineWidth }: TimelineStyleParams) => {
 	return {
 		root: {
 			paddingLeft: align === 'left' ? bulletSize / 2 + lineWidth / 2 : 0,

@@ -2,7 +2,8 @@
 	import useStyles from './Col.styles';
 	import { Box } from '../../Box';
 	import { getContext } from 'svelte';
-	import type { ColProps as $$ColProps, GridContext } from './Col.styles';
+	import type { GridContext } from '../Grid.styles';
+	import type { ColProps as $$ColProps } from './Col.styles';
 
 	export let use: $$ColProps['use'] = [],
 		element: $$ColProps['element'] = undefined,

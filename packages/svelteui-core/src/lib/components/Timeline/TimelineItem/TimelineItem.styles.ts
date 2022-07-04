@@ -17,7 +17,7 @@ export interface TimelineItemProps extends DefaultProps {
 
 export type TimelineItemVariant = 'dashed' | 'dotted' | 'solid';
 
-interface TimelineItemStyleParams {
+export interface TimelineItemStyleParams {
 	align?: 'left' | 'right';
 	bulletSize?: SvelteUINumberSize;
 	radius?: SvelteUINumberSize;

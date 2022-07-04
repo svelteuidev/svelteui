@@ -63,9 +63,9 @@ Display list of events in chronological order
 	  ...
     </Timeline>
 
-	<ThemeIcon active={1} bulletSize={30} align='right' reverseActive>
+	<Timeline active={1} bulletSize={30} align='right' reverseActive>
         ...
-    </ThemeIcon>
+    </Timeline>
     ```
 -->
 <Box
