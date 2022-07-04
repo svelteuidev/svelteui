@@ -57,14 +57,12 @@
 	const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
 
 	const handleClose = () => {
-		console.log('close triggered', { opened, _opened });
 		if (_opened) {
 			opened = false;
 		}
 	};
 
 	const handleOpen = () => {
-		console.log('open triggered', { opened, _opened });
 		opened = true;
 	};
 
@@ -187,7 +185,7 @@
 					use={[[clickoutside, clickOutsideParams]]}
 					id={uuid}
 					role="menu"
-					class={cx(classes.body, 'svelteui-Menu-body')}
+					class={cx(classes['svelteui-Menu-body'])}
 					aria-orientation="vertical"
 					{radius}
 					on:mouseleave={() => (hovered = -1)}

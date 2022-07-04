@@ -5,6 +5,8 @@
 	import { CloseButton } from '../ActionIcon';
 	import type { AlertProps as $$AlertProps } from './Alert.styles';
 
+	interface $$Props extends $$AlertProps {}
+
 	export let use: $$AlertProps['use'] = [],
 		element: $$AlertProps['element'] = undefined,
 		className: $$AlertProps['className'] = 'blue',
@@ -26,16 +28,10 @@
 		dispatch('close');
 	}
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, variant }));
+	$: ({ cx, classes } = useStyles({ color, radius, variant }, { override }));
 </script>
 
-<Box
-	{use}
-	bind:element
-	role="alert"
-	class={cx(className, variant, getStyles({ css: override, variation: variant }))}
-	{...$$restProps}
->
+<Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...$$restProps}>
 	<div class={classes.wrapper}>
 		{#if icon}
 			<svelte:component this={icon} class={classes.icon} {...iconProps} />

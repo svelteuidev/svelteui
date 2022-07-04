@@ -19,13 +19,6 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	const variantClasses = ['light', 'filled', 'outline', 'dot', 'gradient']
-		.map((val) => ({
-			[val]: val
-		}))
-		.reduce((acc, key) => {
-			return { ...acc, ...key };
-		}, {});
 
 	$: ({ cx, classes } = useStyles(
 		{
@@ -60,7 +53,7 @@ Display badge, pill or tag
 <Box
 	use={[forwardEvents, [useActions, use]]}
 	bind:element
-	class={cx(className, variantClasses[variant], classes.root)}
+	class={cx(className, variant, classes.root)}
 	{...$$restProps}
 >
 	{#if $$slots.leftSection}

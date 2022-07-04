@@ -22,15 +22,14 @@
 	export { className as class };
 
 	const state: Writable<MenuContextValue> = getContext('Menu');
-	const forwardEvents = createEventForwarder(get_current_component());
 	const { hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state;
+	const forwardEvents = createEventForwarder(get_current_component());
 	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
 	$: itemIndex = getContextItemIndex(
 		{ elementSelector: '.svelteui-Menu-item', parentClassName: 'svelteui-Menu-body' },
 		element
 	);
-	console.log({ hovered, itemIndex });
 	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
 </script>
 
