@@ -8,7 +8,6 @@ index: true
 	import { Features, Device, mobile, AllComponents, HomePageExample, Preview, HomePageExampleCode, Waves } from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {
-		css,
 		Box,
 		Button,
 		Group,

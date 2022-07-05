@@ -41,6 +41,10 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 **[`@svelteui/prism`](others/prism)** - code highlight component built with prism action (coming in v0.6.0 release)
 
+**[`@svelteui/dates`](dates/getting-started)** - calendars, date and time pickers based on SvelteUI components
+
+**[`@svelteui/preprocessors`](preprocessors/view-source)** - Svelte preprocessor library to assist in many areas of development
+
 <br />
 
 ## Getting help
