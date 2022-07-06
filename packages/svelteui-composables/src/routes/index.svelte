@@ -1,5 +1,5 @@
 <script lang="ts">
-	//
+	import { useDeepSearch } from '$lib';
 </script>
 
 <h1>Welcome to a svelteui package!</h1>

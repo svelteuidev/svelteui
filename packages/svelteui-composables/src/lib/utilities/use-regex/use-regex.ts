@@ -1,24 +1,6 @@
-import type { LiteralUnion } from 'type-fest';
+import type { PatternBank, UseRegexOptions, useRegexFactoryFn } from './types';
 
-type PatternBankPatterns = 'getAllOf';
-
-type PatternBank = Array<PatternBankItem>;
-
-interface PatternBankItem {
-	name: LiteralUnion<PatternBankPatterns, string>;
-	pattern: string;
-}
-
-interface UseRegexOptions {
-	test?: boolean;
-	testType: 'test' | 'search' | 'match' | 'match-all';
-	testString: string;
-}
-
-// prettier-ignore
-const PATTERN_BANK: PatternBank = [
-    {name: 'getAllOf', pattern: '(?:^|\W)%svelteui%(?:$|\W)'}
-];
+const PATTERN_BANK: PatternBank = [{ name: 'getAllOf', pattern: '(?:^|W)%svelteui%(?:$|W)' }];
 
 const useRegexOptions: UseRegexOptions = {
 	test: false,
@@ -26,20 +8,26 @@ const useRegexOptions: UseRegexOptions = {
 	testString: ''
 };
 
-// expect 'getAllOf' to "match" "against"
-// for the three values
-type useRegexFn = (
-	name: LiteralUnion<PatternBankPatterns, string>,
-	matcher: string,
-	options?: UseRegexOptions
-) => any;
-
-type useRegexFactoryFn = (extensions: PatternBank) => useRegexFn;
-
+/**
+ * The `useRegexFactory` function is used to add your own custom regex patterns to the `useRegex` function.
+ *
+ * @param extensions - an array of pattern bank options that allows for you to extend the default bank.
+ * @returns a useRegex function
+ */
 export function useRegexFactory(extensions: PatternBank = []): ReturnType<useRegexFactoryFn> {
 	// "settings of the constructor"
 	const patternBank: PatternBank = [...PATTERN_BANK, ...extensions];
 
+	/**
+	 * The `useRegex` function is used to get common regex patterns, or test against those patterns directly in the function.
+	 *
+	 * The list of patterns can be extended with the useRegexFactory function.
+	 *
+	 * @param name - name of the desired regex pattern to use
+	 * @param matcher - the "item" to match the regex against
+	 * @param options optional options object that tells the function how to test your regex if you want to test it
+	 * @returns a regex pattern, or a tested regex string
+	 */
 	function useRegex(name, matcher, options = useRegexOptions) {
 		let pattern: string;
 		const { test, testType, testString }: UseRegexOptions = { ...useRegexOptions, ...options };
