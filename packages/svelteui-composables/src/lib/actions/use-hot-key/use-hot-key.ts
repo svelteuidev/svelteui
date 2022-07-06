@@ -44,7 +44,7 @@ export function hotkey(node: HTMLElement, hotkeys: HotkeyItem[]): ReturnType<Act
 			hotkeys = updatedHotKeys;
 		},
 		destroy: () => {
-			document.documentElement.addEventListener('keydown', keyDownListener);
+			document.documentElement.removeEventListener('keydown', keyDownListener);
 		}
 	};
 }
