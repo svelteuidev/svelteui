@@ -20,7 +20,7 @@
 		"prepare": "deno run --unstable --allow-read --allow-write ./prepare.ts",
 		"dev": "npm run prepare & npm run start:dev & npm run autobuild",
 		"start": "node node_modules/@svelte-docs/server",
-		"start:dev": "PORT=3001 node node_modules/@svelte-docs/server --dev --single",
+		"start:dev": "PORT=3002 node node_modules/@svelte-docs/server --dev --single",
 		"start:pagewatch": "node node_modules/@svelte-docs/core/watcher",
 		"deploy": "npm run prepare & npm run build && deno run -A --unstable ../scripts/docs/build.ts",
 		"deploy:nobuild": "node node_modules/@svelte-docs/publisher"

@@ -22,7 +22,7 @@
 	$: ({ width } = $viewport);
 </script>
 
-<Divider />
+<Divider size="lg" override={{ mt: '$20 !important' }} />
 {#if both && width <= 950}
 	<Stack>
 		<Sibling data={dataLeft || data} type="prev" />

@@ -5,7 +5,16 @@ index: true
 ---
 
 <script>
-	import { Features, Device, mobile, AllComponents, HomePageExample, Preview, HomePageExampleCode, Waves } from 'components';
+	import {
+		Features,
+		Device,
+		mobile,
+		AllComponents,
+		HomePageExample,
+		Preview,
+		HomePageExampleCode,
+		Banner
+	} from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {
 		Box,
@@ -19,8 +28,11 @@ index: true
 		ThemeIcon,
 		Center,
 		Stack,
-		Space
+		Space,
+		Portal,
+		Paper
 	} from '@svelteuidev/core';
+	import { onMount } from 'svelte'
 
 	const backgroundStyles = `<style id='svelteui-inject-body' type='text/css'>body {background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);}.article{margin: 0 auto !important;}.main.nosidebar{margin-left: 0 !important;padding-top: 0 !important;}<\/style>`;
 
@@ -29,45 +41,54 @@ index: true
 		'&:hover': {
 			textDecoration: 'none'
 		}
-	}
+	};
+
+
+	const changelog = 'v0-7-0'
+	const changelogLink = `changelog/${changelog}`
 </script>
 
 <svelte:head>
-{@html backgroundStyles}
+	{@html backgroundStyles}
 </svelte:head>
 
-<SvelteUIProvider class="homepage_styles">
+<Box class="homepage_styles">
+	<Banner href={changelogLink}>Version {changelog.replace('v','').replaceAll('-','.')} is out now</Banner>
 	<div class="container">
 		<h1 class="title">
 			Create applications in less time than ever before
 			<br class="line-br" />
 			<span class="gradient-animation">Regardless of design experience</span>
 		</h1>
-		<p class="content">SvelteUI includes more than 40+ customizable components. Check out the source code, or read the documentation & get started!</p>
-		<Group class='dark-theme' direction={$mobile ? 'column' : 'row'} position="center">
+		<p class="content"> SvelteUI includes more than 40+ customizable components. Check out the source code, or read the documentation & get started!</p>
+		<Group class="dark-theme" direction={$mobile ? 'column' : 'row'} position="center">
 			<Button
 				fullSize={$mobile ? true : false}
 				href="introduction"
 				size="xl"
-				variant='gradient'
-				gradient={{from: 'blue', to: 'cyan', deg: 45 }}
+				variant="gradient"
+				gradient={{ from: 'blue', to: 'cyan', deg: 45 }}
 				override={{ '&:hover': { textDecoration: 'none' } }}
 			>
 				<Text weight="bold" override={{ color: 'white !important' }}>Get Started</Text>
 			</Button>
-			<Button fullSize={$mobile ? true : false} override={srcCodeButton} size="xl" variant="default" href="https://github.com/svelteuidev/svelteui">
+			<Button
+				fullSize={$mobile ? true : false}
+				override={srcCodeButton}
+				size="xl"
+				variant="default"
+				href="https://github.com/svelteuidev/svelteui"
+			>
 				<GithubLogo size={25} slot="leftIcon" />
 				<Text weight="bold" color="dark">Source Code</Text>
 			</Button>
 		</Group>
 	</div>
-	<Container override={{py: '7rem'}} size="xl">
+	<Container override={{ py: '7rem' }} size="xl">
 		<Features />
 	</Container>
 	<Container override={{ py: '7rem' }} size="xl">
-		<Title weight="extrabold" tracking='tight' align="center">
-			Less Code. Elegant Solutions.
-		</Title>
+		<Title weight="extrabold" tracking="tight" align="center">Less Code. Elegant Solutions.</Title>
 		<Text size="xl" align="center" root="p">
 			Spend less time writing UI code and more time building a great experience.
 			<br />
@@ -76,19 +97,15 @@ index: true
 		<HomePageExample />
 	</Container>
 	<Container override={{ py: '4rem' }} size="xl">
-		<Title weight="extrabold" tracking='tight' align="center">
-			Ready to get started?
-		</Title>
-		<Group position='center' override={{mt: '$10'}} direction={$mobile ? 'column' : 'row'}>
-			<Button href='installation' fullSize={$mobile ? true : false} size='lg'>
-				Yes I am
-			</Button>
-			<Button href='introduction' fullSize={$mobile ? true : false} size='lg' variant='outline'>
+		<Title weight="extrabold" tracking="tight" align="center">Ready to get started?</Title>
+		<Group position="center" override={{ mt: '$10' }} direction={$mobile ? 'column' : 'row'}>
+			<Button href="installation" fullSize={$mobile ? true : false} size="lg">Yes I am</Button>
+			<Button href="introduction" fullSize={$mobile ? true : false} size="lg" variant="outline">
 				I'd like to learn more
 			</Button>
 		</Group>
-		</Container>
-</SvelteUIProvider>
+	</Container>
+</Box>
 
 <style>
 	.container {
