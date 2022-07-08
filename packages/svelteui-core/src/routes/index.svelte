@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable @typescript-eslint/ban-ts-comment */
 	import {
 		ActionIcon,
 		Affix,
