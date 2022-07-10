@@ -76,6 +76,7 @@
   - [Anchor](core/anchor)
   - [Burger](core/burger)
   - [Seo](core/seo)
+  - [Tabs](core/tabs)
 - **<Dashboard/><Space w="md" />Data Display**
   - [Badge](core/badge)
   - [Card](core/card)
