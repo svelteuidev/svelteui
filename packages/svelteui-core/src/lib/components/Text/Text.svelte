@@ -7,7 +7,6 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { TextProps as $$TextProps } from './Text.styles';
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-interface
 	interface $$Props extends $$TextProps {}
 
 	export let use: $$Props['use'] = [],

@@ -8,7 +8,6 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-interface
 	interface $$Props extends $$ActionIconProps {}
 
 	export let use: $$Props['use'] = [],
