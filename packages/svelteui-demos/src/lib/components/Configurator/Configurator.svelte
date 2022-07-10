@@ -224,17 +224,16 @@
 				<Prism
 					language="svelte"
 					{code}
-					normalizeWhiteSpace
 					size="sm"
 					normalizeWhiteSpaceConfig={{
 						'remove-trailing': true,
 						'remove-indent': true,
 						'left-trim': true,
 						'right-trim': true,
-						'break-lines': 1000,
+						'break-lines': 140,
 						'remove-initial-line-feed': false,
-						'tabs-to-spaces': 8,
-						'spaces-to-tabs': 8
+						'tabs-to-spaces': 4,
+						'spaces-to-tabs': 4
 					}}
 					override={{
 						padding: '$8'
