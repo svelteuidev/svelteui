@@ -3,9 +3,8 @@
 	import useStyles from './TimelineItem.styles';
 	import Box from '../../Box/Box.svelte';
 	import Text from '../../Text/Text.svelte';
+	import type { TimelineContext } from '../Timeline.styles';
 	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem.styles';
-    import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-    import type { Writable } from 'svelte/store';
 
 	export let use: $$TimelineItemProps['use'] = [],
 		element: $$TimelineItemProps['element'] = undefined,
@@ -23,18 +22,9 @@
 		title: $$TimelineItemProps['title'] = undefined;
 	export { className as class };
 
-    // retrieves the reactive context so that Col has access
-	// to the Grid cols, grow and spacing parameters
-	const state: Writable<{
-        active: number;
-        lineActive: boolean;
-		reverseActive: boolean;
-		align: 'left' | 'right';
-        bulletSize: number;
-        radius: SvelteUINumberSize;
-        color: SvelteUIColor;
-		lineWidth: number
-    }> = getContext('timeline');
+    // retrieves the reactive context so that TimelineItem has access
+	// to the Timeline parameters
+	const state: TimelineContext = getContext('timeline');
 
 	function calculateActive() {
 		if (!element) return;

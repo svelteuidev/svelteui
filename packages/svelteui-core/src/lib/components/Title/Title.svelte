@@ -4,6 +4,7 @@
 	import { titleSizes } from './Title.styles';
 	import type { TitleProps, HTMLHeadingElements } from './Title.styles';
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
 	interface $$Props extends TitleProps {}
 
 	export let element: $$Props['element'] = undefined,
