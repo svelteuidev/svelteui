@@ -24,6 +24,7 @@
 			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
 			"@svelteuidev/prism": ["../svelteui-prism/src/lib"],
+			"@svelteuidev/dates": ["../svelteui-dates/src/lib"],
 			"@svelteuidev/preprocessors": ["../svelteui-preprocessors/src/lib"]
 		}
 	},
@@ -32,6 +33,7 @@
 		{ "path": "../svelteui-composables" },
 		{ "path": "../svelteui-motion" },
 		{ "path": "../svelteui-prism" },
+		{ "path": "../svelteui-dates" },
 		{ "path": "../svelteui-preprocessors" }
 	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

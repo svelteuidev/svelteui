@@ -40,7 +40,7 @@
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
   - [Version 0.6.5](changelog/v0-6-5)
-    <!-- - [Version 0.7.0](changelog/v0-7-0) -->
+  - [Version 0.7.0](changelog/v0-7-0)
     {/if}
 - ### <NavigationTitle expanded={sidebar[1].expand} on:click={() => toggleSidebar(1)}>theming</NavigationTitle>
   {#if sidebar[1].expand}
@@ -58,9 +58,9 @@
   - [AppShell](core/app-shell)
   - [Container](core/container)
   - [Center](core/center)
-  <!-- - [Grid](core/grid) -->
+  - [Grid](core/grid)
   - [Group](core/group)
-  <!-- - [MediaQuery](core/media-query) -->
+  - [MediaQuery](core/media-query)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
@@ -85,12 +85,12 @@
   - [Image](core/image)
   - [Kbd](core/kbd)
   - [ThemeIcon](core/theme-icon)
-  <!-- - [Timeline](core/timeline) -->
+  - [Timeline](core/timeline)
 - **<ExclamationTriangle/><Space w="md" />Feedback**
-  <!-- - [Alert](core/alert) -->
+  - [Alert](core/alert)
   - [Loader](core/loader)
-    <!-- - [Notification](core/notification) -->
-    <!-- - [Progress](core/progress) -->
+    - [Notification](core/notification)
+    - [Progress](core/progress)
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
   - [Affix](core/affix)
@@ -147,16 +147,14 @@
     {/if}
 - ### <NavigationTitle expanded={sidebar[4].expand} on:click={() => toggleSidebar(4)}>svelteui dates</NavigationTitle>
   {#if sidebar[4].expand}
-  - COMING IN VERSION 0.7.0
-    <!-- - [Getting Started](dates/getting-started-dates) -->
-    <!-- - [Calendar](dates/calendar) -->
-    <!-- - [Month](dates/month) -->
+  - [Getting Started](dates/getting-started-dates)
+  <!-- - [Calendar](dates/calendar) -->
+  - [Month](dates/month)
     {/if}
 - ### <NavigationTitle expanded={sidebar[5].expand} on:click={() => toggleSidebar(5)}>svelteui preprocessors</NavigationTitle>
   {#if sidebar[5].expand}
-  - COMING IN VERSION 0.7.0
-    <!-- - [Getting Started](preprocessors/getting-started-preprocessors) -->
-    <!-- - [view-source](preprocessors/view-source) -->
+  - [Getting Started](preprocessors/getting-started-preprocessors)
+  - [view-source](preprocessors/view-source)
     {/if}
 - ### <NavigationTitle expanded={sidebar[6].expand} on:click={() => toggleSidebar(6)}>svelteui motion</NavigationTitle>
   {#if sidebar[6].expand}

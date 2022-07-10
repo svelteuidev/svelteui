@@ -8,7 +8,7 @@ export * as MiscDemos from './demos/misc';
 export * as CreateStylesDemos from './demos/createStyles';
 export * as ThemeDemos from './demos/theme';
 
-// @svelteui/core
+// @svelteuidev/core
 export * as ActionIconDemos from './demos/core/ActionIcon';
 export * as AppShellDemos from './demos/core/AppShell';
 export * as AffixDemos from './demos/core/Affix';
@@ -55,6 +55,9 @@ export * as TitleDemos from './demos/core/Title';
 export * as TooltipDemos from './demos/core/Tooltip';
 export * as TypographyProviderDemos from './demos/core/TypographyProvider';
 export * as UnstyledButtonDemos from './demos/core/UnstyledButton';
+
+// @svelteuidev/dates
+export * as MonthDemos from './demos/dates/Month';
 
 // Other packages
 export * as PrismDemos from './demos/prism';

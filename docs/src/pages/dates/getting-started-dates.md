@@ -8,11 +8,17 @@ source: 'svelteui-dates/src/lib'
 ---
 
 <script>
-    // import { Demo, MotionDemos } from "@svelteuidev/demos";
+    import { Alert, Space } from "@svelteuidev/core";
+	import { ExclamationTriangle } from 'radix-icons-svelte';
+    import { Demo, MonthDemos } from "@svelteuidev/demos";
     import { Heading, CodeBlock } from 'components';
 </script>
 
 <Heading />
+
+<Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled'>
+    Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
+</Alert>
 
 ## Installation
 
@@ -60,13 +66,11 @@ You then can override the locale on a per component basis:
 
 ## Components
 
-[Calendar](/dates/calendar/)
-
-// Demo of the calendar component here
+[Calendar](/dates/calendar/) **[coming soon]**
 
 [Month](/dates/month/)
 
-// Demo of the month component here
+<Demo demo={MonthDemos.usage} toggle />
 
 ## Utility functions
 
