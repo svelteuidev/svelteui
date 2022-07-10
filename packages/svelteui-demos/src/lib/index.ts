@@ -47,6 +47,7 @@ export * as SkeletonDemos from './demos/core/Skeleton';
 export * as SpaceDemos from './demos/core/Space';
 export * as StackDemos from './demos/core/Stack';
 export * as SwitchDemos from './demos/core/Switch';
+export * as TabsDemos from './demos/core/Tabs';
 export * as TextDemos from './demos/core/Text';
 export * as TextInputDemos from './demos/core/TextInput';
 export * as ThemeIconDemos from './demos/core/ThemeIcon';
