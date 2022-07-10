@@ -1,8 +1,6 @@
-# SvelteUI Dates
+# SvelteUI Preprocessors
 
-## **Dates library with calendars, date, and time pickers.**
-
-- Capture date inputs from user and display calendars.
+## **Svelte preprocessor library to assist in many areas of development**
 
 ## Documentation
 
@@ -12,20 +10,43 @@
 
 ```bash
 # With yarn
-yarn add @svelteuidev/dates
+yarn add @svelteuidev/preprocessors
 
 # With npm
-npm install @svelteuidev/dates
+npm install @svelteuidev/preprocessors
+```
+
+## Set Up
+
+```ts
+// svelte.config.js
+
+import { viewSource } from '@svelteuidev/preprocessors';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	preprocess: [preprocess(), viewSource()]
+
+	// ...the rest of the config
+};
 ```
 
 ## Usage
 
 ```tsx
-<script>
-    import { Calendar } from '@svelteuidev/dates';
+<script lang="ts">
+	import { SourceCode, DisplaySourceCode } from 'svelte-view-source';
 </script>
 
-<Calendar {value} on:change={doSomething} />;
+<SourceCode sourceId="hello-world">
+	<h1>Hello, world!</h1>
+</SourceCode>
+
+<DisplaySourceCode sourceId="hello-world" />
+
+<DisplaySourceCode sourceId="hello-world" let:source>
+	<div>{source}</div>
+</DisplaySourceCode>
 ```
 
 ## License

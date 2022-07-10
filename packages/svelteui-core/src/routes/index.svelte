@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable @typescript-eslint/ban-ts-comment */
 	import {
 		ActionIcon,
 		Affix,
@@ -61,20 +62,9 @@
 	import Gear from '../icons/Gear.svelte';
 </script>
 
-<Menu trigger="hover">
+<!-- <Menu trigger="hover" opened={true}>
 	<Menu.Label>Application</Menu.Label>
 	<Menu.Item icon={Gear}>Settings</Menu.Item>
 	<Menu.Item icon={Gear}>Settings</Menu.Item>
 	<Menu.Item icon={Gear}>Settings</Menu.Item>
-</Menu>
-
-<Box
-	css={(theme) => {
-		return {
-			bc: theme.colors.grape600.value,
-			size: 200,
-			outline: '$pink600',
-			'@lg': { color: '$blue600' }
-		};
-	}}
-/>
+</Menu> -->

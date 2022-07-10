@@ -20,14 +20,18 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles({
-		color,
-		fullWidth,
-		gradient,
-		radius,
-		size,
-		variant
-	}));
+	$: ({ cx, classes } = useStyles(
+		{
+			color,
+			fullWidth,
+			size,
+			radius,
+			gradientDeg: gradient.deg,
+			gradientFrom: gradient.from,
+			gradientTo: gradient.to
+		},
+		{ override }
+	));
 </script>
 
 <!--
@@ -49,7 +53,7 @@ Display badge, pill or tag
 <Box
 	use={[forwardEvents, [useActions, use]]}
 	bind:element
-	class={cx(className, getStyles({ css: override, variation: variant }))}
+	class={cx(className, variant, classes.root)}
 	{...$$restProps}
 >
 	{#if $$slots.leftSection}

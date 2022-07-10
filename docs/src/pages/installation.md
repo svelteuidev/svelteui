@@ -4,12 +4,12 @@ title: 'Installation'
 
 <script>
 	import { CodeBlock, MinorHeading, NextSteps, Installation, StartGuide, BottomNav } from 'components'
+	import { STARTGUIDE_DATA as guideData, ID } from '../components/mainpages/GettingStarted/Guides/data'
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
     
 	let packages = ["@svelteuidev/core", "@svelteuidev/composables"];
-	let templates = ["npm create vite@latest", "npm init svelte@next my-app"]
-    let value = 'svelte'
+    let value = 'kit'
 	$: sanitizedPKG = packages || ["@svelteuidev/core", "@svelteuidev/composables"].join(' ')
 </script>
 
@@ -19,7 +19,8 @@ title: 'Installation'
 
 <MinorHeading />
 
-## Initialize a new Svelte or SvelteKit project (or add to an existing project).
+## Initialize a new Svelte or SvelteKit project.
+**or add to an existing project**
 
 <StartGuide setId={(val) => value = val} />
 
@@ -29,8 +30,8 @@ title: 'Installation'
 
 ### Initialize Application
 
-<CodeBlock copy message={templates[value === 'Svelte' ? 0 : 1]}>
-{value === 'svelte' ? templates[0] : templates[1]}
+<CodeBlock copy message={guideData[ID[value]].template}>
+	{guideData[ID[value]].template}
 </CodeBlock>
 
 ## Choose your packages
@@ -47,4 +48,9 @@ title: 'Installation'
 
 <NextSteps />
 
-<BottomNav both slug={{ prev: 'introduction', next: 'basics' }} title={{ prev: 'Introduction', next: 'Learn the basics' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />
+<BottomNav 
+	both 
+	slug={{ prev: 'introduction', next: 'basics' }} 
+	title={{ prev: 'Introduction', next: 'Learn the basics' }} 
+	group={{ prev: 'Getting Started', next: 'Getting Started' }} 
+/>

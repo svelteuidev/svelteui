@@ -6,11 +6,11 @@
 	import { Text, Code } from '@svelteuidev/core';
 	import { useMousePosition } from '@svelteuidev/composables';
 
-	const { position, mouseposition } = useMousePosition(true);
+	const [position, ref] = useMousePosition(true);
 	$: ({ x, y } = $position);
 <\/script>
 
-<Text use={[[mouseposition]]} align="center">
+<Text use={[[ref]]} align="center">
 	Mouse coordinates <Code>{\`{ x: $\{x}, y: $\{y} }\`}</Code>
 </Text>
 `;
@@ -26,10 +26,10 @@
 	import { Text, Code } from '@svelteuidev/core';
 	import { useMousePosition } from '@svelteuidev/composables';
 
-	const { position, mouseposition } = useMousePosition(true);
+	const [position, ref] = useMousePosition(true);
 	$: ({ x, y } = $position);
 </script>
 
-<Text use={[[mouseposition]]} align="center">
+<Text use={[[ref]]} align="center">
 	Mouse coordinates <Code>{`{ x: ${x}, y: ${y} }`}</Code>
 </Text>

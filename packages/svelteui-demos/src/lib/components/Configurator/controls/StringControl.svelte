@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DemoControlString } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
-	import { Input, InputWrapper } from '@svelteuidev/core';
+	import { TextInput } from '@svelteuidev/core';
 
 	export let value: string;
 	export let label: DemoControlString['label'];
@@ -13,7 +13,4 @@
 	}
 </script>
 
-<!-- TODO: switch to TextInput when it will be implemented -->
-<InputWrapper {label}>
-	<Input {value} on:input={onInput} />
-</InputWrapper>
+<TextInput {label} {value} on:input={onInput} />

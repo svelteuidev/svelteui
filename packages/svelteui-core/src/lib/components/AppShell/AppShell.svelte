@@ -20,20 +20,18 @@
 		asideOffsetBreakpoint: $$AppShellProps['asideOffsetBreakpoint'] = undefined;
 	export { className as class };
 
-	$: ({ cx, classes, getStyles } = useStyles({
-		padding,
-		fixed,
-		navbarOffsetBreakpoint,
-		asideOffsetBreakpoint
-	}));
+	$: ({ cx, classes } = useStyles(
+		{
+			padding,
+			fixed,
+			navbarOffsetBreakpoint,
+			asideOffsetBreakpoint
+		},
+		{ override, name: 'AppShell' }
+	));
 </script>
 
-<AppShellProvider
-	{use}
-	bind:element
-	value={{ fixed, zIndex }}
-	class={cx(className, getStyles({ css: override }))}
->
+<AppShellProvider {use} bind:element value={{ fixed, zIndex }} class={cx(className, classes.root)}>
 	<Box>
 		{#if $$slots.header}
 			<slot name="header" />

@@ -1,6 +1,6 @@
 <script>
 	import { features } from '../../data';
-	import { Title, Text, SimpleGrid, ThemeIcon, Center, Stack } from '@svelteuidev/core';
+	import { Title, Text, SimpleGrid, ThemeIcon, Center, Stack, Paper } from '@svelteuidev/core';
 </script>
 
 <SimpleGrid
@@ -11,22 +11,16 @@
 	]}
 >
 	{#each features as { description, icon, title }}
-		<Stack
-			justify="start"
-			override={{
-				bc: 'white',
-				padding: '$10',
-				borderRadius: '$md',
-				bs: '$xl'
-			}}
-		>
-			<Center override={{ jc: 'start', gap: '$10' }} inline>
-				<ThemeIcon variant="gradient" size="xl">
-					<svelte:component this={icon} size={25} />
-				</ThemeIcon>
-				<Title order={3} weight="extrabold">{title}</Title>
-			</Center>
-			<Text size="lg" override={{ lineHeight: '$md' }}>{description}</Text>
-		</Stack>
+		<Paper shadow="xl">
+			<Stack>
+				<Center override={{ jc: 'start', gap: '$10' }} inline>
+					<ThemeIcon variant="gradient" size="xl">
+						<svelte:component this={icon} size={25} />
+					</ThemeIcon>
+					<Title order={3} weight="extrabold">{title}</Title>
+				</Center>
+				<Text size="lg" override={{ lineHeight: '$md' }}>{description}</Text>
+			</Stack>
+		</Paper>
 	{/each}
 </SimpleGrid>

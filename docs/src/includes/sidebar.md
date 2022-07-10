@@ -6,6 +6,7 @@
 	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
 
   const dispatch = createEventDispatcher();
+  const suiCollections = 'https://svelteuidev.github.io/svelteui-collections/'
 
   const sidebar = [
     { id: 1, expand: false },
@@ -28,7 +29,7 @@
 - <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
 - <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
 - <MainLink color='dark' href='contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
-- <MainLink color={null} href='https://svelteuidev.github.io/svelteui-collections/'><Logo slot='icon' size={30} />SvelteUI Collections</MainLink>
+- <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink>
 - <MainLink color='indigo' href='faq'><QuestionMarkCircled slot='icon' size={20} />FAQ</MainLink>
 
 <hr />
@@ -39,6 +40,7 @@
   - [Version 0.5.5](changelog/v0-5-5)
   - [Version 0.6.0](changelog/v0-6-0)
   - [Version 0.6.5](changelog/v0-6-5)
+  - [Version 0.7.0](changelog/v0-7-0)
     {/if}
 - ### <NavigationTitle expanded={sidebar[1].expand} on:click={() => toggleSidebar(1)}>theming</NavigationTitle>
   {#if sidebar[1].expand}
@@ -58,6 +60,7 @@
   - [Center](core/center)
   - [Grid](core/grid)
   - [Group](core/group)
+  - [MediaQuery](core/media-query)
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
@@ -87,12 +90,14 @@
 - **<ExclamationTriangle/><Space w="md" />Feedback**
   - [Alert](core/alert)
   - [Loader](core/loader)
-  - [Notification](core/notification)
+    - [Notification](core/notification)
+    - [Progress](core/progress)
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
   - [Affix](core/affix)
   - [Overlay](core/overlay)
   - [Tooltip](core/tooltip)
+  - [Modal](core/modal)
 - **<LetterCaseToggle/><Space w="md" />Typography**
   - [Code](core/code)
   - [Text](core/text)
@@ -128,22 +133,30 @@
   - [use-tab-leave](composables/use-tab-leave)
 - **<Archive/><Space w="md" />Utilities**
   - [use-browser-context](composables/use-browser-context)
+  - [use-debounce](composables/use-debounce)
+  - [use-element-size](composables/use-element-size)
   - [use-eye-dropper](composables/use-eye-dropper)
   - [use-focus-within](composables/use-focus-within)
   - [use-hash](composables/use-hash)
+  - [use-id](composables/use-id)
   - [use-mouse-position](composables/use-mouse-position)
   - [use-os](composables/use-os)
   - [use-raf-fn](composables/use-raf-fn)
+  - [use-throttle](composables/use-throttle)
   - [use-viewport-size](composables/use-viewport-size)
+  - [use-web-worker](composables/use-web-worker)
     {/if}
 - ### <NavigationTitle expanded={sidebar[4].expand} on:click={() => toggleSidebar(4)}>svelteui dates</NavigationTitle>
-{#if sidebar[4].expand}
-- COMING IN VERSION 0.7.0
-  {/if}
+  {#if sidebar[4].expand}
+  - [Getting Started](dates/getting-started-dates)
+  <!-- - [Calendar](dates/calendar) -->
+  - [Month](dates/month)
+    {/if}
 - ### <NavigationTitle expanded={sidebar[5].expand} on:click={() => toggleSidebar(5)}>svelteui preprocessors</NavigationTitle>
-{#if sidebar[5].expand}
-- COMING IN VERSION 0.7.0
-  {/if}
+  {#if sidebar[5].expand}
+  - [Getting Started](preprocessors/getting-started-preprocessors)
+  - [view-source](preprocessors/view-source)
+    {/if}
 - ### <NavigationTitle expanded={sidebar[6].expand} on:click={() => toggleSidebar(6)}>svelteui motion</NavigationTitle>
   {#if sidebar[6].expand}
 - **Transitions**

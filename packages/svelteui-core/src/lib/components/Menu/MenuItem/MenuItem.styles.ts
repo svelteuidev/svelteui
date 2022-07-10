@@ -34,11 +34,6 @@ export function getContextItemIndex(
 		return -1;
 	}
 
-	const arr = Array.from(
-		findAncestor(node, options.parentClassName).querySelectorAll(options.elementSelector)
-	);
-	console.log(arr);
-
 	return Array.from(
 		findAncestor(node, options.parentClassName).querySelectorAll(options.elementSelector)
 	).findIndex((element) => element === node);

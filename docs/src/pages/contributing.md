@@ -5,6 +5,8 @@ title: 'Contributing'
 <script>
     import { CodeBlock, MinorHeading, BottomNav } from 'components'
     import { Demo, MiscDemos } from '@svelteuidev/demos';
+    import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
     
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
@@ -70,13 +72,23 @@ Examples:
 
 **To start developing**
 
+<Alert icon={InfoCircled}  title="Tip">
+    It is very important to make sure you start from the root of the monorepo before following these steps
+</Alert>
+
+**`@svelteuidev/` scoped packages:**
+
 1. run `npm run package`
    - If you want to watch for changes in one of the packages that they depend on, run `npm run watch` in their directory.
    - You will need two terminal sessions open at the very least. If this doesn't apply to your situation move on to step 2
 2. cd into the package you want to develop on
 3. run `npm run dev`
 
-- To start docs - `cd docs && npm install && npm run dev`
+**`docs`:**
+
+1. run `npm run package`
+2. cd into the docs
+3. run `npm run dev`
 
 **Project Structure**
 
@@ -97,4 +109,9 @@ individual packages have scripts, but they should not be interacted with directl
 - `repo:prepush` - runs sort, format, lint and test (run this before pushing your code)
 - `cm` - runs git commands to add and commit through commitizen (this is the recommended way to commit as it follows the convention automatically)
 
-<BottomNav both slug={{ prev: 'basics', next: 'faq' }} title={{ prev: 'Learn the Basics', next: 'FAQ' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />
+<BottomNav
+both
+slug={{ prev: 'basics', next: 'faq' }}
+title={{ prev: 'Learn the Basics', next: 'FAQ' }}
+group={{ prev: 'Getting Started', next: 'Getting Started' }}
+/>
