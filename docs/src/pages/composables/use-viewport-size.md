@@ -18,6 +18,8 @@ source: 'svelteui-composables/src/lib/utilities/use-viewport-size/use-viewport-s
 
 ## Usage
 
+The `use-viewport-size` composable allows you get access to the current with and height of the viewport, and it also subscribes to viewport changes.
+
 <Demo demo={ComposableDemos.useViewportSizeDemo.usage} />
 
 ## Definition

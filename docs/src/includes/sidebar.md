@@ -60,6 +60,7 @@
   - [Center](core/center)
   <!-- - [Grid](core/grid) -->
   - [Group](core/group)
+  <!-- - [MediaQuery](core/media-query) -->
   - [SimpleGrid](core/simple-grid)
   - [Space](core/space)
   - [Stack](core/stack)
@@ -88,12 +89,14 @@
 - **<ExclamationTriangle/><Space w="md" />Feedback**
   <!-- - [Alert](core/alert) -->
   - [Loader](core/loader)
-  <!-- - [Notification](core/notification) -->
+    <!-- - [Notification](core/notification) -->
+    <!-- - [Progress](core/progress) -->
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
   - [Affix](core/affix)
   - [Overlay](core/overlay)
   - [Tooltip](core/tooltip)
+  - [Modal](core/modal)
 - **<LetterCaseToggle/><Space w="md" />Typography**
   - [Code](core/code)
   - [Text](core/text)
@@ -129,13 +132,18 @@
   - [use-tab-leave](composables/use-tab-leave)
 - **<Archive/><Space w="md" />Utilities**
   - [use-browser-context](composables/use-browser-context)
+  - [use-debounce](composables/use-debounce)
+  - [use-element-size](composables/use-element-size)
   - [use-eye-dropper](composables/use-eye-dropper)
   - [use-focus-within](composables/use-focus-within)
   - [use-hash](composables/use-hash)
+  - [use-id](composables/use-id)
   - [use-mouse-position](composables/use-mouse-position)
   - [use-os](composables/use-os)
   - [use-raf-fn](composables/use-raf-fn)
+  - [use-throttle](composables/use-throttle)
   - [use-viewport-size](composables/use-viewport-size)
+  - [use-web-worker](composables/use-web-worker)
     {/if}
 - ### <NavigationTitle expanded={sidebar[4].expand} on:click={() => toggleSidebar(4)}>svelteui dates</NavigationTitle>
   {#if sidebar[4].expand}

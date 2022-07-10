@@ -106,6 +106,8 @@ export interface ConfiguratorDemoType {
 	default: typeof SvelteComponent;
 	type: 'configurator';
 	configuration: ConfiguratorDemoConfiguration;
+	previewMaxWidth?: number;
+	previewBackground?: { light: string; dark: string };
 }
 
 export type DemoType = CodeDemoType | ConfiguratorDemoType;

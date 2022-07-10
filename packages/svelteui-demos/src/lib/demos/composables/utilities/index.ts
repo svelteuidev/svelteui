@@ -6,3 +6,8 @@ export * as useViewportSizeDemo from './use-viewport-size';
 export * as useBrowserContextDemo from './use-browser-context';
 export * as useEyeDropperDemo from './use-eye-dropper';
 export * as useFocusWithinDemo from './use-focus-within';
+export * as useThrottleDemo from './use-throttle';
+export * as useDebounceDemo from './use-debounce';
+export * as useWebWorkerDemo from './use-web-worker';
+export * as useElementSizeDemo from './use-element-size';
+export * as useIdDemo from './use-id';

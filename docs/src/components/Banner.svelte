@@ -16,7 +16,7 @@
 
 	$: onMount(() => {
 		const container = document.querySelector('.container.svelte-182cf2y');
-		container.style.paddingTop = '5rem';
+		container.style.paddingTop = '7.5rem';
 	});
 
 	const useStyles = createStyles((theme, { align, themeColors }) => ({
