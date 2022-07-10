@@ -5,6 +5,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { CloseButtonProps as $$CloseButtonProps } from '../ActionIcon.styles';
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
 	interface $$Props extends $$CloseButtonProps {}
 
 	export let use: $$Props['use'] = [],

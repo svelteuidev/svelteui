@@ -44,6 +44,7 @@
 		Space,
 		Stack,
 		Switch,
+		Tabs,
 		Text,
 		TextInput,
 		ThemeIcon,
