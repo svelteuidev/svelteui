@@ -1,6 +1,6 @@
 <script>
-    import { ActionIcon, Tooltip } from '@svelteuidev/core'
-    import { GithubLogo } from 'radix-icons-svelte'
+    import { ActionIcon, Tooltip, colorScheme } from '@svelteuidev/core'
+    import { GithubLogo, Sun, Moon } from 'radix-icons-svelte'
     import { Device, mobile } from 'components'
     import Discord from '../components/svgs/Discord.svelte';
 
@@ -10,6 +10,10 @@
             bc: '#5850ec'
         }
     }
+
+    function toggleTheme() {
+		colorScheme.update((v) => v === 'light' ? 'dark' : 'light')
+	}
 </script>
 
 
@@ -19,7 +23,14 @@
 
 - [<Tooltip withArrow label='Discord'><ActionIcon override={discordLogo} size='xl' color='blue' variant='filled'><Discord size={25} /></ActionIcon></Tooltip>](https://discord.gg/2J2xmzCS79)
 - [<Tooltip withArrow label='GitHub'><ActionIcon size='xl' color='dark' variant='outline'><GithubLogo size={25} /></ActionIcon></Tooltip>](https://github.com/svelteuidev/svelteui)
+- <Tooltip withArrow label='Experimental Theme Toggle'>
+    <ActionIcon size='xl' color='dark' variant='outline' on:click={toggleTheme}>
+        {#if $colorScheme === 'light'}
+            <Moon size={25} />
+        {:else}
+            <Sun size={25} />
+        {/if}
+    </ActionIcon>
+  </Tooltip>
 
 </div>
-
-

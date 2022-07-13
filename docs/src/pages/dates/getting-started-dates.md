@@ -80,17 +80,20 @@ Apart from components @svelteuidev/dates package also exports several utility fu
 
 Returns an array of weeks of current month:
 
-```ts
+```svelte
+<script>
 import { getMonthDays } from '@svelteuidev/dates';
 
 getMonthDays(new Date()); // -> [[7xDate objects] x amount of weeks in current month]
+</script>
 ```
 
 **get-months-names**
 
 Returns months names for given locale and format:
 
-```ts
+```svelte
+<script>
 import { getMonthsNames } from '@svelteuidev/dates';
 
 getMonthsNames('en', 'MMMM');
@@ -102,48 +105,57 @@ import { getMonthsNames } from '@svelteuidev/dates';
 
 getMonthsNames('ru', 'MMMM');
 // -> ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь']
+</script>
 ```
 
 **get-weekdays-names**
 
 Returns an array of short weekdays names for given locale:
 
-```ts
+```svelte
+<script>
 import { getWeekdaysNames } from '@svelteuidev/dates';
 
 getWeekdaysNames('en');
 // -> ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+</script>
 ```
 
 **get-years-range**
 
 Returns an array of years, which fall into given range:
 
-```ts
+```svelte
+<script>
 import { getYearsRange } from '@svelteuidev/dates';
 
 getYearsRange({ from: 2020, to: 2025 });
 // -> [2020, 2021, 2022, 2023, 2024, 2025]
+</script>
 ```
 
 **is-same-date**
 
 Returns true if two dates have the same year, month and date, other properties (minutes, seconds, etc.) are ignored:
 
-```ts
+```svelte
+<script>
 import { isSameDate } from '@svelteuidev/dates';
 
 isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 21)); // -> true
 isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> false
+</script>
 ```
 
 **is-same-month**
 
 Returns true if two dates have the same year and month, other properties (date, minutes, seconds, etc.) are ignored:
 
-```ts
+```svelte
+<script>
 import { isSameMonth } from '@svelteuidev/dates';
 
 isSameMonth(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> true
 isSameMonth(new Date(2020, 7, 21), new Date(2020, 8, 22)); // -> false
+</script>
 ```

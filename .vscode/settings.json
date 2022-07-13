@@ -28,5 +28,5 @@
 	"deno.enable": true,
 	"deno.lint": true,
 	"deno.unstable": true,
-	"deno.enablePaths": ["./scripts", "./docs"]
+	"deno.enablePaths": ["./scripts", "./docs/prepare"]
 }

@@ -15,8 +15,8 @@
 	const override = { bc: '$dark700' };
 
 	$: onMount(() => {
-		const container = document.querySelector('.container.svelte-182cf2y');
-		container.style.paddingTop = '7.5rem';
+		const container = document.querySelector('.container .title');
+		container.style.paddingTop = '6rem';
 	});
 
 	const useStyles = createStyles((theme, { align, themeColors }) => ({

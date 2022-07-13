@@ -39,6 +39,10 @@ yarn add @svelteuidev/preprocessors
 
 Svelte's preprocessor gives you a lot of freedom when it comes to writing your components. It is the very thing that enables you to use things like SASS or Typescript in your Svelte Markup. SvelteUI has created a new package to provide you powerful features for your development.
 
+### Order
+
+Preprocessors can be very powerful when used correctly. Something that is very important is the order in which you place your preprocessors, because they are executed in the order they are placed in. All SvelteUI preprocessors will tell you which order they should be placed in, in their respective documentation section.
+
 ## Preprocessors
 
 So far the list of available preprocessors are

@@ -42,6 +42,9 @@ index: true
 			textDecoration: 'none'
 		}
 	};
+	const title = {
+		fontFamily: 'var(--font)'
+	}
 
 
 	const changelog = 'v0-7-0'
@@ -49,7 +52,7 @@ index: true
 </script>
 
 <svelte:head>
-	{@html backgroundStyles}
+{@html backgroundStyles}
 </svelte:head>
 
 <Box class="homepage_styles">
@@ -60,7 +63,7 @@ index: true
 			<br class="line-br" />
 			<span class="gradient-animation">Regardless of design experience</span>
 		</h1>
-		<p class="content"> SvelteUI includes more than 40+ customizable components. Check out the source code, or read the documentation & get started!</p>
+		<p class="content"> SvelteUI includes more than 50+ customizable components. Check out the source code, or read the documentation & get started!</p>
 		<Group class="dark-theme" direction={$mobile ? 'column' : 'row'} position="center">
 			<Button
 				fullSize={$mobile ? true : false}
@@ -88,7 +91,9 @@ index: true
 		<Features />
 	</Container>
 	<Container override={{ py: '7rem' }} size="xl">
-		<Title weight="extrabold" tracking="tight" align="center">Less Code. Elegant Solutions.</Title>
+		<Title override={title} weight="extrabold" tracking="tight" align="center">
+			Less Code. Elegant Solutions.
+		</Title>
 		<Text size="xl" align="center" root="p">
 			Spend less time writing UI code and more time building a great experience.
 			<br />
@@ -97,7 +102,9 @@ index: true
 		<HomePageExample />
 	</Container>
 	<Container override={{ py: '4rem' }} size="xl">
-		<Title weight="extrabold" tracking="tight" align="center">Ready to get started?</Title>
+		<Title override={title} weight="extrabold" tracking="tight" align="center">
+			Ready to get started?
+		</Title>
 		<Group position="center" override={{ mt: '$10' }} direction={$mobile ? 'column' : 'row'}>
 			<Button href="installation" fullSize={$mobile ? true : false} size="lg">Yes I am</Button>
 			<Button href="introduction" fullSize={$mobile ? true : false} size="lg" variant="outline">
@@ -118,8 +125,7 @@ index: true
 	.title {
 		font-size: 3rem; /* 48px */
 		line-height: 1;
-		font-weight: 800;
-		letter-spacing: -0.05em;
+		letter-spacing: 0.05em;
 		text-align: center;
 		max-width: 64rem;
 		margin-left: auto;

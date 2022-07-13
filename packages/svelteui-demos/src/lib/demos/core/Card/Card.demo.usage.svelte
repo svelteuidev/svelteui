@@ -10,7 +10,7 @@
 <\/script>
 
 <div style='width: 340px; margin: auto'>
-    <Card.Container shadow='sm' p='lg'>
+    <Card shadow='sm' p='lg'>
         <Card.Section first padding='lg'>
             <Image
                 src='./image.png'
@@ -34,7 +34,7 @@
         <Button variant='light' color='blue' fullSize override={{ marginTop: '14px' }}>
             Book classic tour now
         </Button>
-    </Card.Container>
+    </Card>
 </div>
 	`;
 

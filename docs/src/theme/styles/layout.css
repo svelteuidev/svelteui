@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Lemon Days';
+	src: url('static/Lemon Days.otf') format('opentype');
+}
+
 html,
 body {
 	position: relative;

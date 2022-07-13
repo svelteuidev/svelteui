@@ -167,3 +167,9 @@
   {#if sidebar[7].expand}
   - [Prism](others/prism)
     {/if}
+
+<style>
+  * {
+    font-family: var(--svelteui-fonts-standard) !important;
+  }
+</style>

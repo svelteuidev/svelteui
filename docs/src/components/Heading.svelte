@@ -12,9 +12,12 @@
 		npm: 'https://www.npmjs.com/package/'
 	};
 
-	$: importStyles = {
+	let importStyles = {
+		overflowX: 'scroll',
 		'&:hover': { cursor: 'pointer' },
-		code: { fontSize: $screenW < 500 ? 10 : '$sm' },
+		code: {
+			fontSize: $screenW < 500 ? 10 : '$sm'
+		},
 		'@sm': { code: { fontSize: '$sm' } },
 		'@md': { code: { fontSize: '$md' } }
 	};
