@@ -61,10 +61,3 @@
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>
-
-<!-- <Menu trigger="hover" opened={true}>
-	<Menu.Label>Application</Menu.Label>
-	<Menu.Item icon={Gear}>Settings</Menu.Item>
-	<Menu.Item icon={Gear}>Settings</Menu.Item>
-	<Menu.Item icon={Gear}>Settings</Menu.Item>
-</Menu> -->

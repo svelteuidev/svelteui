@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export const ctx = 'Menu';
+</script>
+
 <script lang="ts">
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
 	import { setContext } from 'svelte';
@@ -58,11 +62,13 @@
 
 	const handleClose = () => {
 		if (_opened) {
+			_opened = false;
 			opened = false;
 		}
 	};
 
 	const handleOpen = () => {
+		_opened = true;
 		opened = true;
 	};
 
@@ -125,21 +131,21 @@
 	const contextStore: Writable<MenuContextValue> = writable({
 		hovered,
 		radius,
-		onItemHover: (hovered) => {},
+		onItemHover: (hover) => (hovered = hover),
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
 	});
-	setContext<Writable<MenuContextValue>>('Menu', contextStore);
 
 	$: _opened = opened;
-	$: $contextStore = {
+	$: contextStore.set({
 		hovered,
 		radius,
-		onItemHover: (hovered) => {},
+		onItemHover: (hover) => (hovered = hover),
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
-	};
+	});
 	$: ({ cx, classes } = useStyles({ size }, { override }));
+	setContext<Writable<MenuContextValue>>(ctx, contextStore);
 </script>
 
 <svelte:window on:scroll={() => closeOnScroll && handleClose()} />
@@ -159,11 +165,8 @@
 		aria-controls={uuid}
 		aria-label={menuButtonLabel}
 		title={menuButtonLabel}
+		on:click!stopPropagation={toggleMenu}
 		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
-		on:click={() => {
-			console.log('clicked');
-			toggleMenu();
-		}}
 		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 	/>
 	{#if _opened}
@@ -191,7 +194,7 @@
 					on:mouseleave={() => (hovered = -1)}
 					{shadow}
 				>
-					<slot><!-- optional fallback --></slot>
+					<slot />
 				</Paper>
 			</Popper>
 		</div>

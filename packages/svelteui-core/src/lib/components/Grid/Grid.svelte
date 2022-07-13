@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	export const ctx = 'Grid';
+</script>
+
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -20,7 +24,7 @@
 	// a store inside the context, so that all children
 	// components can react to changes made in props
 	const contextStore = writable({ cols, grow, spacing });
-	setContext('grid', contextStore);
+	setContext(ctx, contextStore);
 
 	$: $contextStore = { cols, grow, spacing };
 	$: ({ cx, classes } = useStyles({ align, cols, grow, spacing, justify }, { override }));

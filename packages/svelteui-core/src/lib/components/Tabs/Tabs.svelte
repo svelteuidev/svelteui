@@ -1,5 +1,9 @@
+<script lang="ts" context="module">
+	export const ctx = 'Tabs';
+</script>
+
 <script lang="ts">
-    import { createEventDispatcher, onMount, setContext } from 'svelte';
+	import { createEventDispatcher, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import useStyles from './Tabs.styles';
 	import Box from '../Box/Box.svelte';
@@ -23,22 +27,22 @@
 	let content;
 	const dispatch = createEventDispatcher();
 
-    // initialize a 'reactive context' which is basically
+	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
 	const contextStore = writable({
-        active: active === -1 ? initialTab : active,
-        color: color,
+		active: active === -1 ? initialTab : active,
+		color: color,
 		variant: variant,
 		orientation: orientation
-    });
-	setContext('tabs', contextStore);
+	});
+	setContext(ctx, contextStore);
 	$: $contextStore = {
-        active: _active,
-        color: color,
+		active: _active,
+		color: color,
 		variant: variant,
 		orientation: orientation
-    };
+	};
 
 	/**
 	 * Retrieves all tabs that the component has as children
@@ -46,11 +50,11 @@
 	 * to tab changes.
 	 */
 	function setupTabs() {
-		const tabs =  element.querySelectorAll('.svelteui-tab');
-		for (let [index, tab] of Array.from(tabs).entries()) {		
-			const key = tab.getAttribute('data-key');	
-			tab.addEventListener('click', () => onTabClick(index, key))
-			tab.addEventListener('keydown', event => onTabKeyDown(event as KeyboardEvent))
+		const tabs = element.querySelectorAll('.svelteui-tab');
+		for (let [index, tab] of Array.from(tabs).entries()) {
+			const key = tab.getAttribute('data-key');
+			tab.addEventListener('click', () => onTabClick(index, key));
+			tab.addEventListener('keydown', (event) => onTabKeyDown(event as KeyboardEvent));
 		}
 	}
 
@@ -60,7 +64,7 @@
 	 */
 	function calculateActive() {
 		if (!element) return;
-		const children =  element.querySelectorAll('.svelteui-tab-content');
+		const children = element.querySelectorAll('.svelteui-tab-content');
 		const activeTab = Array.from(children)[_active];
 		if (!activeTab) return;
 		content = activeTab.innerHTML;
@@ -78,14 +82,13 @@
 	}
 
 	function onTabKeyDown(event: KeyboardEvent) {
-		const tabs =  element.querySelectorAll('.svelteui-tab-content');
+		const tabs = element.querySelectorAll('.svelteui-tab-content');
 
 		let _index = _active;
 		if (event.code === nextTabCode) {
 			if (_index + 1 >= tabs.length) return;
 			_index += 1;
-		}
-		else if (event.code === previousTabCode) {
+		} else if (event.code === previousTabCode) {
 			if (_index - 1 < 0) return;
 			_index -= 1;
 		}
@@ -128,28 +131,23 @@ Display list of events in chronological order
     </Tabs>
     ```
 -->
-<Box
-	bind:element
-	{use}
-	class={cx(className, classes.root)}
-	{...$$restProps}
->
-    <div class={cx(classes.wrapper, classes[variant])}>
-        <Group
-            class={classes.tabs}
-            role="tablist"
-            direction={orientation === 'horizontal' ? 'row' : 'column'}
-            aria-orientation={orientation}
-            spacing={variant === 'pills' ? 5 : 0}
-            position={position}
-            grow={grow}
-        >
-            <slot />
-        </Group>
-    </div>
-    {#if content}
-        <div role="tabpanel" class={classes.content}>
-            {@html content}
-        </div>
-    {/if}
+<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
+	<div class={cx(classes.wrapper, classes[variant])}>
+		<Group
+			class={classes.tabs}
+			role="tablist"
+			direction={orientation === 'horizontal' ? 'row' : 'column'}
+			aria-orientation={orientation}
+			spacing={variant === 'pills' ? 5 : 0}
+			{position}
+			{grow}
+		>
+			<slot />
+		</Group>
+	</div>
+	{#if content}
+		<div role="tabpanel" class={classes.content}>
+			{@html content}
+		</div>
+	{/if}
 </Box>

@@ -1,5 +1,9 @@
+<script lang="ts" context="module">
+	export const ctx = 'Timeline';
+</script>
+
 <script lang="ts">
-    import { setContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import useStyles from './Timeline.styles';
 	import Box from '../Box/Box.svelte';
@@ -18,28 +22,28 @@
 		reverseActive: $$TimelineProps['reverseActive'] = false;
 	export { className as class };
 
-    // initialize a 'reactive context' which is basically
+	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
 	const contextStore = writable({
-        active: active,
+		active: active,
 		reverseActive: reverseActive,
 		align: align,
-        bulletSize: bulletSize,
-        radius: radius,
-        color: color,
+		bulletSize: bulletSize,
+		radius: radius,
+		color: color,
 		lineWidth: lineWidth
-    });
-	setContext('timeline', contextStore);
+	});
+	setContext(ctx, contextStore);
 	$: $contextStore = {
-        active: active,
+		active: active,
 		reverseActive: reverseActive,
 		align: align,
-        bulletSize: bulletSize,
-        radius: radius,
-        color: color,
+		bulletSize: bulletSize,
+		radius: radius,
+		color: color,
 		lineWidth: lineWidth
-    };
+	};
 
 	$: ({ cx, classes } = useStyles({ align, bulletSize, lineWidth }, { override }));
 </script>
@@ -68,11 +72,6 @@ Display list of events in chronological order
     </Timeline>
     ```
 -->
-<Box
-	bind:element
-	{use}
-	class={cx(className, classes.root)}
-	{...$$restProps}
->
+<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
 	<slot />
 </Box>

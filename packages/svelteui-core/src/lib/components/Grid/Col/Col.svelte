@@ -1,5 +1,6 @@
 <script lang="ts">
 	import useStyles from './Col.styles';
+	import { ctx } from '../Grid.svelte';
 	import { Box } from '../../Box';
 	import { getContext } from 'svelte';
 	import type { GridContext } from '../Grid.styles';
@@ -25,7 +26,7 @@
 
 	// retrieves the reactive context so that Col has access
 	// to the Grid cols, grow and spacing parameters
-	const state: GridContext = getContext('grid');
+	const state: GridContext = getContext('Grid');
 	const { cols, grow, spacing } = $state;
 
 	function isSpanValid(span: number) {

@@ -42,7 +42,7 @@ export function getContextItemIndex(
 export default createStyles((theme, { color, radius }: MenuItemStylesParams) => {
 	return {
 		root: {
-			'&.item': {
+			'&.svelteui-Menu-item': {
 				[`${theme.dark} &`]: {
 					color: color ? theme.fn.themeColor(color, 5) : theme.fn.themeColor('dark', 0),
 					'&:disabled': {

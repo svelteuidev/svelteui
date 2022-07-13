@@ -1,6 +1,7 @@
 <script lang="ts">
 	import useStyles, { getContextItemIndex } from './MenuItem.styles';
 	import { Box } from '../../Box';
+	import { ctx } from '../Menu.svelte';
 	import { getContext } from 'svelte';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
@@ -21,8 +22,7 @@
 		rightSectionProps: $$MenuItemProps['rightSectionProps'] = undefined;
 	export { className as class };
 
-	const state: Writable<MenuContextValue> = getContext('Menu');
-	const { hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state;
+	const state: Writable<MenuContextValue> = getContext(ctx);
 	const forwardEvents = createEventForwarder(get_current_component());
 	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
@@ -31,6 +31,7 @@
 		element
 	);
 	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state);
 </script>
 
 <Box
@@ -39,12 +40,12 @@
 	bind:element
 	type="button"
 	role="menuitem"
-	class={cx('svelteui-Menu-item', 'item', className, classes.root, {
+	class={cx(className, classes.root, 'svelteui-Menu-item', {
 		itemHovered: hovered === itemIndex
 	})}
 	{disabled}
 	on:mouseenter={() => !disabled && onItemHover(itemIndex)}
-	on:mouseleave={() => onItemHover((hovered) => (hovered = -1))}
+	on:mouseleave={() => onItemHover(-1)}
 	on:keydown={(event) => onItemKeyDown(castKeyboardEvent(event))}
 	on:click={onItemClick}
 	{...$$restProps}

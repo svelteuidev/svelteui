@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { getContext, onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import useStyles from './TimelineItem.styles';
+	import { ctx } from '../Timeline.svelte';
 	import Box from '../../Box/Box.svelte';
 	import Text from '../../Text/Text.svelte';
 	import type { TimelineContext } from '../Timeline.styles';
@@ -22,16 +23,26 @@
 		title: $$TimelineItemProps['title'] = undefined;
 	export { className as class };
 
-    // retrieves the reactive context so that TimelineItem has access
+	// retrieves the reactive context so that TimelineItem has access
 	// to the Timeline parameters
-	const state: TimelineContext = getContext('timeline');
+	const state: TimelineContext = getContext(ctx);
 
 	function calculateActive() {
 		if (!element) return;
-		const children =  element.parentNode.children;
+		const children = element.parentNode.children;
 		const index = Array.prototype.indexOf.call(children, element);
-		_active = active !== undefined ? active : ($state.reverseActive ? $state.active >= children.length - index - 1 : $state.active >= index);
-		_lineActive = lineActive !== undefined ? lineActive : ($state.reverseActive ? $state.active >= children.length - index - 1 : $state.active - 1 >= index);
+		_active =
+			active !== undefined
+				? active
+				: $state.reverseActive
+				? $state.active >= children.length - index - 1
+				: $state.active >= index;
+		_lineActive =
+			lineActive !== undefined
+				? lineActive
+				: $state.reverseActive
+				? $state.active >= children.length - index - 1
+				: $state.active - 1 >= index;
 	}
 
 	onMount(() => calculateActive());
@@ -47,14 +58,17 @@
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();
 
-	$: ({ cx, classes } = useStyles({
-		align: _align,
-		bulletSize: _bulletSize,
-		radius: _radius,
-		color: _color,
-		lineVariant,
-		lineWidth: _lineWidth
-	}, { override }));
+	$: ({ cx, classes } = useStyles(
+		{
+			align: _align,
+			bulletSize: _bulletSize,
+			radius: _radius,
+			color: _color,
+			lineVariant,
+			lineWidth: _lineWidth
+		},
+		{ override }
+	));
 </script>
 
 <Box
@@ -66,24 +80,19 @@
 	})}
 	{...$$restProps}
 >
-    <div class={cx(classes.bulletContainer, { bulletContainerWithChild: bullet })}>
-        <slot name='bullet'>
+	<div class={cx(classes.bulletContainer, { bulletContainerWithChild: bullet })}>
+		<slot name="bullet">
 			{#if bullet}
-				<svelte:component
-					this={bullet}
-					size={bulletSize}
-					color={color}
-					class={classes.bullet}
-				/>
+				<svelte:component this={bullet} size={bulletSize} {color} class={classes.bullet} />
 			{/if}
 		</slot>
-  </div>
-  <div class={classes.container}>
-	{#if title}
-		<Text class={classes.title}>{title}</Text>
-	{/if}
-	<div class={classes.content}>
-		<slot />
 	</div>
-  </div>
+	<div class={classes.container}>
+		{#if title}
+			<Text class={classes.title}>{title}</Text>
+		{/if}
+		<div class={classes.content}>
+			<slot />
+		</div>
+	</div>
 </Box>

@@ -2,9 +2,8 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { ActionIcon } from '../ActionIcon';
-	import type { ActionIconStyles } from '../ActionIcon';
+	import type { ActionIconProps } from '../ActionIcon';
 
-	type ActionIconProps = ActionIconStyles.ActionIconProps;
 	interface $$Props extends Omit<ActionIconProps, 'className' | 'use'> {
 		size?: number;
 		className?: string;
