@@ -22,7 +22,7 @@
 </script>
 
 {#if $mobile}
-	<Menu mr="xl" placement="end" override={{ '& .svelteui-c-lgEqbM': { right: '$0' } }}>
+	<Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
 		<Menu.Label>Navigation</Menu.Label>
 		{#each links as { title, href }}
 			<Menu.Item root="a" {href}>
@@ -31,7 +31,7 @@
 		{/each}
 		<Divider />
 		<Menu.Label>Experimental Theme Toggle</Menu.Label>
-		<Menu.Item component="div" override={{ '&:hover': { backgroundColor: 'transparent' } }}>
+		<Menu.Item>
 			<ActionIcon variant="default" on:click={toggleTheme} size={30}>
 				{#if $colorScheme === 'dark'}
 					<Moon />

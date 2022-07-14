@@ -221,7 +221,25 @@
 	{#if code}
 		<div class="code">
 			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
-				<pre>{code}</pre>
+				<Prism
+					language="svelte"
+					code={code.trimEnd()}
+					normalizeWhiteSpace
+					size="sm"
+					normalizeWhiteSpaceConfig={{
+						'remove-trailing': true,
+						'remove-indent': true,
+						'left-trim': true,
+						'right-trim': true,
+						'break-lines': 1000,
+						'remove-initial-line-feed': false,
+						'tabs-to-spaces': 8,
+						'spaces-to-tabs': 8
+					}}
+					override={{
+						padding: '$8'
+					}}
+				/>
 			</Box>
 		</div>
 	{/if}

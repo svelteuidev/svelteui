@@ -30,39 +30,37 @@
 
 <svelte:window bind:innerWidth={window_width} />
 
-<SvelteUIProvider>
-	<div class="main" class:nosidebar={nosidebar || mobile}>
-		<div class="article">
-			<svelte:component this={$current_page.component} />
+<div class="main" class:nosidebar={nosidebar || mobile}>
+	<div class="article">
+		<svelte:component this={$current_page.component} />
+	</div>
+</div>
+
+{#if !nosidebar}
+	{#if !mobile || (mobile && show_sidebar)}
+		<div
+			transition:fly={{ x: -100, duration: 300 }}
+			class="sidebar"
+			use:set_active_link
+			use:outside_click={{
+				handler: () => (show_sidebar = !show_sidebar),
+				detail: sidebar_details
+			}}
+		>
+			<Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} />
 		</div>
-	</div>
-
-	{#if !nosidebar}
-		{#if !mobile || (mobile && show_sidebar)}
-			<div
-				transition:fly={{ x: -100, duration: 300 }}
-				class="sidebar"
-				use:set_active_link
-				use:outside_click={{
-					handler: () => (show_sidebar = !show_sidebar),
-					detail: sidebar_details
-				}}
-			>
-				<Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} />
-			</div>
-		{/if}
 	{/if}
+{/if}
 
-	<div class="topbar">
-		{#if mobile && !nosidebar}
-			<Burger
-				color="blue"
-				opened={show_sidebar}
-				class="show_sidebar"
-				on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
-			/>
-		{/if}
-		<div class="logo"><Logo /></div>
-		<div><Topbar /></div>
-	</div>
-</SvelteUIProvider>
+<div class="topbar">
+	{#if mobile && !nosidebar}
+		<Burger
+			color="blue"
+			opened={show_sidebar}
+			class="show_sidebar"
+			on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
+		/>
+	{/if}
+	<div class="logo"><Logo /></div>
+	<div><Topbar /></div>
+</div>
