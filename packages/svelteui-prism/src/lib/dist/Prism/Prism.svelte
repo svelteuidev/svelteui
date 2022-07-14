@@ -26,15 +26,16 @@
 		copyTimeout: $$PrismStyles['copyTimeout'] = 3000;
 	export { className as class };
 
-	// forces manual usage of Prism, since that the automatic
-	// removal of DOM elements triggered by Prism import clashes
-	// with the DOM manipulation of Svelte
-	// @ts-ignore
-	window.Prism = window.Prism || {};
-	// @ts-ignore
-    window.Prism.manual = true;
-
 	onMount(() => {
+		// forces manual usage of Prism, since that the automatic
+		// removal of DOM elements triggered by Prism import clashes
+		// with the DOM manipulation of Svelte
+		// @ts-ignore
+		window.Prism = window.Prism || {};
+		// @ts-ignore
+		window.Prism.manual = true;
+		document.removeEventListener('DOMContentLoaded', Prism.highlightAll);
+
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
 		}
