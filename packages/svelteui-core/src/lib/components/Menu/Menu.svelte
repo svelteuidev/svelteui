@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
@@ -43,11 +43,12 @@
 		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 300 };
 	export { className as class };
 
+	const dispatch = createEventDispatcher();
+
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
 	let hovered: number = -1;
-	let _transition = getTransition(transition) as any;
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
 		enabled: true,
@@ -64,12 +65,14 @@
 		if (_opened) {
 			_opened = false;
 			opened = false;
+			dispatch('close');
 		}
 	};
 
 	const handleOpen = () => {
 		_opened = true;
 		opened = true;
+		dispatch('open');
 	};
 
 	const toggleMenu = () => {
