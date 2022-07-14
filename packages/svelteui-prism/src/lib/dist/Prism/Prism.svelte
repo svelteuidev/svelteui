@@ -55,7 +55,7 @@
 
 		pre: {
 			margin: 0,
-			overflow: 'scroll'
+			overflow: 'auto'
 		},
 		'pre[data-line]': {
 			paddingTop: 0,
