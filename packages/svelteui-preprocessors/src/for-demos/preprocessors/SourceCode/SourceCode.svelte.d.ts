@@ -7,6 +7,7 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
+        // eslint-disable-next-line @typescript-eslint/ban-types
         default: {};
     };
 };

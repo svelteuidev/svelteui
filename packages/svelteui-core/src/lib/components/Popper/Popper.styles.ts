@@ -1,6 +1,7 @@
 import { createStyles } from '$lib/styles';
 import type { TransitionConfig, EasingFunction } from 'svelte/transition';
 import type { DefaultProps } from '$lib/styles';
+import type { TransitionName, TransitionOptions } from '$lib/internal';
 
 export interface PopperProps extends DefaultProps<HTMLElement> {
 	position?: 'top' | 'left' | 'bottom' | 'right';
@@ -12,9 +13,9 @@ export interface PopperProps extends DefaultProps<HTMLElement> {
 	withArrow?: boolean;
 	zIndex?: number;
 	transition?: Transition;
-	transitionDuration?: number;
+	transitionOptions?: TransitionOptions;
 	exitTransition?: Transition;
-	exitTransitionDuration?: number;
+	exitTransitionOptions?: TransitionOptions;
 	mounted?: boolean;
 	reference?: HTMLElement;
 	withinPortal?: boolean;
@@ -23,8 +24,9 @@ export interface PopperStyleParams {
 	arrowSize: number;
 	zIndex: number;
 }
-
-export type Transition = (node: Element, params: TransitionParams) => TransitionConfig;
+export type Transition =
+	| TransitionName
+	| ((node: Element, params: TransitionParams) => TransitionConfig);
 
 interface TransitionParams {
 	delay?: number;

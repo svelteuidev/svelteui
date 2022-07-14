@@ -1,4 +1,4 @@
-import { useSvelteUIThemeContext } from '../../../';
+import { useSvelteUITheme, useSvelteUIThemeContext } from '../../../';
 import { rgba } from '../rgba/rgba';
 import { themeColor } from '../theme-color/theme-color';
 import type { SvelteUIColor, SvelteUIGradient } from '../../../types';
@@ -33,7 +33,7 @@ const DEFAULT_GRADIENT = {
  * @returns an object with border, background, color, and hover property styles based on the variant
  */
 export function variant({ variant, color, gradient }: VariantInput): VariantOutput {
-	const theme = useSvelteUIThemeContext().theme;
+	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 	const primaryShade = 6;
 
 	if (variant === 'light') {

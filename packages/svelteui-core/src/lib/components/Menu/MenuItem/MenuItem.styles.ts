@@ -6,9 +6,7 @@ export interface SharedMenuItemProps extends DefaultProps {
 	color?: SvelteUIColor;
 	disabled?: boolean;
 	icon?: Component | HTMLOrSVGElement;
-	rightSection?: Component | HTMLOrSVGElement;
 	iconProps?: Record<string, any>;
-	rightSectionProps?: Record<string, any>;
 }
 
 export interface MenuItemProps extends SharedMenuItemProps {

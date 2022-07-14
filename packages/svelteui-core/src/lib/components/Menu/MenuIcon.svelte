@@ -11,6 +11,7 @@
 		title?: string;
 	}
 
+	export let element: $$Props['element'] = undefined;
 	export let size: $$Props['size'] = 15;
 	export let className: string = '';
 	export { className as class };
@@ -19,6 +20,7 @@
 </script>
 
 <ActionIcon
+	bind:element
 	use={[forwardEvents, [useActions, $$restProps?.use]]}
 	class={className}
 	{...$$restProps}

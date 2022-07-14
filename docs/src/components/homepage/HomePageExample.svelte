@@ -118,7 +118,7 @@
 	});
 
 	/** Prism patch until next version */
-	const override = { pre: { overflow: 'scroll', px: '$lgPX' } };
+	const override = { pre: { px: '$lgPX' } };
 	$: ({ cx, classes, getStyles } = useStyles());
 </script>
 
