@@ -13,7 +13,7 @@ export interface SimpleGridBreakpoint {
 	spacing?: SvelteUINumberSize;
 }
 
-interface SimpleGridStyleParams {
+export interface SimpleGridStyleParams {
 	cols?: number;
 	spacing?: SvelteUINumberSize;
 	gridBreakpoints: Record<string, string>;

@@ -35,11 +35,11 @@
 </script>
 
 <script lang="ts">
-	import type { NotificationStyles } from '@svelteuidev/core';
+	import type { NotificationProps } from '@svelteuidev/core';
 	import { Center, Notification, Stack } from '@svelteuidev/core';
     import { Check } from 'radix-icons-svelte';
 
-	export let props: NotificationStyles.NotificationProps = {};
+	export let props: NotificationProps = {};
 </script>
 
 <Center>

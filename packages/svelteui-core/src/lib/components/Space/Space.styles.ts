@@ -6,7 +6,7 @@ export interface SpaceProps extends DefaultProps {
 	h?: SvelteUINumberSize;
 }
 
-interface SpaceStyleParams {
+export interface SpaceStyleParams {
 	w: SvelteUINumberSize;
 	h: SvelteUINumberSize;
 }

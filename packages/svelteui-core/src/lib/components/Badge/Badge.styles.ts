@@ -16,7 +16,7 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	fullWidth?: boolean;
 }
 
-interface BadgeStyleParams {
+export interface BadgeStyleParams {
 	color: SvelteUIColor;
 	size: SvelteUISize;
 	radius: SvelteUINumberSize;

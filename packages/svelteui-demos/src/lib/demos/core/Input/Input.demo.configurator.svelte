@@ -37,11 +37,11 @@
 </script>
 
 <script lang="ts">
-	import type { InputStyles } from '@svelteuidev/core';
-	import { Center, Input } from '@svelteuidev/core';
+	import type { InputProps } from '@svelteuidev/core';
+	import { Input } from '@svelteuidev/core';
 	import { EnvelopeClosed } from 'radix-icons-svelte';
 
-	export let props: InputStyles.InputProps = {};
+	export let props: InputProps = {};
 </script>
 
 <Input icon={EnvelopeClosed} {...props} />

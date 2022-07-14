@@ -19,10 +19,11 @@ export interface PopperProps extends DefaultProps<HTMLElement> {
 	reference?: HTMLElement;
 	withinPortal?: boolean;
 }
-interface PopperStyleParams {
+export interface PopperStyleParams {
 	arrowSize: number;
 	zIndex: number;
 }
+
 export type Transition = (node: Element, params: TransitionParams) => TransitionConfig;
 
 interface TransitionParams {

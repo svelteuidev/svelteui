@@ -60,10 +60,10 @@
 </script>
 
 <script lang="ts">
-	import type { TooltipStyles } from '@svelteuidev/core';
+	import type { TooltipProps } from '@svelteuidev/core';
 	import { Center, Button, Tooltip } from '@svelteuidev/core';
 
-	export let props: TooltipStyles.TooltipProps = { label: '' };
+	export let props: TooltipProps = { label: '' };
 </script>
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>

@@ -77,10 +77,10 @@
 </script>
 
 <script lang="ts">
-	import type { TimelineStyles } from '@svelteuidev/core';
+	import type { TimelineProps } from '@svelteuidev/core';
 	import { Center, Text, Timeline } from '@svelteuidev/core';
 
-	export let props: TimelineStyles.TimelineProps = {};
+	export let props: TimelineProps = {};
 </script>
 
 <Center>

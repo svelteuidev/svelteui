@@ -12,7 +12,7 @@ export interface GridProps extends DefaultProps {
 	justify?: CSS['justifyContent'];
 }
 
-interface GridStyleParams {
+export interface GridStyleParams {
 	align?: CSS['alignItems'];
 	cols?: number;
 	grow?: boolean;

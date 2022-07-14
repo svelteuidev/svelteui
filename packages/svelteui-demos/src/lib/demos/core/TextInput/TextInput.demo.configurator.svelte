@@ -41,10 +41,10 @@
 </script>
 
 <script lang="ts">
-	import type { TextInputStyles } from '@svelteuidev/core';
+	import type { TextInputProps } from '@svelteuidev/core';
 	import { TextInput } from '@svelteuidev/core';
 
-	export let props: Partial<TextInputStyles.TextInputProps> = {};
+	export let props: Partial<TextInputProps> = {};
 </script>
 
 <TextInput {...props} />

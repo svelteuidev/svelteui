@@ -9,7 +9,7 @@ export interface SkeletonProps extends DefaultProps<HTMLDivElement | HTMLElement
 	radius?: SvelteUINumberSize;
 	animate?: boolean;
 }
-interface SkeletonStyleParams {
+export interface SkeletonStyleParams {
 	height: number | string;
 	width: number | string;
 	circle: boolean;

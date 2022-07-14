@@ -45,11 +45,11 @@
 </script>
 
 <script lang="ts">
-	import type { ActionIconStyles } from '@svelteuidev/core';
+	import type { ActionIconProps } from '@svelteuidev/core';
 	import { ActionIcon, Center } from '@svelteuidev/core';
 	import { Rocket } from 'radix-icons-svelte';
 
-	export let props: ActionIconStyles.ActionIconProps = {};
+	export let props: ActionIconProps = {};
 </script>
 
 <Center>

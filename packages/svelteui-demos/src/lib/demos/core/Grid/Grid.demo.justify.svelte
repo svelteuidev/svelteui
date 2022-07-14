@@ -48,12 +48,12 @@
 </script>
 
 <script lang="ts">
-	import type { GridStyles } from '@svelteuidev/core';
+	import type { GridProps } from '@svelteuidev/core';
 	import { Grid } from '@svelteuidev/core';
 
 	import { default as ColWrapper } from './ColWrapper.svelte';
 
-	export let props: GridStyles.GridProps = {};
+	export let props: GridProps = {};
 </script>
 
 <Grid {...props}>

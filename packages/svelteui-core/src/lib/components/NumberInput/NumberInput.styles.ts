@@ -19,13 +19,13 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	parser?: Parser;
 }
 
-interface NumberInputStyleParams {
+export interface NumberInputStyleParams {
 	radius: SvelteUINumberSize;
 	size: SvelteUISize;
 }
 
-type Formatter = (value: string | undefined) => string;
-type Parser = (value: string | undefined) => string | undefined;
+export type Formatter = (value: string | undefined) => string;
+export type Parser = (value: string | undefined) => string | undefined;
 
 export const defaultFormatter: Formatter = (value) => value || '';
 export const defaultParser: Parser = (num) => {

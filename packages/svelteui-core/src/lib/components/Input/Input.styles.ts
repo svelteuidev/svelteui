@@ -26,7 +26,7 @@ export interface InputProps extends InputBaseProps {
 	multiline?: boolean;
 }
 
-interface InputStylesParams {
+export interface InputStylesParams {
 	icon: Component | HTMLOrSVGElement;
 	radius: SvelteUINumberSize;
 	size: SvelteUISize;

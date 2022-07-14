@@ -28,7 +28,7 @@
 <Center>
     <Title order={3}>
         Highlight{' '}
-        <Text color="blue" inherit component="span">
+        <Text color="blue" inherit root="span">
             something
         </Text>
         in title

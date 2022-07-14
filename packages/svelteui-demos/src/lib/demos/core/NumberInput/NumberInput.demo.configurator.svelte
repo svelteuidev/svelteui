@@ -48,10 +48,10 @@
 </script>
 
 <script lang="ts">
-	import type { NumberInputStyles } from '@svelteuidev/core';
+	import type { NumberInputProps } from '@svelteuidev/core';
 	import { NumberInput } from '@svelteuidev/core';
 
-	export let props: Partial<NumberInputStyles.NumberInputProps> = {};
+	export let props: Partial<NumberInputProps> = {};
 </script>
 
 <NumberInput {...props} />

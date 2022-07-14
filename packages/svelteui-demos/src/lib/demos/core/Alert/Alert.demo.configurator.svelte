@@ -42,11 +42,11 @@
 </script>
 
 <script lang="ts">
-	import type { AlertStyles } from '@svelteuidev/core';
+	import type { AlertProps } from '@svelteuidev/core';
 	import { Alert, Center } from '@svelteuidev/core';
 	import { InfoCircled } from 'radix-icons-svelte';
 
-	export let props: AlertStyles.AlertProps = {};
+	export let props: AlertProps = {};
 </script>
 
 <Center>

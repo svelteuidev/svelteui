@@ -8,7 +8,7 @@ export interface PaperProps extends DefaultProps {
 	padding?: SvelteUINumberSize;
 }
 
-interface PaperStyleParams {
+export interface PaperStyleParams {
 	shadow: SvelteUIShadow;
 	radius: SvelteUINumberSize;
 	withBorder: boolean;

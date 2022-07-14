@@ -15,7 +15,7 @@ export interface ThemeIconProps extends DefaultProps {
 	gradient?: SvelteUIGradient;
 }
 
-interface ThemeIconStyleParams {
+export interface ThemeIconStyleParams {
 	iconSize: string | number;
 	radius: SvelteUINumberSize;
 	color: SvelteUIColor;

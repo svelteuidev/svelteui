@@ -18,7 +18,7 @@ export interface TooltipProps extends PopperProps {
 	tooltipId?: string;
 }
 
-interface TooltipStyleParams {
+export interface TooltipStyleParams {
 	color?: SvelteUIColor;
 	radius?: SvelteUINumberSize;
 }

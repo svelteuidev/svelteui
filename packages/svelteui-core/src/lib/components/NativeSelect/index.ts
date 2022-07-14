@@ -1,2 +1,2 @@
 export { default as NativeSelect } from './NativeSelect.svelte';
-export * as NativeSelectStyles from './NativeSelect.styles';
+export type { NativeSelectProps, SelectItem } from './NativeSelect.styles';

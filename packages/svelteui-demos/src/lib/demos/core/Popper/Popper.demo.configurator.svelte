@@ -73,9 +73,9 @@
 
 <script lang="ts">
 	import { Box, Button, Center, Popper } from '@svelteuidev/core';
-	import type { PopperStyles } from '@svelteuidev/core';
+	import type { PopperProps } from '@svelteuidev/core';
 
-	export let props: PopperStyles.PopperProps = {};
+	export let props: PopperProps = {};
 
 	let reference;
 	let mounted = false;

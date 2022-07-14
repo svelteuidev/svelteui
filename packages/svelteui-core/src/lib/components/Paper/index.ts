@@ -1,2 +1,2 @@
 export { default as Paper } from './Paper.svelte';
-export * as PaperStyles from './Paper.styles';
+export type { PaperProps, PaperStyleParams } from './Paper.styles';
