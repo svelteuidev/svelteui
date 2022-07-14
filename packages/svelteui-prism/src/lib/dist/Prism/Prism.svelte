@@ -1,4 +1,3 @@
-
 <script lang="ts" data-manual>
 	// option 'data-manual' needed to use Prism with no automatic highlight on import
 	import Prism from 'prismjs';
@@ -28,6 +27,15 @@
 	export { className as class };
 
 	onMount(() => {
+		// forces manual usage of Prism, since that the automatic
+		// removal of DOM elements triggered by Prism import clashes
+		// with the DOM manipulation of Svelte
+		// @ts-ignore
+		window.Prism = window.Prism || {};
+		// @ts-ignore
+		window.Prism.manual = true;
+		document.removeEventListener('DOMContentLoaded', Prism.highlightAll);
+
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
 		}
