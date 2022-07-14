@@ -3,7 +3,7 @@ title: Modal
 group: 'svelteuidev-core'
 packageGroup: '@svelteuidev/core'
 slug: /core/modal/
-category: 'data-display'
+category: 'overlay'
 description: 'Modal with optional header'
 import: "import { Modal } from '@svelteuidev/core';"
 source: 'svelteui-core/src/lib/components/Modal/Modal.svelte'

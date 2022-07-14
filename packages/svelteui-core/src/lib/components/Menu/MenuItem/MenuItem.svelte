@@ -17,9 +17,7 @@
 		color: $$MenuItemProps['color'] = undefined,
 		disabled: $$MenuItemProps['disabled'] = false,
 		icon: $$MenuItemProps['icon'] = undefined,
-		rightSection: $$MenuItemProps['rightSection'] = undefined,
-		iconProps: $$MenuItemProps['iconProps'] = undefined,
-		rightSectionProps: $$MenuItemProps['rightSectionProps'] = undefined;
+		iconProps: $$MenuItemProps['iconProps'] = undefined;
 	export { className as class };
 
 	const state: Writable<MenuContextValue> = getContext(ctx);
@@ -58,9 +56,7 @@
 			<div class={classes.itemLabel}>
 				<slot />
 			</div>
-			{#if rightSection}
-				<svelte:component this={rightSection} {...rightSectionProps} />
-			{/if}
+			<slot name='rightSection' />
 		</div>
 	</div>
 </Box>

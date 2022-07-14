@@ -95,9 +95,10 @@
   - [Skeleton](core/skeleton)
 - **<Stack/><Space w="md" />Overlay**
   - [Affix](core/affix)
+  - [Menu](core/menu)
+  - [Modal](core/modal)
   - [Overlay](core/overlay)
   - [Tooltip](core/tooltip)
-  - [Modal](core/modal)
 - **<LetterCaseToggle/><Space w="md" />Typography**
   - [Code](core/code)
   - [Text](core/text)

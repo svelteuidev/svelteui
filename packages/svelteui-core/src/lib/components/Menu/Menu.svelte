@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
@@ -39,15 +39,16 @@
 		gutter: PopperProps['gutter'] = 5,
 		placement: PopperProps['placement'] = 'start',
 		position: PopperProps['position'] = 'bottom',
-		transition: $$MenuProps['transition'] = 'scale',
-		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 300 };
+		transition: $$MenuProps['transition'] = 'fade',
+		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 100 };
 	export { className as class };
+
+	const dispatch = createEventDispatcher();
 
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
 	let hovered: number = -1;
-	let _transition = getTransition(transition) as any;
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
 		enabled: true,
@@ -64,12 +65,14 @@
 		if (_opened) {
 			_opened = false;
 			opened = false;
+			dispatch('close');
 		}
 	};
 
 	const handleOpen = () => {
 		_opened = true;
 		opened = true;
+		dispatch('open');
 	};
 
 	const toggleMenu = () => {
@@ -159,6 +162,7 @@
 	{...$$restProps}
 >
 	<MenuIcon
+		bind:element={referenceElement}
 		role="button"
 		aria-haspopup="menu"
 		aria-expanded={_opened}
@@ -169,34 +173,32 @@
 		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
 		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 	/>
-	{#if _opened}
-		<div transition:_transition={transitionOptions}>
-			<Popper
-				{referenceElement}
-				mounted={_opened}
-				arrowSize={3}
-				arrowClassName={classes.arrow}
-				{position}
-				{placement}
-				{gutter}
-				{withArrow}
-				{zIndex}
-				{withinPortal}
-			>
-				<Paper
-					bind:element={dropdownElement}
-					use={[[clickoutside, clickOutsideParams]]}
-					id={uuid}
-					role="menu"
-					class={cx(classes['svelteui-Menu-body'])}
-					aria-orientation="vertical"
-					{radius}
-					on:mouseleave={() => (hovered = -1)}
-					{shadow}
-				>
-					<slot />
-				</Paper>
-			</Popper>
-		</div>
-	{/if}
+	<Popper
+		reference={referenceElement}
+		mounted={_opened}
+		arrowSize={3}
+		arrowClassName={classes.arrow}
+		{transition}
+		{transitionOptions}
+		{position}
+		{placement}
+		{gutter}
+		{withArrow}
+		{zIndex}
+		{withinPortal}
+	>
+		<Paper
+			bind:element={dropdownElement}
+			use={[[clickoutside, clickOutsideParams]]}
+			id={uuid}
+			role="menu"
+			class={cx(classes['svelteui-Menu-body'])}
+			aria-orientation="vertical"
+			{radius}
+			on:mouseleave={() => (hovered = -1)}
+			{shadow}
+		>
+			<slot />
+		</Paper>
+	</Popper>
 </Box>
