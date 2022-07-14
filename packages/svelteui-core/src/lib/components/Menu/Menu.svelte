@@ -39,8 +39,8 @@
 		gutter: PopperProps['gutter'] = 5,
 		placement: PopperProps['placement'] = 'start',
 		position: PopperProps['position'] = 'bottom',
-		transition: $$MenuProps['transition'] = 'scale',
-		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 300 };
+		transition: $$MenuProps['transition'] = 'fade',
+		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
 	const dispatch = createEventDispatcher();
@@ -162,6 +162,7 @@
 	{...$$restProps}
 >
 	<MenuIcon
+		bind:element={referenceElement}
 		role="button"
 		aria-haspopup="menu"
 		aria-expanded={_opened}
@@ -172,34 +173,32 @@
 		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
 		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 	/>
-	{#if _opened}
-		<div transition:_transition={transitionOptions}>
-			<Popper
-				{referenceElement}
-				mounted={_opened}
-				arrowSize={3}
-				arrowClassName={classes.arrow}
-				{position}
-				{placement}
-				{gutter}
-				{withArrow}
-				{zIndex}
-				{withinPortal}
-			>
-				<Paper
-					bind:element={dropdownElement}
-					use={[[clickoutside, clickOutsideParams]]}
-					id={uuid}
-					role="menu"
-					class={cx(classes['svelteui-Menu-body'])}
-					aria-orientation="vertical"
-					{radius}
-					on:mouseleave={() => (hovered = -1)}
-					{shadow}
-				>
-					<slot />
-				</Paper>
-			</Popper>
-		</div>
-	{/if}
+	<Popper
+		reference={referenceElement}
+		mounted={_opened}
+		arrowSize={3}
+		arrowClassName={classes.arrow}
+		{transition}
+		{transitionOptions}
+		{position}
+		{placement}
+		{gutter}
+		{withArrow}
+		{zIndex}
+		{withinPortal}
+	>
+		<Paper
+			bind:element={dropdownElement}
+			use={[[clickoutside, clickOutsideParams]]}
+			id={uuid}
+			role="menu"
+			class={cx(classes['svelteui-Menu-body'])}
+			aria-orientation="vertical"
+			{radius}
+			on:mouseleave={() => (hovered = -1)}
+			{shadow}
+		>
+			<slot />
+		</Paper>
+	</Popper>
 </Box>

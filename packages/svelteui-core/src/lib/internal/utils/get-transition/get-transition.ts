@@ -1,4 +1,5 @@
 import { fade, blur, fly, slide, scale, draw } from 'svelte/transition';
+import type { TransitionConfig, EasingFunction } from 'svelte/transition';
 import type {
 	FadeParams,
 	BlurParams,
@@ -22,10 +23,23 @@ export type TransitionOptions =
 	| FlyParams
 	| SlideParams
 	| ScaleParams
-	| DrawParams;
+	| DrawParams
+	| TransitionParams;
 
-export function getTransition(name: TransitionName): Transition {
+interface TransitionParams {
+	delay?: number;
+	duration?: number;
+	easing?: EasingFunction;
+	css?: (t: number, u: number) => string;
+	tick?: (t: number, u: number) => void;
+}
+
+export function getTransition(
+	name: TransitionName | ((node: Element, params: TransitionParams) => TransitionConfig)
+): Transition {
 	let transition: Transition;
+
+	if (typeof name === 'function') return name;
 
 	switch (name) {
 		case 'fade':
@@ -48,7 +62,6 @@ export function getTransition(name: TransitionName): Transition {
 			break;
 		default:
 			throw new Error('You must enter a valid transition name');
-			break;
 	}
 	return transition;
 }
