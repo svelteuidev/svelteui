@@ -40,10 +40,10 @@
 </script>
 
 <script lang="ts">
-	import type { NativeSelectStyles } from '@svelteuidev/core';
-	import { NativeSelect, Center } from '@svelteuidev/core';
+	import type { NativeSelectProps } from '@svelteuidev/core';
+	import { NativeSelect } from '@svelteuidev/core';
 
-	export let props: NativeSelectStyles.NativeSelectProps = {};
+	export let props: NativeSelectProps = {};
 </script>
 
 <NativeSelect data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']} {...props} />

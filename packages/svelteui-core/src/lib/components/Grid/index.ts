@@ -1,3 +1,3 @@
 export { Grid } from './combinator';
-export * as GridStyles from './Grid.styles';
-export * as ColStyles from './Col/Col.styles';
+export type { GridProps, GridStyleParams, GridContext } from './Grid.styles';
+export type { ColProps, ColStyleParams } from './Col/Col.styles';

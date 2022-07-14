@@ -27,10 +27,10 @@
 </script>
 
 <script lang="ts">
-	import type { PaperStyles } from '@svelteuidev/core';
+	import type { PaperProps } from '@svelteuidev/core';
 	import { Paper, Center } from '@svelteuidev/core';
 
-	export let props: PaperStyles.PaperProps = {};
+	export let props: PaperProps = {};
 </script>
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>

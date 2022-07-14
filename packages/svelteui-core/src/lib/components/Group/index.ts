@@ -1,2 +1,2 @@
 export { default as Group } from './Group.svelte';
-export * as GroupStyles from './Group.styles';
+export type { GroupProps, GroupStylesParams, GroupPosition } from './Group.styles';

@@ -26,10 +26,10 @@
 </script>
 
 <script lang="ts">
-	import type { SimpleGridStyles } from '@svelteuidev/core';
+	import type { SimpleGridProps } from '@svelteuidev/core';
 	import { Center, SimpleGrid } from '@svelteuidev/core';
 
-	export let props: SimpleGridStyles.SimpleGridProps = {};
+	export let props: SimpleGridProps = {};
 </script>
 
 <SimpleGrid {...props}>

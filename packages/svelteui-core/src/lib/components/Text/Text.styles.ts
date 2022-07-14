@@ -30,7 +30,7 @@ export interface TextProps extends DefaultProps {
 	tracking?: Tracking;
 }
 
-interface TextStyleParams {
+export interface TextStyleParams {
 	lineClamp?: number;
 	underline?: boolean;
 	inline?: boolean;

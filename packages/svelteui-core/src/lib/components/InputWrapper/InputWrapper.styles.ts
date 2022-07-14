@@ -16,7 +16,7 @@ export interface InputWrapperProps extends InputWrapperBaseProps {
 	size?: SvelteUISize;
 }
 
-interface InputWrapperStyleParams {
+export interface InputWrapperStyleParams {
 	size: SvelteUISize;
 }
 

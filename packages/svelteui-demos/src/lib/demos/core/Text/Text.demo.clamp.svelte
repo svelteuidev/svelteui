@@ -22,10 +22,10 @@
 </script>
 
 <script lang="ts">
-	import type { TextStyles } from '@svelteuidev/core';
+	import type { TextProps } from '@svelteuidev/core';
 	import { Center, Text } from '@svelteuidev/core';
 
-	export let props: TextStyles.TextProps = {};
+	export let props: TextProps = {};
 </script>
 
 <Center>

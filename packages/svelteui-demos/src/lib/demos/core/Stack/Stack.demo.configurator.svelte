@@ -48,10 +48,10 @@
 </script>
 
 <script lang="ts">
-	import type { StackStyles } from '@svelteuidev/core';
+	import type { StackProps } from '@svelteuidev/core';
 	import { Button, Stack } from '@svelteuidev/core';
 
-	export let props: StackStyles.StackProps = {};
+	export let props: StackProps = {};
 </script>
 
 <Stack override={{ height: 300 }} {...props}>

@@ -16,7 +16,7 @@ export interface ColProps extends DefaultProps {
 	xl?: number;
 }
 
-interface ColStyleParams {
+export interface ColStyleParams {
 	cols?: number;
 	grow?: boolean;
 	spacing?: SvelteUINumberSize;

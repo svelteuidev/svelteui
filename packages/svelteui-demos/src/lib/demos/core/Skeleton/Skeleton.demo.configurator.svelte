@@ -21,10 +21,10 @@
 </script>
 
 <script lang="ts">
-	import type { SkeletonStyles } from '@svelteuidev/core';
+	import type { SkeletonProps } from '@svelteuidev/core';
 	import { Skeleton } from '@svelteuidev/core';
 
-	export let props: SkeletonStyles.SkeletonProps = {};
+	export let props: SkeletonProps = {};
 </script>
 
 <Skeleton height={50} circle mb="xl" override={{ marginBottom: '24px' }} {...props} />

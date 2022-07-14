@@ -1,2 +1,2 @@
 export { default as ThemeIcon } from './ThemeIcon.svelte';
-export * as ThemeIconStyles from './ThemeIcon.styles';
+export type { ThemeIconProps, ThemeIconStyleParams, ThemeIconVariant } from './ThemeIcon.styles';

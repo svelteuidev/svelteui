@@ -1,2 +1,7 @@
 export { default as NumberInput } from './NumberInput.svelte';
-export * as NumberInputStyles from './NumberInput.styles';
+export type {
+	NumberInputProps,
+	NumberInputStyleParams,
+	Formatter,
+	Parser
+} from './NumberInput.styles';

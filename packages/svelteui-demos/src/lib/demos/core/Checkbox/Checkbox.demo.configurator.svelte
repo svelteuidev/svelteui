@@ -30,10 +30,10 @@
 </script>
 
 <script lang="ts">
-	import type { CheckboxStyles } from '@svelteuidev/core';
+	import type { CheckboxProps } from '@svelteuidev/core';
 	import { Checkbox, Center } from '@svelteuidev/core';
 
-	export let props: CheckboxStyles.CheckboxProps = {};
+	export let props: CheckboxProps = {};
 </script>
 
 <Center>

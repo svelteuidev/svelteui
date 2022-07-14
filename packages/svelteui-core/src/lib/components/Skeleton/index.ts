@@ -1,2 +1,2 @@
 export { default as Skeleton } from './Skeleton.svelte';
-export * as SkeletonStyles from './Skeleton.styles';
+export type { SkeletonProps, SkeletonStyleParams } from './Skeleton.styles';

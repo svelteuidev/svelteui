@@ -20,7 +20,7 @@ export interface PopperProps extends DefaultProps<HTMLElement> {
 	reference?: HTMLElement;
 	withinPortal?: boolean;
 }
-interface PopperStyleParams {
+export interface PopperStyleParams {
 	arrowSize: number;
 	zIndex: number;
 }

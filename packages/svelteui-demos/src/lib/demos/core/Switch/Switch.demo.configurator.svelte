@@ -30,9 +30,9 @@
 
 <script lang="ts">
 	import { Switch, Center } from '@svelteuidev/core';
-	import type { SwitchStyles } from '@svelteuidev/core';
+	import type { SwitchProps } from '@svelteuidev/core';
 
-	export let props: SwitchStyles.SwitchProps = {};
+	export let props: SwitchProps = {};
 </script>
 
 <Center>

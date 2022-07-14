@@ -1,2 +1,2 @@
 export { default as Switch } from './Switch.svelte';
-export * as SwitchStyles from './Switch.styles';
+export type { SwitchProps, SwitchStyleParams, SwitchTimingFunction } from './Switch.styles';
