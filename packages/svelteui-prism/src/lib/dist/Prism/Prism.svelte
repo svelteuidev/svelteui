@@ -27,12 +27,14 @@
 	export { className as class };
 
 	onMount(() => {
-		// forces manual usage of Prism, since that the automatic
-		// removal of DOM elements triggered by Prism import clashes
-		// with the DOM manipulation of Svelte
-		// @ts-ignore
+		/**
+		 * forces manual usage of Prism
+		 *
+		 * this is because prism trys to highlight code automatically
+		 *
+		 * that behavior interferes with the DOM manipulation of Svelte and we don't want that
+		 */
 		window.Prism = window.Prism || {};
-		// @ts-ignore
 		window.Prism.manual = true;
 		document.removeEventListener('DOMContentLoaded', Prism.highlightAll);
 
