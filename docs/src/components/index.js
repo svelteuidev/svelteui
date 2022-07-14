@@ -12,5 +12,6 @@ export { default as BottomNav } from './BottomNav.svelte';
 export { default as NavigationTitle } from './NavigationTitle.svelte';
 export { default as Banner } from './Banner.svelte';
 export { default as Global } from './Global.svelte';
+export { default as TopBar } from './TopBar.svelte';
 export { mobile, screenH, screenW, scrollY, mouse } from './Device.svelte';
 export { colors } from './temp/colors';
