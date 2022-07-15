@@ -16,10 +16,10 @@
 
 	$: onMount(() => {
 		const container = document.querySelector('.container .title');
-		container.style.paddingTop = '6rem';
+		container.style.paddingTop = '4rem';
 	});
 
-	const useStyles = createStyles((theme, { align, themeColors }) => ({
+	const useStyles = createStyles((_, { align, themeColors }) => ({
 		root: {
 			position: 'absolute',
 			top: 60,
