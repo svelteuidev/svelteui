@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/core",
-	"version": "0.6.9",
+	"version": "0.7.0",
 	"description": "Svelte component library for creating fully functional and accessible web applications quickly",
 	"keywords": [
 		"svelte",
@@ -67,7 +67,7 @@
 		"typescript": "4.6.3"
 	},
 	"peerDependencies": {
-		"@svelteuidev/composables": "0.6.9",
+		"@svelteuidev/composables": "0.7.0",
 		"svelte": ">=3.47.0"
 	}
 }
