@@ -21,10 +21,10 @@
 </script>
 
 <script lang="ts">
-	import type { SpaceStyles } from '@svelteuidev/core';
+	import type { SpaceProps } from '@svelteuidev/core';
 	import { Space, Text } from '@svelteuidev/core';
 
-	export let props: SpaceStyles.SpaceProps = {};
+	export let props: SpaceProps = {};
 </script>
 
 <Text>First line</Text>

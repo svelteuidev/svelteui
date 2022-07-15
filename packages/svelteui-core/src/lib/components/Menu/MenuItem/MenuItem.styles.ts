@@ -1,10 +1,12 @@
-import { createStyles, rgba } from '$lib/styles';
+import { createStyles } from '$lib/styles';
 import type { Component, LiteralUnion } from '$lib/internal';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface SharedMenuItemProps extends DefaultProps {
 	color?: SvelteUIColor;
 	disabled?: boolean;
+	icon?: Component | HTMLOrSVGElement;
+	iconProps?: Record<string, any>;
 }
 
 export interface MenuItemProps extends SharedMenuItemProps {
@@ -16,10 +18,29 @@ export interface MenuItemStylesParams {
 	color: SvelteUIColor;
 }
 
+function findAncestor(element: HTMLElement, className: string) {
+	let _element = element;
+	while ((_element = _element.parentElement) && !_element.classList.contains(className));
+	return _element;
+}
+
+export function getContextItemIndex(
+	options: { elementSelector: string; parentClassName: string },
+	node: HTMLElement
+) {
+	if (!node) {
+		return -1;
+	}
+
+	return Array.from(
+		findAncestor(node, options.parentClassName).querySelectorAll(options.elementSelector)
+	).findIndex((element) => element === node);
+}
+
 export default createStyles((theme, { color, radius }: MenuItemStylesParams) => {
 	return {
 		root: {
-			'&.item': {
+			'&.svelteui-Menu-item': {
 				[`${theme.dark} &`]: {
 					color: color ? theme.fn.themeColor(color, 5) : theme.fn.themeColor('dark', 0),
 					'&:disabled': {
@@ -49,11 +70,11 @@ export default createStyles((theme, { color, radius }: MenuItemStylesParams) => 
 			'&.itemHovered': {
 				[`${theme.dark} &`]: {
 					backgroundColor: color
-						? rgba(theme.fn.themeColor(color, 8), 0.35)
-						: rgba(theme.fn.themeColor('dark', 3), 0.35)
+						? theme.fn.rgba(theme.fn.themeColor(color, 8), 0.35)
+						: theme.fn.rgba(theme.fn.themeColor('dark', 3), 0.35)
 				},
 				backgroundColor: color
-					? rgba(theme.fn.themeColor(color, 0), 1)
+					? theme.fn.rgba(theme.fn.themeColor(color, 0), 1)
 					: theme.fn.themeColor('gray', 0)
 			}
 		},

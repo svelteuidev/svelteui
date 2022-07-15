@@ -1,6 +1,15 @@
-body {
+body:not(h1, h2, h3, h4, h5, h6) {
 	color: var(--text);
 	line-height: 1.6;
+	font-family: var(--svelteui-fonts-standard);
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: var(--font);
 }
 

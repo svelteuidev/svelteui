@@ -25,10 +25,10 @@
 </script>
 
 <script lang='ts'>
-	import type { InputWrapperStyles } from '@svelteuidev/core';
+	import type { InputWrapperProps } from '@svelteuidev/core';
 	import { Center, Input, InputWrapper } from '@svelteuidev/core';
 
-	export let props: InputWrapperStyles.InputWrapperProps = {};
+	export let props: InputWrapperProps = {};
 </script>
 
 <Center>

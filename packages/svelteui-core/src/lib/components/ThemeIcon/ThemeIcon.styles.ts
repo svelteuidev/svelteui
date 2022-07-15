@@ -1,4 +1,4 @@
-import { dark, rgba, createStyles } from '$lib/styles';
+import { dark, createStyles, fns } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUINumberSize,
@@ -15,7 +15,7 @@ export interface ThemeIconProps extends DefaultProps {
 	gradient?: SvelteUIGradient;
 }
 
-interface ThemeIconStyleParams {
+export interface ThemeIconStyleParams {
 	iconSize: string | number;
 	radius: SvelteUINumberSize;
 	color: SvelteUIColor;
@@ -31,6 +31,8 @@ export type ThemeIconVariant =
 	| 'subtle'
 	| 'default'
 	| 'white';
+
+const { rgba } = fns;
 
 export const sizes = {
 	xs: 16,

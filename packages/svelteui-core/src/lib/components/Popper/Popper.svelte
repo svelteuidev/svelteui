@@ -1,10 +1,9 @@
 <script lang="ts">
 	import useStyles from './Popper.styles';
 	import { calculateArrowPlacement } from './Popper.styles';
-	import { fade } from 'svelte/transition';
 	import { arrow, autoUpdate, computePosition, offset, flip, shift } from '@floating-ui/dom';
 	import { get_current_component, onDestroy } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { createEventForwarder, getTransition, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
@@ -20,10 +19,10 @@
 		arrowClassName: $$PopperProps['arrowClassName'] = 'arrow',
 		withArrow: $$PopperProps['withArrow'] = false,
 		zIndex: $$PopperProps['zIndex'] = 1,
-		transition: $$PopperProps['transition'] = fade,
-		transitionDuration: $$PopperProps['transitionDuration'] = 100,
+		transition: $$PopperProps['transition'] = 'fade',
+		transitionOptions: $$PopperProps['transitionOptions'] = { duration: 100 },
 		exitTransition: $$PopperProps['exitTransition'] = transition,
-		exitTransitionDuration: $$PopperProps['exitTransitionDuration'] = transitionDuration,
+		exitTransitionOptions: $$PopperProps['exitTransitionOptions'] = transitionOptions,
 		mounted: $$PopperProps['mounted'] = false,
 		reference: $$PopperProps['reference'] = null;
 	export { className as class };
@@ -51,11 +50,15 @@
 			placement: placementString as Placement,
 			middleware: middleware
 		}).then(({ x, y, placement, middlewareData }) => {
+			// the element might have been removed between the
+			// composition computing and its callback
+			if (!element) return;
+
 			Object.assign(element.style, {
 				left: `${x}px`,
 				top: `${y}px`
 			});
-			
+
 			// return early if no arrow is wanted in the popper
 			if (!withArrow) return;
 
@@ -90,6 +93,9 @@
 		}
 	}
 
+	$: _mounted = mounted;
+	$: _transition = getTransition(transition) as any;
+	$: _exitTransition = getTransition(exitTransition) as any;
 	$: updatePopper({ ...$$props });
 	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
 </script>
@@ -122,14 +128,14 @@ and placement options.
     ```
 -->
 
-{#if mounted}
+{#if _mounted}
 	<div
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
 		class={cx(className, getStyles({ css: override }))}
-		in:transition={{ duration: transitionDuration }}
-		out:exitTransition={{ duration: exitTransitionDuration }}
+		in:_transition={transitionOptions}
+		out:_exitTransition={exitTransitionOptions}
 	>
 		{#if withArrow}
 			<div

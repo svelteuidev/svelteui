@@ -6,7 +6,7 @@ slug: /core/observer-render/
 category: 'inputs'
 description: 'Detect when an element enters or leaves the viewport.'
 import: "import { ObserverRender } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/ObserverRender/ObserverRender.svelte'
+source: 'svelteui-core/src/lib/components/ObserverRender/ObserverRender.svelte'
 docs: 'core/observer-render.md'
 ---
 

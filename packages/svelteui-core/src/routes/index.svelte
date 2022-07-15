@@ -1,7 +1,9 @@
 <script lang="ts">
+	/* eslint-disable @typescript-eslint/ban-ts-comment */
 	import {
 		ActionIcon,
 		Affix,
+		Alert,
 		Anchor,
 		BackgroundImage,
 		Badge,
@@ -17,6 +19,7 @@
 		Container,
 		Divider,
 		Fragment,
+		Grid,
 		Group,
 		Image,
 		Input,
@@ -24,8 +27,10 @@
 		Kbd,
 		Loader,
 		MediaQuery,
+		Menu,
 		Modal,
 		NativeSelect,
+		Notification,
 		NumberInput,
 		ObserverRender,
 		Overlay,
@@ -40,9 +45,11 @@
 		Space,
 		Stack,
 		Switch,
+		Tabs,
 		Text,
 		TextInput,
 		ThemeIcon,
+		Timeline,
 		Title,
 		Tooltip,
 		TypographyProvider,
@@ -50,9 +57,7 @@
 		createStyles,
 		useSvelteUITheme,
 		useSvelteUIThemeContext,
-		rgba
+		colors
 	} from '$lib';
 	import Gear from '../icons/Gear.svelte';
 </script>
-
-<Button>Click me</Button>

@@ -1,5 +1,6 @@
 .gitignore
 package.json
+package-lock.json
 
 .svelte-kit
 **/.svelte-kit

@@ -16,7 +16,7 @@ export interface CheckboxProps extends DefaultProps {
 	wrapperProps?: { [key: string]: any };
 }
 
-interface CheckboxStyleParams {
+export interface CheckboxStyleParams {
 	size: SvelteUISize;
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize | number;

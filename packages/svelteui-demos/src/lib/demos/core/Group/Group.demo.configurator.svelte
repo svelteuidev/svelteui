@@ -48,10 +48,10 @@
 </script>
 
 <script lang="ts">
-	import type { GroupStyles } from '@svelteuidev/core';
+	import type { GroupProps } from '@svelteuidev/core';
 	import { Button, Group } from '@svelteuidev/core';
 
-	export let props: GroupStyles.GroupProps = {};
+	export let props: GroupProps = {};
 </script>
 
 <Group {...props}>

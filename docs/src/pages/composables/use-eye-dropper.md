@@ -10,13 +10,15 @@ source: 'svelteui-composables/src/lib/utilities/use-eye-dropper/use-eye-dropper.
 ---
 
 <script lang='ts'>
-    import { Demo, ComposableDemos } from "@svelteuidev/demos";
-    import { Heading} from 'components'
+    import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
 
 ## Usage
+
+The `use-eye-dropper` composable allows you to create an eyedropper tool. Users can use this tool to sample colors from their screens, including those outside of the browser window. Read more on it [here](https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper_API). An object containing an open function, the reactive sRGBHex value, and a boolean value tracking whether or not this is supported, is returned from the function.
 
 <Demo demo={ComposableDemos.useEyeDropperDemo.usage} />
 

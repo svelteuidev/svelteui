@@ -23,11 +23,11 @@
 </script>
 
 <script lang="ts">
-	import type { ActionIconStyles } from '@svelteuidev/core';
+	import type { ActionIconProps } from '@svelteuidev/core';
 	import { ActionIcon, Group } from '@svelteuidev/core';
 	import { GithubLogo } from 'radix-icons-svelte';
 
-	let variants: ActionIconStyles.ActionIconProps['variant'][] = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
+	let variants: ActionIconProps['variant'][] = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
 </script>
 
 <Group position="center">

@@ -1,60 +1,63 @@
 {
-  "name": "@svelteuidev/motion",
-  "version": "0.6.8",
-  "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
-  "keywords": [
-    "svelte",
-    "sveltekit",
-    "svelteui",
-    "library",
-    "frontend",
-    "svelte-motion",
-    "motion",
-    "animation",
-    "transition",
-    "state"
-  ],
-  "homepage": "https://svelteui.org",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/svelteuidev/svelteui",
-    "directory": "packages/svelteui-motion"
-  },
-  "license": "MIT",
-  "author": "Kamell Perry <kamellperry33@gmail.com>",
-  "sideEffects": false,
-  "type": "module",
-  "module": "./package/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "index.js",
-    "dist/**/*.{js,svelte}",
-    "types/**/*.d.ts"
-  ],
-  "scripts": {
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "dev": "svelte-kit dev",
-    "format": "prettier --write --plugin-search-dir=. .",
-    "generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
-    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "package": "svelte-kit package",
-    "pub": "npm publish package/",
-    "pub:test": "npm publish package/",
-    "sort": "npx sort-package-json",
-    "update:lockfile": "npm i",
-    "watch": "svelte-kit package -w"
-  },
-  "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.333",
-    "autoprefixer": "10.4.4",
-    "cssnano": "5.1.7",
-    "postcss": "8.4.12",
-    "sass": "1.50.0",
-    "svelte": "3.48.0",
-    "svelte-check": "2.5.0",
-    "svelte-preprocess": "4.10.5",
-    "svelte2tsx": "0.5.7",
-    "tslib": "2.3.1",
-    "typescript": "4.6.3"
-  }
+	"name": "@svelteuidev/motion",
+	"version": "0.7.0",
+	"description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"svelteui",
+		"library",
+		"frontend",
+		"svelte-motion",
+		"motion",
+		"animation",
+		"transition",
+		"state"
+	],
+	"homepage": "https://svelteui.org",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/svelteuidev/svelteui",
+		"directory": "packages/svelteui-motion"
+	},
+	"license": "MIT",
+	"author": "Kamell Perry <kamellperry33@gmail.com>",
+	"sideEffects": false,
+	"type": "module",
+	"module": "./package/index.js",
+	"types": "types/index.d.ts",
+	"files": [
+		"index.js",
+		"dist/**/*.{js,svelte}",
+		"types/**/*.d.ts"
+	],
+	"scripts": {
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"dev": "svelte-kit dev",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
+		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"package": "svelte-kit package",
+		"pub": "npm publish package/",
+		"pub:test": "npm publish package/",
+		"sort": "npx sort-package-json",
+		"update:lockfile": "npm i",
+		"watch": "svelte-kit package -w"
+	},
+	"devDependencies": {
+		"@sveltejs/kit": "1.0.0-next.333",
+		"autoprefixer": "10.4.4",
+		"cssnano": "5.1.7",
+		"postcss": "8.4.12",
+		"sass": "1.50.0",
+		"svelte": "3.48.0",
+		"svelte-check": "2.5.0",
+		"svelte-preprocess": "4.10.5",
+		"svelte2tsx": "0.5.7",
+		"tslib": "2.3.1",
+		"typescript": "4.6.3"
+	},
+	"peerDependencies": {
+		"svelte": ">=3.47.0"
+	}
 }

@@ -10,24 +10,8 @@ source: 'svelteui-composables/src/lib/actions/use-lazy/use-lazy.ts'
 ---
 
 <script>
-    import { Button } from '@svelteuidev/core';
-	import { lazy } from '@svelteuidev/actions';
-    import { Heading, Preview } from 'components'
-
-    const code = `
-    <script>
-        import { lazy } from '@svelteuidev/actions'
-    <\/script>
-    
-    <div style='height: 300px;'>
-        {#each [...Array(15).keys()] as _}
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur obcaecati ex totam laboriosam, culpa ipsa quis nostrum odio dolore aut eos numquam ratione quam maiores voluptates quas eius labore error?
-            <\/p>
-        {\/each}
-        <img use:lazy={{src: "https://images.unsplash.com/photo-1584441111639-2fe3005b4378"}} alt="" \/>
-    <\/div>
-    `
+    import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -36,15 +20,7 @@ source: 'svelteui-composables/src/lib/actions/use-lazy/use-lazy.ts'
 
 With the `use-lazy` action, you can set attributes on an element when it is visible in the viewport.
 
-<Preview override={{height: '300px', overflow: 'scroll', '#code-button': {position: 'sticky', top: '90%', right: 0}}} cols={1} {code}>
-{#each [...Array(15).keys()] as i}
-
-<p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur obcaecati ex totam laboriosam, culpa ipsa quis nostrum odio dolore aut eos numquam ratione quam maiores voluptates quas eius labore error?
-</p>
-{/each}
-<img use:lazy={{src: "https://images.unsplash.com/photo-1584441111639-2fe3005b4378"}} alt="" />
-</Preview>
+<Demo demo={ComposableDemos.useLazyDemo.usage} />
 
 ## Params
 

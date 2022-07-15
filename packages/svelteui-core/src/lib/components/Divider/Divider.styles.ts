@@ -32,14 +32,14 @@ export default createStyles((theme, { color, size, variant }: DividerStyleParams
 	const { size: sizeFn, themeColor } = theme.fn;
 	return {
 		root: {
-			'&.horizontal': {
+			'&.svelteui-Divider-horizontal': {
 				border: 0,
 				borderTopWidth: typeof size === 'number' ? `${size}px` : sizeFn({ size, sizes }),
 				borderTopColor: themeColor(color, 4),
 				borderTopStyle: variant,
 				margin: '12px 0px 12px 0px'
 			},
-			'&.vertical': {
+			'&.svelteui-Divider-vertical': {
 				border: 0,
 				alignSelf: 'stretch',
 				height: '100%',

@@ -1,8 +1,12 @@
 <script lang="ts">
-	import useStyles from './MenuItem.styles';
+	import useStyles, { getContextItemIndex } from './MenuItem.styles';
 	import { Box } from '../../Box';
+	import { ctx } from '../Menu.svelte';
+	import { getContext } from 'svelte';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
+	import type { Writable } from 'svelte/store';
+	import type { MenuContextValue } from '../Menu.context';
 	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
 
 	export let use: $$MenuItemProps['use'] = [],
@@ -11,19 +15,21 @@
 		override: $$MenuItemProps['override'] = {},
 		root: $$MenuItemProps['root'] = 'button',
 		color: $$MenuItemProps['color'] = undefined,
-		disabled: $$MenuItemProps['disabled'] = undefined;
+		disabled: $$MenuItemProps['disabled'] = false,
+		icon: $$MenuItemProps['icon'] = undefined,
+		iconProps: $$MenuItemProps['iconProps'] = undefined;
 	export { className as class };
 
-	/** An action that forwards inner dom node events from parent component */
+	const state: Writable<MenuContextValue> = getContext(ctx);
 	const forwardEvents = createEventForwarder(get_current_component());
+	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
-	let radius;
-	let hovered;
-	let itemIndex;
-	let onItemHover;
-	let onItemKeyDown;
-
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius }));
+	$: itemIndex = getContextItemIndex(
+		{ elementSelector: '.svelteui-Menu-item', parentClassName: 'svelteui-Menu-body' },
+		element
+	);
+	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state);
 </script>
 
 <Box
@@ -32,32 +38,25 @@
 	bind:element
 	type="button"
 	role="menuitem"
-	class={cx(
-		getStyles({ css: override }),
-		'item',
-		{ [classes.itemHovered]: hovered === itemIndex },
-		className
-	)}
+	class={cx(className, classes.root, 'svelteui-Menu-item', {
+		itemHovered: hovered === itemIndex
+	})}
 	{disabled}
 	on:mouseenter={() => !disabled && onItemHover(itemIndex)}
 	on:mouseleave={() => onItemHover(-1)}
-	on:keydown={onItemKeyDown}
+	on:keydown={(event) => onItemKeyDown(castKeyboardEvent(event))}
+	on:click={onItemClick}
 	{...$$restProps}
 >
 	<div class={classes.itemInner}>
-		{#if $$slots.icon}
-			<div class={classes.itemIcon}>
-				<slot name="icon" />
-			</div>
+		{#if icon}
+			<svelte:component this={icon} class={classes.itemIcon} {...iconProps} />
 		{/if}
-
 		<div class={classes.itemBody}>
 			<div class={classes.itemLabel}>
 				<slot />
 			</div>
-			{#if $$slots.rightSection}
-				<slot name="rightSection" />
-			{/if}
+			<slot name='rightSection' />
 		</div>
 	</div>
 </Box>

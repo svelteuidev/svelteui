@@ -49,7 +49,7 @@ export default createStyles((theme, { fullWidth }: MonthStyleParams) => {
 			tableLayout: 'fixed'
 		},
 		weekday: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				color: theme.fn.themeColor('dark', 1)
 			},
 			color: theme.fn.themeColor('gray', 5)

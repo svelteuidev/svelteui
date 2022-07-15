@@ -3,28 +3,31 @@
 	import { ActionIconErrors } from './ActionIcon.errors';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
+	import { Box } from '../Box';
 	import Loader from '../Loader/Loader.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
 
-	export let use: $$ActionIconProps['use'] = [],
-		element: $$ActionIconProps['element'] = undefined,
-		className: $$ActionIconProps['className'] = '',
-		override: $$ActionIconProps['override'] = {},
-		root: $$ActionIconProps['root'] = 'button',
-		color: $$ActionIconProps['color'] = 'gray',
-		variant: $$ActionIconProps['variant'] = 'hover',
-		size: $$ActionIconProps['size'] = 'md',
-		radius: $$ActionIconProps['radius'] = 'sm',
-		loaderProps: $$ActionIconProps['loaderProps'] = {
+	interface $$Props extends $$ActionIconProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		root: $$Props['root'] = 'button',
+		color: $$Props['color'] = 'gray',
+		variant: $$Props['variant'] = 'hover',
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'sm',
+		loaderProps: $$Props['loaderProps'] = {
 			size: 'xs',
 			color: 'gray',
 			variant: 'circle'
 		},
-		loading: $$ActionIconProps['loading'] = false,
-		disabled: $$ActionIconProps['disabled'] = false,
-		href: $$ActionIconProps['href'] = '',
-		external: $$ActionIconProps['external'] = false;
+		loading: $$Props['loading'] = false,
+		disabled: $$Props['disabled'] = false,
+		href: $$Props['href'] = '',
+		external: $$Props['external'] = false;
 	export { className as class };
 
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -57,19 +60,16 @@ Icon button to indicate secondary action.
     <ActionIcon variant="default"><Discord></ActionIcon> // default variant with an icon
     ```
 -->
-<!-- prettier-ignore -->
-<svelte:element
-	this={root}
-	bind:this={element}
-	use:useActions={use}
-	use:forwardEvents
-	class:loading
-	class:disabled
+
+<Box
+	bind:element
+	use={[forwardEvents, [useActions, use]]}
 	tabindex="0"
 	disabled={disabled || loading}
-	class={cx(className ,getStyles({ css: override, variation: variant }))}
+	class={cx(className, { loading, disabled }, getStyles({ css: override, variation: variant }))}
 	target={external ? '_blank' : null}
 	rel={external ? 'noreferrer noopener' : null}
+	{root}
 	{href}
 	{...$$restProps}
 >
@@ -78,4 +78,4 @@ Icon button to indicate secondary action.
 	{:else}
 		<slot>+</slot>
 	{/if}
-</svelte:element>
+</Box>

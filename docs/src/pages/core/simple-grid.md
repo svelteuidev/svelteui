@@ -6,7 +6,7 @@ slug: /core/simple-grid/
 category: 'layout'
 description: 'Responsive grid where each item takes equal amount of space'
 import: "import { SimpleGrid } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/SimpleGrid/SimpleGrid.svelte'
+source: 'svelteui-core/src/lib/components/SimpleGrid/SimpleGrid.svelte'
 docs: 'core/simple-grid.md'
 ---
 
@@ -48,15 +48,15 @@ If you prefer a mobile first approach, you can use min-width breakpoints:
 
 ```svelte
 <SimpleGrid
-  breakpoints={[
-    { minWidth: 'sm', cols: 2 },
-    { minWidth: 'md', cols: 3 },
-    { minWidth: 1200, cols: 4 },
-  ]}
+	breakpoints={[
+		{ minWidth: 'sm', cols: 2 },
+		{ minWidth: 'md', cols: 3 },
+		{ minWidth: 1200, cols: 4 }
+	]}
 >
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
 </SimpleGrid>
 ```
 
@@ -66,9 +66,7 @@ You can use either `theme.spacing` value or number value for spacing in px:
 
 ```svelte
 // xl spacing from theme.spacing
-<SimpleGrid spacing="xl" />;
-
-// 12px spacing
+<SimpleGrid spacing="xl" />; // 12px spacing
 <SimpleGrid spacing={12} />;
 ```
 
@@ -76,9 +74,7 @@ Spacing also works in `breakpoints`:
 
 ```svelte
 // theme.spacing.xl
-<SimpleGrid breakpoints={[{ maxWidth: 755, cols: 2, spacing: 'xl' }]} />;
-
-// 12px spacing
+<SimpleGrid breakpoints={[{ maxWidth: 755, cols: 2, spacing: 'xl' }]} />; // 12px spacing
 <SimpleGrid breakpoints={[{ maxWidth: 755, cols: 2, spacing: 12 }]} />;
 ```
 

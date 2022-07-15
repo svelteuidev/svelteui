@@ -6,7 +6,7 @@ slug: /core/browser-render/
 category: 'misc'
 description: 'Disables rendering of child content in a SSR environment'
 import: "import { BrowserRender } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/BrowserRender/BrowserRender.svelte'
+source: 'svelteui-core/src/lib/components/BrowserRender/BrowserRender.svelte'
 docs: 'core/browser-render.md'
 ---
 

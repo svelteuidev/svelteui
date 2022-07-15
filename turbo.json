@@ -31,7 +31,7 @@
 			"cache": false
 		},
 		"test": {
-			"dependsOn": ["^format", "^lint"],
+			"dependsOn": ["format", "lint"],
 			"outputs": [],
 			"cache": false
 		},
@@ -40,7 +40,7 @@
 			"cache": false
 		},
 		"coverage": {
-			"dependsOn": ["^format", "^lint"],
+			"dependsOn": ["format", "lint"],
 			"outputs": ["coverage/**"],
 			"cache": true
 		}

@@ -18,6 +18,12 @@
 		"checkJs": true,
 		"paths": {
 			"@svelteuidev/demos": ["../packages/svelteui-demos/package"],
+			"@svelteuidev/composables": ["../packages/svelteui-composables/package"],
+			"@svelteuidev/core": ["../packages/svelteui-core/package"],
+			"@svelteuidev/dates": ["../packages/svelteui-dates/package"],
+			"@svelteuidev/motion": ["../packages/svelteui-motion/package"],
+			"@svelteuidev/preprocessors": ["../packages/svelteui-preprocessors/package"],
+			"@svelteuidev/prism": ["../packages/svelteui-prism/package"],
 			"components": ["./src/components"],
 			"@ui": ["./src/theme/ui"]
 		}

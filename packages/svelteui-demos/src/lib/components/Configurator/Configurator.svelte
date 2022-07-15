@@ -74,8 +74,8 @@
 		return acc;
 	}
 
-	function onChange(newData) {
-		data = newData;
+	function onChange(event) {
+		data = event.detail;
 	}
 
 	function generateCode(
@@ -212,7 +212,7 @@
 			</div>
 		</div>
 		<div class="controls">
-			<ControlsRenderer value={data} controls={demoControls} {onChange} />
+			<ControlsRenderer value={data} controls={demoControls} on:change={onChange} />
 			<!--			<button {data}> test </button>-->
 			<!--			<button {data} />-->
 			<!--			<button />-->
@@ -223,7 +223,19 @@
 			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
 				<Prism
 					language="svelte"
-					{code}
+					code={code.trim()}
+					normalizeWhiteSpace
+					size="sm"
+					normalizeWhiteSpaceConfig={{
+						'remove-trailing': true,
+						'remove-indent': true,
+						'left-trim': true,
+						'right-trim': true,
+						'break-lines': 1000,
+						'remove-initial-line-feed': false,
+						'tabs-to-spaces': 8,
+						'spaces-to-tabs': 8
+					}}
 					override={{
 						padding: '$8'
 					}}

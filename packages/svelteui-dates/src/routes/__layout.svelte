@@ -34,7 +34,7 @@
 				</ActionIcon>
 			</Group>
 		</Header>
-		<Container>
+		<Container size="xl">
 			<slot />
 		</Container>
 	</AppShell>

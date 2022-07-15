@@ -29,10 +29,10 @@
 </script>
 
 <script lang="ts">
-	import type { BadgeStyles } from '@svelteuidev/core';
+	import type { BadgeProps } from '@svelteuidev/core';
 	import { Badge, Center } from '@svelteuidev/core';
 
-	export let props: BadgeStyles.BadgeProps = {};
+	export let props: BadgeProps = {};
 </script>
 
 <Center>

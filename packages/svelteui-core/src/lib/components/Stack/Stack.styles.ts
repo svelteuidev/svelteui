@@ -6,7 +6,7 @@ export interface StackProps extends DefaultProps {
 	align?: CSS['alignItems'];
 	justify?: CSS['justifyContent'];
 }
-interface StackStyleParam {
+export interface StackStyleParam {
 	spacing: SvelteUINumberSize;
 	align: CSS['alignItems'];
 	justify: CSS['justifyContent'];

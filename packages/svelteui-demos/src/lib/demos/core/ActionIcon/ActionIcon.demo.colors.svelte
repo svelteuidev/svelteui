@@ -8,12 +8,12 @@
 </script>
 
 <script lang="ts">
-	import type { ActionIconStyles } from '@svelteuidev/core';
+	import type { ActionIconProps } from '@svelteuidev/core';
 	import { ActionIcon, Group } from '@svelteuidev/core';
 	import { Rocket } from 'radix-icons-svelte';
 
-	let variants: ActionIconStyles.ActionIconProps['variant'][] = ['hover', 'outline', 'light', 'filled'];
-    let colors: ActionIconStyles.ActionIconProps['color'][] = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange'];
+	let variants: ActionIconProps['variant'][] = ['hover', 'outline', 'light', 'filled'];
+    let colors: ActionIconProps['color'][] = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange'];
 </script>
 
 <Group position="center">

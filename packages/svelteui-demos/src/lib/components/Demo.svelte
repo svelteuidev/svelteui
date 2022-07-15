@@ -11,7 +11,7 @@
 </script>
 
 {#if isCodeDemo(demo)}
-	<CodeDemo component={demo.default} {...demo.configuration} />
+	<CodeDemo component={demo.default} {...demo.configuration} {...$$restProps} />
 {:else}
-	<Configurator component={demo.default} {...demo.configuration} />
+	<Configurator component={demo.default} {...demo.configuration} {...$$restProps} />
 {/if}

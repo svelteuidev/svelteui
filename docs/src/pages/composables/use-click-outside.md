@@ -10,33 +10,8 @@ source: 'svelteui-composables/src/lib/actions/use-click-outside/use-click-outsid
 ---
 
 <script lang='ts'>
-    import { Button } from '@svelteuidev/core';
-	import { clickoutside } from '@svelteuidev/actions';
-    import { Heading, Preview } from 'components'
-
-	let open = true;
-
-    const code = `
-    <script>
-        import { Button } from '@svelteuidev/core';
-        import { clickoutside } from '@svelteuidev/actions';
-
-        let open = true;
-    <\/script>
-
-    <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
-        <Button on:click={() => open = true}>Open Modal<\/Button>
-        {#if open}
-            <div style="border: 2px solid gray; padding: 2rem;">
-                This is a modal, click anywhere to close
-            <\/div>
-        {:else if !open}
-            <div>
-                There is no modal
-            <\/div>
-        {\/if}
-    <\/div>
-    `
+    import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -45,21 +20,7 @@ source: 'svelteui-composables/src/lib/actions/use-click-outside/use-click-outsid
 
 With the `use-click-outside` action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
 
-<Preview cols={1} {code}>
-
-<div use:clickoutside={{ enabled: open, callback: () => open = false }}>
-<Button on:click={() => open = true}>Open Modal</Button>
-{#if open}
-<div style="border: 2px solid gray; padding: 2rem;">
-This is a modal, click anywhere to close
-</div>
-{:else if !open}
-<div>
-There is no modal
-</div>
-{/if}
-</div>
-</Preview>
+<Demo demo={ComposableDemos.useClickOutsideDemo.usage} />
 
 ## Params
 

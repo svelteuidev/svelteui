@@ -43,6 +43,7 @@ export interface DemoControlNumber extends DemoControlBase<number> {
 	type: 'number';
 	min?: number;
 	max?: number;
+	step?: number;
 }
 
 export interface DemoControlSegmented extends DemoControlBase<string> {
@@ -106,6 +107,8 @@ export interface ConfiguratorDemoType {
 	default: typeof SvelteComponent;
 	type: 'configurator';
 	configuration: ConfiguratorDemoConfiguration;
+	previewMaxWidth?: number;
+	previewBackground?: { light: string; dark: string };
 }
 
 export type DemoType = CodeDemoType | ConfiguratorDemoType;

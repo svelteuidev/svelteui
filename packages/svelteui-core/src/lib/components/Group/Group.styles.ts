@@ -11,7 +11,7 @@ export interface GroupProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	children?: number;
 }
 
-interface GroupStylesParams {
+export interface GroupStylesParams {
 	position: GroupPosition;
 	noWrap: boolean;
 	grow: boolean;

@@ -1,11 +1,10 @@
-import { dark, rgba, createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles';
 import type {
 	DefaultProps,
 	SvelteUIColor,
 	SvelteUIGradient,
 	SvelteUINumberSize,
-	SvelteUISize,
-	VariantThemeFunction
+	SvelteUISize
 } from '$lib/styles';
 
 export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
@@ -15,6 +14,16 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
 	size?: SvelteUISize;
 	radius?: SvelteUINumberSize;
 	fullWidth?: boolean;
+}
+
+export interface BadgeStyleParams {
+	color: SvelteUIColor;
+	size: SvelteUISize;
+	radius: SvelteUINumberSize;
+	gradientFrom: string;
+	gradientTo: string;
+	gradientDeg: number;
+	fullWidth: boolean;
 }
 
 export type BadgeVariant = 'light' | 'filled' | 'outline' | 'dot' | 'gradient';
@@ -50,138 +59,21 @@ export const dotSizes = {
 	xl: 10
 };
 
-export function getVariantStyles(
-	color: SvelteUIColor,
-	variant: BadgeVariant,
-	size: number | string,
-	gradient: SvelteUIGradient
-) {
-	const dotSize = typeof size === 'number' ? `${size}px` : dotSizes[size] || dotSizes.md;
-	const ctx: SvelteUIGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	if (variant === 'dot') {
-		return {
-			dot: {
-				[`${dark.selector} &`]: {
-					color: `$${color}800`,
-					border: '1px solid $dark300',
-					'&::before': {
-						backgroundColor: `$${color}400`
-					}
-				},
-				backgroundColor: 'transparent',
-				color: '$gray700',
-				border: '1px solid $gray300',
-				paddingLeft: typeof size === 'number' ? `${size}px` : `$${size}`,
-
-				'&::before': {
-					content: '""',
-					display: 'block',
-					width: dotSize,
-					height: dotSize,
-					borderRadius: dotSize,
-					backgroundColor: `$${color}600`,
-					marginRight: dotSize
-				}
-			}
-		};
-	}
-
-	if (variant === 'gradient') return getVariant(color, gradient);
-	return getVariant(color, ctx);
-}
-
-/**
- * getVariant function is a copy & paste of the vFunc function
- *
- * It is copied over because hover styles were removed
- *
- * Better implementation should be developed soon
- */
-const getVariant = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {
-	const dtm = {
-		lightBg: dark.colors[`${color}800`].value,
-		lightHv: dark.colors[`${color}700`].value,
-		outlineHv: dark.colors[`${color}400`].value,
-		subtleHv: dark.colors[`${color}800`].value
-	};
-
-	return {
-		/** Filled variant */
-		filled: {
-			[`${dark.selector} &`]: {
-				backgroundColor: `$${color}800`
-			},
-			border: 'transparent',
-			backgroundColor: `$${color}600`,
-			color: 'White'
-		},
-		/** Light variant */
-		light: {
-			[`${dark.selector} &`]: {
-				backgroundColor: rgba(dtm.lightBg, 0.35),
-				color: color === 'dark' ? '$dark50' : `$${color}200`
-			},
-			border: 'transparent',
-			backgroundColor: `$${color}50`,
-			color: color === 'dark' ? '$dark900' : `$${color}600`
-		},
-		/** Outline variant */
-		outline: {
-			[`${dark.selector} &`]: {
-				border: `1px solid $${color}400`,
-				color: `$${color}400`
-			},
-			border: `1px solid $${color}700`,
-			backgroundColor: 'transparent',
-			color: `$${color}700`
-		},
-		/** Subtle variant */
-		subtle: {
-			[`${dark.selector} &`]: {
-				color: color === 'dark' ? '$dark50' : `$${color}200`
-			},
-			border: 'transparent',
-			backgroundColor: 'transparent',
-			color: color === 'dark' ? '$dark900' : `$${color}600`
-		},
-		/** Default variant */
-		default: {
-			[`${dark.selector} &`]: {
-				border: '1px solid $dark500',
-				backgroundColor: '$dark500',
-				color: 'White'
-			},
-			border: '1px solid $gray400',
-			backgroundColor: 'White',
-			color: 'Black'
-		},
-		/** White variant */
-		white: {
-			border: 'transparent',
-			backgroundColor: 'White',
-			color: `$${color}700`
-		},
-		/** Gradient variant */
-		gradient: {
-			border: 'transparent',
-			background: `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`,
-			color: 'White'
-		}
-	};
-};
-
-interface BadgeStyleParams {
-	color?: SvelteUIColor;
-	variant?: BadgeVariant;
-	gradient?: SvelteUIGradient;
-	size?: SvelteUISize;
-	radius?: SvelteUINumberSize;
-	fullWidth?: boolean;
-}
-
 export default createStyles(
-	(theme, { color, fullWidth, gradient, radius, size, variant }: BadgeStyleParams) => {
+	(
+		theme,
+		{ fullWidth, radius, size, color, gradientDeg, gradientFrom, gradientTo }: BadgeStyleParams
+	) => {
+		const dotSize = theme.fn.size({ size, sizes: dotSizes });
+		const lightColors = theme.fn.variant({ color, variant: 'light' });
+		const filledColors = theme.fn.variant({ color, variant: 'filled' });
+		const outlineColors = theme.fn.variant({ color, variant: 'outline' });
+		const gradientColors = theme.fn.variant({
+			variant: 'gradient',
+			gradient: { from: gradientFrom, to: gradientTo, deg: gradientDeg }
+		});
 		const { fontSize, height } = size in sizes ? sizes[size] : sizes.md;
+
 		return {
 			root: {
 				focusRing: 'auto',
@@ -190,36 +82,91 @@ export default createStyles(
 				WebkitTapHighlightColor: 'transparent',
 				lineHeight: `${height - 2}px`,
 				textDecoration: 'none',
-				padding:
-					typeof size === 'number'
-						? `0 $${size}px`
-						: `0 ${theme.fn.size({ size, sizes: theme.space })}px`,
+				padding: `0 ${theme.fn.size({ size, sizes: theme.space }) / 1.5}px`,
 				boxSizing: 'border-box',
 				display: fullWidth ? 'flex' : 'inline-flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				width: fullWidth ? '100%' : 'auto',
 				textTransform: 'uppercase',
-				borderRadius: `$${radius}`,
+				borderRadius: theme.fn.radius(radius),
 				fontWeight: 700,
 				letterSpacing: 0.25,
 				cursor: 'default',
 				textOverflow: 'ellipsis',
-				overflow: 'hidden'
+				overflow: 'hidden',
+
+				// As of now the createStyles function has a limitation that doesn't allow you to have multiple properties per component.
+				// For an example, I can not make a `root` key, and then a `wrapper` key, and expect it to work. So for now they will be done manually.
+				'&.light': {
+					[`${theme.dark} &`]: {
+						backgroundColor: lightColors.background[0],
+						color: lightColors.color[0]
+					},
+					backgroundColor: lightColors.background[1],
+					color: lightColors.color[1],
+					border: '1px solid transparent'
+				},
+
+				'&.filled': {
+					[`${theme.dark} &`]: {
+						backgroundColor: filledColors.background[0]
+					},
+					backgroundColor: filledColors.background[1],
+					color: filledColors.color,
+					border: '1px solid transparent'
+				},
+
+				'&.outline': {
+					[`${theme.dark} &`]: {
+						color: outlineColors.color[0],
+						border: `1px solid ${outlineColors.border[0]}`
+					},
+					backgroundColor: outlineColors.background,
+					color: outlineColors.color[1],
+					border: `1px solid ${outlineColors.border[1]}`
+				},
+
+				'&.gradient': {
+					backgroundImage: gradientColors.background,
+					color: gradientColors.color,
+					border: 0
+				},
+
+				'&.dot': {
+					darkMode: {
+						color: theme.fn.themeColor('dark', 0),
+						border: `1px solid ${theme.fn.themeColor('dark', 3)}`,
+						'&::before': {
+							backgroundColor: theme.fn.themeColor(color, 4)
+						}
+					},
+					backgroundColor: 'transparent',
+					color: theme.fn.themeColor('gray', 7),
+					border: `1px solid ${theme.fn.themeColor('gray', 3)}`,
+					paddingLeft: theme.fn.size({ size, sizes: theme.space }) / 1.5 - dotSize / 2,
+
+					'&::before': {
+						content: '""',
+						display: 'block',
+						width: dotSize,
+						height: dotSize,
+						borderRadius: dotSize,
+						backgroundColor: theme.fn.themeColor(color, 6),
+						marginRight: dotSize
+					}
+				}
 			},
 			leftSection: {
-				marginRight: '$3'
+				marginRight: parseInt(theme.space.xs.value) / 2
 			},
 			rightSection: {
-				marginLeft: '$3'
+				marginLeft: parseInt(theme.space.xs.value) / 2
 			},
 			inner: {
 				whiteSpace: 'nowrap',
 				overflow: 'hidden',
 				textOverflow: 'ellipsis'
-			},
-			variants: {
-				variation: getVariantStyles(color, variant, size, gradient)
 			}
 		};
 	}

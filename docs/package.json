@@ -4,12 +4,6 @@
 	"version": "0.5.6",
 	"dependencies": {
 		"@svelte-docs/server": "^0.1.6",
-		"@svelteuidev/actions": "0.6.3-next.4",
-		"@svelteuidev/composables": "0.6.8-next.2",
-		"@svelteuidev/core": "0.6.8-next.2",
-		"@svelteuidev/dates": "^0.6.8-next.2",
-		"@svelteuidev/motion": "0.6.8-next.2",
-		"@svelteuidev/prism": "0.6.8-next.2",
 		"radix-icons-svelte": "^1.2.1"
 	},
 	"devDependencies": {
@@ -26,7 +20,7 @@
 		"prepare": "deno run --unstable --allow-read --allow-write ./prepare.ts",
 		"dev": "npm run prepare & npm run start:dev & npm run autobuild",
 		"start": "node node_modules/@svelte-docs/server",
-		"start:dev": "PORT=3000 node node_modules/@svelte-docs/server --dev --single",
+		"start:dev": "PORT=3002 node node_modules/@svelte-docs/server --dev --single",
 		"start:pagewatch": "node node_modules/@svelte-docs/core/watcher",
 		"deploy": "npm run prepare & npm run build && deno run -A --unstable ../scripts/docs/build.ts",
 		"deploy:nobuild": "node node_modules/@svelte-docs/publisher"

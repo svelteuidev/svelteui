@@ -320,47 +320,49 @@ export const { css, globalCss, keyframes, getCssText, theme, createTheme, config
 				WebkitUserSelect: value,
 				userSelect: value
 			}),
-			w: (value: Stitches.ScaleValue<'space'>) => ({ width: value }),
+			w: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({ width: value }),
 			h: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				height: value
 			}),
-			minW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			minW: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				minWidth: value
 			}),
-			minH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			minH: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				minWidth: value
 			}),
-			mw: (value: Stitches.ScaleValue<'scale'> | number | string) => ({ maxWidth: value }),
-			maxW: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			mw: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				maxWidth: value
 			}),
-			mh: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			maxW: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
+				maxWidth: value
+			}),
+			mh: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				maxHeight: value
 			}),
-			maxH: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			maxH: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				maxHeight: value
 			}),
 			size: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				width: value,
 				height: value
 			}),
-			minSize: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			minSize: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				minWidth: value,
 				minHeight: value,
 				width: value,
 				height: value
 			}),
-			sizeMin: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			sizeMin: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				minWidth: value,
 				minHeight: value,
 				width: value,
 				height: value
 			}),
-			maxSize: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			maxSize: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				maxWidth: value,
 				maxHeight: value
 			}),
-			sizeMax: (value: Stitches.ScaleValue<'scale'> | number | string) => ({
+			sizeMax: (value: LiteralUnion<Stitches.ScaleValue<'space'>, number | string>) => ({
 				maxWidth: value,
 				maxHeight: value
 			}),

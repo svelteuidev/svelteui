@@ -6,7 +6,7 @@ slug: /core/text-input/
 category: 'inputs'
 description: 'Text input with descriptions'
 import: "import { TextInput } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/TextInput/TextInput.svelte'
+source: 'svelteui-core/src/lib/components/TextInput/TextInput.svelte'
 docs: 'core/text-input.md'
 ---
 
@@ -14,12 +14,6 @@ docs: 'core/text-input.md'
     import { Demo, TextInputDemos } from '@svelteuidev/demos';
     import { Heading } from 'components';
 </script>
-
-<style global>
-    input {
-        margin: 0;
-    }
-</style>
 
 <Heading />
 

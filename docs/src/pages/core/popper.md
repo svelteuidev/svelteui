@@ -6,7 +6,7 @@ slug: /core/popper/
 category: 'misc'
 description: 'Render dropdown related to a reference component or in portal'
 import: "import { Popper } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Popper/Popper.svelte'
+source: 'svelteui-core/src/lib/components/Popper/Popper.svelte'
 docs: 'core/popper.md'
 ---
 

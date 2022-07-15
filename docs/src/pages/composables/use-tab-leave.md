@@ -10,20 +10,8 @@ source: 'svelteui-composables/src/lib/actions/use-tab-leave/use-tab-leave.ts'
 ---
 
 <script lang='ts'>
-	import { tableave } from '@svelteuidev/actions';
-    import { Heading, Preview } from 'components'
-
-    const code = `
-    <script>
-        import { tableave } from '@svelteuidev/actions';
-
-        $: count = 0;
-    <\/script>
-
-    <div use:tableave={() => count++}>Switch the tab to see the counter go up: {count}<\/div>
-    `;
-
-    $: count = 0;
+	import { Demo, ComposableDemos } from '@svelteuidev/demos';
+    import { Heading } from 'components';
 </script>
 
 <Heading />
@@ -32,10 +20,7 @@ source: 'svelteui-composables/src/lib/actions/use-tab-leave/use-tab-leave.ts'
 
 The `use-tab-leave` action calls given function when the current tab is switched.
 
-<Preview cols={1} {code}>
-
-<div use:tableave={() => count++}>Switch the tab to see the counter go up: {count}</div>
-</Preview>
+<Demo demo={ComposableDemos.useTabLeaveDemo.usage} />
 
 ## Params
 

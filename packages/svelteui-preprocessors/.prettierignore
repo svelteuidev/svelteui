@@ -1,0 +1,13 @@
+.gitignore
+package.json
+package-lock.json
+
+.svelte-kit
+**/.svelte-kit
+
+package
+**/package
+
+# temporary
+src/for-demos/**
+./src/for-demos/**

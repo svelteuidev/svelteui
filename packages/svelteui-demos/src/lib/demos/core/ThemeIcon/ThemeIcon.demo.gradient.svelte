@@ -29,11 +29,11 @@
 </script>
 
 <script lang='ts'>
-	import type { ThemeIconStyles } from '@svelteuidev/core';
+	import type { ThemeIconProps } from '@svelteuidev/core';
 	import { Center, ThemeIcon } from '@svelteuidev/core';
     import { Rocket } from 'radix-icons-svelte';
 
-	export let props: ThemeIconStyles.ThemeIconProps = {};
+	export let props: ThemeIconProps = {};
 </script>
 
 <Center>

@@ -8,12 +8,12 @@
 </script>
 
 <script lang="ts">
-	import type { ThemeIconStyles } from '@svelteuidev/core';
+	import type { ThemeIconProps } from '@svelteuidev/core';
 	import { Group, ThemeIcon } from '@svelteuidev/core';
 	import { Rocket } from 'radix-icons-svelte';
 
-	let variants: ThemeIconStyles.ThemeIconProps['variant'][] = ['filled', 'light', 'outline', 'subtle', 'default', 'white'];
-    let colors: ThemeIconStyles.ThemeIconProps['color'][] = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange'];
+	let variants: ThemeIconProps['variant'][] = ['filled', 'light', 'outline', 'subtle', 'default', 'white'];
+    let colors: ThemeIconProps['color'][] = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange'];
 </script>
 
 <Group position="center">

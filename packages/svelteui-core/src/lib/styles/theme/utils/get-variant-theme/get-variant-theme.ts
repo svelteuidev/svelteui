@@ -1,10 +1,10 @@
-import { rgba, dark, fns } from '$lib/styles';
+import { dark, fns } from '$lib/styles';
 import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib/styles';
 
-export const vFunc = (color: SvelteUIColor, gradient: SvelteUIGradient): VariantThemeFunction => {
-	const { themeColor } = fns;
+export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
+	const { themeColor, rgba } = fns;
 
-	return {
+	const variants = {
 		/** Filled variant */
 		filled: {
 			[`${dark.selector} &`]: {
@@ -74,11 +74,17 @@ export const vFunc = (color: SvelteUIColor, gradient: SvelteUIGradient): Variant
 			color: themeColor(color, 7),
 			'&:hover': { backgroundColor: 'White' }
 		},
+		gradient: {}
+	};
+
+	if (gradient) {
 		/** Gradient variant */
-		gradient: {
+		variants.gradient = {
 			border: 'transparent',
 			background: `linear-gradient(${gradient.deg}deg, $${gradient.from}600 0%, $${gradient.to}600 100%)`,
 			color: 'White'
-		}
-	};
+		};
+	}
+
+	return variants;
 };

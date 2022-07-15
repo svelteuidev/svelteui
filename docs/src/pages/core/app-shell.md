@@ -6,7 +6,7 @@ slug: /core/app-shell/
 category: 'layout'
 description: 'Responsive shell for your application with header, navbar, sidebar, and footer'
 import: "import { AppShell, Navbar, Header, Aside, Footer, ShellSection } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/AppShell/AppShell.svelte'
+source: 'svelteui-core/src/lib/components/AppShell/AppShell.svelte'
 docs: 'core/app-shell.md'
 ---
 

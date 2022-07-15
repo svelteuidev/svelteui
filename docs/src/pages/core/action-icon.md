@@ -6,7 +6,7 @@ slug: /core/action-icon/
 category: 'inputs'
 description: 'Icon button to indicate secondary action'
 import: "import { ActionIcon } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/ActionIcon/ActionIcon.svelte'
+source: 'svelteui-core/src/lib/components/ActionIcon/ActionIcon.svelte'
 docs: 'core/action-icon.md'
 ---
 
@@ -27,12 +27,12 @@ ActionIcon accepts any Svelte node or HTML element as a child. It does not contr
 
 ```svelte
 <script>
-  import { ActionIcon } from '@svelteuidev/core';
-  import { Rocket } from 'radix-icons-svelte';
+	import { ActionIcon } from '@svelteuidev/core';
+	import { Rocket } from 'radix-icons-svelte';
 </script>
 
 <ActionIcon>
-    <Rocket size={16} />
+	<Rocket size={16} />
 </ActionIcon>
 ```
 
@@ -47,8 +47,8 @@ ActionIcon has 6 variants: `hover`, `default`, `transparent`, `filled`, `light` 
 ActionIcon supports all colors from [theme.colors](theming/default-theme):
 
 ```svelte
-<ActionIcon color='red' />
-<ActionIcon color='blue' />
+<ActionIcon color="red" />
+<ActionIcon color="blue" />
 ```
 
 <Demo demo={ActionIconDemos.colors} />

@@ -6,7 +6,7 @@ slug: /core/tooltip/
 category: 'overlay'
 description: 'Renders tooltip at given element on mouse over or any other event'
 import: "import { Tooltip } from '@svelteuidev/core';"
-source: 'svelte-core/src/lib/components/Tooltip/Tooltip.svelte'
+source: 'svelteui-core/src/lib/components/Tooltip/Tooltip.svelte'
 docs: 'core/tooltip.md'
 ---
 
@@ -25,9 +25,9 @@ docs: 'core/tooltip.md'
 
 The Tooltip position relative to target element is defined by:
 
-* `position` – tooltip side – `top`, `bottom`, `right` or `left`, defaults to top
-* `placement` – tooltip placement relative to the position – `start`, `center` or `end`, defaults to center
-* `gutter` – space between tooltip and target element in px, defaults to 5px
+- `position` – tooltip side – `top`, `bottom`, `right` or `left`, defaults to top
+- `placement` – tooltip placement relative to the position – `start`, `center` or `end`, defaults to center
+- `gutter` – space between tooltip and target element in px, defaults to 5px
 
 ```svelte
 <Tooltip position="bottom" placement="end" gutter={10} />
@@ -41,9 +41,9 @@ All available positions and placements:
 
 Tooltip arrow is controlled by:
 
-* `withArrow` – set to true if arrow should be rendered
-* `arrowSize` – arrow size in px, defaults to 4px
-* `position` and `placement` – define arrow position (see previous example)
+- `withArrow` – set to true if arrow should be rendered
+- `arrowSize` – arrow size in px, defaults to 4px
+- `position` and `placement` – define arrow position (see previous example)
 
 <Demo demo={TooltipDemos.arrow} />
 
@@ -57,8 +57,8 @@ By default, tooltip is displayed when mouse is over the target element. To chang
 
 By default, tooltip `white-space` property is set to `nowrap`. To change that use:
 
-* `wrapLines` – to enable line breaks
-* `width` – to define tooltip width in px
+- `wrapLines` – to enable line breaks
+- `width` – to define tooltip width in px
 
 Note that multiline tooltips may require different transitions for better UX.
 
@@ -86,8 +86,6 @@ Provide `tooltipId` and `aria-describedby` props to make tooltip accessible:
 
 ```svelte
 <Tooltip {opened} label="Hidden knowledge" tooltipId="tooltip-id">
-    <Button aria-describedby="tooltip-id">
-        I have tooltip
-    </Button>
+	<Button aria-describedby="tooltip-id">I have tooltip</Button>
 </Tooltip>
 ```

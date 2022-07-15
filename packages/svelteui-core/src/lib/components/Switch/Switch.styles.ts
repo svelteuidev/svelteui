@@ -16,7 +16,7 @@ export interface SwitchProps extends DefaultProps<HTMLInputElement> {
 	checked?: boolean;
 }
 
-interface SwitchStyleParams {
+export interface SwitchStyleParams {
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize;
 	size: SvelteUINumberSize;

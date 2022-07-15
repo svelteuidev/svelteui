@@ -2,41 +2,35 @@
 	import useStyles from './Text.styles';
 	import { TextErrors } from './Text.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
+	import { Box } from '../Box';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { TextProps as $$TextProps } from './Text.styles';
 
-	export let use: $$TextProps['use'] = [],
-		element: $$TextProps['element'] = undefined,
-		className: $$TextProps['className'] = '',
-		override: $$TextProps['override'] = {},
-		align: $$TextProps['align'] = 'left',
-		color: $$TextProps['color'] = 'dark',
-		root: $$TextProps['root'] = undefined,
-		transform: $$TextProps['transform'] = 'none',
-		variant: $$TextProps['variant'] = 'text',
-		size: $$TextProps['size'] = 'md',
-		weight: $$TextProps['weight'] = 'normal',
-		gradient: $$TextProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		inline: $$TextProps['inline'] = true,
-		lineClamp: $$TextProps['lineClamp'] = undefined,
-		underline: $$TextProps['underline'] = false,
-		inherit: $$TextProps['inherit'] = false,
-		href: $$TextProps['href'] = '',
-		tracking: $$TextProps['tracking'] = 'normal';
+	interface $$Props extends $$TextProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		align: $$Props['align'] = 'left',
+		color: $$Props['color'] = 'dark',
+		root: $$Props['root'] = undefined,
+		transform: $$Props['transform'] = 'none',
+		variant: $$Props['variant'] = 'text',
+		size: $$Props['size'] = 'md',
+		weight: $$Props['weight'] = 'normal',
+		gradient: $$Props['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
+		inline: $$Props['inline'] = true,
+		lineClamp: $$Props['lineClamp'] = undefined,
+		underline: $$Props['underline'] = false,
+		inherit: $$Props['inherit'] = false,
+		href: $$Props['href'] = '',
+		tracking: $$Props['tracking'] = 'normal';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	/** workaround for root type errors, this should be replaced by a better type system */
-	const castRoot = () => root as string;
-
-	let isHTMLElement: boolean;
-	let isComponent: boolean;
-	$: {
-		isHTMLElement = root && typeof root === 'string';
-		isComponent = root && typeof root === 'function';
-	}
 
 	// --------------Error Handling-------------------
 	let observable: boolean = false;
@@ -46,7 +40,8 @@
 		observable = true;
 		err = TextErrors[0];
 	}
-	// --------------Error Handling-------------------
+	// --------------End Error Handling-------------------
+
 	$: ({ cx, getStyles } = useStyles({
 		lineClamp,
 		underline,
@@ -80,37 +75,13 @@ Display text and links with theme styles.
     ```
 -->
 
-{#if isHTMLElement}
-	<!-- prettier-ignore -->
-	<svelte:element
-		bind:this={element}
-		this={castRoot()} 
-		use:forwardEvents
-		use:useActions={use}
-		{href} 
-		class={cx(className, getStyles({ css: override }))}
-		{...$$restProps}
-	>
-		<slot>Enter some text</slot>
-	</svelte:element>
-{:else if isComponent}
-	<svelte:component
-		this={root}
-		bind:this={element}
-		use={[forwardEvents, [useActions, use]]}
-		class={cx(className, getStyles({ css: override }))}
-		{...$$restProps}
-	>
-		<slot>Enter some text</slot>
-	</svelte:component>
-{:else}
-	<div
-		bind:this={element}
-		use:forwardEvents
-		use:useActions={use}
-		class={cx(className, getStyles({ css: override }))}
-		{...$$restProps}
-	>
-		<slot>Enter some text</slot>
-	</div>
-{/if}
+<Box
+	{root}
+	bind:element
+	use={[forwardEvents, [useActions, use]]}
+	class={cx(className, getStyles({ css: override }))}
+	href={href ?? undefined}
+	{...$$restProps}
+>
+	<slot />
+</Box>

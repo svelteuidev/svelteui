@@ -1,4 +1,5 @@
-<script lang="ts">
+<script lang="ts" data-manual>
+	// option 'data-manual' needed to use Prism with no automatic highlight on import
 	import Prism from 'prismjs';
 	import { onMount } from 'svelte';
 	import { config } from './Prism.config.js';
@@ -26,6 +27,17 @@
 	export { className as class };
 
 	onMount(() => {
+		/**
+		 * forces manual usage of Prism
+		 *
+		 * this is because prism trys to highlight code automatically
+		 *
+		 * that behavior interferes with the DOM manipulation of Svelte and we don't want that
+		 */
+		window.Prism = window.Prism || {};
+		window.Prism.manual = true;
+		document.removeEventListener('DOMContentLoaded', Prism.highlightAll);
+
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
 		}
@@ -53,7 +65,7 @@
 
 		pre: {
 			margin: 0,
-			overflow: 'scroll'
+			overflow: 'auto'
 		},
 		'pre[data-line]': {
 			paddingTop: 0,
@@ -266,6 +278,8 @@
 		</ActionIcon>
 	{/if}
 	<pre class={prismClasses} data-line={highlightLines}>
-		{@html prettyCode}
+		<code>
+			{@html prettyCode}
+		</code>
 	</pre>
 </div>

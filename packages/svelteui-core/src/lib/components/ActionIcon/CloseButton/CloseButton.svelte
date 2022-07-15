@@ -5,25 +5,27 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { CloseButtonProps as $$CloseButtonProps } from '../ActionIcon.styles';
 
-	export let use: $$CloseButtonProps['use'] = [],
-		element: $$CloseButtonProps['element'] = undefined,
-		className: $$CloseButtonProps['className'] = '',
-		override: $$CloseButtonProps['override'] = {},
-		iconSize: $$CloseButtonProps['iconSize'] = 'md',
-		root: $$CloseButtonProps['root'] = 'button',
-		color: $$CloseButtonProps['color'] = 'gray',
-		variant: $$CloseButtonProps['variant'] = 'hover',
-		size: $$CloseButtonProps['size'] = 'md',
-		radius: $$CloseButtonProps['radius'] = 'sm',
-		loaderProps: $$CloseButtonProps['loaderProps'] = {
+	interface $$Props extends $$CloseButtonProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		iconSize: $$Props['iconSize'] = 'md',
+		root: $$Props['root'] = 'button',
+		color: $$Props['color'] = 'gray',
+		variant: $$Props['variant'] = 'hover',
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'sm',
+		loaderProps: $$Props['loaderProps'] = {
 			size: 'xs',
 			color: 'gray',
 			variant: 'circle'
 		},
-		loading: $$CloseButtonProps['loading'] = false,
-		disabled: $$CloseButtonProps['disabled'] = false,
-		href: $$CloseButtonProps['href'] = '',
-		external: $$CloseButtonProps['external'] = false;
+		loading: $$Props['loading'] = false,
+		disabled: $$Props['disabled'] = false,
+		href: $$Props['href'] = '',
+		external: $$Props['external'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
