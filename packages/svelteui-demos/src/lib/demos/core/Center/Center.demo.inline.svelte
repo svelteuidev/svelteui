@@ -9,7 +9,7 @@
     <Anchor href="https://svelteui.org" target="_blank">
       <Center inline>
         <ArrowLeft size={14} />
-        <Box css={{ ml: 5 }}>Back to Mantine website</Box>
+        <Box css={{ ml: 5 }}>Back to SvelteUI website</Box>
       </Center>
     </Anchor>
 	`;

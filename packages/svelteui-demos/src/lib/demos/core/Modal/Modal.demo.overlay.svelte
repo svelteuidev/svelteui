@@ -4,7 +4,7 @@
 <script>
     import { Modal, useSvelteUITheme } from '@svelteuidev/core';
     
-    const theme = useMantineTheme();
+    const theme = useSvelteUITheme();
 <\/script>
     
 <Modal
