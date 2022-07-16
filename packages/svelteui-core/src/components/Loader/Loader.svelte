@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Circle from '$lib/components/Loader/loaders/Circle.svelte';
-	import Bars from 'src/components/Loader/loaders/Bars.svelte';
-	import Dots from 'src/components/Loader/loaders/Dots.svelte';
+	import Bars from '$lib/components/Loader/loaders/Bars.svelte';
+	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
