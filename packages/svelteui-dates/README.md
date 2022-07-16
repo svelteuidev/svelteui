@@ -1,33 +1,20 @@
-# SvelteUI Dates
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-## **Dates library with calendars, date, and time pickers.**
+# Installation
 
-- Capture date inputs from user and display calendars.
+This is a template repo, so just click the button that says use this template
 
-## Documentation
+# Project Configuration
 
-[See full documentation on the SvelteUI website](https://svelteui.org/)
+> Guides will be written later on integrating other tools (tailwind, postcss, etc.)
 
-## Installation
+# Contributing
 
-```bash
-# With yarn
-yarn add @svelteuidev/dates
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-# With npm
-npm install @svelteuidev/dates
-```
+# License
 
-## Usage
-
-```tsx
-<script>
-    import { Calendar } from '@svelteuidev/dates';
-</script>
-
-<Calendar {value} on:change={doSomething} />;
-```
-
-## License
-
-All SvelteUI packages have MIT license. All SvelteUI dependencies also have MIT license.
+[MIT](https://choosealicense.com/licenses/mit/)

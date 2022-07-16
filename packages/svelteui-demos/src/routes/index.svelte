@@ -1,9 +1,2 @@
-<script lang="ts">
-	import { Demo, ButtonDemos } from '$lib/index';
-</script>
-
-<h1 style="margin-bottom: 20px">Configurator</h1>
-<Demo demo={ButtonDemos.configurator} />
-
-<h1 style="margin-bottom: 20px">CodeDemo</h1>
-<Demo demo={ButtonDemos.variants} />
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>

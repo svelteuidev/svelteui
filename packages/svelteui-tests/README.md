@@ -1,20 +1,23 @@
-# SvelteUI Tests
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-This package is a helper package that is used to test SvelteUI components. It is not published.
+# Installation
 
-## itSupportsClassName
+This is a template repo, so just click the button that says use this template
 
-Checks if component sets given className on root element. itSupportsClassName accepts 2 arguments: component and required component props.
+# Project Configuration
 
 ```tsx
 import { itSupportsClassName } from '@svelteuidev/tests';
 import { Button } from '@svelteuidev/core';
 
-describe('Button', () => {
-	itSupportsClassName(Button);
-});
+# Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+# License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 ```
-
-## License
-
-All svelteui packages have MIT license. All svelteui dependencies also have MIT license.
