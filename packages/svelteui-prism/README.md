@@ -1,41 +1,20 @@
-# SvelteUI Prism
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-## **code highlight component built with prism action**
+# Installation
 
-- Package includes the Prism component that is used to give Code highlighting.
-- This package depends on the `@svelteuidev/actions` & `@svelteuidev/core` packages, so they will come together!
+This is a template repo, so just click the button that says use this template
 
-## Documentation
+# Project Configuration
 
-[See full documentation on the SvelteUI website](https://svelteui.org/)
+> Guides will be written later on integrating other tools (tailwind, postcss, etc.)
 
-## Installation
+# Contributing
 
-```bash
-# With yarn
-yarn add @svelteuidev/prism @svelteuidev/actions @svelteuidev/core
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-# With npm
-npm install @svelteuidev/prism @svelteuidev/actions @svelteuidev/core
-```
+# License
 
-## Usage
-
-```tsx
-<script>
-    import { Prism } from '@svelteuidev/prism';
-
-    const code = `
-    const obj = {
-        name: "Josh",
-        age: "age"
-    }
-    `
-</script>
-
-<Prism lineNumbers {code} />
-```
-
-## License
-
-All SvelteUI packages have MIT license.
+[MIT](https://choosealicense.com/licenses/mit/)

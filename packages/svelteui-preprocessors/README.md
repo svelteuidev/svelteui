@@ -1,54 +1,20 @@
-# SvelteUI Preprocessors
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-## **Svelte preprocessor library to assist in many areas of development**
+# Installation
 
-## Documentation
+This is a template repo, so just click the button that says use this template
 
-[See full documentation on the SvelteUI website](https://svelteui.org/)
+# Project Configuration
 
-## Installation
+> Guides will be written later on integrating other tools (tailwind, postcss, etc.)
 
-```bash
-# With yarn
-yarn add @svelteuidev/preprocessors
+# Contributing
 
-# With npm
-npm install @svelteuidev/preprocessors
-```
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Set Up
+# License
 
-```ts
-// svelte.config.js
-
-import { viewSource } from '@svelteuidev/preprocessors';
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	preprocess: [preprocess(), viewSource()]
-
-	// ...the rest of the config
-};
-```
-
-## Usage
-
-```tsx
-<script lang="ts">
-	import { SourceCode, DisplaySourceCode } from 'svelte-view-source';
-</script>
-
-<SourceCode sourceId="hello-world">
-	<h1>Hello, world!</h1>
-</SourceCode>
-
-<DisplaySourceCode sourceId="hello-world" />
-
-<DisplaySourceCode sourceId="hello-world" let:source>
-	<div>{source}</div>
-</DisplaySourceCode>
-```
-
-## License
-
-All SvelteUI packages have MIT license. All SvelteUI dependencies also have MIT license.
+[MIT](https://choosealicense.com/licenses/mit/)
