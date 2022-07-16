@@ -9,6 +9,9 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess(),
 	kit: {
+		files: {
+			lib: 'src'
+		},
 		package: {
 			exports: (filepath) => {
 				if (filepath.endsWith('.d.ts')) return false;

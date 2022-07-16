@@ -1,19 +1,19 @@
 <script lang="ts">
 	import Circle from '$lib/components/Loader/loaders/Circle.svelte';
-	import Bars from '$lib/components/Loader/loaders/Bars.svelte';
-	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
+	import Bars from 'src/components/Loader/loaders/Bars.svelte';
+	import Dots from 'src/components/Loader/loaders/Dots.svelte';
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
 
-    export let use: $$LoaderProps['use'] = [],
+	export let use: $$LoaderProps['use'] = [],
 		element: $$LoaderProps['element'] = undefined,
 		className: $$LoaderProps['className'] = '',
-		size: $$LoaderProps['size']  = 'md',
+		size: $$LoaderProps['size'] = 'md',
 		color: $$LoaderProps['color'] = 'blue',
 		variant: $$LoaderProps['variant'] = 'circle';
-    export { className as class };
+	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -44,6 +44,6 @@ The Loader component creates a loading icon. There are three different Loaders w
 	use={[forwardEvents, [useActions, use]]}
 	color={color === 'white' ? 'white' : getCorrectShade(color)}
 	size={LOADER_SIZES[size]}
-    class={className}
+	class={className}
 	{...$$restProps}
 />
