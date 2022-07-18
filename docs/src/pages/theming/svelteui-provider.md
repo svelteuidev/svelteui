@@ -44,7 +44,7 @@ For SvelteUI to work properly, you need to set up the SvelteUIProvider at the to
 </script>
 
 <SvelteUIProvider>
-	<YourApp />
+	<slot />
 </SvelteUIProvider>
 ```
 
