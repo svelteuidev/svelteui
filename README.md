@@ -96,3 +96,29 @@ Everything in the project is distributed under the MIT License
 - Discord - [SvelteUI Discord](https://discord.gg/2J2xmzCS79)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Roadmap & to do's
+
+Here is where you can find the Roadmap for SvelteUI up to version 1.0.
+
+### Misc:
+
+- [ ] placeholder
+
+### Version 0.8.0
+
+- [ ] placeholder
+
+### Version 0.9.0
+
+- [ ] placeholder
+
+### Version 1.0.0
+
+- [ ] placeholder
+
+### Future
+
+- [ ] placeholder
+
+<p align="right">(<a href="#top">back to top</a>)</p>
