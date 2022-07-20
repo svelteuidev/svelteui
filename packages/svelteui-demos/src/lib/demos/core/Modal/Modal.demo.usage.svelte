@@ -7,7 +7,7 @@
 	let opened = false;
 <\/script>
 
-<Modal {opened} onClose={closeModal} title="Introduce yourself!">
+<Modal {opened} on:close={closeModal} title="Introduce yourself!">
 	<!-- Modal Content -->
 </Modal>
 
