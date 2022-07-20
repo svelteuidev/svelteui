@@ -54,7 +54,7 @@
 			</Text>
 		</Anchor>
 	{/each}
-	<Anchor
+	<!-- <Anchor
 		root="a"
 		href="https://svelteuidev.github.io/svelteui-collections/"
 		override={collectionsStyles}
@@ -70,5 +70,5 @@
 			SvelteUI Collections is a set of pre-made responsive components, made with SvelteUI designed
 			and built by SvelteUI maintainers and the community.
 		</Text>
-	</Anchor>
+	</Anchor> -->
 </SimpleGrid>

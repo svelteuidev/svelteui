@@ -5,6 +5,7 @@
 </script>
 
 <svg
+	style={`min-width:${size};min-height:${size};`}
 	class="icon {!expanded ? 'iconCollapsed' : ''}"
 	width={size}
 	height={size}
