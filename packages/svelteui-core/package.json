@@ -71,7 +71,7 @@
 		"@storybook/addon-interactions": "^6.5.9",
 		"@storybook/addon-svelte-csf": "^2.0.5",
 		"@storybook/addon-links": "^6.5.9",
-		"@storybook/builder-vite": "^0.1.39",
+		"@storybook/builder-vite": "^0.2.0",
 		"@storybook/svelte": "^6.5.9",
 		"@storybook/testing-library": "^0.0.13",
 		"@sveltejs/adapter-auto": "next",

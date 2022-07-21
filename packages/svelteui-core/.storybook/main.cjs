@@ -8,32 +8,15 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-svelte-csf'
+		'@storybook/addon-svelte-csf',
+		// 'storybook-dark-mode'
 	],
 	framework: '@storybook/svelte',
 	core: {
 		builder: '@storybook/builder-vite'
 	},
-	// svelteOptions: {
-	// 	preprocess: require('../svelte.config.js').preprocess
-	// },
 	svelteOptions: {
-		preprocess: preprocess({
-			babel: {
-				presets: [
-					[
-						'@babel/preset-env',
-						{
-							loose: true,
-							modules: false,
-							targets: {
-								esmodules: true
-							}
-						}
-					]
-				]
-			}
-		})
+		preprocess: preprocess()
 	},
 	features: {
 		// On-demand store does not work for .svelte stories, only CSF.
@@ -41,7 +24,7 @@ module.exports = {
 		// REFERENCE https://storybook.js.org/docs/svelte/configure/overview#feature-flags
 		storyStoreV7: false
 	},
-	async viteFinal(config, { configType }) {
+	async viteFinal(config) {
 		const { config: userConfig } = await loadConfigFromFile(
 			path.resolve(__dirname, '../vite.config.js')
 		);
