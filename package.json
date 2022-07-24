@@ -53,7 +53,9 @@
 		"repo:update": "sh scripts/git/update-branches.sh",
 		"sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
 		"test": "turbo run test --parallel",
-		"update:lockfile": "turbo run update:lockfile --parallel && rimraf packages/*/node_modules"
+		"update:lockfile": "turbo run update:lockfile --parallel && rimraf packages/*/node_modules",
+		"in:core": "yarn workspace @svelteuidev/core",
+		"core:dev": "yarn in:core dev"
 	},
 	"lint-staged": {
 		"*.--parallel": "prettier --write"
