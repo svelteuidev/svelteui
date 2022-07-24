@@ -1,13 +1,22 @@
-<script>
-    console.log("here");
-    // import { SvelteUIProvider } from '@svelteuidev/core';
+<script lang='ts'>
+  import { onMount } from 'svelte';
+  import { SvelteUIProvider } from '@svelteuidev/core';
+  import addons from '@storybook/addons';
+  import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 
+  let channel;
+  let theme = 'light';
+
+  onMount(() => {
+    channel = addons.getChannel();
+    channel.on(DARK_MODE_EVENT_NAME, setTheme);
+  })
+
+  function setTheme(isDark) {
+    theme = isDark ? 'dark' : 'light'
+  }
 </script>
 
-<div style="height: 1000px; width: 1000px; background-color: red;">
-    HASDASD
-</div>
-
-<!-- <SvelteUIProvider themeObserver={'dark'}>
+<SvelteUIProvider themeObserver={theme} withNormalizeCSS withGlobalStyles>
     <slot />
-</SvelteUIProvider> -->
+</SvelteUIProvider>

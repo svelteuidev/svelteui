@@ -9,7 +9,7 @@ module.exports = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
 		'@storybook/addon-svelte-csf',
-		// 'storybook-dark-mode'
+		'storybook-dark-mode'
 	],
 	framework: '@storybook/svelte',
 	core: {
