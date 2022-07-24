@@ -99,7 +99,7 @@ You won't need to pay attention to every file within the project. All of the pac
 ## NPM scripts
 
 All packages npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
-individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be ran from the root of the monorepo.
+individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be running from the root of the monorepo.
 
 - `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder

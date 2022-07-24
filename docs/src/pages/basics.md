@@ -84,7 +84,7 @@ This library will forward all events to the underlying elements, so you can add 
     on:click={() => clicked = true}
 >
     {clicked ? "Don't click me anymore" : 'Click me'}
-<Button>
+</Button>
 ```
 
 Event modifiers can also be used. However, instead of using the standard `|` (pipe operator), they must be separated by a `!` due to those limitations mentioned previously.
