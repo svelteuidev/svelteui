@@ -34,7 +34,7 @@
 		"docs:build": "cd docs && npm run build",
 		"docs:deploy": "npm run docs:build && deno run -A --unstable ./scripts/docs/build.ts && cd docs && npm run deploy:nobuild",
 		"docs:prepush": "cd docs && npx sort-package-json && yarn format && yarn lint",
-		"docs:typecheck": "cd docs && npm run check",
+		"docs:dev": "cd docs && npm run dev",
 		"fix:bugs": "npm run clean:all && npm i && npm run dev",
 		"format": "turbo run format --parallel",
 		"generate-types": "turbo run generate-types --parallel --force",

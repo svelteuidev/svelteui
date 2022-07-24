@@ -1,30 +1,20 @@
 <script lang="ts">
 	import { ActionIcon, Tooltip, Menu, Divider, colorScheme } from '@svelteuidev/core';
-	import { GithubLogo, Sun, Moon } from 'radix-icons-svelte';
+	import { Sun, Moon } from 'radix-icons-svelte';
 	import { mobile } from 'components';
-	import Discord from '../components/svgs/Discord.svelte';
-
-	const discordLogo = {
-		bc: '#6875f5',
-		'&:hover': {
-			bc: '#5850ec'
-		}
-	};
+	import { config } from './data';
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
 	}
 
-	export const links = [
-		{ title: 'Discord', href: 'https://discord.gg/2J2xmzCS79' },
-		{ title: 'GitHub', href: 'https://github.com/svelteuidev/svelteui' }
-	];
+	// @ts-nocheck
 </script>
 
 {#if $mobile}
 	<Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
 		<Menu.Label>Navigation</Menu.Label>
-		{#each links as { title, href }}
+		{#each config.links as { title, href }}
 			<Menu.Item root="a" {href}>
 				{title}
 			</Menu.Item>
@@ -48,27 +38,22 @@
 		}`}
 	>
 		<ul>
-			<li>
-				<Tooltip withArrow label="Discord">
-					<ActionIcon override={discordLogo} size="xl" color="blue" variant="filled">
-						<Discord size={25} />
-					</ActionIcon>
-				</Tooltip>
-			</li>
-			<li>
-				<Tooltip withArrow label="GitHub">
-					<ActionIcon size="xl" color="dark" variant="outline">
-						<GithubLogo size={25} />
-					</ActionIcon>
-				</Tooltip>
-			</li>
+			{#each config.buttons as { title, props, icon }}
+				<li>
+					<Tooltip withArrow label={title}>
+						<ActionIcon root="a" {...props} radius="md" size="lg">
+							<svelte:component this={icon} size={20} />
+						</ActionIcon>
+					</Tooltip>
+				</li>
+			{/each}
 			<li>
 				<Tooltip withArrow label="Experimental Theme Toggle">
-					<ActionIcon size="xl" color="dark" variant="outline" on:click={toggleTheme}>
+					<ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
 						{#if $colorScheme === 'light'}
-							<Moon size={25} />
+							<Moon size={20} />
 						{:else}
-							<Sun size={25} />
+							<Sun size={20} />
 						{/if}
 					</ActionIcon>
 				</Tooltip>

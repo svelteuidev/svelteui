@@ -96,3 +96,150 @@ Everything in the project is distributed under the MIT License
 - Discord - [SvelteUI Discord](https://discord.gg/2J2xmzCS79)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Roadmap & TO-DO's
+
+**Here is where you can find the Roadmap for SvelteUI up to version 1.0**
+
+We would love to hear from you in issues, discussions, and discord to improve the roadmap. As we proceed along our roadmap, we continue to learn. As a result, some of the listed topics may no longer be relevant to us, therefore as the project develops, we might add or remove topics. We will pay close attention to your suggestions and if necessary, modify our plans.
+
+We use certain "Marks" to give you quick indications of the current state of any item in the roadmap. The colorful icons can be displayed by typing `:COLOR_circle:`
+
+Annotation legend:
+
+| Mark            | Description                                        |
+| --------------- | -------------------------------------------------- |
+| !               | low level of priority                              |
+| !!              | medium level of priority                           |
+| !!!             | high level of priority                             |
+| :red_circle:    | no work has been started                           |
+| :yellow_circle: | actively being worked on or going to start working |
+| :green_circle:  | work has been completed                            |
+
+There are different categories on the roadmap. Items for versions `0.8–1.0` and potential future plans are included in each category. To make things quick and simple to view, the items are listed in a table.
+
+> Roadmap is currently a WIP
+
+### REPO/MISC:
+
+**Version 0.8.0:**
+
+| Status         | Priority | Description                                               |
+| -------------- | -------- | --------------------------------------------------------- |
+| :red_circle:   | !        | Move Stitches to peer-deps (svelteui-core)                |
+| :green_circle: | !!       | Upgrade to latest SvelteKit version (leverage Vite 3.0.0) |
+| :red_circle:   | !!       | Migrate package manager from `npm` to `yarn`              |
+| :red_circle:   | !!       | Migrate dev environment to Storybook for all packages     |
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### DOCS:
+
+**Version 0.8.0:**
+
+- [ ]
+
+| Status          | Priority | Description            |
+| --------------- | -------- | ---------------------- |
+| :yellow_circle: | !!!      | Migration to SvelteKit |
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### SVELTEUI-CORE:
+
+> Component creation, deletion, and modification should always be discussed with a maintainer before taking any action (Discord, Issues, and Discussions)!
+
+**Version 0.8.0:**
+
+| Status       | Priority | Description                         |
+| ------------ | -------- | ----------------------------------- |
+| :red_circle: | !        | Create `Section` component          |
+| :red_circle: | !        | Create `ScrollArea` component       |
+| :red_circle: | !        | Create `Accordion` component        |
+| :red_circle: | !        | Create `ARIA` component             |
+| :red_circle: | !        | Create `Slider` component           |
+| :red_circle: | !        | Create `SegmentedControl` component |
+| :red_circle: | !        | Create `Chip` component             |
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### SVELTEUI-COMPOSABLES:
+
+> Composable creation and deletion should always be discussed with a maintainer before taking any action (Discord, Issues, and Discussions)!
+
+**Version 0.8.0:**
+
+| Status       | Priority | Description |
+| ------------ | -------- | ----------- |
+| :red_circle: | !        | Placeholder |
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### SVELTEUI-DATES:
+
+**Version 0.8.0:**
+
+| Status          | Priority | Description                 |
+| --------------- | -------- | --------------------------- |
+| :red_circle:    | !!       | Create TimePicker component |
+| :yellow_circle: | !!!      | Complete Calendar component |
+
+- [ ]
+- [ ]
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### SVELTEUI-PREPROCESSORS:
+
+**Version 0.8.0:**
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+- [ ] think of new preprocessors to create
+
+### SVELTEUI-PRISM:
+
+**Version 0.8.0:**
+
+| Status       | Priority | Description                     |
+| ------------ | -------- | ------------------------------- |
+| :red_circle: | !        | Add more tokens to style object |
+| :red_circle: | !!!      | Adapt new styling practices     |
+
+**Version 0.9.0:**
+
+**Version 1.0.0:**
+
+**Future:**
+
+### SVELTEUI-NOTIFICATIONS:
+
+**Version 0.8.0:**
+
+- [ ] create new notifications package
+
+<p align="right">(<a href="#top">back to top</a>)</p>

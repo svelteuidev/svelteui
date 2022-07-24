@@ -29,7 +29,7 @@
 - <MainLink color='red' href='installation'><Download slot='icon' size={20} />Installation</MainLink>
 - <MainLink color='green' href='basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
 - <MainLink color='dark' href='contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
-- <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink>
+<!-- - <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink> -->
 - <MainLink color='indigo' href='faq'><QuestionMarkCircled slot='icon' size={20} />FAQ</MainLink>
 
 <hr />
@@ -52,7 +52,7 @@
   - [Server side rendering](theming/ssr)
   - [Utilities](theming/utilities)
     {/if}
-- ### <NavigationTitle expanded={sidebar[2].expand} on:click={() => toggleSidebar(2)}>svelteui core</NavigationTitle>
+- ### <NavigationTitle expanded={sidebar[2].expand} on:click={() => toggleSidebar(2)}>svelteui core (components)</NavigationTitle>
   {#if sidebar[2].expand}
 - **<Layout /><Space w="md" />Layout**
   - [AppShell](core/app-shell)
@@ -115,7 +115,7 @@
   - [ServerRender](core/server-render)
   - [Fragment](core/fragment)
     {/if}
-- ### <NavigationTitle expanded={sidebar[3].expand} on:click={() => toggleSidebar(3)}>svelteui composables</NavigationTitle>
+- ### <NavigationTitle expanded={sidebar[3].expand} on:click={() => toggleSidebar(3)}>svelteui composables (svelte actions)</NavigationTitle>
   {#if sidebar[3].expand}
 - **<LightningBolt/><Space w="md" />Actions**
   - [use-click-outside](composables/use-click-outside)
