@@ -22,5 +22,17 @@ export const PACKAGE_DATA = [
 		package: '@svelteuidev/prism',
 		description: 'Code highlighting component with theme styles',
 		dependencies: ['@svelteuidev/core', '@svelteuidev/composables', '@svelteuidev/prism']
+	},
+	{
+		id: 5,
+		package: '@svelteuidev/dates',
+		description: 'Calendars, date and time pickers based on SvelteUI components',
+		dependencies: ['dayjs', '@svelteuidev/core', '@svelteuidev/composables', '@svelteuidev/dates']
+	},
+	{
+		id: 6,
+		package: '@svelteuidev/preprocessors',
+		description: 'Svelte preprocessor library to assist in many areas of development',
+		dependencies: ['@svelteuidev/preprocessors']
 	}
 ];

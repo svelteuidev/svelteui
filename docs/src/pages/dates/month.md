@@ -24,7 +24,7 @@ Month is the most basic @svelteuidev/dates component, it displays a single month
 
 ## Localization
 
-All @mantine/dates components are built with [dayjs](https://day.js.org/) library.
+All @svelteuidev/dates components are built with [dayjs](https://day.js.org/) library.
 Default locale is `en`, to change this follow [dayjs localization guide](https://day.js.org/docs/en/i18n/loading-into-nodejs):
 
 ```ts
