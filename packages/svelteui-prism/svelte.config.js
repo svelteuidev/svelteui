@@ -23,19 +23,6 @@ const config = {
 				return !mm.contains(filepath, '**_');
 			},
 			files: mm.matcher('!**/*.test.{ts, js}')
-		},
-		/** @type {import('vite').UserConfig} */
-		vite: {
-			deps: {
-				inline: ['radix-icons-svelte']
-			},
-			optimizeDeps: {
-				exclude: ['radix-icons-svelte']
-			},
-			test: {
-				globals: true,
-				environment: 'jsdom'
-			}
 		}
 	}
 };

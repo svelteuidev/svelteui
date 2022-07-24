@@ -24,13 +24,6 @@ const config = {
 				return !mm.contains(filepath, '**_');
 			},
 			files: mm.matcher('!**/*.test.{ts, js}')
-		},
-		/** @type {import('vite').UserConfig} */
-		vite: {
-			test: {
-				globals: true,
-				environment: 'jsdom'
-			}
 		}
 	}
 };
