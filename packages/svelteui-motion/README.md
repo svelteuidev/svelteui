@@ -1,29 +1,20 @@
-# SvelteUI Motion
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-## **Transition functions and Animation Components to improve the UI experience.**
+# Installation
 
-- Package includes functions that are used to build components in @svelteui/ scoped packages.
-- You can use these functions in your applications with or without other @svelteui/ packages.
+This is a template repo, so just click the button that says use this template
 
-## Documentation
+# Project Configuration
 
-[See full documentation on the SvelteUI website](https://svelteui.org/)
+> Guides will be written later on integrating other tools (tailwind, postcss, etc.)
 
-## Installation
+# Contributing
 
-```bash
-# With yarn
-yarn add @svelteuidev/motion
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-# With npm
-npm i @svelteuidev/motion
-```
+# License
 
-## Included Motion Transitions
-
-- [Flipboard](https://svelteui.org/motion/flipboard) – Flipboard transition effect for text format
-- [Typewriter](https://svelteui.org/motion/typewriter) – Type writer transition effect for text
-
-## License
-
-All svelteui packages have MIT license. All svelteui dependencies also have MIT license.
+[MIT](https://choosealicense.com/licenses/mit/)

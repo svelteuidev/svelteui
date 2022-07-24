@@ -1,35 +1,20 @@
-# SvelteUI core
+<p align="center">
+  <h1 align="center">Storybook SvelteKit Typescript starter</h1>
+  <h3 align="center">This is a project that will get your storybook setup's up and running with no headache 😁.</h3>
+</p>
 
-## **Component library with ease of use.**
+# Installation
 
-- SvelteUI allows you to create fully functional and accessible web applications in less time than ever before. Regardless of design experience.
+This is a template repo, so just click the button that says use this template
 
-- This package relies on the @svelteuidev/composables package, so they will come together!
+# Project Configuration
 
-## Documentation
+> Guides will be written later on integrating other tools (tailwind, postcss, etc.)
 
-[See full documentation on the SvelteUI website](https://svelteui.org/)
+# Contributing
 
-## Installation
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-```bash
-# With yarn
-yarn add @svelteuidev/core
+# License
 
-# With npm
-npm install @svelteuidev/core
-```
-
-## Usage
-
-```tsx
-<script>
-    import { Button } from '@svelteuidev/core';
-</script>
-
-<Button>Submit</Button>;
-```
-
-## License
-
-All SvelteUI packages have MIT license. All SvelteUI dependencies also have MIT license.
+[MIT](https://choosealicense.com/licenses/mit/)

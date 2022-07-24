@@ -1,6 +1,5 @@
 import mm from 'micromatch';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
+import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import { configDefaults } from 'vitest/config';
 
@@ -8,13 +7,10 @@ import { configDefaults } from 'vitest/config';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess({
-		postcss: {
-			plugins: [autoprefixer(), cssnano()]
-		}
-	}),
+	preprocess: preprocess(),
 
 	kit: {
+		adapter: adapter(),
 		package: {
 			exports: (filepath) => {
 				if (filepath.endsWith('.d.ts')) return false;
