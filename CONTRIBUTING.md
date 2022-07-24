@@ -26,7 +26,7 @@ All commits made in this repository are divided in 3 groups:
 - **docs commits** related to documentation
 - **core commits** only related to repository tooling and not associated with any package
 
-This repo uses commitizen to make commits easier. In order to commit changes made, you should run the `npm run cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
+This repo uses commitizen to make commits easier. In order to commit changes made, you should run the `yarn cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
 
 ```bash
 [type]: Message
@@ -50,23 +50,23 @@ Examples:
 - Install [editorconfig](https://editorconfig.org/) extension for your editor
 - **vscode users only** - install recommended extensions
 - Fork [repository](https://github.com/svelteuidev/svelteui), clone or download your fork
-- Install dependencies at the root of the monorepo with npm **(make sure to install with npm only)**
+- Install dependencies at the root of the monorepo with `yarn install`
 - After your node modules have installed:
 
 **If developing in [svelteui-prism, svelteui-dates, or svelteui-demos]**
 
-1. run `npm run package`
-   - If you want to watch for changes in one of the packages that they depend on, run `npm run watch` in their directory.
+1. run `yarn package`
+   - If you want to watch for changes in one of the packages that they depend on, run `yarn watch` in their directory.
    - You will need two terminal sessions open at the very least. If this doesn't apply to your situation move on to step 2
 2. cd into the package you want to develop on
-3. run `npm run dev`
+3. run `yarn dev`
 
 **If developing in [svelteui-core, svelteui-actions, svelteui-utilities, or svelteui-motion]**
 
 1. cd into the package you want to develop on
-2. run `npm run dev`
+2. run `yarn dev`
 
-- To start docs - `cd docs && npm install && npm run dev`
+- To start docs - `cd docs && yarn install && yarn dev`
 
 ## NPM scripts
 
