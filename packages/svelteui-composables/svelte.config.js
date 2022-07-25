@@ -1,7 +1,6 @@
 import mm from 'micromatch';
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
-import { configDefaults } from 'vitest/config';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
