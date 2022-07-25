@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { Text } from '@svelteuidev/core';
 <\/script>
 
@@ -20,5 +19,5 @@
 </script>
 
 <Center>
-	<Text color='dimmed'>Dimmed text</Text>
+	<Text color="dimmed">Dimmed text</Text>
 </Center>

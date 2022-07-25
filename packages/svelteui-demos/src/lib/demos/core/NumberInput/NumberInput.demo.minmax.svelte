@@ -34,20 +34,20 @@
 </script>
 
 <Center>
-    <Stack position='center'>
-        <NumberInput
-            label='Your age'
-            placeholder='Your age'
-            description='From 0 to 120, step is 1'
-            min={0}
-            max={120}
-        />
-        <NumberInput
-            label='Your weight in kg'
-            placeholder='Your weight'
-            description='From 0 to infinity, step is 5'
-            min={0}
-            step={5}
-        />
-    </Stack>
+	<Stack position="center">
+		<NumberInput
+			label="Your age"
+			placeholder="Your age"
+			description="From 0 to 120, step is 1"
+			min={0}
+			max={120}
+		/>
+		<NumberInput
+			label="Your weight in kg"
+			placeholder="Your weight"
+			description="From 0 to infinity, step is 5"
+			min={0}
+			step={5}
+		/>
+	</Stack>
 </Center>

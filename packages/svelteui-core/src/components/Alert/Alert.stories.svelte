@@ -6,9 +6,7 @@
 <Meta title="Components/Alert" component={Alert} />
 
 <Template let:args>
-	<Alert {...args}>
-        This is an alert!
-    </Alert>
+	<Alert {...args}>This is an alert!</Alert>
 </Template>
 
-<Story name="Alert"/>
+<Story name="Alert" />

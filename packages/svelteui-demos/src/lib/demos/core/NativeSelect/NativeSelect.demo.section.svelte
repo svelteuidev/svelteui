@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { NativeSelect } from '@svelteuidev/core';
     import { ChevronDown } from 'radix-icons-svelte';
 <\/script>
@@ -20,13 +19,13 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { NativeSelect } from '@svelteuidev/core';
-    import { ChevronDown } from 'radix-icons-svelte';
+	import { ChevronDown } from 'radix-icons-svelte';
 </script>
 
 <NativeSelect
-    data={['Svelte', 'Vue', 'Angular', 'React']}
-    label="Select your favorite framework/library"
-    rightSection={ChevronDown}
+	data={['Svelte', 'Vue', 'Angular', 'React']}
+	label="Select your favorite framework/library"
+	rightSection={ChevronDown}
 />

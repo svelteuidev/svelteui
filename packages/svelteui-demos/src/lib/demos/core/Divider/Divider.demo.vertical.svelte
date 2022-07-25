@@ -23,5 +23,5 @@
 </script>
 
 <Box css={{ height: '200px', display: 'flex', justifyContent: 'center' }}>
-    <Divider size='sm' orientation='vertical' />
+	<Divider size="sm" orientation="vertical" />
 </Box>

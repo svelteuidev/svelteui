@@ -20,13 +20,13 @@
 <script lang="ts">
 	import { Burger, Center, SimpleGrid } from '@svelteuidev/core';
 
-    let opened = [];
+	let opened = [];
 </script>
 
 <Center>
-    <SimpleGrid cols={3} override={{ alignItems: 'center' }}>
-        <Burger opened={opened[0]} on:click={() => (opened[0] = !opened[0])} />
-        <Burger color="#fe6734" opened={opened[1]} on:click={() => (opened[1] = !opened[1])} />
-        <Burger color="#45f50d" opened={opened[2]} on:click={() => (opened[2] = !opened[2])} />
-    </SimpleGrid>
+	<SimpleGrid cols={3} override={{ alignItems: 'center' }}>
+		<Burger opened={opened[0]} on:click={() => (opened[0] = !opened[0])} />
+		<Burger color="#fe6734" opened={opened[1]} on:click={() => (opened[1] = !opened[1])} />
+		<Burger color="#45f50d" opened={opened[2]} on:click={() => (opened[2] = !opened[2])} />
+	</SimpleGrid>
 </Center>

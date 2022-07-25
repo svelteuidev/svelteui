@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { Center, Text, Title } from '@svelteuidev/core';
 <\/script>
 
@@ -26,11 +25,9 @@
 </script>
 
 <Center>
-    <Title order={3}>
-        Highlight{' '}
-        <Text color="blue" inherit root="span">
-            something
-        </Text>
-        in title
-    </Title>
+	<Title order={3}>
+		Highlight{' '}
+		<Text color="blue" inherit root="span">something</Text>
+		in title
+	</Title>
 </Center>

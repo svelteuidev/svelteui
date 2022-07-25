@@ -32,15 +32,10 @@
 </script>
 
 <Center>
-    <Menu>
-        <Menu.Item root='a' href='https://svelteui.org'>SvelteUI Website</Menu.Item>
-        <Menu.Item
-            icon={ExternalLink}
-            root='a'
-            href='https://svelteui.org'
-            target='_blank'
-        >
-            External Link
-        </Menu.Item>
-    </Menu>
+	<Menu>
+		<Menu.Item root="a" href="https://svelteui.org">SvelteUI Website</Menu.Item>
+		<Menu.Item icon={ExternalLink} root="a" href="https://svelteui.org" target="_blank">
+			External Link
+		</Menu.Item>
+	</Menu>
 </Center>

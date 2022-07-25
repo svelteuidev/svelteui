@@ -31,12 +31,12 @@
 
 <Group position="center">
 	<NumberInput
-        label='Number input with decimal steps'
-        defaultValue={0.05}
-        precision={2}
-        min={-1}
-        max={1}
-        step={0.05}
-        icon={Star}
-    />
+		label="Number input with decimal steps"
+		defaultValue={0.05}
+		precision={2}
+		min={-1}
+		max={1}
+		step={0.05}
+		icon={Star}
+	/>
 </Group>
