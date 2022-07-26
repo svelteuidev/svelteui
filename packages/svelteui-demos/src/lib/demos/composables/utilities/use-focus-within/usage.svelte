@@ -41,12 +41,12 @@
 	import { useFocusWithin, upperFirst } from '@svelteuidev/composables';
 
 	const [focused, ref] = useFocusWithin();
-	const theme = useSvelteUITheme()
-	const blue = theme.colors.blue50.value
-	const style = 'padding:1rem;border-radius:8px'
+	const theme = useSvelteUITheme();
+	const blue = theme.colors.blue50.value;
+	const style = 'padding:1rem;border-radius:8px';
 </script>
 
-<div use:ref style:background-color={$focused ? blue : "transparent"} {style}>
+<div use:ref style:background-color={$focused ? blue : 'transparent'} {style}>
 	<Text root="p" align="center" size="md" weight="bold" tracking="tight" mb="lg">
 		One of elements has focus:
 		<Text root="span" inherit variant="gradient">{upperFirst($focused.toString())}</Text>

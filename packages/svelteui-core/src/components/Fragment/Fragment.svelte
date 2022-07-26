@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { Overlay } from '../Overlay';
 	import { Text } from '../Text';
-	import { createEventDispatcher, setContext, onMount, onDestroy, afterUpdate, beforeUpdate } from 'svelte';
+	import {
+		createEventDispatcher,
+		setContext,
+		onMount,
+		onDestroy,
+		afterUpdate,
+		beforeUpdate
+	} from 'svelte';
 	import type { FragmentProps as $$FragmentProps } from './Fragment.styles';
 
 	export let mode: $$FragmentProps['mode'] = 'fragment';

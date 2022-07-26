@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => 
-`<script>
+	const codeTemplate = (props: string, children: string) =>
+		`<script>
   import { Button, Group } from '@svelteuidev/core';
 <\/script>
 
@@ -55,7 +55,7 @@
 </script>
 
 <Group {...props}>
-    <Button variant="outline">1</Button>
-    <Button variant="outline">2</Button>
-    <Button variant="outline">3</Button>
+	<Button variant="outline">1</Button>
+	<Button variant="outline">2</Button>
+	<Button variant="outline">3</Button>
 </Group>

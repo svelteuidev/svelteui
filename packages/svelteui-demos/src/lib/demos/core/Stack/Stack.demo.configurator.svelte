@@ -2,7 +2,7 @@
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
   import { Button, Stack } from '@svelteuidev/core';
 <\/script>
 
@@ -42,7 +42,7 @@
 				initialValue: 'center',
 				defaultValue: 'center'
 			},
-            { name: 'spacing', type: 'size', initialValue: 'md', defaultValue: 'md' },
+			{ name: 'spacing', type: 'size', initialValue: 'md', defaultValue: 'md' }
 		]
 	};
 </script>
@@ -55,7 +55,7 @@
 </script>
 
 <Stack override={{ height: 300 }} {...props}>
-    <Button variant="outline">1</Button>
-    <Button variant="outline">2</Button>
-    <Button variant="outline">3</Button>
+	<Button variant="outline">1</Button>
+	<Button variant="outline">2</Button>
+	<Button variant="outline">3</Button>
 </Stack>

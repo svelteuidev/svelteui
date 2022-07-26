@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
   import { Badge, CloseButton } from '@svelteuidev/core';
 <\/script>
 
@@ -20,12 +19,12 @@
     </svelte:fragment>
 </Badge>`;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 
-    export const configuration: CodeDemoConfiguration = {
-        code,
-        toggle: true
-    };
+	export const configuration: CodeDemoConfiguration = {
+		code,
+		toggle: true
+	};
 </script>
 
 <script lang="ts">
@@ -33,17 +32,17 @@
 </script>
 
 <Group position="center">
-    <Badge>
-        Badge with right section
-        <svelte:fragment slot='rightSection'>
-            <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-        </svelte:fragment>
-    </Badge>
+	<Badge>
+		Badge with right section
+		<svelte:fragment slot="rightSection">
+			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+		</svelte:fragment>
+	</Badge>
 
-    <Badge>
-        Badge with left section
-        <svelte:fragment slot='leftSection'>
-            <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-        </svelte:fragment>
-    </Badge>
+	<Badge>
+		Badge with left section
+		<svelte:fragment slot="leftSection">
+			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+		</svelte:fragment>
+	</Badge>
 </Group>

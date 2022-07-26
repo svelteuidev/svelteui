@@ -2,7 +2,7 @@
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
   import { Space, Text } from '@svelteuidev/core';
 <\/script>
 
@@ -16,9 +16,7 @@
 
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
-		configurator: [
-			{ name: 'w', type: 'size', initialValue: 'md', defaultValue: 'md' }
-		]
+		configurator: [{ name: 'w', type: 'size', initialValue: 'md', defaultValue: 'md' }]
 	};
 </script>
 
@@ -30,7 +28,7 @@
 </script>
 
 <div style="display: flex">
-    <Text>First line</Text>
-    <Space {...props} />
-    <Text>Second line</Text>
+	<Text>First line</Text>
+	<Space {...props} />
+	<Text>Second line</Text>
 </div>

@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
   import { Badge, Box } from '@svelteuidev/core';
 <\/script>
 
@@ -18,12 +17,12 @@
     </Badge>
 </Box>`;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 
-    export const configuration: CodeDemoConfiguration = {
-        code,
-        toggle: true
-    };
+	export const configuration: CodeDemoConfiguration = {
+		code,
+		toggle: true
+	};
 </script>
 
 <script lang="ts">
@@ -32,14 +31,10 @@
 
 <Group position="center">
 	<Box css={{ width: 200 }}>
-        <Badge variant="filled" fullWidth>
-            Full width badge
-        </Badge>
-    </Box>
-    
-    <Box css={{ width: 120 }}>
-        <Badge variant="filled" fullWidth>
-            Badge with overflow
-        </Badge>
-    </Box>
+		<Badge variant="filled" fullWidth>Full width badge</Badge>
+	</Box>
+
+	<Box css={{ width: 120 }}>
+		<Badge variant="filled" fullWidth>Badge with overflow</Badge>
+	</Box>
 </Group>

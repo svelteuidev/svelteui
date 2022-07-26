@@ -38,25 +38,25 @@
 	import { Button, Stack } from '@svelteuidev/core';
 	import { longpress } from '@svelteuidev/composables';
 
-    let pressed = false;
+	let pressed = false;
 	let duration = 2000;
 </script>
 
-<Stack align='center'>
-    <div>
-        <input type=range bind:value={duration} max={2000} step={100} />
-        {duration}ms
-    </div>
+<Stack align="center">
+	<div>
+		<input type="range" bind:value={duration} max={2000} step={100} />
+		{duration}ms
+	</div>
 
-    <Button 
-        use={[[longpress, duration]]}
-        on:longpress="{() => pressed = true}"
-        on:mouseenter="{() => pressed = false}"
-    >
-        Press and hold
-    </Button>
+	<Button
+		use={[[longpress, duration]]}
+		on:longpress={() => (pressed = true)}
+		on:mouseenter={() => (pressed = false)}
+	>
+		Press and hold
+	</Button>
 
-    {#if pressed}
-        <p>Congratulations, you pressed and held for {duration} ms</p>
-    {/if}
+	{#if pressed}
+		<p>Congratulations, you pressed and held for {duration} ms</p>
+	{/if}
 </Stack>

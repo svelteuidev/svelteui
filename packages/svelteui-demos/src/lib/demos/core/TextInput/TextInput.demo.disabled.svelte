@@ -22,8 +22,8 @@
 </script>
 
 <Center>
-    <Stack position="center">
-        <TextInput disabled label='Disabled without value' placeholder='Your email' />
-        <TextInput disabled label='Disabled with value' value='you@email.com' />
-    </Stack>
+	<Stack position="center">
+		<TextInput disabled label="Disabled without value" placeholder="Your email" />
+		<TextInput disabled label="Disabled with value" value="you@email.com" />
+	</Stack>
 </Center>

@@ -33,22 +33,19 @@
 </script>
 
 <Center>
-    <Stack position="center">
-        <NumberInput
-            label='By default controls are visible'
-            placeholder='Visible'
-        />
-    
-        <NumberInput
-            label='Disable with hideControls prop'
-            placeholder='Disabled with hideControls prop'
-            hideControls
-        />
-    
-        <NumberInput
-            label='Controls also not rendered when input is disabled'
-            placeholder='Disabled'
-            disabled
-        />
-    </Stack>
+	<Stack position="center">
+		<NumberInput label="By default controls are visible" placeholder="Visible" />
+
+		<NumberInput
+			label="Disable with hideControls prop"
+			placeholder="Disabled with hideControls prop"
+			hideControls
+		/>
+
+		<NumberInput
+			label="Controls also not rendered when input is disabled"
+			placeholder="Disabled"
+			disabled
+		/>
+	</Stack>
 </Center>

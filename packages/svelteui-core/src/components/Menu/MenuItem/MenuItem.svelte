@@ -56,7 +56,7 @@
 			<div class={classes.itemLabel}>
 				<slot />
 			</div>
-			<slot name='rightSection' />
+			<slot name="rightSection" />
 		</div>
 	</div>
 </Box>

@@ -23,12 +23,9 @@
 <script lang="ts">
 	import { Burger, Center } from '@svelteuidev/core';
 
-    let opened = false;
+	let opened = false;
 </script>
 
 <Center>
-    <Burger
-        {opened}
-        on:click={() => (opened = !opened)}
-    />
+	<Burger {opened} on:click={() => (opened = !opened)} />
 </Center>

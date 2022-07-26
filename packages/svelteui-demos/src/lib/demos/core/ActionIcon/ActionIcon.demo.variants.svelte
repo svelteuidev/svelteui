@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code = 
-`<script>
+	const code = `<script>
   import { ActionIcon } from '@svelteuidev/core';
   import { GithubLogo } from 'radix-icons-svelte';
 <\/script>
@@ -14,12 +13,12 @@
 <ActionIcon color='blue' variant='default'><GithubLogo size={16} /></ActionIcon>
 <ActionIcon color='blue' variant='transparent'><GithubLogo size={16} /></ActionIcon>`;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 
-    export const configuration: CodeDemoConfiguration = {
-        code,
-        toggle: true
-    };
+	export const configuration: CodeDemoConfiguration = {
+		code,
+		toggle: true
+	};
 </script>
 
 <script lang="ts">
@@ -27,11 +26,18 @@
 	import { ActionIcon, Group } from '@svelteuidev/core';
 	import { GithubLogo } from 'radix-icons-svelte';
 
-	let variants: ActionIconProps['variant'][] = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
+	let variants: ActionIconProps['variant'][] = [
+		'hover',
+		'filled',
+		'outline',
+		'light',
+		'default',
+		'transparent'
+	];
 </script>
 
 <Group position="center">
 	{#each variants as variant}
-		<ActionIcon {variant} color='blue'><GithubLogo size={16} /></ActionIcon>
+		<ActionIcon {variant} color="blue"><GithubLogo size={16} /></ActionIcon>
 	{/each}
 </Group>

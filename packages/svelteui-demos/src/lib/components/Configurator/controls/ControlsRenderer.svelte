@@ -46,13 +46,7 @@
 {#each controlsData as { component, label, value, props, onChange, hidden }, i}
 	{#if component}
 		<div class="control" style={hidden ? 'display: none;' : ''}>
-			<svelte:component
-				this={component}
-				{label}
-				{value}
-				{...props}
-				on:change={onChange}
-			/>
+			<svelte:component this={component} {label} {value} {...props} on:change={onChange} />
 		</div>
 	{/if}
 {/each}

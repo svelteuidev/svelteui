@@ -45,7 +45,7 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	const castType = <T,>(value: unknown) => value as T
+	const castType = <T>(value: unknown) => value as T;
 	const days = getMonthDays(month, firstDayOfWeek);
 	const hasValue = Array.isArray(value)
 		? value.every((item) => item instanceof Date)
@@ -70,7 +70,7 @@
 			<tr>
 				{#each getWeekdaysNames(locale, firstDayOfWeek, weekdayLabelFormat) as weekday}
 					<th class={classes.weekdayCell}>
-						<Text align='center' {size} class={classes.weekday}>
+						<Text align="center" {size} class={classes.weekday}>
 							{weekday.length >= 2 ? upperFirst(weekday) : weekday}
 						</Text>
 					</th>
@@ -82,27 +82,36 @@
 		{#each days as row, rowIndex}
 			<tr>
 				{#each row as date, cellIndex}
-					{@const dayProps = getDayProps({date, month, hasValue, minDate, maxDate, value, excludeDate, disableOutsideEvents, range})}
-					{@const onKeyDownPayload = {rowIndex, cellIndex, date}}
+					{@const dayProps = getDayProps({
+						date,
+						month,
+						hasValue,
+						minDate,
+						maxDate,
+						value,
+						excludeDate,
+						disableOutsideEvents,
+						range
+					})}
+					{@const onKeyDownPayload = { rowIndex, cellIndex, date }}
 					<td class={classes.cell}>
 						<Day
 							on:click={() => {
-								typeof onChange === 'function' && onChange(date)
+								typeof onChange === 'function' && onChange(date);
 							}}
 							on:mousedown={(event) => preventFocus && event.preventDefault()}
-							on:keydown={(event) => typeof onDayKeyDown === 'function' && onDayKeyDown(onKeyDownPayload, castType(event))
-							}
+							on:keydown={(event) =>
+								typeof onDayKeyDown === 'function' &&
+								onDayKeyDown(onKeyDownPayload, castType(event))}
 							value={date}
 							outside={dayProps.outside}
 							weekend={dayProps.weekend}
 							inRange={dayProps.inRange || isDateInRange(date, dayProps)}
 							firstInRange={dayProps.firstInRange || isDateFirstInRange(date, dayProps)}
 							lastInRange={dayProps.lastInRange || isDateLastInRange(date, dayProps)}
-							firstInMonth={
-							hideOutsideDates
+							firstInMonth={hideOutsideDates
 								? isSameDate(date, dayjs(month).startOf('month').toDate())
-								: cellIndex === 0 && rowIndex === 0
-							}
+								: cellIndex === 0 && rowIndex === 0}
 							selected={dayProps.selected || dayProps.selectedInRange}
 							hasValue={hasValueInMonthRange}
 							class={typeof dayClassName === 'function' ? dayClassName(date, dayProps) : null}
@@ -114,7 +123,7 @@
 							{hideOutsideDates}
 							{renderDay}
 						/>
-					</td> 
+					</td>
 				{/each}
 			</tr>
 		{/each}

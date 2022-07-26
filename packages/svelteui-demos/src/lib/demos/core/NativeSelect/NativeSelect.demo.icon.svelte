@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { NativeSelect } from '@svelteuidev/core';
     import { StarFilled } from 'radix-icons-svelte';
 <\/script>
@@ -21,14 +20,14 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { NativeSelect } from '@svelteuidev/core';
-    import { StarFilled } from 'radix-icons-svelte';
+	import { StarFilled } from 'radix-icons-svelte';
 </script>
 
 <NativeSelect
-    data={['Svelte', 'Vue', 'Angular', 'React']}
-    label="Pick the best"
-    icon={StarFilled}
-    override={{ '.withIcon': { pl: '40px !important' } }}
+	data={['Svelte', 'Vue', 'Angular', 'React']}
+	label="Pick the best"
+	icon={StarFilled}
+	override={{ '.withIcon': { pl: '40px !important' } }}
 />
