@@ -145,8 +145,12 @@ export default createStyles(
 				alignItems: 'center',
 				background: null,
 				borderRadius: typeof radius === 'number' ? radius : `$${radius}`,
-				height: sizes[compact ? `compact-${size}` : size].height,
-				padding: sizes[compact ? `compact-${size}` : size].padding,
+				height:
+					typeof size === 'number' ? `${size}px` : sizes[compact ? `compact-${size}` : size].height,
+				padding:
+					typeof size === 'number'
+						? `0px ${size}px`
+						: sizes[compact ? `compact-${size}` : size].padding,
 				fontFamily: '$standard',
 				fontWeight: '$SemiBold',
 				fontSize: `$${size}`,
