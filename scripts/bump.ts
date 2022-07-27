@@ -8,11 +8,11 @@ type SEMVER = "major" | "minor" | "patch";
 
 // the directories where the bump of its version and dependencies
 // will be performed
-const DIRS: string[] = [".", "./docs", "./packages/*/"];
+const DIRS: string[] = [".", "./apps/*/", "./packages/*/"];
 
 // the directories where the bump of the package version will
 // be skipped and only its dependencies will be bumped
-const VERSION_EXCEPTION: string[] = ["./docs"];
+const VERSION_EXCEPTION: string[] = [""];
 
 if (Deno.args.length !== 1) {
     throw "Please provide only one argument, the type of version bump ('major', 'minor', 'patch' or 'next')"
