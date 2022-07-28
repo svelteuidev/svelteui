@@ -1,6 +1,4 @@
 import mm from 'micromatch';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
 import fs from 'fs';
 export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
@@ -10,11 +8,7 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: [
-		preprocess({
-			postcss: {
-				plugins: [autoprefixer(), cssnano()]
-			}
-		})
+		preprocess()
 	],
 	compilerOptions: {
 		generate: 'ssr',
