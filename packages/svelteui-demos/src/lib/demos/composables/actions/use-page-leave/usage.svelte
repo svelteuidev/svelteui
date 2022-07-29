@@ -21,11 +21,11 @@
 	import { Center } from '@svelteuidev/core';
 	import { pageleave } from '@svelteuidev/composables';
 
-    $: count = 0;
+	$: count = 0;
 </script>
 
 <Center>
-    <div use:pageleave={() => count++}>
-        Move the mouse off the page to see the counter go up: {count}
-    </div>
+	<div use:pageleave={() => count++}>
+		Move the mouse off the page to see the counter go up: {count}
+	</div>
 </Center>

@@ -13,7 +13,7 @@
 	import { sineInOut } from 'svelte/easing';
 	import type { ModalProps as $$ModalProps } from './Modal.styles';
 
-  interface $$Props extends $$ModalProps {}
+	interface $$Props extends $$ModalProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -65,7 +65,9 @@
 	$: {
 		onMount(() => {
 			if (!trapFocus) {
-				typeof window !== "undefined" ? window.addEventListener('keydown', closeOnEscapePress) : null;
+				typeof window !== 'undefined'
+					? window.addEventListener('keydown', closeOnEscapePress)
+					: null;
 			}
 		});
 	}

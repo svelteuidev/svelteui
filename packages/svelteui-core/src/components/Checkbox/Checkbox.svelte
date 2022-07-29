@@ -8,7 +8,7 @@
 	import CheckboxIcon from './CheckboxIcon.svelte';
 	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
 
-  interface $$Props extends $$CheckboxProps {}
+	interface $$Props extends $$CheckboxProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

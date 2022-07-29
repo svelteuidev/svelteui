@@ -35,22 +35,22 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/composables';
 
-    let textToCopy = 'This message was copied';
-    let copied = false;
-    let onCopy = () => {
-        copied = true;
-        setTimeout(function () {
-            copied = false;
-        }, 1000);
-    }
+	let textToCopy = 'This message was copied';
+	let copied = false;
+	let onCopy = () => {
+		copied = true;
+		setTimeout(function () {
+			copied = false;
+		}, 1000);
+	};
 </script>
 
 <Center>
-    <Button
-        use={[[clipboard, textToCopy]]}
-        on:useclipboard={onCopy}
-        color={copied ? 'green' : 'blue'}
-    >
-        {copied ? 'Copied' : 'Click me to copy text'}
-    </Button>
+	<Button
+		use={[[clipboard, textToCopy]]}
+		on:useclipboard={onCopy}
+		color={copied ? 'green' : 'blue'}
+	>
+		{copied ? 'Copied' : 'Click me to copy text'}
+	</Button>
 </Center>

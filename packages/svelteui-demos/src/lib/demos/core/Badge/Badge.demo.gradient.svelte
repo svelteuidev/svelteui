@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => 
-`<script>
+	const codeTemplate = (props: string, children: string) =>
+		`<script>
   import { Badge } from '@svelteuidev/core';
 <\/script>
 
@@ -15,14 +15,14 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-            {
+			{
 				name: 'gradient',
 				type: 'composite',
 				controls: [
 					{ name: 'from', type: 'color', initialValue: 'indigo', defaultValue: 'indigo' },
 					{ name: 'to', type: 'color', initialValue: 'cyan', defaultValue: 'cyan' },
 					{ name: 'deg', type: 'number', initialValue: 45, defaultValue: 45 }
-				],
+				]
 			}
 		]
 	};
@@ -36,7 +36,5 @@
 </script>
 
 <Center>
-	<Badge variant='gradient' {...props}>
-        Badge
-    </Badge>
+	<Badge variant="gradient" {...props}>Badge</Badge>
 </Center>

@@ -20,7 +20,7 @@
 	import { Box, Code, Group } from '@svelteuidev/core';
 </script>
 
-<Group position='center'>
-    <Box root={Code}>I am a code component now</Box>
-    <Box root='span'>I am a span tag</Box>
+<Group position="center">
+	<Box root={Code}>I am a code component now</Box>
+	<Box root="span">I am a span tag</Box>
 </Group>

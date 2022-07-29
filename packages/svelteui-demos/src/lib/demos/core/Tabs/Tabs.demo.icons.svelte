@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { Tabs } from '@svelteuidev/core';
     import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
 <\/script>
@@ -22,13 +21,11 @@
 
 <script>
 	import { Tabs } from '@svelteuidev/core';
-    import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
+	import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
 </script>
 
 <Tabs>
-    <Tabs.Tab label='Gallery' icon={Camera}>Gallery tab content</Tabs.Tab>
-    <Tabs.Tab label='Messages' icon={EnvelopeClosed}>Messages tab content</Tabs.Tab>
-    <Tabs.Tab icon={Gear}>Settings tab content</Tabs.Tab>
+	<Tabs.Tab label="Gallery" icon={Camera}>Gallery tab content</Tabs.Tab>
+	<Tabs.Tab label="Messages" icon={EnvelopeClosed}>Messages tab content</Tabs.Tab>
+	<Tabs.Tab icon={Gear}>Settings tab content</Tabs.Tab>
 </Tabs>
-
-

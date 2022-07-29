@@ -2,7 +2,7 @@
 	import { Box } from '../../../Box';
 	import type { SectionProps as $$SectionProps } from './Section.styles';
 
-  interface $$Props extends $$SectionProps {}
+	interface $$Props extends $$SectionProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

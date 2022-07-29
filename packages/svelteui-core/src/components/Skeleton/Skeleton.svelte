@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { SkeletonProps as $$SkeletonProps } from './Skeleton.styles';
 
-  interface $$Props extends $$SkeletonProps {}
+	interface $$Props extends $$SkeletonProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

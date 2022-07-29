@@ -7,7 +7,7 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { CodeProps as $$CodeProps } from './Code.styles';
 
-  interface $$Props extends $$CodeProps {}
+	interface $$Props extends $$CodeProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

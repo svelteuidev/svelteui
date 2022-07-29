@@ -10,7 +10,7 @@
 	import Group from '../Group/Group.svelte';
 	import type { TabsProps as $$TabsProps } from './Tabs.styles';
 
-  interface $$Props extends $$TabsProps {}
+	interface $$Props extends $$TabsProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -9,7 +9,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { TimelineProps as $$TimelineProps } from './Timeline.styles';
 
-  interface $$Props extends $$TimelineProps {}
+	interface $$Props extends $$TimelineProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

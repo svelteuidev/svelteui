@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { Input } from '@svelteuidev/core';
 <\/script>
 
@@ -17,10 +16,10 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { Input } from '@svelteuidev/core';
 </script>
 
-<Input variant='default' placeholder='Default variant' />
-<Input variant='filled' placeholder='Filled variant' />
-<Input variant='unstyled' placeholder='Unstyled variant' />
+<Input variant="default" placeholder="Default variant" />
+<Input variant="filled" placeholder="Filled variant" />
+<Input variant="unstyled" placeholder="Unstyled variant" />

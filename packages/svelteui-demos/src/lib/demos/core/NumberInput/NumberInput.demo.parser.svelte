@@ -31,13 +31,12 @@
 
 <Group position="center">
 	<NumberInput
-        label='Price'
-        defaultValue={1000}
-        parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-        formatter={(value) =>
-            !Number.isNaN(parseFloat(value))
-            ? ("$ " + value).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-            : '$ '
-        }
-    />
+		label="Price"
+		defaultValue={1000}
+		parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+		formatter={(value) =>
+			!Number.isNaN(parseFloat(value))
+				? ('$ ' + value).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+				: '$ '}
+	/>
 </Group>

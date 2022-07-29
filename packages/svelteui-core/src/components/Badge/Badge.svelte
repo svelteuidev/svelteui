@@ -5,7 +5,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { BadgeProps as $$BadgeProps } from './Badge.styles';
 
-  interface $$Props extends $$BadgeProps {}
+	interface $$Props extends $$BadgeProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

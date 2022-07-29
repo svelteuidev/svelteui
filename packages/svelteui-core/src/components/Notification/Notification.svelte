@@ -7,7 +7,7 @@
 	import { Text } from '../Text';
 	import type { NotificationProps as $$NotificationProps } from './Notification.styles';
 
-  interface $$Props extends $$NotificationProps {}
+	interface $$Props extends $$NotificationProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

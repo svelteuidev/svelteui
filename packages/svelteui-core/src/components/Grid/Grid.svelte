@@ -9,7 +9,7 @@
 	import { Box } from '../Box';
 	import type { GridProps as $$GridProps } from './Grid.styles';
 
-  interface $$Props extends $$GridProps {}
+	interface $$Props extends $$GridProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

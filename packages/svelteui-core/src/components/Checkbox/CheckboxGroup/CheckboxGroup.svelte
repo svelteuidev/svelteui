@@ -4,7 +4,7 @@
 	import Checkbox from '../Checkbox.svelte';
 	import type { CheckboxGroupProps as $$CheckboxGroupProps } from './CheckboxGroup.styles';
 
-  interface $$Props extends $$CheckboxGroupProps {}
+	interface $$Props extends $$CheckboxGroupProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

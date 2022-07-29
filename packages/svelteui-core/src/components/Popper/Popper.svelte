@@ -7,7 +7,7 @@
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
-  interface $$Props extends $$PopperProps {}
+	interface $$Props extends $$PopperProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

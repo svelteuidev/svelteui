@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { SimpleGrid } from '@svelteuidev/core';
 <\/script>
 
@@ -34,14 +33,14 @@
 </script>
 
 <SimpleGrid
-    breakpoints={[
-        { maxWidth: 980, cols: 3, spacing: 'md' },
-        { maxWidth: 755, cols: 2, spacing: 'sm' },
-        { maxWidth: 600, cols: 1, spacing: 'sm' }
-    ]}
-    cols={3}
+	breakpoints={[
+		{ maxWidth: 980, cols: 3, spacing: 'md' },
+		{ maxWidth: 755, cols: 2, spacing: 'sm' },
+		{ maxWidth: 600, cols: 1, spacing: 'sm' }
+	]}
+	cols={3}
 >
-    {#each [...Array(5).keys()] as _, i}
-        <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-    {/each}
+	{#each [...Array(5).keys()] as _, i}
+		<Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
+	{/each}
 </SimpleGrid>

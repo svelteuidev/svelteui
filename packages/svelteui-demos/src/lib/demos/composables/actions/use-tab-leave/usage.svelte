@@ -21,11 +21,11 @@
 	import { Center } from '@svelteuidev/core';
 	import { tableave } from '@svelteuidev/composables';
 
-    $: count = 0;
+	$: count = 0;
 </script>
 
 <Center>
-    <div use:tableave={() => count++}>
-        Switch the tab to see the counter go up: {count}
-    </div>
+	<div use:tableave={() => count++}>
+		Switch the tab to see the counter go up: {count}
+	</div>
 </Center>

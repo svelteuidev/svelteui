@@ -4,7 +4,7 @@
 	import { globalCss } from '$lib/styles';
 	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection.styles';
 
-  interface $$Props extends $$VerticalSectionProps {}
+	interface $$Props extends $$VerticalSectionProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

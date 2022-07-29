@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { Code, Text } from '@svelteuidev/core';
 <\/script>
 

@@ -5,7 +5,7 @@
 	import { Input } from '../Input';
 	import type { TextInputProps as $$TextInputProps } from './TextInput.styles';
 
-  interface $$Props extends $$TextInputProps {}
+	interface $$Props extends $$TextInputProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

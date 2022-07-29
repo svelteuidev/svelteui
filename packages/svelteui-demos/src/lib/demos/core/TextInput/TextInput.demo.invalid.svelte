@@ -22,8 +22,8 @@
 </script>
 
 <Center>
-    <Stack position="center">
-        <TextInput error label='Your email' value='you@email.com' />
-        <TextInput error='Invalid email' label='Your email' value='you@email.com' />
-    </Stack>
+	<Stack position="center">
+		<TextInput error label="Your email" value="you@email.com" />
+		<TextInput error="Invalid email" label="Your email" value="you@email.com" />
+	</Stack>
 </Center>

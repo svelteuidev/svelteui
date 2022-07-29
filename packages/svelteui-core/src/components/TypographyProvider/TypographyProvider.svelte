@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider.styles';
 
-  interface $$Props extends $$TypographyProviderProps {}
+	interface $$Props extends $$TypographyProviderProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

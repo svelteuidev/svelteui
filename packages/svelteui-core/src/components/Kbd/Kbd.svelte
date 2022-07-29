@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { KbdProps as $$KbdProps } from './Kbd.styles';
 
-  interface $$Props extends $$KbdProps {}
+	interface $$Props extends $$KbdProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

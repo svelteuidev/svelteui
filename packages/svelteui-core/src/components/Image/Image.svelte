@@ -8,7 +8,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { ImageProps as $$ImageProps } from './Image.styles';
 
-  interface $$Props extends $$ImageProps {}
+	interface $$Props extends $$ImageProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

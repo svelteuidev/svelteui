@@ -3,7 +3,7 @@
 	import { Box } from '../../Box';
 	import type { CardSectionProps as $$CardSectionProps } from './CardSection.styles';
 
-  interface $$Props extends $$CardSectionProps {}
+	interface $$Props extends $$CardSectionProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

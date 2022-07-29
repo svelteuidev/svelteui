@@ -4,7 +4,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
-  interface $$Props extends $$GroupProps {}
+	interface $$Props extends $$GroupProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

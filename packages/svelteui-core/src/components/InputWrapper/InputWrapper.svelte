@@ -5,7 +5,7 @@
 	import LabelElement from './LabelElement.svelte';
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
 
-  interface $$Props extends $$InputWrapperProps {}
+	interface $$Props extends $$InputWrapperProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

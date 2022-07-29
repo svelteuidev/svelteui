@@ -3,7 +3,7 @@
 	import Text from '../Text/Text.svelte';
 	import type { AnchorProps as $$AnchorProps } from './Anchor.styles';
 
-  interface $$Props extends $$AnchorProps {}
+	interface $$Props extends $$AnchorProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

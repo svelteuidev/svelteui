@@ -13,7 +13,7 @@
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
 	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection.styles';
 
-  interface $$Props extends $$HorizontalSectionProps {}
+	interface $$Props extends $$HorizontalSectionProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

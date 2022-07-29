@@ -3,7 +3,7 @@
 	import { Portal } from '../Portal';
 	import type { AffixProps as $$AffixProps } from './Affix.styles';
 
-  interface $$Props extends $$AffixProps {}
+	interface $$Props extends $$AffixProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

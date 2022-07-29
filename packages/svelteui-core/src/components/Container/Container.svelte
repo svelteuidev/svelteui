@@ -3,7 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { ContainerProps as $$ContainerProps } from './Container.styles';
 
-  interface $$Props extends $$ContainerProps {}
+	interface $$Props extends $$ContainerProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

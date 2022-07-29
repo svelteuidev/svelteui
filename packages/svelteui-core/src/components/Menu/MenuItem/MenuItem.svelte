@@ -9,7 +9,7 @@
 	import type { MenuContextValue } from '../Menu.context';
 	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
 
-  interface $$Props extends $$MenuItemProps {}
+	interface $$Props extends $$MenuItemProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -58,7 +58,7 @@
 			<div class={classes.itemLabel}>
 				<slot />
 			</div>
-			<slot name='rightSection' />
+			<slot name="rightSection" />
 		</div>
 	</div>
 </Box>

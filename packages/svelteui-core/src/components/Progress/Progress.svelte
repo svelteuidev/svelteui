@@ -7,7 +7,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import type { ProgressProps as $$ProgressProps } from './Progress.styles';
 
-  interface $$Props extends $$ProgressProps {}
+	interface $$Props extends $$ProgressProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

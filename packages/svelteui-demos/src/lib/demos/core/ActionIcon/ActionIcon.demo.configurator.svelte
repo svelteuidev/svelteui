@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => 
-`<script>
+	const codeTemplate = (props: string, children: string) =>
+		`<script>
   import { ActionIcon } from '@svelteuidev/core';
   import { Rocket } from 'radix-icons-svelte';
 <\/script>
@@ -24,7 +24,7 @@
 			},
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
-            {
+			{
 				name: 'variant',
 				type: 'select',
 				data: [
@@ -54,6 +54,6 @@
 
 <Center>
 	<ActionIcon {...props}>
-        <Rocket />
-    </ActionIcon>
+		<Rocket />
+	</ActionIcon>
 </Center>

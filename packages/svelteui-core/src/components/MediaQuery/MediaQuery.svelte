@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery.styles';
 
-  interface $$Props extends $$MediaQueryProps {}
+	interface $$Props extends $$MediaQueryProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

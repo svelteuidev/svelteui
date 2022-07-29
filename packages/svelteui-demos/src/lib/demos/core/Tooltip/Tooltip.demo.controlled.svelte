@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-    const code = `
+	const code = `
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
 
@@ -13,21 +13,20 @@
 </Tooltip>
 `;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 	export const configuration: CodeDemoConfiguration = {
-        code
-    };
+		code
+	};
 </script>
 
 <script lang="ts">
 	import { Button, Center, Tooltip } from '@svelteuidev/core';
-    
-    let opened = false;
+
+	let opened = false;
 </script>
 
 <Center>
-    <Tooltip {opened} label='Hello'>
-        <Button on:click={() => (opened = !opened)}>Click here</Button>
-    </Tooltip>
+	<Tooltip {opened} label="Hello">
+		<Button on:click={() => (opened = !opened)}>Click here</Button>
+	</Tooltip>
 </Center>
-
