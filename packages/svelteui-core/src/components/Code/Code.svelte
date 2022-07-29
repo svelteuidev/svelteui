@@ -7,16 +7,18 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { CodeProps as $$CodeProps } from './Code.styles';
 
-	export let use: $$CodeProps['use'] = [],
-		element: $$CodeProps['element'] = undefined,
-		className: $$CodeProps['className'] = '',
-		override: $$CodeProps['override'] = {},
-		color: $$CodeProps['color'] = 'gray',
-		block: $$CodeProps['block'] = false,
-		width: $$CodeProps['width'] = 100,
-		copy: $$CodeProps['copy'] = false,
-		message: $$CodeProps['message'] = 'Copied',
-		noMono: $$CodeProps['noMono'] = false;
+  interface $$Props extends $$CodeProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'gray',
+		block: $$Props['block'] = false,
+		width: $$Props['width'] = 100,
+		copy: $$Props['copy'] = false,
+		message: $$Props['message'] = 'Copied',
+		noMono: $$Props['noMono'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -60,7 +62,7 @@
 <!--
 @component
 Inline or block code without syntax highlighting
-	
+
 @see https://svelteui.org/core/code
 @example
     ```tsx

@@ -4,11 +4,13 @@
 	import { onMount } from 'svelte';
 	import type { CardProps as $$CardProps } from './Card.styles';
 
-	export let use: $$CardProps['use'] = [],
-		element: $$CardProps['element'] = undefined,
-		className: $$CardProps['className'] = '',
-		override: $$CardProps['override'] = {},
-		padding: $$CardProps['p'] = 'md';
+  interface $$Props extends $$CardProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		padding: $$Props['p'] = 'md';
 	export { className as class };
 	export { padding as p };
 

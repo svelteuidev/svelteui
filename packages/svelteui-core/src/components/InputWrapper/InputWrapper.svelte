@@ -5,20 +5,22 @@
 	import LabelElement from './LabelElement.svelte';
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
 
-	export let use: $$InputWrapperProps['use'] = [],
-		element: $$InputWrapperProps['element'] = undefined,
-		className: $$InputWrapperProps['className'] = '',
-		override: $$InputWrapperProps['override'] = {},
-		label: $$InputWrapperProps['label'] = 'label',
-		description: $$InputWrapperProps['description'] = null,
-		error: $$InputWrapperProps['error'] = null,
-		required: $$InputWrapperProps['required'] = false,
-		labelProps: $$InputWrapperProps['labelProps'] = {},
-		descriptionProps: $$InputWrapperProps['descriptionProps'] = {},
-		errorProps: $$InputWrapperProps['errorProps'] = {},
-		id: $$InputWrapperProps['id'] = 'input-id',
-		labelElement: $$InputWrapperProps['labelElement'] = 'label',
-		size: $$InputWrapperProps['size'] = 'sm';
+  interface $$Props extends $$InputWrapperProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		label: $$Props['label'] = 'label',
+		description: $$Props['description'] = null,
+		error: $$Props['error'] = null,
+		required: $$Props['required'] = false,
+		labelProps: $$Props['labelProps'] = {},
+		descriptionProps: $$Props['descriptionProps'] = {},
+		errorProps: $$Props['errorProps'] = {},
+		id: $$Props['id'] = 'input-id',
+		labelElement: $$Props['labelElement'] = 'label',
+		size: $$Props['size'] = 'sm';
 	export { className as class };
 
 	let _labelProps;

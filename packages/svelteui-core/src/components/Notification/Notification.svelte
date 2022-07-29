@@ -7,20 +7,22 @@
 	import { Text } from '../Text';
 	import type { NotificationProps as $$NotificationProps } from './Notification.styles';
 
-	export let use: $$NotificationProps['use'] = [],
-		element: $$NotificationProps['element'] = undefined,
-		className: $$NotificationProps['className'] = 'blue',
-		override: $$NotificationProps['override'] = {},
-		title: $$NotificationProps['title'] = undefined,
-		color: $$NotificationProps['color'] = 'blue',
-		radius: $$NotificationProps['radius'] = 'sm',
-		loading: $$NotificationProps['loading'] = false,
-		icon: $$NotificationProps['icon'] = undefined,
-		iconSize: $$NotificationProps['iconSize'] = 16,
-		iconProps: $$NotificationProps['iconProps'] = {},
-		withCloseButton: $$NotificationProps['withCloseButton'] = true,
-		closeButtonLabel: $$NotificationProps['closeButtonLabel'] = undefined,
-		closeButtonProps: $$NotificationProps['closeButtonProps'] = {};
+  interface $$Props extends $$NotificationProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = 'blue',
+		override: $$Props['override'] = {},
+		title: $$Props['title'] = undefined,
+		color: $$Props['color'] = 'blue',
+		radius: $$Props['radius'] = 'sm',
+		loading: $$Props['loading'] = false,
+		icon: $$Props['icon'] = undefined,
+		iconSize: $$Props['iconSize'] = 16,
+		iconProps: $$Props['iconProps'] = {},
+		withCloseButton: $$Props['withCloseButton'] = true,
+		closeButtonLabel: $$Props['closeButtonLabel'] = undefined,
+		closeButtonProps: $$Props['closeButtonProps'] = {};
 	export { className as class };
 
 	const dispatch = createEventDispatcher();

@@ -6,16 +6,18 @@
 	import type { OverlayProps as $$OverlayProps } from './Overlay.styles';
 	import Box from '../Box/Box.svelte';
 
-	export let use: $$OverlayProps['use'] = [],
-		element: $$OverlayProps['element'] = undefined,
-		className: $$OverlayProps['className'] = '',
-		override: $$OverlayProps['override'] = {},
-		opacity: $$OverlayProps['opacity'] = 0.6,
-		color: $$OverlayProps['color'] = '#fff',
-		blur: $$OverlayProps['blur'] = 0,
-		gradient: $$OverlayProps['gradient'] = '',
-		zIndex: $$OverlayProps['zIndex'] = getDefaultZIndex('modal'),
-		radius: $$OverlayProps['radius'] = 0,
+  interface $$Props extends $$OverlayProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		opacity: $$Props['opacity'] = 0.6,
+		color: $$Props['color'] = '#fff',
+		blur: $$Props['blur'] = 0,
+		gradient: $$Props['gradient'] = '',
+		zIndex: $$Props['zIndex'] = getDefaultZIndex('modal'),
+		radius: $$Props['radius'] = 0,
 		center = false;
 	export { className as class };
 
@@ -37,7 +39,7 @@
 @component
 
 Overlays given element with div element with any color and opacity
-	
+
 @see https://svelteui.org/core/overlay
 @example
     ```svelte

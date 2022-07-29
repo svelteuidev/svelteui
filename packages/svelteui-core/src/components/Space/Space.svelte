@@ -3,12 +3,14 @@
 	import { Box } from '../Box';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
 
-	export let use: $$SpaceProps['use'] = [],
-		element: $$SpaceProps['element'] = undefined,
-		className: $$SpaceProps['className'] = '',
-		override: $$SpaceProps['override'] = {},
-		w: $$SpaceProps['w'] = 0,
-		h: $$SpaceProps['h'] = 0;
+  interface $$Props extends $$SpaceProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		w: $$Props['w'] = 0,
+		h: $$Props['h'] = 0;
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ h, w }));
@@ -18,7 +20,7 @@
 @component
 
 Add horizontal or vertical spacing from theme.
-	
+
 @see https://svelteui.org/core/space
 @example
     ```svelte

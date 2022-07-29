@@ -4,14 +4,16 @@
 	import { onMount } from 'svelte';
 	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery.styles';
 
-	export let use: $$MediaQueryProps['use'] = [],
-		element: $$MediaQueryProps['element'] = undefined,
-		className: $$MediaQueryProps['className'] = '',
-		override: $$MediaQueryProps['override'] = {},
-		smallerThan: $$MediaQueryProps['smallerThan'] = undefined,
-		largerThan: $$MediaQueryProps['largerThan'] = undefined,
-		styles: $$MediaQueryProps['styles'] = undefined,
-		query: $$MediaQueryProps['query'] = undefined;
+  interface $$Props extends $$MediaQueryProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		smallerThan: $$Props['smallerThan'] = undefined,
+		largerThan: $$Props['largerThan'] = undefined,
+		styles: $$Props['styles'] = undefined,
+		query: $$Props['query'] = undefined;
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ query, styles, largerThan, smallerThan }));

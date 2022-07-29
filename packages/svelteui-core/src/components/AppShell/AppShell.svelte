@@ -9,15 +9,17 @@
 	import { Box } from '../Box';
 	import type { AppShellProps as $$AppShellProps } from './AppShell.styles';
 
-	export let use: $$AppShellProps['use'] = [],
-		element: $$AppShellProps['element'] = undefined,
-		className: $$AppShellProps['className'] = '',
-		override: $$AppShellProps['override'] = {},
-		zIndex: $$AppShellProps['zIndex'] = 100,
-		fixed: $$AppShellProps['fixed'] = false,
-		padding: $$AppShellProps['padding'] = 'md',
-		navbarOffsetBreakpoint: $$AppShellProps['navbarOffsetBreakpoint'] = undefined,
-		asideOffsetBreakpoint: $$AppShellProps['asideOffsetBreakpoint'] = undefined;
+  interface $$Props extends $$AppShellProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		zIndex: $$Props['zIndex'] = 100,
+		fixed: $$Props['fixed'] = false,
+		padding: $$Props['padding'] = 'md',
+		navbarOffsetBreakpoint: $$Props['navbarOffsetBreakpoint'] = undefined,
+		asideOffsetBreakpoint: $$Props['asideOffsetBreakpoint'] = undefined;
 	export { className as class };
 
 	$: ({ cx, classes } = useStyles(

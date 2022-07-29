@@ -8,19 +8,21 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { ImageProps as $$ImageProps } from './Image.styles';
 
-	export let use: $$ImageProps['use'] = [],
-		element: $$ImageProps['element'] = undefined,
-		override: $$ImageProps['override'] = {},
-		radius: $$ImageProps['radius'] = 0,
-		className: $$ImageProps['className'] = '',
-		src: $$ImageProps['src'] = undefined,
-		alt: $$ImageProps['alt'] = '',
-		fit: $$ImageProps['fit'] = 'cover',
-		width: $$ImageProps['width'] = '100%',
-		height: $$ImageProps['height'] = 'auto',
-		caption: $$ImageProps['caption'] = undefined,
-		usePlaceholder: $$ImageProps['usePlaceholder'] = false,
-		loader: $$ImageProps['loader'] = false;
+  interface $$Props extends $$ImageProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		override: $$Props['override'] = {},
+		radius: $$Props['radius'] = 0,
+		className: $$Props['className'] = '',
+		src: $$Props['src'] = undefined,
+		alt: $$Props['alt'] = '',
+		fit: $$Props['fit'] = 'cover',
+		width: $$Props['width'] = '100%',
+		height: $$Props['height'] = 'auto',
+		caption: $$Props['caption'] = undefined,
+		usePlaceholder: $$Props['usePlaceholder'] = false,
+		loader: $$Props['loader'] = false;
 	export { className as class };
 
 	let loaded: boolean = false;

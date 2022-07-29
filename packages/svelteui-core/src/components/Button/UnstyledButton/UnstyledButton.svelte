@@ -5,11 +5,13 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton.styles';
 
-	export let use: $$UnstyledButtonProps['use'] = [],
-		element: $$UnstyledButtonProps['element'] = undefined,
-		className: $$UnstyledButtonProps['className'] = '',
-		override: $$UnstyledButtonProps['override'] = {},
-		root: $$UnstyledButtonProps['root'] = 'button';
+  interface $$Props extends $$UnstyledButtonProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		root: $$Props['root'] = 'button';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */

@@ -3,13 +3,15 @@
 	import Box from '../Box/Box.svelte';
 	import type { StackProps as $$StackProps } from './Stack.styles';
 
-	export let use: $$StackProps['use'] = [],
-		element: $$StackProps['element'] = undefined,
-		className: $$StackProps['className'] = '',
-		override: $$StackProps['override'] = {},
-		spacing: $$StackProps['spacing'] = 'md',
-		align: $$StackProps['align'] = 'stretch',
-		justify: $$StackProps['justify'] = 'center';
+  interface $$Props extends $$StackProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		spacing: $$Props['spacing'] = 'md',
+		align: $$Props['align'] = 'stretch',
+		justify: $$Props['justify'] = 'center';
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }));
@@ -19,7 +21,7 @@
 @component
 
 Compose elements and components in a vertical flex container.
-	
+
 @see https://svelteui.org/core/stack
 @example
     ```svelte

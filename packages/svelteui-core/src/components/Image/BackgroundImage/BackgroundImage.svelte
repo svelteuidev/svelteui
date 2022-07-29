@@ -4,14 +4,16 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { ImageProps as $$ImageProps } from '../Image.styles';
 
-	export let use: $$ImageProps['use'] = [],
-		element: $$ImageProps['element'] = undefined,
-		className: $$ImageProps['className'] = '',
-		override: $$ImageProps['override'] = {},
-		radius: $$ImageProps['radius'] = 0,
-		src: $$ImageProps['src'] = '',
-		width: $$ImageProps['width'] = undefined,
-		height: $$ImageProps['height'] = undefined;
+  interface $$Props extends $$ImageProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		radius: $$Props['radius'] = 0,
+		src: $$Props['src'] = '',
+		width: $$Props['width'] = undefined,
+		height: $$Props['height'] = undefined;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -31,7 +33,7 @@ BackgroundImage component can be used to add any content on image. It is useful 
 		<script>
 			const src = 'https://images.unsplash.com/photo-1649014048485-590f93c42936?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
 		</script>
-	
+
 		<BackgroundImage radius="sm" {src}>
 			This content will be shown over the image
 		</BackgroundImage>

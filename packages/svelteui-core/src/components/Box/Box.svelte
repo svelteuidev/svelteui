@@ -5,25 +5,27 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { BoxProps as $$BoxProps } from './Box.styles';
 
-	export let use: $$BoxProps['use'] = [],
-		element: $$BoxProps['element'] = undefined,
-		className: $$BoxProps['className'] = '',
-		css: $$BoxProps['css'] = {},
-		root: $$BoxProps['root'] = undefined,
-		m: $$BoxProps['m'] = undefined,
-		my: $$BoxProps['my'] = undefined,
-		mx: $$BoxProps['mx'] = undefined,
-		mt: $$BoxProps['mt'] = undefined,
-		mb: $$BoxProps['mb'] = undefined,
-		ml: $$BoxProps['ml'] = undefined,
-		mr: $$BoxProps['mr'] = undefined,
-		p: $$BoxProps['p'] = undefined,
-		py: $$BoxProps['py'] = undefined,
-		px: $$BoxProps['px'] = undefined,
-		pt: $$BoxProps['pt'] = undefined,
-		pb: $$BoxProps['pb'] = undefined,
-		pl: $$BoxProps['pl'] = undefined,
-		pr: $$BoxProps['pr'] = undefined;
+  interface $$Props extends $$BoxProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		css: $$Props['css'] = {},
+		root: $$Props['root'] = undefined,
+		m: $$Props['m'] = undefined,
+		my: $$Props['my'] = undefined,
+		mx: $$Props['mx'] = undefined,
+		mt: $$Props['mt'] = undefined,
+		mb: $$Props['mb'] = undefined,
+		ml: $$Props['ml'] = undefined,
+		mr: $$Props['mr'] = undefined,
+		p: $$Props['p'] = undefined,
+		py: $$Props['py'] = undefined,
+		px: $$Props['px'] = undefined,
+		pt: $$Props['pt'] = undefined,
+		pb: $$Props['pb'] = undefined,
+		pl: $$Props['pl'] = undefined,
+		pr: $$Props['pr'] = undefined;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -65,7 +67,7 @@
 @component
 
 Add inline styles to any element or component with sx.
-	
+
 @see https://svelteui.org/core/box
 @example
     ```svelte

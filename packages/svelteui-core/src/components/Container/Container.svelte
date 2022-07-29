@@ -3,13 +3,15 @@
 	import Box from '../Box/Box.svelte';
 	import type { ContainerProps as $$ContainerProps } from './Container.styles';
 
-	export let use: $$ContainerProps['use'] = [],
-		element: $$ContainerProps['element'] = undefined,
-		className: $$ContainerProps['className'] = '',
-		override: $$ContainerProps['override'] = {},
-		size: $$ContainerProps['size'] = 'md',
-		fluid: $$ContainerProps['fluid'] = false,
-		sizes: $$ContainerProps['sizes'] = {
+  interface $$Props extends $$ContainerProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		size: $$Props['size'] = 'md',
+		fluid: $$Props['fluid'] = false,
+		sizes: $$Props['sizes'] = {
 			xs: 540,
 			sm: 720,
 			md: 960,
@@ -25,7 +27,7 @@
 @component
 
 Center content horizontally with predefined max-width
-	
+
 @see https://svelteui.org/core/container
 @example
     ```svelte

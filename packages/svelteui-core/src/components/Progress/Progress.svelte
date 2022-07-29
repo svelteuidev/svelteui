@@ -5,25 +5,26 @@
 	import { Text } from '../Text';
 	import { randomID } from '$lib/styles';
 	import { cubicOut } from 'svelte/easing';
-
 	import type { ProgressProps as $$ProgressProps } from './Progress.styles';
 
-	export let use: $$ProgressProps['use'] = [],
-		element: $$ProgressProps['element'] = undefined,
-		className: $$ProgressProps['className'] = '',
-		override: $$ProgressProps['override'] = {},
-		value: $$ProgressProps['value'] = undefined,
-		color: $$ProgressProps['color'] = undefined,
-		size: $$ProgressProps['size'] = 'md',
-		radius: $$ProgressProps['radius'] = 'sm',
-		striped: $$ProgressProps['striped'] = false,
-		animate: $$ProgressProps['animate'] = false,
-		label: $$ProgressProps['label'] = '',
-		sections: $$ProgressProps['sections'] = undefined,
-		shade: $$ProgressProps['shade'] = 6,
-		ariaLabel: $$ProgressProps['ariaLabel'] = randomID(),
-		tween: $$ProgressProps['tween'] = false,
-		tweenOptions: $$ProgressProps['tweenOptions'] = {};
+  interface $$Props extends $$ProgressProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		value: $$Props['value'] = undefined,
+		color: $$Props['color'] = undefined,
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'sm',
+		striped: $$Props['striped'] = false,
+		animate: $$Props['animate'] = false,
+		label: $$Props['label'] = '',
+		sections: $$Props['sections'] = undefined,
+		shade: $$Props['shade'] = 6,
+		ariaLabel: $$Props['ariaLabel'] = randomID(),
+		tween: $$Props['tween'] = false,
+		tweenOptions: $$Props['tweenOptions'] = {};
 	export { className as class };
 
 	const defaultTweenOptions = { delay: 0, duration: 400, easing: cubicOut };

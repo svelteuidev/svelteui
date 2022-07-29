@@ -3,11 +3,13 @@
 	import { Box } from '../Box';
 	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender.styles';
 
-	export let use: $$ObserverRenderProps['use'] = [],
-		element: $$ObserverRenderProps['element'] = undefined,
-		className: $$ObserverRenderProps['className'] = '',
-		override: $$ObserverRenderProps['override'] = {},
-		options: $$ObserverRenderProps['options'] = {};
+  interface $$Props extends $$ObserverRenderProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		options: $$Props['options'] = {};
 	export { className as class };
 
 	let visible = null;

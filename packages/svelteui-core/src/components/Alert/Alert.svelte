@@ -7,19 +7,19 @@
 
 	interface $$Props extends $$AlertProps {}
 
-	export let use: $$AlertProps['use'] = [],
-		element: $$AlertProps['element'] = undefined,
-		className: $$AlertProps['className'] = 'blue',
-		override: $$AlertProps['override'] = {},
-		title: $$AlertProps['title'] = undefined,
-		color: $$AlertProps['color'] = 'red',
-		radius: $$AlertProps['radius'] = 'sm',
-		variant: $$AlertProps['variant'] = 'light',
-		icon: $$AlertProps['icon'] = undefined,
-		iconSize: $$AlertProps['iconSize'] = 16,
-		iconProps: $$AlertProps['iconProps'] = {},
-		withCloseButton: $$AlertProps['withCloseButton'] = false,
-		closeButtonLabel: $$AlertProps['closeButtonLabel'] = undefined;
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = 'blue',
+		override: $$Props['override'] = {},
+		title: $$Props['title'] = undefined,
+		color: $$Props['color'] = 'red',
+		radius: $$Props['radius'] = 'sm',
+		variant: $$Props['variant'] = 'light',
+		icon: $$Props['icon'] = undefined,
+		iconSize: $$Props['iconSize'] = 16,
+		iconProps: $$Props['iconProps'] = {},
+		withCloseButton: $$Props['withCloseButton'] = false,
+		closeButtonLabel: $$Props['closeButtonLabel'] = undefined;
 	export { className as class };
 
 	const dispatch = createEventDispatcher();

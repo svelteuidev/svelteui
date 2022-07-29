@@ -3,11 +3,13 @@
 	import Box from '../Box/Box.svelte';
 	import type { CenterProps as $$CenterProps } from './Center.styles';
 
-	export let use: $$CenterProps['use'] = [],
-		element: $$CenterProps['element'] = undefined,
-		className: $$CenterProps['className'] = '',
-		override: $$CenterProps['override'] = {},
-		inline: $$CenterProps['inline'] = false;
+  interface $$Props extends $$CenterProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		inline: $$Props['inline'] = false;
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ inline }));
@@ -17,7 +19,7 @@
 @component
 
 Centers content vertically and horizontally.
-	
+
 @see https://svelteui.org/core/center
 @example
     ```svelte

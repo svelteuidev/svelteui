@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { HorizontalSection } from '../HorizontalSection';
-	import type { HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection.styles';
+	import type { HorizontalSectionSharedProps as $$HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection.styles';
 
-	export let use: HorizontalSectionSharedProps['use'] = [],
-		element: HorizontalSectionSharedProps['element'] = undefined,
-		className: HorizontalSectionSharedProps['className'] = '',
-		override: HorizontalSectionSharedProps['override'] = {},
-		width: HorizontalSectionSharedProps['width'] = undefined,
-		height: HorizontalSectionSharedProps['height'] = undefined,
-		fixed: HorizontalSectionSharedProps['fixed'] = false,
-		position: HorizontalSectionSharedProps['position'] = { top: 0, left: 0 },
-		hiddenBreakpoint: HorizontalSectionSharedProps['hiddenBreakpoint'] = 'md',
-		hidden: HorizontalSectionSharedProps['hidden'] = false,
-		zIndex: HorizontalSectionSharedProps['zIndex'] = 100;
+  interface $$Props extends $$HorizontalSectionSharedProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		width: $$Props['width'] = undefined,
+		height: $$Props['height'] = undefined,
+		fixed: $$Props['fixed'] = false,
+		position: $$Props['position'] = { top: 0, left: 0 },
+		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
+		hidden: $$Props['hidden'] = false,
+		zIndex: $$Props['zIndex'] = 100;
 	export { className as class };
 </script>
 

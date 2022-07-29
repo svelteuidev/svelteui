@@ -9,15 +9,17 @@
 	import type { MenuContextValue } from '../Menu.context';
 	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
 
-	export let use: $$MenuItemProps['use'] = [],
-		element: $$MenuItemProps['element'] = undefined,
-		className: $$MenuItemProps['className'] = '',
-		override: $$MenuItemProps['override'] = {},
-		root: $$MenuItemProps['root'] = 'button',
-		color: $$MenuItemProps['color'] = undefined,
-		disabled: $$MenuItemProps['disabled'] = false,
-		icon: $$MenuItemProps['icon'] = undefined,
-		iconProps: $$MenuItemProps['iconProps'] = undefined;
+  interface $$Props extends $$MenuItemProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		root: $$Props['root'] = 'button',
+		color: $$Props['color'] = undefined,
+		disabled: $$Props['disabled'] = false,
+		icon: $$Props['icon'] = undefined,
+		iconProps: $$Props['iconProps'] = undefined;
 	export { className as class };
 
 	const state: Writable<MenuContextValue> = getContext(ctx);

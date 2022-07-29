@@ -4,15 +4,17 @@
 	import Box from '../Box/Box.svelte';
 	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon.styles';
 
-	export let use: $$ThemeIconProps['use'] = [],
-		element: $$ThemeIconProps['element'] = undefined,
-		className: $$ThemeIconProps['className'] = '',
-		override: $$ThemeIconProps['override'] = {},
-		size: $$ThemeIconProps['size'] = 'md',
-		radius: $$ThemeIconProps['radius'] = 'sm',
-		color: $$ThemeIconProps['color'] = 'blue',
-		variant: $$ThemeIconProps['variant'] = 'filled',
-		gradient: $$ThemeIconProps['gradient'] = { from: 'blue', to: 'cyan', deg: 45 };
+  interface $$Props extends $$ThemeIconProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'sm',
+		color: $$Props['color'] = 'blue',
+		variant: $$Props['variant'] = 'filled',
+		gradient: $$Props['gradient'] = { from: 'blue', to: 'cyan', deg: 45 };
 	export { className as class };
 
 	$: iconSize = typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md;
@@ -24,7 +26,7 @@
 **UNSTABLE:** new API, yet to be vetted.
 
 Render icon inside element with theme colors
-	
+
 @see https://svelteui.org/core/theme-icon
 @example
     ```svelte

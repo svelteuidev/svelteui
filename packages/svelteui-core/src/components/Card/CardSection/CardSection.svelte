@@ -3,11 +3,13 @@
 	import { Box } from '../../Box';
 	import type { CardSectionProps as $$CardSectionProps } from './CardSection.styles';
 
-	export let use: $$CardSectionProps['use'] = [],
-		element: $$CardSectionProps['element'] = undefined,
-		className: $$CardSectionProps['className'] = '',
-		override: $$CardSectionProps['override'] = {},
-		padding: $$CardSectionProps['padding'] = 'md';
+  interface $$Props extends $$CardSectionProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		padding: $$Props['padding'] = 'md';
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ padding }));

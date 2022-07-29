@@ -5,28 +5,30 @@
 	import Box from '../Box/Box.svelte';
 	import type { InputProps as $$InputProps } from './Input.styles';
 
-	export let use: $$InputProps['use'] = [],
-		element: $$InputProps['element'] = undefined,
-		className: $$InputProps['className'] = '',
-		override: $$InputProps['override'] = {},
-		root: $$InputProps['root'] = 'input',
-		icon: $$InputProps['icon'] = null,
-		iconWidth: $$InputProps['iconWidth'] = 36,
-		iconProps: $$InputProps['iconProps'] = { size: 20, color: 'currentColor' },
-		showRightSection: $$InputProps['showRightSection'] = $$slots.rightSection,
-		rightSectionWidth: $$InputProps['rightSectionWidth'] = 36,
-		rightSectionProps: $$InputProps['rightSectionProps'] = {},
-		wrapperProps: $$InputProps['wrapperProps'] = {},
-		id: $$InputProps['id'] = 'input-id',
-		required: $$InputProps['required'] = false,
-		radius: $$InputProps['radius'] = 'sm',
-		variant: $$InputProps['variant'] = 'default',
-		disabled: $$InputProps['disabled'] = false,
-		size: $$InputProps['size'] = 'sm',
-		value: $$InputProps['value'] = '',
-		invalid: $$InputProps['invalid'] = false,
-		multiline: $$InputProps['multiline'] = false,
-		placeholder: $$InputProps['placeholder'] = '';
+  interface $$Props extends $$InputProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		root: $$Props['root'] = 'input',
+		icon: $$Props['icon'] = null,
+		iconWidth: $$Props['iconWidth'] = 36,
+		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
+		showRightSection: $$Props['showRightSection'] = $$slots.rightSection,
+		rightSectionWidth: $$Props['rightSectionWidth'] = 36,
+		rightSectionProps: $$Props['rightSectionProps'] = {},
+		wrapperProps: $$Props['wrapperProps'] = {},
+		id: $$Props['id'] = 'input-id',
+		required: $$Props['required'] = false,
+		radius: $$Props['radius'] = 'sm',
+		variant: $$Props['variant'] = 'default',
+		disabled: $$Props['disabled'] = false,
+		size: $$Props['size'] = 'sm',
+		value: $$Props['value'] = '',
+		invalid: $$Props['invalid'] = false,
+		multiline: $$Props['multiline'] = false,
+		placeholder: $$Props['placeholder'] = '';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -65,7 +67,7 @@
 **DISCLAIMER: In most cases, you should not use Input component in your application. Input component is a base for other inputs and was not designed to be used directly.**
 
 Base component to create custom inputs
-	
+
 @see https://svelteui.org/core/input
 @example
     ```svelte

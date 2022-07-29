@@ -3,13 +3,15 @@
 	import { Portal } from '../Portal';
 	import type { AffixProps as $$AffixProps } from './Affix.styles';
 
-	export let use: $$AffixProps['use'] = [],
-		element: $$AffixProps['element'] = undefined,
-		className: $$AffixProps['className'] = '',
-		override: $$AffixProps['override'] = {},
-		target: $$AffixProps['target'] = 'body',
-		position: $$AffixProps['position'] = { bottom: 0, right: 0 },
-		zIndex: $$AffixProps['zIndex'] = 200;
+  interface $$Props extends $$AffixProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		target: $$Props['target'] = 'body',
+		position: $$Props['position'] = { bottom: 0, right: 0 },
+		zIndex: $$Props['zIndex'] = 200;
 	export { className as class };
 </script>
 

@@ -9,15 +9,17 @@
 	import { Box } from '../Box';
 	import type { GridProps as $$GridProps } from './Grid.styles';
 
-	export let use: $$GridProps['use'] = [],
-		element: $$GridProps['element'] = undefined,
-		className: $$GridProps['className'] = '',
-		override: $$GridProps['override'] = {},
-		align: $$GridProps['align'] = 'stretch',
-		cols: $$GridProps['cols'] = 12,
-		grow: $$GridProps['grow'] = false,
-		spacing: $$GridProps['spacing'] = 'md',
-		justify: $$GridProps['justify'] = 'flex-start';
+  interface $$Props extends $$GridProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		align: $$Props['align'] = 'stretch',
+		cols: $$Props['cols'] = 12,
+		grow: $$Props['grow'] = false,
+		spacing: $$Props['spacing'] = 'md',
+		justify: $$Props['justify'] = 'flex-start';
 	export { className as class };
 
 	// initialize a 'reactive context' which is basically
@@ -34,7 +36,7 @@
 @component
 
 Flexbox grid with variable amount of columns
-	
+
 @see https://svelteui.org/core/grid
 @example
     ```svelte

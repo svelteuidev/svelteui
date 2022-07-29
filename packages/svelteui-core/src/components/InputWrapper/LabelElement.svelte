@@ -2,12 +2,14 @@
 	import Box from '../Box/Box.svelte';
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
 
-	export let className: $$InputWrapperProps['className'] = 'label';
+  interface $$Props extends $$InputWrapperProps {}
+
+	export let className: $$Props['className'] = 'label';
 	export { className as class };
-	export let label: $$InputWrapperProps['label'] = 'label';
-	export let labelElement: $$InputWrapperProps['labelElement'] = 'label';
-	export let required: $$InputWrapperProps['required'] = false;
-	export let id: $$InputWrapperProps['id'] = undefined;
+	export let label: $$Props['label'] = 'label';
+	export let labelElement: $$Props['labelElement'] = 'label';
+	export let required: $$Props['required'] = false;
+	export let id: $$Props['id'] = undefined;
 
 	let _id;
 	$: {

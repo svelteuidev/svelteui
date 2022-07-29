@@ -9,17 +9,19 @@
 	import Box from '../Box/Box.svelte';
 	import type { TimelineProps as $$TimelineProps } from './Timeline.styles';
 
-	export let use: $$TimelineProps['use'] = [],
-		element: $$TimelineProps['element'] = undefined,
-		className: $$TimelineProps['className'] = '',
-		override: $$TimelineProps['override'] = {},
-		active: $$TimelineProps['active'] = -1,
-		align: $$TimelineProps['align'] = 'left',
-		bulletSize: $$TimelineProps['bulletSize'] = 20,
-		radius: $$TimelineProps['radius'] = 'xl',
-		color: $$TimelineProps['color'] = 'blue',
-		lineWidth: $$TimelineProps['lineWidth'] = 4,
-		reverseActive: $$TimelineProps['reverseActive'] = false;
+  interface $$Props extends $$TimelineProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		active: $$Props['active'] = -1,
+		align: $$Props['align'] = 'left',
+		bulletSize: $$Props['bulletSize'] = 20,
+		radius: $$Props['radius'] = 'xl',
+		color: $$Props['color'] = 'blue',
+		lineWidth: $$Props['lineWidth'] = 4,
+		reverseActive: $$Props['reverseActive'] = false;
 	export { className as class };
 
 	// initialize a 'reactive context' which is basically
@@ -53,7 +55,7 @@
 **UNSTABLE:** new API, yet to be vetted.
 
 Display list of events in chronological order
-	
+
 @see https://svelteui.org/core/timeline
 @example
     ```svelte

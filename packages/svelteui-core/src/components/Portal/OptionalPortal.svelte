@@ -2,11 +2,13 @@
 	import Portal from './Portal.svelte';
 	import type { OptionalPortalProps as $$OptionalPortalProps } from './Portal.styles';
 
-	export let withinPortal: $$OptionalPortalProps['withinPortal'] = true,
-		use: $$OptionalPortalProps['use'] = [],
-		element: $$OptionalPortalProps['element'] = undefined,
-		className: $$OptionalPortalProps['className'] = '',
-		target: $$OptionalPortalProps['target'] = 'body';
+  interface $$Props extends $$OptionalPortalProps {}
+
+	export let withinPortal: $$Props['withinPortal'] = true,
+		use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		target: $$Props['target'] = 'body';
 	export { className as class };
 </script>
 

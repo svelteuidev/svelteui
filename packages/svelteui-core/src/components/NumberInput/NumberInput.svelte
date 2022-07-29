@@ -5,35 +5,37 @@
 	import { defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
-	export let use: $$NumberInputProps['use'] = [],
-		element: $$NumberInputProps['element'] = undefined,
-		className: $$NumberInputProps['className'] = '',
-		override: $$NumberInputProps['override'] = {},
-		overrideControls: $$NumberInputProps['override'] = {},
-		root: $$NumberInputProps['root'] = 'input',
-		placeholder: $$NumberInputProps['placeholder'] = undefined,
-		icon: $$NumberInputProps['icon'] = null,
-		iconWidth: $$NumberInputProps['iconWidth'] = 36,
-		iconProps: $$NumberInputProps['iconProps'] = { size: 20, color: 'currentColor' },
-		wrapperProps: $$NumberInputProps['wrapperProps'] = {},
-		required: $$NumberInputProps['required'] = false,
-		radius: $$NumberInputProps['radius'] = 'sm',
-		variant: $$NumberInputProps['variant'] = 'default',
-		disabled: $$NumberInputProps['disabled'] = false,
-		size: $$NumberInputProps['size'] = 'sm',
-		value: $$NumberInputProps['value'] = undefined,
-		defaultValue: $$NumberInputProps['defaultValue'] = undefined,
-		decimalSeparator: $$NumberInputProps['decimalSeparator'] = '.',
-		min: $$NumberInputProps['min'] = -Infinity,
-		max: $$NumberInputProps['max'] = Infinity,
-		step: $$NumberInputProps['step'] = 1,
-		stepHoldDelay: $$NumberInputProps['stepHoldDelay'] = 250,
-		stepHoldInterval: $$NumberInputProps['stepHoldInterval'] = 150,
-		hideControls: $$NumberInputProps['hideControls'] = false,
-		precision: $$NumberInputProps['precision'] = 0,
-		noClampOnBlur: $$NumberInputProps['noClampOnBlur'] = false,
-		formatter: $$NumberInputProps['formatter'] = defaultFormatter,
-		parser: $$NumberInputProps['parser'] = defaultParser;
+  interface $$Props extends $$NumberInputProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		overrideControls: $$Props['override'] = {},
+		root: $$Props['root'] = 'input',
+		placeholder: $$Props['placeholder'] = undefined,
+		icon: $$Props['icon'] = null,
+		iconWidth: $$Props['iconWidth'] = 36,
+		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
+		wrapperProps: $$Props['wrapperProps'] = {},
+		required: $$Props['required'] = false,
+		radius: $$Props['radius'] = 'sm',
+		variant: $$Props['variant'] = 'default',
+		disabled: $$Props['disabled'] = false,
+		size: $$Props['size'] = 'sm',
+		value: $$Props['value'] = undefined,
+		defaultValue: $$Props['defaultValue'] = undefined,
+		decimalSeparator: $$Props['decimalSeparator'] = '.',
+		min: $$Props['min'] = -Infinity,
+		max: $$Props['max'] = Infinity,
+		step: $$Props['step'] = 1,
+		stepHoldDelay: $$Props['stepHoldDelay'] = 250,
+		stepHoldInterval: $$Props['stepHoldInterval'] = 150,
+		hideControls: $$Props['hideControls'] = false,
+		precision: $$Props['precision'] = 0,
+		noClampOnBlur: $$Props['noClampOnBlur'] = false,
+		formatter: $$Props['formatter'] = defaultFormatter,
+		parser: $$Props['parser'] = defaultParser;
 	export { className as class };
 
 	/** Function that allows incrementing the value outside the component, useful for external controls */
@@ -173,7 +175,7 @@
 
 Number input component that allows inputting numbers and incremeting/decrementing them, as well as set steps, minimum and maximum
 values and add custom parsers and formatters.
-	
+
 @see https://svelteui.org/core/number-input
 @example
     ```svelte

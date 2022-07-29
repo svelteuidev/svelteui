@@ -3,23 +3,25 @@
 	import Text from '../Text/Text.svelte';
 	import type { AnchorProps as $$AnchorProps } from './Anchor.styles';
 
-	export let use: $$AnchorProps['use'] = [],
-		element: $$AnchorProps['element'] = undefined,
-		className: $$AnchorProps['className'] = '',
-		override: $$AnchorProps['override'] = {},
-		root: $$AnchorProps['root'] = 'a',
-		align: $$AnchorProps['align'] = 'left',
-		color: $$AnchorProps['color'] = 'blue',
-		transform: $$AnchorProps['transform'] = 'none',
-		weight: $$AnchorProps['weight'] = 'normal',
-		gradient: $$AnchorProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		inline: $$AnchorProps['inline'] = true,
-		lineClamp: $$AnchorProps['lineClamp'] = undefined,
-		underline: $$AnchorProps['underline'] = true,
-		inherit: $$AnchorProps['inherit'] = false,
-		href: $$AnchorProps['href'] = '',
-		tracking: $$AnchorProps['tracking'] = 'normal',
-		external: $$AnchorProps['external'] = false;
+  interface $$Props extends $$AnchorProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		root: $$Props['root'] = 'a',
+		align: $$Props['align'] = 'left',
+		color: $$Props['color'] = 'blue',
+		transform: $$Props['transform'] = 'none',
+		weight: $$Props['weight'] = 'normal',
+		gradient: $$Props['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
+		inline: $$Props['inline'] = true,
+		lineClamp: $$Props['lineClamp'] = undefined,
+		underline: $$Props['underline'] = true,
+		inherit: $$Props['inherit'] = false,
+		href: $$Props['href'] = '',
+		tracking: $$Props['tracking'] = 'normal',
+		external: $$Props['external'] = false;
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles());
@@ -31,7 +33,7 @@
 
 Display an anchor text that is a wrapper around `Text` component using an `a` as the default
 root.
-	
+
 @see https://svelteui.org/core/anchor
 @example
     ```svelte
