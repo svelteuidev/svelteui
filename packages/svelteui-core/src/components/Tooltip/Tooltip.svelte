@@ -1,6 +1,6 @@
 <script lang="ts">
 	import useStyles from './Tooltip.styles';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
 	import type { CSS } from '$lib/styles';
@@ -34,12 +34,13 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
+  const dispatch = createEventDispatcher();
+
 	let openTimeoutRef: number, closeTimeoutRef: number;
 	let _opened = false;
 	let tooltipRefElement = null;
-	let ToolTipStyles: CSS;
 
-	const handleOpen = () => {
+	const handleOpen = (event) => {
 		window.clearTimeout(closeTimeoutRef);
 
 		if (openDelay !== 0) {
@@ -49,9 +50,10 @@
 		} else {
 			_opened = true;
 		}
+    dispatch('mouseenter', event);
 	};
 
-	const handleClose = () => {
+	const handleClose = (event) => {
 		window.clearTimeout(openTimeoutRef);
 
 		if (closeDelay !== 0) {
@@ -61,6 +63,7 @@
 		} else {
 			_opened = false;
 		}
+    dispatch('mouseleave', event);
 	};
 
 	onMount(() => {
@@ -74,19 +77,13 @@
 
 <Box
 	bind:element
-	on:pointerenter={(event) => {
-		handleOpen();
-		typeof onMouseEnter === 'function' && onMouseEnter(event);
-	}}
-	on:pointerleave={(event) => {
-		handleClose();
-		typeof onMouseLeave === 'function' && onMouseLeave(event);
-	}}
+	on:pointerenter={(event) => handleOpen(event)}
+	on:pointerleave={(event) => handleClose(event)}
 	on:focus!capture={handleOpen}
 	on:blur!capture={handleClose}
 	class={cx(className, getStyles({ css: override }))}
 	{use}
-	{tooltipId}
+	id={tooltipId}
 	{...$$restProps}
 >
 	<Popper
