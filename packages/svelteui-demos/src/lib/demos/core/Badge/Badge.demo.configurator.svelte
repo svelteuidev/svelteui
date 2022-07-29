@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => 
-`<script>
+	const codeTemplate = (props: string, children: string) =>
+		`<script>
   import { Badge } from '@svelteuidev/core';
 <\/script>
 
@@ -23,7 +23,7 @@
 			},
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'md' },
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'xl' },
-            {
+			{
 				name: 'variant',
 				type: 'select',
 				data: [
@@ -36,7 +36,7 @@
 				initialValue: 'light',
 				defaultValue: 'light'
 			},
-            {
+			{
 				name: 'gradient',
 				type: 'composite',
 				controls: [
@@ -60,6 +60,6 @@
 
 <Center>
 	<Badge {...props}>
-        <slot />
-    </Badge>
+		<slot />
+	</Badge>
 </Center>

@@ -5,7 +5,7 @@
 	import { defaultFormatter, defaultParser } from './NumberInput.styles';
 	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
 
-  interface $$Props extends $$NumberInputProps {}
+	interface $$Props extends $$NumberInputProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { PaperProps as $$PaperProps } from './Paper.styles';
 
-  interface $$Props extends $$PaperProps {}
+	interface $$Props extends $$PaperProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

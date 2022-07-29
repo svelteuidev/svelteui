@@ -4,7 +4,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon.styles';
 
-  interface $$Props extends $$ThemeIconProps {}
+	interface $$Props extends $$ThemeIconProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

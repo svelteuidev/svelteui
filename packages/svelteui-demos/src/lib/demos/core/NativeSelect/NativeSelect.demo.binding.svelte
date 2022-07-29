@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { NativeSelect, Text } from '@svelteuidev/core';
 
     let value = 'Svelte';
@@ -23,16 +22,16 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { NativeSelect, Text } from '@svelteuidev/core';
 
-    let value = 'Svelte';
+	let value = 'Svelte';
 </script>
 
 <NativeSelect
-    data={['Svelte', 'React', 'Vue', 'Angular']}
-    bind:value
-    override={{ select: { padding: 0 } }}
-    label="What is the best framework?"
+	data={['Svelte', 'React', 'Vue', 'Angular']}
+	bind:value
+	override={{ select: { padding: 0 } }}
+	label="What is the best framework?"
 />
 <Text>The best is <Text root="span" inline variant="gradient">{value}</Text></Text>

@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import type { CardProps as $$CardProps } from './Card.styles';
 
-  interface $$Props extends $$CardProps {}
+	interface $$Props extends $$CardProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -4,7 +4,7 @@
 	import { getSortedBreakpoints, size, theme } from './get-sorted-breakpoints';
 	import type { SimpleGridProps as $$SimpleGridProps } from './SimpleGrid.styles';
 
-  interface $$Props extends $$SimpleGridProps {}
+	interface $$Props extends $$SimpleGridProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -5,7 +5,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { InputProps as $$InputProps } from './Input.styles';
 
-  interface $$Props extends $$InputProps {}
+	interface $$Props extends $$InputProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

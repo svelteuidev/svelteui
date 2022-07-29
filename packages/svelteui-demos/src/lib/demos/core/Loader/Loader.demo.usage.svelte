@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { Loader } from '@svelteuidev/core';
 <\/script>
 
@@ -15,7 +14,7 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { Center, Loader } from '@svelteuidev/core';
 </script>
 

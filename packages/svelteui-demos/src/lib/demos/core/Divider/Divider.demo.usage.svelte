@@ -24,6 +24,6 @@
 
 <Divider />
 
-<Divider variant='dashed' />
+<Divider variant="dashed" />
 
-<Divider variant='dotted' />
+<Divider variant="dotted" />

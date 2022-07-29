@@ -1,8 +1,8 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
   import { Input, InputWrapper } from '@svelteuidev/core';
 <\/script>
 
@@ -15,16 +15,20 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-			{ name: 'label', type: 'string', initialValue: 'Credit card information'},
-			{ name: 'description', type: 'string', initialValue: 'Please enter your credit card information, we need some money'},
-			{ name: 'error', type: 'string', initialValue: 'Your credit card expired'},
+			{ name: 'label', type: 'string', initialValue: 'Credit card information' },
+			{
+				name: 'description',
+				type: 'string',
+				initialValue: 'Please enter your credit card information, we need some money'
+			},
+			{ name: 'error', type: 'string', initialValue: 'Your credit card expired' },
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'required', type: 'boolean', initialValue: true, defaultValue: true }
 		]
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import type { InputWrapperProps } from '@svelteuidev/core';
 	import { Center, Input, InputWrapper } from '@svelteuidev/core';
 
@@ -33,6 +37,6 @@
 
 <Center>
 	<InputWrapper {...props}>
-        <Input id='input-demo' placeholder='Write here the information' />
-    </InputWrapper>
+		<Input id="input-demo" placeholder="Write here the information" />
+	</InputWrapper>
 </Center>

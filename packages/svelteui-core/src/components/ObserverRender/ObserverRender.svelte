@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender.styles';
 
-  interface $$Props extends $$ObserverRenderProps {}
+	interface $$Props extends $$ObserverRenderProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

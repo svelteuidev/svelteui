@@ -6,7 +6,7 @@
 	import type { TabsContext } from '../Tabs.styles';
 	import type { TabProps as $$TabProps } from './Tab.styles';
 
-  interface $$Props extends $$TabProps {}
+	interface $$Props extends $$TabProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

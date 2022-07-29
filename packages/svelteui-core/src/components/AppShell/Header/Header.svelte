@@ -2,7 +2,7 @@
 	import { VerticalSection } from '../VerticalSection';
 	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection.styles';
 
-  interface $$Props extends $$VerticalSectionSharedProps {}
+	interface $$Props extends $$VerticalSectionSharedProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

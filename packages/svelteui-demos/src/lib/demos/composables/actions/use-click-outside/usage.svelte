@@ -29,36 +29,39 @@
 	import { Button, Center, Group, Paper, useSvelteUITheme } from '@svelteuidev/core';
 	import { clickoutside } from '@svelteuidev/composables';
 
-    let open = false;
-    let theme = useSvelteUITheme();
+	let open = false;
+	let theme = useSvelteUITheme();
 </script>
 
 <Center>
-    <div style='position: relative;' use:clickoutside={{ enabled: open, callback: () => open = false }}>
-        <Group position='center'>
-            <Button on:click={() => open = true}>Open Modal</Button>
-        </Group>
-        {#if open}
-            <Paper
-                shadow='sm'
-                override={{
-                    zIndex: 1,
-                    width: 300,
-                    height: 60,
-                    position: 'absolute',
-                    top: 0,
-                    left: 'calc(50% - 150px)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: theme.colors.white.value,
-                    darkMode: {
-                        color: theme.fn.themeColor('dark', 6)
-                    }
-                }}
-            >
-                This is a modal, click anywhere to close
-            </Paper>
-        {/if}
-    </div>
+	<div
+		style="position: relative;"
+		use:clickoutside={{ enabled: open, callback: () => (open = false) }}
+	>
+		<Group position="center">
+			<Button on:click={() => (open = true)}>Open Modal</Button>
+		</Group>
+		{#if open}
+			<Paper
+				shadow="sm"
+				override={{
+					zIndex: 1,
+					width: 300,
+					height: 60,
+					position: 'absolute',
+					top: 0,
+					left: 'calc(50% - 150px)',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					backgroundColor: theme.colors.white.value,
+					darkMode: {
+						color: theme.fn.themeColor('dark', 6)
+					}
+				}}
+			>
+				This is a modal, click anywhere to close
+			</Paper>
+		{/if}
+	</div>
 </Center>

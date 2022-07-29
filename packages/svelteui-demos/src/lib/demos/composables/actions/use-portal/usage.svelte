@@ -35,22 +35,20 @@
 	import { Box, Button, Stack } from '@svelteuidev/core';
 	import { portal } from '@svelteuidev/composables';
 
-    let magic = false
+	let magic = false;
 </script>
 
-<Stack align='center'>
-    {#if magic}
-        <div>
-            Look at the top of the page
-        </div>
-    {/if}
-    <div>
-        <Box 
-            use={[[portal, magic ? 'h1' : null]]}
-            css={{bc: 'white', border: '1px solid black', br: '$md', padding: '$md'}} 
-        >
-            I'm being rendered {magic ? 'outside' : 'inside'} of the preview
-        </Box>
-    </div>
-    <Button on:click={() => magic = !magic}>Click me to see the magic</Button>
+<Stack align="center">
+	{#if magic}
+		<div>Look at the top of the page</div>
+	{/if}
+	<div>
+		<Box
+			use={[[portal, magic ? 'h1' : null]]}
+			css={{ bc: 'white', border: '1px solid black', br: '$md', padding: '$md' }}
+		>
+			I'm being rendered {magic ? 'outside' : 'inside'} of the preview
+		</Box>
+	</div>
+	<Button on:click={() => (magic = !magic)}>Click me to see the magic</Button>
 </Stack>

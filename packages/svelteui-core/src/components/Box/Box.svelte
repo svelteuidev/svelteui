@@ -5,7 +5,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { BoxProps as $$BoxProps } from './Box.styles';
 
-  interface $$Props extends $$BoxProps {}
+	interface $$Props extends $$BoxProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

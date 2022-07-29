@@ -5,7 +5,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
-  interface $$Props extends $$SwitchProps {}
+	interface $$Props extends $$SwitchProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

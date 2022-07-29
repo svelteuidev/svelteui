@@ -6,7 +6,7 @@
 	import { DividerErrors } from './Divider.errors';
 	import type { DividerProps as $$DividerProps } from './Divider.styles';
 
-  interface $$Props extends $$DividerProps {}
+	interface $$Props extends $$DividerProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -6,7 +6,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { BurgerProps as $$BurgerProps } from './Burger.styles';
 
-  interface $$Props extends $$BurgerProps {}
+	interface $$Props extends $$BurgerProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

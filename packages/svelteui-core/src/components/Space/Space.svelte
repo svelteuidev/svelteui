@@ -3,7 +3,7 @@
 	import { Box } from '../Box';
 	import type { SpaceProps as $$SpaceProps } from './Space.styles';
 
-  interface $$Props extends $$SpaceProps {}
+	interface $$Props extends $$SpaceProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

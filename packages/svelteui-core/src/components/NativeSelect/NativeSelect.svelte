@@ -7,7 +7,7 @@
 	import ChevronUpDown from './ChevronUpDown.svelte';
 	import type { NativeSelectProps as $$NativeSelectProps } from './NativeSelect.styles';
 
-  interface $$Props extends $$NativeSelectProps {}
+	interface $$Props extends $$NativeSelectProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

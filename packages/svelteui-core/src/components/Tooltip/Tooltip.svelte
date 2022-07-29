@@ -6,7 +6,7 @@
 	import type { CSS } from '$lib/styles';
 	import type { TooltipProps as $$TooltipProps } from './Tooltip.styles';
 
-  interface $$Props extends $$TooltipProps {}
+	interface $$Props extends $$TooltipProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -34,7 +34,7 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
 	let openTimeoutRef: number, closeTimeoutRef: number;
 	let _opened = false;
@@ -50,7 +50,7 @@
 		} else {
 			_opened = true;
 		}
-    dispatch('mouseenter', event);
+		dispatch('mouseenter', event);
 	};
 
 	const handleClose = (event) => {
@@ -63,7 +63,7 @@
 		} else {
 			_opened = false;
 		}
-    dispatch('mouseleave', event);
+		dispatch('mouseleave', event);
 	};
 
 	onMount(() => {

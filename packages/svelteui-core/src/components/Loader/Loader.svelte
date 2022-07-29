@@ -7,7 +7,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
 
-  interface $$Props extends $$LoaderProps {}
+	interface $$Props extends $$LoaderProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

@@ -9,7 +9,7 @@
 	import { Box } from '../Box';
 	import type { AppShellProps as $$AppShellProps } from './AppShell.styles';
 
-  interface $$Props extends $$AppShellProps {}
+	interface $$Props extends $$AppShellProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

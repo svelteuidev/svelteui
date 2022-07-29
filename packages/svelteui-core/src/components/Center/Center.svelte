@@ -3,7 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { CenterProps as $$CenterProps } from './Center.styles';
 
-  interface $$Props extends $$CenterProps {}
+	interface $$Props extends $$CenterProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

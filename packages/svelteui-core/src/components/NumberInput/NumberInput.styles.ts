@@ -13,7 +13,7 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	stepHoldDelay?: number;
 	stepHoldInterval?: number | ((step: number) => number);
 	hideControls?: boolean;
-  overrideControls?: Override['props'];
+	overrideControls?: Override['props'];
 	precision?: number;
 	noClampOnBlur?: boolean;
 	formatter?: Formatter;

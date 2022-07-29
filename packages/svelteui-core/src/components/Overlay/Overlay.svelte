@@ -6,7 +6,7 @@
 	import type { OverlayProps as $$OverlayProps } from './Overlay.styles';
 	import Box from '../Box/Box.svelte';
 
-  interface $$Props extends $$OverlayProps {}
+	interface $$Props extends $$OverlayProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

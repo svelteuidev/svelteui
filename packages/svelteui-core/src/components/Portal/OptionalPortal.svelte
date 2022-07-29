@@ -2,7 +2,7 @@
 	import Portal from './Portal.svelte';
 	import type { OptionalPortalProps as $$OptionalPortalProps } from './Portal.styles';
 
-  interface $$Props extends $$OptionalPortalProps {}
+	interface $$Props extends $$OptionalPortalProps {}
 
 	export let withinPortal: $$Props['withinPortal'] = true,
 		use: $$Props['use'] = [],

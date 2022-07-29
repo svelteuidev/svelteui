@@ -18,7 +18,7 @@
 	import type { PopperProps } from '../Popper';
 	import type { MenuProps as $$MenuProps } from './Menu.styles';
 
-  interface $$Props extends $$MenuProps, Omit<PopperProps, 'transition'> {}
+	interface $$Props extends $$MenuProps, Omit<PopperProps, 'transition'> {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

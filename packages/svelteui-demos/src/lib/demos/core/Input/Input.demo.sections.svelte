@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
     import { Badge, Input } from '@svelteuidev/core';
     import { MagnifyingGlass } from 'radix-icons-svelte';
 <\/script>
@@ -25,18 +24,16 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import { Badge, Input } from '@svelteuidev/core';
-    import { MagnifyingGlass } from 'radix-icons-svelte';
+	import { MagnifyingGlass } from 'radix-icons-svelte';
 </script>
 
 <Input
-    icon={MagnifyingGlass}
-    placeholder='Search'
-    rightSectionWidth={70}
-    styles={{ rightSection: { pointerEvents: 'none' } }}
+	icon={MagnifyingGlass}
+	placeholder="Search"
+	rightSectionWidth={70}
+	styles={{ rightSection: { pointerEvents: 'none' } }}
 >
-    <Badge slot='rightSection' color='blue' variant='filled'>
-        new
-    </Badge>
+	<Badge slot="rightSection" color="blue" variant="filled">new</Badge>
 </Input>

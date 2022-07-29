@@ -3,7 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import type { StackProps as $$StackProps } from './Stack.styles';
 
-  interface $$Props extends $$StackProps {}
+	interface $$Props extends $$StackProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

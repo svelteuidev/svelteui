@@ -4,7 +4,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { PortalProps as $$PortalProps } from './Portal.styles';
 
-  interface $$Props extends $$PortalProps {}
+	interface $$Props extends $$PortalProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
