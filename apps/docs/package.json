@@ -15,14 +15,14 @@
 		"svelte-tooltip": "^1.2.0"
 	},
 	"scripts": {
-		"build": "rollup -c node_modules/@svelte-docs/core/rollup.config.js",
-		"autobuild": "rollup -c node_modules/@svelte-docs/core/rollup.config.js -w",
+		"build": "rollup -c ../../node_modules/@svelte-docs/core/rollup.config.js",
+		"autobuild": "rollup -c ../../node_modules/@svelte-docs/core/rollup.config.js -w",
 		"prepare": "deno run --unstable --allow-read --allow-write ./prepare.ts",
 		"dev": "npm run prepare & npm run start:dev & npm run autobuild",
-		"start": "node node_modules/@svelte-docs/server",
-		"start:dev": "PORT=3002 node node_modules/@svelte-docs/server --dev --single",
-		"start:pagewatch": "node node_modules/@svelte-docs/core/watcher",
-		"deploy": "npm run prepare & npm run build && deno run -A --unstable ../scripts/docs/build.ts",
-		"deploy:nobuild": "node node_modules/@svelte-docs/publisher"
+		"start": "node ../../node_modules/@svelte-docs/server",
+		"start:dev": "PORT=3002 node ../../node_modules/@svelte-docs/server --dev --single",
+		"start:pagewatch": "node ../../node_modules/@svelte-docs/core/watcher",
+		"deploy": "npm run prepare & npm run build && deno run -A --unstable ../../scripts/docs/build.ts",
+		"deploy:nobuild": "node ../../node_modules/@svelte-docs/publisher"
 	}
 }
