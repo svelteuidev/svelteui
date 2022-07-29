@@ -6,11 +6,9 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { Props as $$Props, Props } from './Button.styles';
+	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
-	interface $$Props extends Props {
-		never?: never;
-	}
+	interface $$Props extends $$ButtonProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -53,7 +51,7 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
-	$: ({ getStyles, cx, classes } = useStyles({
+	$: ({ getStyles, cx } = useStyles({
 		color,
 		compact,
 		fullSize,
