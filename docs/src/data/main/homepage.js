@@ -4,7 +4,6 @@ import {
 	Container,
 	Center,
 	SimpleGrid,
-	Space,
 	Stack,
 	Group,
 	ActionIcon,
@@ -18,14 +17,10 @@ import {
 	Image,
 	ThemeIcon,
 	Loader,
-	Overlay,
 	Code,
 	Text,
 	Title,
-	Box,
-	BrowserRender,
-	ServerRender,
-	Fragment
+	Box
 } from '@svelteuidev/core';
 
 export const features = [
@@ -218,28 +213,4 @@ export const components = [
 		color: '$blue600',
 		content: 'Read about me'
 	},
-	{
-		icon: BoxIcon,
-		component: BrowserRender,
-		link: 'core/browser-render',
-		title: 'BrowserRender',
-		color: '$blue600',
-		content: 'This is only rendered in the browser'
-	},
-	{
-		icon: BoxIcon,
-		component: ServerRender,
-		link: 'core/server-render',
-		title: 'ServerRender',
-		color: '$blue600',
-		content: 'Read about me'
-	},
-	{
-		icon: BoxIcon,
-		component: Fragment,
-		link: 'core/fragment',
-		title: 'Fragment',
-		color: '$blue600',
-		content: 'No extra dom nodes'
-	}
 ];

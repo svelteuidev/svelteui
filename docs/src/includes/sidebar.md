@@ -18,7 +18,7 @@
     { id: 7, expand: false },
     { id: 8, expand: false },
   ]
- 
+
   function toggleSidebar(index) {
     sidebar[index].expand = !sidebar[index].expand;
     dispatch('toggleSidebar', { index, expand: sidebar[index].expand });
@@ -106,14 +106,11 @@
   - [TypographyProvider](core/typography-provider)
 - **<BoxModel/><Space w="md" />Miscellaneous**
   - [Box](core/box)
-  - [BrowserRender](core/browser-render)
   - [Divider](core/divider)
   - [ObserverRender](core/observer-render)
   - [Paper](core/paper)
   - [Popper](core/popper)
   - [Portal](core/portal)
-  - [ServerRender](core/server-render)
-  - [Fragment](core/fragment)
     {/if}
 - ### <NavigationTitle expanded={sidebar[3].expand} on:click={() => toggleSidebar(3)}>svelteui composables (svelte actions)</NavigationTitle>
   {#if sidebar[3].expand}
