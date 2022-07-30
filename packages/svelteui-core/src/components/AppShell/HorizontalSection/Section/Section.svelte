@@ -2,11 +2,13 @@
 	import { Box } from '../../../Box';
 	import type { SectionProps as $$SectionProps } from './Section.styles';
 
-	export let use: $$SectionProps['use'] = [],
-		element: $$SectionProps['element'] = undefined,
-		className: $$SectionProps['className'] = '',
-		override: $$SectionProps['override'] = {},
-		grow: $$SectionProps['grow'] = false;
+	interface $$Props extends $$SectionProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		grow: $$Props['grow'] = false;
 </script>
 
 <Box

@@ -4,13 +4,15 @@
 	import { getSortedBreakpoints, size, theme } from './get-sorted-breakpoints';
 	import type { SimpleGridProps as $$SimpleGridProps } from './SimpleGrid.styles';
 
-	export let use: $$SimpleGridProps['use'] = [],
-		element: $$SimpleGridProps['element'] = undefined,
-		className: $$SimpleGridProps['className'] = '',
-		override: $$SimpleGridProps['override'] = {},
-		breakpoints: $$SimpleGridProps['breakpoints'] = [],
-		cols: $$SimpleGridProps['cols'] = 1,
-		spacing: $$SimpleGridProps['spacing'] = 'md';
+	interface $$Props extends $$SimpleGridProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		breakpoints: $$Props['breakpoints'] = [],
+		cols: $$Props['cols'] = 1,
+		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
 	$: gridBreakpoints = getSortedBreakpoints(theme, breakpoints).reduce((acc, breakpoint) => {
@@ -35,7 +37,7 @@
 @component
 
 Responsive grid where each item takes equal amount of space
-	
+
 @see https://svelteui.org/core/input
 @example
     ```svelte

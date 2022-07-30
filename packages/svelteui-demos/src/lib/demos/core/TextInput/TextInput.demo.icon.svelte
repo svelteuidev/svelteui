@@ -27,9 +27,5 @@
 </script>
 
 <Center>
-	<TextInput
-        label='Your email'
-        placeholder='Your email'
-        icon={EnvelopeClosed}
-    />
+	<TextInput label="Your email" placeholder="Your email" icon={EnvelopeClosed} />
 </Center>

@@ -6,17 +6,19 @@
 	import { DividerErrors } from './Divider.errors';
 	import type { DividerProps as $$DividerProps } from './Divider.styles';
 
-	export let use: $$DividerProps['use'] = [],
-		element: $$DividerProps['element'] = undefined,
-		className: $$DividerProps['className'] = '',
-		override: $$DividerProps['override'] = {},
-		color: $$DividerProps['color'] = 'gray',
-		orientation: $$DividerProps['orientation'] = 'horizontal',
-		size: $$DividerProps['size'] = 'xs',
-		label: $$DividerProps['label'] = null,
-		labelPosition: $$DividerProps['labelPosition'] = 'left',
-		labelProps: $$DividerProps['labelProps'] = null,
-		variant: $$DividerProps['variant'] = 'solid';
+	interface $$Props extends $$DividerProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'gray',
+		orientation: $$Props['orientation'] = 'horizontal',
+		size: $$Props['size'] = 'xs',
+		label: $$Props['label'] = null,
+		labelPosition: $$Props['labelPosition'] = 'left',
+		labelProps: $$Props['labelProps'] = null,
+		variant: $$Props['variant'] = 'solid';
 	export { className as class };
 
 	$: showsLabel = (label || $$slots.label) && orientation === 'horizontal';

@@ -1,8 +1,7 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
 	import { Tabs } from '@svelteuidev/core';
 <\/script>
 
@@ -23,10 +22,8 @@
 	import { Tabs } from '@svelteuidev/core';
 </script>
 
-<Tabs color='teal'>
-    <Tabs.Tab label='Teal tab'>Teal tab content</Tabs.Tab>
-    <Tabs.Tab label='Still teal tab'>Teal tab content #2</Tabs.Tab>
-    <Tabs.Tab label='Pink tab' color='pink'>Pink tab content</Tabs.Tab>
+<Tabs color="teal">
+	<Tabs.Tab label="Teal tab">Teal tab content</Tabs.Tab>
+	<Tabs.Tab label="Still teal tab">Teal tab content #2</Tabs.Tab>
+	<Tabs.Tab label="Pink tab" color="pink">Pink tab content</Tabs.Tab>
 </Tabs>
-
-

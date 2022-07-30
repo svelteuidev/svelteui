@@ -11,7 +11,7 @@
 </Paper>
 `;
 
-    const children = `Paper is the most basic UI component. Use it to create cards, dropdowns, modals and other components that require background with shadow`;
+	const children = `Paper is the most basic UI component. Use it to create cards, dropdowns, modals and other components that require background with shadow`;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
 
@@ -20,8 +20,14 @@
 		configurator: [
 			{ name: 'shadow', type: 'size', initialValue: 'xs', defaultValue: 'xs' },
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
-			{ name: 'withBorder', label: 'With Border', type: 'boolean', initialValue: false, defaultValue: false },
-            { name: 'children', type: 'string', initialValue: children }
+			{
+				name: 'withBorder',
+				label: 'With Border',
+				type: 'boolean',
+				initialValue: false,
+				defaultValue: false
+			},
+			{ name: 'children', type: 'string', initialValue: children }
 		]
 	};
 </script>
@@ -35,6 +41,6 @@
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>
 	<Paper {...props}>
-        <slot />
-    </Paper>
+		<slot />
+	</Paper>
 </Center>

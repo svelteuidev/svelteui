@@ -33,18 +33,18 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { download } from '@svelteuidev/composables';
 
-    let file;
-    onMount(() => {
-        file = new Blob([JSON.stringify({ hello: 'world' })], { type: 'application/json' })
-    });
+	let file;
+	onMount(() => {
+		file = new Blob([JSON.stringify({ hello: 'world' })], { type: 'application/json' });
+	});
 </script>
 
 <Center>
-    <Button 
-        variant='outline'
-        use={[[download, { blob: file, filename: "hello.txt" }]]}
-        on:usedownload={() => console.log('File Downloaded')}
-    >
-        Download File
-    </Button>
+	<Button
+		variant="outline"
+		use={[[download, { blob: file, filename: 'hello.txt' }]]}
+		on:usedownload={() => console.log('File Downloaded')}
+	>
+		Download File
+	</Button>
 </Center>

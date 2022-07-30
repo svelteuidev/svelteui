@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-    const code = `
+	const code = `
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
 <\/script>
@@ -14,10 +14,10 @@
 </Tooltip>
 `;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 	export const configuration: CodeDemoConfiguration = {
-        code
-    };
+		code
+	};
 </script>
 
 <script lang="ts">
@@ -25,13 +25,12 @@
 </script>
 
 <Center override={{ height: '80px', alignItems: 'flex-end' }}>
-    <SimpleGrid cols={2}>
-        <Tooltip withArrow opened label='Default arrow'>
-            <Button>Default arrow</Button>
-        </Tooltip>
-        <Tooltip withArrow opened arrowSize={3} label='Arrow with size'>
-            <Button>Arrow with size</Button>
-        </Tooltip>
-    </SimpleGrid>
+	<SimpleGrid cols={2}>
+		<Tooltip withArrow opened label="Default arrow">
+			<Button>Default arrow</Button>
+		</Tooltip>
+		<Tooltip withArrow opened arrowSize={3} label="Arrow with size">
+			<Button>Arrow with size</Button>
+		</Tooltip>
+	</SimpleGrid>
 </Center>
-

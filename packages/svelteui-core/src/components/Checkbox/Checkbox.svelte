@@ -8,20 +8,22 @@
 	import CheckboxIcon from './CheckboxIcon.svelte';
 	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
 
-	export let use: $$CheckboxProps['use'] = [],
-		element: $$CheckboxProps['element'] = undefined,
-		className: $$CheckboxProps['className'] = '',
-		override: $$CheckboxProps['override'] = {},
-		color: $$CheckboxProps['color'] = 'blue',
-		id: $$CheckboxProps['id'] = randomID(),
-		disabled: $$CheckboxProps['disabled'] = false,
-		value: $$CheckboxProps['value'] = null,
-		checked: $$CheckboxProps['checked'] = false,
-		indeterminate: $$CheckboxProps['indeterminate'] = false,
-		label: $$CheckboxProps['label'] = null,
-		radius: $$CheckboxProps['radius'] = 'sm',
-		size: $$CheckboxProps['size'] = 'md',
-		transitionDuration: $$CheckboxProps['transitionDuration'] = 100;
+	interface $$Props extends $$CheckboxProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'blue',
+		id: $$Props['id'] = randomID(),
+		disabled: $$Props['disabled'] = false,
+		value: $$Props['value'] = null,
+		checked: $$Props['checked'] = false,
+		indeterminate: $$Props['indeterminate'] = false,
+		label: $$Props['label'] = null,
+		radius: $$Props['radius'] = 'sm',
+		size: $$Props['size'] = 'md',
+		transitionDuration: $$Props['transitionDuration'] = 100;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -35,7 +37,7 @@
 @component
 
 A checkbox input component using the theme styles with support for a label and indeterminate state.
-	
+
 @see https://svelteui.org/core/checkbox
 @example
     ```svelte

@@ -2,7 +2,7 @@
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
     import { ThemeIcon } from '@svelteuidev/core';
     import { Gear } from 'radix-icons-svelte';
 <\/script>

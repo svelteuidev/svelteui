@@ -34,26 +34,26 @@
 
 <script lang="ts">
 	import { Divider } from '@svelteuidev/core';
-    import { MagnifyingGlass } from 'radix-icons-svelte';
+	import { MagnifyingGlass } from 'radix-icons-svelte';
 </script>
 
-<Divider label='Label on the left' labelPosition='left' />
+<Divider label="Label on the left" labelPosition="left" />
 
-<Divider label='Label in the center' labelPosition='center' />
+<Divider label="Label in the center" labelPosition="center" />
 
-<Divider label='Label on the right' labelPosition='right' />
+<Divider label="Label on the right" labelPosition="right" />
 
-<Divider labelPosition='center'>
-    <div slot='label'>
-        <MagnifyingGlass />
-        <span style="vertical-align: middle;">Search results</span>
-    </div>
+<Divider labelPosition="center">
+	<div slot="label">
+		<MagnifyingGlass />
+		<span style="vertical-align: middle;">Search results</span>
+	</div>
 </Divider>
 
 <Divider
-    size='md'
-    variant='dashed'
-    label='Click here'
-    labelPosition='left'
-    labelProps={{ variant: 'link', href: 'https://svelteui.org', root: 'a' }}
+	size="md"
+	variant="dashed"
+	label="Click here"
+	labelPosition="left"
+	labelProps={{ variant: 'link', href: 'https://svelteui.org', root: 'a' }}
 />

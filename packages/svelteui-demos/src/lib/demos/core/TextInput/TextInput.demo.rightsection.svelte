@@ -28,12 +28,9 @@
 </script>
 
 <Center>
-	<TextInput
-        label='Your email'
-        placeholder='Your email'
-    >
-        <svelte:fragment slot='rightSection'>
-            <Loader color='blue' size='xs' />
-        </svelte:fragment>
-    </TextInput>
+	<TextInput label="Your email" placeholder="Your email">
+		<svelte:fragment slot="rightSection">
+			<Loader color="blue" size="xs" />
+		</svelte:fragment>
+	</TextInput>
 </Center>

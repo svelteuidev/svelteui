@@ -1,8 +1,8 @@
-<script lang='ts' context='module'>
+<script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
-`<script>
+		`<script>
     import { Tabs } from '@svelteuidev/core';
 <\/script>
 
@@ -17,7 +17,7 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-            {
+			{
 				name: 'grow',
 				type: 'boolean',
 				initialValue: false,
@@ -34,7 +34,7 @@
 				initialValue: 'default',
 				defaultValue: 'default'
 			},
-            {
+			{
 				name: 'position',
 				type: 'select',
 				data: [
@@ -50,7 +50,7 @@
 	};
 </script>
 
-<script lang='ts'>
+<script lang="ts">
 	import type { TabsProps } from '@svelteuidev/core';
 	import { Tabs } from '@svelteuidev/core';
 
@@ -58,7 +58,7 @@
 </script>
 
 <Tabs {...props}>
-    <Tabs.Tab label="First">First tab content</Tabs.Tab>
-    <Tabs.Tab label="Second">Second tab content</Tabs.Tab>
-    <Tabs.Tab label="Third">Third tab content</Tabs.Tab>
+	<Tabs.Tab label="First">First tab content</Tabs.Tab>
+	<Tabs.Tab label="Second">Second tab content</Tabs.Tab>
+	<Tabs.Tab label="Third">Third tab content</Tabs.Tab>
 </Tabs>

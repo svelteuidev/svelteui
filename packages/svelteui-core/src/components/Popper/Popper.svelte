@@ -7,24 +7,26 @@
 	import type { Placement } from '@floating-ui/dom';
 	import type { PopperProps as $$PopperProps } from './Popper.styles';
 
-	export let use: $$PopperProps['use'] = [],
-		element: $$PopperProps['element'] = undefined,
-		className: $$PopperProps['className'] = '',
-		override: $$PopperProps['override'] = {},
-		position: $$PopperProps['position'] = 'top',
-		placement: $$PopperProps['placement'] = 'center',
-		gutter: $$PopperProps['gutter'] = 5,
-		arrowSize: $$PopperProps['arrowSize'] = 3,
-		arrowDistance: $$PopperProps['arrowDistance'] = 3,
-		arrowClassName: $$PopperProps['arrowClassName'] = 'arrow',
-		withArrow: $$PopperProps['withArrow'] = false,
-		zIndex: $$PopperProps['zIndex'] = 1,
-		transition: $$PopperProps['transition'] = 'fade',
-		transitionOptions: $$PopperProps['transitionOptions'] = { duration: 100 },
-		exitTransition: $$PopperProps['exitTransition'] = transition,
-		exitTransitionOptions: $$PopperProps['exitTransitionOptions'] = transitionOptions,
-		mounted: $$PopperProps['mounted'] = false,
-		reference: $$PopperProps['reference'] = null;
+	interface $$Props extends $$PopperProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		position: $$Props['position'] = 'top',
+		placement: $$Props['placement'] = 'center',
+		gutter: $$Props['gutter'] = 5,
+		arrowSize: $$Props['arrowSize'] = 3,
+		arrowDistance: $$Props['arrowDistance'] = 3,
+		arrowClassName: $$Props['arrowClassName'] = 'arrow',
+		withArrow: $$Props['withArrow'] = false,
+		zIndex: $$Props['zIndex'] = 1,
+		transition: $$Props['transition'] = 'fade',
+		transitionOptions: $$Props['transitionOptions'] = { duration: 100 },
+		exitTransition: $$Props['exitTransition'] = transition,
+		exitTransitionOptions: $$Props['exitTransitionOptions'] = transitionOptions,
+		mounted: $$Props['mounted'] = false,
+		reference: $$Props['reference'] = null;
 	export { className as class };
 
 	let cleanup = () => {};
@@ -106,7 +108,7 @@
 
 Shows content that is positioned based on the reference element provided as well as the psitioning
 and placement options.
-	
+
 @see https://svelteui.org/core/overlay
 @example
     ```svelte

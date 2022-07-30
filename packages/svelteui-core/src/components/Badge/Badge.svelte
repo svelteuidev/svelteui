@@ -5,16 +5,18 @@
 	import Box from '../Box/Box.svelte';
 	import type { BadgeProps as $$BadgeProps } from './Badge.styles';
 
-	export let use: $$BadgeProps['use'] = [],
-		element: $$BadgeProps['element'] = undefined,
-		className: $$BadgeProps['className'] = '',
-		override: $$BadgeProps['override'] = {},
-		color: $$BadgeProps['color'] = 'blue',
-		variant: $$BadgeProps['variant'] = 'light',
-		gradient: $$BadgeProps['gradient'] = { from: 'blue', to: 'cyan', deg: 45 },
-		size: $$BadgeProps['size'] = 'md',
-		radius: $$BadgeProps['radius'] = 'xl',
-		fullWidth: $$BadgeProps['fullWidth'] = false;
+	interface $$Props extends $$BadgeProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'blue',
+		variant: $$Props['variant'] = 'light',
+		gradient: $$Props['gradient'] = { from: 'blue', to: 'cyan', deg: 45 },
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'xl',
+		fullWidth: $$Props['fullWidth'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -39,7 +41,7 @@
 **UNSTABLE:** new API, yet to be vetted.
 
 Display badge, pill or tag
-	
+
 @see https://svelteui.org/core/badge
 @example
     ```svelte

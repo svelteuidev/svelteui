@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code = 
-`<script>
+	const code = `<script>
     import { Checkbox } from '@svelteuidev/core';
 <\/script>
 
@@ -24,9 +23,9 @@
 </script>
 
 <Stack position="center">
-	<Checkbox checked size='xs' label='xs checkbox' />
-    <Checkbox checked size='sm' label='sm checkbox' />
-    <Checkbox checked size='md' label='md checkbox' />
-    <Checkbox checked size='lg' label='lg checkbox' />
-    <Checkbox checked size='xl' label='xl checkbox' />
+	<Checkbox checked size="xs" label="xs checkbox" />
+	<Checkbox checked size="sm" label="sm checkbox" />
+	<Checkbox checked size="md" label="md checkbox" />
+	<Checkbox checked size="lg" label="lg checkbox" />
+	<Checkbox checked size="xl" label="xl checkbox" />
 </Stack>

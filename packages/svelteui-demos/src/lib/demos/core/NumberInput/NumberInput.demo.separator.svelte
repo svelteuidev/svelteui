@@ -28,10 +28,10 @@
 
 <Group position="center">
 	<NumberInput
-        label='Number input with a custom decimal separator'
-        decimalSeparator=','
-        defaultValue={0.5}
-        precision={2}
-        step={0.5}
-    />
+		label="Number input with a custom decimal separator"
+		decimalSeparator=","
+		defaultValue={0.5}
+		precision={2}
+		step={0.5}
+	/>
 </Group>

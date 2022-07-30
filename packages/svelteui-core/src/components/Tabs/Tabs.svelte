@@ -10,18 +10,20 @@
 	import Group from '../Group/Group.svelte';
 	import type { TabsProps as $$TabsProps } from './Tabs.styles';
 
-	export let use: $$TabsProps['use'] = [],
-		element: $$TabsProps['element'] = undefined,
-		className: $$TabsProps['className'] = '',
-		override: $$TabsProps['override'] = {},
-		active: $$TabsProps['active'] = -1,
-		color: $$TabsProps['color'] = 'blue',
-		grow: $$TabsProps['grow'] = false,
-		initialTab: $$TabsProps['initialTab'] = 0,
-		orientation: $$TabsProps['orientation'] = 'horizontal',
-		position: $$TabsProps['position'] = 'left',
-		tabPadding: $$TabsProps['tabPadding'] = 'xs',
-		variant: $$TabsProps['variant'] = 'default';
+	interface $$Props extends $$TabsProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		active: $$Props['active'] = -1,
+		color: $$Props['color'] = 'blue',
+		grow: $$Props['grow'] = false,
+		initialTab: $$Props['initialTab'] = 0,
+		orientation: $$Props['orientation'] = 'horizontal',
+		position: $$Props['position'] = 'left',
+		tabPadding: $$Props['tabPadding'] = 'xs',
+		variant: $$Props['variant'] = 'default';
 	export { className as class };
 
 	let content;
@@ -116,7 +118,7 @@
 **UNSTABLE:** new API, yet to be vetted.
 
 Display list of events in chronological order
-	
+
 @see https://svelteui.org/core/timeline
 @example
     ```svelte

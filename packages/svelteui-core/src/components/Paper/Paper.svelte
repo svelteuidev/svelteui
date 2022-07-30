@@ -3,14 +3,16 @@
 	import { Box } from '../Box';
 	import type { PaperProps as $$PaperProps } from './Paper.styles';
 
-	export let use: $$PaperProps['use'] = [],
-		element: $$PaperProps['element'] = undefined,
-		className: $$PaperProps['className'] = '',
-		override: $$PaperProps['override'] = {},
-		shadow: $$PaperProps['shadow'] = 'xs',
-		radius: $$PaperProps['radius'] = 'sm',
-		withBorder: $$PaperProps['withBorder'] = false,
-		padding: $$PaperProps['padding'] = 'md';
+	interface $$Props extends $$PaperProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		shadow: $$Props['shadow'] = 'xs',
+		radius: $$Props['radius'] = 'sm',
+		withBorder: $$Props['withBorder'] = false,
+		padding: $$Props['padding'] = 'md';
 	export { className as class };
 	export { padding as p };
 

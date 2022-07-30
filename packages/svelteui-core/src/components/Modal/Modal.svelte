@@ -13,30 +13,32 @@
 	import { sineInOut } from 'svelte/easing';
 	import type { ModalProps as $$ModalProps } from './Modal.styles';
 
-	export let use: $$ModalProps['use'] = [],
-		element: $$ModalProps['element'] = undefined,
-		className: $$ModalProps['className'] = '',
-		override: $$ModalProps['override'] = {},
-		opened: $$ModalProps['opened'] = false,
-		title: $$ModalProps['title'] = '',
-		zIndex: $$ModalProps['zIndex'] = 200,
-		overflow: $$ModalProps['overflow'] = 'outside',
-		withCloseButton: $$ModalProps['withCloseButton'] = true,
-		overlayOpacity: $$ModalProps['overlayOpacity'] = null,
-		overlayColor: $$ModalProps['overlayColor'] = null,
-		overlayBlur: $$ModalProps['overlayBlur'] = 0,
-		radius: $$ModalProps['radius'] = 'sm',
-		size: $$ModalProps['size'] = 'md',
-		closeButtonLabel: $$ModalProps['closeButtonLabel'] = 'svelteui-close-button',
-		id: $$ModalProps['id'] = 'svelteui',
-		shadow: $$ModalProps['shadow'] = 'lg',
-		padding: $$ModalProps['padding'] = 'lg',
-		closeOnClickOutside: $$ModalProps['closeOnClickOutside'] = true,
-		closeOnEscape: $$ModalProps['closeOnEscape'] = true,
-		trapFocus: $$ModalProps['trapFocus'] = false,
-		centered: $$ModalProps['centered'] = null,
-		target: $$ModalProps['target'] = '#SVELTEUI_PROVIDER',
-		withinPortal: $$ModalProps['withinPortal'] = true;
+	interface $$Props extends $$ModalProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		opened: $$Props['opened'] = false,
+		title: $$Props['title'] = '',
+		zIndex: $$Props['zIndex'] = 200,
+		overflow: $$Props['overflow'] = 'outside',
+		withCloseButton: $$Props['withCloseButton'] = true,
+		overlayOpacity: $$Props['overlayOpacity'] = null,
+		overlayColor: $$Props['overlayColor'] = null,
+		overlayBlur: $$Props['overlayBlur'] = 0,
+		radius: $$Props['radius'] = 'sm',
+		size: $$Props['size'] = 'md',
+		closeButtonLabel: $$Props['closeButtonLabel'] = 'svelteui-close-button',
+		id: $$Props['id'] = 'svelteui',
+		shadow: $$Props['shadow'] = 'lg',
+		padding: $$Props['padding'] = 'lg',
+		closeOnClickOutside: $$Props['closeOnClickOutside'] = true,
+		closeOnEscape: $$Props['closeOnEscape'] = true,
+		trapFocus: $$Props['trapFocus'] = false,
+		centered: $$Props['centered'] = null,
+		target: $$Props['target'] = '#SVELTEUI_PROVIDER',
+		withinPortal: $$Props['withinPortal'] = true;
 	export { className as class };
 
 	const dispatch = createEventDispatcher();
@@ -63,7 +65,9 @@
 	$: {
 		onMount(() => {
 			if (!trapFocus) {
-				typeof window !== "undefined" ? window.addEventListener('keydown', closeOnEscapePress) : null;
+				typeof window !== 'undefined'
+					? window.addEventListener('keydown', closeOnEscapePress)
+					: null;
 			}
 		});
 	}

@@ -1,6 +1,6 @@
 import { createStyles } from '$lib/styles';
 import type { TextInputProps } from '../TextInput/TextInput.styles';
-import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { Override, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	value?: number;
@@ -13,6 +13,7 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	stepHoldDelay?: number;
 	stepHoldInterval?: number | ((step: number) => number);
 	hideControls?: boolean;
+	overrideControls?: Override['props'];
 	precision?: number;
 	noClampOnBlur?: boolean;
 	formatter?: Formatter;

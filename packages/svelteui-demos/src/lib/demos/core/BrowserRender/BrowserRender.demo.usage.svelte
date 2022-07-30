@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code =
-`<script>
+	const code = `<script>
   import { BrowserRender } from '@svelteuidev/core';
 <\/script>
 
@@ -10,12 +9,12 @@
     This will only render on the Browser.
 </BrowserRender>`;
 
-    export const type: CodeDemoType['type'] = 'demo';
+	export const type: CodeDemoType['type'] = 'demo';
 
-    export const configuration: CodeDemoConfiguration = {
-        code,
-        toggle: true
-    };
+	export const configuration: CodeDemoConfiguration = {
+		code,
+		toggle: true
+	};
 </script>
 
 <script lang="ts">
@@ -23,7 +22,5 @@
 </script>
 
 <Group position="center">
-    <BrowserRender>
-        This will only render on the Browser.
-    </BrowserRender>
+	<BrowserRender>This will only render on the Browser.</BrowserRender>
 </Group>

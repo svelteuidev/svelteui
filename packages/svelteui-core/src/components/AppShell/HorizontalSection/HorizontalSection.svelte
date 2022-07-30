@@ -13,18 +13,20 @@
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
 	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection.styles';
 
-	export let use: $$HorizontalSectionProps['use'] = [],
-		element: $$HorizontalSectionProps['element'] = undefined,
-		className: $$HorizontalSectionProps['className'] = '',
-		override: $$HorizontalSectionProps['override'] = {},
-		width: $$HorizontalSectionProps['width'] = undefined,
-		height: $$HorizontalSectionProps['height'] = undefined,
-		fixed: $$HorizontalSectionProps['fixed'] = false,
-		position: $$HorizontalSectionProps['position'] = {},
-		hiddenBreakpoint: $$HorizontalSectionProps['hiddenBreakpoint'] = 'md',
-		hidden: $$HorizontalSectionProps['hidden'] = false,
-		zIndex: $$HorizontalSectionProps['zIndex'] = 100,
-		section: $$HorizontalSectionProps['section'];
+	interface $$Props extends $$HorizontalSectionProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		width: $$Props['width'] = undefined,
+		height: $$Props['height'] = undefined,
+		fixed: $$Props['fixed'] = false,
+		position: $$Props['position'] = {},
+		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
+		hidden: $$Props['hidden'] = false,
+		zIndex: $$Props['zIndex'] = 100,
+		section: $$Props['section'];
 	export { className as class };
 
 	const breakpoints = getSortedBreakpoints(width, appShellTheme).reduce(
