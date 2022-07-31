@@ -78,5 +78,5 @@ individual packages have scripts, but they should not be interacted with directl
 - `lint` - runs eslint on packages folder (run format before running lint)
 - `test` - runs tests with [vitest](https://vitest.dev/)
 - `package` - generates built versions of packages (needed for cross package development)
-- `repo:prepush` - runs sort, format, lint and test (run this before pushing your code)
+- `prepush:repo` - runs sort, format, lint and test (run this before pushing your code)
 - `cm` - runs git commands to add and commit through commitizen (this is the recommended way to commit as it follows the convention automatically)

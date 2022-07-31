@@ -128,7 +128,7 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 | --------------- | -------- | --------------------------------------------------------- |
 | :red_circle:    | !        | Move Stitches to peer-deps (svelteui-core)                |
 | :green_circle:  | !!       | Upgrade to latest SvelteKit version (leverage Vite 3.0.0) |
-| :yellow_circle: | !!       | Migrate package manager from `npm` to `yarn`              |
+| :green_circle:  | !!       | Migrate package manager from `npm` to `yarn`              |
 | :yellow_circle: | !!       | Migrate dev environment to Storybook for all packages     |
 
 **Version 0.9.0:**

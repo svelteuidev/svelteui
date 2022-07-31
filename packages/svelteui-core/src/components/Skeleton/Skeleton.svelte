@@ -3,16 +3,18 @@
 	import { Box } from '../Box';
 	import type { SkeletonProps as $$SkeletonProps } from './Skeleton.styles';
 
-	export let use: $$SkeletonProps['use'] = [],
-		element: $$SkeletonProps['element'] = undefined,
-		className: $$SkeletonProps['className'] = '',
-		override: $$SkeletonProps['override'] = {},
-		visible: $$SkeletonProps['visible'] = true,
-		height: $$SkeletonProps['height'] = 'auto',
-		width: $$SkeletonProps['width'] = 100,
-		circle: $$SkeletonProps['circle'] = null,
-		radius: $$SkeletonProps['radius'] = null,
-		animate: $$SkeletonProps['animate'] = true;
+	interface $$Props extends $$SkeletonProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		visible: $$Props['visible'] = true,
+		height: $$Props['height'] = 'auto',
+		width: $$Props['width'] = 100,
+		circle: $$Props['circle'] = null,
+		radius: $$Props['radius'] = null,
+		animate: $$Props['animate'] = true;
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles({ animate, circle, height, radius, width }));

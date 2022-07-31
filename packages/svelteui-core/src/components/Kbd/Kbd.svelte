@@ -3,10 +3,12 @@
 	import { Box } from '../Box';
 	import type { KbdProps as $$KbdProps } from './Kbd.styles';
 
-	export let use: $$KbdProps['use'] = [],
-		element: $$KbdProps['element'] = undefined,
-		className: $$KbdProps['className'] = '',
-		override: $$KbdProps['override'] = {};
+	interface $$Props extends $$KbdProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {};
 	export { className as class };
 
 	$: ({ cx, getStyles } = useStyles());

@@ -7,12 +7,14 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
 
-	export let use: $$LoaderProps['use'] = [],
-		element: $$LoaderProps['element'] = undefined,
-		className: $$LoaderProps['className'] = '',
-		size: $$LoaderProps['size'] = 'md',
-		color: $$LoaderProps['color'] = 'blue',
-		variant: $$LoaderProps['variant'] = 'circle';
+	interface $$Props extends $$LoaderProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		size: $$Props['size'] = 'md',
+		color: $$Props['color'] = 'blue',
+		variant: $$Props['variant'] = 'circle';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */

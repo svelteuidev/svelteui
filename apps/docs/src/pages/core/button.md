@@ -82,6 +82,7 @@ Control button font-size, height and padding with `size` and border-radius with 
 <Button radius="lg" /> // -> theme predefined large radius
 <Button radius={10} /> // -> { borderRadius: '10px' }
 <Button size="sm" /> // -> predefined small size
+<Button size={70} /> // -> { height: '70px', padding: '0px 70px' }
 ```
 
 ## Compact

@@ -6,35 +6,33 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonProps as $$ButtonProps, Props } from './Button.styles';
+	import type { ButtonProps as $$ButtonProps } from './Button.styles';
 
-	interface $$Props extends Props {
-		never?: never;
-	}
+	interface $$Props extends $$ButtonProps {}
 
-	export let use: $$ButtonProps['use'] = [],
-		element: $$ButtonProps['element'] = undefined,
-		className: $$ButtonProps['className'] = '',
-		override: $$ButtonProps['override'] = {},
-		variant: $$ButtonProps['variant'] = 'filled',
-		color: $$ButtonProps['color'] = 'blue',
-		size: $$ButtonProps['size'] = 'sm',
-		radius: $$ButtonProps['radius'] = 'sm',
-		gradient: $$ButtonProps['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		loaderPosition: $$ButtonProps['loaderPosition'] = 'left',
-		loaderProps: $$ButtonProps['loaderProps'] = {
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		variant: $$Props['variant'] = 'filled',
+		color: $$Props['color'] = 'blue',
+		size: $$Props['size'] = 'sm',
+		radius: $$Props['radius'] = 'sm',
+		gradient: $$Props['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
+		loaderPosition: $$Props['loaderPosition'] = 'left',
+		loaderProps: $$Props['loaderProps'] = {
 			size: 'xs',
 			color: 'white',
 			variant: 'circle'
 		},
-		href: $$ButtonProps['href'] = null,
-		external: $$ButtonProps['external'] = false,
-		disabled: $$ButtonProps['disabled'] = false,
-		compact: $$ButtonProps['compact'] = false,
-		loading: $$ButtonProps['loading'] = false,
-		uppercase: $$ButtonProps['uppercase'] = false,
-		fullSize: $$ButtonProps['fullSize'] = false,
-		ripple: $$ButtonProps['ripple'] = false;
+		href: $$Props['href'] = null,
+		external: $$Props['external'] = false,
+		disabled: $$Props['disabled'] = false,
+		compact: $$Props['compact'] = false,
+		loading: $$Props['loading'] = false,
+		uppercase: $$Props['uppercase'] = false,
+		fullSize: $$Props['fullSize'] = false,
+		ripple: $$Props['ripple'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -53,7 +51,7 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
-	$: ({ getStyles, cx, classes } = useStyles({
+	$: ({ getStyles, cx } = useStyles({
 		color,
 		compact,
 		fullSize,

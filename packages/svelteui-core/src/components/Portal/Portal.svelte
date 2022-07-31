@@ -4,12 +4,14 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { PortalProps as $$PortalProps } from './Portal.styles';
 
-	export let use: $$PortalProps['use'] = [],
-		element: $$PortalProps['element'] = undefined,
-		className: $$PortalProps['className'] = '',
-		target: $$PortalProps['target'] = 'body',
-		position: $$PortalProps['position'] = 'relative',
-		zIndex: $$PortalProps['zIndex'] = 1;
+	interface $$Props extends $$PortalProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		target: $$Props['target'] = 'body',
+		position: $$Props['position'] = 'relative',
+		zIndex: $$Props['zIndex'] = 1;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */

@@ -7,33 +7,35 @@
 	import ChevronUpDown from './ChevronUpDown.svelte';
 	import type { NativeSelectProps as $$NativeSelectProps } from './NativeSelect.styles';
 
-	export let use: $$NativeSelectProps['use'] = [],
-		element: $$NativeSelectProps['element'] = undefined,
-		className: $$NativeSelectProps['className'] = '',
-		override: $$NativeSelectProps['override'] = {},
-		id: $$NativeSelectProps['id'] = 'NativeSelect',
-		placeholder: $$NativeSelectProps['placeholder'] = '',
-		data: $$NativeSelectProps['data'] = [],
-		inputStyle: $$NativeSelectProps['inputStyle'] = {},
-		wrapperProps: $$NativeSelectProps['wrapperProps'] = {},
-		size: $$NativeSelectProps['size'] = 'sm',
-		icon: $$NativeSelectProps['icon'] = null,
-		iconWidth: $$NativeSelectProps['iconWidth'] = 36,
-		iconProps: $$NativeSelectProps['iconProps'] = { size: 20, color: 'currentColor' },
-		rightSection: $$NativeSelectProps['rightSection'] = null,
-		rightSectionWidth: $$NativeSelectProps['rightSectionWidth'] = 36,
-		rightSectionProps: $$NativeSelectProps['rightSectionProps'] = {},
-		required: $$NativeSelectProps['required'] = false,
-		radius: $$NativeSelectProps['radius'] = 'sm',
-		variant: $$NativeSelectProps['variant'] = 'default',
-		disabled: $$NativeSelectProps['disabled'] = false,
-		value: $$NativeSelectProps['value'] = '',
-		label: $$NativeSelectProps['label'] = '',
-		description: $$NativeSelectProps['description'] = '',
-		error: $$NativeSelectProps['error'] = '',
-		labelProps: $$NativeSelectProps['labelProps'] = {},
-		descriptionProps: $$NativeSelectProps['descriptionProps'] = {},
-		errorProps: $$NativeSelectProps['errorProps'] = {};
+	interface $$Props extends $$NativeSelectProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		id: $$Props['id'] = 'NativeSelect',
+		placeholder: $$Props['placeholder'] = '',
+		data: $$Props['data'] = [],
+		inputStyle: $$Props['inputStyle'] = {},
+		wrapperProps: $$Props['wrapperProps'] = {},
+		size: $$Props['size'] = 'sm',
+		icon: $$Props['icon'] = null,
+		iconWidth: $$Props['iconWidth'] = 36,
+		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
+		rightSection: $$Props['rightSection'] = null,
+		rightSectionWidth: $$Props['rightSectionWidth'] = 36,
+		rightSectionProps: $$Props['rightSectionProps'] = {},
+		required: $$Props['required'] = false,
+		radius: $$Props['radius'] = 'sm',
+		variant: $$Props['variant'] = 'default',
+		disabled: $$Props['disabled'] = false,
+		value: $$Props['value'] = '',
+		label: $$Props['label'] = '',
+		description: $$Props['description'] = '',
+		error: $$Props['error'] = '',
+		labelProps: $$Props['labelProps'] = {},
+		descriptionProps: $$Props['descriptionProps'] = {},
+		errorProps: $$Props['errorProps'] = {};
 	export { className as class };
 
 	/** Generate random id for label and select elements*/
@@ -57,7 +59,7 @@
 @component
 
 Capture user feedback limited to large set of options
-	
+
 @see https://svelteui.org/core/native-select
 @example
     ```svelte

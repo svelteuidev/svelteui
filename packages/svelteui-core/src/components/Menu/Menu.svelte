@@ -11,36 +11,38 @@
 	import { Paper } from '../Paper';
 	import { MenuIcon } from './index';
 	import { clickoutside, useHash } from '@svelteuidev/composables';
-	import { createEventForwarder, useActions, getTransition } from '$lib/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from './Menu.context';
 	import type { PopperProps } from '../Popper';
 	import type { MenuProps as $$MenuProps } from './Menu.styles';
 
-	export let use: $$MenuProps['use'] = [],
-		element: $$MenuProps['element'] = undefined,
-		className: $$MenuProps['className'] = '',
-		override: $$MenuProps['override'] = {},
-		closeOnItemClick: $$MenuProps['closeOnItemClick'] = true,
-		closeOnScroll: $$MenuProps['closeOnScroll'] = false,
-		delay: $$MenuProps['delay'] = 100,
-		menuButtonLabel: $$MenuProps['menuButtonLabel'] = undefined,
-		menuId: $$MenuProps['menuId'] = undefined,
-		radius: $$MenuProps['radius'] = 'sm',
-		opened: $$MenuProps['opened'] = false,
-		shadow: $$MenuProps['shadow'] = 'md',
-		size: $$MenuProps['size'] = 'md',
-		trigger: $$MenuProps['trigger'] = 'click',
-		trapFocus: $$MenuProps['trapFocus'] = true,
-		withinPortal: $$MenuProps['withinPortal'] = true,
-		zIndex: $$MenuProps['zIndex'] = 300,
+	interface $$Props extends $$MenuProps, Omit<PopperProps, 'transition'> {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		closeOnItemClick: $$Props['closeOnItemClick'] = true,
+		closeOnScroll: $$Props['closeOnScroll'] = false,
+		delay: $$Props['delay'] = 100,
+		menuButtonLabel: $$Props['menuButtonLabel'] = undefined,
+		menuId: $$Props['menuId'] = undefined,
+		radius: $$Props['radius'] = 'sm',
+		opened: $$Props['opened'] = false,
+		shadow: $$Props['shadow'] = 'md',
+		size: $$Props['size'] = 'md',
+		trigger: $$Props['trigger'] = 'click',
+		trapFocus: $$Props['trapFocus'] = true,
+		withinPortal: $$Props['withinPortal'] = true,
+		zIndex: $$Props['zIndex'] = 300,
 		withArrow: PopperProps['withArrow'] = false,
 		gutter: PopperProps['gutter'] = 5,
 		placement: PopperProps['placement'] = 'start',
 		position: PopperProps['position'] = 'bottom',
-		transition: $$MenuProps['transition'] = 'fade',
-		transitionOptions: $$MenuProps['transitionOptions'] = { duration: 100 };
+		transition: $$Props['transition'] = 'fade',
+		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
 	const dispatch = createEventDispatcher();

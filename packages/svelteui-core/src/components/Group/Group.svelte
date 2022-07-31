@@ -4,20 +4,22 @@
 	import Box from '../Box/Box.svelte';
 	import type { GroupProps as $$GroupProps } from './Group.styles';
 
-	export let use: $$GroupProps['use'] = [],
-		element: $$GroupProps['element'] = undefined,
-		className: $$GroupProps['className'] = '',
-		override: $$GroupProps['override'] = {},
-		position: $$GroupProps['position'] = 'left',
-		noWrap: $$GroupProps['noWrap'] = false,
-		grow: $$GroupProps['grow'] = false,
-		spacing: $$GroupProps['spacing'] = 'md',
-		direction: $$GroupProps['direction'] = 'row',
-		align: $$GroupProps['align'] = 'center';
+	interface $$Props extends $$GroupProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		position: $$Props['position'] = 'left',
+		noWrap: $$Props['noWrap'] = false,
+		grow: $$Props['grow'] = false,
+		spacing: $$Props['spacing'] = 'md',
+		direction: $$Props['direction'] = 'row',
+		align: $$Props['align'] = 'center';
 	export { className as class };
 
 	/** The children being rendered */
-	let children: $$GroupProps['children'];
+	let children: $$Props['children'];
 
 	/** can only get access to children at runtime */
 	$: onMount(() => {
@@ -39,7 +41,7 @@
 @component
 
 Compose elements and components in a vertical flex container.
-	
+
 @see https://svelteui.org/core/group
 @example
     ```svelte

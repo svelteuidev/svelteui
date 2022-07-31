@@ -5,20 +5,22 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
 
-	export let use: $$SwitchProps['use'] = [],
-		element: $$SwitchProps['element'] = undefined,
-		className: $$SwitchProps['className'] = '',
-		override: $$SwitchProps['override'] = {},
-		color: $$SwitchProps['color'] = 'blue',
-		size: $$SwitchProps['size'] = 'sm',
-		radius: $$SwitchProps['radius'] = 'xl',
-		transitionFunction: $$SwitchProps['transitionFunction'] = 'linear',
-		id: $$SwitchProps['id'] = randomID(),
-		label: $$SwitchProps['label'] = '',
-		onLabel: $$SwitchProps['onLabel'] = '',
-		offLabel: $$SwitchProps['offLabel'] = '',
-		disabled: $$SwitchProps['disabled'] = false,
-		checked: $$SwitchProps['checked'] = false;
+	interface $$Props extends $$SwitchProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'blue',
+		size: $$Props['size'] = 'sm',
+		radius: $$Props['radius'] = 'xl',
+		transitionFunction: $$Props['transitionFunction'] = 'linear',
+		id: $$Props['id'] = randomID(),
+		label: $$Props['label'] = '',
+		onLabel: $$Props['onLabel'] = '',
+		offLabel: $$Props['offLabel'] = '',
+		disabled: $$Props['disabled'] = false,
+		checked: $$Props['checked'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */

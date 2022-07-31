@@ -4,19 +4,21 @@
 	import Checkbox from '../Checkbox.svelte';
 	import type { CheckboxGroupProps as $$CheckboxGroupProps } from './CheckboxGroup.styles';
 
-	export let use: $$CheckboxGroupProps['use'] = [],
-		element: $$CheckboxGroupProps['element'] = undefined,
-		className: $$CheckboxGroupProps['className'] = '',
-		override: $$CheckboxGroupProps['override'] = {},
-		color: $$CheckboxGroupProps['color'] = 'gray',
-		items: $$CheckboxGroupProps['items'] = [],
-		value: $$CheckboxGroupProps['value'] = [],
-		label: $$CheckboxGroupProps['label'] = null,
-		size: $$CheckboxGroupProps['size'] = 'md',
-		radius: $$CheckboxGroupProps['radius'] = 'sm',
-		direction: $$CheckboxGroupProps['direction'] = 'row',
-		align: $$CheckboxGroupProps['align'] = 'flex-start',
-		spacing: $$CheckboxGroupProps['spacing'] = 'md';
+	interface $$Props extends $$CheckboxGroupProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		color: $$Props['color'] = 'gray',
+		items: $$Props['items'] = [],
+		value: $$Props['value'] = [],
+		label: $$Props['label'] = null,
+		size: $$Props['size'] = 'md',
+		radius: $$Props['radius'] = 'sm',
+		direction: $$Props['direction'] = 'row',
+		align: $$Props['align'] = 'flex-start',
+		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
 	function onChanged(item, el) {
@@ -30,7 +32,7 @@
 
 A checkbox group component using the theme styles and builds a set of checkboxes according to
 the items passed.
-	
+
 @see https://svelteui.org/core/checkbox
 @example
     ```svelte

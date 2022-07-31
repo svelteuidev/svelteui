@@ -6,17 +6,19 @@
 	import type { TabsContext } from '../Tabs.styles';
 	import type { TabProps as $$TabProps } from './Tab.styles';
 
-	export let use: $$TabProps['use'] = [],
-		element: $$TabProps['element'] = undefined,
-		className: $$TabProps['className'] = '',
-		override: $$TabProps['override'] = {},
-		active: $$TabProps['active'] = undefined,
-		icon: $$TabProps['icon'] = undefined,
-		label: $$TabProps['label'] = undefined,
-		color: $$TabProps['color'] = undefined,
-		variant: $$TabProps['variant'] = undefined,
-		orientation: $$TabProps['orientation'] = undefined,
-		tabKey: $$TabProps['tabKey'] = undefined;
+	interface $$Props extends $$TabProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		active: $$Props['active'] = undefined,
+		icon: $$Props['icon'] = undefined,
+		label: $$Props['label'] = undefined,
+		color: $$Props['color'] = undefined,
+		variant: $$Props['variant'] = undefined,
+		orientation: $$Props['orientation'] = undefined,
+		tabKey: $$Props['tabKey'] = undefined;
 	export { className as class };
 
 	// retrieves the reactive context so that Tab has access

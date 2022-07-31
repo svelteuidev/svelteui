@@ -6,13 +6,15 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { BurgerProps as $$BurgerProps } from './Burger.styles';
 
-	export let use: $$BurgerProps['use'] = [],
-		element: $$BurgerProps['element'] = undefined,
-		className: $$BurgerProps['className'] = '',
-		override: $$BurgerProps['override'] = {},
-		opened: $$BurgerProps['opened'] = true,
-		color: $$BurgerProps['color'] = undefined,
-		size: $$BurgerProps['size'] = 'md';
+	interface $$Props extends $$BurgerProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		opened: $$Props['opened'] = true,
+		color: $$Props['color'] = undefined,
+		size: $$Props['size'] = 'md';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */

@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { VerticalSection } from '../VerticalSection';
-	import type { VerticalSectionSharedProps } from '../VerticalSection/VerticalSection.styles';
+	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection.styles';
 
-	export let use: VerticalSectionSharedProps['use'] = [],
-		element: VerticalSectionSharedProps['element'] = undefined,
-		className: VerticalSectionSharedProps['className'] = '',
-		override: VerticalSectionSharedProps['override'] = {},
-		height: VerticalSectionSharedProps['height'] = undefined,
-		fixed: VerticalSectionSharedProps['fixed'] = false,
-		position: VerticalSectionSharedProps['position'] = { top: 0, left: 0, right: 0 },
-		zIndex: VerticalSectionSharedProps['zIndex'] = 100;
+	interface $$Props extends $$VerticalSectionSharedProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		height: $$Props['height'] = undefined,
+		fixed: $$Props['fixed'] = false,
+		position: $$Props['position'] = { top: 0, left: 0, right: 0 },
+		zIndex: $$Props['zIndex'] = 100;
 	export { className as class };
 </script>
 

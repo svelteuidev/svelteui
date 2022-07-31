@@ -4,15 +4,17 @@
 	import { globalCss } from '$lib/styles';
 	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection.styles';
 
-	export let use: $$VerticalSectionProps['use'] = [],
-		element: $$VerticalSectionProps['element'] = undefined,
-		className: $$VerticalSectionProps['className'] = '',
-		override: $$VerticalSectionProps['override'] = {},
-		height: $$VerticalSectionProps['height'] = undefined,
-		fixed: $$VerticalSectionProps['fixed'] = false,
-		position: $$VerticalSectionProps['position'] = {},
-		zIndex: $$VerticalSectionProps['zIndex'] = 100,
-		section: $$VerticalSectionProps['section'];
+	interface $$Props extends $$VerticalSectionProps {}
+
+	export let use: $$Props['use'] = [],
+		element: $$Props['element'] = undefined,
+		className: $$Props['className'] = '',
+		override: $$Props['override'] = {},
+		height: $$Props['height'] = undefined,
+		fixed: $$Props['fixed'] = false,
+		position: $$Props['position'] = {},
+		zIndex: $$Props['zIndex'] = 100,
+		section: $$Props['section'];
 	export { className as class };
 
 	$: ({ getStyles } = useStyles({
