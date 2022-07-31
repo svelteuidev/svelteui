@@ -43,7 +43,7 @@ All commits made in this repository are divided in 3 groups:
 - **docs commits** related to documentation
 - **core commits** only related to repository tooling and not associated with any package
 
-This repo uses commitizen to make commits easier. In order to commit changes made, you should run the `npm run cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
+This repo uses commitizen to make commits easier. In order to commit changes made, you should run the `yarn cm` command. Once you have done that, the commitizen cli messages will guide you through the commit process. Commit message consists of 2 parts:
 
 ```bash
 [type]: Message
@@ -78,17 +78,17 @@ Examples:
 
 **`@svelteuidev/` scoped packages:**
 
-1. run `npm run package`
-   - If you want to watch for changes in one of the packages that they depend on, run `npm run watch` in their directory.
+1. run `yarn package`
+   - If you want to watch for changes in one of the packages that they depend on, run `yarn watch` in their directory.
    - You will need two terminal sessions open at the very least. If this doesn't apply to your situation move on to step 2
 2. cd into the package you want to develop on
-3. run `npm run dev`
+3. run `yarn dev`
 
 **`docs`:**
 
-1. run `npm run package`
+1. run `yarn package`
 2. cd into the docs
-3. run `npm run dev`
+3. run `yarn dev`
 
 **Project Structure**
 
