@@ -3,7 +3,7 @@ import { resolve } from 'https://deno.land/std@0.137.0/path/mod.ts';
 import { fg } from 'https://deno.land/x/colorify@1.0.5/mod.ts';
 import { properCode, bundleCodeNowrap, mainDeletion } from './strings-to-search-for.ts';
 
-const pathToDocs = resolve('./docs');
+const pathToDocs = resolve('./apps/docs');
 const outputPath = `${pathToDocs}/__DOCS__/dist`;
 
 fg.white('beginning the modification process');

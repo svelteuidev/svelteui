@@ -17,6 +17,7 @@
 	"author": "Kamell Perry",
 	"type": "module",
 	"workspaces": [
+		"apps/*",
 		"packages/*",
 		"configuration/*"
 	],
