@@ -74,5 +74,6 @@
 		"turbo": "latest",
 		"vitest": "0.9.3",
 		"vitest-svelte-kit": "0.0.6"
-	}
+	},
+  "packageManager": "yarn"
 }
