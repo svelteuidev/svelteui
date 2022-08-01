@@ -25,25 +25,6 @@ export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchor
 	ripple?: boolean;
 }
 
-// export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
-// 	variant: ButtonVariant;
-// 	color: SvelteUIColor;
-// 	size: SvelteUINumberSize;
-// 	radius: SvelteUINumberSize | number;
-// 	gradient: SvelteUIGradient;
-// 	loaderPosition: 'left' | 'right';
-// 	loaderProps: LoaderProps;
-// 	className: string;
-// 	href: string;
-// 	external: boolean;
-// 	disabled: boolean;
-// 	compact: boolean;
-// 	loading: boolean;
-// 	uppercase: boolean;
-// 	fullSize: boolean;
-// 	ripple: boolean;
-// }
-
 export type ButtonVariant =
 	| 'filled'
 	| 'light'
