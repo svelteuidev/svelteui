@@ -13,7 +13,7 @@ index: true
 		HomePageExample,
 		Preview,
 		HomePageExampleCode,
-		Banner
+		Banner 
 	} from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {

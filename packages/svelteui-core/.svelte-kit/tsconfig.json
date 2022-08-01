@@ -18,13 +18,15 @@
 		"preserveValueImports": true,
 		"lib": [
 			"esnext",
-			"DOM"
+			"DOM",
+			"DOM.Iterable"
 		],
 		"moduleResolution": "node",
 		"module": "esnext",
 		"target": "esnext"
 	},
 	"include": [
+		"ambient.d.ts",
 		"../src/**/*.js",
 		"../src/**/*.ts",
 		"../src/**/*.svelte",
@@ -34,6 +36,6 @@
 	],
 	"exclude": [
 		"../node_modules/**",
-		"./**"
+		"./[!ambient.d.ts]**"
 	]
 }
