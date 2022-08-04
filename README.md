@@ -159,15 +159,17 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 **Version 0.8.0:**
 
-| Status       | Priority | Description                         |
-| ------------ | -------- | ----------------------------------- |
-| :red_circle: | !        | Create `Section` component          |
-| :red_circle: | !        | Create `ScrollArea` component       |
-| :red_circle: | !        | Create `Accordion` component        |
-| :red_circle: | !        | Create `ARIA` component             |
-| :red_circle: | !        | Create `Slider` component           |
-| :red_circle: | !        | Create `SegmentedControl` component |
-| :red_circle: | !        | Create `Chip` component             |
+| Status          | Priority | Description                                          |
+| --------------- | -------- | ---------------------------------------------------- |
+| :red_circle:    | !        | Create `Section` component                           |
+| :red_circle:    | !        | Create `ScrollArea` component                        |
+| :red_circle:    | !        | Create `Accordion` component                         |
+| :red_circle:    | !        | Create `ARIA` component                              |
+| :red_circle:    | !        | Create `Slider` component                            |
+| :red_circle:    | !        | Create `SegmentedControl` component                  |
+| :red_circle:    | !        | Create `Chip` component                              |
+| :yellow_circle: | !!!      | Find an effective solution to SSR in SSR mode (#172) |
+| :red_circle:    | !!!      | Find an effective solution to SSR in SSG mode (#107) |
 
 **Version 0.9.0:**
 

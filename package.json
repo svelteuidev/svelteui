@@ -22,7 +22,7 @@
 		"configuration/*"
 	],
 	"scripts": {
-		"build:docs": "cd docs && npm run build",
+		"build:docs": "yarn workspace svelteui-docs build",
 		"bump:major": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts major",
 		"bump:minor": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts minor",
 		"bump:next": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts next",
@@ -32,30 +32,26 @@
 		"cm": "git add . && ./node_modules/cz-customizable/standalone.js",
 		"cm:noadd": "./node_modules/cz-customizable/standalone.js",
 		"coverage": "turbo run coverage --parallel",
-		"deploy:docs": "npm run build:docs && deno run -A --unstable ./scripts/docs/build.ts && cd docs && npm run deploy:nobuild",
-		"dev": "turbo run dev --parallel",
+		"deploy:docs": "yarn build:docs && yarn script:build-docs && yarn workspace svelteui-docs deploy:nobuild",
 		"dev:core": "yarn workspace @svelteuidev/core dev",
-		"dev:docs": "yarn workspace svelteui-docs dev",
-		"fix:bugs": "npm run clean:all && npm i && npm run dev",
+		"dev:docs": "yarn package && yarn workspace svelteui-docs dev",
 		"format": "turbo run format --parallel",
 		"generate-types": "turbo run generate-types --parallel --force",
 		"postinstall": "npx patch-package",
 		"lint": "turbo run lint --parallel",
-		"package": "npm run clean && turbo run package --parallel",
+		"package": "yarn clean && turbo run package --parallel",
 		"pre-commit": "lint-staged",
-		"pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
 		"prepare": "husky install",
-		"prepare:release": "npm run clean && npm run prepush:repo && npm run pre-release && npm run package && npm run generate-types",
-		"prepush:docs": "cd docs && npx sort-package-json && yarn format && yarn lint",
-		"prepush:repo": "npm run sort && npm run format && npm run lint",
+		"prepare:release": "yarn clean && yarn prepush:repo && yarn script:pre-release && yarn package && yarn generate-types",
+		"prepush:repo": "yarn sort && yarn format && yarn lint",
 		"pub": "turbo run pub --parallel",
-		"rebase:repo": "sh scripts/git/rebase-branches.sh",
-		"release": "npm run pub && sh scripts/git/discard.sh",
+		"release": "yarn pub && sh scripts/git/discard.sh",
+		"script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
+		"script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
 		"sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
 		"sync:repo": "sh scripts/git/sync-branches.sh",
 		"test": "turbo run test --parallel",
-		"update:lockfile": "turbo run update:lockfile --parallel && rimraf packages/*/node_modules",
-		"update:repo": "sh scripts/git/update-branches.sh"
+		"watch": "turbo run watch --parallel"
 	},
 	"lint-staged": {
 		"*.--parallel": "prettier --write"
@@ -75,5 +71,7 @@
 		"vitest": "0.9.3",
 		"vitest-svelte-kit": "0.0.6"
 	},
-  "packageManager": "yarn"
+	"dependencies": {
+		"concurrently": "^7.3.0"
+	}
 }

@@ -43,6 +43,10 @@
 			"dependsOn": ["format", "lint"],
 			"outputs": ["coverage/**"],
 			"cache": true
+		},
+		"watch": {
+			"outputs": [],
+			"cache": false
 		}
 	}
 }
