@@ -7,9 +7,7 @@ export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.met
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: [
-		preprocess()
-	],
+	preprocess: [preprocess()],
 	compilerOptions: {
 		generate: 'ssr',
 		hydratable: true

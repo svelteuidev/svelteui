@@ -1,3 +1,3 @@
 export { Card } from './combinator';
-export * as CardStyles from './Card.styles';
-export * as CardSectionStyles from './CardSection/CardSection.styles';
+export type { CardProps } from './Card.styles';
+export type { CardSectionProps, CardSectionStyleParams } from './CardSection/CardSection.styles';

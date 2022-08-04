@@ -12,7 +12,7 @@ export interface DividerProps extends DefaultProps {
 	variant?: DividerVariant;
 }
 
-interface DividerStyleParams {
+export interface DividerStyleParams {
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
 	variant?: DividerVariant;

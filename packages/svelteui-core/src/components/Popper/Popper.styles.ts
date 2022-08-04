@@ -28,7 +28,7 @@ export type Transition =
 	| TransitionName
 	| ((node: Element, params: TransitionParams) => TransitionConfig);
 
-interface TransitionParams {
+export interface TransitionParams {
 	delay?: number;
 	duration?: number;
 	easing?: EasingFunction;

@@ -1,2 +1,5 @@
 export { default as TypographyProvider } from './TypographyProvider.svelte';
-export * as TypographyProviderStyles from './TypographyProvider.styles';
+export type {
+	TypographyProviderProps,
+	TypographyProviderStyleParams
+} from './TypographyProvider.styles';

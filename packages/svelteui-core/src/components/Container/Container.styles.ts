@@ -7,7 +7,7 @@ export interface ContainerProps extends DefaultProps {
 	sizes?: Record<SvelteUISize, number>;
 }
 
-interface ContainerStyleParams {
+export interface ContainerStyleParams {
 	fluid: boolean;
 	size: SvelteUINumberSize;
 	sizes?: Record<SvelteUISize, number>;

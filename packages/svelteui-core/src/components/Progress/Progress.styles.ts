@@ -15,7 +15,7 @@ export interface ProgressProps extends DefaultProps {
 	shade?: ColorShades;
 	tween?: boolean;
 	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
-	sections?: { value: number; color: SvelteUIColor; label?: string }[];
+	sections?: Sections[];
 }
 
 export interface ProgressStylesParams {
@@ -27,7 +27,7 @@ export interface ProgressStylesParams {
 	animate: boolean;
 }
 
-interface Sections {
+export interface Sections {
 	value: number;
 	color: SvelteUIColor;
 	label?: string;

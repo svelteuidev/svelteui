@@ -1,2 +1,2 @@
 export { default as Modal } from './Modal.svelte';
-export * as ModalStyles from './Modal.styles';
+export type { ModalProps, ModalStylesParams } from './Modal.styles';
