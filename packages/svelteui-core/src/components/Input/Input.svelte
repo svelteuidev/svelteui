@@ -28,6 +28,7 @@
 		value: $$Props['value'] = '',
 		invalid: $$Props['invalid'] = false,
 		multiline: $$Props['multiline'] = false,
+		autocomplete: $$Props['autocomplete'] = 'on',
 		placeholder: $$Props['placeholder'] = '';
 	export { className as class };
 
@@ -103,6 +104,7 @@ Base component to create custom inputs
 			{disabled}
 			{id}
 			{placeholder}
+			{autocomplete}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -122,6 +124,7 @@ Base component to create custom inputs
 			{required}
 			{disabled}
 			{id}
+      {autocomplete}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid

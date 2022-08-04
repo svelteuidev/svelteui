@@ -24,6 +24,7 @@ export interface InputBaseProps extends DefaultProps {
 export interface InputProps extends InputBaseProps {
 	invalid?: boolean;
 	multiline?: boolean;
+	autocomplete?: string;
 }
 
 export interface InputStylesParams {
