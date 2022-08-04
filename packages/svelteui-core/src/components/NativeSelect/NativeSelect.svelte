@@ -92,6 +92,7 @@ Capture user feedback limited to large set of options
 		bind:value
 		root="select"
 		id={uuid}
+		autocomplete="off"
 		invalid={Boolean(error)}
 		override={{ ...base, ...inputStyle }}
 		aria-required={required}
@@ -110,12 +111,12 @@ Capture user feedback limited to large set of options
 		{...$$restProps}
 	>
 		{#if placeholder}
-			<option value="" disabled hidden>
+			<option value="" disabled hidden selected={!value}>
 				{placeholder}
 			</option>
 		{/if}
 		{#each formattedData as item}
-			<option value={item.value} disabled={item.disabled}>
+			<option value={item.value} disabled={item.disabled} selected={item.value === value}>
 				{item.label}
 			</option>
 		{:else}
