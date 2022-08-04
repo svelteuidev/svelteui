@@ -1,2 +1,10 @@
 export { default as Seo } from './Seo.svelte';
-export * as SeoStyles from './Seo.styles';
+export type {
+	SeoProps,
+	MobileAlternate,
+	LanguageAlternate,
+	AdditionalRobotsProps,
+	Twitter,
+	Facebook,
+	OpenGraph
+} from './Seo.styles';

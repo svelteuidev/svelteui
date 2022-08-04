@@ -6,7 +6,7 @@ export interface TypographyProviderProps extends DefaultProps<HTMLDivElement> {
 	primaryColor: SvelteUIColor;
 }
 
-interface TypographyProviderStyleParams {
+export interface TypographyProviderStyleParams {
 	primaryColor: SvelteUIColor;
 	underline: boolean;
 }

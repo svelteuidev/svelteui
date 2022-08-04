@@ -10,7 +10,7 @@ export interface CodeProps extends DefaultProps<HTMLPreElement | Partial<HTMLEle
 	noMono: boolean;
 }
 
-interface CodeStyleParams {
+export interface CodeStyleParams {
 	color: SvelteUIColor;
 	noMono: boolean;
 	block: boolean;

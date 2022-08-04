@@ -23,7 +23,7 @@ export interface SegmentedControlItem {
 	disabled?: boolean;
 }
 
-interface SegmentedControlStylesParams {
+export interface SegmentedControlStylesParams {
 	fullWidth: boolean;
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize;

@@ -5,7 +5,7 @@ export interface CardSectionProps extends DefaultProps {
 	padding?: SvelteUINumberSize;
 }
 
-interface CardSectionStyleParams {
+export interface CardSectionStyleParams {
 	padding: SvelteUINumberSize;
 }
 

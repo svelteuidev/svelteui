@@ -1,2 +1,2 @@
 export { default as Affix } from './Affix.svelte';
-export * as AffixStyes from './Affix.styles';
+export type { AffixProps } from './Affix.styles';
