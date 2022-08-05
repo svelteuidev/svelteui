@@ -182,7 +182,7 @@
 	import Layout from '@THEME/components/Layout.svelte';
 	import { initNavigation } from './navigation.js';
 	import { onMount } from 'svelte';
-	import { Global } from '../../../src/components';
+	import { Global } from '../../../apps/docs/src/components';
 	import { SvelteUIProvider, colorScheme } from '@svelteuidev/core';
 
 	onMount(() => {
