@@ -26,8 +26,13 @@
 		variant: $$Props['variant'] = 'default';
 	export { className as class };
 
-	let content;
-	const dispatch = createEventDispatcher();
+  let tabNodes: Element[];
+  const dispatch = createEventDispatcher();
+
+  onMount(() => {
+    const children = element.querySelectorAll('.svelteui-tab-content');
+    tabNodes = Array.from(children);
+  });
 
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
@@ -61,15 +66,24 @@
 	}
 
 	/**
-	 * Calculates the active tab and retrieves its content
-	 * so that it can be shown.
+	 * Calculates the active tab and switches the content
+	 * of the tabs so that it can be shown.
 	 */
 	function calculateActive() {
 		if (!element) return;
-		const children = element.querySelectorAll('.svelteui-tab-content');
-		const activeTab = Array.from(children)[_active];
+
+    const content = element.querySelector(".tabs-content");
+    if (!content) return;
+
+		const activeTab = Array.from(tabNodes)[_active];
 		if (!activeTab) return;
-		content = activeTab.innerHTML;
+
+    if (content.children.length > 0) {
+      content.replaceChild(activeTab, content.children[0]);
+    }
+    else {
+      content.appendChild(activeTab);
+    }
 	}
 
 	onMount(() => {
@@ -147,9 +161,5 @@ Display list of events in chronological order
 			<slot />
 		</Group>
 	</div>
-	{#if content}
-		<div role="tabpanel" class={classes.content}>
-			{@html content}
-		</div>
-	{/if}
+  <div role="tabpanel" class={cx("tabs-content", classes.content)} />
 </Box>
