@@ -7,7 +7,6 @@
 <\/script>
 
 <Input
-    override={{ input: { width: '100%', boxSizing: 'border-box' } }}
     icon={MagnifyingGlass}
     variant="headless"
     placeholder="Add your own styles with styles API"

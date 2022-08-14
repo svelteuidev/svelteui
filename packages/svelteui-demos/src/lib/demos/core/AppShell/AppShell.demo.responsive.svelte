@@ -7,25 +7,15 @@
 <\/script>
 
 <AppShell
-	override={{
-		main: { 'dark-theme &': { bc: fns.themeColor('dark', 8) }, bc: fns.themeColor('gray', 0) }
-	}}
 	fixed
 	navbarOffsetBreakpoint="sm"
 	asideOffsetBreakpoint="sm"
 >
-	<Navbar
-		slot="navbar"
-		hidden={!opened}
-		fixed
-		hiddenBreakpoint="sm"
-		width={{ sm: 200, lg: 250 }}
-		override={{ p: '$mdPX' }}
-	>
+	<Navbar slot="navbar" hidden={!opened} fixed>
 		<NavbarContent />
 	</Navbar>
 
-	<Header fixed slot="header" height={60} override={{ p: '$mdPX' }}>
+	<Header fixed slot="header">
 		<HeaderContent />
 	</Header>
 
@@ -34,7 +24,7 @@
 		<MainContent />
 	</ShellSection>
 
-	<Aside slot="aside" width={{ base: 200 }}>
+	<Aside slot="aside">
 		<AsideContent />
 	</Aside>
 

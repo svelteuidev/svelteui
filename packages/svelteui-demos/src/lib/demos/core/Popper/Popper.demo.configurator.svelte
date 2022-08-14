@@ -15,7 +15,7 @@
 
 <Button bind:element={reference} on:click={toggleMount}>Reference element</Button>
 <Popper {mounted} {reference} ${props}>
-	<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+	<Box>
 		<Center>Popper content</Center>
 	</Box>
 </Popper>

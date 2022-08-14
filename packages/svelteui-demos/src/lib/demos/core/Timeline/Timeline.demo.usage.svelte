@@ -3,7 +3,7 @@
 
 	const code = `<script>
 	import { Text, Timeline } from '@svelteuidev/core';
-    import { Commit, EyeOpen, GithubLogo, LightningBolt } from 'radix-icons-svelte';
+  import { Commit, EyeOpen, GithubLogo, LightningBolt } from 'radix-icons-svelte';
 <\/script>
 
 <Timeline active={1} bulletSize={24} lineWidth={2}>
@@ -13,7 +13,7 @@
 				>fix-notifications</Text
 			> from master</Text
 		>
-		<Text size='xs' override={{ marginTop: '4px' }}>2 hours ago</Text>
+		<Text size='xs'>2 hours ago</Text>
 	</Timeline.Item>
 
 	<Timeline.Item bullet={Commit} title='Commits'>
@@ -22,7 +22,7 @@
 				>fix-notifications branch</Text
 			></Text
 		>
-		<Text size='xs' override={{ marginTop: '4px' }}>52 minutes ago</Text>
+		<Text size='xs'>52 minutes ago</Text>
 	</Timeline.Item>
 
 	<Timeline.Item title='Pull request' bullet={GithubLogo} lineVariant='dashed'>
@@ -31,7 +31,7 @@
 				>Fix incorrect notification message (#187)</Text
 			></Text
 		>
-		<Text size='xs' override={{ marginTop: '4px' }}>34 minutes ago</Text>
+		<Text size='xs'>34 minutes ago</Text>
 	</Timeline.Item>
 
 	<Timeline.Item title='Code review' bullet={EyeOpen}>
@@ -39,7 +39,7 @@
 			><Text variant='link' root='span' href='#' inherit>Robert Gluesticker</Text> left a code review on
 			your pull request</Text
 		>
-		<Text size='xs' override={{ marginTop: '4px' }}>12 minutes ago</Text>
+		<Text size='xs'>12 minutes ago</Text>
 	</Timeline.Item>
 </Timeline>`;
 

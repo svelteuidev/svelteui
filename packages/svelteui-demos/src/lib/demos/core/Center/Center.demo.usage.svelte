@@ -5,7 +5,7 @@
     <script>
         import { Center } from '@svelteuidev/core';
     <\/script>
-    
+
     <Center>
         All elements inside Center are centered
     </Center>

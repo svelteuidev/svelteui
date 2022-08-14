@@ -3,10 +3,7 @@
 
 	const code = `
 <script>
-	import { Badge, Button, Card, Group, Image, Text, useSvelteUITheme } from '@svelteuidev/core';
-
-	const { themeColor } = useSvelteUITheme().fn
-	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
+	import { Badge, Button, Card, Group, Image, Text } from '@svelteuidev/core';
 <\/script>
 
 <Card shadow='sm' p='lg'>
@@ -25,12 +22,12 @@
 		</Badge>
 	</Group>
 
-	<Text size='sm' override={{ color: secondaryColor, lineHeight: 1.5 }}>
+	<Text size='sm'>
 		With Portugal Porto Adventures you can explore more of the beautiful portuguese cities,
 		by walking on food, meeting the locals and eat excellent food and wine
 	</Text>
 
-	<Button variant='light' color='blue' fullSize override={{ marginTop: '14px' }}>
+	<Button variant='light' color='blue' fullSize>
 		Book classic tour now
 	</Button>
 </Card>`;

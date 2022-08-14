@@ -4,10 +4,10 @@
 	const code = `<script>
 	import { Box, Button, Group, Overlay } from '@svelteuidev/core';
 
-    let visible = false;
+  let visible = false;
 <\/script>
 
-<Box css={{ height: 100, position: 'relative' }}>
+<Box>
     {#if visible}
         <Overlay opacity={0.6} color="#000" zIndex={5} blur={2} />
     {/if}

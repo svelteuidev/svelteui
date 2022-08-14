@@ -1,14 +1,15 @@
 <script lang="ts" context="module">
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	const code = `<script>
+	const code = `
+<script>
 	import { Box, Button, Group, Overlay, Text } from '@svelteuidev/core';
 
-    let visible = false;
-    let count = 0;
+  let visible = false;
+  let count = 0;
 <\/script>
 
-<Box css={{ height: 100, position: 'relative' }}>
+<Box>
     {#if visible}
         <Overlay opacity={0.6} color="#000" zIndex={5} />
     {/if}

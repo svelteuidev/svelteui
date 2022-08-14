@@ -1,48 +1,47 @@
 <script lang="ts" context="module">
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
-		`<script>
-    import { Text, Timeline } from '@svelteuidev/core';
+	const codeTemplate = (props: string, children: string) =>`<script>
+  import { Text, Timeline } from '@svelteuidev/core';
 <\/script>
 
 <Center>
-    <Timeline active={1}${props}>
-        <Timeline.Item title='New branch'>
-            <Text color='dimmed' size='sm'>
-                You&apos;ve created new branch<Text variant='link' root='span' href='#' inherit
-                    >fix-notifications</Text
-                > from master</Text
-            >
-            <Text size='xs' override={{ marginTop: '4px' }}>2 hours ago</Text>
-        </Timeline.Item>
-    
-        <Timeline.Item title='Commits'>
-            <Text color='dimmed' size='sm'
-                >You&apos;ve pushed 23 commits to<Text variant='link' root='span' href='#' inherit
-                    >fix-notifications branch</Text
-                ></Text
-            >
-            <Text size='xs' override={{ marginTop: '4px' }}>52 minutes ago</Text>
-        </Timeline.Item>
-    
-        <Timeline.Item title='Pull request' lineVariant='dashed'>
-            <Text color='dimmed' size='sm'
-                >You&apos;ve submitted a pull request<Text variant='link' root='span' href='#' inherit
-                    >Fix incorrect notification message (#187)</Text
-                ></Text
-            >
-            <Text size='xs' override={{ marginTop: '4px' }}>34 minutes ago</Text>
-        </Timeline.Item>
-    
-        <Timeline.Item title='Code review'>
-            <Text color='dimmed' size='sm'
-                ><Text variant='link' root='span' href='#' inherit>Robert Gluesticker</Text> left a code review on
-                your pull request</Text
-            >
-            <Text size='xs' override={{ marginTop: '4px' }}>12 minutes ago</Text>
-        </Timeline.Item>
-    </Timeline>
+  <Timeline active={1}${props}>
+    <Timeline.Item title='New branch'>
+      <Text color='dimmed' size='sm'>
+        You&apos;ve created new branch<Text variant='link' root='span' href='#' inherit
+          >fix-notifications</Text
+        > from master</Text
+      >
+      <Text size='xs'>2 hours ago</Text>
+    </Timeline.Item>
+
+    <Timeline.Item title='Commits'>
+      <Text color='dimmed' size='sm'
+        >You&apos;ve pushed 23 commits to<Text variant='link' root='span' href='#' inherit
+          >fix-notifications branch</Text
+        ></Text
+      >
+      <Text size='xs'>52 minutes ago</Text>
+    </Timeline.Item>
+
+    <Timeline.Item title='Pull request' lineVariant='dashed'>
+      <Text color='dimmed' size='sm'
+        >You&apos;ve submitted a pull request<Text variant='link' root='span' href='#' inherit
+          >Fix incorrect notification message (#187)</Text
+        ></Text
+      >
+      <Text size='xs'>34 minutes ago</Text>
+    </Timeline.Item>
+
+    <Timeline.Item title='Code review'>
+      <Text color='dimmed' size='sm'
+        ><Text variant='link' root='span' href='#' inherit>Robert Gluesticker</Text> left a code review on
+        your pull request</Text
+      >
+      <Text size='xs'>12 minutes ago</Text>
+    </Timeline.Item>
+  </Timeline>
 </Center>`;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
