@@ -7,7 +7,6 @@
     "radix-icons-svelte": "1.2.1"
   },
   "devDependencies": {
-    "@rollup/plugin-replace": "4.0.0",
     "@svelte-docs/core": "0.10.13",
     "@svelte-docs/publisher": "0.2.3",
     "@svelte-docs/themes": "1.0.1",
