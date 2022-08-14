@@ -10,7 +10,6 @@
     data={['Svelte', 'Vue', 'Angular', 'React']}
     label="Pick the best"
     icon={StarFilled}
-    override={{ '.withIcon': { pl: '40px !important' } }}
 />`;
 
 	export const type: CodeDemoType['type'] = 'demo';

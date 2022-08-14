@@ -18,21 +18,12 @@
 		opened = !opened;
 	}
 <\/script>
-    
-<AppShell
-	override={{
-		main: { bc: isDark ? fns.themeColor('dark', 8) : fns.themeColor('gray', 0) }
-	}}
->
-	<Navbar
-        slot="navbar"
-		hidden={!opened}
-		width={{ base: 300 }}
-		override={{ p: 'xsdPX' }}
-	>
+
+<AppShell>
+	<Navbar slot="navbar" hidden={!opened}>
 		<NavContent />
 	</Navbar>
-	<Header slot="header" height={60} override={{ p: '$mdPX' }}>
+	<Header slot="header">
 		<HeadContent />
 	</Header>
 

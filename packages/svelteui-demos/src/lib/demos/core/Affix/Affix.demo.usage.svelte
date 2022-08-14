@@ -3,11 +3,11 @@
 
 	const code = `
 <script>
-    import { fly } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
 	import { Affix, Button, Text } from '@svelteuidev/core';
 	import { ArrowUp } from 'radix-icons-svelte';
 
-    let scrollY = 0;
+  let scrollY = 0;
 <\/script>
 
 <svelte:window on:scroll={() => scrollY = window.scrollY } />

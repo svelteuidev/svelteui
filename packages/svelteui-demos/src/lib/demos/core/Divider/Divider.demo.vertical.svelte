@@ -2,14 +2,14 @@
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
-    <script>
-        import { Box, Divider } from '@svelteuidev/core';
-    <\/script>
-    
-    <Box css={{ height: '200px', display: 'flex', justifyContent: 'center' }}>
-        <Divider orientation='vertical' \/>
-    <\/Box>
-	`;
+  <script>
+    import { Box, Divider } from '@svelteuidev/core';
+  <\/script>
+
+  <Box css={{ height: '200px', display: 'flex', justifyContent: 'center' }}>
+    <Divider orientation='vertical' \/>
+  <\/Box>
+`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 
