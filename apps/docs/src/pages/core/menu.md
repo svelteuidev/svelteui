@@ -129,7 +129,7 @@ You can change styles of any element in the button component with the `override`
 
 ## Control menu state externally
 
-It is possible to control the state of the menu outside the component
+It is possible to control the state of the menu outside the component.
 
 ```svelte
 <script>
