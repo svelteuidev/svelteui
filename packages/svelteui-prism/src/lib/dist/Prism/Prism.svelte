@@ -50,7 +50,7 @@
 	}
 
 	$: prettyCode = Prism.highlight(code, Prism.languages[language], language);
-	$: prismClasses = `language-${language} ${lineNumbers ? 'line-numbers' : ''} ${
+	$: prismClasses = `language-${language} ${
 		normalizeWhiteSpace ? '' : 'no-whitespace-normalization'
 	}`;
 
@@ -277,9 +277,6 @@
 			</ThemeIcon>
 		</ActionIcon>
 	{/if}
-	<pre class={prismClasses} data-line={highlightLines}>
-		<code>
-			{@html prettyCode}
-		</code>
-	</pre>
+  <!-- Do not format this line since it will break Prism indentation result -->
+	<pre class={lineNumbers ? 'line-numbers' : ''} data-line={highlightLines}><code class={prismClasses}>{@html prettyCode}</code></pre>
 </div>

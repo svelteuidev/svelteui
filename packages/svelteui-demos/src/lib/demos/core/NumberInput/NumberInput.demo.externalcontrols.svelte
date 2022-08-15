@@ -21,7 +21,6 @@
     max={10}
     min={0}
     step={2}
-    override={{ width: '50px' }}
 \/>
 <ActionIcon
     variant='default'

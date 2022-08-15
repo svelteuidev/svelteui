@@ -3,7 +3,7 @@
 
 	const code = `<script>
 	import { Image, Text, ThemeIcon, Timeline } from '@svelteuidev/core';
-    import { Sun, LightningBolt } from 'radix-icons-svelte';
+  import { Sun, LightningBolt } from 'radix-icons-svelte';
 <\/script>
 
 <Timeline active={1} bulletSize={24} lineWidth={2}>

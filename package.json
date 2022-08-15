@@ -28,7 +28,7 @@
 		"bump:next": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts next",
 		"bump:patch": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts patch",
 		"clean": "rimraf packages/*/{node_modules,package,.turbo,types} packages/*/.svelte-kit/{generated,runtime,types}",
-		"clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types}",
+		"clean:all": "rimraf packages/*/{node_modules,.svelte-kit,package,.turbo,types} apps/docs/node_modules",
 		"cm": "git add . && ./node_modules/cz-customizable/standalone.js",
 		"cm:noadd": "./node_modules/cz-customizable/standalone.js",
 		"coverage": "turbo run coverage --parallel",
@@ -57,6 +57,7 @@
 		"*.--parallel": "prettier --write"
 	},
 	"devDependencies": {
+    "@rollup/plugin-replace": "4.0.0",
 		"c8": "7.11.0",
 		"cz-customizable": "6.3.0",
 		"husky": "7.0.4",

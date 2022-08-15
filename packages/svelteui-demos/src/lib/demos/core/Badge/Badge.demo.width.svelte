@@ -5,13 +5,13 @@
   import { Badge, Box } from '@svelteuidev/core';
 <\/script>
 
-<Box css={{ width: 200 }}>
+<Box>
     <Badge variant="filled" fullWidth>
         Full width badge
     </Badge>
 </Box>
 
-<Box css={{ width: 120 }}>
+<Box>
     <Badge variant="filled" fullWidth>
         Badge with overflow
     </Badge>

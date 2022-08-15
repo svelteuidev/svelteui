@@ -4,7 +4,7 @@
 	const code = `
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
-  
+
   let opened = false;
 <\/script>
 
@@ -18,27 +18,22 @@
   width={220}
   gutter={5}
 >
-    <div slot='label' style='display: flex; marginRight: -5px'>
-        <Text size='xs'>
-            Use this button to save this information in your profile, after that you will be able to access
-            it any time and share it via email.
-        </Text>
-        <ActionIcon size='xs' on:click={() => (opened = false)}>
-            x
-        </ActionIcon>
-    </div>
-    <Button on:click={() => (opened = false)}>Save to profile</Button>
+  <div slot='label'>
+    <Text size='xs'>
+      Use this button to save this information in your profile, after that you will be able to access
+      it any time and share it via email.
+    </Text>
+    <ActionIcon size='xs' on:click={() => (opened = false)}>
+      x
+    </ActionIcon>
+  </div>
+  <Button on:click={() => (opened = false)}>Save to profile</Button>
 </Tooltip>
 
 {#if !opened}
-    <Button
-        variant="light"
-        color="gray"
-        style={{ marginTop: '$xs' }}
-        on:click={() => (opened = true)}
-    >
-        Reopen tooltip
-    </Button>
+  <Button variant="light" color="gray" on:click={() => (opened = true)}>
+    Reopen tooltip
+  </Button>
 {/if}
 `;
 

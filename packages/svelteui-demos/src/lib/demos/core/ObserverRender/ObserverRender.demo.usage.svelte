@@ -6,21 +6,19 @@
 	import { ObserverRender, Text, Paper } from '@svelteuidev/core';
 <\/script>
 
-<Paper override={{ overflowY: 'scroll', h: 300 }}>
-	<div style="padding-top: 260px; padding-bottom: 280px;">
-		<ObserverRender let:visible options={{ threshold: 1 }}>
-			<Paper 
-                p="xl"
-                override={{ 
-                    bc: visible ? '$green900' : '$red900', minW: '50%' 
-                }} 
-            >
-				<Text override={{ color: 'white' }} weight="extrabold">
-					{visible ? 'Fully visible' : 'Obscured'}
-				</Text>
-			</Paper>
-		</ObserverRender>
-	</div>
+<Paper>
+  <ObserverRender let:visible options={{ threshold: 1 }}>
+    <Paper
+        p="xl"
+        override={{
+          bc: visible ? '$green900' : '$red900', minW: '50%'
+        }}
+    >
+      <Text weight="extrabold">
+        {visible ? 'Fully visible' : 'Obscured'}
+      </Text>
+    </Paper>
+  </ObserverRender>
 </Paper>
 `;
 
