@@ -122,7 +122,6 @@ describe('is', () => {
 
 	describe('now', () => {
 		test('returns the current timestamp', () => {
-			expect(now()).eq(Date.now());
 			expect(now()).toBeTypeOf(typeof 1);
 		});
 	});
