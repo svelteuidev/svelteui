@@ -45,6 +45,17 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
+	/** Function that allows changing the state of the menu from outside the component */
+	export function open() {
+		handleOpen();
+	}
+	export function close() {
+		handleClose();
+	}
+	export function toggle() {
+		toggleMenu();
+	}
+
 	const dispatch = createEventDispatcher();
 
 	let delayTimeout: number;
@@ -177,18 +188,18 @@
 	{...$$restProps}
 >
 	<slot name="control" class="menu-control">
-	<MenuIcon
-		bind:element={referenceElement}
-		role="button"
-		aria-haspopup="menu"
-		aria-expanded={_opened}
-		aria-controls={uuid}
-		aria-label={menuButtonLabel}
-		title={menuButtonLabel}
-		on:click!stopPropagation={toggleMenu}
-		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
-		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
-	/>
+		<MenuIcon
+			bind:element={referenceElement}
+			role="button"
+			aria-haspopup="menu"
+			aria-expanded={_opened}
+			aria-controls={uuid}
+			aria-label={menuButtonLabel}
+			title={menuButtonLabel}
+			on:click!stopPropagation={toggleMenu}
+			on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
+			on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
+		/>
 	</slot>
 	<Popper
 		reference={referenceElement}
