@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
-	import { createEventDispatcher, setContext } from 'svelte';
+	import { createEventDispatcher, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
@@ -45,11 +45,23 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
+	/** Function that allows changing the state of the menu from outside the component */
+	export function open() {
+		handleOpen();
+	}
+	export function close() {
+		handleClose();
+	}
+	export function toggle() {
+		toggleMenu();
+	}
+
 	const dispatch = createEventDispatcher();
 
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
+	let control: Element;
 	let hovered: number = -1;
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
@@ -62,6 +74,24 @@
 
 	// can be turned into an action
 	const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
+
+	onMount(() => {
+		if (!$$slots.control) return;
+
+		control = element.children[0];
+		control.setAttribute("role", "button");
+		control.setAttribute("aria-haspopup", "menu");
+		control.setAttribute("aria-expanded", String(_opened));
+		control.setAttribute("aria-controls", uuid);
+		if (menuButtonLabel) control.setAttribute("aria-label", menuButtonLabel);
+
+		control.addEventListener('click', (event) => {
+			event.stopPropagation();
+			toggleMenu();
+		});
+		control.addEventListener('mouseenter', () => (trigger === 'hover' ? handleOpen() : null));
+		control.addEventListener('keydown', (event) => handleKeyDown(castKeyboardEvent(event)));
+	});
 
 	const handleClose = () => {
 		if (_opened) {
@@ -142,6 +172,7 @@
 	});
 
 	$: _opened = opened;
+	$: if($$slots.control && control) control.setAttribute("aria-expanded", String(_opened));
 	$: contextStore.set({
 		hovered,
 		radius,
@@ -163,18 +194,20 @@
 	on:mouseenter={handleMouseEnter}
 	{...$$restProps}
 >
-	<MenuIcon
-		bind:element={referenceElement}
-		role="button"
-		aria-haspopup="menu"
-		aria-expanded={_opened}
-		aria-controls={uuid}
-		aria-label={menuButtonLabel}
-		title={menuButtonLabel}
-		on:click!stopPropagation={toggleMenu}
-		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
-		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
-	/>
+	<slot name="control" class="menu-control">
+		<MenuIcon
+			bind:element={referenceElement}
+			role="button"
+			aria-haspopup="menu"
+			aria-expanded={_opened}
+			aria-controls={uuid}
+			aria-label={menuButtonLabel}
+			title={menuButtonLabel}
+			on:click!stopPropagation={toggleMenu}
+			on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
+			on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
+		/>
+	</slot>
 	<Popper
 		reference={referenceElement}
 		mounted={_opened}
