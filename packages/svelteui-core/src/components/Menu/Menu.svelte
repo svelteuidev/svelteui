@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
-	import { createEventDispatcher, setContext } from 'svelte';
+	import { createEventDispatcher, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
@@ -50,6 +50,7 @@
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
+	let control: Element;
 	let hovered: number = -1;
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
@@ -62,6 +63,18 @@
 
 	// can be turned into an action
 	const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
+
+	onMount(() => {
+		if (!$$slots.control) return;
+
+		control = element.children[0];
+		control.addEventListener('click', (event) => {
+			event.stopPropagation();
+			toggleMenu();
+		});
+		control.addEventListener('mouseenter', () => (trigger === 'hover' ? handleOpen() : null));
+		control.addEventListener('keydown', (event) => handleKeyDown(castKeyboardEvent(event)));
+	});
 
 	const handleClose = () => {
 		if (_opened) {
@@ -163,6 +176,7 @@
 	on:mouseenter={handleMouseEnter}
 	{...$$restProps}
 >
+	<slot name="control" class="menu-control">
 	<MenuIcon
 		bind:element={referenceElement}
 		role="button"
@@ -175,6 +189,7 @@
 		on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
 		on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 	/>
+	</slot>
 	<Popper
 		reference={referenceElement}
 		mounted={_opened}
