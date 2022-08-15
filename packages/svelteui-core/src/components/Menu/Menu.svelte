@@ -79,6 +79,12 @@
 		if (!$$slots.control) return;
 
 		control = element.children[0];
+		control.setAttribute("role", "button");
+		control.setAttribute("aria-haspopup", "menu");
+		control.setAttribute("aria-expanded", String(_opened));
+		control.setAttribute("aria-controls", uuid);
+		if (menuButtonLabel) control.setAttribute("aria-label", menuButtonLabel);
+
 		control.addEventListener('click', (event) => {
 			event.stopPropagation();
 			toggleMenu();
@@ -166,6 +172,7 @@
 	});
 
 	$: _opened = opened;
+	$: if($$slots.control && control) control.setAttribute("aria-expanded", String(_opened));
 	$: contextStore.set({
 		hovered,
 		radius,
