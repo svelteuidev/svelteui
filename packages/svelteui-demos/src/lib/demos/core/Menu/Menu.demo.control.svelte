@@ -1,0 +1,36 @@
+<script lang="ts" context="module">
+	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
+	const code = `
+<script>
+	import { Button, Divider, Menu } from '@svelteuidev/core';
+	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
+<\/script>
+
+<Menu>
+    <Button slot="control">Toggle Menu</Button>
+    <Menu.Item icon={Gear}>Settings</Menu.Item>
+    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+    <Menu.Item icon={Camera}>Gallery</Menu.Item>
+</Menu>
+`;
+
+	export const type: CodeDemoType['type'] = 'demo';
+
+	export const configuration: CodeDemoConfiguration = {
+		code
+	};
+</script>
+
+<script lang="ts">
+	import { Button, Center, Menu } from '@svelteuidev/core';
+	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
+</script>
+
+<Center>
+	<Menu>
+        <Button slot="control">Toggle Menu</Button>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+	</Menu>
+</Center>

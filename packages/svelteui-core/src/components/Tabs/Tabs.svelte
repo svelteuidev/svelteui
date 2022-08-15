@@ -26,13 +26,13 @@
 		variant: $$Props['variant'] = 'default';
 	export { className as class };
 
-  let tabNodes: Element[];
-  const dispatch = createEventDispatcher();
+	let tabNodes: Element[];
+	const dispatch = createEventDispatcher();
 
-  onMount(() => {
-    const children = element.querySelectorAll('.svelteui-tab-content');
-    tabNodes = Array.from(children);
-  });
+	onMount(() => {
+		const children = element.querySelectorAll('.svelteui-tab-content');
+		tabNodes = Array.from(children);
+	});
 
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
