@@ -19,6 +19,8 @@ docs: 'core/modal.md'
 
 ## Usage
 
+When using the Modal component it's important that you wrap your app in the [SvelteUIProvider](theming/svelteui-provider). If you for some reason don't want to do that, you must change the `target` prop to something else. Such as <code>{"target={'body'}"}</code>.
+
 <Demo demo={ModalDemos.usage} />
 
 ## Remove title and close button
