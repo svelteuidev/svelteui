@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Menu } from './index';
-	import { Text } from '../Text';
+	import { Button } from '../Button';
+	import { Kbd } from '../Kbd';
 	import { Divider } from '../Divider';
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 </script>
@@ -23,9 +24,7 @@
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
 		<Menu.Item icon={MagnifyingGlass}>
-			<svelte:fragment slot="rightSection">
-				<Text size="xs" color="dimmed">⌘K</Text>
-			</svelte:fragment>
+			<Kbd slot="rightSection">⌘K</Kbd>
 			Search
 		</Menu.Item>
 
@@ -39,6 +38,9 @@
 
 <Story name="Custom Control">
 	<Menu>
-		<Menu.Item>Basic menu with custom control</Menu.Item>
+		<Button slot="control">Toggle Menu</Button>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item icon={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Story>
