@@ -56,7 +56,7 @@ index: true
 </svelte:head>
 
 <Box class="homepage_styles">
-	<Banner href={changelogLink}>Version {changelog.replace('v','').replaceAll('-','.')} is out now</Banner>
+	<!-- <Banner href={changelogLink}>Version {changelog.replace('v','').replaceAll('-','.')} is out now</Banner> -->
 	<div class="container">
 		<h1 class="title">
 			Create applications in less time than ever before

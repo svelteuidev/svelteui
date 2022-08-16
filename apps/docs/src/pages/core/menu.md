@@ -78,13 +78,11 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
 
 <Demo demo={MenuDemos.disabled} />
 
-<!-- ## Custom control
+## Custom control
 
-To be implemented
+It is possible to configure the control component by using the `control` slot.
 
-## Custom control with component
-
-To be implemented -->
+<Demo demo={MenuDemos.control} />
 
 ## Change menu position
 
@@ -128,6 +126,21 @@ By default, menu items render as button, to change that set `root` prop on `Menu
 You can change styles of any element in the button component with the `override` prop or by setting a class name. For example, you can change the hovered item color:
 
 <Demo demo={MenuDemos.styles} />
+
+## Control menu state externally
+
+It is possible to control the state of the menu outside the component.
+
+```svelte
+<script>
+    let element;
+</script>
+
+<Button on:click={() => element.toggle()}>Click to toggle the menu</Button>
+<Menu bind:element>
+    ...
+</Menu>
+```
 
 ## Accessibility and usability
 

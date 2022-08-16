@@ -10,7 +10,7 @@ export interface SharedMenuItemProps extends DefaultProps {
 }
 
 export interface MenuItemProps extends SharedMenuItemProps {
-	root: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
+	root?: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
 }
 
 export interface MenuItemStylesParams {
