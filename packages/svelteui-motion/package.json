@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/motion",
-	"version": "0.7.0",
+	"version": "0.7.2",
 	"description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
 	"keywords": [
 		"svelte",
@@ -80,6 +80,6 @@
 		"vite": "3.0.0"
 	},
 	"peerDependencies": {
-		"svelte": "3.47.0"
+		"svelte": ">=3.47.0"
 	}
 }
