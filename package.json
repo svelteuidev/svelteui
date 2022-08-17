@@ -33,7 +33,7 @@
 		"cm:noadd": "./node_modules/cz-customizable/standalone.js",
 		"coverage": "turbo run coverage --parallel",
 		"deploy:docs": "yarn build:docs && yarn script:build-docs && yarn workspace svelteui-docs deploy:nobuild",
-		"dev:core": "yarn workspace @svelteuidev/core dev",
+		"dev:core": "yarn workspace @svelteuidev/core storybook",
 		"dev:docs": "yarn workspace svelteui-docs dev",
 		"format": "turbo run format --parallel",
 		"generate-types": "turbo run generate-types --parallel --force",
