@@ -15,9 +15,9 @@
 	</Menu>
 </Template>
 
-<Story name="Menu" />
+<Story name="Menu" id="menu" />
 
-<Story name="With Content">
+<Story name="With Content" id="menu-content">
 	<Menu>
 		<Menu.Label>Application</Menu.Label>
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
@@ -36,7 +36,7 @@
 	</Menu>
 </Story>
 
-<Story name="Custom Control">
+<Story name="Custom Control" id="menu-custom-control">
 	<Menu>
 		<Button slot="control">Toggle Menu</Button>
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
