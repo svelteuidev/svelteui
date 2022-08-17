@@ -90,6 +90,6 @@
 		"vitest": "0.13.0"
 	},
 	"peerDependencies": {
-		"svelte": "3.47.0"
+		"svelte": ">=3.47.0"
 	}
 }
