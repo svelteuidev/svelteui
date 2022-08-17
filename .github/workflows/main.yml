@@ -41,7 +41,7 @@ jobs:
           path: packages/**
           key: ${{ runner.os }}-${{ hashFiles('packages/*') }}
       - run: node --version
-      - run: yarn install --immutable
+      - run: yarn --immutable
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
       - run: yarn run format
       - run: yarn run lint
