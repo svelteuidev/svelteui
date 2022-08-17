@@ -124,12 +124,15 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 **Version 0.8.0:**
 
-| Status          | Priority | Description                                               |
-| --------------- | -------- | --------------------------------------------------------- |
-| :red_circle:    | !        | Move Stitches to peer-deps (svelteui-core)                |
-| :green_circle:  | !!       | Upgrade to latest SvelteKit version (leverage Vite 3.0.0) |
-| :green_circle:  | !!       | Migrate package manager from `npm` to `yarn`              |
-| :yellow_circle: | !!       | Migrate dev environment to Storybook for all packages     |
+| Status          | Priority | Description                                                          |
+| --------------- | -------- | -------------------------------------------------------------------- |
+| :red_circle:    | !        | Move Stitches to peer-deps (svelteui-core)                           |
+| :green_circle:  | !!       | Upgrade to latest SvelteKit version (leverage Vite 3.0.0)            |
+| :green_circle:  | !!       | Migrate package manager from `npm` to `yarn`                         |
+| :yellow_circle: | !!       | Migrate dev environment to Storybook for all packages                |
+| :red_circle:    | !!       | Add peerdeps fix to prepare:release script                           |
+| :red_circle:    | !!       | Figure out how to get cjs,esm,umd distributions in release processes |
+| :red_circle:    | !!!      | Figure out how to add minification to the release processes          |
 
 **Version 0.9.0:**
 
