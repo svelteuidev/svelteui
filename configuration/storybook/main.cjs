@@ -29,16 +29,17 @@ module.exports = {
 	},
 	async viteFinal(config) {
 		const userConfig = (await import(path.resolve(__dirname, '../../packages/svelteui-core/vite.config.js'))).default;
-
-    // Remove Svelte plugins that would duplicate those added by the Storybook plugin
-		const plugins = userConfig.plugins
-			.flat(1)
-			.filter(
-				(p) => !p.name.startsWith('vite-plugin-svelte') || p.name === 'vite-plugin-svelte-kit'
-			);
 		return mergeConfig(config, {
-			...userConfig,
-			plugins
+      plugins: userConfig.plugins,
+      resolve: {
+        alias: {
+          // @TODO: this needs to be adapted for each package that has stories
+          $lib: path.resolve(__dirname, '../../packages/svelteui-core/src')
+        }
+      },
+      optimizeDeps: {
+        include: ['storybook-dark-mode'],
+      },
 		});
 	}
 };
