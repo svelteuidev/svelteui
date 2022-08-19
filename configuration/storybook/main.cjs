@@ -28,13 +28,11 @@ module.exports = {
 		storyStoreV7: false
 	},
 	async viteFinal(config) {
-		const userConfig = (await import(path.resolve(__dirname, '../../packages/svelteui-core/vite.config.js'))).default;
 		return mergeConfig(config, {
-      plugins: userConfig.plugins,
       resolve: {
         alias: {
           // @TODO: this needs to be adapted for each package that has stories
-          $lib: path.resolve(__dirname, '../../packages/svelteui-core/src')
+          $lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
         }
       },
       optimizeDeps: {
