@@ -1,4 +1,4 @@
-import type { Fn } from '$lib/shared/types';
+import type { Fn } from '$clib/shared/types';
 
 export type FunctionArgs<Args extends any[] = any[], Return = void> = (...args: Args) => Return;
 

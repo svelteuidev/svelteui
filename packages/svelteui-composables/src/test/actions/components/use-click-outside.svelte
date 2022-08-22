@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clickoutside } from '$lib/actions/use-click-outside/use-click-outside';
+	import { clickoutside } from '$clib/actions/use-click-outside/use-click-outside';
 
 	export let open = true;
 </script>

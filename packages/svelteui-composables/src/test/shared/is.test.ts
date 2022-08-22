@@ -13,7 +13,7 @@ import {
 	rand,
 	sleep,
 	timestamp
-} from '$lib';
+} from '$clib';
 
 describe('is', () => {
 	describe('isClient', () => {

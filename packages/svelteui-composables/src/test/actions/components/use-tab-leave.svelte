@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tableave } from '$lib/actions/use-tab-leave/use-tab-leave';
+	import { tableave } from '$clib/actions/use-tab-leave/use-tab-leave';
 
 	export let callback;
 </script>

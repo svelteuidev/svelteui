@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { dateTimeString } from '$lib';
+import { dateTimeString } from '$clib';
 
 describe('time', () => {
 	test('returns a date time string based on locale', () => {

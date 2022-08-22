@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { clipboard } from '$lib/actions/use-clipboard/use-clipboard';
+	import { clipboard } from '$clib/actions/use-clipboard/use-clipboard';
 
 	export let text = 'This text will be copied';
 	export let callback;

@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 
-import { useRafFn } from '$lib';
+import { useRafFn } from '$clib';
 
 describe('raf-fn', () => {
 	test("calls a function on every 'requestAnimationFrame'", () => {

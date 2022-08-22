@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { download } from '$lib/actions/use-download/use-download';
+	import { download } from '$clib/actions/use-download/use-download';
 
 	export let blob = new Blob([]);
 	export let filename = '';
