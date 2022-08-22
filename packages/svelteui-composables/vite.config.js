@@ -13,7 +13,7 @@ const config = {
 		  },
 	resolve: {
 		alias: {
-			$clib: './src/lib'
+			$clib: './src'
 		}
 	},
 	test: {
