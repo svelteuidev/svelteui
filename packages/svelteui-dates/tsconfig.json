@@ -18,6 +18,8 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
 			"$dlib": ["src/lib"],
 			"$dlib/*": ["src/lib/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],

@@ -13,11 +13,10 @@ const config = {
 		  },
 	resolve: {
 		alias: {
-			$clib: './src'
+			$clib: 'src'
 		}
 	},
 	test: {
-		globals: true,
 		environment: 'jsdom',
 		coverage: {
 			exclude: [...configDefaults.exclude, 'svelte.config.js', '**/test/**']

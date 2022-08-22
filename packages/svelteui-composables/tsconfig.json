@@ -17,6 +17,8 @@
 		"isolatedModules": true,
 		"baseUrl": ".",
 		"paths": {
+			"$lib": ["src"],
+			"$lib/*": ["src/*"],
 			"$clib": ["src"],
 			"$clib/*": ["src/*"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
