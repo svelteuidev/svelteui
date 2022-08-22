@@ -43,7 +43,7 @@
 </script>
 
 <Center>
-	<Text component="span" align="center" variant="gradient" size="xl" weight='bold' {...props}>
+	<Text component="span" align="center" variant="gradient" size="xl" weight="bold" {...props}>
 		Text with gradient
 	</Text>
 </Center>

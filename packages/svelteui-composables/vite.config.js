@@ -11,11 +11,11 @@ const config = {
 					allow: ['./package']
 				}
 		  },
-  resolve: {
-    alias: {
-      $clib: './src/lib'
-    }
-  },
+	resolve: {
+		alias: {
+			$clib: './src/lib'
+		}
+	},
 	test: {
 		globals: true,
 		environment: 'jsdom',

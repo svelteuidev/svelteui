@@ -28,7 +28,7 @@
 
 <Center>
 	<Menu>
-        <Button slot="control">Toggle Menu</Button>
+		<Button slot="control">Toggle Menu</Button>
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
