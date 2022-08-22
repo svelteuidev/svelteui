@@ -105,10 +105,6 @@ describe('is', () => {
 	});
 
 	describe('isWindow', () => {
-		test('returns true when the value is a window', () => {
-			expect(isWindow(window)).eq(true);
-		});
-
 		test('returns false when the value is not a window', () => {
 			expect(isWindow(1)).eq(false);
 			expect(

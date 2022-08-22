@@ -70,7 +70,6 @@
 		"@storybook/addon-svelte-csf": "2.0.7",
 		"@storybook/builder-vite": "0.2.2",
 		"@storybook/svelte": "6.5.10",
-		"@storybook/testing-library": "0.0.13",
 		"c8": "7.11.0",
 		"cz-customizable": "6.3.0",
 		"husky": "7.0.4",
@@ -83,7 +82,6 @@
 		"rimraf": "3.0.2",
 		"syncpack": "8.2.4",
 		"turbo": "latest",
-		"vitest": "0.9.3",
-		"vitest-svelte-kit": "0.0.6"
+		"vitest": "0.22.1"
 	}
 }

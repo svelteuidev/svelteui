@@ -32,6 +32,7 @@ package
 /packages/svelteui-errors/dist
 .vercel
 .turbo
+coverage
 
 # env
 .env

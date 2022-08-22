@@ -7,13 +7,6 @@ const config = {
 	optimizeDeps: {
 		exclude: ['radix-icons-svelte']
 	},
-	test: {
-		globals: true,
-		environment: 'jsdom',
-		deps: {
-			inline: ['radix-icons-svelte']
-		}
-	},
 	server: {
 		fs: {
 			allow: [

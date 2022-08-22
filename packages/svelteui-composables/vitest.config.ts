@@ -1,12 +1,23 @@
-import { extractFromSvelteConfig } from 'vitest-svelte-kit';
-import viteConfig from './vite.config.js';
+import { configDefaults, defineConfig } from 'vitest/config';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import path from 'path';
 
-async function extractConfig() {
-	const config = await extractFromSvelteConfig();
-	return {
-		...config,
-		...viteConfig
-	};
-}
-
-export default extractConfig();
+export default defineConfig({
+	test: {
+		environment: 'jsdom',
+		coverage: {
+			exclude: [...configDefaults.exclude, 'svelte.config.js', '**/test/**']
+		}
+	},
+	plugins: [
+		svelte({
+			hot: false,
+			configFile: path.join(__dirname, 'svelte.config.js')
+		})
+	],
+	resolve: {
+		alias: {
+			$clib: path.join(__dirname, './src')
+		}
+	}
+});

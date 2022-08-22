@@ -7,6 +7,12 @@
 			],
 			"$dlib/*": [
 				"src/lib/*"
+			],
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
 			]
 		},
 		"rootDirs": [
