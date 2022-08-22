@@ -31,8 +31,9 @@ module.exports = {
 		return mergeConfig(config, {
       resolve: {
         alias: {
-          // @TODO: this needs to be adapted for each package that has stories
           $lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
+          $clib: path.resolve(__dirname, '../../packages/svelteui-composables/src/lib'),
+          $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src/lib'),
         }
       },
       optimizeDeps: {
