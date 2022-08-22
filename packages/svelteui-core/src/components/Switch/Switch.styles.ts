@@ -1,4 +1,4 @@
-import { createStyles } from '$lib/styles';
+import { createStyles, dark } from '$lib/styles';
 import type { DefaultProps, Override, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface SwitchProps extends DefaultProps<HTMLInputElement> {
@@ -83,6 +83,10 @@ export default createStyles(
 	(theme, { radius, size, transitionFunction, color, offLabel, onLabel }: SwitchStyleParams) => {
 		return {
 			root: {
+				display: 'flex',
+				alignItems: 'center'
+			},
+			input: {
 				focusRing: 'auto',
 				overflow: 'hidden',
 				WebkitTapHighlightColor: 'transparent',
@@ -103,6 +107,12 @@ export default createStyles(
 				alignItems: 'center',
 				fontSize: sizes[size].insideLabelFont,
 				fontWeight: 600,
+
+				[`${dark.selector} &`]: {
+					backgroundColor: theme.fn.themeColor('dark', 6),
+					borderColor: theme.fn.themeColor('dark', 4)
+				},
+
 				'&:hover': { cursor: 'pointer' },
 				'&::before': {
 					zIndex: 1,
@@ -119,6 +129,10 @@ export default createStyles(
 
 					'@media (prefers-reduced-motion)': {
 						transitionDuration: '0ms'
+					},
+
+					[`${dark.selector} &`]: {
+						borderColor: 'White'
 					}
 				},
 				'&::after': {
@@ -132,7 +146,11 @@ export default createStyles(
 					transform: 'translateX(0)',
 					content: offLabel ? `'${offLabel}'` : "''",
 					color: theme.fn.themeColor('gray', 6),
-					transition: `color 150ms ${transitionFunction}`
+					transition: `color 150ms ${transitionFunction}`,
+
+					[`${dark.selector} &`]: {
+						color: theme.fn.themeColor('dark', 1)
+					}
 				},
 				'&:checked': {
 					backgroundColor: theme.fn.themeColor(color, 6),
@@ -152,13 +170,23 @@ export default createStyles(
 					}
 				},
 				'&.disabled': {
-					backgroundColor: 'Gray',
-					borderColor: 'White',
+					backgroundColor: theme.fn.themeColor('gray', 2),
+					borderColor: theme.fn.themeColor('gray', 2),
 					cursor: 'not-allowed',
 
+					[`${dark.selector} &`]: {
+						backgroundColor: theme.fn.themeColor('dark', 4),
+						borderColor: theme.fn.themeColor('dark', 3)
+					},
+
 					'&::before': {
-						borderColor: 'White',
-						backgroundColor: 'Gray'
+						borderColor: theme.fn.themeColor('gray', 2),
+						backgroundColor: theme.fn.themeColor('gray', 0),
+
+						[`${dark.selector} &`]: {
+							backgroundColor: theme.fn.themeColor('dark', 3),
+							borderColor: theme.fn.themeColor('dark', 4)
+						}
 					}
 				}
 			},
