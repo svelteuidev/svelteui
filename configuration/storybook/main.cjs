@@ -32,7 +32,7 @@ module.exports = {
       resolve: {
         alias: {
           $lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
-          $clib: path.resolve(__dirname, '../../packages/svelteui-composables/src/lib'),
+          $clib: path.resolve(__dirname, '../../packages/svelteui-composables/src'),
           $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src/lib'),
         }
       },

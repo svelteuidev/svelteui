@@ -9,6 +9,9 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		files: {
+			lib: 'src'
+		},
 		adapter: adapter(),
 		package: {
 			exports: (filepath) => {
