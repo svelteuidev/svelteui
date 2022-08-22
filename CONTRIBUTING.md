@@ -73,7 +73,8 @@ Examples:
 All packages yarn scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be ran from the root of the monorepo.
 
-- `dev:{docs, storybook, etc}` - runs the development environment for whatever you choose to work on.
+- `dev:{docs, etc}` - runs the development environment for whatever you choose to work on
+- `storybook` - runs Storybook for all the packages that contain stories
 - `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder
 - `lint` - runs eslint on packages folder (run format before running lint)
