@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { randomID } from '$lib';
+import { randomID } from '$clib';
 
 describe('random-id', () => {
 	test('returns a random string ID', () => {

@@ -20,6 +20,8 @@
 		"paths": {
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
+			"$dlib": ["src/lib"],
+			"$dlib/*": ["src/lib/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
 			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],

@@ -1,5 +1,5 @@
-import type { ConfigurableWindow } from '$lib/shared/index.js';
-import { defaultWindow } from '$lib/shared/index.js';
+import type { ConfigurableWindow } from '$clib/shared/index.js';
+import { defaultWindow } from '$clib/shared/index.js';
 import createWorkerBlobUrl from './lib/createWorkerBlobUrl.js';
 
 export type WebWorkerStatus = 'PENDING' | 'SUCCESS' | 'RUNNING' | 'ERROR' | 'TIMEOUT_EXPIRED';

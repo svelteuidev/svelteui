@@ -15,6 +15,9 @@ const config = {
 		}
 	}),
 	kit: {
+		alias: {
+			$dlib: 'src/lib'
+		},
 		package: {
 			exports: (filepath) => {
 				if (filepath.endsWith('.d.ts')) return false;

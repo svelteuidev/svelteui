@@ -19,6 +19,8 @@
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"],
+			"$clib": ["src"],
+			"$clib/*": ["src/*"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
 			"@svelteuidev/prism": ["../svelteui-prism/src/lib"],

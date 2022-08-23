@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pageleave } from '$lib/actions/use-page-leave/use-page-leave';
+	import { pageleave } from '$clib/actions/use-page-leave/use-page-leave';
 
 	export let callback;
 </script>

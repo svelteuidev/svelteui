@@ -277,6 +277,7 @@
 			</ThemeIcon>
 		</ActionIcon>
 	{/if}
-  <!-- Do not format this line since it will break Prism indentation result -->
+	<!-- Do not format this line since it will break Prism indentation result -->
+	<!-- prettier-ignore -->
 	<pre class={lineNumbers ? 'line-numbers' : ''} data-line={highlightLines}><code class={prismClasses}>{@html prettyCode}</code></pre>
 </div>

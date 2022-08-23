@@ -5,10 +5,6 @@ const config = {
 	plugins: [sveltekit()],
 	optimizeDeps: {
 		exclude: ['radix-icons-svelte']
-	},
-	test: {
-		globals: true,
-		environment: 'jsdom'
 	}
 };
 
