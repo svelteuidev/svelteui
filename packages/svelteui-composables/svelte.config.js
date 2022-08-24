@@ -14,15 +14,15 @@ const config = {
 		alias: {
 			$clib: 'src'
 		},
-		adapter: adapter(),
-		package: {
-			exports: (filepath) => {
-				if (filepath.endsWith('.d.ts')) return false;
-				return !mm.contains(filepath, '**_');
-			},
-			files: mm.matcher('!**/*.test.{ts, js}')
-		}
-	}
+		adapter: adapter()
+	},
+  package: {
+    exports: (filepath) => {
+      if (filepath.endsWith('.d.ts')) return false;
+      return !mm.contains(filepath, '**_');
+    },
+    files: mm.matcher('!**/*.test.{ts, js}')
+  }
 };
 
 export default config;

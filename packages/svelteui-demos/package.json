@@ -41,13 +41,13 @@
 		"format": "prettier --write --plugin-search-dir=. .",
 		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"package": "svelte-kit package",
+		"package": "svelte-package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"sort": "npx sort-package-json",
 		"storybook": "start-storybook -p 6006",
 		"update:lockfile": "yarn",
-		"watch": "svelte-kit package -w"
+		"watch": "svelte-package -w"
 	},
 	"dependencies": {
 		"@svelteuidev/composables": "0.7.2",
@@ -60,6 +60,7 @@
 		"@babel/core": "7.18.6",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+    "@sveltejs/package": "next",
 		"@typescript-eslint/eslint-plugin": "5.27.0",
 		"@typescript-eslint/parser": "5.27.0",
 		"autoprefixer": "10.4.4",
