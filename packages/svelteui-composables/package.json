@@ -44,7 +44,7 @@
 		"format": "prettier --write --plugin-search-dir=. .",
 		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"package": "svelte-kit package",
+		"package": "svelte-package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"pub": "cd package && npm publish",
@@ -54,12 +54,13 @@
 		"test": "vitest --run",
 		"test:watch": "vitest",
 		"update:lockfile": "yarn",
-		"watch": "svelte-kit package -w"
+		"watch": "svelte-package -w"
 	},
 	"devDependencies": {
 		"@babel/core": "7.18.6",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
+    "@sveltejs/package": "next",
 		"@typescript-eslint/eslint-plugin": "5.27.0",
 		"@typescript-eslint/parser": "5.27.0",
 		"babel-loader": "8.2.5",
