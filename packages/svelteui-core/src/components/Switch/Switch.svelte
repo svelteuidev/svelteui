@@ -48,7 +48,7 @@ A user can use this component to enable/disable something, normally used for boo
     <Switch label="Lights" onLabel="ON" offLabel="OFF"/> // switch with labels
     ```
 -->
-<div class={cx('switch', className)} class:disabled>
+<div class={cx('switch', classes.root, className)}>
 	<input
 		bind:this={element}
 		{id}
@@ -56,7 +56,8 @@ A user can use this component to enable/disable something, normally used for boo
 		use:forwardEvents
 		bind:checked
 		type="checkbox"
-		class={cx(className, getStyles({ css: override }))}
+		class={cx(className, classes.input, getStyles({ css: override }))}
+		class:disabled
 	/>
 	{#if label}
 		<label for={id} class={classes.label}>
