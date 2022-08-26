@@ -1,4 +1,4 @@
-import { searchForKeys, searchForValues } from './utils';
+import { searchForKeys, searchForValues } from './utils.ts';
 import type { DeepSearchOptions, Obj } from './types';
 
 const defaultOpts: DeepSearchOptions = {
