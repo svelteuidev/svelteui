@@ -3,6 +3,7 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
 import fs from 'fs';
+import path from 'path';
 export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
 
 /** @type {import('@sveltejs/kit').Config} */
