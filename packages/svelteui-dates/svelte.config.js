@@ -19,7 +19,7 @@ const config = {
 			lib: 'src'
 		},
 		alias: {
-			$dlib: 'src'
+			$dlib: path.resolve('./src')
 		}
 	},
 	package: {

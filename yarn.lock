@@ -2690,10 +2690,10 @@
     tiny-glob "^0.2.9"
     undici "^5.8.1"
 
-"@sveltejs/package@next":
-  version "1.0.0-next.1"
-  resolved "https://registry.yarnpkg.com/@sveltejs/package/-/package-1.0.0-next.1.tgz#6a724bc42a218dcc024e105fe370939b1eab754f"
-  integrity sha512-U8XBk6Cfy8MjKG41Uyo+fqBpdhu7xUSnhiCNoODRaAtWV02RZoLh+McXrsxEvqi/ycgymctlhJhssqDnD+E+FA==
+"@sveltejs/package@1.0.0-next.3":
+  version "1.0.0-next.3"
+  resolved "https://registry.yarnpkg.com/@sveltejs/package/-/package-1.0.0-next.3.tgz#fd2480ae8f82d57c116566e57616487b159aae84"
+  integrity sha512-wlvxTScX0+c3KeUfgcELckLEu92Lz672Hh9zu3v4SDnByVwU6UNWhuLjff2osSVit/MLRIxe2XudnqZlmQj3OQ==
   dependencies:
     chokidar "^3.5.3"
     kleur "^4.1.4"
@@ -13126,7 +13126,7 @@ svelte-preprocess@4.10.6:
     sorcery "^0.10.0"
     strip-indent "^3.0.0"
 
-svelte-preprocess@^4.0.0:
+svelte-preprocess@4.10.7, svelte-preprocess@^4.0.0:
   version "4.10.7"
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.10.7.tgz#3626de472f51ffe20c9bc71eff5a3da66797c362"
   integrity sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==
@@ -14195,7 +14195,7 @@ vite@3.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-"vite@^2.9.12 || ^3.0.0-0":
+vite@3.0.9, "vite@^2.9.12 || ^3.0.0-0":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/vite/-/vite-3.0.9.tgz#45fac22c2a5290a970f23d66c1aef56a04be8a30"
   integrity sha512-waYABTM+G6DBTCpYAxvevpG50UOlZuynR0ckTK5PawNVt7ebX6X7wNXHaGIO6wYYFXSM7/WcuFuO2QzhBB6aMw==

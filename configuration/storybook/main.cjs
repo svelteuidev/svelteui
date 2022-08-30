@@ -33,10 +33,10 @@ module.exports = {
         alias: {
           $lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
           $clib: path.resolve(__dirname, '../../packages/svelteui-composables/src'),
-          $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src/lib'),
+          $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src'),
           '@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core/src'),
           '@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables/src'),
-          '@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/src/lib'),
+          '@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/src'),
         }
       },
       optimizeDeps: {
