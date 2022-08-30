@@ -18,14 +18,14 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
+			"$lib": ["src"],
+			"$lib/*": ["src/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
+			"@svelteuidev/composables": ["../svelteui-composables/src"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/prism": ["../svelteui-prism/src/lib"],
-			"@svelteuidev/dates": ["../svelteui-dates/src/lib"],
-			"@svelteuidev/preprocessors": ["../svelteui-preprocessors/src/lib"]
+			"@svelteuidev/prism": ["../svelteui-prism/src"],
+			"@svelteuidev/dates": ["../svelteui-dates/src"],
+			"@svelteuidev/preprocessors": ["../svelteui-preprocessors/src"]
 		}
 	},
 	"references": [
