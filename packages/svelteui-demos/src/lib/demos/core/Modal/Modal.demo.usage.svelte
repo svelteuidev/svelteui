@@ -7,6 +7,8 @@
 	let opened = false;
 <\/script>
 
+<!-- This component must be wrapped in SvelteUIProvider (on the application level)
+  or you must specify a target with the target prop --!>
 <Modal {opened} on:close={closeModal} title="Introduce yourself!">
 	<!-- Modal Content -->
 </Modal>
