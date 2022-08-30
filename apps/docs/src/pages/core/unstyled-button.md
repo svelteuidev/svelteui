@@ -6,7 +6,7 @@ slug: /core/unstyled-button/
 category: 'inputs'
 description: 'Render button with no theme colors'
 import: "import { UnstyledButton } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/UnstyledButton/UnstyledButton.svelte'
+source: 'svelteui-src/components/UnstyledButton/UnstyledButton.svelte'
 docs: 'core/unstyled-button.md'
 ---
 

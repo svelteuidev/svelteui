@@ -6,7 +6,7 @@ slug: /composables/use-lazy/
 description: 'Lazily attach properties to any DOM element when it is in the window.'
 import: "import { lazy } from '@svelteuidev/composables';"
 docs: 'composables/use-lazy.md'
-source: 'svelteui-composables/src/lib/actions/use-lazy/use-lazy.ts'
+source: 'svelteui-src/actions/use-lazy/use-lazy.ts'
 ---
 
 <script>

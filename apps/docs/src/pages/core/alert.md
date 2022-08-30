@@ -6,7 +6,7 @@ slug: /core/alert/
 category: 'feedback'
 description: 'Attract user attention with an important message'
 import: "import { Alert } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Alert/Alert.svelte'
+source: 'svelteui-src/components/Alert/Alert.svelte'
 docs: 'core/alert.md'
 ---
 

@@ -6,7 +6,7 @@ slug: /composables/use-tab-leave/
 description: 'Call a function when the current tab is switched'
 import: "import { tableave } from '@svelteuidev/composables';"
 docs: 'composables/use-tab-leave.md'
-source: 'svelteui-composables/src/lib/actions/use-tab-leave/use-tab-leave.ts'
+source: 'svelteui-src/actions/use-tab-leave/use-tab-leave.ts'
 ---
 
 <script lang='ts'>

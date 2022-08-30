@@ -6,7 +6,7 @@ slug: /core/title/
 category: 'typography'
 description: 'h1-h6 headings'
 import: "import { Title } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Title/Title.svelte'
+source: 'svelteui-src/components/Title/Title.svelte'
 docs: 'core/title.md'
 ---
 

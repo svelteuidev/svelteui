@@ -6,7 +6,7 @@ slug: /core/modal/
 category: 'overlay'
 description: 'Modal with optional header'
 import: "import { Modal } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Modal/Modal.svelte'
+source: 'svelteui-src/components/Modal/Modal.svelte'
 docs: 'core/modal.md'
 ---
 

@@ -6,7 +6,7 @@ slug: /composables/use-throttle/
 description: 'Get a function that throttles its execution.'
 import: "import { useThrottle } from '@svelteuidev/composables';"
 docs: 'composables/use-throttle.md'
-source: 'svelteui-composables/src/lib/utilities/use-throttle/use-throttle.ts'
+source: 'svelteui-src/utilities/use-throttle/use-throttle.ts'
 ---
 
 <script lang='ts'>
