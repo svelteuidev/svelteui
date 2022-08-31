@@ -11,15 +11,21 @@ docs: 'core/modal.md'
 ---
 
 <script>
+	import { Alert, Text } from '@svelteuidev/core';
 	import { Demo, ModalDemos } from '@svelteuidev/demos';
-  	import { Heading } from 'components';
+  import { InfoCircled } from 'radix-icons-svelte';
+  import { Heading } from 'components';
 </script>
 
 <Heading />
 
 ## Usage
 
-When using the Modal component it's important that you wrap your app in the [SvelteUIProvider](theming/svelteui-provider). If you for some reason don't want to do that, you must change the `target` prop to something else. Such as <code>{"target={'body'}"}</code>.
+<Alert icon={InfoCircled} title="Important!" color='blue' override={{ marginBottom: '16px' }}>
+  <Text override={{ lineHeight: '1.6' }}>
+    When using the Modal component it's important that you wrap your app in the <a href='theming/svelteui-provider'>SvelteUIProvider</a>. If for some reason you don't want to do that, you must change the <code>target</code> prop to something else. Such as <code>{"target={'body'}"}</code>.
+  </Text>
+</Alert>
 
 <Demo demo={ModalDemos.usage} />
 
