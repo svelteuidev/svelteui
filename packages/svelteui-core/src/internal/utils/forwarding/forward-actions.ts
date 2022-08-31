@@ -7,9 +7,11 @@ export type SvelteActionReturnType<P> = {
 	destroy?: () => void;
 } | void;
 
-export type SvelteActionType<P> = (node: HTMLOrSVGElement, params?: P) => SvelteActionReturnType<P>;
+export interface SvelteAction<E = HTMLElement, P = any> {
+	<N extends E>(node: N, params?: P): void | SvelteActionReturnType<P>;
+}
 
-export type ActionEntry<P = any> = SvelteActionType<P> | [SvelteActionType<P>, P];
+export type ActionEntry<N = HTMLElement, P = any> = SvelteAction<N, P> | [SvelteAction<N, P>, P];
 
 export type ActionArray = ActionEntry[];
 
