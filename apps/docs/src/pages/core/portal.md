@@ -6,7 +6,7 @@ slug: /core/portal/
 category: 'misc'
 description: 'Render component outside of current context'
 import: "import { Portal } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Portal/Portal.svelte'
+source: 'svelteui-src/components/Portal/Portal.svelte'
 docs: 'core/portal.md'
 ---
 

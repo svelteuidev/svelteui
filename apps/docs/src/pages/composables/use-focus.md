@@ -6,7 +6,7 @@ slug: /composables/use-focus/
 description: 'Calls focus on a node once mounted into the DOM'
 import: "import { focus } from '@svelteuidev/composables';"
 docs: 'composables/use-focus.md'
-source: 'svelteui-composables/src/lib/actions/use-focus/use-focus.ts'
+source: 'svelteui-src/actions/use-focus/use-focus.ts'
 ---
 
 <script lang='ts'>

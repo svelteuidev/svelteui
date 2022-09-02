@@ -18,10 +18,10 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
+			"$lib": ["src"],
+			"$lib/*": ["src/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src/lib"]
+			"@svelteuidev/composables": ["../svelteui-composables/src"]
 		}
 	},
 	"references": [{ "path": "../svelteui-core" }, { "path": "../svelteui-composables" }],

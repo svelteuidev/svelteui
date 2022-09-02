@@ -18,12 +18,12 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
+			"$lib": ["src"],
+			"$lib/*": ["src/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
+			"@svelteuidev/composables": ["../svelteui-composables/src"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/prism": ["../svelteui-prism/src/lib"]
+			"@svelteuidev/prism": ["../svelteui-prism/src"]
 		}
 	},
 	"references": [

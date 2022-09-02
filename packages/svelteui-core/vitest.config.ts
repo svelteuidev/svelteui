@@ -24,7 +24,7 @@ export default defineConfig({
 			$lib: path.join(__dirname, './src'),
 			$clib: path.join(__dirname, '../svelteui-composables/src'),
 			'@svelteuidev/composables': path.join(__dirname, '../svelteui-composables/src'),
-			'@svelteuidev/tests': path.join(__dirname, '../svelteui-tests/src/lib')
+			'@svelteuidev/tests': path.join(__dirname, '../svelteui-tests/src')
 		}
 	}
 });

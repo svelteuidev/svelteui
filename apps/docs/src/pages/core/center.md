@@ -6,7 +6,7 @@ slug: /core/center/
 category: 'layout'
 description: 'Centers content vertically and horizontally'
 import: "import { Center } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Center/Center.svelte'
+source: 'svelteui-src/components/Center/Center.svelte'
 docs: 'core/center.md'
 ---
 

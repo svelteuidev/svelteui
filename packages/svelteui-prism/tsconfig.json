@@ -18,11 +18,11 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
+			"$lib": ["src"],
+			"$lib/*": ["src/*"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src/lib"],
-			"@svelteuidev/tests": ["../svelteui-tests/src/lib"]
+			"@svelteuidev/composables": ["../svelteui-composables/src"],
+			"@svelteuidev/tests": ["../svelteui-tests/src"]
 		}
 	},
 	"references": [
