@@ -10,7 +10,8 @@ const config = {
 	preprocess: preprocess(),
 	kit: {
 		files: {
-			lib: 'src'
+			lib: 'src',
+			routes: 'routes'
 		}
 	},
 	package: {
