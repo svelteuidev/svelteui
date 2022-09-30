@@ -52,6 +52,7 @@ A user can use this component to enable/disable something, normally used for boo
 	<input
 		bind:this={element}
 		{id}
+    {disabled}
 		use:useActions={use}
 		use:forwardEvents
 		bind:checked
