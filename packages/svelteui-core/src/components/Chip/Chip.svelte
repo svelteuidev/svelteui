@@ -28,7 +28,7 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration, variant }));
 </script>
 
 <!--
@@ -39,10 +39,10 @@ A picker for one or more options.
 @see https://svelteui.org/core/chip
 @example
     ```svelte
-    <Chip />
-    <Chip size={'lg'} label={'Please accept this'} />
-    <Chip />
-    <Chip checked disabled />
+    <Chip>Chips</Chip>
+    <Chip size={'lg'}>Big Chip</Chip>
+    <Chip>Another one</Chip>
+    <Chip checked disabled>Disabled</Chip>
     ```
 -->
 
@@ -61,9 +61,19 @@ A picker for one or more options.
 		/>
 
 	</div>
-	{#if label}
-		<label class={classes.label} for={id}>
-      <slot></slot>
-		</label>
-	{/if}
+  <label class={cx(classes.label, variant)} class:checked class:disabled for={id}>
+    {#if checked}
+      <div class="{classes.iconWrapper}">
+        <svg class="{classes.checkIcon}" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M4 4.586L1.707 2.293A1 1 0 1 0 .293 3.707l3 3a.997.997 0 0 0 1.414 0l5-5A1 1 0 1 0 8.293.293L4 4.586z"
+            fill="currentColor"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+    {/if}
+    <slot>Label</slot>
+  </label>
 </Box>
