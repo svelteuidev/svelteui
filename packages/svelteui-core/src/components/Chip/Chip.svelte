@@ -17,9 +17,9 @@
 		disabled: $$Props['disabled'] = false,
 		value: $$Props['value'] = null,
 		checked: $$Props['checked'] = false,
-		label: $$Props['label'] = null,
-		radius: $$Props['radius'] = 'sm',
-    size: $$Props['size'] = 'md',
+		label: $$Props['label'] = '',
+		radius: $$Props['radius'] = 'xl',
+    size: $$Props['size'] = 'sm',
     variant: $$Props['variant'] = 'outline',
     // type: $$Props['type'] = 'checkbox',
 		transitionDuration: $$Props['transitionDuration'] = 100;
@@ -47,7 +47,6 @@ A picker for one or more options.
 -->
 
 <Box bind:element class={cx('chip', className, getStyles({ css: override }))} {...$$restProps}>
-	<div class={classes.inner}>
 		<input
 			use:useActions={use}
 			use:forwardEvents
@@ -60,7 +59,6 @@ A picker for one or more options.
 			{id}
 		/>
 
-	</div>
   <label class={cx(classes.label, variant)} class:checked class:disabled for={id}>
     {#if checked}
       <div class="{classes.iconWrapper}">

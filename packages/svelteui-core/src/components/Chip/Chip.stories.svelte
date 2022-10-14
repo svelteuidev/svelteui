@@ -13,22 +13,13 @@
 <Meta title="Components/Chip" component={Chip} />
 
 <Template let:args>
-  <Chip {...args} ></Chip>
+  <Chip {...args}></Chip>
 </Template>
 
-<Story name="Chip" />
+<Story name="Chip" args={{label:'Chip'}}/>
 
 <Story name="Colors">
-  <div class="{theme.colorScheme}">
   <Stack>
-    <Group>
-      <Chip>Default chip</Chip>
-      <Chip color="green" variant="filled">Filled chip</Chip>
-      <Chip color="red" variant="outline" checked>Outline chip</Chip>
-      <Chip disabled>Disabled chip</Chip>
-      <Chip checked disabled>Checked disabled chip</Chip>
-      <Chip size="xl">Large chip</Chip>
-    </Group>
     {#each colors as color}
       <Group>
         <Chip {color} variant="filled" checked>Filled {color} chip</Chip>
@@ -36,5 +27,25 @@
       </Group>
     {/each}
   </Stack>
-  </div>
+</Story>
+
+<Story name="States">
+  <Group>
+    <Chip>Default chip</Chip>
+    <Chip variant="filled">Filled chip</Chip>
+    <Chip variant="outline" checked>Outline chip</Chip>
+    <Chip disabled>Disabled chip</Chip>
+    <Chip checked disabled>Checked disabled chip</Chip>
+  </Group>
+</Story>
+
+<Story name="Sizes">
+  <Group>
+    <Chip>Default chip</Chip>
+    <Chip size="xs">Extra small chip</Chip>
+    <Chip size="sm">Small chip</Chip>
+    <Chip size="md">Medium chip</Chip>
+    <Chip size="lg">Large chip</Chip>
+    <Chip size="xl">Extra large chip</Chip>
+  </Group>
 </Story>

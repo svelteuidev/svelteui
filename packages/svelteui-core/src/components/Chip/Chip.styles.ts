@@ -66,7 +66,7 @@ export default createStyles(
         ref: getRef('label'),
         boxSizing: 'border-box',
         color: theme.colors.black.value,
-        darkMode: {
+        [`${theme.dark} &`]: {
           color: theme.fn.themeColor('dark', 0)
         },
         display: 'inline-block',
@@ -85,7 +85,7 @@ export default createStyles(
         WebkitTapHighlightColor: 'transparent',
 
         '&.outline': {
-          darkMode: {
+          [`${theme.dark} &`]: {
             border: `1px solid ${theme.fn.themeColor('dark', 4)}`,
             backgroundColor: theme.fn.themeColor('dark', 6),
           },
@@ -94,20 +94,22 @@ export default createStyles(
         },
 
         '&.filled': {
-          darkMode: {
+          [`${theme.dark} &`]: {
             backgroundColor: theme.fn.themeColor('dark', 4),
           },
           backgroundColor: theme.fn.themeColor('gray', 1)
         },
         '&:hover': {
           backgroundColor: theme.fn.themeColor('gray', 2),
-
+        },
+        [`${theme.dark} &:hover`]: {
+          backgroundColor: theme.fn.themeColor('dark', 5),
         },
         '&.disabled': {
           backgroundColor: `${ theme.fn.themeColor('gray', 1) } !important`,
           borderColor: `${theme.fn.themeColor('gray', 1)} !important`,
           color: theme.fn.themeColor('gray', 5),
-          darkMode: {
+          [`${theme.dark} &`]: {
             backgroundColor: `${theme.fn.themeColor('dark', 5)} !important`,
             borderColor: `${theme.fn.themeColor('dark', 5)} !important`,
             color: theme.fn.themeColor('dark', 3),
@@ -117,7 +119,7 @@ export default createStyles(
           // this isn't working ?? the checkmark remains coloured when disabled
           [`& .${getRef('iconWrapper')}`]: {
             color: theme.fn.themeColor('dark', 5),
-            darkMode: {
+            [`${theme.dark} &`]: {
               color: theme.fn.themeColor('dark', 3)
             }
           },
@@ -132,8 +134,15 @@ export default createStyles(
           },
 
           '&.filled': {
-            '&, &:hover': {
-              backgroundColor: theme.fn.themeColor(color, 1),
+            [`${theme.dark} &`]: {
+              backgroundColor: theme.fn.variant({color, variant: 'light'}).background[0],
+              '&:hover': {
+                backgroundColor: theme.fn.variant({color, variant: 'light'}).background[0],
+              },
+            },
+            backgroundColor: theme.fn.themeColor(color, 1),
+            '&:hover': {
+              backgroundColor: theme.fn.themeColor(color, 2),
             },
           },
         }
@@ -172,7 +181,7 @@ export default createStyles(
 
           [`& + .${getRef('label')}`]: {
             outline: 'none',
-            darkMode: {
+            [`${theme.dark} &`]: {
               boxShadow: `0 0 0 2px ${theme.fn.themeColor('dark', 9)}, 0 0 0 4px ${theme.colors.primary}`
             },
             boxShadow: `0 0 0 2px ${theme.colors.white.value}, 0 0 0 4px ${theme.colors.primary}`
