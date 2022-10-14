@@ -74,6 +74,6 @@ A picker for one or more options.
         </svg>
       </div>
     {/if}
-    <slot>Label</slot>
+    <slot>{label}</slot>
   </label>
 </Box>
