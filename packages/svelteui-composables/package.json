@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/composables",
-	"version": "0.7.4",
+	"version": "0.7.5",
 	"description": "Svelte actions and utilities library",
 	"keywords": [
 		"svelte",
@@ -25,7 +25,7 @@
 	"author": "Kamell Perry <kamellperry33@gmail.com>",
 	"sideEffects": false,
 	"type": "module",
-	"module": "index.js",
+	"module": "./package/index.js",
 	"types": "types/index.d.ts",
 	"files": [
 		"index.js",

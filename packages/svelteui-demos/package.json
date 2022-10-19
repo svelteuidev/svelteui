@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/demos",
-	"version": "0.7.4",
+	"version": "0.7.5",
 	"private": true,
 	"description": "Demos used in documentation",
 	"keywords": [
@@ -24,7 +24,7 @@
 	"author": "Kamell Perry <kamellperry33@gmail.com>",
 	"sideEffects": false,
 	"type": "module",
-	"module": "index.js",
+	"module": "./package/index.js",
 	"types": "types/index.d.ts",
 	"files": [
 		"index.js",
