@@ -81,6 +81,6 @@
 		"rimraf": "3.0.2",
 		"syncpack": "8.2.4",
 		"turbo": "latest",
-		"vitest": "0.22.1"
+		"vitest": "0.24.3"
 	}
 }
