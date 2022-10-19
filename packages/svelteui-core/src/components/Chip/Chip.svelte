@@ -47,17 +47,19 @@ A picker for one or more options.
 -->
 
 <Box bind:element class={cx('chip', className, getStyles({ css: override }))} {...$$restProps}>
-		<input
-			use:useActions={use}
-			use:forwardEvents
-			bind:checked
-			class={classes.input}
-			class:disabled
-			type='checkbox'
-			{disabled}
-			{value}
-			{id}
-		/>
+  <div class={classes.inputContainer}>
+    <input
+      use:useActions={use}
+      use:forwardEvents
+      bind:checked
+      class={classes.input}
+      class:disabled
+      type='checkbox'
+      {disabled}
+      {value}
+      {id}
+    />
+  </div>
 
   <label class={cx(classes.label, variant)} class:checked class:disabled for={id}>
     {#if checked}

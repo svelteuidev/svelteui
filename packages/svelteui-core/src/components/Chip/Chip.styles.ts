@@ -169,13 +169,13 @@ export default createStyles(
         display: 'block',
       },
 
-      input: {
+      inputContainer: {
         width: 0,
         height: 0,
         padding: 0,
         opacity: 0,
         margin: 0,
-
+        overflow: 'hidden',
         '&:focus': {
           outline: 'none',
 
@@ -193,6 +193,9 @@ export default createStyles(
           },
         },
       },
+      input: {
+        visibility: "hidden"
+      }
     };
 	}
 );
