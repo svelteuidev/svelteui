@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/core",
-	"version": "0.7.3",
+	"version": "0.7.4",
 	"description": "Svelte component library for creating fully functional and accessible web applications quickly",
 	"keywords": [
 		"svelte",
@@ -76,7 +76,7 @@
 		"prettier-plugin-svelte": "2.7.0",
 		"sass": "1.50.0",
 		"storybook-dark-mode": "1.1.0",
-		"svelte": "^3.52.0",
+		"svelte": "3.52.0",
 		"svelte-check": "2.7.1",
 		"svelte-loader": "3.1.3",
 		"svelte-preprocess": "4.10.6",
@@ -86,7 +86,7 @@
 		"vite": "3.0.0"
 	},
 	"peerDependencies": {
-		"@svelteuidev/composables": "0.7.3",
+		"@svelteuidev/composables": "0.7.4",
 		"svelte": ">=3.47.0"
 	}
 }
