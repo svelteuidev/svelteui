@@ -21,7 +21,6 @@
 		radius: $$Props['radius'] = 'xl',
     size: $$Props['size'] = 'sm',
     variant: $$Props['variant'] = 'outline',
-    // type: $$Props['type'] = 'checkbox',
 		transitionDuration: $$Props['transitionDuration'] = 100;
 	export { className as class };
 

@@ -10,12 +10,12 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'gray',
+		color: $$Props['color'] = undefined,
 		items: $$Props['items'] = [],
 		value: $$Props['value'] = [],
 		label: $$Props['label'] = null,
-		size: $$Props['size'] = 'md',
-		radius: $$Props['radius'] = 'sm',
+		size: $$Props['size'] = undefined,
+		radius: $$Props['radius'] = undefined,
 		direction: $$Props['direction'] = 'row',
 		align: $$Props['align'] = 'flex-start',
 		spacing: $$Props['spacing'] = 'md';
@@ -38,6 +38,7 @@ A chip group component is a container for Chips.
     <ChipGroup bind:value items={items} />
     <ChipGroup label={"Choose your favorite framework"} description={"Choose carefuly"} bind:value={value} items={items} />
     <ChipGroup bind:value={value} items={items} direction={'column'}/>
+    <ChipGroup bind:value items={[{label: 'One', value: 1}, {label: 'Two', value: 2}, {label: 'Three', value: 3}]} />
     ```
 -->
 
@@ -45,7 +46,6 @@ A chip group component is a container for Chips.
 	<Group {direction} {spacing} {align}>
 		{#each items as item}
 			<Chip
-        type="radio"
 				{use}
 				label={item.label}
 				value={item.value}
