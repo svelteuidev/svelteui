@@ -6,7 +6,7 @@ slug: /composables/use-element-size/
 description: 'Get element width and height and subscribe to changes'
 import: "import { useElementSize } from '@svelteuidev/composables';"
 docs: 'composables/use-element-size.md'
-source: 'svelteui-composables/src/lib/utilities/use-element-size/use-element-size.ts'
+source: 'svelteui-src/utilities/use-element-size/use-element-size.ts'
 ---
 
 <script lang='ts'>

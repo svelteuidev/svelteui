@@ -2,6 +2,12 @@
 	"compilerOptions": {
 		"baseUrl": "..",
 		"paths": {
+			"$dlib": [
+				"src/lib"
+			],
+			"$dlib/*": [
+				"src/lib/*"
+			],
 			"$lib": [
 				"src/lib"
 			],

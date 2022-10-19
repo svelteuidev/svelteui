@@ -6,7 +6,7 @@ slug: /core/loader/
 category: 'feedback'
 description: 'Indicate loading state'
 import: "import { Loader } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Loader/Loader.svelte'
+source: 'svelteui-src/components/Loader/Loader.svelte'
 docs: 'core/loader.md'
 ---
 

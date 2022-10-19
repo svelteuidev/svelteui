@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	// if you will serve docs in subdirictory use '/subdir/'
 	basepath: '/',
@@ -37,6 +39,8 @@ module.exports = {
 		//  Then you can use:
 		//  import Button from './Button.svelte';
 		//  import { Input } from 'mylib';
+    $clib: path.resolve(__dirname, '../../packages/svelteui-composables/package/index.js'),
+    $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/package/index.js'),
 		components: './src/components/index.js',
 		'@ui': './src/theme/ui/index.js'
 	},

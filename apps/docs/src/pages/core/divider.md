@@ -6,7 +6,7 @@ slug: /core/divider/
 category: 'misc'
 description: 'Horizontal line with optional label or vertical divider'
 import: "import { Divider } from '@svelteuidev/core';"
-source: 'svelteui-core/src/lib/components/Divider/Divider.svelte'
+source: 'svelteui-src/components/Divider/Divider.svelte'
 docs: 'core/divider.md'
 ---
 

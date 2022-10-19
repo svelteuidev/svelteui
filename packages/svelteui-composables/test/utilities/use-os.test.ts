@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from 'vitest';
 import * as jsdom from 'jsdom';
 
-import { useOs } from '$lib';
+import { useOs } from '$clib';
 
 describe('use-os', () => {
 	beforeEach(() => {

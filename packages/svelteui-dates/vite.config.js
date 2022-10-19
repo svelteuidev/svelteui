@@ -6,9 +6,10 @@ const config = {
 	optimizeDeps: {
 		exclude: ['radix-icons-svelte']
 	},
-	test: {
-		globals: true,
-		environment: 'jsdom'
+	resolve: {
+		alias: {
+			$dlib: './src'
+		}
 	}
 };
 

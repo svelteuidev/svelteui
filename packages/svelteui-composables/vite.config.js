@@ -1,5 +1,4 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { configDefaults } from 'vitest/config';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -11,11 +10,9 @@ const config = {
 					allow: ['./package']
 				}
 		  },
-	test: {
-		globals: true,
-		environment: 'jsdom',
-		coverage: {
-			exclude: [...configDefaults.exclude, 'svelte.config.js', '**/test/**']
+	resolve: {
+		alias: {
+			$clib: './src'
 		}
 	}
 };

@@ -19,10 +19,12 @@
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"],
+			"$clib": ["src"],
+			"$clib/*": ["src/*"],
 			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
 			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/prism": ["../svelteui-prism/src/lib"],
-			"@svelteuidev/tests": ["../svelteui-tests/src/lib"]
+			"@svelteuidev/prism": ["../svelteui-prism/src"],
+			"@svelteuidev/tests": ["../svelteui-tests/src"]
 		}
 	},
 	"references": [

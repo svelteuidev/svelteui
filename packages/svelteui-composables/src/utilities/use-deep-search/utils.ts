@@ -1,11 +1,11 @@
 import type { Obj } from './types';
 
-export function getKeysFromObject(object) {
+export function getKeysFromObject<T extends Obj = Obj>(object: T) {
 	return Object.keys(object);
 }
 
 export function searchForValues<T extends Obj = Obj>(obj: T) {
-	//
+	// TODO
 }
 
 export function searchForKeys<T extends Obj = Obj>(obj: T): unknown {

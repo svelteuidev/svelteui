@@ -72,18 +72,17 @@
 	function calculateActive() {
 		if (!element) return;
 
-    const content = element.querySelector(".tabs-content");
-    if (!content) return;
+		const content = element.querySelector('.tabs-content');
+		if (!content) return;
 
 		const activeTab = Array.from(tabNodes)[_active];
 		if (!activeTab) return;
 
-    if (content.children.length > 0) {
-      content.replaceChild(activeTab, content.children[0]);
-    }
-    else {
-      content.appendChild(activeTab);
-    }
+		if (content.children.length > 0) {
+			content.replaceChild(activeTab, content.children[0]);
+		} else {
+			content.appendChild(activeTab);
+		}
 	}
 
 	onMount(() => {
@@ -161,5 +160,5 @@ Display list of events in chronological order
 			<slot />
 		</Group>
 	</div>
-  <div role="tabpanel" class={cx("tabs-content", classes.content)} />
+	<div role="tabpanel" class={cx('tabs-content', classes.content)} />
 </Box>

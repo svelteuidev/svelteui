@@ -6,7 +6,7 @@ slug: /composables/use-web-worker/
 description: 'Run expensive functions without blocking the UI'
 import: "import { useWebWorker } from '@svelteuidev/composables';"
 docs: 'composables/use-web-worker.md'
-source: 'svelteui-composables/src/lib/utilities/use-web-worker/use-web-worker.ts'
+source: 'svelteui-src/utilities/use-web-worker/use-web-worker.ts'
 ---
 
 <script lang='ts'>

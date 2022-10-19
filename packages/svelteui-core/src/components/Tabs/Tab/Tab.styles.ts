@@ -28,9 +28,6 @@ export const getVariantStyles = (
 			transition: 'border-color 150ms ease, color 150ms ease',
 			color: theme.colors.black.value,
 			[orientation === 'horizontal' ? 'borderBottom' : 'borderRight']: '2px solid transparent',
-			darkMode: {
-				color: theme.fn.themeColor('dark', 0)
-			},
 			'&.active': {
 				color: theme.fn.themeColor(color, 7),
 				[orientation === 'horizontal' ? 'borderBottomColor' : 'borderRightColor']:
@@ -50,9 +47,6 @@ export const getVariantStyles = (
 			borderBottom: orientation === 'horizontal' ? '0' : '1px solid transparent',
 			borderRight: orientation === 'vertical' ? '0' : '1px solid transparent',
 			color: theme.fn.themeColor('gray', 7),
-			darkMode: {
-				color: theme.fn.themeColor('dark', 1)
-			},
 			'&.active': {
 				color: theme.colors.black.value,
 				borderColor: theme.fn.themeColor('gray', 2),
@@ -72,9 +66,6 @@ export const getVariantStyles = (
 			height: 'auto',
 			padding: `${theme.space.xsPX} ${theme.space.lgPX}`,
 			fontWeight: '500',
-			darkMode: {
-				color: theme.fn.themeColor('dark', 1)
-			},
 			'&:hover': {
 				background: theme.fn.themeColor('gray', 0),
 				darkMode: {
@@ -106,6 +97,9 @@ export default createStyles((theme, { color, orientation }: TabStyleParams) => {
 			fontSize: theme.fontSizes.sm,
 			cursor: 'pointer',
 			width: orientation === 'vertical' ? '100%' : 'auto',
+			darkMode: {
+				color: theme.colors.white.value
+			},
 			...getVariantStyles(color, orientation, theme),
 			'&:disabled': {
 				cursor: 'not-allowed',
