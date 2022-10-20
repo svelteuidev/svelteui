@@ -1,8 +1,8 @@
-name: Main Workflow
+name: Publish Workflow
 on:
   push:
     tags:
-      - ["main"]
+      - ["*"]
 jobs:
   build:
     name: Publish
