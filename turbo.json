@@ -25,6 +25,11 @@
 			"outputs": [],
 			"cache": false
 		},
+		"pub:test": {
+			"dependsOn": ["^package", "^generate-types"],
+			"outputs": [],
+			"cache": false
+		},
 		"generate-types": {
 			"dependsOn": ["^package"],
 			"outputs": ["package/types"],

@@ -1,0 +1,30 @@
+name: Main Workflow
+on:
+  push:
+    tags:
+      - ["main"]
+jobs:
+  build:
+    name: Publish
+    strategy:
+      matrix:
+        node-version: [16]
+    runs-on: ubuntu-latest
+    container:
+      image: node:${{ matrix.node-version }}
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node --version
+      - run: yarn --immutable
+      - run: yarn run clean
+      - run: yarn run prepare:release
+      - run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          yarn run pub --dry-run
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

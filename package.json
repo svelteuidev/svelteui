@@ -46,6 +46,7 @@
     "prepare:release": "yarn clean && yarn prepush:repo && yarn script:pre-release && yarn package && yarn generate-types",
     "prepush:repo": "yarn sort && yarn format && yarn lint",
     "pub": "turbo run pub --parallel",
+    "pub:test": "turbo run pub:test --parallel",
     "release": "yarn pub && sh scripts/git/discard.sh",
     "script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
     "script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
