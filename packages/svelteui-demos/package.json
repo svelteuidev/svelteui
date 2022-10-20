@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/demos",
-	"version": "0.7.3",
+	"version": "0.7.5",
 	"private": true,
 	"description": "Demos used in documentation",
 	"keywords": [
@@ -50,11 +50,11 @@
 		"watch": "svelte-package -w"
 	},
 	"dependencies": {
-		"@svelteuidev/composables": "0.7.3",
-		"@svelteuidev/core": "0.7.3",
-		"@svelteuidev/motion": "0.7.3",
-		"@svelteuidev/preprocessors": "0.7.3",
-		"@svelteuidev/prism": "0.7.3"
+		"@svelteuidev/composables": "0.7.5",
+		"@svelteuidev/core": "0.7.5",
+		"@svelteuidev/motion": "0.7.5",
+		"@svelteuidev/preprocessors": "0.7.5",
+		"@svelteuidev/prism": "0.7.5"
 	},
 	"devDependencies": {
 		"@babel/core": "7.18.6",
@@ -74,7 +74,7 @@
 		"prettier": "2.6.2",
 		"prettier-plugin-svelte": "2.7.0",
 		"sass": "1.50.0",
-		"svelte": "^3.52.0",
+		"svelte": "3.52.0",
 		"svelte-check": "2.7.1",
 		"svelte-loader": "3.1.3",
 		"svelte-preprocess": "4.10.6",
