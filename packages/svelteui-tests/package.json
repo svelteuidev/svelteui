@@ -32,7 +32,7 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"dev": "vite dev",
-		"format": "prettier --write --plugin-search-dir=. .",
+		"format": "prettier --write --plugin-search-dir=. src/",
 		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"package": "svelte-package",
