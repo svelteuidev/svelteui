@@ -6,7 +6,7 @@ slug: /core/switch/
 category: 'inputs'
 description: 'Capture boolean input from user'
 import: "import { Switch } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Switch/Switch.svelte'
+source: 'svelteui-core/src/components/Switch/Switch.svelte'
 docs: 'core/switch.md'
 ---
 

@@ -6,7 +6,7 @@ slug: /core/text/
 category: 'typography'
 description: 'Display text and links with theme styles or gradient'
 import: "import { Text } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Text/Text.svelte'
+source: 'svelteui-core/src/components/Text/Text.svelte'
 docs: 'core/text.md'
 ---
 

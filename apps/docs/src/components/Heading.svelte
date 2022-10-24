@@ -8,7 +8,7 @@
 
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/blob/main/packages/',
-		docs: 'https://github.com/svelteuidev/svelteui/blob/main/docs/src/pages/',
+		docs: 'https://github.com/svelteuidev/svelteui/blob/main/apps/docs/src/pages/',
 		npm: 'https://www.npmjs.com/package/'
 	};
 

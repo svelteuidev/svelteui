@@ -6,7 +6,7 @@ slug: /core/paper/
 category: 'misc'
 description: 'Renders white or dark containers depending on color scheme'
 import: "import { Paper } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Paper/Paper.svelte'
+source: 'svelteui-core/src/components/Paper/Paper.svelte'
 docs: 'core/paper.md'
 ---
 

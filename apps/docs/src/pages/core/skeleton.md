@@ -6,7 +6,7 @@ slug: /core/skeleton/
 category: 'feedback'
 description: 'Indicate content loading state'
 import: "import { Skeleton } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Skeleton/Skeleton.svelte'
+source: 'svelteui-core/src/components/Skeleton/Skeleton.svelte'
 docs: 'core/skeleton.md'
 ---
 
