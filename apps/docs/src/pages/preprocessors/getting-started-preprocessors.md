@@ -4,7 +4,7 @@ group: 'svelteuidev-preprocessors'
 packageGroup: '@svelteuidev/preprocessors'
 slug: /preprocessors/getting-started/
 description: 'Svelte preprocessor library to assist in many areas of development'
-source: 'svelteui-src'
+source: 'svelteui-preprocessors'
 ---
 
 <script>
