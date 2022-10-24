@@ -4,7 +4,7 @@ group: 'svelteuidev-dates'
 packageGroup: '@svelteuidev/dates'
 slug: /dates/getting-started/
 description: 'Capture date inputs from the user and display calendars'
-source: 'svelteui-src'
+source: 'svelteui-dates'
 ---
 
 <script>
