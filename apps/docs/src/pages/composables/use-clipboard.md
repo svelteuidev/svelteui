@@ -6,7 +6,7 @@ slug: /composables/use-clipboard/
 description: 'Copies text to the clipboard when DOM element is clicked'
 import: "import { clipboard } from '@svelteuidev/composables';"
 docs: 'composables/use-clipboard.md'
-source: 'svelteui-src/actions/use-clipboard/use-clipboard.ts'
+source: 'svelteui-composables/src/actions/use-clipboard/use-clipboard.ts'
 ---
 
 <script lang='ts'>

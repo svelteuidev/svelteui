@@ -6,7 +6,7 @@ slug: /core/code/
 category: 'typography'
 description: 'Inline or block code without syntax highlight'
 import: "import { Code } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Code/Code.svelte'
+source: 'svelteui-core/src/components/Code/Code.svelte'
 docs: 'core/code.md'
 ---
 

@@ -6,7 +6,7 @@ slug: /core/simple-grid/
 category: 'layout'
 description: 'Responsive grid where each item takes equal amount of space'
 import: "import { SimpleGrid } from '@svelteuidev/core';"
-source: 'svelteui-src/components/SimpleGrid/SimpleGrid.svelte'
+source: 'svelteui-core/src/components/SimpleGrid/SimpleGrid.svelte'
 docs: 'core/simple-grid.md'
 ---
 

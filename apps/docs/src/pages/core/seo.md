@@ -6,7 +6,7 @@ slug: /core/seo/
 category: 'inputs'
 description: 'Manage your SEO information'
 import: "import { Seo } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Seo/Seo.svelte'
+source: 'svelteui-core/src/components/Seo/Seo.svelte'
 docs: 'core/seo.md'
 ---
 

@@ -6,7 +6,7 @@ slug: /composables/use-id/
 description: 'Get element width and height and subscribe to changes'
 import: "import { useId } from '@svelteuidev/composables';"
 docs: 'composables/use-id.md'
-source: 'svelteui-src/utilities/use-id/use-id.ts'
+source: 'svelteui-composables/src/utilities/use-id/use-id.ts'
 ---
 
 <script lang='ts'>

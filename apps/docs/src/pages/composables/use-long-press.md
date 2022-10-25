@@ -6,7 +6,7 @@ slug: /composables/use-long-press/
 description: 'Creates a longpress event when mousedown is above a duration in milliseconds'
 import: "import { longpress } from '@svelteuidev/composables';"
 docs: 'composables/use-long-press.md'
-source: 'svelteui-src/actions/use-long-press/use-long-press.ts'
+source: 'svelteui-composables/src/actions/use-long-press/use-long-press.ts'
 ---
 
 <script>

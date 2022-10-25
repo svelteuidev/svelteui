@@ -6,7 +6,7 @@ slug: /composables/use-page-leave/
 description: 'Call a function when the mouse leaves the page'
 import: "import { pageleave } from '@svelteuidev/composables';"
 docs: 'composables/use-page-leave.md'
-source: 'svelteui-src/actions/use-page-leave/use-page-leave.ts'
+source: 'svelteui-composables/src/actions/use-page-leave/use-page-leave.ts'
 ---
 
 <script lang='ts'>

@@ -6,7 +6,7 @@ slug: /core/timeline/
 category: 'data-display'
 description: 'Display list of events in chronological order'
 import: "import { Timeline } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Timeline/Timeline.svelte'
+source: 'svelteui-core/src/components/Timeline/Timeline.svelte'
 docs: 'core/timeline.md'
 ---
 

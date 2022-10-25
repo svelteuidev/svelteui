@@ -6,7 +6,7 @@ slug: /dates/month/
 description: 'Most basic date related component, displays given month with optional weekdays row'
 import: "import { Month } from '@svelteuidev/dates';"
 docs: 'dates/month.md'
-source: 'svelteui-src/components/Month/Month.svelte'
+source: 'svelteui-dates/src/components/Month/Month.svelte'
 ---
 
 <script lang='ts'>

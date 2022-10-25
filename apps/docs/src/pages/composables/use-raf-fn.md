@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/utilities'
 slug: /utilities/raf-fn/
 description: 'Call function on every requestAnimationFrame'
 import: "import { useRafFn } from '@svelteuidev/utilities';"
-source: 'svelteui-src/utilities/use-raf-fn/use-raf-fn.ts'
+source: 'svelteui-composables/src/utilities/use-raf-fn/use-raf-fn.ts'
 docs: 'utilities/raf-fn.md'
 ---
 
