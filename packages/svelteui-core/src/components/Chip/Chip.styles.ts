@@ -116,9 +116,8 @@ export default createStyles(
           },
           cursor: 'not-allowed',
 
-          // this isn't working ?? the checkmark remains coloured when disabled
-          [`& .${getRef('iconWrapper')}`]: {
-            color: theme.fn.themeColor('dark', 5),
+          [`& .iconWrapper`]: {
+            color: theme.fn.themeColor('gray', 5),
             [`${theme.dark} &`]: {
               color: theme.fn.themeColor('dark', 3)
             }
