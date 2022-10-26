@@ -209,7 +209,7 @@
 		/>
 	</slot>
 	<Popper
-		reference={referenceElement}
+		reference={control ?? referenceElement}
 		mounted={_opened}
 		arrowSize={3}
 		arrowClassName={classes.arrow}
