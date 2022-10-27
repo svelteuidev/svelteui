@@ -39,6 +39,10 @@ module.exports = {
           '@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/src'),
         }
       },
+      define: {
+        ...config.define,
+        global: "window",
+      },
       optimizeDeps: {
         include: ['storybook-dark-mode'],
       },
