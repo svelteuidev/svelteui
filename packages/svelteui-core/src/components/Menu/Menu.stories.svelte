@@ -7,6 +7,8 @@
   import { Center } from '../Center';
   import { SimpleGrid } from '../SimpleGrid';
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
+
+  let menuEvents = []
 </script>
 
 <Meta title="Components/Menu" component={Menu} />
@@ -89,4 +91,17 @@
       </Menu>
     </Center>
   </SimpleGrid>
+</Story>
+
+<Story name="Event listeners">
+  <Button on:click={()=>menuEvents = [...menuEvents, 'button click']}>Test event</Button>
+  <Menu on:open={()=>menuEvents = [...menuEvents, 'opened']} on:close={()=>menuEvents = [...menuEvents, 'closed']}>
+    <Button slot="control">Toggle menu</Button>
+    <Menu.Item icon={Gear}>Settings</Menu.Item>
+  </Menu>
+  <ol>
+    {#each menuEvents as event}
+      <li>{event}</li>
+    {/each}
+  </ol>
 </Story>
