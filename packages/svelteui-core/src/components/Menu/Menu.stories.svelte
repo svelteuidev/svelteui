@@ -3,12 +3,12 @@
 	import { Menu } from './index';
 	import { Button } from '../Button';
 	import { Kbd } from '../Kbd';
-  import { Divider } from '../Divider';
-  import { Center } from '../Center';
-  import { SimpleGrid } from '../SimpleGrid';
+	import { Divider } from '../Divider';
+	import { Center } from '../Center';
+	import { SimpleGrid } from '../SimpleGrid';
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
-  let menuEvents = []
+	let menuEvents = [];
 </script>
 
 <Meta title="Components/Menu" component={Menu} />
@@ -41,67 +41,70 @@
 </Story>
 
 <Story name="Custom Control">
-  <Menu>
-    <Button slot="control">Toggle Menu</Button>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-    <Menu.Item icon={Camera}>Gallery</Menu.Item>
-  </Menu>
+	<Menu>
+		<Button slot="control">Toggle Menu</Button>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+	</Menu>
 </Story>
 
 <Story name="Custom placement">
-  <SimpleGrid cols={3} spacing={100}>
-    <Center>
-      Start:
-      <Menu placement="start" opened>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-    <Center>
-      Center:
-      <Menu placement="center" opened>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-    <Center>
-      End:
-      <Menu placement="end" opened>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-    <Center>
-      Start:
-      <Menu placement="start" opened>
-        <Button slot="control">Custom control</Button>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-    <Center>
-      Center:
-      <Menu placement="center" opened>
-        <Button slot="control">Custom control</Button>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-    <Center>
-      End:
-      <Menu placement="end" opened>
-        <Button slot="control">Custom control</Button>
-        <Menu.Item icon={Gear}>Settings</Menu.Item>
-      </Menu>
-    </Center>
-  </SimpleGrid>
+	<SimpleGrid cols={3} spacing={100}>
+		<Center>
+			Start:
+			<Menu placement="start" opened>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+		<Center>
+			Center:
+			<Menu placement="center" opened>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+		<Center>
+			End:
+			<Menu placement="end" opened>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+		<Center>
+			Start:
+			<Menu placement="start" opened>
+				<Button slot="control">Custom control</Button>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+		<Center>
+			Center:
+			<Menu placement="center" opened>
+				<Button slot="control">Custom control</Button>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+		<Center>
+			End:
+			<Menu placement="end" opened>
+				<Button slot="control">Custom control</Button>
+				<Menu.Item icon={Gear}>Settings</Menu.Item>
+			</Menu>
+		</Center>
+	</SimpleGrid>
 </Story>
 
 <Story name="Event listeners">
-  <Button on:click={()=>menuEvents = [...menuEvents, 'button click']}>Test event</Button>
-  <Menu on:open={()=>menuEvents = [...menuEvents, 'opened']} on:close={()=>menuEvents = [...menuEvents, 'closed']}>
-    <Button slot="control">Toggle menu</Button>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-  </Menu>
-  <ol>
-    {#each menuEvents as event}
-      <li>{event}</li>
-    {/each}
-  </ol>
+	<Button on:click={() => (menuEvents = [...menuEvents, 'button click'])}>Test event</Button>
+	<Menu
+		on:open={() => (menuEvents = [...menuEvents, 'opened'])}
+		on:close={() => (menuEvents = [...menuEvents, 'closed'])}
+	>
+		<Button slot="control">Toggle menu</Button>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+	</Menu>
+	<ol>
+		{#each menuEvents as event}
+			<li>{event}</li>
+		{/each}
+	</ol>
 </Story>
