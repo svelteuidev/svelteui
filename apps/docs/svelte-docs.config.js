@@ -41,6 +41,7 @@ module.exports = {
 		//  import { Input } from 'mylib';
     $clib: path.resolve(__dirname, '../../packages/svelteui-composables/package/index.js'),
     $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/package/index.js'),
+    '@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core/package/index.js'),
 		components: './src/components/index.js',
 		'@ui': './src/theme/ui/index.js'
 	},
