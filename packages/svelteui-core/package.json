@@ -41,7 +41,7 @@
 		"dev": "vite dev",
 		"format": "prettier --write --plugin-search-dir=. src/",
 		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
-		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
+		"lint": "prettier --check --plugin-search-dir=. src/ && eslint .",
 		"package": "svelte-package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
