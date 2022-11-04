@@ -2,7 +2,7 @@
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
 	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup.styles.js';
-  import Chip from "$lib/components/Chip/Chip.svelte";
+	import Chip from '$lib/components/Chip/Chip.svelte';
 
 	interface $$Props extends $$ChipGroupProps {}
 
@@ -14,16 +14,24 @@
 		items: $$Props['items'] = [],
 		value: $$Props['value'] = [],
 		label: $$Props['label'] = null,
+		multiple: $$Props['multiple'] = false,
+		disabled: $$Props['disabled'] = false,
+		variant: $$Props['variant'] = 'outline',
 		size: $$Props['size'] = undefined,
 		radius: $$Props['radius'] = undefined,
 		direction: $$Props['direction'] = 'row',
 		align: $$Props['align'] = 'flex-start',
+		position: $$Props['position'] = 'left',
 		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
-	function onChanged(item, el) {
-		if (el.checked) value = [...value, item];
-		else value = value.filter((val) => val !== item);
+	function onChanged(item: string, el: EventTarget) {
+		if ((el as HTMLInputElement).checked) {
+			if (multiple) value = [...value, item];
+			else value = [item];
+		} else {
+			value = value.filter((val) => val !== item);
+		}
 	}
 </script>
 
@@ -43,7 +51,7 @@ A chip group component is a container for Chips.
 -->
 
 <InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
-	<Group {direction} {spacing} {align}>
+	<Group {direction} {spacing} {align} {position}>
 		{#each items as item}
 			<Chip
 				{use}
@@ -53,6 +61,8 @@ A chip group component is a container for Chips.
 				{radius}
 				{size}
 				{color}
+				{variant}
+				{disabled}
 				on:change={(e) => onChanged(item.value, e.target)}
 			/>
 		{/each}
