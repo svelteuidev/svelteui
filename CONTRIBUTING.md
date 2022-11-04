@@ -68,7 +68,7 @@ Examples:
 
 **If developing in docs**
 
-- Install [`deno`]https://deno.land/#installation
+- Install [`deno`](https://deno.land/#installation)
 - To start docs - `cd docs && yarn install && yarn dev`
 
 ## Yarn scripts
