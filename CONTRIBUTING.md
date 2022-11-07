@@ -66,6 +66,9 @@ Examples:
 1. cd into the package you want to develop on
 2. run `yarn dev`
 
+**If developing in docs**
+
+- Install [`deno`](https://deno.land/#installation)
 - To start docs - `cd docs && yarn install && yarn dev`
 
 ## Yarn scripts
