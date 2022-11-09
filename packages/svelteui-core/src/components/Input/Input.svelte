@@ -4,6 +4,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
 	import type { InputProps as $$InputProps } from './Input.styles';
+	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 
 	interface $$Props extends $$InputProps {}
 
@@ -87,12 +88,7 @@ Base component to create custom inputs
 
 <Box {...wrapperProps} class={getStyles({ css: override })} {...$$restProps}>
 	{#if icon}
-		<svelte:component
-			this={icon}
-			size={iconProps.size}
-			color={iconProps.color}
-			class={classes.icon}
-		/>
+		<IconRenderer {icon} className={classes.icon} {...iconProps} iconSize={16} />
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input

@@ -4,6 +4,7 @@
 	import { Box } from '../Box';
 	import { CloseButton } from '../ActionIcon';
 	import type { AlertProps as $$AlertProps } from './Alert.styles';
+	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 
 	interface $$Props extends $$AlertProps {}
 
@@ -34,7 +35,7 @@
 <Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...$$restProps}>
 	<div class={classes.wrapper}>
 		{#if icon}
-			<svelte:component this={icon} class={classes.icon} {...iconProps} />
+			<IconRenderer {icon} className={classes.icon} {iconSize} {...iconProps} />
 		{/if}
 
 		<div class={classes.content}>
