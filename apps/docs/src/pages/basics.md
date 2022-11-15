@@ -139,7 +139,7 @@ All components support a class prop which is useful for things like global styli
     import { Button } from "@svelteuidev/core";
 </script>
 
-<Button class='animation-bounce'>I have a tailwind animation<Button>
+<Button class='animation-bounce'>I have a tailwind animation</Button>
 ```
 
 <BottomNav both slug={{ prev: 'installation', next: 'contributing' }} title={{ prev: 'Installation', next: 'Contributing' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />
