@@ -8,7 +8,7 @@ docs: 'theming/create-styles.md'
 	import { Heading } from 'components';
     import { Demo, CreateStylesDemos } from "@svelteuidev/demos";
 	import { Space } from '@svelteuidev/core';
-    
+
 	const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
 </script>
 
@@ -246,7 +246,7 @@ const globalStyles = globalCss({
   body: { margin: 0 },
 });
 
-// then import it in your top level component i.e __layout.svelte or App.svelte
+// then import it in your top level component i.e +layout.svelte or App.svelte
 <script>
     import { globalStyles } from 'styles.js'
 

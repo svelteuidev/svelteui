@@ -36,7 +36,7 @@ For SvelteUI to work properly, you need to set up the SvelteUIProvider at the to
 </SvelteUIProvider>
 ```
 
-**For SvelteKit projects -> `__layout.svelte`**
+**For SvelteKit projects -> `+layout.svelte`**
 
 ```svelte
 <script>
