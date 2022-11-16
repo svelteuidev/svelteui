@@ -43,7 +43,7 @@ You don't need to install any additional tooling to get access to server side re
 
 ## 1.
 
-In your top level `__layout.svelte` file, wrap your app in the SvelteUIProvider component:
+In your top level `+layout.svelte` file, wrap your app in the SvelteUIProvider component:
 
 ```svelte
 <script>
