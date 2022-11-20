@@ -28,7 +28,7 @@
 			component: controlsComponents[type],
 			label: upperFirst(label || name),
 			value: data[name],
-			onChange(e) {
+			onChange: (e) => {
 				const value = e.currentTarget ? e.currentTarget.value : e.detail;
 				changeData(name, value);
 			},
