@@ -18,15 +18,15 @@ interface PrismStyleParams {
 }
 
 export interface WhiteSpaceConfig {
-	'remove-trailing': boolean;
-	'remove-indent': boolean;
-	'left-trim': boolean;
-	'right-trim': boolean;
-	'break-lines': number;
-	indent: number;
-	'remove-initial-line-feed': boolean;
-	'tabs-to-spaces': number;
-	'spaces-to-tabs': number;
+	'remove-trailing'?: boolean;
+	'remove-indent'?: boolean;
+	'left-trim'?: boolean;
+	'right-trim'?: boolean;
+	'break-lines'?: number;
+	indent?: number;
+	'remove-initial-line-feed'?: boolean;
+	'tabs-to-spaces'?: number;
+	'spaces-to-tabs'?: number;
 }
 
 export default createStyles((theme, { size }: PrismStyleParams) => {

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
 	import { useSvelteUITheme } from '$lib/styles';
-	import { Chip } from './index';
 	import { Group } from '../Group';
 	import { Stack } from '../Stack';
+	import { Chip } from './index';
 
 	const theme = useSvelteUITheme();
 	const colors = Object.keys(theme.colorNames);
