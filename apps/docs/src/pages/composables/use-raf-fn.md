@@ -18,7 +18,7 @@ docs: 'utilities/raf-fn.md'
 
 ## Usage
 
-The `useRafFn` composable takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
+The `use-raf-fn` composable takes a callback function as its first argument, and calls that function on every [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame). It returns an object with controls of pausing and resuming.
 
 <Demo demo={ComposableDemos.useRafFnDemo.usage} />
 

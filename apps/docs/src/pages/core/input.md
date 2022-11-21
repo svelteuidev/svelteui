@@ -42,7 +42,7 @@ Use other components listed above to build forms (as they provide better accessi
 
 ## Variants
 
-Input has 3 variants, all of which are available on all SvelteUI inputs. Note that unstyled input variant may significantly impact usability, use it wisely.
+Input has 3 variants, all of which are available on all SvelteUI inputs. Note that `unstyled` input variant may significantly impact usability, so use it wisely.
 
 <Demo demo={InputDemos.variants} />
 
@@ -54,7 +54,7 @@ The Input component has two ways to render an Icon. The left Icon is passed in a
 
 ## Sizes
 
-Component has 5 pre-made sizes: xs, sm, md, lg, xl, use `size` prop to control input height, padding and font-size:
+Component has 5 pre-made sizes: `xs`, `sm`, `md`, `lg`, `xl`. Use `size` prop to control input height, padding and font-size:
 
 <Demo demo={InputDemos.sizes} />
 
@@ -66,7 +66,7 @@ As Input component is intended to be a base for all other inputs, you can pass t
 
 ## Headless variant
 
-If you want to add your own styles to input it's better to start from scratch rather than overriding SvelteUI styles,
-use special `headless` variant which does not include any SvelteUI styles but still supports all other features: icon, right section, etc.:
+If you want to add your own styles to Input, it's better to start from scratch rather than overriding SvelteUI styles.
+Use special `headless` variant which does not include any SvelteUI styles but still supports all other features: icon, right section, etc.:
 
 <Demo demo={InputDemos.headless} />

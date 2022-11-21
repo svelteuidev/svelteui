@@ -25,7 +25,7 @@ docs: 'theming/override.md'
             },
         };
     <\/script>
-    
+
     <Button override={PrimaryButton}>
         <GithubLogo slot='leftIcon' size={16} /> I love open source!
     <\/Button>
@@ -49,9 +49,9 @@ docs: 'theming/override.md'
 
 # Getting Started
 
-SvelteUI makes it simple to override components default styles. We recommend reading the [Stitches Styling docs](https://stitches.dev/docs/styling) before overriding the SvelteUI component styles. This is because styling with SvelteUI is most similar to styling with vanilla css, or css-preprocessors (scss/sass) but with extra features, and reading that will help you get started.
+SvelteUI makes it simple to override components default styles. We recommend reading the [Stitches Styling docs](https://stitches.dev/docs/styling) before overriding the SvelteUI component styles. This is because styling with SvelteUI is most similar to styling with vanilla CSS, or CSS-preprocessors (scss/sass) but with extra features, and reading that will help you get started.
 
-Remember that all [Stitches](https://stitches.dev) features are available in SvelteUI since it uses stitches as a styling engine.
+Remember that all [Stitches](https://stitches.dev) features are available in SvelteUI since it uses Stitches as a styling engine.
 
 > Note: The tokens used here like `$$blue`, etc.. are defined in the [default theme](theming/default-theme) section.
 

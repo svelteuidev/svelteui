@@ -23,7 +23,7 @@ docs: 'core/action-icon.md'
 
 ## Children
 
-ActionIcon accepts any Svelte node or HTML element as a child. It does not control icon size, you will need to specify it manually on the icon component to match the ActionIcon size.
+ActionIcon accepts any Svelte node or HTML element as a child. It does not control icon size, so you will need to specify it manually on the icon component to match the ActionIcon size.
 
 ```svelte
 <script>
@@ -67,7 +67,7 @@ Control button width and height with `size` and border-radius with `radius`. Bot
 
 ## Close button
 
-CloseButton is a pre-made ActionIcon with close icon, it will be used in all other components: Popover, Modal, Notification, etc. Component accepts the same props as ActionIcon with additional `iconSize` prop to control icon width and height.
+CloseButton is a pre-made ActionIcon with close icon, it will be used in all other components: Popover (not implemented yet), [Modal](core/modal), [Notification](core/notification), etc. Component accepts the same props as ActionIcon with additional `iconSize` prop to control icon width and height.
 
 <Demo demo={ActionIconDemos.close} />
 

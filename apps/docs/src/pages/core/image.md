@@ -19,13 +19,13 @@ docs: 'core/image.md'
 
 ## Usage
 
-Image component is a wrapper around img element with option to change object fit, radius and placeholder:
+Image component is a wrapper around an `img` element with the option to change object-fit, radius and placeholder:
 
 <Demo demo={ImageDemos.usage} />
 
 ## Width and height
 
-In the example above, the image takes 100% of width of its container and height is calculated dynamically based on image proportion. To change this behavior, set image width and height to define image size.
+In the example above, the image takes 100% of width of its container and height is calculated dynamically based on image proportion. To change this behavior, set image `width` and `height` to define image size.
 
 Note that if image proportions do not match given width and height, some parts will be cut out. In case you want to show image in its original proportions but fitted in current width and height set `fit="contain"`:
 

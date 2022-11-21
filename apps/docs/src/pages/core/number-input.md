@@ -73,7 +73,7 @@ To use decimal steps it is required to pass the following props:
 
 ## Decimal separator
 
-To chahnge the default decimal separator - `.` - it is only required to use the `decimalSeparator` prop.
+To change the default decimal separator - `.` - it is only required to use the `decimalSeparator` prop.
 
 <Demo demo={NumberInputDemos.separator} />
 

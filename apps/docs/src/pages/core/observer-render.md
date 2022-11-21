@@ -27,11 +27,11 @@ ObserverRender monitors when an element enters or leaves the viewport/parent ele
 
 ObserverRender exposes 5 different slot props that gives its children access to current information
 
-- visible
-- entry
-- node
-- observer
-- scrollDirection
+- `visible`
+- `entry`
+- `node`
+- `observer`
+- `scrollDirection`
 
 <Demo demo={ObserverRenderDemos.slots} />
 

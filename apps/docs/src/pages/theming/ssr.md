@@ -39,7 +39,7 @@ docs: 'theming/ssr.md'
 
 ## Getting Started
 
-You don't need to install any additional tooling to get access to server side rendering. SvelteUI works out of the box without server side rendering capabilities, adding ssr on top of that just makes things that much better! This is something that separates SvelteUI from other libraries, as they require configuration just to start working with SvelteKit.
+You don't need to install any additional tooling to get access to server side rendering. SvelteUI works out of the box without server side rendering capabilities, adding SSR on top of that just makes things that much better! This is something that separates SvelteUI from other libraries, as they require configuration just to start working with SvelteKit.
 
 ## 1.
 
