@@ -13,10 +13,6 @@
 
 <Meta title="Composables/use-move" />
 
-<!--
-  @see https://github.com/sveltejs/language-tools/issues/431
-  @see https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-using-an-attributeevent-on-a-dom-element-and-it-throws-a-type-error
--->
 <Template let:args>
 	<div use:move on:panmove={handlePanMove} style="position: relative;">
 		<div
