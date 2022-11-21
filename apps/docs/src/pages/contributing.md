@@ -7,7 +7,7 @@ title: 'Contributing'
     import { Demo, MiscDemos } from '@svelteuidev/demos';
     import { Alert } from '@svelteuidev/core';
     import { InfoCircled } from 'radix-icons-svelte';
-    
+
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
@@ -28,8 +28,8 @@ title: 'Contributing'
 ## Contributing workflow
 
 - Decide what you want to contribute
-- If you want to implement new feature discuss it with a maintainer ([Discord](https://discord.gg/2J2xmzCS79) or [Discussions](https://github.com/svelteuidev/svelteui/discussions/categories/feature-requests)) before jumping into code
-- After finalizing issue details work on code, please follow commit convention
+- If you want to implement a new feature, discuss it with a maintainer ([Discord](https://discord.gg/2J2xmzCS79) or [Discussions](https://github.com/svelteuidev/svelteui/discussions/categories/feature-requests)) before jumping into code
+- After finalizing the issue details and the code, please follow commit convention
 - Submit a PR if everything is fine
 - Get a code review and fix all issues noticed by a maintainer
 - PR is merged, and we're done!
@@ -98,12 +98,12 @@ You won't need to pay attention to every file within the project. All of the pac
 
 ## NPM scripts
 
-All packages npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
+All packages' npm scripts are located at [main package.json](https://github.com/svelteuidev/svelteui/blob/main/package.json),
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be running from the root of the monorepo.
 
 - `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder
-- `lint` - runs eslint on packages folder (run format before running lint)
+- `lint` - runs ESLint on packages folder (run format before running lint)
 - `test` - runs tests with [vitest](https://vitest.dev/)
 - `package` - generates built versions of packages (needed for cross package development)
 - `repo:prepush` - runs sort, format, lint and test (run this before pushing your code)
