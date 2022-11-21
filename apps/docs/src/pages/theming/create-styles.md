@@ -20,7 +20,7 @@ docs: 'theming/create-styles.md'
 
 ## Preamble
 
-This section will cover creating your own themes on top of the already provided light and dark themes, as well as how to use SvelteUI styling features throughout your application.
+This section will cover creating your own themes on top of the already provided light and dark themes, as well as how to use SvelteUI's styling features throughout your application.
 
 All SvelteUI components are built with the CSS-in-JS library [Stitches](https://stitches.dev/). It is recommended that you use the `createStyles` function to create styles for the rest of your application because it is the easiest way to use the SvelteUI theme, but it is not required. You can use any other styling tools and languages alongside SvelteUI if you prefer.
 
@@ -30,13 +30,13 @@ If you choose to go with the SvelteUI styling engine then you get access to thes
 
 - A fast and lightweight theming solution with near-zero runtime
 - Subscriptions to your SvelteUI theming context
-- Supports all stitches features: css extraction during server side rendering, lazy evaluation, dynamic theming, smart tokens, css prop, utils, a fully-typed API and more
+- Supports all Stitches features: CSS extraction during server side rendering, lazy evaluation, dynamic theming, smart tokens, CSS prop, utils, a fully-typed API and more
 - Server side rendering support: for SvelteKit or any other environment
 - Fully featured TypeScript and IDE Intellisense support
 
 ## Styling with SvelteUI
 
-When creating styles in SvelteUI, you should use the `createStyles` function. It allows you to subscribe tho the current theme context from anywhere. Basic usage looks like this:
+When creating styles in SvelteUI, you should use the `createStyles` function. It allows you to subscribe to the current theme context from anywhere. Basic usage looks like this:
 
 <Demo demo={CreateStylesDemos.basic} />
 
@@ -62,7 +62,7 @@ You can receive any amount of parameters as second argument of createStyles func
 
 ## Merging Classes (cx function)
 
-To merge class names use cx function, it has the same api as classnames package.
+To merge class names use the `cx` function, it has the same API as classnames package.
 
 !important: Do not use external libraries like classnames or clsx with class names created with createStyles function as it will produce styles collisions.
 
@@ -117,13 +117,13 @@ You can add variants to your styles by using the `variants` key. There is no lim
 </button>
 ```
 
-Styling with SvelteUI is most similar to styling with vanilla css, or css-preprocessors (scss/sass) with extra features. You can choose your preferred method of styling, but we **strongly** recommend you read this [styling guide](https://stitches.dev/docs/styling) to get up to speed.
+Styling with SvelteUI is most similar to styling with vanilla CSS, or CSS-preprocessors (scss/sass) with extra features. You can choose your preferred method of styling, but we **strongly** recommend you read this [styling guide](https://stitches.dev/docs/styling) to get up to speed.
 
-> Need anymore styling information? Raise an issue on github and ask any questions you have.
+> Need anymore styling information? Raise an issue on GitHub and ask any questions you have.
 
 # Theming
 
-SvelteUI comes with a default light and dark theme out of the box. If you would like to use the standard theme then you can read more about that in the [default theme](theming/default) section. It is suggested that you either read the default theming section, or the stitches custom theming section first.
+SvelteUI comes with a default light and dark theme out of the box. If you would like to use the standard theme then you can read more about that in the [default theme](theming/default) section. It is suggested that you either read the default theming section, or the Stitches custom theming section first.
 
 ## Custom theme
 
@@ -237,7 +237,7 @@ You can add styles based on themes by retrieving the dynamically generated theme
 
 ## Global styles
 
-For handling things like global resets or custom global styling, you can use the globalCss function to generate it. SvelteUI comes with global styles and a css reset by default. More information on that in the [SvelteUIProvider section](theming/svelteui-provider).
+For handling things like global resets or custom global styling, you can use the globalCss function to generate it. SvelteUI comes with global styles and a CSS reset by default. More information on that in the [SvelteUIProvider section](theming/svelteui-provider).
 
 ```ts
 import { globalCss } from '@svelteuidev/core'
@@ -260,7 +260,7 @@ const globalStyles = globalCss({
 
 ## Keyframes
 
-For creating css animations, you can either use the svelte transition api, or SvelteUI's keyframe function, which is a function to create a global CSS @keyframe rule.
+For creating CSS animations, you can either use the svelte transition api, or SvelteUI's keyframe function, which is a function to create a global CSS @keyframe rule.
 
 ```svelte
 <script>

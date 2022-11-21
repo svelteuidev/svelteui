@@ -18,7 +18,7 @@ source: 'svelteui-src/actions/use-css-variable/use-css-variable.ts'
 
 ## Usage
 
-With the `use-css-variable` action, an object of properties will be treated as css custom variables. By defining this object inside of a `$: ` reactive block, `use-css-variable` can update those css properties on the fly whenever some of its values change.
+With the `use-css-variable` action, an object of properties will be treated as CSS custom variables. By defining this object inside of a `$: ` reactive block, `use-css-variable` can update those CSS properties on the fly whenever some of its values change.
 
 <Demo demo={ComposableDemos.useCssVariableDemo.usage} />
 

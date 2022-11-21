@@ -18,7 +18,7 @@ source: 'svelteui-src/actions/use-lock-scroll/use-lock-scroll.ts'
 
 ## Usage
 
-`lockscroll` locks scroll at current position by setting document.body overflow to hidden
+`lockscroll` locks scroll at current position by setting `document.body` overflow to hidden
 
 <Demo demo={ComposableDemos.useLockScrollDemo.usage} />
 

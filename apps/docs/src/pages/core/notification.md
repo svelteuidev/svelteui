@@ -21,7 +21,7 @@ docs: 'core/notification.md'
 
 Notification is a base component for notification system.
 
-Notification component has 3 variants:
+It has 3 variants:
 
 - **default** – with colored line on the left
 - **icon** – line is replaced with icon

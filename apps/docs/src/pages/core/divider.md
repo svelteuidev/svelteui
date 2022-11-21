@@ -25,13 +25,13 @@ Divider component renders an horizontal or vertical line. The border style can b
 
 ## With label
 
-It is possible to add a label at the `left`, `right` or `center` of the Divider, by setting the prop `label` and the prop `labelPosition` with the previously mentioned values. It is also possible to override the label props with `labelProps`. This label behaviour it only **available for the horizontal orientation**.
+It is possible to add a label at the `left`, `right` or `center` of the Divider, by setting the prop `label` and the prop `labelPosition` with the previously mentioned values. It is also possible to override the label props with `labelProps`. This label behaviour is **only available for the horizontal orientation**.
 
 <Demo demo={DividerDemos.label} />
 
 ## Sizes
 
-The Divider component has predefined sizes: `xs`, `sm`, `md`, `lg` and `xl`. You can als pass size as a number and it will be set as height in `px`.
+The Divider component has predefined sizes: `xs`, `sm`, `md`, `lg` and `xl`. You can also pass size as a number and it will be set as height in `px`.
 
 <Demo demo={DividerDemos.size} />
 

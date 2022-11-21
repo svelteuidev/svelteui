@@ -33,7 +33,7 @@ You can see what a responsive AppShell's code would look like:
 
 ## ShellSection
 
-The AppShell exposes a ShellSection component that can be used anywhere in the AppShell context.
+The AppShell exposes a `ShellSection` component that can be used anywhere in the AppShell context.
 
 ```svelte
 <Navbar>

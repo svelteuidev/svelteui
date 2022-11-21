@@ -43,7 +43,8 @@ Text supports special `dimmed` value in color prop. It sets color to `theme.colo
 To use gradient as Text color:
 
 - set `variant` to `gradient`
-- `color-from` and `color-to` are color from `theme.colors`
+- set `gradient` prop
+- `color-from` and `color-to` options in `gradient` prop are colors from `theme.colors`
 - `deg` is linear gradient degree
 
 <Demo demo={TextDemos.gradient} />
@@ -62,6 +63,6 @@ Text always applies font-size, font-family and line-height styles, but in some c
 
 ## Custom component
 
-By default, text is rendered as div element, to change it by set `root` prop:
+By default, text is rendered as div element. You can change it by setting the `root` prop:
 
 <Demo demo={TextDemos.custom} />

@@ -16,7 +16,7 @@ docs: 'theming/utilities.md'
     const code = `
     <script>
         import { Box } from "@svelteuidev/core";
-        
+
         const demoStyles = {
             size: '200px',
             linearGradient: '19deg, #21D4FD 0%, #B721FF 100%',
@@ -44,7 +44,7 @@ docs: 'theming/utilities.md'
 ## Getting Started
 
 SvelteUI provides a set of amazing out of the box [Stitches](https://stitches.dev/docs/utils) utilities. Once
-you get used to them, you can save a lot of time writing css-in-js code.
+you get used to them, you can save a lot of time writing CSS-in-JS code.
 
 [Stitches](https://stitches.dev/docs/utils) allows you to create a set of utilities that can be used for styling components so
 we create a custom set that can be used for styling SvelteUI components or elements.

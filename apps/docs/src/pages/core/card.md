@@ -25,13 +25,13 @@ docs: 'core/card.md'
 
 `Card.Section` is a special component that is used to remove Card padding from its children while other elements still have horizontal spacing.` Card.Section` works the following way:
 
-- If the component is a first child in Card then it has negative top, left and right margins
-- If it is a last child in Card then it has negative bottom, left and right margins
-- If it is in the middle then only left and right margins will be negative
+- If the component is the first child in Card, then it has negative top, left and right margins
+- If it is the last child in Card, then it has negative bottom, left and right margins
+- If it is in the middle, then only left and right margins will be negative
 
 Note that due to certain limitations of svelte, this is not automatic behavior. Because of this, `first` and `last` props are exported to declare positioning.
 
-This may change in the future, as the Group component used to export a `children` prop however, the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
+This may change in the future, as the Group component used to export a `children` prop. However, the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
 
 ```svelte
 <Card.Container p="xl">

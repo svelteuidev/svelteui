@@ -18,7 +18,7 @@ docs: 'composables/use-os.md'
 
 ## Usage
 
-The `useOs` composable detects a user's Operating System. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If the OS cannot be identified as well as during server side rendering, `undetermined` will be returned.
+The `use-os` composable detects a user's Operating System. Possible values are: `undetermined`, `macos`, `ios`, `windows`, `android`, `linux`. If the OS cannot be identified as well as during server side rendering, `undetermined` will be returned.
 
 <Demo demo={ComposableDemos.useOsDemo.usage} />
 

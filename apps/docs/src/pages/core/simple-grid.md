@@ -19,7 +19,7 @@ docs: 'core/simple-grid.md'
 
 ## Usage
 
-SimpleGrid is a simple flexbox container where each child is treated as a column. Each column takes equal amount of space and unlike [Grid](/core/grid/) component you do not control column span, instead you specify number of columns per row:
+SimpleGrid is a simple flexbox container where each child is treated as a column. Each column takes equal amount of space and unlike [Grid](/core/grid/) component, you do not control column span. Instead, you specify number of columns per row:
 
 <Demo demo={SimpleGridDemos.configurator} />
 
@@ -44,7 +44,7 @@ In this example:
 
 ## min-width breakpoints
 
-If you prefer a mobile first approach, you can use min-width breakpoints:
+If you prefer a mobile first approach, you can use `min-width` breakpoints:
 
 ```svelte
 <SimpleGrid

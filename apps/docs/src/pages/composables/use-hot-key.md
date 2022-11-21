@@ -27,7 +27,7 @@ docs: 'composables/use-hot-key.md'
 
 ## Targeting elements
 
-`use-hot-key` can only work with the document element; if you need to support other elements then you'll need to create your own event listener. The package includes a getHotkeyHandler function that should be used in conjunction with on:keydown:
+`use-hot-key` can only work with the document element; if you need to support other elements then you'll need to create your own event listener. The package includes a `getHotkeyHandler` function that should be used in conjunction with on:keydown:
 
 <Demo demo={ComposableDemos.useHotKeyDemo.target} />
 

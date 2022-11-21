@@ -68,5 +68,5 @@ The view-source preprocessor exports two components, `SourceCode` and `DisplaySo
 </p>
 
 <p>
-    he `DisplaySourceCode` element will display whatever source code appears between the opening and closing tags of the `SourceCode` element. It will trim any leading or trailing blank lines and unindent the source code before passing it to a child component. If `DisplaySourceCode` does not receive a slot, it will display the source code in a `pre` element. If it does receive a slot, it will pass that slot a `source` prop. This prop is a string containing the exact source code from `SourceCode`. A `DisplaySourceCode` element must have one and only one corresponding `SourceCode` element.
+    The `DisplaySourceCode` element will display whatever source code appears between the opening and closing tags of the `SourceCode` element. It will trim any leading or trailing blank lines and unindent the source code before passing it to a child component. If `DisplaySourceCode` does not receive a slot, it will display the source code in a `pre` element. If it does receive a slot, it will pass that slot a `source` prop. This prop is a string containing the exact source code from `SourceCode`. A `DisplaySourceCode` element must have one and only one corresponding `SourceCode` element.
 </p>
