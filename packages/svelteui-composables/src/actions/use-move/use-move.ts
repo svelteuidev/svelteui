@@ -1,14 +1,13 @@
-import { clamp } from '$lib/shared';
+import { clamp } from '$clib/shared';
 import type { Action } from '../../shared/actions/types';
 
-
 /**
- * Creates //TODO
+ * Handles the movement of any element inside a node, following the mouse or touch events.
  *
  * ```svelte
- *  <button use:move on:move={() => { //TODO }}>
- *     press and hold
- *  </button>
+ *  <div use:move on:move={(event: { detail: { x: number; y: number } }) => { position = event.detail }}}>
+ *     <div style="left: {position.x * 100}%; top: {position.y * 100}%;" />
+ *  </div>
  * ```
  * @see https://svelteui.org/actions/use-move
  */
@@ -48,7 +47,7 @@ export function move(node: HTMLElement): ReturnType<Action> {
 
 			if (!width || !height) return;
 			node.dispatchEvent(
-				new CustomEvent('panmove', {
+				new CustomEvent('move', {
 					detail: {
 						x: clamp({ value: (x - left) / width, min: 0, max: 1 }),
 						y: clamp({ value: (y - top) / height, min: 0, max: 1 })
