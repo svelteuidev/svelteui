@@ -69,7 +69,9 @@ Examples:
 **If developing in docs**
 
 - Install [`deno`](https://deno.land/#installation)
-- To start docs - `cd docs && yarn install && yarn dev`
+- In the root of the project:
+  - run `yarn package`
+  - run `yarn dev:docs`
 
 ## Yarn scripts
 
