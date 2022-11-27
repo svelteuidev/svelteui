@@ -36,7 +36,7 @@ For SvelteUI to work properly, you need to set up the SvelteUIProvider at the to
 </SvelteUIProvider>
 ```
 
-**For SvelteKit projects -> `__layout.svelte`**
+**For SvelteKit projects -> `+layout.svelte`**
 
 ```svelte
 <script>
@@ -56,7 +56,7 @@ SvelteUIProvider includes a NormalizeCSS style sheet and some extra global style
 - `color` to theme.colors["dark50"].value in dark color scheme and black in light
 - `font-family` and `font-size` based on theme
 
-To enable these global styles, set withNormalizeCSS and withGlobalStyles props:
+To enable these global styles, set `withNormalizeCSS` and `withGlobalStyles` props:
 
 ```svelte
 <script>

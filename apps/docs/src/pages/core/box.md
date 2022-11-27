@@ -19,7 +19,7 @@ docs: 'core/box.md'
 
 ## Usage
 
-Box allows you to use the css prop ([like override](/theming/override)) with any element or component. Box itself does not include any styles.
+Box allows you to use the `css` prop ([like override](/theming/override)) with any element or component. Box itself does not include any styles.
 
 <Demo demo={BoxDemos.usage} />
 

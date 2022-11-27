@@ -33,7 +33,7 @@ docs: 'core/input-wrapper.md'
 
 ## Usage
 
-InputWrapper is used to wrap for all SvelteUI inputs ([Select (not yet implemented)](core/select), [TextInput](core/text-input), [NumberInput](core/number-input) and others).
+InputWrapper is used to wrap all SvelteUI inputs ([Select (not yet implemented)](core/select), [TextInput](core/text-input), [NumberInput](core/number-input) and others).
 It includes label with optional required asterisk, description and error message.
 
 All SvelteUI inputs support the same props as InputWrapper. You can combine it with [Input](core/input) component

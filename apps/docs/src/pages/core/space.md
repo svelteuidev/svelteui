@@ -29,7 +29,7 @@ Use Space component to add horizontal or vertical spacing between elements:
 
 ## Where to use
 
-When you work with regular HTML elements you do not have access to `theme.spacing` and you may want to use
+When you work with regular HTML elements, you do not have access to `theme.spacing` and you may want to use
 Space component to skip having to use something like a [Box](core/box):
 
 ```svelte
@@ -42,7 +42,7 @@ Space component to skip having to use something like a [Box](core/box):
 ## h and w props
 
 `h` and `w` are shortcuts for height and width, you can use values from [theme.spacing](/theming/extend-theme/#spacing-radius-and-shadows)
-(xs, sm, md, lg, xl) or number to set width or height in px:
+(`xs`, `sm`, `md`, `lg`, `xl`) or number to set width or height in px:
 
 ```svelte
 // Height will be set from theme.spacing.md

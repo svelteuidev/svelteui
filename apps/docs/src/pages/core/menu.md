@@ -40,7 +40,7 @@ docs: 'core/menu.md'
 
 ## Show menu on hover
 
-To show meny on hover set the following props:
+To show menu on hover set the following props:
 - `trigger` to `hover`
 - `delay` to number in ms (defaults to 0)
 
@@ -109,7 +109,7 @@ You can use predefined shadows defined in [theme shadows](theming/default-theme#
 
 ## Custom component as Menu.Item
 
-By default, menu items render as button, to change that set `root` prop on `Menu.Item` component:
+By default, menu items render as buttons. To change that, set `root` prop on `Menu.Item` component:
 
 ```svelte
 // Regular anchor as Menu.Item root element
@@ -151,8 +151,8 @@ Menu behavior and properties:
 - When menu is opened, focus is trapped inside
 - When menu is closed, focus is moved back to menu control
 - Focus inside menu is controlled with up and down arrows, tab key has no effect
-- By default, when menu item is clicked, menu closes, change it with closeOnItemClick prop
+- By default, when menu item is clicked, menu closes, change it with `closeOnItemClick` prop
 - Menu is closed when user clicks outside or presses escape
 - Menu control has `aria-haspopup`, `aria-expanded`, `aria-controls` and `aria-label` attributes. `aria-label` is defined by the `menuButtonLabel` prop
-- Menu body has `menu` role, aria`-orientation` is always set to vertical
+- Menu body has `menu` role, aria `-orientation` is always set to vertical
 - Menu item has `menuitem` role

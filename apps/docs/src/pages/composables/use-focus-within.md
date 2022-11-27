@@ -18,7 +18,7 @@ source: 'svelteui-composables/src/utilities/use-focus-within/use-focus-within.ts
 
 ## Usage
 
-The use-focus-within composable determines whether any element within has focus. It works in the same way that the CSS selector for focus-within works.
+The `use-focus-within` composable determines whether any element within has focus. It works in the same way that the CSS selector for focus-within works.
 
 <Demo demo={ComposableDemos.useFocusWithinDemo.usage} />
 

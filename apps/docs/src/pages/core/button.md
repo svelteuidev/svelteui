@@ -23,7 +23,7 @@ docs: 'core/button.md'
 
 ## Variants
 
-Button supports the following variants: `default`, `subtle`, `white`, `gradient`, `filled`, `light` and `outline`. Default Button color is `theme.blue600`, to change color and variant pass color and variant props:
+Button supports the following variants: `default`, `subtle`, `white`, `gradient`, `filled`, `light` and `outline`. Default Button color is `theme.blue600`. To change the color and variant, pass `color` and `variant` props:
 
 <Demo demo={ButtonDemos.variants} />
 
@@ -32,15 +32,15 @@ Button supports the following variants: `default`, `subtle`, `white`, `gradient`
 To use gradient as Button background:
 
 - set `variant` prop to `gradient`
-- set `gradient` prop to
-- `color-from` and `color-to` are color from `theme.colors`
+- set `gradient` prop
+- `color-from` and `color-to` options in `gradient` are colors from `theme.colors`
 - `deg` is linear gradient degree
 
 <Demo demo={ButtonDemos.gradient} />
 
 ## White variant
 
-White is a variant in which button background color is always white (both in light and dark theme) and `color` is controlled with color prop:
+White is a variant in which the button background color is always white (both in light and dark theme) and `color` is controlled with color prop:
 
 <Demo demo={ButtonDemos.whiteConfigurator} />
 
@@ -64,7 +64,7 @@ You can control loading state and [Loader](core/loader) component with following
 
 ## Icons
 
-The Button component has two slots to render an Icon either on the left side or the right side. Wrap your Icon with the Button component, then add the `slot='leftIcon'` or `slot='rightIcon'` prop to your Icon.
+The Button component has two slots to render an Icon, either on the left side or the right side. Wrap your Icon with the Button component, then add the `slot='leftIcon'` or `slot='rightIcon'` prop to your Icon.
 
 <Demo demo={ButtonDemos.icons} />
 
@@ -91,7 +91,7 @@ Control button font-size, height and padding with `size` and border-radius with 
 
 ## Full width and overflow
 
-Button can take full width of container if you set `fullSize` prop. If button is too large for its container, overflow content will be hidden:
+Button can take full width of container if you set `fullSize` prop. If the button is too large for its container, overflow content will be hidden:
 
 <Demo demo={ButtonDemos.overflow} />
 

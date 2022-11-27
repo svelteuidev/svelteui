@@ -19,7 +19,7 @@ docs: 'core/popper.md'
 
 ## Usage
 
-Popper is a utility component used under the hood in `Menu`(not implement yet), `Popover` (not implement yet) and [Tooltip](core/tooltip). You can use it to create your own dropdowns and popovers.
+Popper is a utility component used under the hood in [Menu](core/menu), `Popover` (not implemented yet) and [Tooltip](core/tooltip). You can use it to create your own dropdowns and popovers.
 
 To use Popper, add the following required props:
 

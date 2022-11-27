@@ -26,8 +26,8 @@ docs: 'core/badge.md'
 To use gradient as Badge background:
 
 - set `variant` prop to `gradient`
-- set `gradient` prop to
-- `color-from` and `color-to` are color from `theme.colors`
+- set `gradient` prop
+- `color-from` and `color-to` options in `gradient` prop are colors from `theme.colors`
 - `deg` is linear gradient degree
 
 <Demo demo={BadgeDemos.gradient} />
@@ -35,7 +35,7 @@ To use gradient as Badge background:
 ## Full width and overflow
 
 Badge will take full width of container if `fullWidth` prop is `true`.
-If badge cannot fit in its container, overflow content will be hidden with ellipsis:
+If Badge cannot fit in its container, overflow content will be hidden with ellipsis:
 
 <Demo demo={BadgeDemos.width} />
 

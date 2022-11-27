@@ -54,7 +54,7 @@ Not all properties of the object are used in SvelteUI.
 
 ## Colors
 
-SvelteUI comes with a predefined set of colors. It's a great place to start if you don't have a specific color pallet in mind.
+SvelteUI comes with a predefined set of colors. It's a great place to start if you don't have a specific color palette in mind.
 
 You can access the colors through the `theme` object or using `tokens` within the `createStyles` function or `override` prop.
 
@@ -78,9 +78,9 @@ You can access the colors through the `theme` object or using `tokens` within th
 </Title>
 ```
 
-By default, these colors can be used by the `color`, `borderColor`, `backgroundColor`, `fill`, and other properties; see the full list of properties where you can use the color tokens here [Stitches Property Mapping](https://stitches.dev/docs/tokens#property-mapping).
+By default, these colors can be used by the `color`, `borderColor`, `backgroundColor`, `fill`, and other properties; see the full list of properties where you can use the color tokens here => [Stitches Property Mapping](https://stitches.dev/docs/tokens#property-mapping).
 
-Each color has ten shades ranging from 50 to 900.
+Each color has ten shades ranging from 50 to 900:
 
 ```ts
 export const colors = {
@@ -316,7 +316,7 @@ export default {
 
 ## Border Widths
 
-SvelteUI includes a set of common border Widths.
+SvelteUI includes a set of common border widths.
 
 ```ts
 export default {
@@ -339,7 +339,7 @@ export default {
 
 ## Spacing
 
-SvelteUI has a set of most common spacing values (based on tailwind) that you can use. By default, the `padding`,`margin`, `top`, `left`, `right`, `bottom`, `width`, `height`, and other styles can reference these spacing values.
+SvelteUI has a set of most common spacing values (based on Tailwind) that you can use. By default, the `padding`,`margin`, `top`, `left`, `right`, `bottom`, `width`, `height`, and other styles can reference these spacing values.
 
 > You can see the complete `space` list on [Stitches Property Mapping](https://stitches.dev/docs/tokens#property-mapping)
 

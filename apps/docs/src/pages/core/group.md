@@ -23,7 +23,7 @@ docs: 'core/group.md'
 
 ## Group children
 
-**!important** Group will work only with elements and Components that render elements. Strings, numbers, fragments and other parts will not have correct styles:
+**!important** Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles:
 
 ```svelte
 <script>

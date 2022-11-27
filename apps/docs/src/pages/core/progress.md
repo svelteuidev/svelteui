@@ -30,7 +30,7 @@ Note that in this case `value` prop will be ignored:
 
 ## Colors
 
-In previous examples colors from `theme.colors` were used, but any other css colors can be used instead:
+In previous examples colors from `theme.colors` were used, but any other CSS colors can be used instead:
 
 <Demo demo={ProgressDemos.colors} />
 
@@ -42,7 +42,7 @@ In case you want smoother transitions between values, you can tween them with th
 
 ## Size
 
-Size controls progress bar height. Progress has predefined sizes: xs, sm, md, lg, xl.
+Size controls progress bar height. Progress has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`.
 Alternatively, you can use a number to set height in px:
 
 ```tsx

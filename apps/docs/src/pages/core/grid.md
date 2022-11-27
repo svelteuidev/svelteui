@@ -64,8 +64,8 @@ In this example up to `md` there will be 1 column, from `md` to `lg` there will 
 
 ## Change columns count
 
-By default, grid uses 12 columns layout, you can change it by setting the `cols` prop on the Grid component. Note that in this case, columns `span` and `offset` will be calculated relative to this value.
+By default, Grid uses 12 columns layout, you can change it by setting the `cols` prop on the Grid component. Note that in this case, columns `span` and `offset` will be calculated relative to this value.
 
-In this example, tge first column takes 50% with 12 span (12/24), second and third take 25% (6/24):
+In this example, the first column takes 50% with 12 span (12/24), the second and third take 25% (6/24):
 
 <Demo demo={GridDemos.columns} />

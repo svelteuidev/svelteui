@@ -25,7 +25,7 @@ MediaQuery component adds styles to child element if given media query matches:
 
 ## largerThan and smallerThan props
 
-largerThan and smallerThan props lets you use theme.breakpoints:
+`largerThan` and `smallerThan` props lets you use `theme.breakpoints`:
 
 <Demo demo={MediaQueryDemos.query} />
 

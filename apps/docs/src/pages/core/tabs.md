@@ -23,7 +23,7 @@ docs: 'core/tabs.md'
 
 ## Controlled Tabs
 
-`Tabs.Tab` accepts an optional `tabKey` prop, which can be retrieved on the `change` callback if given:
+`Tabs.Tab` accepts an optional `tabKey` prop, which can be retrieved on the `on:change` callback if given:
 
 ```svelte
 <script>

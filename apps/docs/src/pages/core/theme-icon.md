@@ -32,7 +32,8 @@ ThemeIcon supports all colors from [theme.colors](/theming/extend-theme/#default
 To use gradient as ThemeIcon background:
 
 - set `variant` to `gradient`
-- `color-from` and `color-to` are colors from `theme.colors`
-- `deg` is linear gradient deg
+- set `gradient` prop
+- `color-from` and `color-to` options in `gradient` prop are colors from `theme.colors`
+- `deg` is linear gradient degree
 
 <Demo demo={ThemeIconDemos.gradient} />
