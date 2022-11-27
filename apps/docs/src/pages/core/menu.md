@@ -6,7 +6,7 @@ slug: /core/menu/
 category: 'overlay'
 description: 'Combine a list of secondary actions into single interactive area'
 import: "import { Menu } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Menu/Menu.svelte'
+source: 'svelteui-core/src/components/Menu/Menu.svelte'
 docs: 'core/menu.md'
 ---
 

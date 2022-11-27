@@ -6,7 +6,7 @@ slug: /core/notification/
 category: 'feedback'
 description: 'Attract user attention with an important message'
 import: "import { Notification } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Notification/Notification.svelte'
+source: 'svelteui-core/src/components/Notification/Notification.svelte'
 docs: 'core/notification.md'
 ---
 

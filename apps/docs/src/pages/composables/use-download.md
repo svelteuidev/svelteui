@@ -6,7 +6,7 @@ slug: /composables/use-download/
 description: 'Causes a download to occur with a given Blob object'
 import: "import { download } from '@svelteuidev/composables';"
 docs: 'composables/use-download.md'
-source: 'svelteui-src/actions/use-download/use-download.ts'
+source: 'svelteui-composables/src/actions/use-download/use-download.ts'
 ---
 
 <script>

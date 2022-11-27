@@ -6,7 +6,7 @@ slug: /composables/use-debounce/
 description: 'Get a function that debounces its execution.'
 import: "import { useDebounce } from '@svelteuidev/composables';"
 docs: 'composables/use-debounce.md'
-source: 'svelteui-src/utilities/use-debounce/use-debounce.ts'
+source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 ---
 
 <script lang='ts'>

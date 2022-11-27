@@ -8,6 +8,7 @@
 	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from '../Menu.context';
 	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
 
 	interface $$Props extends $$MenuItemProps {}
 
@@ -52,7 +53,7 @@
 >
 	<div class={classes.itemInner}>
 		{#if icon}
-			<svelte:component this={icon} class={classes.itemIcon} {...iconProps} />
+			<IconRenderer {icon} className={classes.itemIcon} {...iconProps} />
 		{/if}
 		<div class={classes.itemBody}>
 			<div class={classes.itemLabel}>

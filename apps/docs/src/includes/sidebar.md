@@ -68,6 +68,7 @@
   - [ActionIcon](core/action-icon)
   - [Button](core/button)
   - [Checkbox](core/checkbox)
+  - [Chip](core/chip)
   - [Input](core/input)
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)

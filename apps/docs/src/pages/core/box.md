@@ -6,7 +6,7 @@ slug: /core/box/
 category: 'misc'
 description: 'Add inline styles to any element or component with css prop'
 import: "import { Box } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Box/Box.svelte'
+source: 'svelteui-core/src/components/Box/Box.svelte'
 docs: 'core/box.md'
 ---
 

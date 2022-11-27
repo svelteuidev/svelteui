@@ -61,7 +61,7 @@
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
-	let control: Element;
+	let control: HTMLElement;
 	let hovered: number = -1;
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
@@ -78,7 +78,7 @@
 	onMount(() => {
 		if (!$$slots.control) return;
 
-		control = element.children[0];
+		control = element.children[0] as HTMLElement;
 		control.setAttribute('role', 'button');
 		control.setAttribute('aria-haspopup', 'menu');
 		control.setAttribute('aria-expanded', String(_opened));
@@ -209,7 +209,7 @@
 		/>
 	</slot>
 	<Popper
-		reference={referenceElement}
+		reference={control ?? referenceElement}
 		mounted={_opened}
 		arrowSize={3}
 		arrowClassName={classes.arrow}

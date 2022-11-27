@@ -6,7 +6,7 @@ slug: /core/group/
 category: 'layout'
 description: 'Compose elements and components in a horizontal flex container'
 import: "import { Group } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Group/Group.svelte'
+source: 'svelteui-core/src/components/Group/Group.svelte'
 docs: 'core/group.md'
 ---
 

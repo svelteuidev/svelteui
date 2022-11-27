@@ -6,7 +6,7 @@ slug: /core/stack/
 category: 'layout'
 description: 'Compose elements and components in vertical flex container'
 import: "import { Stack } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Stack/Stack.svelte'
+source: 'svelteui-core/src/components/Stack/Stack.svelte'
 docs: 'core/stack.md'
 ---
 

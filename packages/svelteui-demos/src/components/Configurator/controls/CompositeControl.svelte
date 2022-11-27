@@ -13,8 +13,8 @@
 	let data: Record<string, any> = {};
 
 	function onChange(newData) {
-		data = newData;
-		dispatch('change', newData);
+		data = newData.detail;
+		dispatch('change', data);
 	}
 
 	const styles = css({
@@ -29,6 +29,6 @@
 
 <InputWrapper {label}>
 	<div class={styles()}>
-		<ControlsRenderer value={data} {controls} {onChange} />
+		<ControlsRenderer value={data} {controls} on:change={onChange} />
 	</div>
 </InputWrapper>

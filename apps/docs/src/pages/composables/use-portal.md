@@ -6,7 +6,7 @@ slug: /composables/use-portal/
 description: 'Render an element or component anywhere in the DOM'
 import: "import { portal } from '@svelteuidev/composables';"
 docs: 'composables/use-portal.md'
-source: 'svelteui-src/actions/use-portal/use-portal.ts'
+source: 'svelteui-composables/src/actions/use-portal/use-portal.ts'
 ---
 
 <script>

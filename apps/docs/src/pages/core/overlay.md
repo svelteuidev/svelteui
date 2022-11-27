@@ -6,7 +6,7 @@ slug: /core/overlay/
 category: 'overlay'
 description: 'Overlays given element with div element with any color and opacity'
 import: "import { Overlay } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Overlay/Overlay.svelte'
+source: 'svelteui-core/src/components/Overlay/Overlay.svelte'
 docs: 'core/overlay.md'
 ---
 

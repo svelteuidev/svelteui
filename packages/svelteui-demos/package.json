@@ -38,7 +38,7 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"dev": "vite dev",
-		"format": "prettier --write --plugin-search-dir=. .",
+		"format": "prettier --write --plugin-search-dir=. src/",
 		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"package": "svelte-package",
@@ -50,11 +50,11 @@
 		"watch": "svelte-package -w"
 	},
 	"dependencies": {
-		"@svelteuidev/composables": "0.7.4",
-		"@svelteuidev/core": "0.7.4",
-		"@svelteuidev/motion": "0.7.4",
-		"@svelteuidev/preprocessors": "0.7.4",
-		"@svelteuidev/prism": "0.7.4"
+		"@svelteuidev/composables": "0.7.5",
+		"@svelteuidev/core": "0.7.5",
+		"@svelteuidev/motion": "0.7.5",
+		"@svelteuidev/preprocessors": "0.7.5",
+		"@svelteuidev/prism": "0.7.5"
 	},
 	"devDependencies": {
 		"@babel/core": "7.18.6",
@@ -81,6 +81,6 @@
 		"svelte2tsx": "0.5.7",
 		"tslib": "2.3.1",
 		"typescript": "4.7.4",
-		"vite": "3.0.0"
+		"vite": "3.2.2"
 	}
 }

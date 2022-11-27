@@ -5,6 +5,7 @@
 	import { getContext, onMount } from 'svelte';
 	import type { TabsContext } from '../Tabs.styles';
 	import type { TabProps as $$TabProps } from './Tab.styles';
+	import IconRenderer from '$lib/components/IconRenderer/IconRenderer.svelte';
 
 	interface $$Props extends $$TabProps {}
 
@@ -60,7 +61,7 @@
 >
 	<div class={classes.inner}>
 		{#if icon}
-			<svelte:component this={icon} class={classes.icon} />
+			<IconRenderer {icon} className={classes.icon} />
 		{/if}
 		{#if label}
 			<div class={classes.label}>{label}</div>

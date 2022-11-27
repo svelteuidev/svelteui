@@ -6,7 +6,7 @@ slug: /core/checkbox/
 category: 'inputs'
 description: 'Add inline styles to any element or component with css prop'
 import: "import { Checkbox } from '@svelteuidev/core';"
-source: 'svelteui-src/components/Checkbox/Checkbox.svelte'
+source: 'svelteui-core/src/components/Checkbox/Checkbox.svelte'
 docs: 'core/checkbox.md'
 ---
 

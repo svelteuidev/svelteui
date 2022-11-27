@@ -6,6 +6,7 @@
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
 	import type { NotificationProps as $$NotificationProps } from './Notification.styles';
+	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 
 	interface $$Props extends $$NotificationProps {}
 
@@ -45,8 +46,8 @@
 	{...$$restProps}
 >
 	{#if icon && !loading}
-		<slot class={classes.icon} name="icon">
-			<svelte:component this={icon} class={classes.icon} {...iconProps} />
+		<slot name="icon">
+			<IconRenderer {icon} className={classes.icon} {...iconProps} />
 		</slot>
 	{/if}
 	{#if loading}
