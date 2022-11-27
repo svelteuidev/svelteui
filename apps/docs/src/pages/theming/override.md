@@ -101,3 +101,38 @@ Various (but not all) components support changing their root elements with the `
 
 <Box root="p">I was a div but now I'm a paragraph tag!</Box>
 ```
+## Overriding using Svelte's `<style global>` functionality
+
+Svelte's global CSS styling feature can be used to override and enhance styles for SvelteUI components and their internal DOM elements.
+
+Given a component with a known structure, like `AppShell`, which contains a `div.app-shell` element used as a container, the following component would work:
+      
+```svelte
+<AppShell height="100%" class="app-shell h-full flex flex-col">
+  <YourHeaderComponent slot="header" {user} />
+
+  <!-- Content -->
+  <slot class="container flex-grow" />
+
+  <!-- Footer -->
+  <YourFooterComponent slot="footer" />
+</AppShell>
+      
+<style global>
+ /* Target the first inner wrapper container inside the AppShell */
+ .app-shell > div {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+ }
+ 
+ /* Target the wrapper div *for content* which is two layers down inside the AppShell */
+ .app-shell > div > div.body {
+   flex-grow: 1;
+ }
+</style>      
+```
+
+The [TailwindCSS][tailwindcss]-flavored example code above makes targeted changes to the implicit inner `<div>` contained in [`AppShell`](https://github.com/svelteuidev/svelteui/blob/main/packages/svelteui-core/src/components/AppShell/AppShell.svelte) and another inteernal `<div>` in order to create a full page AppShell which expands to the height of the page.
+      
+[tailwindcss]: https://tailwindcss.com
