@@ -1,7 +1,7 @@
 import type { DefaultProps } from '$lib/styles';
 
 export interface AffixProps extends DefaultProps {
-	target: HTMLElement | string;
+	target?: HTMLElement | string;
 	zIndex?: number;
 	position?: {
 		top?: string | number;

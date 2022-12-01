@@ -71,7 +71,8 @@
 			}
 		});
 	}
-	$: if (opened && !document.getElementById('SVELTEUI_PROVIDER')) {
+
+	$: if (opened && ((typeof target === 'string' && !document.querySelector(target)) || !target)) {
 		throw new Error(
 			'Wrap your app in the SvelteUIProvider, or provide a sufficent target throught the "target={\'\'}" prop '
 		);
