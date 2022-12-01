@@ -36,13 +36,14 @@
 	on:close={closeOutside}
 	title="Please consider this"
 	overflow="outside"
+  target="body"
 >
 	{#each content as _}
 		<p>{_}</p>
 	{/each}
 </Modal>
 
-<Modal opened={insideOpened} on:close={closeInside} title="Please consider this" overflow="inside">
+<Modal opened={insideOpened} on:close={closeInside} title="Please consider this" overflow="inside" target="body">
 	{#each content as _}
 		<p>{_}</p>
 	{/each}
