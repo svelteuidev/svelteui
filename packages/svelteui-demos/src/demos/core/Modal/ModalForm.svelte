@@ -37,7 +37,7 @@
 	}
 </script>
 
-<Modal {opened} on:close={closeModal} title="Introduce yourself!" {...$$restProps} target='body'>
+<Modal {opened} on:close={closeModal} title="Introduce yourself!" {...$$restProps}>
 	<Stack>
 		<TextInput bind:value={firstNameValue} placeholder={firstName} label={firstName} />
 		<TextInput bind:value={lastNameValue} placeholder={lastName} label={lastName} />

@@ -23,7 +23,7 @@
 	let opened;
 </script>
 
-<Modal {opened} on:close={() => (opened = false)} withCloseButton={false} target="body">
+<Modal {opened} on:close={() => (opened = false)} withCloseButton={false}>
 	Modal without header, press escape or click on overlay to close
 </Modal>
 
