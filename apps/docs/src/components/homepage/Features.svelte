@@ -3,14 +3,14 @@
 	import { Title, Text, SimpleGrid, ThemeIcon, Center, Stack, Paper } from '@svelteuidev/core';
   import { fly } from "svelte/transition"
   import { onMount } from "svelte"
-  let value = false
+  let featuresVisible = false
 
   onMount(() => {
     const wrapper = document.querySelector("#wrapper")
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          value = true
+          featuresVisible = true
         }
       })
     }, {
@@ -22,7 +22,7 @@
 </script>
 
 <div id="wrapper">
-  {#if value}
+  {#if featuresVisible}
     <SimpleGrid
       breakpoints={[
         { minWidth: 1024, cols: 3, spacing: 'md' },
