@@ -121,6 +121,7 @@
   - [use-css-variable](composables/use-css-variable)
   - [use-download](composables/use-download)
   - [use-focus](composables/use-focus)
+  - [use-focus-trap](composables/use-focus-trap)
   - [use-hot-key](composables/use-hot-key)
   - [use-io](composables/use-io)
   - [use-lazy](composables/use-lazy)
