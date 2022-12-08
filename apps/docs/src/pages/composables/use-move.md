@@ -3,7 +3,7 @@ title: 'use-move'
 group: 'svelteuidev-composables'
 packageGroup: '@svelteuidev/composables'
 slug: /composables/use-move/
-description: 'Creates a longpress event when mousedown is above a duration in milliseconds'
+description: 'Handles the movement of an element based on mouse and touch events'
 import: "import { move } from '@svelteuidev/composables';"
 docs: 'composables/use-move.md'
 source: 'svelteui-composables/src/actions/use-move/use-move.ts'
