@@ -27,7 +27,7 @@
 		style="position: relative; width: 90%; height: 80vh; background-color: lightgrey; margin: 40px;"
 	>
 		<div
-			style="position: absolute; cursor: pointer; background-color: red; width: 80px; height: 80px; left: calc({position.x *
+			style="position: absolute; cursor: pointer; background-color: {moving ? 'green' : 'red'}; width: 80px; height: 80px; left: calc({position.x *
 				100}% - 40px); top: calc({position.y * 100}% - 40px);"
 		/>
 	</div>
