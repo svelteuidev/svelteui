@@ -7,7 +7,7 @@
 	import { OptionalPortal } from '../Portal';
 	import { Box } from '../Box';
 	import { randomID, colorScheme, css } from '$lib/styles';
-	import { lockscroll } from '@svelteuidev/composables';
+	import { focustrap, lockscroll } from '@svelteuidev/composables';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
@@ -91,6 +91,7 @@
 			class={cx(className, getStyles({ css: override }))}
 		>
 			<div
+        role="presentation"
 				class={classes.inner}
 				use:lockscroll={lockScroll}
 				on:keydown|capture={(event) => {
@@ -110,6 +111,7 @@
 						aria-describedby={bodyId}
 						aria-modal
 						tabIndex={-1}
+            use={[focustrap]}
 					>
 						{#if title || withCloseButton}
 							<div class={classes.header}>
