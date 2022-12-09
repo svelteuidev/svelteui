@@ -170,7 +170,7 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 | :red_circle:    | !        | Create `ARIA` component                              |
 | :red_circle:    | !        | Create `Slider` component                            |
 | :red_circle:    | !        | Create `SegmentedControl` component                  |
-| :red_circle:    | !        | Create `Chip` component                              |
+| :green_circle:  | !        | Create `Chip` component                              |
 | :yellow_circle: | !!!      | Find an effective solution to SSR in SSR mode (#172) |
 | :red_circle:    | !!!      | Find an effective solution to SSR in SSG mode (#107) |
 
