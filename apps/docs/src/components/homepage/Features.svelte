@@ -31,8 +31,8 @@
       ]}
     >
       {#each features as { description, icon, title }, i}
-        <div in:fly="{{ y: 200, duration: (i + 1) * 500 }}" style="height: 100%">
-          <Paper shadow="xl">
+        <div in:fly="{{ y: 200, duration: (i + 1) * 500 }}">
+          <Paper shadow="xl" style="height: 100%">
             <Stack>
               <Center override={{ jc: 'start', gap: '$10' }} inline>
                 <ThemeIcon variant="gradient" size="xl">
