@@ -31,7 +31,7 @@
       ]}
     >
       {#each features as { description, icon, title }, i}
-        <div in:fly="{{ y: 200, duration: (i + 1) * 500 }}">
+        <div in:fly="{{ y: 200, duration: (i + 1) * 500 }}" style="height: 100%">
           <Paper shadow="xl">
             <Stack>
               <Center override={{ jc: 'start', gap: '$10' }} inline>
