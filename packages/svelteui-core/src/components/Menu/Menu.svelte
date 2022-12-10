@@ -45,6 +45,8 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
+  const dispatch = createEventDispatcher();
+
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {
 		handleOpen();
@@ -55,8 +57,6 @@
 	export function toggle() {
 		toggleMenu();
 	}
-
-	const dispatch = createEventDispatcher();
 
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
@@ -69,7 +69,7 @@
 		callback: () => _opened && handleClose()
 	};
 	const uuid: string = useHash(menuId);
-	const forwardEvents = createEventForwarder(get_current_component());
+	const forwardEvents = createEventForwarder(get_current_component(), ['open', 'close']);
 	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
 	// can be turned into an action
