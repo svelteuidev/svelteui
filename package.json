@@ -49,7 +49,7 @@
     "release": "yarn pub && sh scripts/git/discard.sh",
     "script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
     "script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
-    "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges",
+    "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges -p -d",
     "sync:repo": "sh scripts/git/sync-branches.sh",
     "test": "turbo run test --parallel",
     "watch": "turbo run watch --parallel"
