@@ -29,7 +29,7 @@ docs: 'core/card.md'
 - If it is the last child in Card, then it has negative bottom, left and right margins
 - If it is in the middle, then only left and right margins will be negative
 
-Note that due to certain limitations of svelte, this is not automatic behavior. Because of this, `first` and `last` props are exported to declare positioning.
+Note that due to certain limitations of Svelte, this is not automatic behavior. Because of this, `first` and `last` props are exported to declare positioning.
 
 This may change in the future, as the Group component used to export a `children` prop. However, the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
 

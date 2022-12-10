@@ -19,13 +19,13 @@ docs: 'core/loader.md'
 
 ## Usage
 
-By default, loader will be rendered with the SvelteUI blue color. You can choose any color defined in the theme or extend your [own theme](theming/create-styles):
+By default, Loader will be rendered with the SvelteUI blue color. You can choose any color defined in the theme or extend your [own theme](theming/create-styles):
 
 <Demo demo={LoaderDemos.usage} />
 
 ## Configure default loader
 
-You can configure default loader to be one of it's three variants, `circle`, `dots` and `bars`:
+You can configure default Loader to be one of it's three variants, `circle`, `dots` and `bars`:
 
 <Demo demo={LoaderDemos.variants} />
 
@@ -37,6 +37,6 @@ Loader supports all colors from [theme.colors](theming/default-theme):
 
 ## Size
 
-Size controls loader height or width (depends on loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
+The prop `size` controls Loader height or width (depends on Loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
 
 <Demo demo={LoaderDemos.size} />

@@ -24,6 +24,6 @@ docs: 'core/center.md'
 
 ## Inline
 
-To use center with inline elements set `inline` prop. For example, you can center link icon and label:
+To use Center with inline elements, set `inline` prop. For example, you can center link icon and label:
 
 <Demo demo={CenterDemos.inline} />

@@ -36,7 +36,7 @@ In previous examples colors from `theme.colors` were used, but any other CSS col
 
 ## Tweened values
 
-In case you want smoother transitions between values, you can tween them with the tween prop. You can also configure the options that are passed with the `tweenOptions` prop.
+In case you want smoother transitions between values, you can tween them with the `tween` prop. You can also configure the options that are passed with the `tweenOptions` prop.
 
 <Demo demo={ProgressDemos.tween} />
 
@@ -53,7 +53,7 @@ Alternatively, you can use a number to set height in px:
 ## Radius
 
 Radius controls border-radius of body and filled part.
-xs, sm, md, lg, xl radius values are defined in [theme.radius](/theming/extend-theme/#spacing-radius-and-shadows).
+`xs`, `sm`, `md`, `lg`, `xl` radius values are defined in [theme.radius](/theming/extend-theme/#spacing-radius-and-shadows).
 Alternatively, you can use a number to set radius in px:
 
 ```tsx
