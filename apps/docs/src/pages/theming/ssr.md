@@ -57,7 +57,7 @@ In your top level `+layout.svelte` file, wrap your app in the SvelteUIProvider c
 
 ## 2.
 
-Once you've wrapped your application in the provider, all you need to do is add the `ssr` prop to it and boom. The `ssr` prop will give you all the CSS you need to server-side render your styles:
+Once you've wrapped your application in the provider, all you need to do is add the `ssr` prop to it and boom! The `ssr` prop will give you all the CSS you need to server-side render your styles:
 
 ```svelte
 <script>

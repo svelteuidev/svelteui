@@ -74,13 +74,13 @@ In most cases you should not turn these features off as it will make your modal 
 
 <!-- - `trapFocus` – defines whether focus should be trapped inside modal -->
 
-- `closeOnEscape` – defines whether modal should be closed when user presses `Escape` key
-- `closeOnClickOutside` – defines whether modal should be closed when user clicks outside of modal body
+- `closeOnEscape` – defines whether Modal should be closed when user presses `Escape` key
+- `closeOnClickOutside` – defines whether Modal should be closed when user clicks outside of modal body
 
 ## Accessibility and usability
 
-- When modal is opened, focus is trapped inside and vertical scroll is locked at current position
-- When user clicks on overlay or presses escape, modal closes
+- When Modal is opened, focus is trapped inside and vertical scroll is locked at current position
+- When user clicks on overlay or presses escape, Modal closes
 - Modal transitions are disabled if user prefers to reduce motion
 - Modal wrapper has `aria-modal="true"` and `role="dialog"` attributes
 - Modal wrapper has `aria-labelledby` and `aria-describedby` pointing to modal title and body

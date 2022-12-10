@@ -30,7 +30,7 @@ With the `use-long-press` action, a `long press` event is created when `mousedow
 
 ## Events
 
-The use-longpress action dispatches one custom event. The custom event takes a callback function just like other events.
+The `use-longpress` action dispatches one custom event. The custom event takes a callback function just like other events.
 
 ```ts
 on:uselongpress?: (callback: (any) => unknown) => void;

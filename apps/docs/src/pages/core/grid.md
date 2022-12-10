@@ -32,13 +32,13 @@ Customize spacing between columns with `spacing` prop on the Grid component. Use
 
 ## Grow
 
-Set `grow` prop on the Grid component to force the last row take 100% of the container width:
+Set `grow` prop on the Grid component to force the last row to take 100% of the container width:
 
 <Demo demo={GridDemos.grow} />
 
 ## Column offset
 
-Set the `offset` prop on the `Grid.Col` component to create gaps in the grid. Props `offset` adds a left margin to the target column and has the same units as `span`:
+Set the `offset` prop on the `Grid.Col` component to create gaps in the grid. The `offset` prop adds a left margin to the target column and has the same units as `span`:
 
 <Demo demo={GridDemos.offset} />
 
@@ -50,7 +50,7 @@ Once the sum of the columns `span` and `offset` exceeds the `columns` prop (defa
 
 ## Justify and align
 
-Since grid is a flexbox container, you can control `justify-content` and `align-items` properties:
+Since Grid is a flexbox container, you can control `justify-content` and `align-items` properties:
 
 <Demo demo={GridDemos.justify} />
 

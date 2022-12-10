@@ -18,7 +18,7 @@ source: 'svelteui-composables/src/actions/use-io/use-io.ts'
 
 ## Usage
 
-With the Intersection Observer API, use-intersection gets information about the intersection of a given element with its scroll container or body element:
+With the Intersection Observer API, `use-intersection` gets information about the intersection of a given element with its scroll container or body element:
 
 <Demo demo={ComposableDemos.useIoDemo.usage} />
 
@@ -33,7 +33,7 @@ With the Intersection Observer API, use-intersection gets information about the 
 
 ## Events
 
-The use-clipboard action dispatches custom events. Each custom event takes a callback function just like other events.
+The `use-clipboard` action dispatches custom events. Each custom event takes a callback function just like other events.
 
 ```ts
 on:useclipboard?: (callback: (any) => unknown) => void;

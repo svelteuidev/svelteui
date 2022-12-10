@@ -35,7 +35,7 @@ Install with yarn:
 
 ## Usage
 
-Use Prism component to highlight code with SvelteUI theme styles. Component uses PrismJS under the hood and support light and dark theme, it is used in SvelteUI docs to display all code examples.
+Use Prism component to highlight code with SvelteUI theme styles. Component uses PrismJS under the hood and supports light and dark theme. It is used in SvelteUI docs to display all code examples.
 
 <Demo demo={PrismDemos.usage} />
 

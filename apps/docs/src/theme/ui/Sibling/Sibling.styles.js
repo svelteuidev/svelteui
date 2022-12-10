@@ -31,7 +31,9 @@ export default createStyles((theme, _params, getRef) => {
 		},
 
 		body: {
-			ref: getRef('body')
+			ref: getRef('body'),
+      marginRight: `${_params.type === "next" ? theme.space.mdPX.value : "0px"} !important`,
+      marginLeft: `${_params.type === "prev" ? theme.space.mdPX.value : "0px"} !important`
 		}
 	};
 });

@@ -7,7 +7,7 @@ title: 'Installation'
 	import { STARTGUIDE_DATA as guideData, ID } from '../components/mainpages/GettingStarted/Guides/data'
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
-    
+
 	let packages = ["@svelteuidev/core", "@svelteuidev/composables"];
     let value = 'kit'
 	$: sanitizedPKG = packages || ["@svelteuidev/core", "@svelteuidev/composables"].join(' ')
@@ -19,7 +19,7 @@ title: 'Installation'
 
 <MinorHeading />
 
-## Initialize a new Svelte or SvelteKit project.
+## Initialize a new Svelte or SvelteKit project
 **or add to an existing project**
 
 <StartGuide setId={(val) => value = val} />
@@ -48,9 +48,9 @@ title: 'Installation'
 
 <NextSteps />
 
-<BottomNav 
-	both 
-	slug={{ prev: 'introduction', next: 'basics' }} 
-	title={{ prev: 'Introduction', next: 'Learn the basics' }} 
-	group={{ prev: 'Getting Started', next: 'Getting Started' }} 
+<BottomNav
+	both
+	slug={{ prev: 'introduction', next: 'basics' }}
+	title={{ prev: 'Introduction', next: 'Learn the basics' }}
+	group={{ prev: 'Getting Started', next: 'Getting Started' }}
 />

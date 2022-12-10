@@ -23,8 +23,8 @@ Container is the most basic layout element. It centers content horizontally and 
 The component accepts these props:
 
 - **size** - controls default max width
-- **padding** - controls horizontal padding of container, use `xs`, `sm`, `md`, `lg`, `xl` for value defined in theme.spacing or number to set horizontal padding in px
-- **fluid** - overwrites size prop and sets max width to 100%
+- **padding** - controls horizontal padding of container, use `xs`, `sm`, `md`, `lg`, `xl` for value defined in `theme.spacing` or number to set horizontal padding in px
+- **fluid** - overwrites `size` prop and sets max-width to 100%
 
 <Demo demo={ContainerDemos.usage} />
 

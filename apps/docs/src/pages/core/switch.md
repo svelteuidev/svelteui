@@ -48,7 +48,7 @@ docs: 'core/switch.md'
 
 ## Usage
 
-Switch component is used to enable/disable something, normally used for boolean values or for binary actions. The component dispatches an on:change event, and supports a checked prop for programmatically setting the checked state.
+Switch component is used to enable/disable something, normally used for boolean values or for binary actions. The component dispatches an `on:change` event, and supports a `checked` prop for programmatically setting the checked state.
 
 <Demo demo={SwitchDemos.configurator} />
 
