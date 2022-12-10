@@ -107,7 +107,7 @@ All packages' Yarn scripts are located at [main package.json](https://github.com
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be run from the root of the monorepo.
 
 - `dev:docs` - runs the development environment for the docs
-- `storybook` - runs Storybook for all the packages that contain stories
+- `dev` - runs Storybook for all the packages that contain stories
 - `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder
 - `lint` - runs eslint on packages folder (run format before running lint)

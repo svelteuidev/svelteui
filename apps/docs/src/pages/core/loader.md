@@ -37,6 +37,6 @@ Loader supports all colors from [theme.colors](theming/default-theme):
 
 ## Size
 
-`size` controls Loader height or width (depends on Loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
+The prop `size` controls Loader height or width (depends on Loader variant). Loader has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set width or height in px:
 
 <Demo demo={LoaderDemos.size} />

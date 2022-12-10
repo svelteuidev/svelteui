@@ -34,7 +34,7 @@ MediaQuery component adds styles to child element if the given media query match
 ## MediaQuery children
 
 <Alert icon={InfoCircled}  title="Important" color="blue" >
-   MediaQuery only works with a single child element or component that renders an element. Strings, numbers, fragments and other parts will not have correct styles:
+   MediaQuery only works with a single child element or component that renders an element. Strings, numbers, fragments and other parts will not have correct styles.
 </Alert>
 
 ```tsx

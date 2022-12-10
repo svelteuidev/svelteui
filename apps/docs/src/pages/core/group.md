@@ -26,7 +26,7 @@ docs: 'core/group.md'
 ## Group children
 
 <Alert icon={InfoCircled}  title="Important" color="blue">
-   Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles:
+   Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles.
 </Alert>
 
 ```svelte

@@ -22,7 +22,7 @@ docs: 'core/input-wrapper.md'
 ## Disclaimer
 
 <Alert icon={InfoCircled}  title="Important" color="blue" >
-   Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs:
+   Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs.
 </Alert>
 
 ```svelte
