@@ -19,8 +19,8 @@ docs: 'core/overlay.md'
 
 ## Usage
 
-Overlay had absolute position and will take 100% of width and height of parent container.
-It is used to build components like [Modal (not yet implemented)](/core/modal/) and [LoadingOverlay (not yet implemented)](/core/loading-overlay/).
+Overlay has absolute position and will take 100% of width and height of parent container.
+It is used to build components like [Modal](core/modal/) and LoadingOverlay (not yet implemented).
 
 You can change overlay opacity (from 0 to 1), color (CSS color value, not connected to SvelteUI theme) and z-index (number).
 

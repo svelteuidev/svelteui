@@ -19,7 +19,7 @@ docs: 'core/typography-provider.md'
 
 ## Usage
 
-To add SvelteUI typography styles to your html content, wrap it in the provider:
+To add SvelteUI typography styles to your HTML content, wrap it in the provider:
 
 <Demo demo={TypographyProviderDemos.usage} />
 

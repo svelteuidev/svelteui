@@ -18,7 +18,7 @@ source: 'svelteui-composables/src/actions/use-clipboard/use-clipboard.ts'
 
 ## Usage
 
-With the use-clipboard action, text passed into the text param will be copied to the users clipboard.
+With the `use-clipboard` action, text passed into the text param will be copied to the users clipboard.
 
 <Demo demo={ComposableDemos.useClipboardDemo.usage} />
 

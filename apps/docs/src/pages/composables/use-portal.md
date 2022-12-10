@@ -18,11 +18,11 @@ source: 'svelteui-composables/src/actions/use-portal/use-portal.ts'
 
 ## Usage
 
-Render any component or element at the end of document.body or at given element. Modal and Drawer components use portal by default. Use the `portal` action to render a component or element outside of it's parent. The portal action takes one argument (target):
+Render any component or element at the end of `document.body` or at given element. Modal and Drawer components use Portal by default. Use the `portal` action to render a component or element outside of it's parent. The portal action takes one argument (target):
 
 <Demo demo={ComposableDemos.usePortalDemo.usage} />
 
-You can specify a dom node where portal will be rendered by passing target argument. If you don't specify the target, it will be appended to the document.body for each action instance. Target can be a HTMLElement <code>{'use:portal={document.body}'}</code> or a css selector <code>{'use:portal={"#svelteui"}'}</code> that points to an already existing element.
+You can specify a DOM node where portal will be rendered by passing target argument. If you don't specify the target, it will be appended to the `document.body` for each action instance. Target can be a HTMLElement <code>{'use:portal={document.body}'}</code> or a CSS selector <code>{'use:portal={"#svelteui"}'}</code> that points to an already existing element.
 
 ## Params
 

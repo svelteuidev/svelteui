@@ -53,7 +53,7 @@ SvelteUI dates uses the [dayjs](https://day.js.org/) library for localization. F
 // Import German language
 ```
 
-You then can override the locale on a per component basis:
+You can then override the locale on a per component basis:
 
 ```svelte
 <script>
@@ -66,7 +66,7 @@ You then can override the locale on a per component basis:
 
 ## Components
 
-[Calendar](/dates/calendar/) **[coming soon]**
+Calendar **[coming soon]**
 
 [Month](/dates/month/)
 
@@ -74,7 +74,7 @@ You then can override the locale on a per component basis:
 
 ## Utility functions
 
-Apart from components @svelteuidev/dates package also exports several utility functions.
+Apart from components `@svelteuidev/dates` package also exports several utility functions.
 
 **get-month-days**
 
@@ -136,7 +136,7 @@ getYearsRange({ from: 2020, to: 2025 });
 
 **is-same-date**
 
-Returns true if two dates have the same year, month and date, other properties (minutes, seconds, etc.) are ignored:
+Returns true if two dates have the same year, month and date. Other properties (such as minutes, seconds, etc.) are ignored:
 
 ```svelte
 <script>
@@ -149,7 +149,7 @@ isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> false
 
 **is-same-month**
 
-Returns true if two dates have the same year and month, other properties (date, minutes, seconds, etc.) are ignored:
+Returns true if two dates have the same year and month. Other properties (such as date, minutes, seconds, etc.) are ignored:
 
 ```svelte
 <script>

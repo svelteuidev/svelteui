@@ -41,7 +41,7 @@ Just like with regular inputs you may bind to the value for two way data binding
 
 ## Right section
 
-You can replace icon in right section with `rightSection` named slot. Note that in this case `clearable` option will not work and will need to handle it yourself:
+You can replace the icon in the right section with `rightSection` named slot. Note that in this case `clearable` option will not work and you will need to handle it yourself:
 
 <Demo demo={NativeSelectDemos.section} />
 

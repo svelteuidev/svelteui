@@ -23,10 +23,10 @@ This may come as a surprise, but Tailwind integrates with SvelteUI pretty well. 
     import { Button } from "@svelteui/dev";
 </script>
 
-<Button class='animation-bounce'>I have a tailwind animation<Button>
+<Button class='animation-bounce'>I have a Tailwind animation<Button>
 ```
 
-If you want to have your tailwind classes override SvelteUI styles then a simple way to achieve that is altering your tailwind config to generate utilities as !important, by setting the important key in your configuration options to true:
+If you want to have your Tailwind classes override SvelteUI styles then a simple way to achieve that is altering your Tailwind config to generate utilities as "!important", by setting the `important` key in your configuration options to true:
 
 ```js
 module.exports = {
@@ -34,18 +34,18 @@ module.exports = {
 	theme: {
 		extend: {}
 	},
-	important: true, // <-- adding this line will give your tailwind classes !important by default
+	important: true, // <-- adding this line will give your Tailwind classes !important by default
 	plugins: []
 };
 ```
 
-Alternatively, you can make any utility important by adding a ! character to the beginning:
+Alternatively, you can make any utility important by adding a `!` character to the beginning:
 
 ```html
 <p class="font-bold !font-medium">This will be medium even though bold comes later in the CSS.</p>
 ```
 
-The ! always goes at the beginning of the utility name, after any variants, but before any prefix:
+The `!` always goes at the beginning of the utility name, after any variants, but before any prefix:
 
 ```html
 <div class="sm:hover:!tw-font-bold"></div>
@@ -57,6 +57,6 @@ This allows you to increase specificity over the styles you don’t control. You
 
 ## Can I use other css-in-js libraries or SCSS/SASS with SvelteUI?
 
-Yes, but keep in mind that SvelteUI already uses [stitches](https://stitches.dev), so you might end up with style conflicts and have to overwrite styles with! important. Before selecting other libraries, please consider using SvelteUI's [builtin solution](theming/create-styles).
+Yes, but keep in mind that SvelteUI already uses [Stitches](https://stitches.dev), so you might end up with style conflicts and have to overwrite styles with !important. Before selecting other libraries, please consider using SvelteUI's [built-in solution](theming/create-styles).
 
 <BottomNav type='prev' slug='contributing' title='Contributing' group='Getting Started' />

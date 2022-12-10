@@ -49,7 +49,7 @@ Tooltip arrow is controlled by:
 
 ## Controlled
 
-By default, tooltip is displayed when mouse is over the target element. To change this logic set the `opened` prop:
+By default, Tooltip is displayed when the mouse is over the target element. To change this logic set the `opened` prop:
 
 <Demo demo={TooltipDemos.controlled} />
 
@@ -74,7 +74,7 @@ You can delay the tooltip open and close events by setting the props `openDelay`
 
 By default, pointer events on tooltip are disabled to prevent animations collisions. To use interactive elements inside tooltip set `allowPointerEvents` prop.
 
-In this example tooltip acts more like a `popover` – it is controlled and can be closed with control inside tooltip:
+In this example tooltip acts more like a popover – it is controlled and can be closed with control inside tooltip:
 
 <Demo demo={TooltipDemos.pointer} />
 

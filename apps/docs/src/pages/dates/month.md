@@ -18,14 +18,14 @@ source: 'svelteui-dates/src/components/Month/Month.svelte'
 
 ## Usage
 
-Month is the most basic @svelteuidev/dates component, it displays a single month without any controls to change current month. This component is used as base for [Calendar](/calendar)(coming soon), [DatePicker](/date-picker)(coming soon) and other components. You can use Month to build custom date or date range pickers that are not included in @svelteuidev/dates, but in most cases other components will be more suitable in your application.
+Month is the most basic `@svelteuidev/dates` component, it displays a single month without any controls to change current month. This component is used as base for Calendar (coming soon), DatePicker (coming soon) and other components. You can use Month to build custom date or date range pickers that are not included in `@svelteuidev/dates`, but in most cases other components will be more suitable in your application.
 
 <Demo demo={MonthDemos.usage} />
 
 ## Localization
 
-All @svelteuidev/dates components are built with [dayjs](https://day.js.org/) library.
-Default locale is `en`, to change this follow [dayjs localization guide](https://day.js.org/docs/en/i18n/loading-into-nodejs):
+All `@svelteuidev/dates` components are built with [dayjs](https://day.js.org/) library.
+The default locale is `en`, and to change this, follow the [dayjs localization guide](https://day.js.org/docs/en/i18n/loading-into-nodejs):
 
 ```ts
 // First import locale data
@@ -70,6 +70,6 @@ To exclude dates set `excludeDate` prop with function that receives date as an a
 
 ## Hide weekdays names
 
-To hide weekdays names row set `hideWeekdays` prop:
+To hide weekdays names row, set `hideWeekdays` prop:
 
 <Demo demo={MonthDemos.weekdays} />

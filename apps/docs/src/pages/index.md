@@ -13,7 +13,7 @@ index: true
 		HomePageExample,
 		Preview,
 		HomePageExampleCode,
-		Banner 
+		Banner
 	} from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {
@@ -94,7 +94,7 @@ index: true
 		<Title override={title} weight="extrabold" tracking="tight" align="center">
 			Less Code. Elegant Solutions.
 		</Title>
-		<Text size="xl" align="center" root="p">
+		<Text size="xl" align="center" root="p" override={{ lineHeight: "$md"}}>
 			Spend less time writing UI code and more time building a great experience.
 			<br />
 			Don't like what you see? Customize every component anyway you like!

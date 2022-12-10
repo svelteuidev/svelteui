@@ -19,12 +19,12 @@ docs: 'core/popper.md'
 
 ## Usage
 
-Popper is a utility component used under the hood in `Menu`(not implement yet), `Popover` (not implement yet) and [Tooltip](core/tooltip). You can use it to create your own dropdowns and popovers.
+Popper is a utility component used under the hood in [Menu](core/menu), Popover (not implemented yet) and [Tooltip](core/tooltip). You can use it to create your own dropdowns and popovers.
 
 To use Popper, add the following required props:
 
-- `reference` - element (HTML element) based on which popper will be positioned
-- `mounted` - current popper opened state: `true` to display, `false` to hide
+- `reference` - element (HTML element) based on which Popper will be positioned
+- `mounted` - current Popper opened state: `true` to display, `false` to hide
 
 ```svelte
 <script>
@@ -45,8 +45,8 @@ Popper position is controlled by these props:
 
 - `position` - left, right, bottom or top
 - `placement` - start, right or center
-- `gutter` - spacing between the reference element and the popper dropdown, in px
-- `withArrow` - displays an arrow between the reference element and the popper dropdown, takes into consideration the `position` and `placement`
+- `gutter` - spacing between the reference element and the Popper dropdown, in px
+- `withArrow` - displays an arrow between the reference element and the Popper dropdown, takes into consideration the `position` and `placement`
 - `arrowSize` - the arrow size in px
 
 <Demo demo={PopperDemos.configurator} />

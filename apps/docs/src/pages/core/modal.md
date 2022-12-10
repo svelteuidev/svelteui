@@ -57,13 +57,13 @@ Size controls modal width, max-width is set to 100% with spacing on left and rig
 
 ## Customize overlay
 
-Modal uses [Overlay](/core/overlay/) component, you can change overlay opacity, blur and color:
+Modal uses [Overlay](/core/overlay/) component, so you can change overlay opacity, blur and color:
 
 <Demo demo={ModalDemos.overlay} />
 
 ## Modal with overflow
 
-You can control modal vertical overflow behavior by setting `overflow` prop:
+You can control Modal vertical overflow behavior by setting `overflow` prop:
 
 <Demo demo={ModalDemos.overflow} />
 
@@ -74,13 +74,13 @@ In most cases you should not turn these features off as it will make your modal 
 
 <!-- - `trapFocus` – defines whether focus should be trapped inside modal -->
 
-- `closeOnEscape` – defines whether modal should be closed when user presses `Escape` key
-- `closeOnClickOutside` – defines whether modal should be closed when user clicks outside of modal body
+- `closeOnEscape` – defines whether Modal should be closed when user presses `Escape` key
+- `closeOnClickOutside` – defines whether Modal should be closed when user clicks outside of modal body
 
 ## Accessibility and usability
 
-- When modal is opened, focus is trapped inside and vertical scroll is locked at current position
-- When user clicks on overlay or presses escape modal closes
+- When Modal is opened, focus is trapped inside and vertical scroll is locked at current position
+- When user clicks on overlay or presses escape, Modal closes
 - Modal transitions are disabled if user prefers to reduce motion
 - Modal wrapper has `aria-modal="true"` and `role="dialog"` attributes
 - Modal wrapper has `aria-labelledby` and `aria-describedby` pointing to modal title and body

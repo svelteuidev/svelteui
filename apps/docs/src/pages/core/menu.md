@@ -40,7 +40,7 @@ docs: 'core/menu.md'
 
 ## Show menu on hover
 
-To show meny on hover set the following props:
+To show menu on hover set the following props:
 - `trigger` to `hover`
 - `delay` to number in ms (defaults to 0)
 
@@ -54,7 +54,7 @@ In this case, menu will use `mouseenter` and `focus` events instead of `click`:
 
 - `icon` – icon on the left
 - `disabled` – disables item
-- `...others` – Menu.Item produces a button element, all other props will be spread to it
+- `...others` – `Menu.Item` produces a button element, all other props will be spread to it
 
 The right section of `Menu.Item` can be customized with the slot `rightSection`.
 
@@ -103,13 +103,13 @@ Menu supports the same transition as [Popper](core/popper). You can customize tr
 
 ## Size and shadow
 
-You can use predefined shadows defined in [theme shadows](theming/default-theme#shadows) or your own:
+You can use predefined shadows defined in [theme.shadows](theming/default-theme#shadows) or your own:
 
 <Demo demo={MenuDemos.size} />
 
 ## Custom component as Menu.Item
 
-By default, menu items render as button, to change that set `root` prop on `Menu.Item` component:
+By default,`Menu.Item` renders as buttons. To change that, set `root` prop on `Menu.Item` component:
 
 ```svelte
 // Regular anchor as Menu.Item root element
@@ -129,7 +129,7 @@ You can change styles of any element in the button component with the `override`
 
 ## Control menu state externally
 
-It is possible to control the state of the menu outside the component.
+It is possible to control the state of the Menu outside the component.
 
 ```svelte
 <script>
@@ -148,11 +148,11 @@ To make Menu more accessible for users with screen readers it is require to set 
 
 Menu behavior and properties:
 
-- When menu is opened, focus is trapped inside
-- When menu is closed, focus is moved back to menu control
-- Focus inside menu is controlled with up and down arrows, tab key has no effect
-- By default, when menu item is clicked, menu closes, change it with closeOnItemClick prop
+- When Menu is opened, focus is trapped inside
+- When Menu is closed, focus is moved back to Menu control
+- Focus inside Menu is controlled with up and down arrows, tab key has no effect
+- By default, when Menu.Item is clicked, Menu closes, change it with `closeOnItemClick` prop
 - Menu is closed when user clicks outside or presses escape
 - Menu control has `aria-haspopup`, `aria-expanded`, `aria-controls` and `aria-label` attributes. `aria-label` is defined by the `menuButtonLabel` prop
-- Menu body has `menu` role, aria`-orientation` is always set to vertical
+- Menu body has `menu` role, aria `-orientation` is always set to vertical
 - Menu item has `menuitem` role

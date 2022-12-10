@@ -13,7 +13,7 @@ title: Learn the basics
 
 <MinorHeading />
 
-This guide will help you get familiar with core SvelteUI concepts. Please read this guide and the **theming** section before starting development to learn about all available theming features and component behaviors.
+This guide will help you get familiar with core SvelteUI concepts. Please read this guide and the [theming](theming/svelteui-provider) section before starting development to learn about all available theming features and component behaviors.
 
 ## SvelteUI packages
 
@@ -40,7 +40,7 @@ To learn how to dynamically change the theme by reading the [dark theme guide](t
 
 ## Server side rendering
 
-SvelteUI components work in SvelteKit environments without any configuration needed. However, they aren't ssr compatible by default. To setup ssr follow the server side rendering guide below, It's really easy to set up!
+SvelteUI components work in SvelteKit environments without any configuration needed. However, they aren't SSR compatible by default. To setup SSR, follow the server side rendering guide below. It's really easy to set up!
 
 - [Server side rendering with SvelteKit](theming/ssr)
 
@@ -48,7 +48,7 @@ SvelteUI components work in SvelteKit environments without any configuration nee
 
 ### Exported types
 
-@svelteuidev/core package export all types to help you build components and styles with TypeScript, some notable ones are:
+`@svelteuidev/core` package export all types to help you build components and styles with TypeScript. Some notable ones are:
 
 - `ColorScheme` – union of `'light' | 'dark'`.
 - `SvelteUIColor` – union of all default colors.
@@ -109,11 +109,11 @@ Under normal circumstances you wouldn't be able to use actions on components bec
 </Button>
 ```
 
-`use` takes an array of `[action]` or `[action, options]` array's (so nested arrays). These actions will be applied to the underlying element that the component eventually renders.
+`use` takes an array of `[action]` or `[action, options]` arrays (so nested arrays). These actions will be applied to the underlying element that the component eventually renders.
 
 ## Bindings
 
-All components support binding their top-level element via the element prop instead of `this`. This allows you to get a reference to a DOM node (as a supplement to `bind:this`):
+All components support binding their top-level element via the `element` prop instead of `this`. This allows you to get a reference to a DOM node (as a supplement to `bind:this`):
 
 ```svelte
 <script lang="ts">
@@ -139,7 +139,7 @@ All components support a class prop which is useful for things like global styli
     import { Button } from "@svelteuidev/core";
 </script>
 
-<Button class='animation-bounce'>I have a tailwind animation<Button>
+<Button class='animation-bounce'>I have a tailwind animation</Button>
 ```
 
 <BottomNav both slug={{ prev: 'installation', next: 'contributing' }} title={{ prev: 'Installation', next: 'Contributing' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />
