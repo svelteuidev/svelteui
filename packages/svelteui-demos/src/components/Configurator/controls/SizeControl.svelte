@@ -12,20 +12,27 @@
 		{ value: 100, label: 'xl' }
 	];
 
+  const values = [
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl"
+  ]
+
 	const dispatch = createEventDispatcher();
 
 	export let value: string;
 	export let label: DemoControlSize['label'];
 
-	$: _value = MARKS.find((mark) => mark.label === value).value;
+	$: _value = MARKS.find((mark) => mark.label === value).label;
 
 	function onChange(e) {
-		const value: number = e.currentTarget.value * 1;
-		dispatch('change', MARKS.find((mark) => mark.value === value).label);
+		dispatch('change', e.currentTarget.value);
 	}
 </script>
 
-<NativeSelect value={_value} {label} data={MARKS} on:change={onChange} />
+<NativeSelect value={_value} {label} data={values} on:change={onChange} />
 
 <!--
   TODO: this is how we probably will use Slider component here when it will be implemented
