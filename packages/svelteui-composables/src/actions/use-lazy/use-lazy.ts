@@ -30,7 +30,7 @@ function observer() {
  * @see https://svelteui.org/actions/use-lazy
  */
 export function lazy(node: HTMLElement, attributes: Record<string, number | string>): ReturnType<Action> {
-    nodeAttributesMap.set(node, attributes);
+  nodeAttributesMap.set(node, attributes);
 
 	observer().observe(node);
 

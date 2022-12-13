@@ -8,6 +8,7 @@ export * as useIoDemo from './use-io';
 export * as useLazyDemo from './use-lazy';
 export * as useLockScrollDemo from './use-lock-scroll';
 export * as useLongPressDemo from './use-long-press';
+export * as useMoveDemo from './use-move';
 export * as usePageLeaveDemo from './use-page-leave';
 export * as usePersistentTabDemo from './use-persistent-tab';
 export * as usePortalDemo from './use-portal';

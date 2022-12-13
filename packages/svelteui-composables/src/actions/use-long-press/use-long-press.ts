@@ -36,10 +36,10 @@ export function longpress(node: HTMLElement, duration: number): ReturnType<Actio
 		},
 		destroy() {
 			handleRelease();
-			node.removeEventListener('mousedown', handlePress);
-			node.removeEventListener('mouseup', handleRelease);
+			node.removeEventListener('touchend', handleRelease);
 			node.removeEventListener('touchstart', handlePress);
-			node.removeEventListener('touchstart', handleRelease);
+			node.removeEventListener('mouseup', handleRelease);
+			node.removeEventListener('mousedown', handlePress);
 		}
 	};
 }

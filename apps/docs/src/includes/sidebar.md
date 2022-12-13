@@ -127,6 +127,7 @@
   - [use-lazy](composables/use-lazy)
   - [use-lock-scroll](composables/use-lock-scroll)
   - [use-long-press](composables/use-long-press)
+  - [use-move](composables/use-move)
   - [use-persistent-tab](composables/use-persistent-tab)
   - [use-portal](composables/use-portal)
   - [use-page-leave](composables/use-page-leave)
