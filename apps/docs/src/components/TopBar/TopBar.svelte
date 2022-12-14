@@ -1,12 +1,40 @@
 <script lang="ts">
-	import { ActionIcon, Tooltip, Menu, Divider, colorScheme } from '@svelteuidev/core';
-	import { Sun, Moon } from 'radix-icons-svelte';
+	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper } from '@svelteuidev/core';
+	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { mobile } from 'components';
-	import { config } from './data';
+	import { config, searchLinks } from './data';
+	import { onMount } from 'svelte';
+  import { hotkey } from '@svelteuidev/composables';
+
+	let recentSearches,
+		searchTerm = '',
+		matchingSearches = [],
+		modalOpened = false;
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
 	}
+
+  function changeModalState() {
+		modalOpened = !modalOpened;
+    searchTerm = ""
+	}
+
+	onMount(() => recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []);
+
+	function onSearchValueInput() {
+    matchingSearches = searchLinks.filter((item) => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  }
+
+  function addSearch(matchingSearch) {
+    changeModalState()
+    let existingSearches = JSON.parse(localStorage.getItem("recentSearches")) || []
+    let elementExists = existingSearches.some(item => item.title === matchingSearch.title)
+    if (!elementExists) existingSearches.unshift(matchingSearch)
+    if (existingSearches.length > 6) existingSearches.pop()
+    recentSearches = existingSearches
+    localStorage.setItem("recentSearches", JSON.stringify(existingSearches))
+  }
 
 	// @ts-nocheck
 </script>
@@ -30,12 +58,18 @@
 				{/if}
 			</ActionIcon>
 		</Menu.Item>
+    <Menu.Item>
+      <ActionIcon variant="default" on:click={changeModalState} size={30}>
+        <MagnifyingGlass />
+      </ActionIcon>
+    </Menu.Item>
 	</Menu>
 {:else}
 	<div
 		style={`padding-right: ${$mobile ? '0rem' : '0.75rem'}; padding-top: ${
 			$mobile ? '0rem' : '0.75rem'
 		}`}
+    use:hotkey={[['mod+k', () => changeModalState()]]}
 	>
 		<ul>
 			{#each config.buttons as { title, props, icon }}
@@ -58,6 +92,58 @@
 					</ActionIcon>
 				</Tooltip>
 			</li>
+			<li>
+				<Tooltip withArrow label={`Search (⌘/Ctrl + K)`}>
+					<ActionIcon size="lg" color="dark" variant="outline" radius="md" on:click={changeModalState}>
+						<MagnifyingGlass size={20} />
+					</ActionIcon>
+				</Tooltip>
+			</li>
 		</ul>
 	</div>
 {/if}
+
+<Modal opened={modalOpened} on:close={changeModalState} title="SvelteUI Docs" overflow="inside">
+	<TextInput
+		placeholder="Search..."
+		bind:value={searchTerm}
+		on:input={onSearchValueInput}
+    autocomplete="off"
+	>
+		<svelte:fragment slot="rightSection">
+			<MagnifyingGlass color="#228be6" size={20} />
+		</svelte:fragment>
+	</TextInput>
+	{#if searchTerm.length === 0}
+    {#if recentSearches.length > 0}
+      <p style="font-size: 0.9rem; margin-top: 0.8rem">Recent searches: </p>
+      {#each recentSearches as recentSearch}
+        <a href={recentSearch.link} style={`text-decoration: none`} on:click={() => addSearch(recentSearch)}>
+          <Paper class="searchTerm" withBorder>
+            <p style="margin: 0; font-size: 1rem">{recentSearch.title}</p>
+            {#if recentSearch.section}
+              <p style="font-size: 0.8rem; margin: 0">{recentSearch.section}</p>
+            {/if}
+          </Paper>
+        </a>
+      {/each}
+    {:else}
+      <p style={`display: flex; justify-content: center; font-size: 0.9rem`}>No recent searches</p>
+    {/if}
+  {:else}
+    {#if matchingSearches.length > 0}
+      {#each matchingSearches as matchingSearch}
+        <a href={matchingSearch.link} style={`text-decoration: none`} on:click={() => addSearch(matchingSearch)}>
+          <Paper class="searchTerm" withBorder>
+            <p style="margin: 0; font-size: 1rem">{matchingSearch.title}</p>
+            {#if matchingSearch.section}
+              <p style="font-size: 0.8rem; margin: 0">{matchingSearch.section}</p>
+            {/if}
+          </Paper>
+        </a>
+      {/each}
+    {:else}
+      <p style={`display: flex; justify-content: center; font-size: 0.9rem`}>No matches</p>
+    {/if}
+  {/if}
+</Modal>

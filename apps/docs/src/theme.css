@@ -28,6 +28,18 @@
 	padding-bottom: 5rem !important;
 }
 
+.searchTerm {
+  padding: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
+}
+.searchTerm:hover {
+  background-color: var(--search-item) !important;
+  border: 1px solid var(--search-item) !important;
+}
+
 /* ---------------------------Media Query's below----------------------------------- */
 
 @media (max-width: 800px) {
