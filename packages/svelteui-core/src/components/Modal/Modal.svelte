@@ -7,7 +7,7 @@
 	import { OptionalPortal } from '../Portal';
 	import { Box } from '../Box';
 	import { randomID, colorScheme, css } from '$lib/styles';
-	import { lockscroll } from '@svelteuidev/composables';
+	import { focustrap, lockscroll } from '@svelteuidev/composables';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
@@ -71,7 +71,8 @@
 			}
 		});
 	}
-	$: if (opened && !document.getElementById('SVELTEUI_PROVIDER')) {
+
+	$: if (opened && ((typeof target === 'string' && !document.querySelector(target)) || !target)) {
 		throw new Error(
 			'Wrap your app in the SvelteUIProvider, or provide a sufficent target throught the "target={\'\'}" prop '
 		);
@@ -90,6 +91,7 @@
 			class={cx(className, getStyles({ css: override }))}
 		>
 			<div
+        role="presentation"
 				class={classes.inner}
 				use:lockscroll={lockScroll}
 				on:keydown|capture={(event) => {
@@ -109,6 +111,7 @@
 						aria-describedby={bodyId}
 						aria-modal
 						tabIndex={-1}
+            use={[focustrap]}
 					>
 						{#if title || withCloseButton}
 							<div class={classes.header}>

@@ -39,6 +39,6 @@ By default, code has gray color, you can change it to any color from [theme colo
 
 ## Syntax highlight
 
-For syntax highlight consult the [prism package](others/prism).
+For syntax highlighting, consult the [Prism package](others/prism).
 
 <Demo demo={CodeDemos.prism} />

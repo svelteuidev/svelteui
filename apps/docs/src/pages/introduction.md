@@ -19,15 +19,15 @@ SvelteUI is a Svelte library (heavily inspired by but not affiliated with [Manti
 
 Instead of remaking the same components, recreating custom actions, transitions, utilities, etc. SvelteUI is designed so you can start making projects quickly. It works amazingly well **out-of-the-box, with zero-configuration, and can be customized** to your liking as your application grows.
 
-### Features
+## Features
 
-- [SvelteKit](https://kit.svelte.dev/) and SSR Compatible
+- [SvelteKit](https://kit.svelte.dev/) and SSR compatible.
 - [TypeScript](https://typescriptlang.org/) and type definitions are supported, but optional.
 - All components are accessible according to [WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/) standards.
-- Dark theme included, as well as a custom theming api.
-- Highly customizable
+- Dark theme included, as well as a custom theming API.
+- Highly customizable.
 - Minimal to no third-party dependency usage.
-- Easy setup - **Zero Configuration**
+- Easy setup - **Zero Configuration**.
 
 <br />
 
@@ -37,9 +37,9 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 **[`@svelteui/composables`](composables/use-click-outside)** - collection of 20+ useful actions and utilities
 
-**[`@svelteui/motion`](motion/typewriter)** - collection of transitions to utilize on dom elements
+**[`@svelteui/motion`](motion/typewriter)** - collection of transitions to utilize on DOM elements
 
-**[`@svelteui/prism`](others/prism)** - code highlight component built with prism action
+**[`@svelteui/prism`](others/prism)** - code highlight component built with Prism action
 
 **[`@svelteui/dates`](dates/getting-started)** - calendars, date and time pickers based on SvelteUI components
 
@@ -49,7 +49,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 ## Getting help
 
-I want to build a friendly community that is happy to help those who need it. Help build one up by joining the discord:
+We want to build a friendly community that is happy to help those who need it. Help build one up by joining the Discord:
 
 - [Join Discord community](https://discord.gg/2J2xmzCS79) - it will be the easiest way to get help.
 - [Github Discussions](https://github.com/svelteuidev/svelteui/discussions) - you can discuss anything relating to the project here.

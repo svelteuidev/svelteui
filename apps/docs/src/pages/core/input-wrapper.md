@@ -13,13 +13,17 @@ docs: 'core/input-wrapper.md'
 <script>
     import { Demo, InputWrapperDemos } from '@svelteuidev/demos';
     import { Heading } from 'components';
+    import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 <Heading />
 
 ## Disclaimer
 
-**!important:** Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs:
+<Alert icon={InfoCircled}  title="Important" color="blue" >
+   Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs.
+</Alert>
 
 ```svelte
 // Incorrect usage, input is not accessible
@@ -33,7 +37,7 @@ docs: 'core/input-wrapper.md'
 
 ## Usage
 
-InputWrapper is used to wrap all SvelteUI inputs ([Select (not yet implemented)](core/select), [TextInput](core/text-input), [NumberInput](core/number-input) and others).
+InputWrapper is used to wrap all SvelteUI inputs (Select (not yet implemented), [TextInput](core/text-input), [NumberInput](core/number-input) and others).
 It includes label with optional required asterisk, description and error message.
 
 All SvelteUI inputs support the same props as InputWrapper. You can combine it with [Input](core/input) component
@@ -43,7 +47,7 @@ to build your own custom inputs with the same style and behavior.
 
 ## Change label element
 
-Some inputs like [RadioGroup (not yet implemented)](/core/radio-group/) may require to detach label from certain element.
+Some inputs like RadioGroup (not yet implemented) may require to detach label from certain element.
 To implement this, use `labelElement`:
 
 ```svelte

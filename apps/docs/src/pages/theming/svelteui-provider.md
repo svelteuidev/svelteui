@@ -52,8 +52,8 @@ For SvelteUI to work properly, you need to set up the SvelteUIProvider at the to
 
 SvelteUIProvider includes a NormalizeCSS style sheet and some extra global styles added to body element:
 
-- `background-color` to theme.colors["dark700"].value in dark color scheme and white in light
-- `color` to theme.colors["dark50"].value in dark color scheme and black in light
+- `background-color` to `theme.colors["dark700"].value` in dark color scheme and white in light
+- `color` to `theme.colors["dark50"].value` in dark color scheme and black in light
 - `font-family` and `font-size` based on theme
 
 To enable these global styles, set `withNormalizeCSS` and `withGlobalStyles` props:
@@ -73,7 +73,7 @@ You can change the base `background-color` and `color` through the config prop:
 ```svelte
 <script>
 	import { SvelteUIProvider } from '@svelteuidev/core';
-	import type { SvelteUIProviderConfig } from '@svelteuidev/core'; // <-- If using typescript you can import the config type
+	import type { SvelteUIProviderConfig } from '@svelteuidev/core'; // <-- If using TypeScript you can import the config type
 
 	config = {
 		light: { bg: 'White', color: 'Black' },
@@ -86,7 +86,7 @@ You can change the base `background-color` and `color` through the config prop:
 </SvelteUIProvider>
 ```
 
-> Note that extending or overriding the default theme will come later, this config only handles global styles defined above.
+> Note that extending or overriding the default theme will come later. This config only handles global styles as defined above.
 
 ## Component concepts
 
@@ -104,11 +104,11 @@ SvelteUIProvider can accept actions, classes, element bindings, and style overri
 <SvelteUIProvider
     bind:element
     use={[[pageleave, () => console.log('page left')]]}
-    class='animate-bounce' // <-- `tailwind class`
+    class='animate-bounce' // <-- `Tailwind class`
     override={{mt: '$4'}} // <-- `using style utilities and theme tokens`
 >
 	<YourApp />
 </SvelteUIProvider>
 ```
 
-For information server side rendering and color scheme changes refer to [Server Side Rendering](theming/ssr), [Dark Theme](theming/dark-theme)
+For information on SSR and color scheme changes, refer to [Server Side Rendering](theming/ssr), [Dark Theme](theming/dark-theme)

@@ -66,7 +66,7 @@ You can then override the locale on a per component basis:
 
 ## Components
 
-[Calendar](/dates/calendar/) **[coming soon]**
+Calendar **[coming soon]**
 
 [Month](/dates/month/)
 
@@ -74,7 +74,7 @@ You can then override the locale on a per component basis:
 
 ## Utility functions
 
-Apart from components @svelteuidev/dates package also exports several utility functions.
+Apart from components `@svelteuidev/dates` package also exports several utility functions.
 
 **get-month-days**
 

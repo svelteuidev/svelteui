@@ -14,7 +14,7 @@
 		className = '';
 	export { className as class };
 
-	$: ({ cx, classes, getStyles } = useStyles());
+	$: ({ cx, classes, getStyles } = useStyles({ type }));
 </script>
 
 <Anchor
@@ -34,7 +34,7 @@
 	{/if}
 
 	<div class={classes.body}>
-		<Text size="lg" align={type === 'next' ? 'left' : 'right'}>
+		<Text size="lg" align={type === 'next' ? 'left' : 'right'} override={{ lineHeight: '$md' }}>
 			{type === 'next' ? 'Up next' : 'Go back'}
 		</Text>
 		<Text color="dimmed" size="sm" align={type === 'next' ? 'left' : 'right'}>

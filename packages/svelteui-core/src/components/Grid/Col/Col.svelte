@@ -27,7 +27,7 @@
 	// retrieves the reactive context so that Col has access
 	// to the Grid cols, grow and spacing parameters
 	const state: GridContext = getContext('Grid');
-	const { cols, grow, spacing } = $state;
+	$: ({ cols, grow, spacing } = $state);
 
 	function isSpanValid(span: number) {
 		return typeof span === 'number' && span > 0 && span % 1 === 0;

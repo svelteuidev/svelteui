@@ -16,7 +16,7 @@ source: 'svelteui-preprocessors'
 <Heading />
 
 <Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled'>
-    If you have any suggestions for preprocessors, start a discussion or hop in discord!
+    If you have any suggestions for preprocessors, start a discussion or hop onto Discord!
 </Alert>
 
 ## Installation
@@ -37,7 +37,7 @@ yarn add @svelteuidev/preprocessors
 
 ## Basics
 
-Svelte's preprocessor gives you a lot of freedom when it comes to writing your components. It is the very thing that enables you to use things like SASS or Typescript in your Svelte Markup. SvelteUI has created a new package to provide you powerful features for your development.
+Svelte's preprocessor gives you a lot of freedom when it comes to writing your components. It is the very thing that enables you to use things like Sass or Typescript in your Svelte Markup. SvelteUI has created a new package to provide you powerful features for your development.
 
 ### Order
 

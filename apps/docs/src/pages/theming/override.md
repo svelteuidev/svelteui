@@ -49,7 +49,7 @@ docs: 'theming/override.md'
 
 # Getting Started
 
-SvelteUI makes it simple to override components default styles. We recommend reading the [Stitches Styling docs](https://stitches.dev/docs/styling) before overriding the SvelteUI component styles. This is because styling with SvelteUI is most similar to styling with vanilla CSS, or CSS-preprocessors (scss/sass) but with extra features, and reading that will help you get started.
+SvelteUI makes it simple to override components default styles. We recommend reading the [Stitches Styling docs](https://stitches.dev/docs/styling) before overriding the SvelteUI component styles. This is because styling with SvelteUI is very similar to styling with vanilla CSS, or CSS-preprocessors (SCSS/Sass) but with extra features, and reading that will help you get started.
 
 Remember that all [Stitches](https://stitches.dev) features are available in SvelteUI since it uses Stitches as a styling engine.
 
@@ -57,7 +57,7 @@ Remember that all [Stitches](https://stitches.dev) features are available in Sve
 
 ## Using the css prop
 
-SvelteUI provides all components the `override` prop for overriding styles easily. It's like the style attribute on normal elements, but it supports tokens, media queries, nesting and token-aware values.
+SvelteUI provides all components the `override` prop for overriding styles easily. It's like the `style` attribute on normal elements, but it supports tokens, media queries, nesting and token-aware values.
 
 <Preview cols={1} code={code}>
     <Button override={PrimaryButton}>
@@ -67,7 +67,7 @@ SvelteUI provides all components the `override` prop for overriding styles easil
 
 ## Overriding styles with the createStyles function
 
-When styling using the [createStyles function](theming/create-styles#styling-with-svelteui), you can also override styles by passing an object to the css property in the function returned from the createStyles function. It may sound confusing at first, but it is much simpler than you may think:
+When styling using the [createStyles function](theming/create-styles#styling-with-svelteui), you can also override styles by passing an object to the `css` property in the function returned from the `createStyles` function. It may sound confusing at first, but it is much simpler than you may think:
 
 ```svelte
 <script>
@@ -106,7 +106,7 @@ Various (but not all) components support changing their root elements with the `
 Svelte's global CSS styling feature can be used to override and enhance styles for SvelteUI components and their internal DOM elements.
 
 Given a component with a known structure, like `AppShell`, which contains a `div.app-shell` element used as a container, the following component would work:
-      
+
 ```svelte
 <AppShell height="100%" class="app-shell h-full flex flex-col">
   <YourHeaderComponent slot="header" {user} />
@@ -117,7 +117,7 @@ Given a component with a known structure, like `AppShell`, which contains a `div
   <!-- Footer -->
   <YourFooterComponent slot="footer" />
 </AppShell>
-      
+
 <style global>
  /* Target the first inner wrapper container inside the AppShell */
  .app-shell > div {
@@ -125,14 +125,14 @@ Given a component with a known structure, like `AppShell`, which contains a `div
    display: flex;
    flex-direction: column;
  }
- 
+
  /* Target the wrapper div *for content* which is two layers down inside the AppShell */
  .app-shell > div > div.body {
    flex-grow: 1;
  }
-</style>      
+</style>
 ```
 
-The [TailwindCSS][tailwindcss]-flavored example code above makes targeted changes to the implicit inner `<div>` contained in [`AppShell`](https://github.com/svelteuidev/svelteui/blob/main/packages/svelteui-core/src/components/AppShell/AppShell.svelte) and another inteernal `<div>` in order to create a full page AppShell which expands to the height of the page.
-      
+The [TailwindCSS][tailwindcss]-flavored example code above makes targeted changes to the implicit inner `<div>` contained in [`AppShell`](https://github.com/svelteuidev/svelteui/blob/main/packages/svelteui-core/src/components/AppShell/AppShell.svelte) and another internal `<div>` in order to create a full page AppShell which expands to the height of the page.
+
 [tailwindcss]: https://tailwindcss.com

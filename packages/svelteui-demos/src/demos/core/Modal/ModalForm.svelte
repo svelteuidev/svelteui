@@ -9,11 +9,11 @@
 		Notification,
 		Affix
 	} from '@svelteuidev/core';
-	import type { ModalStyles } from '@svelteuidev/core';
+	import type { ModalProps } from '@svelteuidev/core';
 	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 
-	interface $$Props extends Partial<ModalStyles.ModalProps> {
+	interface $$Props extends Partial<ModalProps> {
 		withOpenButton?: boolean;
 		closeModal?: (...args: any[]) => boolean;
 	}

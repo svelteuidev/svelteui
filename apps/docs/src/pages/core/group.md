@@ -13,6 +13,8 @@ docs: 'core/group.md'
 <script>
     import { Demo, GroupDemos } from '@svelteuidev/demos';
     import { Heading } from 'components';
+    import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 <Heading />
@@ -23,7 +25,9 @@ docs: 'core/group.md'
 
 ## Group children
 
-**!important** Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles:
+<Alert icon={InfoCircled}  title="Important" color="blue">
+   Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles.
+</Alert>
 
 ```svelte
 <script>

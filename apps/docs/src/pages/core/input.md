@@ -13,14 +13,17 @@ docs: 'core/input.md'
 <script>
     import { Demo, InputDemos } from '@svelteuidev/demos';
     import { Heading } from 'components';
+    import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 <Heading />
 
 ## Disclaimer
 
-**!important:** In most cases, you should not use Input component in your application.
-The Input component is a base for other inputs and was not designed to be used directly.
+<Alert icon={InfoCircled}  title="Important" color="blue" >
+   In most cases, you should not use Input component in your application. The Input component is a base for other inputs and was not designed to be used directly.
+</Alert>
 
 ```svelte
 // Incorrect usage, input is not accessible
@@ -35,7 +38,7 @@ and includes InputWrapper
 
 ## Usage
 
-Input component is used as base for all other inputs ([TextInput](core/text-input), [Textarea (not yet implemented)](core/textarea) and others). The single purpose of Input is to provide shared styles and features to other inputs.
+Input component is used as base for all other inputs ([TextInput](core/text-input), Textarea (not yet implemented) and others). The single purpose of Input is to provide shared styles and features to other inputs.
 Use other components listed above to build forms (as they provide better accessibility) and Input component as base for your own custom inputs with SvelteUI theme.
 
 <Demo demo={InputDemos.configurator} />
