@@ -39,6 +39,19 @@
   background-color: var(--search-item) !important;
   border: 1px solid var(--search-item) !important;
 }
+.searchBox {
+  width: 20rem !important;
+  height: 2.5rem;
+  background-color: rgba(227, 227, 227, 0.7);
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.searchBox:hover {
+  background-color: rgba(227, 227, 227, 1);
+}
+
 
 /* ---------------------------Media Query's below----------------------------------- */
 

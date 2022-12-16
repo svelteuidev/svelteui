@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper } from '@svelteuidev/core';
+	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper, Box, Kbd } from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { mobile } from 'components';
 	import { config, searchLinks } from './data';
@@ -66,12 +66,21 @@
 	</Menu>
 {:else}
 	<div
-		style={`padding-right: ${$mobile ? '0rem' : '0.75rem'}; padding-top: ${
-			$mobile ? '0rem' : '0.75rem'
-		}`}
+		style={`padding-right: 0.75rem`}
     use:hotkey={[['mod+k', () => changeModalState()]]}
 	>
 		<ul>
+      <li class="searchBox">
+        <Box css={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between"}} on:click={changeModalState}>
+          <div style="display: flex; align-items: center">
+            <MagnifyingGlass size={25} />
+            <p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
+          </div>
+          <div>
+            <Kbd>{navigator.platform === "MacIntel" ? "⌘" : "Ctrl"}</Kbd> + <Kbd>K</Kbd>
+          </div>
+        </Box>
+      </li>
 			{#each config.buttons as { title, props, icon }}
 				<li>
 					<Tooltip withArrow label={title}>
@@ -92,13 +101,13 @@
 					</ActionIcon>
 				</Tooltip>
 			</li>
-			<li>
+			<!-- <li>
 				<Tooltip withArrow label={`Search (⌘/Ctrl + K)`}>
 					<ActionIcon size="lg" color="dark" variant="outline" radius="md" on:click={changeModalState}>
 						<MagnifyingGlass size={20} />
 					</ActionIcon>
 				</Tooltip>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 {/if}
