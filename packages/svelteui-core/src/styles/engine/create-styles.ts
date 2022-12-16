@@ -49,22 +49,27 @@ function createRef(refName: string) {
  * @returns The class map that maps the name of the key in the CSS object
  * and the generated hash class.
  */
-function sanitizeCss(object: DirtyObject, theme: SvelteUITheme, ref: string) {
+function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	// builds this to map the generated class name to the class key
 	// given in the CSS object
+  let refs: string[] = [];
 	const classMap = {};
 
 	const _sanitize = (obj: Record<string, any>) => {
 		Object.keys(obj).map((value) => {
-			// returns the recursive call if the CSS is not an object
-			if (obj[value] === null || typeof obj[value] !== 'object') return;
-
 			// transforms certain keywords into the correct CSS selectors
 			if (value === 'variants') return;
-			if (value === 'ref') ref = obj.ref as string;
+      // saves the reference value so that later it can be added
+      // to reference the CSS selector
+			if (value === 'ref') {
+        refs.push(obj.ref as string);
+      }
 			if (value === 'darkMode') {
 				obj[`${theme.dark} &`] = obj.darkMode;
 			}
+
+      // returns the recursive call if the CSS is not an object
+			if (obj[value] === null || typeof obj[value] !== 'object') return;
 
 			// calls the sanitize method recursively so that it can sanitize
 			// all the style objects
@@ -75,9 +80,11 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme, ref: string) {
 			if (value === 'darkMode') {
 				delete obj[value];
 			}
-			// only adds the correct selectors if it has none
+			else if (value.startsWith('@media')) {
+        // do nothing if its a @media selector
+      }
+      // only adds the correct selectors if it has none
 			else if (!value.startsWith('&') && !value.startsWith(theme.dark)) {
-				// obj[`& .${buildKey(value, name)}`] = obj[value];
 				const getStyles = css(obj[value]);
 				classMap[value] = getStyles().toString();
 				obj[`& .${getStyles().toString()}`] = obj[value];
@@ -91,7 +98,7 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme, ref: string) {
 	// deletes the root key since it won't be sanitized here
 	delete object['& .root'];
 
-	return classMap;
+	return { classMap, refs: Array.from(new Set(refs)) };
 }
 
 export function createStyles<Key extends string = string, Params = void>(
@@ -106,13 +113,12 @@ export function createStyles<Key extends string = string, Params = void>(
 		const theme: SvelteUITheme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 		const { cx } = cssFactory();
 
-		let ref: string;
 		const { override, name } = options || {};
 		const dirtyCssObject = getCssObject(theme, params, createRef);
 
 		// builds the CSS object that contains transformed values
 		const sanitizedCss = Object.assign({}, dirtyCssObject);
-		const classMap = sanitizeCss(sanitizedCss, theme, ref, name);
+		const { classMap, refs } = sanitizeCss(sanitizedCss, theme);
 
 		const { root } = dirtyCssObject;
 		const cssObjectClean = root !== undefined ? { ...root, ...sanitizedCss } : dirtyCssObject;
@@ -122,6 +128,7 @@ export function createStyles<Key extends string = string, Params = void>(
 		// transforms the keys into strings to be consumed by the classes
 		const classes: Record<Key, string> = fromEntries(
 			Object.keys(dirtyCssObject).map((keys) => {
+        const ref = refs.find(r => r.includes(keys)) ?? '';
 				const getRefName: string[] = ref?.split('-') ?? [];
 				const keyIsRef = ref?.split('-')[getRefName?.length - 1] === keys;
 				const value = keys.toString();
@@ -130,7 +137,7 @@ export function createStyles<Key extends string = string, Params = void>(
 
 				// add the value to the array if the ref provided is valid
 				if (ref && keyIsRef) {
-					transformedClasses = `${value} ${ref}`;
+					transformedClasses = `${transformedClasses} ${ref}`;
 				}
 				// generates the root styles, applying the override styles
 				if (keys === 'root') {
