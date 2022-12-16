@@ -220,7 +220,7 @@ values and add custom parsers and formatters.
 	>
 		{#if showControls}
 			<button
-				class="control control-up"
+				class={cx(classes.control, classes.controlUp)}
 				type="button"
 				tabIndex={-1}
 				aria-hidden
@@ -230,7 +230,7 @@ values and add custom parsers and formatters.
 				on:mouseleave={onStepDone}
 			/>
 			<button
-				class=" control control-down"
+				class={cx(classes.control, classes.controlDown)}
 				type="button"
 				tabIndex={-1}
 				aria-hidden

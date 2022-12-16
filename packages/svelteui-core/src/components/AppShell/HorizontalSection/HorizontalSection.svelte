@@ -49,7 +49,7 @@
 		zIndex,
 		section,
 		hidden
-	}));
+	}, { name: "HorizontalSection" }));
 
 	const injectRoot = globalCss({
 		':root': {
