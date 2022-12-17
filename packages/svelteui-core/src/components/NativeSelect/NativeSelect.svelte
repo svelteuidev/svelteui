@@ -117,7 +117,7 @@ Capture user feedback limited to large set of options
 		{/if}
 		{#each formattedData as item}
 			<option value={item.value} disabled={item.disabled} selected={item.value === value}>
-				{item.label}
+				{item.label ?? item.value}
 			</option>
 		{:else}
 			<option value="" disabled hidden> Add Some Options </option>
