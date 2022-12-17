@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "svelteui-docs",
-	"version": "0.7.6",
+	"version": "0.7.7",
 	"dependencies": {
 		"@svelte-docs/server": "0.1.6",
 		"radix-icons-svelte": "1.2.1"
