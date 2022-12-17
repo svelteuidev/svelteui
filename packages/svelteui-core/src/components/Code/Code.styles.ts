@@ -14,7 +14,7 @@ export default createStyles((theme, { color, block, noMono, width }: CodeStylePa
 	const { themeColor }: typeof theme.fn = theme.fn;
 	return {
 		root: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				backgroundColor: color === 'dark' ? themeColor(color, 4) : rgba(themeColor(color, 8), 0.35),
 				color: color === 'dark' ? themeColor('dark', 0) : 'white'
 			},
@@ -29,7 +29,7 @@ export default createStyles((theme, { color, block, noMono, width }: CodeStylePa
 			width: block ? `${width}%` : 'auto'
 		},
 		copy: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				backgroundColor: 'rgba(52, 58, 64, 0.35);',
 				color: 'white'
 			},
