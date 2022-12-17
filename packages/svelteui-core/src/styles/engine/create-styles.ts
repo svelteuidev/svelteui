@@ -52,23 +52,23 @@ function createRef(refName: string) {
 function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	// builds this to map the generated class name to the class key
 	// given in the CSS object
-  let refs: string[] = [];
+	let refs: string[] = [];
 	const classMap = {};
 
 	const _sanitize = (obj: Record<string, any>) => {
 		Object.keys(obj).map((value) => {
 			// transforms certain keywords into the correct CSS selectors
 			if (value === 'variants') return;
-      // saves the reference value so that later it can be added
-      // to reference the CSS selector
+			// saves the reference value so that later it can be added
+			// to reference the CSS selector
 			if (value === 'ref') {
-        refs.push(obj.ref as string);
-      }
+				refs.push(obj.ref as string);
+			}
 			if (value === 'darkMode') {
 				obj[`${theme.dark} &`] = obj.darkMode;
 			}
 
-      // returns the recursive call if the CSS is not an object
+			// returns the recursive call if the CSS is not an object
 			if (obj[value] === null || typeof obj[value] !== 'object') return;
 
 			// calls the sanitize method recursively so that it can sanitize
@@ -79,11 +79,10 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 			// to the correct CSS selector
 			if (value === 'darkMode') {
 				delete obj[value];
+			} else if (value.startsWith('@media')) {
+				// do nothing if its a @media selector
 			}
-			else if (value.startsWith('@media')) {
-        // do nothing if its a @media selector
-      }
-      // only adds the correct selectors if it has none
+			// only adds the correct selectors if it has none
 			else if (!value.startsWith('&') && !value.startsWith(theme.dark)) {
 				const getStyles = css(obj[value]);
 				classMap[value] = getStyles().toString();
@@ -128,7 +127,7 @@ export function createStyles<Key extends string = string, Params = void>(
 		// transforms the keys into strings to be consumed by the classes
 		const classes: Record<Key, string> = fromEntries(
 			Object.keys(dirtyCssObject).map((keys) => {
-        const ref = refs.find(r => r.includes(keys)) ?? '';
+				const ref = refs.find((r) => r.includes(keys)) ?? '';
 				const getRefName: string[] = ref?.split('-') ?? [];
 				const keyIsRef = ref?.split('-')[getRefName?.length - 1] === keys;
 				const value = keys.toString();

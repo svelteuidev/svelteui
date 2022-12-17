@@ -59,7 +59,7 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams,
 			}
 		},
 		icon: {
-      ref: getRef('icon'),
+			ref: getRef('icon'),
 			boxSizing: 'border-box',
 			marginRight: theme.space.mdPX.value,
 			width: 28,

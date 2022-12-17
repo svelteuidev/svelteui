@@ -61,46 +61,46 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 				width: 0,
 				height: 0,
 				borderStyle: 'solid'
-			},
+			}
 		},
-    controlUp: {
-      borderTopRightRadius: `$${radius}`,
+		controlUp: {
+			borderTopRightRadius: `$${radius}`,
 
-      '&::after': {
-        borderWidth: '0px 5px 5px 5px',
-        borderColor: 'transparent transparent $black transparent',
+			'&::after': {
+				borderWidth: '0px 5px 5px 5px',
+				borderColor: 'transparent transparent $black transparent',
 
-        darkMode: {
-          borderColor: 'transparent transparent $dark50 transparent'
-        }
-      },
+				darkMode: {
+					borderColor: 'transparent transparent $dark50 transparent'
+				}
+			},
 
-      '&:disabled::after': {
-        borderBottomColor: '$gray500',
-        darkMode: {
-          borderBottomColor: '$dark200'
-        }
-      }
-    },
-    controlDown: {
-      borderTopRightRadius: `$${radius}`,
-      borderBottom: 0,
+			'&:disabled::after': {
+				borderBottomColor: '$gray500',
+				darkMode: {
+					borderBottomColor: '$dark200'
+				}
+			}
+		},
+		controlDown: {
+			borderTopRightRadius: `$${radius}`,
+			borderBottom: 0,
 
-      '&::after': {
-        borderWidth: '5px 5px 0px 5px',
-        borderColor: '$black transparent transparent transparent',
+			'&::after': {
+				borderWidth: '5px 5px 0px 5px',
+				borderColor: '$black transparent transparent transparent',
 
-        darkMode: {
-          borderColor: '$dark50 transparent transparent transparent'
-        }
-      },
+				darkMode: {
+					borderColor: '$dark50 transparent transparent transparent'
+				}
+			},
 
-      '&:disabled::after': {
-        borderTopColor: '$gray500',
-        darkMode: {
-          borderTopColor: '$dark200'
-        }
-      }
-    }
+			'&:disabled::after': {
+				borderTopColor: '$gray500',
+				darkMode: {
+					borderTopColor: '$dark200'
+				}
+			}
+		}
 	};
 });

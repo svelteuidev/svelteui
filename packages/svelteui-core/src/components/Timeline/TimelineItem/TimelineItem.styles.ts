@@ -15,7 +15,7 @@ export default createStyles(
 	(
 		theme,
 		{ align, bulletSize, radius, color, lineVariant, lineWidth }: TimelineItemStyleParams,
-    getRef
+		getRef
 	) => {
 		const colors = vFunc(color).filled;
 
@@ -53,11 +53,11 @@ export default createStyles(
 						borderLeft: `${lineWidth}px ${lineVariant} ${theme.fn.themeColor('dark', 4)}`
 					}
 				},
-        '&.lineActive': {
-          '&::before': {
-            borderLeftColor: colors.backgroundColor
-          }
-        },
+				'&.lineActive': {
+					'&::before': {
+						borderLeftColor: colors.backgroundColor
+					}
+				},
 				[`&.active .${getRef('bulletContainer')}`]: {
 					borderColor: colors.backgroundColor,
 					backgroundColor: theme.colors.white.value
@@ -65,10 +65,10 @@ export default createStyles(
 				[`&.active .${getRef('bulletContainerWithChild')}`]: {
 					backgroundColor: colors.backgroundColor,
 					color: theme.colors.white.value
-				},
+				}
 			},
 			bulletContainer: {
-        ref: getRef('bulletContainer'),
+				ref: getRef('bulletContainer'),
 				boxSizing: 'border-box',
 				width: bulletSize,
 				height: bulletSize,
@@ -89,7 +89,7 @@ export default createStyles(
 				}
 			},
 			bulletContainerWithChild: {
-        ref: getRef('bulletContainerWithChild'),
+				ref: getRef('bulletContainerWithChild'),
 				borderWidth: 1,
 				backgroundColor: theme.fn.themeColor('gray', 3),
 				color: theme.colors.black.value,
