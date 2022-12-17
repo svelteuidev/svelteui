@@ -52,7 +52,7 @@ function createRef(refName: string) {
 function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	// builds this to map the generated class name to the class key
 	// given in the CSS object
-	let refs: string[] = [];
+	const refs: string[] = [];
 	const classMap = {};
 
 	const _sanitize = (obj: Record<string, any>) => {
