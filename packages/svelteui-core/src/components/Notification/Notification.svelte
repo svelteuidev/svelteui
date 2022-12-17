@@ -36,7 +36,7 @@
 		dispatch('close');
 	}
 
-	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ cx, classes } = useStyles({ color, radius }, { override, name: "Notification" }));
 </script>
 
 <Box
