@@ -65,51 +65,39 @@
     </Menu.Item>
 	</Menu>
 {:else}
-	<div
-		style={`padding-right: 0.75rem`}
-    use:hotkey={[['mod+k', () => changeModalState()]]}
-	>
-		<ul>
-      <li class="searchBox">
-        <Box css={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between"}} on:click={changeModalState}>
-          <div style="display: flex; align-items: center">
-            <MagnifyingGlass size={25} />
-            <p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
-          </div>
-          <div>
-            <Kbd>{navigator.platform === "MacIntel" ? "⌘" : "Ctrl"}</Kbd> + <Kbd>K</Kbd>
-          </div>
-        </Box>
+  <ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
+    <li class="searchBox">
+      <Box css={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between"}} on:click={changeModalState}>
+        <div style="display: flex; align-items: center">
+          <MagnifyingGlass size={25} />
+          <p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
+        </div>
+        <div>
+          <Kbd>{navigator.platform === "MacIntel" ? "⌘" : "Ctrl"}</Kbd> + <Kbd>K</Kbd>
+        </div>
+      </Box>
+    </li>
+    {#each config.buttons as { title, props, icon }}
+      <li>
+        <Tooltip withArrow label={title}>
+          <ActionIcon root="a" {...props} radius="md" size="lg">
+            <svelte:component this={icon} size={20} />
+          </ActionIcon>
+        </Tooltip>
       </li>
-			{#each config.buttons as { title, props, icon }}
-				<li>
-					<Tooltip withArrow label={title}>
-						<ActionIcon root="a" {...props} radius="md" size="lg">
-							<svelte:component this={icon} size={20} />
-						</ActionIcon>
-					</Tooltip>
-				</li>
-			{/each}
-			<li>
-				<Tooltip withArrow label="Experimental Theme Toggle">
-					<ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
-						{#if $colorScheme === 'light'}
-							<Moon size={20} />
-						{:else}
-							<Sun size={20} />
-						{/if}
-					</ActionIcon>
-				</Tooltip>
-			</li>
-			<!-- <li>
-				<Tooltip withArrow label={`Search (⌘/Ctrl + K)`}>
-					<ActionIcon size="lg" color="dark" variant="outline" radius="md" on:click={changeModalState}>
-						<MagnifyingGlass size={20} />
-					</ActionIcon>
-				</Tooltip>
-			</li> -->
-		</ul>
-	</div>
+    {/each}
+    <li>
+      <Tooltip withArrow label="Experimental Theme Toggle">
+        <ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
+          {#if $colorScheme === 'light'}
+            <Moon size={20} />
+          {:else}
+            <Sun size={20} />
+          {/if}
+        </ActionIcon>
+      </Tooltip>
+    </li>
+  </ul>
 {/if}
 
 <Modal opened={modalOpened} on:close={changeModalState} title="SvelteUI Docs" overflow="inside">

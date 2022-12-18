@@ -63,6 +63,6 @@
       />
     {/if}
     <div class="logo"><Logo /></div>
-    <div><Topbar /></div>
+    <div style={`height: 100%; display: flex; align-items: center`}><Topbar /></div>
   </div>
 </SvelteUIProvider>

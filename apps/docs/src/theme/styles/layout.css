@@ -33,9 +33,9 @@ body {
 }
 
 .logo {
+  height: 100%;
 	margin-left: 1em;
 	white-space: nowrap;
-	overflow-x: hidden;
 }
 
 .logo h1 {
