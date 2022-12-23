@@ -33,9 +33,9 @@ body {
 }
 
 .logo {
+  height: 100%;
 	margin-left: 1em;
 	white-space: nowrap;
-	overflow-x: hidden;
 }
 
 .logo h1 {
@@ -51,11 +51,15 @@ body {
 	margin: 0px;
 	padding: 0px;
 	white-space: nowrap;
+  display: flex;
 }
 
 .topbar ul li {
-	display: inline-block;
-	margin-right: 1em;
+	margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1em;
+  list-style: none;
+  line-height: 100%;
 }
 
 .topbar .show_sidebar {

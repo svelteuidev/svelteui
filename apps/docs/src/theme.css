@@ -1,5 +1,6 @@
 .logo {
-	padding-top: 0.5rem;
+	display: flex;
+  align-items: center;
 }
 
 .topbar {
@@ -27,6 +28,31 @@
 	padding-left: 1em !important;
 	padding-bottom: 5rem !important;
 }
+
+.searchTerm {
+  padding: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
+}
+.searchTerm:hover {
+  background-color: var(--search-item) !important;
+  border: 1px solid var(--search-item) !important;
+}
+.searchBox {
+  width: 20rem !important;
+  height: 2.5rem;
+  background-color: rgba(227, 227, 227, 0.7);
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.searchBox:hover {
+  background-color: rgba(227, 227, 227, 1);
+}
+
 
 /* ---------------------------Media Query's below----------------------------------- */
 

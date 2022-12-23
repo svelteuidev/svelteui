@@ -53,7 +53,7 @@ const breakpointsStyles = (
 				flexShrink: 0,
 				maxWidth: grow ? 'unset' : columnWidth(sizes[size], columns),
 				marginLeft: columnOffset(offsets[size], columns),
-        padding: theme.fn.size({ size: size, sizes: theme.space }) / 2,
+				padding: theme.fn.size({ size: size, sizes: theme.space }) / 2
 			};
 		}
 		return acc;
