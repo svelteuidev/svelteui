@@ -1,6 +1,4 @@
 <script lang="ts">
-  onMount(() => recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []);
-
 	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper, Box, Kbd } from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { mobile } from 'components';
@@ -12,6 +10,8 @@
 		searchTerm = '',
 		matchingSearches = [],
 		modalOpened = false;
+
+  onMount(() => recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []);
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
@@ -100,12 +100,13 @@
   </ul>
 {/if}
 
-<Modal opened={modalOpened} on:close={changeModalState} title="SvelteUI Docs" overflow="inside">
+<Modal opened={modalOpened} on:close={changeModalState} title="SvelteUI Docs" overflow="inside" trapFocus>
 	<TextInput
 		placeholder="Search..."
 		bind:value={searchTerm}
 		on:input={onSearchValueInput}
     autocomplete="off"
+    autofocus
 	>
 		<svelte:fragment slot="rightSection">
 			<MagnifyingGlass color="#228be6" size={20} />

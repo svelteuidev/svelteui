@@ -13,7 +13,7 @@ const FOCUSABLE = 'input, textarea, select, a, button, [tabindex]:not([tabindex=
  * @see https://svelteui.org/actions/use-focus-trap
  */
 export function focustrap(node: HTMLElement): ReturnType<Action> | undefined {
-	let focusElement = node.querySelector('[data-autofocus]') as FocusableElement;
+	let focusElement = node.querySelector('[autofocus]') as FocusableElement;
 
 	if (!focusElement) {
 		const focusableElements = node.querySelectorAll(FOCUSABLE);
@@ -26,5 +26,5 @@ export function focustrap(node: HTMLElement): ReturnType<Action> | undefined {
 		focusElement = focusableElements[0] as FocusableElement;
 	}
 
-	setTimeout(() => focusElement?.focus({ preventScroll: true }), 0);
+	setTimeout(() => focusElement?.focus({ preventScroll: true }));
 }
