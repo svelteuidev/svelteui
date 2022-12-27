@@ -91,7 +91,7 @@
 			class={cx(className, getStyles({ css: override }))}
 		>
 			<div
-        role="presentation"
+				role="presentation"
 				class={classes.inner}
 				use:lockscroll={lockScroll}
 				on:keydown|capture={(event) => {
@@ -111,7 +111,7 @@
 						aria-describedby={bodyId}
 						aria-modal
 						tabIndex={-1}
-            use={[focustrap]}
+						use={[focustrap]}
 					>
 						{#if title || withCloseButton}
 							<div class={classes.header}>

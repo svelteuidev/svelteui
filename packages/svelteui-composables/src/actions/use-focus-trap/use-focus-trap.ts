@@ -26,5 +26,5 @@ export function focustrap(node: HTMLElement): ReturnType<Action> | undefined {
 		focusElement = focusableElements[0] as FocusableElement;
 	}
 
-	setTimeout(() => focusElement?.focus({ preventScroll: true }));
+	setTimeout(() => focusElement?.focus({ preventScroll: true }), 0);
 }
