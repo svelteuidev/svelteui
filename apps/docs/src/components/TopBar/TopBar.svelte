@@ -1,4 +1,6 @@
 <script lang="ts">
+  onMount(() => recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []);
+
 	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper, Box, Kbd } from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { mobile } from 'components';
@@ -20,16 +22,14 @@
     searchTerm = ""
 	}
 
-	onMount(() => recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []);
-
 	function onSearchValueInput() {
     matchingSearches = searchLinks.filter((item) => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 
   function addSearch(matchingSearch) {
     changeModalState()
-    let existingSearches = JSON.parse(localStorage.getItem("recentSearches")) || []
-    let elementExists = existingSearches.some(item => item.title === matchingSearch.title)
+    const existingSearches = JSON.parse(localStorage.getItem("recentSearches")) || []
+    const elementExists = existingSearches.some(item => item.title === matchingSearch.title)
     if (!elementExists) existingSearches.unshift(matchingSearch)
     if (existingSearches.length > 6) existingSearches.pop()
     recentSearches = existingSearches
@@ -113,34 +113,34 @@
 	</TextInput>
 	{#if searchTerm.length === 0}
     {#if recentSearches.length > 0}
-      <p style="font-size: 0.9rem; margin-top: 0.8rem">Recent searches: </p>
+      <p class="recentSearchesTitle">Recent searches: </p>
       {#each recentSearches as recentSearch}
         <a href={recentSearch.link} style={`text-decoration: none`} on:click={() => addSearch(recentSearch)}>
           <Paper class="searchTerm" withBorder>
-            <p style="margin: 0; font-size: 1rem">{recentSearch.title}</p>
+            <p class="searchItemTitle">{recentSearch.title}</p>
             {#if recentSearch.section}
-              <p style="font-size: 0.8rem; margin: 0">{recentSearch.section}</p>
+              <p class="searchItemDescription">{recentSearch.section}</p>
             {/if}
           </Paper>
         </a>
       {/each}
     {:else}
-      <p style={`display: flex; justify-content: center; font-size: 0.9rem`}>No recent searches</p>
+      <p class="noMatches">No recent searches</p>
     {/if}
   {:else}
     {#if matchingSearches.length > 0}
       {#each matchingSearches as matchingSearch}
         <a href={matchingSearch.link} style={`text-decoration: none`} on:click={() => addSearch(matchingSearch)}>
           <Paper class="searchTerm" withBorder>
-            <p style="margin: 0; font-size: 1rem">{matchingSearch.title}</p>
+            <p class="searchItemTitle">{matchingSearch.title}</p>
             {#if matchingSearch.section}
-              <p style="font-size: 0.8rem; margin: 0">{matchingSearch.section}</p>
+              <p class="searchItemDescription">{matchingSearch.section}</p>
             {/if}
           </Paper>
         </a>
       {/each}
     {:else}
-      <p style={`display: flex; justify-content: center; font-size: 0.9rem`}>No matches</p>
+      <p class="noMatches">No matches</p>
     {/if}
   {/if}
 </Modal>
