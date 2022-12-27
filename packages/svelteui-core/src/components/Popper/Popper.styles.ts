@@ -73,7 +73,6 @@ export default createStyles((_, { arrowSize, zIndex }: PopperStyleParams) => {
 	return {
 		root: {
 			position: 'absolute',
-			pointerEvents: 'none',
 			zIndex: zIndex
 		},
 		arrowStyles: {
