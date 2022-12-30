@@ -24,8 +24,12 @@
 		Center,
 		Skeleton,
 		Menu,
-		Divider
+		Divider,
+		Popper,
+		Box
 	} from '@svelteuidev/core';
+
+  import { Month } from "@svelteuidev/dates"
 
 	import {
 		Input,
@@ -40,12 +44,19 @@
 		ChatBubble,
 		Gear,
 		MagnifyingGlass,
-		Trash
+		Trash,
+    Calendar
 	} from 'radix-icons-svelte';
-	import { fade } from 'svelte/transition';
 
 	let value = 0,
-		modalOpened = false;
+		modalOpened = false,
+		reference,
+		popperMounted = false,
+    monthValue = new Date();
+
+	const toggleMount = () => {
+		popperMounted = !popperMounted;
+	};
 
 	function changeProgressValue(type) {
 		if (type === 'increment') {
@@ -98,9 +109,7 @@
 <div class="componentExamplesWrapper">
 	<Tabs orientation="vertical" variant="unstyled">
 		<Tabs.Tab label="Inputs and Actions" class={classes.root} icon={Input}>
-			<div
-				class="componentExamplesTabPanel"
-			>
+			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<TextInput
 						placeholder="Text Input"
@@ -118,7 +127,7 @@
 						<Button disabled>Disabled</Button>
 						<Button ripple>Ripple</Button>
 					</Group>
-          <h3>Switch component</h3>
+					<h3>Switch component</h3>
 					<Switch checked label="I agree to sell my privacy" override={{ marginBottom: '2rem' }} />
 					<br />
 				</div>
@@ -134,13 +143,13 @@
 						label="Native Select"
 						override={{ marginBottom: '1rem', width: '18rem' }}
 					/>
-          <h3>Chip component</h3>
+					<h3>Chip component</h3>
 					<Group override={{ marginBottom: '1rem' }}>
 						<Chip>Default</Chip>
 						<Chip disabled>Disabled</Chip>
 						<Chip variant="filled">Filled</Chip>
 					</Group>
-          <h3>ActionIcon component</h3>
+					<h3>ActionIcon component</h3>
 					<Group>
 						{#each variants as variant}
 							<ActionIcon color="blue" {variant}><GithubLogo size={16} /></ActionIcon>
@@ -150,17 +159,15 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab label="Data Display" class={classes.root} icon={Dashboard}>
-			<div
-				class="componentExamplesTabPanel"
-			>
+			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Badge component</h3>
-					<Group override={{ marginBottom: '2rem', width: '18rem' }} position="center" grow>
+					<Group override={{ marginBottom: '2rem' }} position="center" grow>
 						<Badge size="sm" radius="sm">Badge</Badge>
 						<Badge variant="gradient">Gradient</Badge>
 					</Group>
 					<h3>Timeline component</h3>
-					<Group>
+					<Group override={{ marginBottom: '2rem' }}>
 						<Center>
 							<Timeline active={1} bulletSize={24} lineWidth={2}>
 								<Timeline.Item bullet={LightningBolt} title="New branch">
@@ -181,11 +188,8 @@
 								</Timeline.Item>
 								<Timeline.Item title="Pull request" bullet={GithubLogo} lineVariant="dashed">
 									<Text color="dimmed" size="sm"
-										>Submitted a pull request<Text
-											variant="link"
-											root="span"
-											href="#"
-											inherit>Fix incorrect notification message (#187)</Text
+										>Submitted a pull request<Text variant="link" root="span" href="#" inherit
+											>Fix incorrect notification message (#187)</Text
 										></Text
 									>
 									<Text size="xs" override={{ marginTop: '4px' }}>34 minutes ago</Text>
@@ -229,9 +233,7 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab label="Feedback" class={classes.root} icon={ExclamationTriangle}>
-			<div
-				class="componentExamplesTabPanel"
-			>
+			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Alert component</h3>
 					<Alert icon={InfoCircled} title="Oopsie!" override={{ marginBottom: '2rem' }}>
@@ -265,9 +267,7 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab label="Overlays" class={classes.root} icon={Stack}>
-			<div
-				class="componentExamplesTabPanel"
-			>
+			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Overlays</h3>
 					<Group override={{ marginBottom: '2rem' }}>
@@ -289,7 +289,21 @@
 							<Button>With tooltip</Button>
 						</Tooltip>
 					</Group>
-          <h3>Menu component</h3>
+					<h3>Popper component</h3>
+					<Button bind:element={reference} on:click={toggleMount}>Show popper</Button>
+					<Popper
+						override={{ '& .arrow': { backgroundColor: '$gray100' } }}
+						{reference}
+						{popperMounted}
+            position="bottom"
+					>
+						<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
+							<Center>Popper content</Center>
+						</Box>
+					</Popper>
+				</div>
+				<div class="componentExamplesSectionTwo">
+					<h3>Menu component</h3>
 					<Menu>
 						<Menu.Label>Application</Menu.Label>
 						<Menu.Item icon={Gear}>Settings</Menu.Item>
@@ -307,6 +321,14 @@
 						<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
 					</Menu>
 				</div>
+			</div>
+		</Tabs.Tab>
+    <Tabs.Tab label="Dates" class={classes.root} icon={Calendar}>
+			<div class="componentExamplesTabPanel">
+				<div class="componentExamplesSectionOne">
+          <h3>Month component</h3>
+          <Month firstDayOfWeek="sunday" bind:value={monthValue} month={monthValue} onChange={(val) => (monthValue = val)} />
+        </div>
 			</div>
 		</Tabs.Tab>
 	</Tabs>
