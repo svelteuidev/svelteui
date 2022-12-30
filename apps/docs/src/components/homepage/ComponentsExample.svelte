@@ -1,9 +1,7 @@
 <script>
 	import {
 		Group,
-		Paper,
 		TextInput,
-		SimpleGrid,
 		Button,
 		Chip,
 		Switch,
@@ -15,19 +13,39 @@
 		Tabs,
 		Alert,
 		Loader,
-    Overlay
+		createStyles,
+		NumberInput,
+		ActionIcon,
+		Badge,
+		Card,
+		Image,
+		Text,
+		Timeline,
+		Center,
+		Skeleton,
+		Menu,
+		Divider
 	} from '@svelteuidev/core';
-	import { Camera, EnvelopeClosed, Gear, InfoCircled } from 'radix-icons-svelte';
+
+	import {
+		Input,
+		Dashboard,
+		ExclamationTriangle,
+		Stack,
+		GithubLogo,
+		Commit,
+		EyeOpen,
+		LightningBolt,
+		InfoCircled,
+		ChatBubble,
+		Gear,
+		MagnifyingGlass,
+		Trash
+	} from 'radix-icons-svelte';
+	import { fade } from 'svelte/transition';
 
 	let value = 0,
 		modalOpened = false;
-
-	const listStyles = {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-around',
-		padding: '1rem'
-	};
 
 	function changeProgressValue(type) {
 		if (type === 'increment') {
@@ -36,87 +54,260 @@
 			value = value !== 0 ? (value -= 10) : value;
 		}
 	}
+
+	const useStyles = createStyles((theme) => ({
+		root: {
+			color: theme.fn.themeColor('gray', 9),
+			fontSize: theme.fontSizes.md.value,
+			padding: `${theme.space.lg.value}px ${theme.space.xl.value}px`,
+			darkMode: {
+				backgroundColor: theme.fn.themeColor('dark', 6),
+				color: theme.fn.themeColor('dark', 0),
+				border: `1px solid ${theme.fn.themeColor('dark', 6)}`
+			},
+			transitionProperty: 'all',
+			transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+			transitionDuration: '200ms',
+
+			width: '15rem !important',
+			height: '4rem !important',
+			fontWeight: 'bold !important',
+
+			'&:hover': {
+				backgroundColor: '#f2f2f2 !important'
+			},
+			'&.active': {
+				backgroundColor: '#228be6 !important',
+				color: theme.colors.white.value
+			},
+			'&.active:hover': {
+				backgroundColor: theme.colors.white.value
+			},
+			'&:first-of-type': {
+				borderTopLeftRadius: theme.radii.md.value
+			},
+			'&:last-of-type': {
+				borderBottomLeftRadius: theme.radii.md.value
+			}
+		}
+	}));
+	$: ({ classes } = useStyles());
+	const variants = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
 </script>
 
-<SimpleGrid cols={3} spacing="xl">
-	<Paper withBorder>
-		<TextInput placeholder="Your name" label="Full name" />
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Group grow>
-			<Button>Default</Button>
-			<Button disabled>Disabled</Button>
-			<Button ripple>Ripple</Button>
-		</Group>
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Group>
-			<Chip>Default</Chip>
-			<Chip disabled>Disabled</Chip>
-			<Chip variant="filled">Filled</Chip>
-		</Group>
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Switch checked label="I agree to sell my privacy" />
-	</Paper>
-	<Paper withBorder>
-		<NativeSelect
-			data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
-			placeholder="Pick one"
-			label="Select your favorite framework/library"
-			description="This is anonymous"
-		/>
-	</Paper>
-	<Paper withBorder>
-		<Notification title="Default notification">
-			This is the default notification with title and body
-		</Notification>
-	</Paper>
-	<Paper withBorder>
-		<Progress size="xl" animate {value} tween tweenOptions={{ duration: 250 }} />
-		<Group override={{ paddingTop: '1rem' }} position="center">
-			<Button on:click={() => changeProgressValue('increment')}>+</Button>
-			<Button on:click={() => changeProgressValue('decrement')}>-</Button>
-		</Group>
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Modal opened={modalOpened} on:close={() => (modalOpened = false)} title="This is a modal!">
-			<Group position="center">
-				<p>Hope you liked it!</p>
-			</Group>
-		</Modal>
+<div class="componentExamplesWrapper">
+	<Tabs orientation="vertical" variant="unstyled">
+		<Tabs.Tab label="Inputs and Actions" class={classes.root} icon={Input}>
+			<div
+				class="componentExamplesTabPanel"
+			>
+				<div class="componentExamplesSectionOne">
+					<TextInput
+						placeholder="Text Input"
+						label="Text Input"
+						override={{ marginBottom: '2rem' }}
+					/>
+					<TextInput
+						label="Error"
+						error="Invalid email"
+						value="Invalid Value"
+						override={{ marginBottom: '2rem' }}
+					/>
+					<Group grow override={{ marginBottom: '1rem' }}>
+						<Button>Default</Button>
+						<Button disabled>Disabled</Button>
+						<Button ripple>Ripple</Button>
+					</Group>
+          <h3>Switch component</h3>
+					<Switch checked label="I agree to sell my privacy" override={{ marginBottom: '2rem' }} />
+					<br />
+				</div>
+				<div class="componentExamplesSectionTwo">
+					<NumberInput
+						placeholder="Number Input"
+						label="Number Input"
+						override={{ marginBottom: '2rem', width: '18rem' }}
+					/>
+					<NativeSelect
+						data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
+						placeholder="Pick one"
+						label="Native Select"
+						override={{ marginBottom: '1rem', width: '18rem' }}
+					/>
+          <h3>Chip component</h3>
+					<Group override={{ marginBottom: '1rem' }}>
+						<Chip>Default</Chip>
+						<Chip disabled>Disabled</Chip>
+						<Chip variant="filled">Filled</Chip>
+					</Group>
+          <h3>ActionIcon component</h3>
+					<Group>
+						{#each variants as variant}
+							<ActionIcon color="blue" {variant}><GithubLogo size={16} /></ActionIcon>
+						{/each}
+					</Group>
+				</div>
+			</div>
+		</Tabs.Tab>
+		<Tabs.Tab label="Data Display" class={classes.root} icon={Dashboard}>
+			<div
+				class="componentExamplesTabPanel"
+			>
+				<div class="componentExamplesSectionOne">
+					<h3>Badge component</h3>
+					<Group override={{ marginBottom: '2rem', width: '18rem' }} position="center" grow>
+						<Badge size="sm" radius="sm">Badge</Badge>
+						<Badge variant="gradient">Gradient</Badge>
+					</Group>
+					<h3>Timeline component</h3>
+					<Group>
+						<Center>
+							<Timeline active={1} bulletSize={24} lineWidth={2}>
+								<Timeline.Item bullet={LightningBolt} title="New branch">
+									<Text color="dimmed" size="sm">
+										Created new branch<Text variant="link" root="span" href="#" inherit
+											>fix-notifications</Text
+										> from master</Text
+									>
+									<Text size="xs" override={{ marginTop: '4px' }}>2 hours ago</Text>
+								</Timeline.Item>
+								<Timeline.Item bullet={Commit} title="Commits">
+									<Text color="dimmed" size="sm"
+										>Pushed 23 commits to<Text variant="link" root="span" href="#" inherit
+											>fix-notifications branch</Text
+										></Text
+									>
+									<Text size="xs" override={{ marginTop: '4px' }}>52 minutes ago</Text>
+								</Timeline.Item>
+								<Timeline.Item title="Pull request" bullet={GithubLogo} lineVariant="dashed">
+									<Text color="dimmed" size="sm"
+										>Submitted a pull request<Text
+											variant="link"
+											root="span"
+											href="#"
+											inherit>Fix incorrect notification message (#187)</Text
+										></Text
+									>
+									<Text size="xs" override={{ marginTop: '4px' }}>34 minutes ago</Text>
+								</Timeline.Item>
+								<Timeline.Item title="Code review" bullet={EyeOpen}>
+									<Text color="dimmed" size="sm"
+										><Text variant="link" root="span" href="#" inherit>Robert Gluesticker</Text> left
+										a code review on your pull request</Text
+									>
+									<Text size="xs" override={{ marginTop: '4px' }}>12 minutes ago</Text>
+								</Timeline.Item>
+							</Timeline>
+						</Center>
+					</Group>
+				</div>
+				<div style="width: 340px; margin: auto">
+					<h3>Card component</h3>
+					<Card shadow="sm" p="lg">
+						<Card.Section first padding="lg">
+							<Image
+								src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
+								height="160"
+								alt="Portugal"
+							/>
+						</Card.Section>
 
-		<Group position="center">
-			<Button on:click={() => (modalOpened = true)}>Open Modal</Button>
-		</Group>
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Tooltip label="Hey!">
-			<Button>Show tooltip</Button>
-		</Tooltip>
-	</Paper>
-	<Paper override={listStyles} withBorder>
-		<Tabs>
-			<Tabs.Tab label="Gallery" icon={Camera}>
-				<Group position="center">Gallery tab content</Group>
-			</Tabs.Tab>
-			<Tabs.Tab label="Messages" icon={EnvelopeClosed}>
-				<Group position="center">Messages tab content</Group>
-			</Tabs.Tab>
-			<Tabs.Tab label="Settings" icon={Gear}>
-				<Group position="center">Settings tab content</Group>
-			</Tabs.Tab>
-		</Tabs>
-	</Paper>
-	<Paper withBorder>
-		<Alert icon={InfoCircled} title="Oopsie!">
-			Seems like our servers (actually a single Raspberry pi) crashed, please wait while our
-			underpaid worker tries to solder the CPU again.
-		</Alert>
-	</Paper>
-  <Paper override={listStyles} withBorder>
-    <Loader variant="circle" />
-    <Loader variant="dots" />
-    <Loader variant="bars" />
-  </Paper>
-</SimpleGrid>
+						<Group override={{ marginBottom: '10px', marginTop: '$smPX' }}>
+							<Text>Portugal Porto Adventures</Text>
+						</Group>
+
+						<Text size="sm" override={{ lineHeight: 1.5 }}>
+							With Portugal Porto Adventures you can explore more of the beautiful Portuguese
+							cities, by walking on foot, meeting the locals and eating excellent food and wine
+						</Text>
+
+						<Button variant="light" color="blue" fullSize override={{ marginTop: '14px' }}>
+							Book classic tour now
+						</Button>
+					</Card>
+				</div>
+			</div>
+		</Tabs.Tab>
+		<Tabs.Tab label="Feedback" class={classes.root} icon={ExclamationTriangle}>
+			<div
+				class="componentExamplesTabPanel"
+			>
+				<div class="componentExamplesSectionOne">
+					<h3>Alert component</h3>
+					<Alert icon={InfoCircled} title="Oopsie!" override={{ marginBottom: '2rem' }}>
+						Seems like our servers (actually a single Raspberry pi) crashed. Please wait while our
+						underpaid worker tries to solder the CPU again.
+					</Alert>
+					<h3>Loader component</h3>
+					<Group override={{ marginBottom: '2rem' }} position="center">
+						<Loader variant="circle" />
+						<Loader variant="dots" />
+						<Loader variant="bars" />
+					</Group>
+					<h3>Progress component</h3>
+					<Progress size="xl" animate {value} tween tweenOptions={{ duration: 250 }} />
+					<Group override={{ paddingTop: '1rem' }} position="center">
+						<Button on:click={() => changeProgressValue('increment')}>+</Button>
+						<Button on:click={() => changeProgressValue('decrement')}>-</Button>
+					</Group>
+				</div>
+				<div class="componentExamplesSectionTwo">
+					<h3>Notification component</h3>
+					<Notification title="Default notification" override={{ marginBottom: '2rem' }}>
+						This is the default notification with a title and a body
+					</Notification>
+					<h3>Skeleton component</h3>
+					<Skeleton height={50} circle mb="xl" override={{ marginBottom: '24px' }} />
+					<Skeleton height={8} radius="xl" />
+					<Skeleton height={8} radius="xl" override={{ marginTop: '8px' }} />
+					<Skeleton height={8} width="70%" radius="xl" override={{ marginTop: '8px' }} />
+				</div>
+			</div>
+		</Tabs.Tab>
+		<Tabs.Tab label="Overlays" class={classes.root} icon={Stack}>
+			<div
+				class="componentExamplesTabPanel"
+			>
+				<div class="componentExamplesSectionOne">
+					<h3>Overlays</h3>
+					<Group override={{ marginBottom: '2rem' }}>
+						<Modal
+							opened={modalOpened}
+							on:close={() => (modalOpened = false)}
+							title="This is a modal!"
+						>
+							<Group position="center">
+								<p>Hope you liked it!</p>
+							</Group>
+						</Modal>
+
+						<Group position="center">
+							<Button on:click={() => (modalOpened = true)}>Open Modal</Button>
+						</Group>
+
+						<Tooltip label="Label">
+							<Button>With tooltip</Button>
+						</Tooltip>
+					</Group>
+          <h3>Menu component</h3>
+					<Menu>
+						<Menu.Label>Application</Menu.Label>
+						<Menu.Item icon={Gear}>Settings</Menu.Item>
+						<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+						<Menu.Item icon={MagnifyingGlass}>
+							<svelte:fragment slot="rightSection">
+								<Text size="xs" color="dimmed">⌘K</Text>
+							</svelte:fragment>
+							Search
+						</Menu.Item>
+
+						<Divider />
+
+						<Menu.Label>Danger zone</Menu.Label>
+						<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
+					</Menu>
+				</div>
+			</div>
+		</Tabs.Tab>
+	</Tabs>
+</div>
