@@ -205,7 +205,7 @@
 						</Center>
 					</Group>
 				</div>
-				<div style="width: 340px; margin: auto">
+				<div style="width: 25rem">
 					<h3>Card component</h3>
 					<Card shadow="sm" p="lg">
 						<Card.Section first padding="lg">
