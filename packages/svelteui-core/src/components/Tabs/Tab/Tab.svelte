@@ -65,11 +65,11 @@
 				<IconRenderer {icon} className={classes.icon} />
 			{/if}
 		</slot>
-    <slot name="label">
-      {#if label}
-        <div class={classes.label}>{label}</div>
-      {/if}
-    </slot>
+		<slot name="label">
+			{#if label}
+				<div class={classes.label}>{label}</div>
+			{/if}
+		</slot>
 		<div class={cx('svelteui-tab-content', classes.tabContent)}>
 			<slot />
 		</div>
