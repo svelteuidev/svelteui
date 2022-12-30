@@ -68,7 +68,7 @@
 
 	const useStyles = createStyles((theme) => ({
 		root: {
-			color: theme.fn.themeColor('gray', 9),
+			color: theme.fn.themeColor('gray', 7),
 			fontSize: theme.fontSizes.md.value,
 			padding: `${theme.space.lg.value}px ${theme.space.xl.value}px`,
 			darkMode: {
@@ -79,7 +79,7 @@
 			transitionProperty: 'all',
 			transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
 			transitionDuration: '200ms',
-
+      borderRadius: theme.radii.md.value,
 			width: '15rem !important',
 			height: '4rem !important',
 			fontWeight: 'bold !important',
@@ -93,12 +93,6 @@
 			},
 			'&.active:hover': {
 				backgroundColor: theme.colors.white.value
-			},
-			'&:first-of-type': {
-				borderTopLeftRadius: theme.radii.md.value
-			},
-			'&:last-of-type': {
-				borderBottomLeftRadius: theme.radii.md.value
 			}
 		}
 	}));
@@ -120,8 +114,9 @@
 						label="Error"
 						error="Invalid email"
 						value="Invalid Value"
-						override={{ marginBottom: '2rem' }}
+						override={{ marginBottom: '1rem' }}
 					/>
+          <h3>Button component</h3>
 					<Group grow override={{ marginBottom: '1rem' }}>
 						<Button>Default</Button>
 						<Button disabled>Disabled</Button>
@@ -294,7 +289,7 @@
 					<Popper
 						override={{ '& .arrow': { backgroundColor: '$gray100' } }}
 						{reference}
-						{popperMounted}
+						mounted={popperMounted}
             position="bottom"
 					>
 						<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
