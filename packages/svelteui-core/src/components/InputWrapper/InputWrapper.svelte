@@ -2,6 +2,7 @@
 	import useStyles from './InputWrapper.styles';
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
+  import { randomID } from '$lib/styles';
 	import LabelElement from './LabelElement.svelte';
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
 
@@ -24,6 +25,7 @@
 	export { className as class };
 
 	let _labelProps;
+  const baseId = randomID(id);
 	$: {
 		_labelProps = labelElement === 'label' ? { htmlFor: id, ...labelProps } : { ...labelProps };
 	}
@@ -32,7 +34,7 @@
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
 	{#if label}
-		<LabelElement class={classes.label} {..._labelProps} {label} {id} {labelElement} {required} />
+		<LabelElement class={classes.label} {..._labelProps} {label} id={baseId} {labelElement} {required} />
 	{/if}
 	{#if description}
 		<Text {...descriptionProps} color="gray" class={classes.description}>
