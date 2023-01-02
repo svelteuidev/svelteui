@@ -1,8 +1,8 @@
 import { createStyles } from '$lib/styles';
 
 export interface BackgroundImageStyleParams {
-	width: string | number;
-	height: string | number;
+	width?: string | number;
+	height?: string | number;
 	radius: string | number;
 	src: string;
 }
