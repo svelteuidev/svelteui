@@ -15,6 +15,7 @@
 		override: $$Props['override'] = {},
 		active: $$Props['active'] = undefined,
 		icon: $$Props['icon'] = undefined,
+		iconProps: $$Props['iconProps'] = undefined,
 		label: $$Props['label'] = undefined,
 		color: $$Props['color'] = undefined,
 		variant: $$Props['variant'] = undefined,
@@ -60,16 +61,16 @@
 	{...$$restProps}
 >
 	<div class={classes.inner}>
-		<slot name="icon">
+		<slot name="icon" {color} {...iconProps}>
 			{#if icon}
-				<IconRenderer {icon} className={classes.icon} />
+				<IconRenderer {icon} {iconProps} className={classes.icon} />
 			{/if}
 		</slot>
-    <slot name="label">
-      {#if label}
-        <div class={classes.label}>{label}</div>
-      {/if}
-    </slot>
+		<slot name="label">
+			{#if label}
+				<div class={classes.label}>{label}</div>
+			{/if}
+		</slot>
 		<div class={cx('svelteui-tab-content', classes.tabContent)}>
 			<slot />
 		</div>
