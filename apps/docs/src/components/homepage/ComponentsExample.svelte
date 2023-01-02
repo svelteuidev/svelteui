@@ -94,7 +94,10 @@
 			'&.active:hover': {
 				backgroundColor: theme.colors.white.value
 			}
-		}
+		},
+    icon: {
+      size: 30,
+    }
 	}));
 	$: ({ classes } = useStyles());
 	const variants = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
