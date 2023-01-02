@@ -6,6 +6,7 @@ import type { DefaultProps, SvelteUIColor, SvelteUITheme, VariantThemeFunction }
 export interface TabProps extends DefaultProps {
 	active?: boolean;
 	icon?: Component | HTMLOrSVGElement;
+	iconProps?: Record<string, unknown>;
 	label?: Component | string;
 	color?: SvelteUIColor;
 	variant?: TabsVariant;

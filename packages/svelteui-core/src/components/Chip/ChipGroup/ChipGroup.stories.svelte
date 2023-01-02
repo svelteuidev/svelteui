@@ -79,7 +79,7 @@
 <Story name="Input label">
 	<ChipGroup
 		bind:value={bindValue}
-    multiple
+		multiple
 		label="Pick as many as you like"
 		items={[
 			{ label: 'One', value: 'one' },
