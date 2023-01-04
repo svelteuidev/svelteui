@@ -13,7 +13,8 @@ index: true
 		HomePageExample,
 		Preview,
 		HomePageExampleCode,
-		Banner
+		Banner,
+    ComponentsExample
 	} from 'components';
 	import { GithubLogo, ArrowRight } from 'radix-icons-svelte';
 	import {
@@ -90,6 +91,15 @@ index: true
 	<Container override={{ py: '7rem' }} size="xl">
 		<Features />
 	</Container>
+  <Container size="xl">
+    <Title weight="bold" override={{ fontFamily: "var(--font)", paddingBottom: "2rem" }} align="center">
+      40+ customizable components
+    </Title>
+    <ComponentsExample />
+    <Group position="right" override={{ pt: "1.5rem" }}>
+      and many more...
+    </Group>
+  </Container>
 	<Container override={{ py: '7rem' }} size="xl">
 		<Title override={title} weight="extrabold" tracking="tight" align="center">
 			Less Code. Elegant Solutions.
