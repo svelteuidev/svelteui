@@ -113,10 +113,10 @@ Base component to create custom inputs
 		<svelte:element
 			bind:this={element}
 			this={castRoot()}
-			value={value}
 			use:useActions={use}
 			use:forwardEvents
 			on:change={onChange}
+			{value}
 			{required}
 			{disabled}
 			{id}
@@ -130,7 +130,7 @@ Base component to create custom inputs
 			>
 			<slot />
 		</svelte:element>
-	{:else if isComponent}
+	{:else if isComponent && typeof root !== "string"}
 		<svelte:component
 			this={root}
 			bind:element

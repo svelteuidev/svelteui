@@ -89,7 +89,7 @@ Add inline styles to any element or component with sx.
 	>
 		<slot></slot>
 	</svelte:element>
-{:else if isComponent}
+{:else if isComponent && typeof root !== "string"}
 	<svelte:component
 		this={root}
 		bind:this={element}
