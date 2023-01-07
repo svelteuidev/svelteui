@@ -31,10 +31,10 @@
     dispatch('selected', item);
   }
 
-	$: ({ classes, getStyles } = useStyles({ size }));
+	$: ({ cx, classes, getStyles } = useStyles({ size }));
 </script>
 
-<div class={getStyles({ css: override })}>
+<div class={cx(className, getStyles({ css: override }))}>
   {#if data.length === 0}
     <Text size={size} class={classes.nothingFound}>
       {nothingFoundLabel}
