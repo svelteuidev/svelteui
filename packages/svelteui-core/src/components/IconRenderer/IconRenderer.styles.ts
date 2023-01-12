@@ -1,12 +1,5 @@
-import type { Component } from '$lib/internal';
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
-
-export interface IconRendererProps extends DefaultProps<HTMLOrSVGElement> {
-	icon?: Component | HTMLOrSVGElement;
-	iconSize?: number;
-	iconProps?: Record<string, unknown>;
-}
+import type { SvelteUINumberSize } from '$lib/styles';
 
 export interface IconRendererStylesParams {
 	iconSize: SvelteUINumberSize;

@@ -16,7 +16,7 @@
 	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from './Menu.context';
 	import type { PopperProps } from '../Popper';
-	import type { MenuProps as $$MenuProps } from './Menu.styles';
+	import type { MenuProps as $$MenuProps } from './Menu';
 
 	interface $$Props extends $$MenuProps, Omit<PopperProps, 'transition'> {}
 

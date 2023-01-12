@@ -1,8 +1,11 @@
 <script lang="ts">
-	import type { LoaderPropsExtended } from './loader-props-extended';
-	export let size: LoaderPropsExtended['size'] = 25;
-	export let color: LoaderPropsExtended['color'] = 'blue';
-	export let className: LoaderPropsExtended['className'] = '';
+  import { useActions } from '$lib/internal';
+	import type { LoaderProps } from '../Loader';
+
+	export let use: LoaderProps['use'] = [];
+	export let size: LoaderProps['size'] = 25;
+	export let color: LoaderProps['color'] = 'blue';
+	export let className: LoaderProps['className'] = '';
 	export { className as class };
 </script>
 
@@ -13,6 +16,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	fill={color}
 	class={className}
+  use:useActions={use}
 >
 	<circle cx="15" cy="15" r="15">
 		<animate

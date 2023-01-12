@@ -2,8 +2,8 @@
 	import useStyles from './NumberInput.styles';
 	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '../TextInput';
-	import { defaultFormatter, defaultParser } from './NumberInput.styles';
-	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
+	import { defaultFormatter, defaultParser } from './utils';
+	import type { NumberInputProps as $$NumberInputProps } from './NumberInput';
 
 	interface $$Props extends $$NumberInputProps {}
 

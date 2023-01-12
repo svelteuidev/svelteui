@@ -1,10 +1,10 @@
 <script lang="ts">
-	import useStyles from './Input.styles';
+  import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
-	import type { InputProps as $$InputProps } from './Input.styles';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import useStyles from './Input.styles';
+	import type { InputProps as $$InputProps } from './Input';
 
 	interface $$Props extends $$InputProps {}
 
@@ -131,7 +131,7 @@ Base component to create custom inputs
 		>
 			<slot />
 		</svelte:element>
-	{:else if isComponent}
+	{:else if isComponent && typeof root !== "string"}
 		<svelte:component
 			this={root}
 			bind:element

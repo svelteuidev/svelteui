@@ -6,16 +6,17 @@ export { default as Footer } from './Footer/Footer.svelte';
 export { default as AppShell } from './AppShell.svelte';
 
 export type { AppShellStylesNames } from './AppShell.svelte';
-export type { AppShellProps, AppShellStylesParams } from './AppShell.styles';
+export type { AppShellStylesParams } from './AppShell.styles';
+export type { AppShellProps, AppShellEvents, AppShellSlots} from './AppShell';
 export type { HorizontalSectionStylesNames } from './HorizontalSection/HorizontalSection.svelte';
 export type {
 	HorizontalSectionSharedProps,
 	HorizontalSectionProps,
 	HorizontalSectionPosition,
 	HorizontalSectionWidth
-} from './HorizontalSection/HorizontalSection.styles';
+} from './HorizontalSection/HorizontalSection';
 export type {
 	VerticalSectionSharedProps,
 	VerticalSectionProps,
 	VerticalSectionPosition
-} from './VerticalSection/VerticalSection.styles';
+} from './VerticalSection/VerticalSection';

@@ -1,17 +1,17 @@
 <script lang="ts">
-	import useStyles from './Modal.styles';
-	import { CloseButton } from '../ActionIcon';
-	import { Text } from '../Text';
-	import { Paper } from '../Paper';
-	import { Overlay } from '../Overlay';
-	import { OptionalPortal } from '../Portal';
-	import { Box } from '../Box';
-	import { randomID, colorScheme, css } from '$lib/styles';
-	import { focustrap, lockscroll } from '@svelteuidev/composables';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
-	import type { ModalProps as $$ModalProps } from './Modal.styles';
+	import { focustrap, lockscroll } from '@svelteuidev/composables';
+	import { randomID, colorScheme, css } from '$lib/styles';
+	import { CloseButton } from '../ActionIcon';
+	import { Box } from '../Box';
+	import { Overlay } from '../Overlay';
+	import { Paper } from '../Paper';
+	import { OptionalPortal } from '../Portal';
+	import { Text } from '../Text';
+	import useStyles from './Modal.styles';
+	import type { ModalProps as $$ModalProps } from './Modal';
 
 	interface $$Props extends $$ModalProps {}
 

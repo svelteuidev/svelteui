@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import useStyles from './Notification.styles';
-	import { Box } from '../Box';
 	import { CloseButton } from '../ActionIcon';
+	import { Box } from '../Box';
+	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
-	import type { NotificationProps as $$NotificationProps } from './Notification.styles';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import useStyles from './Notification.styles';
+	import type { NotificationProps as $$NotificationProps } from './Notification';
 
 	interface $$Props extends $$NotificationProps {}
 

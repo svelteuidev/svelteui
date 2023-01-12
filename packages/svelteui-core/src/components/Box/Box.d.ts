@@ -1,5 +1,5 @@
 import { SvelteComponent, SvelteComponentTyped } from 'svelte';
-import { HTMLAttributes } from 'svelte/elements';
+import { HTMLAttributes, type HTMLButtonAttributes } from 'svelte/elements';
 import type { CSS, DefaultProps, SvelteUITheme } from '$lib/styles';
 import type { Component, LiteralUnion } from '$lib/internal';
 

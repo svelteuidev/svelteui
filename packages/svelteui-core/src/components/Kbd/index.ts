@@ -1,2 +1,2 @@
 export { default as Kbd } from './Kbd.svelte';
-export type { KbdProps } from './Kbd.styles';
+export type { KbdProps, KbdEvents, KbdSlots } from './Kbd';

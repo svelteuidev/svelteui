@@ -39,3 +39,16 @@
 		description: 'This is anonymous'
 	}}
 />
+
+<Story name="NativeSelect with custom right section" id="nativeSelectRightSection">
+  <NativeSelect
+		data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
+		placeholder="Pick one"
+		label="Select your favorite framework/library"
+		description="This is anonymous"
+	>
+    <svelte:fragment slot="rightSection">
+      +
+    </svelte:fragment>
+  </NativeSelect>
+</Story>

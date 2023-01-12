@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Text } from '../../Text';
-	import { useSvelteUIThemeContext, useSvelteUITheme } from '$lib/styles';
+  import { useSvelteUIThemeContext, useSvelteUITheme } from '$lib/styles';
 	import type { CSS } from '$lib/styles';
-	import type { TextProps } from '../../Text/Text.styles';
+	import { Text } from '../../Text';
+	import type { TextProps } from '../../Text/Text';
 
 	interface $$Props extends Omit<TextProps, 'className'> {
 		className?: string;

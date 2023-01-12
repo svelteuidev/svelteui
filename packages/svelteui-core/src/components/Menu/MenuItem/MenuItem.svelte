@@ -1,14 +1,14 @@
 <script lang="ts">
-	import useStyles, { getContextItemIndex } from './MenuItem.styles';
-	import { Box } from '../../Box';
-	import { ctx } from '../Menu.svelte';
 	import { getContext } from 'svelte';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
-	import type { MenuContextValue } from '../Menu.context';
-	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { Box } from '../../Box';
 	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { ctx } from '../Menu.svelte';
+	import type { MenuContextValue } from '../Menu.context';
+	import useStyles, { getContextItemIndex } from './MenuItem.styles';
+	import type { MenuItemProps as $$MenuItemProps } from './MenuItem';
 
 	interface $$Props extends $$MenuItemProps {}
 

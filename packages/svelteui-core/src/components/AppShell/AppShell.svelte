@@ -4,10 +4,10 @@
 </script>
 
 <script lang="ts">
+  import { Box } from '../Box';
 	import useStyles from './AppShell.styles';
 	import AppShellProvider from './AppShellProvider.svelte';
-	import { Box } from '../Box';
-	import type { AppShellProps as $$AppShellProps } from './AppShell.styles';
+	import type { AppShellProps as $$AppShellProps } from './AppShell';
 
 	interface $$Props extends $$AppShellProps {}
 

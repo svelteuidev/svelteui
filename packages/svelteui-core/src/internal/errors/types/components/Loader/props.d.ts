@@ -1,8 +1,8 @@
-import type { LoaderPropsExtended } from '$lib/components/Loader/Loader.styles';
+import type { LoaderProps } from '$lib/components/Loader/Loader';
 import type { SvelteUIColor, SvelteUITheme } from '../../index';
 
 export interface LoaderProps {
-	size?: LoaderPropsExtended['size'] | number;
+	size?: LoaderProps['size'] | number;
 	color?: SvelteUIColor | SvelteUITheme['white'];
-	variant?: LoaderPropsExtended['variant'];
+	variant?: LoaderProps['variant'];
 }

@@ -1,8 +1,12 @@
 export { Menu } from './combinator';
+export type { MenuStyleParams } from './Menu.styles';
+export type { MenuProps, MenuEvents, MenuSlots } from './Menu';
+
 export { default as MenuIcon } from './MenuIcon.svelte';
-export type { MenuProps, MenuStyleParams } from './Menu.styles';
+export type { MenuItemStylesParams } from './MenuItem/MenuItem.styles';
 export type {
 	MenuItemProps,
-	MenuItemStylesParams,
-	SharedMenuItemProps
-} from './MenuItem/MenuItem.styles';
+	SharedMenuItemProps,
+	MenuItemEvents,
+	MenuItemSlots
+} from './MenuItem/MenuItem';

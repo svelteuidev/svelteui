@@ -2,7 +2,7 @@
 	import useStyles from './VerticalSection.styles';
 	import { Box } from '../../Box';
 	import { globalCss } from '$lib/styles';
-	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection.styles';
+	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection';
 
 	interface $$Props extends $$VerticalSectionProps {}
 

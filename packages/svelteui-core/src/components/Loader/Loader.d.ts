@@ -1,23 +1,12 @@
 import { SvelteComponentTyped } from 'svelte';
-import { HTMLButtonAttributes, SVGAttributes } from 'svelte/elements';
-import type { Component, LiteralUnion } from '$lib/internal/types';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles';
+import { SVGAttributes } from 'svelte/elements';
+import { Component } from '$lib/internal/types';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles';
 
-export interface LoaderPropsExtended extends Partial<SVGElement> {
-	/** Defines width of loader */
+export interface LoaderProps extends DefaultProps<Omit<Component, 'prototype'>>, SVGAttributes {
 	size?: SvelteUINumberSize;
-
-	/** Loader color from theme */
 	color?: SvelteUIColor | 'white';
-
-	/** Loader appearance */
 	variant?: LoaderType;
-}
-
-export interface LoaderProps extends DefaultProps<Omit<Component, 'prototype'>> {
-	variant: LoaderPropsExtended['variant'];
-	color: LoaderPropsExtended['color'];
-	size: LoaderPropsExtended['size'];
 }
 
 export interface LoaderEvents {}

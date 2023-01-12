@@ -3,30 +3,8 @@ import {
 	getSortedBreakpoints,
 	theme as appShellTheme
 } from './get-sorted-breakpoints/get-sorted-breakpoints';
-import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
-
-export interface HorizontalSectionProps extends HorizontalSectionSharedProps {
-	section: 'navbar' | 'aside';
-}
-
-export interface HorizontalSectionSharedProps extends DefaultProps {
-	width?: HorizontalSectionWidth;
-	height?: string | number;
-	fixed?: boolean;
-	position?: HorizontalSectionPosition;
-	hiddenBreakpoint?: SvelteUINumberSize;
-	hidden?: boolean;
-	zIndex?: number;
-}
-
-export type HorizontalSectionWidth = Partial<Record<string, string | number>>;
-
-export interface HorizontalSectionPosition {
-	top?: number;
-	left?: number;
-	bottom?: number;
-	right?: number;
-}
+import type { SvelteUINumberSize } from '$lib/styles';
+import type { HorizontalSectionPosition } from './HorizontalSection';
 
 interface HorizontalSectionStyles {
 	width: Partial<Record<string, string | number>>;

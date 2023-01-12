@@ -1,8 +1,11 @@
 <script lang="ts">
-	import type { LoaderPropsExtended } from './loader-props-extended';
-	export let size: LoaderPropsExtended['size'] = 25;
-	export let color: LoaderPropsExtended['color'] = 'blue';
-	export let className: LoaderPropsExtended['className'] = '';
+  import { useActions } from '$lib/internal';
+	import type { LoaderProps } from '../Loader';
+
+	export let use: LoaderProps['use'] = [];
+	export let size: LoaderProps['size'] = 25;
+	export let color: LoaderProps['color'] = 'blue';
+	export let className: LoaderProps['className'] = '';
 	export { className as class };
 </script>
 
@@ -12,6 +15,7 @@
 	fill={color}
 	width={`${size}px`}
 	class={className}
+  use:useActions={use}
 >
 	<rect y="10" width="15" height="120" rx="6">
 		<animate

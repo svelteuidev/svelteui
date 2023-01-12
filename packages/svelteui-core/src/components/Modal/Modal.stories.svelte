@@ -2,9 +2,7 @@
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Modal } from './index';
 	import { Button } from '../Button';
-	import { useSvelteUITheme } from '$lib/styles';
 
-	const theme = useSvelteUITheme();
 	let opened = false;
 
 	function toggleOpen() {
