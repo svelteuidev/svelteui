@@ -1,5 +1,5 @@
 export type { DeepPartial } from './DeepPartial';
-export type { DefaultProps } from './DefaultProps';
+export type { DefaultProps, ElementProps } from './DefaultProps';
 export type { ColorScheme, DefaultBackground, DefaultColor } from './ColorScheme';
 export type { SvelteUIColor } from './SvelteUIColor';
 export type { SvelteUIGradient } from './SvelteUIGradient';
