@@ -13,6 +13,7 @@ export interface DefaultProps<T = HTMLElement> extends SvelteUIStyleSystemProps 
 	use?: ActionArray;
 }
 
+// @TODO: remove this
 export interface ElementProps<T extends EventTarget>
 	extends Omit<svelte.JSX.HTMLAttributes<T>, 'size'> {}
 
