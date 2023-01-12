@@ -1,13 +1,16 @@
 import { createStyles, vFunc } from '$lib/styles';
 import type {
+	DefaultProps,
+	ElementProps,
 	SvelteUIColor,
 	SvelteUINumberSize,
-	SvelteUIGradient,
-	DefaultProps
+	SvelteUIGradient
 } from '$lib/styles';
 import type { LoaderPropsExtended } from '../Loader/Loader.styles';
 
-export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
+export interface ButtonProps
+	extends DefaultProps<HTMLButtonElement | HTMLAnchorElement>,
+		Omit<ElementProps<HTMLButtonElement | HTMLAnchorElement>, 'loading'> {
 	variant?: ButtonVariant;
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;

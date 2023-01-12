@@ -84,6 +84,7 @@ Input for text that also uses labels for the input
 		{size}
 		id={baseId}
 		{placeholder}
+		{...overrideInput}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}
