@@ -1,10 +1,9 @@
 <script lang="ts">
-	import useStyles from './Tooltip.styles';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
-	import type { CSS } from '$lib/styles';
-	import type { TooltipProps as $$TooltipProps } from './Tooltip.styles';
+	import useStyles from './Tooltip.styles';
+	import type { TooltipProps as $$TooltipProps } from './Tooltip';
 
 	interface $$Props extends $$TooltipProps {}
 

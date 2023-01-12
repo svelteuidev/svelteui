@@ -5,10 +5,10 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import useStyles from './Tabs.styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
-	import type { TabsProps as $$TabsProps } from './Tabs.styles';
+	import useStyles from './Tabs.styles';
+	import type { TabsProps as $$TabsProps, TabsContext } from './Tabs';
 
 	interface $$Props extends $$TabsProps {}
 
@@ -37,7 +37,7 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	const contextStore = writable({
+	const contextStore: TabsContext = writable({
 		active: active === -1 ? initialTab : active,
 		color: color,
 		variant: variant,

@@ -1,4 +1,4 @@
 export { default as Divider } from './Divider.svelte';
 export * as DividerErrors from './Divider.errors';
 export type { DividerStyleParams } from './Divider.styles';
-export type { DividerProps, DividerEvents, DividerSlots, DividerVariant } from './Divider';
+export type { DividerProps, DividerSlots, DividerVariant } from './Divider';

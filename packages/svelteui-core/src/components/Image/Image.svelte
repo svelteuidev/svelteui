@@ -27,7 +27,7 @@
 
 	const forwardEvents = createEventForwarder(get_current_component());
 
-  let loaded: boolean = false;
+	let loaded: boolean = false;
 	let error: boolean = false;
 	let showPlaceholder: boolean = false;
 	const onLoad = () => (loaded = true);

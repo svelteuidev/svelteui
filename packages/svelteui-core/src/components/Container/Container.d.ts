@@ -8,10 +8,12 @@ export interface ContainerProps extends DefaultProps, HTMLAttributes<HTMLElement
 	sizes?: Record<SvelteUISize, number>;
 }
 
-export interface ContainerEvents {}
-
 export interface ContainerSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class Container extends SvelteComponentTyped<ContainerProps, ContainerEvents, ContainerSlots> {}
+export default class Container extends SvelteComponentTyped<
+	ContainerProps,
+	Record<string, never>,
+	ContainerSlots
+> {}

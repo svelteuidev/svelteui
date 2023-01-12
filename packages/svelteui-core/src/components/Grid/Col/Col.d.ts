@@ -17,10 +17,8 @@ export interface ColProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	xl?: number;
 }
 
-export interface ColEvents {}
-
 export interface ColSlots {
-  label: { slotValue: string };
+	label: Record<string, never>;
 }
 
-export default class Col extends SvelteComponentTyped<ColProps, ColEvents, ColSlots> {}
+export default class Col extends SvelteComponentTyped<ColProps, Record<string, never>, ColSlots> {}

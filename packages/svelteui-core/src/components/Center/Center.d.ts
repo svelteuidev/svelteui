@@ -6,10 +6,12 @@ export interface CenterProps extends DefaultProps<HTMLButtonElement>, HTMLAttrib
 	inline?: boolean;
 }
 
-export interface CenterEvents {}
-
 export interface CenterSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class Center extends SvelteComponentTyped<CenterProps, CenterEvents, CenterSlots> {}
+export default class Center extends SvelteComponentTyped<
+	CenterProps,
+	Record<string, never>,
+	CenterSlots
+> {}

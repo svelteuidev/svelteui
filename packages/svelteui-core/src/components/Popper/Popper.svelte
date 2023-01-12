@@ -5,7 +5,7 @@
 	import { get_current_component, onDestroy } from 'svelte/internal';
 	import { createEventForwarder, getTransition, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
-	import type { PopperProps as $$PopperProps } from './Popper.styles';
+	import type { PopperProps as $$PopperProps } from './Popper';
 
 	interface $$Props extends $$PopperProps {}
 

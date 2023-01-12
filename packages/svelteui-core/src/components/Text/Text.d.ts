@@ -19,8 +19,9 @@ export type TextColors = SvelteUIColor | 'dimmed';
 
 export type HTMLTextElements = keyof HTMLElementTagNameMap;
 
-export interface TextProps<T extends EventTarget = HTMLElement | HTMLAnchorElement>
-	extends DefaultProps<T>,
+export interface TextProps<
+	T extends EventTarget = HTMLElement | HTMLHeadingElement | HTMLAnchorElement
+> extends DefaultProps<T>,
 		HTMLAnchorAttributes {
 	align?: SvelteUITextAlignment;
 	color?: TextColors;
@@ -37,10 +38,12 @@ export interface TextProps<T extends EventTarget = HTMLElement | HTMLAnchorEleme
 	tracking?: Tracking;
 }
 
-export interface TextEvents {}
-
 export interface TextSlots {
-	default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class Text extends SvelteComponentTyped<TextProps, TextEvents, TextSlots> {}
+export default class Text extends SvelteComponentTyped<
+	TextProps,
+	Record<string, never>,
+	TextSlots
+> {}

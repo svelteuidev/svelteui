@@ -1,20 +1,6 @@
 import { createStyles, dark } from '$lib/styles';
-import type { DefaultProps, Override, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-
-export interface SwitchProps extends DefaultProps<HTMLInputElement> {
-	override?: Override['props'];
-	color?: SvelteUIColor;
-	size?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize;
-	transitionFunction?: SwitchTimingFunction;
-	className?: string;
-	id?: string;
-	label?: string;
-	onLabel?: string;
-	offLabel?: string;
-	disabled?: boolean;
-	checked?: boolean;
-}
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { SwitchTimingFunction } from './Switch';
 
 export interface SwitchStyleParams {
 	color: SvelteUIColor;
@@ -24,14 +10,6 @@ export interface SwitchStyleParams {
 	onLabel: string;
 	offLabel: string;
 }
-export type SwitchTimingFunction =
-	| 'linear'
-	| 'ease'
-	| 'ease-in'
-	| 'ease-out'
-	| 'ease-in-out'
-	| 'step-start'
-	| 'step-end';
 
 export const radii = {
 	xs: 2,

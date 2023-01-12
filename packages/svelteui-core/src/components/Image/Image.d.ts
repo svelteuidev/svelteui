@@ -17,12 +17,12 @@ export interface ImageProps extends DefaultProps<HTMLImageElement>, HTMLImgAttri
 }
 
 export interface ImageEvents {
-  load: Event;
-  error: Event;
+	load: Event;
+	error: Event;
 }
 
 export interface ImageSlots {
-  placeholder: { slotValue: string };
+	placeholder: Record<string, never>;
 }
 
 export default class Image extends SvelteComponentTyped<ImageProps, ImageEvents, ImageSlots> {}

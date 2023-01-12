@@ -1,5 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type {  CSS, SvelteUINumberSize } from '$lib/styles';
+import type { CSS, SvelteUINumberSize } from '$lib/styles';
 import type { GroupPosition } from './Group';
 
 export interface GroupStylesParams {

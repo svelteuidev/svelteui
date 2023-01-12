@@ -1,11 +1,11 @@
 <script lang="ts">
-	import useStyles from './Tab.styles';
-	import { ctx } from '../Tabs.svelte';
-	import { Box } from '../../Box';
 	import { getContext, onMount } from 'svelte';
-	import type { TabsContext } from '../Tabs.styles';
-	import type { TabProps as $$TabProps } from './Tab.styles';
-	import IconRenderer from '$lib/components/IconRenderer/IconRenderer.svelte';
+	import { Box } from '../../Box';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { ctx } from '../Tabs.svelte';
+	import type { TabsContext } from '../Tabs';
+	import useStyles from './Tab.styles';
+	import type { TabProps as $$TabProps } from './Tab';
 
 	interface $$Props extends $$TabProps {}
 

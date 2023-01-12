@@ -120,14 +120,10 @@ Capture user feedback limited to large set of options
 		{:else}
 			<option value="" disabled hidden> Add Some Options </option>
 		{/each}
-    <svelte:fragment slot="rightSection">
-      <slot name="rightSection">
-        <svelte:component
-          this={ChevronUpDown}
-          size={iconProps.size}
-          color={iconProps.color}
-        />
-      </slot>
-    </svelte:fragment>
+		<svelte:fragment slot="rightSection">
+			<slot name="rightSection" size={iconProps.size} color={iconProps.color}>
+				<svelte:component this={ChevronUpDown} size={iconProps.size} color={iconProps.color} />
+			</slot>
+		</svelte:fragment>
 	</Input>
 </InputWrapper>

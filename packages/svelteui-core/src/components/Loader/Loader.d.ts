@@ -9,8 +9,8 @@ export interface LoaderProps extends DefaultProps<Omit<Component, 'prototype'>>,
 	variant?: LoaderType;
 }
 
-export interface LoaderEvents {}
-
-export interface LoaderSlots {}
-
-export default class Loader extends SvelteComponentTyped<LoaderProps, LoaderEvents, LoaderSlots> {}
+export default class Loader extends SvelteComponentTyped<
+	LoaderProps,
+	Record<string, never>,
+	Record<string, never>
+> {}

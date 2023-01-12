@@ -17,13 +17,15 @@ export interface VerticalSectionSharedProps extends DefaultProps, HTMLAttributes
 }
 
 export interface VerticalSectionProps extends VerticalSectionSharedProps {
-  section: 'header' | 'footer';
+	section: 'header' | 'footer';
 }
-
-export interface VerticalSectionEvents {}
 
 export interface VerticalSectionSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class VerticalSection extends SvelteComponentTyped<VerticalSectionProps, VerticalSectionEvents, VerticalSectionSlots> {}
+export default class VerticalSection extends SvelteComponentTyped<
+	VerticalSectionProps,
+	Record<string, never>,
+	VerticalSectionSlots
+> {}

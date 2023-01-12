@@ -10,15 +10,17 @@ export interface AppShellProps extends DefaultProps, HTMLAttributes<HTMLElement>
 	asideOffsetBreakpoint?: SvelteUINumberSize;
 }
 
-export interface AppShellEvents {}
-
 export interface AppShellSlots {
-  default: { slotValue: string };
-  label: { slotValue: string };
-  header: { slotValue: string };
-  navbar: { slotValue: string };
-  aside: { slotValue: string };
-  footer: { slotValue: string };
+	default: Record<string, never>;
+	label: Record<string, never>;
+	header: Record<string, never>;
+	navbar: Record<string, never>;
+	aside: Record<string, never>;
+	footer: Record<string, never>;
 }
 
-export default class AppShell extends SvelteComponentTyped<AppShellProps, AppShellEvents, AppShellSlots> {}
+export default class AppShell extends SvelteComponentTyped<
+	AppShellProps,
+	Record<string, never>,
+	AppShellSlots
+> {}

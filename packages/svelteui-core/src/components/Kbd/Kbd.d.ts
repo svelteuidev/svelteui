@@ -6,10 +6,8 @@ export type KbdPosition = 'right' | 'center' | 'left' | 'apart';
 
 export interface KbdProps extends DefaultProps, HTMLAttributes<HTMLElement> {}
 
-export interface KbdEvents {}
-
 export interface KbdSlots {
-  label: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class Kbd extends SvelteComponentTyped<KbdProps, KbdEvents, KbdSlots> {}
+export default class Kbd extends SvelteComponentTyped<KbdProps, Record<string, never>, KbdSlots> {}

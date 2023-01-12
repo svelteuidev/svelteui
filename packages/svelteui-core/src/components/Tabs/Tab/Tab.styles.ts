@@ -1,18 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { TabsVariant } from '../Tabs.styles';
-import type { Component } from '$lib/internal';
-import type { DefaultProps, SvelteUIColor, SvelteUITheme, VariantThemeFunction } from '$lib/styles';
-
-export interface TabProps extends DefaultProps {
-	active?: boolean;
-	icon?: Component | HTMLOrSVGElement;
-	iconProps?: Record<string, unknown>;
-	label?: Component | string;
-	color?: SvelteUIColor;
-	variant?: TabsVariant;
-	orientation?: 'horizontal' | 'vertical';
-	tabKey?: string;
-}
+import type { SvelteUIColor, SvelteUITheme, VariantThemeFunction } from '$lib/styles';
 
 export interface TabStyleParams {
 	color?: SvelteUIColor;

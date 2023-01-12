@@ -194,7 +194,7 @@
 	on:mouseenter={handleMouseEnter}
 	{...$$restProps}
 >
-	<slot name="control" class="menu-control">
+	<slot name="control">
 		<MenuIcon
 			bind:element={referenceElement}
 			role="button"

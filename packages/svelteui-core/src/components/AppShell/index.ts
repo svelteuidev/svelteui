@@ -7,7 +7,7 @@ export { default as AppShell } from './AppShell.svelte';
 
 export type { AppShellStylesNames } from './AppShell.svelte';
 export type { AppShellStylesParams } from './AppShell.styles';
-export type { AppShellProps, AppShellEvents, AppShellSlots} from './AppShell';
+export type { AppShellProps, AppShellSlots } from './AppShell';
 export type { HorizontalSectionStylesNames } from './HorizontalSection/HorizontalSection.svelte';
 export type {
 	HorizontalSectionSharedProps,

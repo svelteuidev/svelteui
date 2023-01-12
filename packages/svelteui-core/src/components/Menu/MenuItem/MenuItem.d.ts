@@ -15,15 +15,19 @@ export interface MenuItemProps extends SharedMenuItemProps {
 }
 
 export interface MenuItemEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface MenuItemSlots {
-  label: { slotValue: string };
-  control: { slotValue: string };
+	default: Record<string, never>;
+	control: Record<string, never>;
 }
 
-export default class MenuItem extends SvelteComponentTyped<MenuItemProps, MenuItemEvents, MenuItemSlots> {}
+export default class MenuItem extends SvelteComponentTyped<
+	MenuItemProps,
+	MenuItemEvents,
+	MenuItemSlots
+> {}

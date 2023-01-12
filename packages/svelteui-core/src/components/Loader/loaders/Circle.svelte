@@ -16,7 +16,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	stroke={color}
 	class={className}
-  use:useActions={use}
+	use:useActions={use}
 >
 	<g fill="none" fill-rule="evenodd">
 		<g transform="translate(2.5 2.5)" stroke-width="5">

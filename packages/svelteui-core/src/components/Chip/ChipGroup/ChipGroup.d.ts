@@ -20,9 +20,11 @@ export interface ChipGroupProps<T = boolean> extends DefaultProps, HTMLAttribute
 }
 
 export interface ChipGroupEvents<T = boolean> {
-  change: CustomEvent<T extends true ? string[] : string>;
+	change: CustomEvent<T extends true ? string[] : string>;
 }
 
-export interface ChipGroupSlots {}
-
-export default class ChipGroup extends SvelteComponentTyped<ChipGroupProps, ChipGroupEvents, ChipGroupSlots> {}
+export default class ChipGroup extends SvelteComponentTyped<
+	ChipGroupProps,
+	ChipGroupEvents,
+	Record<string, never>
+> {}

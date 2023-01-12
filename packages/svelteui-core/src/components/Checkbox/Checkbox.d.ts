@@ -17,16 +17,20 @@ export interface CheckboxProps extends DefaultProps<HTMLInputElement>, HTMLInput
 }
 
 export interface CheckboxEvents {
-  input: InputEvent;
-  change: InputEvent;
-  click: MouseEvent;
+	input: InputEvent;
+	change: InputEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface CheckboxSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class Checkbox extends SvelteComponentTyped<CheckboxProps, CheckboxEvents, CheckboxSlots> {}
+export default class Checkbox extends SvelteComponentTyped<
+	CheckboxProps,
+	CheckboxEvents,
+	CheckboxSlots
+> {}

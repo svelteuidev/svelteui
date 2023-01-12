@@ -1,32 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { Writable } from 'svelte/store';
-import type {
-	DefaultProps,
-	SvelteUINumberSize,
-	SvelteUIColor,
-	SvelteUITheme,
-	VariantThemeFunction
-} from '$lib/styles';
-
-export type TabsContext = Writable<{
-	active: number;
-	color: SvelteUIColor;
-	variant: TabsVariant;
-	orientation: 'horizontal' | 'vertical';
-}>;
-
-export interface TabsProps extends DefaultProps {
-	active?: number;
-	color?: SvelteUIColor;
-	grow?: boolean;
-	initialTab?: number;
-	orientation?: 'horizontal' | 'vertical';
-	position?: 'right' | 'center' | 'left' | 'apart';
-	tabPadding?: SvelteUINumberSize;
-	variant?: TabsVariant;
-}
-
-export type TabsVariant = 'default' | 'outline' | 'pills' | 'unstyled';
+import type { SvelteUINumberSize, SvelteUITheme, VariantThemeFunction } from '$lib/styles';
 
 export interface TabsStyleParams {
 	orientation?: 'horizontal' | 'vertical';

@@ -1,7 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import { TextProps } from "../Text/Text";
+import { TextProps } from '../Text/Text';
 
 export type DividerVariant = 'solid' | 'dashed' | 'dotted';
 
@@ -15,10 +15,12 @@ export interface DividerProps extends DefaultProps, HTMLAttributes<HTMLElement> 
 	variant?: DividerVariant;
 }
 
-export interface DividerEvents {}
-
 export interface DividerSlots {
-  label: { slotValue: string };
+	label: Record<string, never>;
 }
 
-export default class Divider extends SvelteComponentTyped<DividerProps, DividerEvents, DividerSlots> {}
+export default class Divider extends SvelteComponentTyped<
+	DividerProps,
+	Record<string, never>,
+	DividerSlots
+> {}

@@ -1,9 +1,5 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type {
-	SvelteUIColor,
-	SvelteUINumberSize,
-	SvelteUIGradient
-} from '$lib/styles';
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 import type { ButtonVariant } from './Button';
 
 export interface ButtonStylesParams {

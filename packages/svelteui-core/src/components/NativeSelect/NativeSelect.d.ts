@@ -11,7 +11,10 @@ export interface SelectItem {
 	[key: string]: any;
 }
 
-export interface NativeSelectProps extends DefaultProps<HTMLInputElement>, InputBaseProps, InputWrapperBaseProps {
+export interface NativeSelectProps
+	extends DefaultProps<HTMLInputElement>,
+		InputBaseProps,
+		InputWrapperBaseProps {
 	id?: string;
 	placeholder?: string;
 	data?: (string | SelectItem)[];
@@ -21,12 +24,16 @@ export interface NativeSelectProps extends DefaultProps<HTMLInputElement>, Input
 }
 
 export interface NativeSelectEvents {
-  change: InputEvent;
-  input: InputEvent;
+	change: InputEvent;
+	input: InputEvent;
 }
 
 export interface NativeSelectSlots {
-	rightSection: { slotValue: string };
+	rightSection: { size: number; color: 'currentColor' | string };
 }
 
-export default class NativeSelect extends SvelteComponentTyped<NativeSelectProps, NativeSelectEvents, NativeSelectSlots> {}
+export default class NativeSelect extends SvelteComponentTyped<
+	NativeSelectProps,
+	NativeSelectEvents,
+	NativeSelectSlots
+> {}

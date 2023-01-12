@@ -5,4 +5,8 @@ export type { ImageProps, ImageEvents, ImageSlots } from './Image';
 
 export { default as BackgroundImage } from './BackgroundImage/BackgroundImage.svelte';
 export type { BackgroundImageStyleParams } from './BackgroundImage/BackgroundImage.styles';
-export type { BackgroundImageProps, BackgroundImageEvents, BackgroundImageSlots } from './BackgroundImage/BackgroundImage';
+export type {
+	BackgroundImageProps,
+	BackgroundImageEvents,
+	BackgroundImageSlots
+} from './BackgroundImage/BackgroundImage';

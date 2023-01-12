@@ -8,7 +8,7 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon';
 
-	interface $$Props extends $$ActionIconProps {};
+	interface $$Props extends $$ActionIconProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

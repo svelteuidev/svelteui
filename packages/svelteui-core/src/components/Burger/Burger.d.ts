@@ -9,12 +9,14 @@ export interface BurgerProps extends DefaultProps<HTMLButtonElement>, HTMLButton
 }
 
 export interface BurgerEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
-export interface BurgerSlots {}
-
-export default class Burger extends SvelteComponentTyped<BurgerProps, BurgerEvents, BurgerSlots> {}
+export default class Burger extends SvelteComponentTyped<
+	BurgerProps,
+	BurgerEvents,
+	Record<string, never>
+> {}

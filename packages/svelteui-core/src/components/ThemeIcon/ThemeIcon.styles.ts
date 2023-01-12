@@ -1,19 +1,11 @@
 import { dark, createStyles, fns } from '$lib/styles';
 import type {
-	DefaultProps,
 	SvelteUINumberSize,
 	SvelteUIColor,
 	SvelteUIGradient,
 	VariantThemeFunction
 } from '$lib/styles';
-
-export interface ThemeIconProps extends DefaultProps {
-	size?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize;
-	color?: SvelteUIColor;
-	variant?: ThemeIconVariant;
-	gradient?: SvelteUIGradient;
-}
+import type { ThemeIconVariant } from './ThemeIcon';
 
 export interface ThemeIconStyleParams {
 	iconSize: string | number;
@@ -22,15 +14,6 @@ export interface ThemeIconStyleParams {
 	variant: ThemeIconVariant;
 	gradient: SvelteUIGradient;
 }
-
-export type ThemeIconVariant =
-	| 'filled'
-	| 'light'
-	| 'gradient'
-	| 'outline'
-	| 'subtle'
-	| 'default'
-	| 'white';
 
 const { rgba } = fns;
 

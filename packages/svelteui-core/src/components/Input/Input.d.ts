@@ -31,12 +31,12 @@ export interface InputProps extends InputBaseProps {
 }
 
 export interface InputEvents {
-  change: InputEvent;
+	change: InputEvent;
 }
 
 export interface InputSlots {
-  default: { slotValue: string };
-  rightSection: { slotValue: string };
+	default: Record<string, never>;
+	rightSection: Record<string, never>;
 }
 
 export default class Input extends SvelteComponentTyped<InputProps, InputEvents, InputSlots> {}

@@ -18,10 +18,12 @@ export interface InputWrapperProps extends InputWrapperBaseProps {
 	size?: SvelteUISize;
 }
 
-export interface InputWrapperEvents {}
-
 export interface InputWrapperSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class InputWrapper extends SvelteComponentTyped<InputWrapperProps, InputWrapperEvents, InputWrapperSlots> {}
+export default class InputWrapper extends SvelteComponentTyped<
+	InputWrapperProps,
+	Record<string, never>,
+	InputWrapperSlots
+> {}

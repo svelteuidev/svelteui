@@ -14,7 +14,6 @@
 		withBorder: $$Props['withBorder'] = false,
 		padding: $$Props['padding'] = 'md';
 	export { className as class };
-	export { padding as p };
 
 	$: ({ cx, getStyles } = useStyles({ radius, shadow, withBorder, padding }));
 </script>

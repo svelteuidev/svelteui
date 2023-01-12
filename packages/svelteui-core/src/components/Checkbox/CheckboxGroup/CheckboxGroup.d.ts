@@ -15,9 +15,11 @@ export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
 }
 
 export interface CheckboxGroupEvents {
-  change: CustomEvent<string[]>;
+	change: CustomEvent<string[]>;
 }
 
-export interface CheckboxGroupSlots {}
-
-export default class CheckboxGroup extends SvelteComponentTyped<CheckboxGroupProps, CheckboxGroupEvents, CheckboxGroupSlots> {}
+export default class CheckboxGroup extends SvelteComponentTyped<
+	CheckboxGroupProps,
+	CheckboxGroupEvents,
+	Record<string, never>
+> {}

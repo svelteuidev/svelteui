@@ -1,21 +1,6 @@
-import type { DefaultProps } from '$lib/styles';
-
-export interface SeoProps extends DefaultProps {
-	title?: string;
-	titleTemplate?: string;
-	noindex?: boolean;
-	nofollow?: boolean;
-	robotsProps?: AdditionalRobotsProps;
-	description?: string;
-	canonical?: string;
-	mobileAlternate?: MobileAlternate;
-	languageAlternates?: ReadonlyArray<LanguageAlternate>;
-	twitter?: Twitter;
-	facebook?: Facebook;
-	openGraph?: OpenGraph;
-	additionalMetaTags?: ReadonlyArray<MetaTag>;
-	additionalLinkTags?: ReadonlyArray<LinkTag>;
-}
+import { SvelteComponentTyped } from 'svelte';
+import { HTMLAttributes } from 'svelte/elements';
+import { DefaultProps } from '$lib/styles';
 
 export interface MobileAlternate {
 	media: string;
@@ -37,6 +22,7 @@ export interface AdditionalRobotsProps {
 	noimageindex?: boolean;
 	notranslate?: boolean;
 }
+
 export interface Twitter {
 	cardType?: 'summary' | 'summary_large_image' | 'app' | 'player';
 	site?: string;
@@ -65,6 +51,7 @@ export interface OpenGraph {
 	article?: OpenGraphArticle;
 	video?: OpenGraphVideo;
 }
+
 interface OpenGraphImages {
 	url: string;
 	alt?: string;
@@ -72,6 +59,7 @@ interface OpenGraphImages {
 	height?: number;
 	secure?: boolean;
 }
+
 interface OpenGraphVideos {
 	url: string;
 	alt?: string;
@@ -80,6 +68,7 @@ interface OpenGraphVideos {
 	secureUrl?: string;
 	type?: string;
 }
+
 interface OpenGraphProfile {
 	firstName?: string;
 	lastName?: string;
@@ -93,6 +82,7 @@ interface OpenGraphBook {
 	releaseDate?: string;
 	tags?: ReadonlyArray<string>;
 }
+
 interface OpenGraphArticle {
 	publishedTime?: string;
 	modifiedTime?: string;
@@ -153,3 +143,26 @@ export interface LinkTag {
 	type?: string;
 	color?: string;
 }
+
+export interface SeoProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
+	title?: string;
+	titleTemplate?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
+	robotsProps?: AdditionalRobotsProps;
+	description?: string;
+	canonical?: string;
+	mobileAlternate?: MobileAlternate;
+	languageAlternates?: ReadonlyArray<LanguageAlternate>;
+	twitter?: Twitter;
+	facebook?: Facebook;
+	openGraph?: OpenGraph;
+	additionalMetaTags?: ReadonlyArray<MetaTag>;
+	additionalLinkTags?: ReadonlyArray<LinkTag>;
+}
+
+export default class Seo extends SvelteComponentTyped<
+	SeoProps,
+	Record<string, never>,
+	Record<string, never>
+> {}

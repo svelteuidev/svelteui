@@ -25,13 +25,13 @@ export interface MenuProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 }
 
 export interface MenuEvents {
-  open: CustomEvent;
-  close: CustomEvent;
+	open: CustomEvent;
+	close: CustomEvent;
 }
 
 export interface MenuSlots {
-  label: { slotValue: string };
-  control: { slotValue: string };
+	default: Record<string, never>;
+	control: Record<string, never>;
 }
 
 export default class Menu extends SvelteComponentTyped<MenuProps, MenuEvents, MenuSlots> {}

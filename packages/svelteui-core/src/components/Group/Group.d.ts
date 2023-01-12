@@ -14,10 +14,12 @@ export interface GroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	children?: number;
 }
 
-export interface GroupEvents {}
-
 export interface GroupSlots {
-  label: { slotValue: string };
+	label: Record<string, never>;
 }
 
-export default class Group extends SvelteComponentTyped<GroupProps, GroupEvents, GroupSlots> {}
+export default class Group extends SvelteComponentTyped<
+	GroupProps,
+	Record<string, never>,
+	GroupSlots
+> {}

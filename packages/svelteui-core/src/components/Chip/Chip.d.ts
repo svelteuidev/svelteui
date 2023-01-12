@@ -17,14 +17,14 @@ export interface ChipProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 }
 
 export interface ChipEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface ChipSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class Chip extends SvelteComponentTyped<ChipProps, ChipEvents, ChipSlots> {}

@@ -13,10 +13,12 @@ export interface GridProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	justify?: CSS['justifyContent'];
 }
 
-export interface GridEvents {}
-
 export interface GridSlots {
-  label: { slotValue: string };
+	label: Record<string, never>;
 }
 
-export default class Grid extends SvelteComponentTyped<GridProps, GridEvents, GridSlots> {}
+export default class Grid extends SvelteComponentTyped<
+	GridProps,
+	Record<string, never>,
+	GridSlots
+> {}

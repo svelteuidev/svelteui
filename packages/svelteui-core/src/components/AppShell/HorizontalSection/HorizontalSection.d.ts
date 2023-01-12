@@ -22,13 +22,15 @@ export interface HorizontalSectionSharedProps extends DefaultProps, HTMLAttribut
 }
 
 export interface HorizontalSectionProps extends HorizontalSectionSharedProps {
-  section: 'navbar' | 'aside';
+	section: 'navbar' | 'aside';
 }
-
-export interface HorizontalSectionEvents {}
 
 export interface HorizontalSectionSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class HorizontalSection extends SvelteComponentTyped<HorizontalSectionProps, HorizontalSectionEvents, HorizontalSectionSlots> {}
+export default class HorizontalSection extends SvelteComponentTyped<
+	HorizontalSectionProps,
+	Record<string, never>,
+	HorizontalSectionSlots
+> {}

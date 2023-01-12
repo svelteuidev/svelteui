@@ -1,2 +1,2 @@
 export { default as IconRenderer } from './IconRenderer.svelte';
-export type { IconRendererProps, IconRendererEvents, IconRendererSlots } from './IconRenderer';
+export type { IconRendererProps } from './IconRenderer';

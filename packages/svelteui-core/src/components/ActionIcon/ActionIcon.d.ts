@@ -33,7 +33,7 @@ export interface ActionIconEvents {
 }
 
 export interface ActionIconSlots {
-	default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class ActionIcon extends SvelteComponentTyped<

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import useStyles from './Text.styles';
-	import { TextErrors } from './Text.errors';
+	import { get_current_component } from 'svelte/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import Error from '$lib/internal/errors/Error.svelte';
 	import { Box } from '../Box';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
+	import useStyles from './Text.styles';
+	import { TextErrors } from './Text.errors';
 	import type { TextProps as $$TextProps } from './Text';
 
 	interface $$Props extends $$TextProps {}
@@ -36,7 +36,12 @@
 	let observable: boolean = false;
 	let err;
 
-	if (gradient.from === 'indigo' && gradient.to === 'cyan0' && gradient.deg === 45 && variant !== 'gradient') {
+	if (
+		gradient.from === 'indigo' &&
+		gradient.to === 'cyan0' &&
+		gradient.deg === 45 &&
+		variant !== 'gradient'
+	) {
 		observable = true;
 		err = TextErrors[0];
 	}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-  import { Box } from '../../Box';
+	import { Box } from '../../Box';
 	import type { GridContext } from '../Grid';
 	import useStyles from './Col.styles';
 	import type { ColProps as $$ColProps } from './Col';

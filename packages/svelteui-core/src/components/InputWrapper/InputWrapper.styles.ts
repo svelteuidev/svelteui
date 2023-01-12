@@ -1,7 +1,6 @@
 import { createStyles } from '$lib/styles';
 import type { SvelteUISize } from '$lib/styles';
 
-
 export interface InputWrapperStyleParams {
 	size: SvelteUISize;
 }

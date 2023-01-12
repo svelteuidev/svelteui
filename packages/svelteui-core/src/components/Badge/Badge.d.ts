@@ -1,6 +1,12 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUIGradient, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import {
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUIGradient,
+	SvelteUINumberSize,
+	SvelteUISize
+} from '$lib/styles';
 
 export type BadgeVariant = 'light' | 'filled' | 'outline' | 'dot' | 'gradient';
 
@@ -14,16 +20,16 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement>, HTMLAttributes
 }
 
 export interface BadgeEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface BadgeSlots {
-	default: { slotValue: string };
-	leftSection: { slotValue: string };
-	rightSection: { slotValue: string };
+	default: Record<string, never>;
+	leftSection: Record<string, never>;
+	rightSection: Record<string, never>;
 }
 
 export default class Badge extends SvelteComponentTyped<BadgeProps, BadgeEvents, BadgeSlots> {}

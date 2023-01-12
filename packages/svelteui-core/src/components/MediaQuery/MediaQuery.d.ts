@@ -9,10 +9,12 @@ export interface MediaQueryProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	query?: string;
 }
 
-export interface MediaQueryEvents {}
-
 export interface MediaQuerySlots {
-  label: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class MediaQuery extends SvelteComponentTyped<MediaQueryProps, MediaQueryEvents, MediaQuerySlots> {}
+export default class MediaQuery extends SvelteComponentTyped<
+	MediaQueryProps,
+	Record<string, never>,
+	MediaQuerySlots
+> {}

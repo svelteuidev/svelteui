@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useSvelteUIThemeContext, useSvelteUITheme } from '$lib/styles';
+	import { useSvelteUIThemeContext, useSvelteUITheme } from '$lib/styles';
 	import type { CSS } from '$lib/styles';
 	import { Text } from '../../Text';
 	import type { TextProps } from '../../Text/Text';

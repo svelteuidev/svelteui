@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import type { LoaderProps } from '../Loader';
 
 	export let use: LoaderProps['use'] = [];
@@ -16,7 +16,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	fill={color}
 	class={className}
-  use:useActions={use}
+	use:useActions={use}
 >
 	<circle cx="15" cy="15" r="15">
 		<animate

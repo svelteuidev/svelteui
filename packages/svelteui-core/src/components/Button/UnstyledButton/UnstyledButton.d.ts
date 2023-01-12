@@ -5,10 +5,12 @@ export interface UnstyledButtonProps extends ButtonProps {
 	root?: keyof HTMLElementTagNameMap;
 }
 
-export interface UnstyledButtonEvents extends ButtonEvents {};
-
 export interface UnstyledButtonSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
-export default class UnstyledButton extends SvelteComponentTyped<UnstyledButtonProps, UnstyledButtonEvents, UnstyledButtonSlots> {}
+export default class UnstyledButton extends SvelteComponentTyped<
+	UnstyledButtonProps,
+	Record<string, never>,
+	UnstyledButtonSlots
+> {}

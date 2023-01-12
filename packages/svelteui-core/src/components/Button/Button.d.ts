@@ -41,9 +41,9 @@ export interface ButtonEvents {
 }
 
 export interface ButtonSlots {
-	default: { slotValue: string };
-	leftIcon: { slotValue: string };
-	rightIcon: { slotValue: string };
+	default: Record<string, never>;
+	leftIcon: Record<string, never>;
+	rightIcon: Record<string, never>;
 }
 
 export default class Button extends SvelteComponentTyped<ButtonProps, ButtonEvents, ButtonSlots> {}

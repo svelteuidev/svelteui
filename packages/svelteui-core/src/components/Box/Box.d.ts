@@ -11,14 +11,14 @@ export interface BoxProps<T extends EventTarget = HTMLElement>
 }
 
 export interface BoxEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface BoxSlots {
-	default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class Box extends SvelteComponentTyped<BoxProps, BoxEvents, BoxSlots> {}

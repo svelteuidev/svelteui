@@ -18,11 +18,11 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 }
 
 export interface AlertEvents {
-  close: CustomEvent;
+	close: CustomEvent;
 }
 
 export interface AlertSlots {
-	default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class Alert extends SvelteComponentTyped<AlertProps, AlertEvents, AlertSlots> {}

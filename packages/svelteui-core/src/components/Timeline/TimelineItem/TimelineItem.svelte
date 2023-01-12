@@ -4,8 +4,8 @@
 	import { ctx } from '../Timeline.svelte';
 	import Box from '../../Box/Box.svelte';
 	import Text from '../../Text/Text.svelte';
-	import type { TimelineContext } from '../Timeline.styles';
-	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem.styles';
+	import type { TimelineContext } from '../Timeline';
+	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem';
 
 	export let use: $$TimelineItemProps['use'] = [],
 		element: $$TimelineItemProps['element'] = undefined,

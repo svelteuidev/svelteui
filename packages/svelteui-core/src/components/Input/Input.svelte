@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { get_current_component } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
@@ -131,7 +131,7 @@ Base component to create custom inputs
 		>
 			<slot />
 		</svelte:element>
-	{:else if isComponent && typeof root !== "string"}
+	{:else if isComponent && typeof root !== 'string'}
 		<svelte:component
 			this={root}
 			bind:element

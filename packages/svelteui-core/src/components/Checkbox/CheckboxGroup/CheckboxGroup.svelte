@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
 	import Checkbox from '../Checkbox.svelte';
@@ -22,12 +22,12 @@
 		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
 	function onChanged(item, el) {
 		if (el.checked) value = [...value, item];
 		else value = value.filter((val) => val !== item);
-    dispatch('change', value);
+		dispatch('change', value);
 	}
 </script>
 

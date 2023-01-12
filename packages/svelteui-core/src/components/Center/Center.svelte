@@ -29,5 +29,5 @@ Centers content vertically and horizontally.
     ```
 -->
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
-	<slot>This is centered</slot>
+	<slot />
 </Box>

@@ -10,14 +10,13 @@ export interface PaperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes
 }
 
 export interface PaperEvents {
-  click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface PaperSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class Paper extends SvelteComponentTyped<PaperProps, PaperEvents, PaperSlots> {}

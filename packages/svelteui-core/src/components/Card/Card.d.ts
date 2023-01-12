@@ -5,14 +5,14 @@ import type { PaperProps } from '../Paper/Paper';
 export interface CardProps extends PaperProps {}
 
 export interface CardEvents {
-  click: MouseEvent;
+	click: MouseEvent;
 	mouseover: MouseEvent;
 	mouseenter: MouseEvent;
 	mouseleave: MouseEvent;
 }
 
 export interface CardSlots {
-  default: { slotValue: string };
+	default: Record<string, never>;
 }
 
 export default class Card extends SvelteComponentTyped<CardProps, CardEvents, CardSlots> {}

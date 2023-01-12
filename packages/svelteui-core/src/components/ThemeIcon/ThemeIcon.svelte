@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Box from '../Box/Box.svelte';
 	import useStyles from './ThemeIcon.styles';
 	import { sizes } from './ThemeIcon.styles';
-	import Box from '../Box/Box.svelte';
-	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon.styles';
+	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon';
 
 	interface $$Props extends $$ThemeIconProps {}
 

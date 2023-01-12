@@ -1,6 +1,6 @@
 import { createStyles } from '$lib/styles';
 import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { DividerVariant } from "./Divider";
+import type { DividerVariant } from './Divider';
 
 export interface DividerStyleParams {
 	color?: SvelteUIColor;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import type { LoaderProps } from '../Loader';
 
 	export let use: LoaderProps['use'] = [];
@@ -15,7 +15,7 @@
 	fill={color}
 	width={`${size}px`}
 	class={className}
-  use:useActions={use}
+	use:useActions={use}
 >
 	<rect y="10" width="15" height="120" rx="6">
 		<animate

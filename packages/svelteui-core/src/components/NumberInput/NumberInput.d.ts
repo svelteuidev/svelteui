@@ -1,6 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { Override, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-import { TextInputProps } from "../TextInput/TextInput";
+import { TextInputProps } from '../TextInput/TextInput';
 
 export type Formatter = (value: string | undefined) => string;
 export type Parser = (value: string | undefined) => string | undefined;
@@ -24,12 +24,11 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 }
 
 export interface NumberInputEvents {
-  close: CustomEvent;
+	change: CustomEvent<number>;
 }
 
-export interface NumberInputSlots {
-	default: { slotValue: string };
-	icon: { slotValue: string };
-}
-
-export default class NumberInput extends SvelteComponentTyped<NumberInputProps, NumberInputEvents, NumberInputSlots> {}
+export default class NumberInput extends SvelteComponentTyped<
+	NumberInputProps,
+	NumberInputEvents,
+	Record<string, never>
+> {}
