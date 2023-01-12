@@ -4,7 +4,7 @@
 	import { colorScheme } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { BurgerProps as $$BurgerProps } from './Burger.styles';
+	import type { BurgerProps as $$BurgerProps } from './Burger';
 
 	interface $$Props extends $$BurgerProps {}
 

@@ -6,9 +6,9 @@
 	import { Box } from '../Box';
 	import Loader from '../Loader/Loader.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
+	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon';
 
-	interface $$Props extends $$ActionIconProps {}
+	interface $$Props extends $$ActionIconProps {};
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

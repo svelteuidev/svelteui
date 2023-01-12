@@ -2,9 +2,9 @@
 	import { createEventDispatcher } from 'svelte';
 	import useStyles from './Alert.styles';
 	import { Box } from '../Box';
-	import { CloseButton } from '../ActionIcon';
-	import type { AlertProps as $$AlertProps } from './Alert.styles';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import { CloseButton } from '../ActionIcon';
+	import type { AlertProps as $$AlertProps } from './Alert';
 
 	interface $$Props extends $$AlertProps {}
 

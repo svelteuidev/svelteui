@@ -1,9 +1,4 @@
 import { createStyles } from '$lib/styles';
-import type { ButtonProps } from '../Button.styles';
-
-export interface UnstyledButtonProps extends ButtonProps {
-	root: keyof HTMLElementTagNameMap;
-}
 
 export default createStyles((theme) => ({
 	root: {

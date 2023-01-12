@@ -5,7 +5,7 @@
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
+	import type { LoaderProps as $$LoaderProps } from './Loader';
 
 	interface $$Props extends $$LoaderProps {}
 

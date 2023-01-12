@@ -1,6 +1,9 @@
 export { default as Button } from './Button.svelte';
-export { default as Ripple } from './Ripple.svelte';
-export { default as UnstyledButton } from './UnstyledButton/UnstyledButton.svelte';
 export * as ButtonErrors from './Button.errors';
-export type { ButtonProps, ButtonStylesParams, ButtonVariant } from './Button.styles';
-export type { UnstyledButtonProps } from './UnstyledButton/UnstyledButton.styles';
+export type { ButtonStylesParams } from './Button.styles';
+export type { ButtonProps, ButtonEvents, ButtonSlots, ButtonVariant } from './Button';
+
+export { default as UnstyledButton } from './UnstyledButton/UnstyledButton.svelte';
+export type { UnstyledButtonProps } from './UnstyledButton/UnstyledButton';
+
+export { default as Ripple } from './Ripple.svelte';
