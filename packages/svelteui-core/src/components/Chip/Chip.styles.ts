@@ -1,21 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-import type { Component } from '$lib/internal';
-
-export interface ChipProps extends DefaultProps {
-	color?: SvelteUIColor;
-	id?: string;
-	checked?: boolean;
-	disabled?: boolean;
-	value?: string;
-	label?: Component | string;
-	radius?: SvelteUINumberSize | number;
-	size?: SvelteUISize;
-	type?: 'checkbox' | 'radio';
-	variant?: 'outline' | 'filled';
-	transitionDuration?: number;
-	wrapperProps?: { [key: string]: any };
-}
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface ChipStyleParams {
 	size: SvelteUISize;

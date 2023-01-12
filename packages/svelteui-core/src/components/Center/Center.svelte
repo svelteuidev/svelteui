@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Center.styles';
 	import Box from '../Box/Box.svelte';
-	import type { CenterProps as $$CenterProps } from './Center.styles';
+	import type { CenterProps as $$CenterProps } from './Center';
 
 	interface $$Props extends $$CenterProps {}
 

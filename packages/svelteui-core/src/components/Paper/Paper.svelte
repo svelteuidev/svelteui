@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Paper.styles';
 	import { Box } from '../Box';
-	import type { PaperProps as $$PaperProps } from './Paper.styles';
+	import type { PaperProps as $$PaperProps } from './Paper';
 
 	interface $$Props extends $$PaperProps {}
 

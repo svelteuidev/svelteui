@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Container.styles';
 	import Box from '../Box/Box.svelte';
-	import type { ContainerProps as $$ContainerProps } from './Container.styles';
+	import type { ContainerProps as $$ContainerProps } from './Container';
 
 	interface $$Props extends $$ContainerProps {}
 

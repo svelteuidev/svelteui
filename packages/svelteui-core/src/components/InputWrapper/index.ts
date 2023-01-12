@@ -1,6 +1,8 @@
 export { default as InputWrapper } from './InputWrapper.svelte';
+export type { InputWrapperStyleParams } from './InputWrapper.styles';
 export type {
 	InputWrapperProps,
-	InputWrapperStyleParams,
-	InputWrapperBaseProps
-} from './InputWrapper.styles';
+	InputWrapperBaseProps,
+	InputWrapperEvents,
+	InputWrapperSlots
+} from './InputWrapper';

@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
-	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup.styles.js';
-	import Chip from '$lib/components/Chip/Chip.svelte';
+	import Chip from '../Chip.svelte';
+	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup';
 
 	interface $$Props extends $$ChipGroupProps {}
 
@@ -25,6 +26,8 @@
 		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
+  const dispatch = createEventDispatcher();
+
 	function onChanged(item: string, el: EventTarget) {
 		const checked = (el as HTMLInputElement).checked;
 		if (Array.isArray(value)) {
@@ -32,6 +35,7 @@
 		} else {
 			value = checked ? item : undefined;
 		}
+    dispatch('change', value);
 	}
 </script>
 

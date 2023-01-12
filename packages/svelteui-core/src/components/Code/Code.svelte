@@ -1,11 +1,11 @@
 <script lang="ts">
-	import useStyles from './Code.styles';
-	import CopyIcon from './CopyIcon.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { clipboard, useActions, createEventForwarder } from '$lib/internal';
-	import { CodeErrors } from './Code.errors';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { CodeProps as $$CodeProps } from './Code.styles';
+	import useStyles from './Code.styles';
+	import CopyIcon from './CopyIcon.svelte';
+	import { CodeErrors } from './Code.errors';
+	import type { CodeProps as $$CodeProps } from './Code';
 
 	interface $$Props extends $$CodeProps {}
 
