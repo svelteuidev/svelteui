@@ -12,9 +12,6 @@
 		label="Select your favorite framework/library"
 		description="This is anonymous"
 		{...args}
-		on:change={(e) => {
-			console.log(e.target.value);
-		}}
 	/>
 </Template>
 

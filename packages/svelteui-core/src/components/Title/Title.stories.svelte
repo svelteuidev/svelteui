@@ -6,9 +6,7 @@
 <Meta title="Components/Title" component={Title} />
 
 <Template let:args>
-	<Title {...args}>
-		Title Storybook
-	</Title>
+	<Title {...args}>Title Storybook</Title>
 </Template>
 
 <Story name="Title" />
