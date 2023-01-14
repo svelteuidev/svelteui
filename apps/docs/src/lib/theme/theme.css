@@ -1,0 +1,243 @@
+.logo {
+	display: flex;
+  align-items: center;
+}
+
+.topbar {
+	padding: 0.5rem 0.25rem !important;
+}
+
+.main {
+	position: relative;
+}
+
+.article {
+	max-width: 80rem !important;
+	margin: auto 2rem !important;
+	padding-bottom: 10rem !important;
+}
+
+.article > article > *:nth-child(3) {
+	margin-top: 20rem;
+}
+
+.main.nosidebar {
+  margin-left: 0 !important;
+  /* padding-top: 0 !important; */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
+}
+
+.sidebar {
+	overflow-y: scroll;
+	padding-top: 1em !important;
+	padding-right: 1em !important;
+	padding-left: 1em !important;
+	padding-bottom: 5rem !important;
+}
+
+.searchTerm {
+  padding: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
+}
+.searchTerm:hover {
+  background-color: var(--search-item) !important;
+  border: 1px solid var(--search-item) !important;
+}
+.searchBox {
+  width: 20rem !important;
+  height: 2.5rem;
+  background-color: rgba(227, 227, 227, 0.7);
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.searchBox:hover {
+  background-color: rgba(227, 227, 227, 1);
+}
+
+.recentSearchesTitle {
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.searchItemTitle {
+  margin: 0;
+  font-size: 1rem
+}
+
+.searchItemDescription {
+  font-size: 0.8rem;
+  margin: 0
+}
+
+.noMatches {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem
+}
+.componentExamplesWrapper {
+  background-color: #fafafa;
+  border-radius: 6px;
+  border: 1px solid rgb(233, 236, 239);
+  min-height: 15rem;
+}
+.componentExamplesTabPanel {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.componentExamplesSectionOne  {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem
+}
+.componentExamplesSectionTwo {
+  display: flex;
+  flex-direction: column
+}
+
+/* ---------------------------Media Query's below----------------------------------- */
+
+@media (max-width: 1074px) {
+  .componentExamplesTabPanel {
+    display: block;
+  }
+  .componentExamplesSectionOne {
+    margin-right: 0
+  }
+}
+
+@media (max-width: 800px) {
+	.article {
+		max-width: 80rem !important;
+		margin: 0 !important;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+		padding-bottom: 5rem !important;
+	}
+	.article > *:nth-child(3) {
+		margin-top: 25rem;
+	}
+	.sidebar {
+		--sidebar-width: 100% !important;
+	}
+}
+
+/* Put in media query to have less clutter at the top of the file */
+@media (min-width: 0px) {
+	.sidebar {
+		z-index: 100;
+	}
+	.topbar {
+		z-index: 110;
+	}
+	.sidebar ul li a.main-link.active {
+		background-color: rgb(248, 249, 250) !important;
+		color: var(--dark) !important;
+		font-weight: normal !important;
+	}
+	.article th {
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+		font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+			sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
+			Segoe UI Symbol, Noto Color Emoji;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1.625;
+		border: 0 solid #d2d6dc;
+		box-sizing: border-box;
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		font-size: 0.875rem;
+		font-weight: 700;
+		--bg-opacity: 1;
+		background-color: rgba(244, 245, 247, var(--bg-opacity));
+		--text-opacity: 1;
+		color: rgba(55, 65, 81, var(--text-opacity));
+	}
+
+	.article td {
+		-webkit-text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+		font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+			sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
+			Segoe UI Symbol, Noto Color Emoji;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1.625;
+		--text-opacity: 1;
+		color: rgba(55, 65, 81, var(--text-opacity));
+		font-size: 0.875rem;
+		border: 0 solid #d2d6dc;
+		box-sizing: border-box;
+		padding: 0.75rem;
+	}
+
+	.sidebar h3 ~ ul li strong {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid rgb(222, 226, 230);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		background-color: rgb(248, 249, 250);
+		color: #1a202c;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.sidebar h3 ~ ul li a.active {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid var(--primary);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		background-color: var(--svelteui-colors-blue50);
+		color: var(--primary);
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+
+	.sidebar h3 ~ ul li a {
+		text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		-webkit-tap-highlight-color: transparent;
+		line-height: 1.55;
+		text-decoration: none;
+		position: relative;
+		padding-left: 23px;
+		margin-bottom: 5px;
+		border-left: 1px solid rgb(222, 226, 230);
+		height: 34px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 12px;
+		color: #1a202c;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+}
