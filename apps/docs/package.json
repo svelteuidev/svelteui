@@ -1,28 +1,26 @@
 {
+	"name": "docs",
+	"version": "0.0.1",
 	"private": true,
-	"name": "svelteui-docs",
-	"version": "0.7.7",
-	"dependencies": {
-		"@svelte-docs/server": "0.1.6",
-		"radix-icons-svelte": "1.2.1"
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@svelte-docs/core": "0.10.13",
-		"@svelte-docs/publisher": "0.2.3",
-		"@svelte-docs/themes": "1.0.1",
-		"npm-run-all": "4.1.5",
-		"svelte-tooltip": "1.2.0",
-		"rollup": "2.79.1"
+		"@sveltejs/adapter-auto": "^1.0.0",
+		"@sveltejs/kit": "^1.0.0",
+		"mdsvex": "^0.10.6",
+		"svelte": "^3.54.0",
+		"svelte-check": "^2.9.2",
+		"tslib": "^2.4.1",
+		"typescript": "^4.9.3",
+		"vite": "^4.0.0"
 	},
-	"scripts": {
-		"build": "rollup -c ../../node_modules/@svelte-docs/core/rollup.config.js",
-		"autobuild": "rollup -c ../../node_modules/@svelte-docs/core/rollup.config.js -w",
-		"prepare:docs": "deno run --unstable --allow-read --allow-write ./prepare.ts",
-		"dev": "yarn prepare:docs & yarn start:dev & yarn autobuild",
-		"start": "node ../../node_modules/@svelte-docs/server",
-		"start:dev": "PORT=3002 node ../../node_modules/@svelte-docs/server --dev --single",
-		"start:pagewatch": "node ../../node_modules/@svelte-docs/core/watcher",
-		"deploy": "yarn prepare:docs & yarn build && deno run -A --unstable ../../scripts/docs/build.ts",
-		"deploy:nobuild": "node ../../node_modules/@svelte-docs/publisher"
+	"type": "module",
+	"dependencies": {
+		"radix-icons-svelte": "^1.2.1"
 	}
 }
