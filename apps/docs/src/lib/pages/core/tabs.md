@@ -61,7 +61,7 @@ Tabs positioning is controlled with the `grow` and `position` props. If the `gro
 
 ## Tab component props
 
-In addition to the `icon` and `label` props shown before, the `Tabs.Tab` component accepts `color`, `disabled` and any other props from a regular button (e.g. `style`, `title`, `aria-`, `data-`). The `color` prop will override the `color` defined in the `Tabs` component. The `Tabs.Tab` icon and label can also be overridden using the slots with those names.
+In addition to the `icon` and `label` props shown before, the `Tabs.Tab` component accepts `color`, `disabled` and any other props from a regular button (e.g. `style`, `title`, `aria-`, `data-`). The `color` prop will override the `color` defined in the `Tabs` component. The `Tabs.Tab` icon and label can also be overridden using the slots with those names. To modify the styles of the icons, props to them can be provided with the prop `iconProps`.
 
 <Demo demo={TabsDemos.component} />
 

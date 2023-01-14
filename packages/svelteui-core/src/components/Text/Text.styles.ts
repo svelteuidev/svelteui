@@ -12,8 +12,6 @@ import type {
 import type { Component, LiteralUnion } from '$lib/internal';
 
 export interface TextProps extends DefaultProps {
-	className?: string;
-	override?: Override['props'];
 	align?: SvelteUITextAlignment;
 	color?: TextColors;
 	root?: LiteralUnion<HTMLTextElements | Component, string>;

@@ -79,6 +79,28 @@
   justify-content: center;
   font-size: 0.9rem
 }
+.componentExamplesWrapper {
+  background-color: #fafafa;
+  border-radius: 6px;
+  border: 1px solid rgb(233, 236, 239);
+  min-height: 15rem;
+}
+.componentExamplesTabPanel {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex
+}
+.componentExamplesSectionOne {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem
+}
+.componentExamplesSectionTwo {
+  display: flex;
+  flex-direction: column
+}
 
 /* ---------------------------Media Query's below----------------------------------- */
 

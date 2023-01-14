@@ -7,12 +7,12 @@ import type {
 } from '$lib/styles';
 import type { GroupPosition } from '../../Group';
 
-export interface ChipGroupProps extends DefaultProps {
+export interface ChipGroupProps<T = boolean> extends DefaultProps {
 	color?: SvelteUIColor;
 	items?: { label: string; value: string }[];
-	value?: string[];
+	value?: T extends true ? string[] : string;
 	label?: string;
-	multiple?: boolean;
+	multiple?: T;
 	disabled?: boolean;
 	variant?: 'outline' | 'filled';
 	size?: SvelteUISize;

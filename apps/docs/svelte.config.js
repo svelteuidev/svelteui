@@ -26,6 +26,7 @@ const config = {
       '@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables/package/index.js'),
       '@svelteuidev/motion': path.resolve(__dirname, '../../packages/svelteui-motion/package/index.js'),
       '@svelteuidev/prism': path.resolve(__dirname, '../../packages/svelteui-prism/package/index.js'),
+      '@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/package/index.js'),
 			'@ui': './src/lib/theme/ui/index.js'
 		}
 	}
