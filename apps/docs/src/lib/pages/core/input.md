@@ -13,11 +13,12 @@ docs: 'core/input.md'
 <script>
     import { Demo, InputDemos } from '@svelteuidev/demos';
     import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 ## Disclaimer
 
-<Alert title="Important" color="blue" >
+<Alert icon={InfoCircled} title="Important" color="blue" >
    In most cases, you should not use Input component in your application. The Input component is a base for other inputs and was not designed to be used directly.
 </Alert>
 

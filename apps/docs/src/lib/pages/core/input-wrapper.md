@@ -13,11 +13,12 @@ docs: 'core/input-wrapper.md'
 <script>
     import { Demo, InputWrapperDemos } from '@svelteuidev/demos';
     import { Alert } from '@svelteuidev/core';
+    import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 ## Disclaimer
 
-<Alert title="Important" color="blue" >
+<Alert icon={InfoCircled} title="Important" color="blue" >
    Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs.
 </Alert>
 

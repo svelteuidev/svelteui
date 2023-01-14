@@ -70,7 +70,7 @@ Examples:
 
 **To start developing**
 
-<Alert title="Tip">
+<Alert icon={InfoCircled} title="Tip">
     It is very important to make sure you start from the root of the monorepo before following these steps
 </Alert>
 

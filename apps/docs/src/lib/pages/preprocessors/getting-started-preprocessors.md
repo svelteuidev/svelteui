@@ -13,7 +13,7 @@ source: 'svelteui-preprocessors'
     import { CodeBlock } from '$lib/components';
 </script>
 
-<Alert title="INFO" color="indigo" variant='filled'>
+<Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled'>
     If you have any suggestions for preprocessors, start a discussion or hop onto Discord!
 </Alert>
 

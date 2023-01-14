@@ -14,7 +14,7 @@ source: 'svelteui-dates'
     import { CodeBlock } from '$lib/components';
 </script>
 
-<Alert title="WARNING" color="red" variant='filled'>
+<Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled'>
     Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
 </Alert>
 

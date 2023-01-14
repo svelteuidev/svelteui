@@ -12,7 +12,8 @@ docs: 'core/media-query.md'
 
 <script>
 	import { Demo, MediaQueryDemos } from '@svelteuidev/demos';
-    import { Alert } from '@svelteuidev/core';
+  import { Alert } from '@svelteuidev/core';
+  import { InfoCircled } from 'radix-icons-svelte';
 </script>
 
 ## Usage
@@ -29,7 +30,7 @@ MediaQuery component adds styles to child element if the given media query match
 
 ## MediaQuery children
 
-<Alert title="Important" color="blue" >
+<Alert icon={InfoCircled} title="Important" color="blue" >
    MediaQuery only works with a single child element or component that renders an element. Strings, numbers, fragments and other parts will not have correct styles.
 </Alert>
 
