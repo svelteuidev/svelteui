@@ -1,5 +1,5 @@
-import { createFilterWrapper, debounceFilter } from '$clib/shared/utils/index.js';
-import type { DebounceFilterOptions, FunctionArgs } from '$clib/shared/utils';
+import { createFilterWrapper, debounceFilter } from '../../shared/utils/index.js';
+import type { DebounceFilterOptions, FunctionArgs } from '../../shared/utils';
 
 /**
  * Debounce execution of a function.
