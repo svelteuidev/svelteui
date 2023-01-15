@@ -1,6 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
+import { DefaultProps, SvelteUISize } from '$lib/styles';
 
 export interface InputWrapperBaseProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	label?: string;

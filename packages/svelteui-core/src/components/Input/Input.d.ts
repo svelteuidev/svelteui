@@ -5,7 +5,11 @@ import { DefaultProps, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
 
 export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
-export interface InputBaseProps extends DefaultProps<HTMLInputElement>, HTMLInputAttributes {
+export interface InputBaseProps
+	extends DefaultProps<
+			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLDataListElement
+		>,
+		HTMLInputAttributes {
 	icon?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
