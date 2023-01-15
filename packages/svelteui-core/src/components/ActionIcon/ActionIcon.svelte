@@ -64,7 +64,7 @@ Icon button to indicate secondary action.
 <Box
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
-	tabindex="0"
+	tabindex={0}
 	disabled={disabled || loading}
 	class={cx(className, { loading, disabled }, getStyles({ css: override, variation: variant }))}
 	target={external ? '_blank' : null}

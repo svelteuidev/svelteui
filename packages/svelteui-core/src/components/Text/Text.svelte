@@ -74,7 +74,7 @@ Display text and links with theme styles.
 @example
     ```tsx
     <Text size='lg'>This is a text</Text> // standard text component
-    <Text size='lg' variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>This is a text with colours</Text> // text with gradient colors
+    <Text size='lg' variant='gradient' gradient={{from: 'blue', to: 'red', deg: 45}}>This is a text with colors</Text> // text with gradient colors
     <Text component={'span'}>Span text</Text> // text being used with a 'span' as wrapper
     <Text component={Code}>Code text</Text> // text being used with the component Code as wrapper
     ```

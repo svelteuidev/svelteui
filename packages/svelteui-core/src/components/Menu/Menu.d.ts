@@ -2,8 +2,12 @@ import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Component, TransitionName, TransitionOptions } from '$lib/internal';
 import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
+import { PopperProps } from '../Popper';
 
-export interface MenuProps extends DefaultProps, HTMLAttributes<HTMLElement> {
+export interface MenuProps
+	extends DefaultProps,
+		HTMLAttributes<HTMLElement>,
+		Pick<PopperProps, 'withArrow' | 'gutter' | 'placement' | 'position'> {
 	control?: Component | HTMLOrSVGElement;
 	closeOnItemClick?: boolean;
 	controlRefProp?: string;

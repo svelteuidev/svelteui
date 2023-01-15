@@ -104,13 +104,13 @@
 					<Paper
 						class={classes.modal}
 						{shadow}
-						p={padding}
+						{padding}
 						{radius}
 						role="dialog"
 						aria-labelledby={titleId}
 						aria-describedby={bodyId}
 						aria-modal
-						tabIndex={-1}
+						tabindex={-1}
 						use={[focustrap]}
 					>
 						{#if title || withCloseButton}

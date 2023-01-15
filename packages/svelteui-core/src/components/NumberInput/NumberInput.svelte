@@ -212,7 +212,7 @@ values and add custom parsers and formatters.
 >
 	<div
 		slot="rightSection"
-		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
+		class={cx(className, classes.control, getStyles({ css: overrideControls }))}
 	>
 		{#if showControls}
 			<button
