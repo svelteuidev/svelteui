@@ -4,16 +4,16 @@
  * on top of that some runtime's like Deno have `window` polyfilled so this wouldn't work
  */
 
-import type { Fn } from '../types';
+import type { FunctionType } from '../types';
 
-export interface Environnement {
-	readonly browser?: boolean | Fn<never, boolean>;
-	readonly server?: boolean | Fn<never, boolean>;
+export interface Environment {
+	readonly browser?: boolean | FunctionType<never, boolean>;
+	readonly server?: boolean | FunctionType<never, boolean>;
 }
 
 const isBrowser = () => typeof window !== 'undefined';
 
-export const ENVIRONMENT: Environnement = {
+export const ENVIRONMENT: Environment = {
 	browser: isBrowser(),
 	server: !isBrowser()
 } as const;
