@@ -4,18 +4,6 @@ import { TransitionConfig, EasingFunction } from 'svelte/transition';
 import { DefaultProps } from '$lib/styles';
 import { TransitionName, TransitionOptions } from '$lib/internal';
 
-export type Transition =
-	| TransitionName
-	| ((node: Element, params: TransitionParams) => TransitionConfig);
-
-export interface TransitionParams {
-	delay?: number;
-	duration?: number;
-	easing?: EasingFunction;
-	css?: (t: number, u: number) => string;
-	tick?: (t: number, u: number) => void;
-}
-
 export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
 	position?: 'top' | 'left' | 'bottom' | 'right';
 	placement?: 'start' | 'center' | 'end';

@@ -1,4 +1,3 @@
-import type { TransitionConfig } from 'svelte/transition';
 import type { DeepPartial, SvelteUIColor, theme, config, fns } from '../../index';
 import type * as Stitches from '@stitches/core';
 
@@ -11,8 +10,6 @@ export type DefaultTheme = typeof theme;
 export type LoaderType = 'bars' | 'circle' | 'dots';
 
 export type VariantThemeFunction = Record<string, Record<string, string | Record<string, unknown>>>;
-
-export type Transition = (node: Element, params: Record<string, unknown>) => TransitionConfig;
 
 export type SvelteUIThemeOverride = DeepPartial<Omit<SvelteUITheme, 'fn' | 'dark'>>;
 

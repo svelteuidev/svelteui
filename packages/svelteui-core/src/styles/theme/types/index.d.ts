@@ -12,7 +12,6 @@ export type {
 	CSS,
 	Fns,
 	Override,
-	Transition,
 	LoaderType,
 	HeadingStyle,
 	DefaultTheme,

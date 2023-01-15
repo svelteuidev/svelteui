@@ -16,7 +16,8 @@ export type Transition =
 	| typeof fly
 	| typeof slide
 	| typeof scale
-	| typeof draw;
+	| typeof draw
+	| ((node: Element, params: Record<string, unknown>) => TransitionConfig);
 export type TransitionOptions =
 	| FadeParams
 	| BlurParams
