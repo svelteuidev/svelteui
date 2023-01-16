@@ -1,5 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
-import { ButtonProps, type ButtonEvents } from '../Button';
+import { ButtonProps, ButtonEvents } from '../Button';
 
 export interface UnstyledButtonProps extends ButtonProps {
 	root?: keyof HTMLElementTagNameMap;

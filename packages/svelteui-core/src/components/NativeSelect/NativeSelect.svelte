@@ -118,7 +118,7 @@ Capture user feedback limited to large set of options
 				{item.label ?? item.value}
 			</option>
 		{:else}
-			<option value="" disabled hidden> Add Some Options </option>
+			<option value="" disabled hidden>Add Some Options</option>
 		{/each}
 		<svelte:fragment slot="rightSection">
 			<slot name="rightSection" size={iconProps.size} color={iconProps.color}>

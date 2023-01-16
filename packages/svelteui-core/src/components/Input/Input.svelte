@@ -42,7 +42,7 @@
 		return root as string as Input;
 	}
 	function isInput(root: string): root is Input {
-		return ['info', 'features', 'special', 'stars'].includes(root);
+		return ['input', 'select', 'textarea', 'datalist'].includes(root);
 	}
 	let isHTMLElement = true;
 	let isComponent = false;
