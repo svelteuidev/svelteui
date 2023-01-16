@@ -4,7 +4,6 @@ import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/style
 export interface ChipStyleParams {
 	size: SvelteUISize;
 	color: SvelteUIColor;
-	variant: 'outline' | 'filled';
 	radius: SvelteUINumberSize | number;
 	transitionDuration: number;
 }
@@ -42,7 +41,7 @@ const checkedPadding = {
 };
 
 export default createStyles(
-	(theme, { color, radius, size, transitionDuration, variant }: ChipStyleParams, getRef) => {
+	(theme, { color, radius, size, transitionDuration }: ChipStyleParams, getRef) => {
 		return {
 			root: {},
 
