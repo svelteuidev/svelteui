@@ -3,11 +3,9 @@ import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
-export interface IconRendererProps
-	extends DefaultProps<HTMLOrSVGElement>,
-		HTMLAttributes<HTMLOrSVGElement> {
+export interface IconRendererProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	icon?: Component | HTMLOrSVGElement;
-	iconSize?: number;
+	iconSize?: SvelteUINumberSize;
 	iconProps?: Record<string, unknown>;
 }
 
