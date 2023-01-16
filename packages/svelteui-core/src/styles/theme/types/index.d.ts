@@ -13,6 +13,7 @@ export type {
 	Fns,
 	Override,
 	LoaderType,
+  ColorShades,
 	HeadingStyle,
 	DefaultTheme,
 	SvelteUITheme,

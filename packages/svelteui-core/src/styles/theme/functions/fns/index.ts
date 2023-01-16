@@ -5,7 +5,6 @@ import { variant } from './variant/variant.js';
 import { rgba } from './rgba/rgba.js';
 
 export type { GetSize } from './size/size';
-export type { ColorShades } from './theme-color/theme-color';
 
 export const fns = {
 	size,
