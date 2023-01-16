@@ -1,6 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
-import { SvelteUINumberSize } from '$lib/styles';
-import type { PaperProps } from '../Paper/Paper';
+import { PaperProps } from '../Paper/Paper';
 
 export interface CardProps extends PaperProps {}
 

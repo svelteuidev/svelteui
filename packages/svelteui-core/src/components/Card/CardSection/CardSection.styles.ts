@@ -1,5 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { SvelteUINumberSize } from '$lib/styles';
 
 export interface CardSectionStyleParams {
 	padding: SvelteUINumberSize;

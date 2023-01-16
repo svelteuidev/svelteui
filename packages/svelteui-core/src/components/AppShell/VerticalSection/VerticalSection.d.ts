@@ -1,6 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps } from '$lib/styles';
 
 export interface VerticalSectionPosition {
 	top?: number;

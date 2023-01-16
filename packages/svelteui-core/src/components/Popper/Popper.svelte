@@ -32,14 +32,14 @@
 	let cleanup = () => {};
 	let arrowElement;
 
-	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	onDestroy(() => {
 		cleanup();
 	});
 
-	function updatePopper(_props) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+	function updatePopper(_) {
 		if (!element || !reference) return;
 
 		const _placement = placement;

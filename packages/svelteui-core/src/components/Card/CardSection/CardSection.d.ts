@@ -1,7 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
-import type { CardProps } from '../Card';
+import { CardProps } from '../Card';
 
 export interface CardSectionProps extends CardProps {}
 

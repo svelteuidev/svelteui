@@ -1,5 +1,4 @@
 import { SvelteComponentTyped } from 'svelte';
-import { Override } from '$lib/styles';
 import { InputProps, InputEvents } from '../Input/Input';
 import { InputWrapperProps } from '../InputWrapper/InputWrapper';
 

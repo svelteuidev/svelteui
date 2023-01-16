@@ -3,13 +3,11 @@ import type { CSS, SvelteUINumberSize } from '$lib/styles';
 
 export interface GridStyleParams {
 	align?: CSS['alignItems'];
-	cols?: number;
-	grow?: boolean;
 	spacing?: SvelteUINumberSize;
 	justify?: CSS['justifyContent'];
 }
 
-export default createStyles((theme, { align, cols, grow, spacing, justify }: GridStyleParams) => {
+export default createStyles((theme, { align, spacing, justify }: GridStyleParams) => {
 	return {
 		root: {
 			display: 'flex',
