@@ -1,6 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
 import { IoConfig } from '@svelteuidev/composables';
-import { Override, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import { TextInputProps } from '../TextInput/TextInput';
 
 export type Formatter = (value: string | undefined) => string;

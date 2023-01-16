@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import { GroupPosition } from '../../Group/Group';
 
 export interface ChipGroupProps<T = boolean> extends DefaultProps, HTMLAttributes<HTMLElement> {
 	color?: SvelteUIColor;

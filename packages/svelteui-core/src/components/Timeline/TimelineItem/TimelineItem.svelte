@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
-	import useStyles from './TimelineItem.styles';
-	import { ctx } from '../Timeline.svelte';
 	import Box from '../../Box/Box.svelte';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
 	import Text from '../../Text/Text.svelte';
+	import { ctx } from '../Timeline.svelte';
 	import type { TimelineContext } from '../Timeline';
+	import useStyles from './TimelineItem.styles';
 	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem';
 
 	export let use: $$TimelineItemProps['use'] = [],
@@ -83,7 +84,7 @@
 	<div class={cx(classes.bulletContainer, { bulletContainerWithChild: bullet })}>
 		<slot name="bullet">
 			{#if bullet}
-				<svelte:component this={bullet} size={bulletSize} {color} class={classes.bullet} />
+				<IconRenderer icon={bullet} className={classes.bullet} iconSize={bulletSize} {color} />
 			{/if}
 		</slot>
 	</div>

@@ -9,6 +9,8 @@ export type DefaultTheme = typeof theme;
 
 export type LoaderType = 'bars' | 'circle' | 'dots';
 
+export type ColorShades = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
 export type VariantThemeFunction = Record<string, Record<string, string | Record<string, unknown>>>;
 
 export type SvelteUIThemeOverride = DeepPartial<Omit<SvelteUITheme, 'fn' | 'dark'>>;

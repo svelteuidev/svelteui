@@ -12,7 +12,6 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		overrideInput: $$Props['overrideInput'] = {},
 		label: $$Props['label'] = '',
 		description: $$Props['description'] = null,
 		error: $$Props['error'] = null,
@@ -83,7 +82,6 @@ Input for text that also uses labels for the input
 		{size}
 		id={baseId}
 		{placeholder}
-		{...overrideInput}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}

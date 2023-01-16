@@ -2,6 +2,7 @@ import { SvelteComponentTyped } from 'svelte';
 import { DefaultProps, Override, SvelteUISize } from '$lib/styles';
 import { InputBaseProps } from '../Input/Input';
 import { InputWrapperBaseProps } from '../InputWrapper/InputWrapper';
+import type { HTMLSelectAttributes } from 'svelte/elements';
 
 export interface SelectItem {
 	value: string;
@@ -11,10 +12,7 @@ export interface SelectItem {
 	[key: string]: any;
 }
 
-export interface NativeSelectProps
-	extends DefaultProps<HTMLInputElement>,
-		InputBaseProps,
-		InputWrapperBaseProps {
+interface NativeSelectPropsInternal extends DefaultProps<HTMLInputElement> {
 	id?: string;
 	placeholder?: string;
 	data?: (string | SelectItem)[];
@@ -22,6 +20,11 @@ export interface NativeSelectProps
 	wrapperProps?: Record<string, unknown>;
 	size?: SvelteUISize;
 }
+
+export type NativeSelectProps = NativeSelectPropsInternal &
+	InputBaseProps &
+	Omit<HTMLSelectAttributes, 'size'> &
+	InputWrapperBaseProps;
 
 export interface NativeSelectEvents {
 	change: InputEvent;

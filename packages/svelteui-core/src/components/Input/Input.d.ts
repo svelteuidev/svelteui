@@ -1,15 +1,17 @@
 import { SvelteComponentTyped } from 'svelte';
-import { HTMLInputAttributes } from 'svelte/elements';
+import { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
 
 export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
-export interface InputBaseProps
-	extends DefaultProps<
-			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLDataListElement
-		>,
-		HTMLInputAttributes {
+type InputElementType =
+	| HTMLInputElement
+	| HTMLSelectElement
+	| HTMLTextAreaElement
+	| HTMLDataListElement;
+
+export interface InputBaseProps extends DefaultProps<InputElementType> {
 	icon?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
@@ -28,11 +30,16 @@ export interface InputBaseProps
 	value?: string;
 }
 
-export interface InputProps extends InputBaseProps {
+interface InputPropsInternal extends InputBaseProps {
 	invalid?: boolean;
 	multiline?: boolean;
 	autocomplete?: string;
 }
+
+export type InputProps = InputPropsInternal &
+	Omit<HTMLInputAttributes, 'size'> &
+	Omit<HTMLSelectAttributes, 'size'> &
+	HTMLTextareaAttributes;
 
 export interface InputEvents {
 	change: InputEvent;

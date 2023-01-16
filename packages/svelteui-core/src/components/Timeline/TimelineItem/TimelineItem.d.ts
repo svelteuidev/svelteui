@@ -1,6 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import type { Writable } from 'svelte/store';
+import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export type TimelineItemVariant = 'dashed' | 'dotted' | 'solid';

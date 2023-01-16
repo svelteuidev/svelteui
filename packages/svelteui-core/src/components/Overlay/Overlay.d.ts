@@ -2,7 +2,7 @@ import { SvelteComponentTyped } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
-export interface OverlayProps extends DefaultProps, HTMLAttributes<HTMLElement> {
+export interface OverlayProps extends DefaultProps, Omit<HTMLAttributes<HTMLElement>, 'color'> {
 	blur?: number;
 	gradient?: string;
 	center?: boolean;

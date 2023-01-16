@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { Component } from '$lib/internal';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface ChipProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	color?: SvelteUIColor;

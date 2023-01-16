@@ -1,6 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLInputAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export type SwitchTimingFunction =
 	| 'linear'
@@ -11,7 +11,9 @@ export type SwitchTimingFunction =
 	| 'step-start'
 	| 'step-end';
 
-export interface SwitchProps extends DefaultProps<HTMLInputElement>, HTMLInputAttributes {
+export interface SwitchProps
+	extends DefaultProps<HTMLInputElement>,
+		Omit<HTMLInputAttributes, 'size'> {
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
 	radius?: SvelteUINumberSize;

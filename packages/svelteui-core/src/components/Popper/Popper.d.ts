@@ -1,8 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
-import { TransitionConfig, EasingFunction } from 'svelte/transition';
 import { DefaultProps } from '$lib/styles';
-import { TransitionName, TransitionOptions } from '$lib/internal';
+import { Transition, TransitionOptions } from '$lib/internal';
 
 export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
 	position?: 'top' | 'left' | 'bottom' | 'right';

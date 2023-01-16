@@ -1,5 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
+import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUIColor } from '$lib/styles';
 import type { TabsVariant } from '../Tabs';
 

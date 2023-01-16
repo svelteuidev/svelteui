@@ -10,15 +10,9 @@ import {
 import { CSS, DefaultProps, SvelteUITheme } from '$lib/styles';
 import { Component, LiteralUnion } from '$lib/internal';
 
-export interface BoxProps<T extends EventTarget = HTMLElement>
+interface BoxPropsInternal<T extends EventTarget = HTMLElement>
 	extends DefaultProps<HTMLElement | SvelteComponent>,
-		HTMLAttributes<T>,
-		HTMLAnchorAttributes,
-		HTMLBaseAttributes,
-		HTMLButtonAttributes,
-		HTMLLabelAttributes,
-		HTMLFormAttributes,
-		Record<string, unknown> {
+		HTMLAttributes<T> {
 	root?: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
 	css?: CSS | ((theme: SvelteUITheme) => CSS);
 
@@ -27,6 +21,13 @@ export interface BoxProps<T extends EventTarget = HTMLElement>
 	// current errors we have with `data-*` props being passed to Box
 	[key: `data-${string}`]: any;
 }
+
+export type BoxProps<T extends EventTarget = HTMLElement> = BoxPropsInternal<T> &
+	HTMLBaseAttributes &
+	HTMLAnchorAttributes &
+	HTMLButtonAttributes &
+	HTMLFormAttributes &
+	HTMLLabelAttributes;
 
 export interface BoxEvents {
 	click: MouseEvent;

@@ -1,7 +1,4 @@
 import { SvelteComponentTyped } from 'svelte';
-import { HTMLAttributes } from 'svelte/elements';
-import { Writable } from 'svelte/store';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import { TextProps } from '../Text/Text';
 
 export type TitleOrder = 1 | 2 | 3 | 4 | 5 | 6;

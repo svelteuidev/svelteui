@@ -44,8 +44,8 @@
 	function isInput(root: string): root is Input {
 		return ['info', 'features', 'special', 'stars'].includes(root);
 	}
-	let isHTMLElement;
-	let isComponent;
+	let isHTMLElement = true;
+	let isComponent = false;
 
 	function onChange() {
 		// the 'this' keyword in this case is the

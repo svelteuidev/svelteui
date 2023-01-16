@@ -12,10 +12,7 @@ export type ButtonVariant =
 	| 'gradient'
 	| 'subtle';
 
-export interface ButtonProps
-	extends DefaultProps<HTMLButtonElement | HTMLAnchorElement>,
-		HTMLButtonAttributes,
-		HTMLAnchorAttributes {
+interface ButtonPropsInternal extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
 	variant?: ButtonVariant;
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
@@ -32,6 +29,8 @@ export interface ButtonProps
 	fullSize?: boolean;
 	ripple?: boolean;
 }
+
+export type ButtonProps = ButtonPropsInternal & HTMLButtonAttributes & HTMLAnchorAttributes;
 
 export interface ButtonEvents {
 	click: MouseEvent;
