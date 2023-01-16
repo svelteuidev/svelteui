@@ -1,4 +1,4 @@
-export * from './types/index.d';
+export * from './types/index.js';
 
 export { createStyles } from './create-styles.js';
 export { cssFactory } from './css.js';
