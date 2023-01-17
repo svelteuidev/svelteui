@@ -10,25 +10,6 @@ docs: 'theming/ssr.md'
     import { Prism } from "@svelteuidev/prism";
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
-
-    const step1 = `
-    <script>
-        import { SvelteUIProvider } from '@svelteuidev/core';
-    <\/script>
-
-    <SvelteUIProvider>
-        <slot />
-    <\/SvelteUIProvider>
-    `
-    const step2 = `
-    <script>
-        import { SvelteUIProvider } from '@svelteuidev/core';
-    <\/script>
-
-    <SvelteUIProvider ssr>
-        <slot />
-    <\/SvelteUIProvider>
-    `
 </script>
 
 <svelte:head>
@@ -57,14 +38,10 @@ In your top level `+layout.svelte` file, wrap your app in the SvelteUIProvider c
 
 ## 2.
 
-Once you've wrapped your application in the provider, all you need to do is add the `ssr` prop to it and boom! The `ssr` prop will give you all the CSS you need to server-side render your styles:
+In the file `hooks.server.(js|ts)` in your SvelteKit app (see [SK docs](https://kit.svelte.dev/docs/hooks)), add the code below. With this, the CSS will be injected to the page before sending it to the client.
 
-```svelte
-<script>
-	import { SvelteUIProvider } from '@svelteuidev/core';
-</script>
+```typescript
+import { prepareStylesSSR } from '@svelteuidev/core';
 
-<SvelteUIProvider ssr>
-	<slot />
-</SvelteUIProvider>
+export const handle = prepareStylesSSR;
 ```
