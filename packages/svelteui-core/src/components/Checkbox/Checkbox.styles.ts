@@ -14,6 +14,7 @@ export interface CheckboxProps extends DefaultProps {
 	size?: SvelteUISize;
 	transitionDuration?: number;
 	wrapperProps?: { [key: string]: any };
+	name?: string;
 }
 
 export interface CheckboxStyleParams {

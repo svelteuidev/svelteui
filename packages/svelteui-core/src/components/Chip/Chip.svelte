@@ -15,7 +15,7 @@
 		color: $$Props['color'] = 'blue',
 		id: $$Props['id'] = randomID(),
 		disabled: $$Props['disabled'] = false,
-		value: $$Props['value'] = null,
+		value: $$Props['value'] = undefined,
 		checked: $$Props['checked'] = false,
 		label: $$Props['label'] = '',
 		radius: $$Props['radius'] = 'xl',

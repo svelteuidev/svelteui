@@ -4,7 +4,7 @@
 	import { mergeTheme } from '../';
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
-	import { key, ssrStyles, useSvelteUIThemeContext } from './svelteui.provider';
+	import { key, useSvelteUIThemeContext } from './svelteui.provider';
 	import { createStyles, dark, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
@@ -22,7 +22,6 @@
 		themeObserver: $$SvelteUIProviderProps['themeObserver'] = 'light',
 		withNormalizeCSS: $$SvelteUIProviderProps['withNormalizeCSS'] = false,
 		withGlobalStyles: $$SvelteUIProviderProps['withGlobalStyles'] = false,
-		ssr: $$SvelteUIProviderProps['ssr'] = false,
 		override: $$SvelteUIProviderProps['override'] = {},
 		inherit: $$SvelteUIProviderProps['inherit'] = false;
 	export { className as class };
@@ -58,12 +57,6 @@
 	$: mergedTheme = mergeTheme(DEFAULT_THEME, overrides.themeOverride);
 	$: ({ cx, classes } = useStyles(null, { override }));
 </script>
-
-<svelte:head>
-	{#if ssr}
-		{@html ssrStyles(getCssText)}
-	{/if}
-</svelte:head>
 
 <div
 	id="SVELTEUI_PROVIDER"

@@ -1,5 +1,6 @@
 .logo {
-	padding-top: 0.5rem;
+	display: flex;
+  align-items: center;
 }
 
 .topbar {
@@ -26,6 +27,73 @@
 	padding-right: 1em !important;
 	padding-left: 1em !important;
 	padding-bottom: 5rem !important;
+}
+
+.searchTerm {
+  padding: 0.75rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
+}
+.searchTerm:hover {
+  background-color: var(--search-item) !important;
+  border: 1px solid var(--search-item) !important;
+}
+.searchBox {
+  width: 20rem !important;
+  height: 2.5rem;
+  background-color: rgba(227, 227, 227, 0.7);
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.searchBox:hover {
+  background-color: rgba(227, 227, 227, 1);
+}
+
+.recentSearchesTitle {
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+}
+
+.searchItemTitle {
+  margin: 0;
+  font-size: 1rem
+}
+
+.searchItemDescription {
+  font-size: 0.8rem;
+  margin: 0
+}
+
+.noMatches {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem
+}
+.componentExamplesWrapper {
+  background-color: #fafafa;
+  border-radius: 6px;
+  border: 1px solid rgb(233, 236, 239);
+  min-height: 15rem;
+}
+.componentExamplesTabPanel {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex
+}
+.componentExamplesSectionOne {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5rem
+}
+.componentExamplesSectionTwo {
+  display: flex;
+  flex-direction: column
 }
 
 /* ---------------------------Media Query's below----------------------------------- */

@@ -11,10 +11,10 @@
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
 		color: $$Props['color'] = undefined,
-		items: $$Props['items'] = [],
-		value: $$Props['value'] = [],
-		label: $$Props['label'] = null,
 		multiple: $$Props['multiple'] = false,
+		items: $$Props['items'] = [],
+		value: $$Props['value'] = multiple ? [] : undefined,
+		label: $$Props['label'] = null,
 		disabled: $$Props['disabled'] = false,
 		variant: $$Props['variant'] = 'outline',
 		size: $$Props['size'] = undefined,
@@ -26,11 +26,11 @@
 	export { className as class };
 
 	function onChanged(item: string, el: EventTarget) {
-		if ((el as HTMLInputElement).checked) {
-			if (multiple) value = [...value, item];
-			else value = [item];
+		const checked = (el as HTMLInputElement).checked;
+		if (Array.isArray(value)) {
+			value = checked ? [...value, item] : value.filter((val) => val !== item);
 		} else {
-			value = value.filter((val) => val !== item);
+			value = checked ? item : undefined;
 		}
 	}
 </script>
@@ -57,7 +57,7 @@ A chip group component is a container for Chips.
 				{use}
 				label={item.label}
 				value={item.value}
-				checked={value.includes(item.value)}
+				checked={Array.isArray(value) ? value.includes(item.value) : value === item.value}
 				{radius}
 				{size}
 				{color}

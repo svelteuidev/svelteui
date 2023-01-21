@@ -1,8 +1,10 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { DefaultProps, ElementProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { Component } from '$lib/internal';
 
-export interface InputBaseProps extends DefaultProps {
+export interface InputBaseProps
+	extends DefaultProps<HTMLInputElement>,
+		ElementProps<HTMLInputElement> {
 	icon?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };

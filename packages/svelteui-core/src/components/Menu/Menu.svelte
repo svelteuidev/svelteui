@@ -45,7 +45,7 @@
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {

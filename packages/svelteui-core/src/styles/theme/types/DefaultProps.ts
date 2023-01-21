@@ -13,11 +13,13 @@ export interface DefaultProps<T = HTMLElement> extends SvelteUIStyleSystemProps 
 	use?: ActionArray;
 }
 
+export interface ElementProps<T extends EventTarget>
+	extends Omit<svelte.JSX.HTMLAttributes<T>, 'size'> {}
+
 /* Default Props to be used everywhere. Here in the same spot to copy
 
 export let use: $$BLANK-Props['use'] = [],
 		element: $$BLANK-Props['element'] = undefined,
 		className: $$BLANK-Props['className'] = '',
-		override: $$BLANK-Props['override'] = {},
-
+		override: $$BLANK-Props['override'] = {}
 */

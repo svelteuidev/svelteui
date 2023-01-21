@@ -9,7 +9,7 @@
 	};
 </script>
 
-<a href="/">
+<a href="/" class="logoEl">
 	<Center {override} inline>
 		<Box css={{ d: 'flex' }}>
 			<Title override={title} order={2} inline>Svelte</Title>
@@ -18,3 +18,10 @@
 		<Badge override={{ display: 'inline-block' }} variant="outline">Beta</Badge>
 	</Center>
 </a>
+
+<style>
+  .logoEl {
+    display: flex;
+    align-items: center;
+  }
+</style>

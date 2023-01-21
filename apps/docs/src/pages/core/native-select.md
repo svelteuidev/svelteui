@@ -45,6 +45,12 @@ You can replace the icon in the right section with `rightSection` named slot. No
 
 <Demo demo={NativeSelectDemos.section} />
 
+## Using objects
+
+You can pass an array of objects instead of strings. In those cases, the key `value` is mandatory, since that value is the one being returned on the `change` event. The key `label` can also be provided and will be the one shown in the select (defaults to `value` if not provided).
+
+<Demo demo={NativeSelectDemos.objects} />
+
 ## Accessibility
 
 Provide `aria-label` in case you use component without label for screen reader support:

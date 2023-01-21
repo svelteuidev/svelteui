@@ -23,6 +23,7 @@
 		label: $$Props['label'] = null,
 		radius: $$Props['radius'] = 'sm',
 		size: $$Props['size'] = 'md',
+    name: $$Props['name'] = '',
 		transitionDuration: $$Props['transitionDuration'] = 100;
 	export { className as class };
 
@@ -60,6 +61,7 @@ A checkbox input component using the theme styles with support for a label and i
 			{disabled}
 			{value}
 			{id}
+      {name}
 		/>
 		<ThemeIcon class={classes.iconWrapper} variant={null} {size}>
 			<slot>
