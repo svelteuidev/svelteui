@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps } from '$lib/styles';
 import { Transition, TransitionOptions } from '$lib/internal';
@@ -20,15 +19,3 @@ export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttribute
 	reference?: HTMLElement;
 	withinPortal?: boolean;
 }
-
-export interface PopperEvents {
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface PopperSlots {
-	default: Record<string, never>;
-}
-
-export default class Popper extends SvelteComponentTyped<PopperProps, PopperEvents, PopperSlots> {}

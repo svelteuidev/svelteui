@@ -15,9 +15,10 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from './Menu.context';
-	import type { MenuProps as $$MenuProps } from './Menu';
+	import type { MenuProps as $$MenuProps, MenuEvents as $$MenuEvents } from './Menu';
 
 	interface $$Props extends $$MenuProps {}
+	interface $$Events extends $$MenuEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

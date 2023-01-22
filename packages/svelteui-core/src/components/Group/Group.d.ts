@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
@@ -13,13 +12,3 @@ export interface GroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	align?: CSS['alignItems'];
 	children?: number;
 }
-
-export interface GroupSlots {
-	label: Record<string, never>;
-}
-
-export default class Group extends SvelteComponentTyped<
-	GroupProps,
-	Record<string, never>,
-	GroupSlots
-> {}

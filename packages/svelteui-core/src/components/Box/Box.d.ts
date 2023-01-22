@@ -1,4 +1,4 @@
-import { SvelteComponent, SvelteComponentTyped } from 'svelte';
+import { SvelteComponent } from 'svelte';
 import {
 	HTMLAnchorAttributes,
 	HTMLAttributes,
@@ -28,16 +28,3 @@ export type BoxProps<T extends EventTarget = HTMLElement> = BoxPropsInternal<T> 
 	HTMLButtonAttributes &
 	HTMLFormAttributes &
 	HTMLLabelAttributes;
-
-export interface BoxEvents {
-	click: MouseEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface BoxSlots {
-	default: Record<string, never>;
-}
-
-export default class Box extends SvelteComponentTyped<BoxProps, BoxEvents, BoxSlots> {}

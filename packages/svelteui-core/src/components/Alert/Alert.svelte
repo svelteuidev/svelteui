@@ -4,9 +4,10 @@
 	import { Box } from '../Box';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import { CloseButton } from '../ActionIcon';
-	import type { AlertProps as $$AlertProps } from './Alert';
+	import type { AlertProps as $$AlertProps, AlertEvents as $$AlertEvents } from './Alert';
 
 	interface $$Props extends $$AlertProps {}
+	interface $$Events extends $$AlertEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

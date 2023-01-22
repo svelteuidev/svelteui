@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLImgAttributes } from 'svelte/elements';
 import { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
 
@@ -15,14 +14,3 @@ export interface ImageProps<T = HTMLImageElement> extends DefaultProps<T>, HTMLI
 	usePlaceholder?: boolean;
 	loader?: boolean;
 }
-
-export interface ImageEvents {
-	load: Event;
-	error: Event;
-}
-
-export interface ImageSlots {
-	placeholder: Record<string, never>;
-}
-
-export default class Image extends SvelteComponentTyped<ImageProps, ImageEvents, ImageSlots> {}

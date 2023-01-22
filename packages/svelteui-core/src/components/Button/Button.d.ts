@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 import { LoaderProps } from '../Loader/Loader';
@@ -31,18 +30,3 @@ interface ButtonPropsInternal extends DefaultProps<HTMLButtonElement | HTMLAncho
 }
 
 export type ButtonProps = ButtonPropsInternal & HTMLButtonAttributes & HTMLAnchorAttributes;
-
-export interface ButtonEvents {
-	click: MouseEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface ButtonSlots {
-	default: Record<string, never>;
-	leftIcon: Record<string, never>;
-	rightIcon: Record<string, never>;
-}
-
-export default class Button extends SvelteComponentTyped<ButtonProps, ButtonEvents, ButtonSlots> {}

@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Writable } from 'svelte/store';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
@@ -25,10 +24,5 @@ export interface TabsProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 
 export interface TabsEvents {
 	change: CustomEvent<{ index: number; key: string }>;
+	[evt: string]: CustomEvent<any>;
 }
-
-export interface TabsSlots {
-	default: Record<string, never>;
-}
-
-export default class Tabs extends SvelteComponentTyped<TabsProps, TabsEvents, TabsSlots> {}

@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
@@ -17,13 +16,3 @@ export interface TimelineItemProps extends DefaultProps, HTMLAttributes<HTMLElem
 	lineWidth?: number;
 	title?: string;
 }
-
-export interface TimelineItemSlots {
-	default: Record<string, never>;
-}
-
-export default class TimelineItem extends SvelteComponentTyped<
-	TimelineItemProps,
-	Record<string, never>,
-	TimelineItemSlots
-> {}

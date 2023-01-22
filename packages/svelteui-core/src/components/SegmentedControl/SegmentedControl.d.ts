@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
 
@@ -24,15 +23,3 @@ export interface SegmentedControlProps
 	defaultValue?: string;
 	orientation?: 'vertical' | 'horizontal';
 }
-
-export interface SegmentedControlEvents {
-	change: CustomEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export default class SegmentedControl extends SvelteComponentTyped<
-	SegmentedControlProps,
-	SegmentedControlEvents,
-	Record<string, never>
-> {}

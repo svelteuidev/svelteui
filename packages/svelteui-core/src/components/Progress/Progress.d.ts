@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { EasingFunction } from 'svelte/transition';
 import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
@@ -23,19 +22,3 @@ export interface ProgressProps extends DefaultProps<HTMLDivElement>, HTMLAttribu
 	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
 	sections?: Sections[];
 }
-
-export interface ProgressEvents {
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface ProgressSlots {
-	label: Record<string, never>;
-}
-
-export default class Progress extends SvelteComponentTyped<
-	ProgressProps,
-	ProgressEvents,
-	ProgressSlots
-> {}

@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import { Component } from '$lib/internal';
@@ -19,10 +18,5 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 
 export interface AlertEvents {
 	close: CustomEvent;
+	[evt: string]: CustomEvent<any>;
 }
-
-export interface AlertSlots {
-	default: Record<string, never>;
-}
-
-export default class Alert extends SvelteComponentTyped<AlertProps, AlertEvents, AlertSlots> {}

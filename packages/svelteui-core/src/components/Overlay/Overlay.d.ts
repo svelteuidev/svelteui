@@ -1,5 +1,4 @@
-import { SvelteComponentTyped } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
+import { HTMLAttributes } from 'svelte/elements';
 import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export interface OverlayProps extends DefaultProps, Omit<HTMLAttributes<HTMLElement>, 'color'> {
@@ -11,13 +10,3 @@ export interface OverlayProps extends DefaultProps, Omit<HTMLAttributes<HTMLElem
 	zIndex?: CSS['zIndex'];
 	radius?: SvelteUINumberSize;
 }
-
-export interface OverlaySlots {
-	default: Record<string, never>;
-}
-
-export default class Overlay extends SvelteComponentTyped<
-	OverlayProps,
-	Record<string, never>,
-	OverlaySlots
-> {}

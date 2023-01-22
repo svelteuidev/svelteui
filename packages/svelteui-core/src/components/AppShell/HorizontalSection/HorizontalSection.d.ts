@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
@@ -24,13 +23,3 @@ export interface HorizontalSectionSharedProps extends DefaultProps, HTMLAttribut
 export interface HorizontalSectionProps extends HorizontalSectionSharedProps {
 	section: 'navbar' | 'aside';
 }
-
-export interface HorizontalSectionSlots {
-	default: Record<string, never>;
-}
-
-export default class HorizontalSection extends SvelteComponentTyped<
-	HorizontalSectionProps,
-	Record<string, never>,
-	HorizontalSectionSlots
-> {}

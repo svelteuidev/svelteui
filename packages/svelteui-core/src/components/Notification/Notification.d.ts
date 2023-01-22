@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
@@ -21,15 +20,5 @@ export interface NotificationProps
 
 export interface NotificationEvents {
 	close: CustomEvent;
+	[evt: string]: CustomEvent<any>;
 }
-
-export interface NotificationSlots {
-	default: Record<string, never>;
-	icon: Record<string, never>;
-}
-
-export default class Notification extends SvelteComponentTyped<
-	NotificationProps,
-	NotificationEvents,
-	NotificationSlots
-> {}

@@ -1,10 +1,5 @@
 export { default as ActionIcon } from './ActionIcon.svelte';
-export type {
-	ActionIconProps,
-	ActionIconEvents,
-	ActionIconSlots,
-	ActionIconVariant
-} from './ActionIcon';
+export type { ActionIconProps, ActionIconVariant } from './ActionIcon';
 export type { ActionIconStylesParams } from './ActionIcon.styles';
 export * as ActionIconErrors from './ActionIcon.errors';
 

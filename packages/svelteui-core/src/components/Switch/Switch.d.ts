@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLInputAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
@@ -26,14 +25,3 @@ export interface SwitchProps
 	disabled?: boolean;
 	checked?: boolean;
 }
-
-export interface SwitchEvents {
-	input: InputEvent;
-	change: InputEvent;
-}
-
-export interface SwitchSlots {
-	default: Record<string, never>;
-}
-
-export default class Switch extends SvelteComponentTyped<SwitchProps, SwitchEvents, SwitchSlots> {}

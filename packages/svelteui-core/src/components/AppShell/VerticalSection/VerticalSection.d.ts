@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps } from '$lib/styles';
 
@@ -19,13 +18,3 @@ export interface VerticalSectionSharedProps extends DefaultProps, HTMLAttributes
 export interface VerticalSectionProps extends VerticalSectionSharedProps {
 	section: 'header' | 'footer';
 }
-
-export interface VerticalSectionSlots {
-	default: Record<string, never>;
-}
-
-export default class VerticalSection extends SvelteComponentTyped<
-	VerticalSectionProps,
-	Record<string, never>,
-	VerticalSectionSlots
-> {}

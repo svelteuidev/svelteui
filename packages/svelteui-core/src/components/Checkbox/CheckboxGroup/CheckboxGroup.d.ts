@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
@@ -16,10 +15,5 @@ export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
 
 export interface CheckboxGroupEvents {
 	change: CustomEvent<string[]>;
+	[evt: string]: CustomEvent<any>;
 }
-
-export default class CheckboxGroup extends SvelteComponentTyped<
-	CheckboxGroupProps,
-	CheckboxGroupEvents,
-	Record<string, never>
-> {}

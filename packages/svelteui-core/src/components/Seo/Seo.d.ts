@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps } from '$lib/styles';
 
@@ -160,9 +159,3 @@ export interface SeoProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<H
 	additionalMetaTags?: ReadonlyArray<MetaTag>;
 	additionalLinkTags?: ReadonlyArray<LinkTag>;
 }
-
-export default class Seo extends SvelteComponentTyped<
-	SeoProps,
-	Record<string, never>,
-	Record<string, never>
-> {}

@@ -6,9 +6,13 @@
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
 	import useStyles from './Notification.styles';
-	import type { NotificationProps as $$NotificationProps } from './Notification';
+	import type {
+		NotificationProps as $$NotificationProps,
+		NotificationEvents as $$NotificationEvents
+	} from './Notification';
 
 	interface $$Props extends $$NotificationProps {}
+	interface $$Events extends $$NotificationEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

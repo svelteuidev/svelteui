@@ -11,9 +11,10 @@
 	import { OptionalPortal } from '../Portal';
 	import { Text } from '../Text';
 	import useStyles from './Modal.styles';
-	import type { ModalProps as $$ModalProps } from './Modal';
+	import type { ModalProps as $$ModalProps, ModalEvents as $$ModalEvents } from './Modal';
 
 	interface $$Props extends $$ModalProps {}
+	interface $$Events extends $$ModalEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

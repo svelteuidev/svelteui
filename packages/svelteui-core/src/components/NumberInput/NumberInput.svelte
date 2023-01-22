@@ -3,9 +3,13 @@
 	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '../TextInput';
 	import { defaultFormatter, defaultParser } from './utils';
-	import type { NumberInputProps as $$NumberInputProps } from './NumberInput';
+	import type {
+		NumberInputProps as $$NumberInputProps,
+		NumberInputEvents as $$NumberInputEvents
+	} from './NumberInput';
 
 	interface $$Props extends $$NumberInputProps {}
+	interface $$Events extends $$NumberInputEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

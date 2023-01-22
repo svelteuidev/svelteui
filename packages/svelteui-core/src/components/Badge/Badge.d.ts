@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import {
 	DefaultProps,
@@ -18,18 +17,3 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement>, HTMLAttributes
 	radius?: SvelteUINumberSize;
 	fullWidth?: boolean;
 }
-
-export interface BadgeEvents {
-	click: MouseEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface BadgeSlots {
-	default: Record<string, never>;
-	leftSection: Record<string, never>;
-	rightSection: Record<string, never>;
-}
-
-export default class Badge extends SvelteComponentTyped<BadgeProps, BadgeEvents, BadgeSlots> {}

@@ -3,9 +3,13 @@
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
 	import Checkbox from '../Checkbox.svelte';
-	import type { CheckboxGroupProps as $$CheckboxGroupProps } from './CheckboxGroup';
+	import type {
+		CheckboxGroupProps as $$CheckboxGroupProps,
+		CheckboxGroupEvents as $$CheckboxGroupEvents
+	} from './CheckboxGroup';
 
 	interface $$Props extends $$CheckboxGroupProps {}
+	interface $$Events extends $$CheckboxGroupEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

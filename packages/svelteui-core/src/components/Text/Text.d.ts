@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAnchorAttributes } from 'svelte/elements';
 import { Component, LiteralUnion } from '$lib/internal';
 import {
@@ -37,13 +36,3 @@ export interface TextProps<
 	inherit?: boolean;
 	tracking?: Tracking;
 }
-
-export interface TextSlots {
-	default: Record<string, never>;
-}
-
-export default class Text extends SvelteComponentTyped<
-	TextProps,
-	Record<string, never>,
-	TextSlots
-> {}

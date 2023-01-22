@@ -1,7 +1,6 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLButtonAttributes } from 'svelte/elements';
 import type { Component, LiteralUnion } from '$lib/internal/types';
-import type { SvelteUIColor, SvelteUINumberSize, DefaultProps } from '$lib/styles';
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { LoaderProps } from '../Loader/Loader';
 
 export type ActionIconVariant =
@@ -24,20 +23,3 @@ export interface ActionIconProps extends DefaultProps, HTMLButtonAttributes {
 	href?: string;
 	external?: boolean;
 }
-
-export interface ActionIconEvents {
-	click: MouseEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface ActionIconSlots {
-	default: Record<string, never>;
-}
-
-export default class ActionIcon extends SvelteComponentTyped<
-	ActionIconProps,
-	ActionIconEvents,
-	ActionIconSlots
-> {}

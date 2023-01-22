@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUIGradient, SvelteUINumberSize } from '$lib/styles';
 
@@ -18,13 +17,3 @@ export interface ThemeIconProps extends DefaultProps, HTMLAttributes<HTMLElement
 	variant?: ThemeIconVariant;
 	gradient?: SvelteUIGradient;
 }
-
-export interface ThemeIconSlots {
-	default: Record<string, never>;
-}
-
-export default class ThemeIcon extends SvelteComponentTyped<
-	ThemeIconProps,
-	Record<string, never>,
-	ThemeIconSlots
-> {}

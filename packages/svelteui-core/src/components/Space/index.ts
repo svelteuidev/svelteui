@@ -1,3 +1,3 @@
 export { default as Space } from './Space.svelte';
 export type { SpaceStyleParams } from './Space.styles';
-export type { SpaceProps, SpaceSlots } from './Space';
+export type { SpaceProps } from './Space';

@@ -12,13 +12,3 @@ export interface AffixProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 		right?: string | number;
 	};
 }
-
-export interface AffixSlots {
-	default: Record<string, never>;
-}
-
-export default class Affix extends SvelteComponentTyped<
-	AffixProps,
-	Record<string, never>,
-	AffixSlots
-> {}

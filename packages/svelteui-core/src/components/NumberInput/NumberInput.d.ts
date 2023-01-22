@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { Override } from '$lib/styles';
 import { TextInputProps } from '../TextInput/TextInput';
 
@@ -25,10 +24,5 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 
 export interface NumberInputEvents {
 	change: CustomEvent<number>;
+	[evt: string]: CustomEvent<any>;
 }
-
-export default class NumberInput extends SvelteComponentTyped<
-	NumberInputProps,
-	NumberInputEvents,
-	Record<string, never>
-> {}

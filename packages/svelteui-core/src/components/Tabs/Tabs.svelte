@@ -8,9 +8,10 @@
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
 	import useStyles from './Tabs.styles';
-	import type { TabsProps as $$TabsProps, TabsContext } from './Tabs';
+	import type { TabsProps as $$TabsProps, TabsEvents as $$TabEvents, TabsContext } from './Tabs';
 
 	interface $$Props extends $$TabsProps {}
+	interface $$Events extends $$TabEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

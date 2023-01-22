@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import { GroupPosition } from '../../Group/Group';
@@ -22,10 +21,5 @@ export interface ChipGroupProps<T = boolean> extends DefaultProps, HTMLAttribute
 
 export interface ChipGroupEvents<T = boolean> {
 	change: CustomEvent<T extends true ? string[] : string>;
+	[evt: string]: CustomEvent<any>;
 }
-
-export default class ChipGroup extends SvelteComponentTyped<
-	ChipGroupProps,
-	ChipGroupEvents,
-	Record<string, never>
-> {}

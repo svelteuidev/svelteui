@@ -31,13 +31,5 @@ export interface ModalProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 
 export interface ModalEvents {
 	close: CustomEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
+	[evt: string]: CustomEvent<any>;
 }
-
-export interface ModalSlots {
-	default: Record<string, never>;
-}
-
-export default class Modal extends SvelteComponentTyped<ModalProps, ModalEvents, ModalSlots> {}

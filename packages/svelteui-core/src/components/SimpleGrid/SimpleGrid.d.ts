@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
@@ -14,13 +13,3 @@ export interface SimpleGridProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	cols?: number;
 	spacing?: SvelteUINumberSize;
 }
-
-export interface SimpleGridSlots {
-	default: Record<string, never>;
-}
-
-export default class SimpleGrid extends SvelteComponentTyped<
-	SimpleGridProps,
-	Record<string, never>,
-	SimpleGridSlots
-> {}

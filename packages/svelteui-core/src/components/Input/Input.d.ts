@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
@@ -40,14 +39,3 @@ export type InputProps = InputPropsInternal &
 	Omit<HTMLInputAttributes, 'size'> &
 	Omit<HTMLSelectAttributes, 'size'> &
 	HTMLTextareaAttributes;
-
-export interface InputEvents {
-	change: InputEvent;
-}
-
-export interface InputSlots {
-	default: Record<string, never>;
-	rightSection: Record<string, never>;
-}
-
-export default class Input extends SvelteComponentTyped<InputProps, InputEvents, InputSlots> {}

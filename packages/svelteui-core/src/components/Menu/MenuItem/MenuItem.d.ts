@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Component, LiteralUnion } from '$lib/internal';
 import { DefaultProps, SvelteUIColor } from '$lib/styles';
@@ -13,21 +12,3 @@ export interface SharedMenuItemProps extends DefaultProps, HTMLAttributes<HTMLEl
 export interface MenuItemProps extends SharedMenuItemProps {
 	root?: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
 }
-
-export interface MenuItemEvents {
-	click: MouseEvent;
-	mouseover: MouseEvent;
-	mouseenter: MouseEvent;
-	mouseleave: MouseEvent;
-}
-
-export interface MenuItemSlots {
-	default: Record<string, never>;
-	control: Record<string, never>;
-}
-
-export default class MenuItem extends SvelteComponentTyped<
-	MenuItemProps,
-	MenuItemEvents,
-	MenuItemSlots
-> {}

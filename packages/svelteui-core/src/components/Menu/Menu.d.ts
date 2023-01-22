@@ -1,4 +1,3 @@
-import { SvelteComponentTyped } from 'svelte';
 import { HTMLAttributes } from 'svelte/elements';
 import { Component, TransitionName, TransitionOptions } from '$lib/internal';
 import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
@@ -31,11 +30,5 @@ export interface MenuProps
 export interface MenuEvents {
 	open: CustomEvent;
 	close: CustomEvent;
+	[evt: string]: CustomEvent<any>;
 }
-
-export interface MenuSlots {
-	default: Record<string, never>;
-	control: Record<string, never>;
-}
-
-export default class Menu extends SvelteComponentTyped<MenuProps, MenuEvents, MenuSlots> {}
