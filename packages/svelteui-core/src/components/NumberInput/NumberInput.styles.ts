@@ -24,6 +24,10 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 			marginRight: 1
 		},
 
+		controls: {
+			width: 'calc(100% - 22px)'
+		},
+
 		control: {
 			margin: 0,
 			position: 'relative',
