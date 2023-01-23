@@ -9,7 +9,7 @@
 	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
 </script>
 
-<Card override={{ maxW: 340 }} shadow="sm" p="lg">
+<Card override={{ maxW: 340 }} shadow="sm" padding="lg">
 	<Card.Section padding="lg">
 		<Image
 			src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"

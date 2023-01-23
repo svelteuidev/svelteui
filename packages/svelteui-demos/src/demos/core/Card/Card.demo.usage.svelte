@@ -6,7 +6,7 @@
 	import { Badge, Button, Card, Group, Image, Text } from '@svelteuidev/core';
 <\/script>
 
-<Card shadow='sm' p='lg'>
+<Card shadow='sm' padding='lg'>
 	<Card.Section first padding='lg'>
 		<Image
 			src='./image.png'

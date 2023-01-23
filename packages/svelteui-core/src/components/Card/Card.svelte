@@ -34,7 +34,7 @@
 <Paper
 	bind:element
 	class={cx(className, getStyles({ css: override }))}
-	p={padding}
+	{padding}
 	{use}
 	{...$$restProps}
 >
