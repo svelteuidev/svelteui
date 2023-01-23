@@ -59,6 +59,7 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 		Object.keys(obj).map((value) => {
 			// transforms certain keywords into the correct CSS selectors
 			if (value === 'variants') return;
+
 			// saves the reference value so that later it can be added
 			// to reference the CSS selector
 			if (value === 'ref') {
@@ -82,6 +83,7 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 			} else if (value.startsWith('@media')) {
 				// do nothing if its a @media selector
 			}
+
 			// only adds the correct selectors if it has none
 			else if (!value.startsWith('&') && !value.startsWith(theme.dark)) {
 				const getStyles = css(obj[value]);
@@ -119,7 +121,7 @@ export function createStyles<Key extends string = string, Params = void>(
 		const sanitizedCss = Object.assign({}, dirtyCssObject);
 		const { classMap, refs } = sanitizeCss(sanitizedCss, theme);
 
-		const { root } = dirtyCssObject;
+		const root = dirtyCssObject['root'] ?? undefined;
 		const cssObjectClean = root !== undefined ? { ...root, ...sanitizedCss } : dirtyCssObject;
 
 		const getStyles = css(cssObjectClean);
@@ -138,6 +140,7 @@ export function createStyles<Key extends string = string, Params = void>(
 				if (ref && keyIsRef) {
 					transformedClasses = `${transformedClasses} ${ref}`;
 				}
+
 				// generates the root styles, applying the override styles
 				if (keys === 'root') {
 					transformedClasses = getStyles({ css: override }).toString();

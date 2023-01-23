@@ -12,5 +12,5 @@ export interface TabProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	variant?: TabsVariant;
 	orientation?: 'horizontal' | 'vertical';
 	tabKey?: string;
-  disabled?: boolean;
+	disabled?: boolean;
 }
