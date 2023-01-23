@@ -1,4 +1,4 @@
-x<script lang="ts" context="module">
+<script lang="ts" context="module">
 	import { setContext } from 'svelte';
 	import { beforeUpdate, get_current_component } from 'svelte/internal';
 	import { mergeTheme } from '../';
