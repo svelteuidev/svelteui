@@ -3,7 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
 	import LabelElement from './LabelElement.svelte';
-	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
+	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper';
 
 	interface $$Props extends $$InputWrapperProps {}
 

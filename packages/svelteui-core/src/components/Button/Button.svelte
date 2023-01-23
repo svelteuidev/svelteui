@@ -6,7 +6,7 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonProps as $$ButtonProps } from './Button.styles';
+	import type { ButtonProps as $$ButtonProps } from './Button';
 
 	interface $$Props extends $$ButtonProps {}
 

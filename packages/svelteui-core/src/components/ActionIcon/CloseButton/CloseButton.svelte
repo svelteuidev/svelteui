@@ -3,7 +3,7 @@
 	import CloseIcon from './CloseIcon.svelte';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { CloseButtonProps as $$CloseButtonProps } from '../ActionIcon.styles';
+	import type { CloseButtonProps as $$CloseButtonProps } from './CloseButton';
 
 	interface $$Props extends $$CloseButtonProps {}
 

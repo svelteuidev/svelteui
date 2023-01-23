@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './Stack.styles';
 	import Box from '../Box/Box.svelte';
-	import type { StackProps as $$StackProps } from './Stack.styles';
+	import useStyles from './Stack.styles';
+	import type { StackProps as $$StackProps } from './Stack';
 
 	interface $$Props extends $$StackProps {}
 

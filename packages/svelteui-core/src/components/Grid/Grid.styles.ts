@@ -1,26 +1,13 @@
 import { createStyles } from '$lib/styles';
-import type { Writable } from 'svelte/store';
-import type { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
-
-export type GridContext = Writable<{ cols: number; grow: boolean; spacing: SvelteUINumberSize }>;
-
-export interface GridProps extends DefaultProps {
-	align?: CSS['alignItems'];
-	cols?: number;
-	grow?: boolean;
-	spacing?: SvelteUINumberSize;
-	justify?: CSS['justifyContent'];
-}
+import type { CSS, SvelteUINumberSize } from '$lib/styles';
 
 export interface GridStyleParams {
 	align?: CSS['alignItems'];
-	cols?: number;
-	grow?: boolean;
 	spacing?: SvelteUINumberSize;
 	justify?: CSS['justifyContent'];
 }
 
-export default createStyles((theme, { align, cols, grow, spacing, justify }: GridStyleParams) => {
+export default createStyles((theme, { align, spacing, justify }: GridStyleParams) => {
 	return {
 		root: {
 			display: 'flex',

@@ -7,4 +7,4 @@ export type {
 	Twitter,
 	Facebook,
 	OpenGraph
-} from './Seo.styles';
+} from './Seo';

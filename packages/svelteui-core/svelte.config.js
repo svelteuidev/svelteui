@@ -10,19 +10,19 @@ const config = {
 	preprocess: preprocess(),
 	kit: {
 		files: {
-			lib: 'src',
-			routes: 'routes'
+			lib: 'src'
 		}
 	},
 	package: {
 		exports: (filepath) => {
 			if (filepath.endsWith('.d.ts')) return false;
+			if (filepath.endsWith('.stories.svelte')) return false;
 			if (filepath.endsWith('.config.js')) return false;
 			if (mm.contains(filepath, 'internal/**')) return false;
 			if (mm.contains(filepath, 'styles/**')) return false;
 			return !mm.contains(filepath, '**_');
 		},
-		files: mm.matcher('!**/*.test.{ts, js}')
+		files: mm.matcher('!**/*.test.{ts, js}') && mm.matcher('!**/*.stories.svelte')
 	}
 };
 

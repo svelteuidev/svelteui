@@ -2,9 +2,9 @@
 	import useStyles from './BackgroundImage.styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { ImageProps as $$ImageProps } from '../Image.styles';
+	import type { BackgroundImageProps as $$BackgroundImageProps } from './BackgroundImage';
 
-	interface $$Props extends $$ImageProps {}
+	interface $$Props extends $$BackgroundImageProps {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,

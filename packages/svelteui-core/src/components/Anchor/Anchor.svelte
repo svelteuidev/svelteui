@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Anchor.styles';
 	import Text from '../Text/Text.svelte';
-	import type { AnchorProps as $$AnchorProps } from './Anchor.styles';
+	import type { AnchorProps as $$AnchorProps } from './Anchor';
 
 	interface $$Props extends $$AnchorProps {}
 

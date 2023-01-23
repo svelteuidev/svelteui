@@ -1,2 +1,2 @@
 export { default as TextInput } from './TextInput.svelte';
-export type { TextInputProps } from './TextInput.styles';
+export type { TextInputProps } from './TextInput';

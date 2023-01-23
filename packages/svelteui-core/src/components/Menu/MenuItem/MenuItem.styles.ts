@@ -1,17 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { Component, LiteralUnion } from '$lib/internal';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-
-export interface SharedMenuItemProps extends DefaultProps {
-	color?: SvelteUIColor;
-	disabled?: boolean;
-	icon?: Component | HTMLOrSVGElement;
-	iconProps?: Record<string, any>;
-}
-
-export interface MenuItemProps extends SharedMenuItemProps {
-	root?: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
-}
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface MenuItemStylesParams {
 	radius: SvelteUINumberSize;

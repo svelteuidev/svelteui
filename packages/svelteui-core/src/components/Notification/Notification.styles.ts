@@ -1,20 +1,5 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { Component } from '$lib/internal';
-import type { CloseButtonProps } from '../ActionIcon/ActionIcon.styles';
-
-export interface NotificationProps extends DefaultProps {
-	title?: string;
-	color?: SvelteUIColor;
-	radius?: SvelteUINumberSize;
-	loading?: boolean;
-	icon?: Component | HTMLOrSVGElement;
-	iconSize?: number;
-	iconProps?: Record<string, unknown>;
-	withCloseButton?: boolean;
-	closeButtonLabel?: string;
-	closeButtonProps?: CloseButtonProps;
-}
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface NotificationStylesParams {
 	color: SvelteUIColor;

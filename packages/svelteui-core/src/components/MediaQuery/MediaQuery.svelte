@@ -1,8 +1,8 @@
 <script lang="ts">
-	import useStyles from './MediaQuery.styles';
-	import { Box } from '../Box';
 	import { onMount } from 'svelte';
-	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery.styles';
+	import { Box } from '../Box';
+	import useStyles from './MediaQuery.styles';
+	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery';
 
 	interface $$Props extends $$MediaQueryProps {}
 

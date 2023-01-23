@@ -2,10 +2,14 @@
 	import useStyles from './NumberInput.styles';
 	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '../TextInput';
-	import { defaultFormatter, defaultParser } from './NumberInput.styles';
-	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
+	import { defaultFormatter, defaultParser } from './utils';
+	import type {
+		NumberInputProps as $$NumberInputProps,
+		NumberInputEvents as $$NumberInputEvents
+	} from './NumberInput';
 
 	interface $$Props extends $$NumberInputProps {}
+	interface $$Events extends $$NumberInputEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -212,7 +216,7 @@ values and add custom parsers and formatters.
 >
 	<div
 		slot="rightSection"
-		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
+		class={cx(className, classes.control, getStyles({ css: overrideControls }))}
 	>
 		{#if showControls}
 			<button

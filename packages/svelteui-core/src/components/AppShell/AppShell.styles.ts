@@ -1,15 +1,7 @@
 import { createStyles, fns } from '$lib/styles';
 import { theme as appShellTheme } from './HorizontalSection/get-sorted-breakpoints/get-sorted-breakpoints';
-import type { DefaultProps, SvelteUINumberSize, CSS } from '$lib/styles';
+import type { SvelteUINumberSize, CSS } from '$lib/styles';
 import type { AppShellTheme } from './HorizontalSection/get-sorted-breakpoints/get-sorted-breakpoints';
-
-export interface AppShellProps extends DefaultProps {
-	zIndex?: number;
-	fixed?: boolean;
-	padding?: SvelteUINumberSize;
-	navbarOffsetBreakpoint?: SvelteUINumberSize;
-	asideOffsetBreakpoint?: SvelteUINumberSize;
-}
 
 export interface AppShellStylesParams {
 	padding: SvelteUINumberSize;

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import { InputWrapper } from '../InputWrapper';
-	import { Input } from '../Input';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
-	import type { TextInputProps as $$TextInputProps } from './TextInput.styles';
+	import { Input } from '../Input';
+	import { InputWrapper } from '../InputWrapper';
+	import type { TextInputProps as $$TextInputProps } from './TextInput';
 
 	interface $$Props extends $$TextInputProps {}
 
@@ -12,7 +12,6 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		overrideInput: $$Props['overrideInput'] = {},
 		label: $$Props['label'] = '',
 		description: $$Props['description'] = null,
 		error: $$Props['error'] = null,
@@ -79,12 +78,10 @@ Input for text that also uses labels for the input
 >
 	<Input
 		bind:value
-		{overrideInput}
 		{required}
 		{size}
 		id={baseId}
 		{placeholder}
-		{...overrideInput}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}

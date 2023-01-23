@@ -1,5 +1,5 @@
 export type { DeepPartial } from './DeepPartial';
-export type { DefaultProps, ElementProps } from './DefaultProps';
+export type { DefaultProps } from './DefaultProps';
 export type { ColorScheme, DefaultBackground, DefaultColor } from './ColorScheme';
 export type { SvelteUIColor } from './SvelteUIColor';
 export type { SvelteUIGradient } from './SvelteUIGradient';
@@ -12,8 +12,8 @@ export type {
 	CSS,
 	Fns,
 	Override,
-	Transition,
 	LoaderType,
+	ColorShades,
 	HeadingStyle,
 	DefaultTheme,
 	SvelteUITheme,

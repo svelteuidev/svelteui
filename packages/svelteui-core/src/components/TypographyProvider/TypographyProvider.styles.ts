@@ -1,10 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor } from '$lib/styles';
-
-export interface TypographyProviderProps extends DefaultProps<HTMLDivElement> {
-	underline: boolean;
-	primaryColor: SvelteUIColor;
-}
+import type { SvelteUIColor } from '$lib/styles';
 
 export interface TypographyProviderStyleParams {
 	primaryColor: SvelteUIColor;

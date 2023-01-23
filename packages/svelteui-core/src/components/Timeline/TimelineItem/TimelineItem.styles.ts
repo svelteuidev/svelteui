@@ -1,21 +1,6 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type { Component } from '$lib/internal';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-
-export interface TimelineItemProps extends DefaultProps {
-	active?: boolean;
-	align?: 'left' | 'right';
-	bullet?: Component | HTMLOrSVGElement;
-	bulletSize?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize;
-	color?: SvelteUIColor;
-	lineActive?: boolean;
-	lineVariant?: TimelineItemVariant;
-	lineWidth?: number;
-	title?: string;
-}
-
-export type TimelineItemVariant = 'dashed' | 'dotted' | 'solid';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { TimelineItemVariant } from './TimelineItem';
 
 export interface TimelineItemStyleParams {
 	align?: 'left' | 'right';

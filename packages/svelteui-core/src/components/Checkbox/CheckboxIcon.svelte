@@ -1,11 +1,9 @@
 <script lang="ts">
-	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
+	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
 
 	interface $$Props extends $$CheckboxProps {}
 
-	/** Used for custom classes to be applied to the checkbox icon e.g. Tailwind classes */
 	export let className: $$Props['className'] = '';
-	/** Sets the checkbox to indetermined state, overrides the checked state */
 	export let indeterminate: $$Props['indeterminate'] = false;
 	export { className as class };
 </script>
