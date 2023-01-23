@@ -20,7 +20,7 @@
 		};
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ fluid, size, sizes }));
+	$: ({ cx, getStyles } = useStyles({ fluid, size, sizes }, { name: "Container" }));
 </script>
 
 <!--

@@ -34,7 +34,7 @@
 	const onError = () => (error = true);
 
 	$: showPlaceholder = usePlaceholder && (!loaded || error);
-	$: ({ cx, classes, getStyles } = useStyles({ radius, fit, height, width }));
+	$: ({ cx, classes, getStyles } = useStyles({ radius, fit, height, width }, { name: "Image" }));
 </script>
 
 <!--

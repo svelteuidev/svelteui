@@ -11,7 +11,7 @@
 		override: $$Props['override'] = {};
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles());
+	$: ({ cx, getStyles } = useStyles(null, { name: "Kbd" }));
 </script>
 
 <Box

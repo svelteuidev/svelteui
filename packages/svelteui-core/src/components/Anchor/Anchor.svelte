@@ -24,7 +24,7 @@
 		external: $$Props['external'] = false;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles());
+	$: ({ cx, getStyles } = useStyles(null, { name: "Anchor" }));
 </script>
 
 <!--

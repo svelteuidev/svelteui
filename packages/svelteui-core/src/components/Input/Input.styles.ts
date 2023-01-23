@@ -40,7 +40,7 @@ export default createStyles(
 	) => {
 		return {
 			root: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					'& .input':
 						variant === 'headless'
 							? {}
@@ -179,8 +179,21 @@ export default createStyles(
 			withIcon: {
 				paddingLeft: typeof iconWidth === 'number' ? iconWidth : sizes[size] ?? sizes.md
 			},
+			disabled: {
+				darkMode: {
+					backgroundColor: '$dark600 !important'
+				},
+				backgroundColor: '$gray100 !important',
+				color: '$dark200 !important',
+				opacity: 0.6,
+				cursor: 'not-allowed',
+
+				'&::placeholder': {
+					color: '$dark200 !important'
+				}
+			},
 			invalid: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: '$red600 !important',
 					borderColor: '$red600 !important',
 					'&::placeholder': {
@@ -195,21 +208,8 @@ export default createStyles(
 					color: '$red700 !important'
 				}
 			},
-			disabled: {
-				[`${theme.dark} &`]: {
-					backgroundColor: '$dark600 !important'
-				},
-				backgroundColor: '$gray100 !important',
-				color: '$dark200 !important',
-				opacity: 0.6,
-				cursor: 'not-allowed',
-
-				'&::placeholder': {
-					color: '$dark200 !important'
-				}
-			},
 			icon: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: invalid ? 'red600' : '$dark200'
 				},
 				pointerEvents: 'none',

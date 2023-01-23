@@ -6,7 +6,7 @@
 <Meta title="Components/Alert" component={Alert} />
 
 <Template let:args>
-	<Alert on:stuff={() => { console.log("merda"); }} stuff="true" {...args}>This is an alert!</Alert>
+	<Alert {...args}>This is an alert!</Alert>
 </Template>
 
 <Story name="Alert" id="alert" />

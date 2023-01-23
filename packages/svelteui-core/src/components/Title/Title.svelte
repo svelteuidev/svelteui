@@ -16,7 +16,7 @@
 	let node: HTMLHeadingElements;
 
 	$: node = `h${order}` as HTMLHeadingElements;
-	$: ({ cx, classes } = useStyles(null, { override }));
+	$: ({ cx, classes } = useStyles(null, { override, name: "Title" }));
 </script>
 
 <!--

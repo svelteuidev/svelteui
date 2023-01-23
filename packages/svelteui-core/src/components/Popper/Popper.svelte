@@ -99,7 +99,7 @@
 	$: _transition = getTransition(transition) as any;
 	$: _exitTransition = getTransition(exitTransition) as any;
 	$: updatePopper({ ...$$props });
-	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
+	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }, { name: "Popper" }));
 </script>
 
 <!--

@@ -51,7 +51,7 @@
 		md,
 		lg,
 		xl
-	}));
+	}, { name: "Col" }));
 </script>
 
 {#if valid}

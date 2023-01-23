@@ -30,7 +30,7 @@
 		dispatch('close');
 	}
 
-	$: ({ cx, classes } = useStyles({ color, radius, variant }, { override }));
+	$: ({ cx, classes } = useStyles({ color, radius, variant }, { name: 'Alert', override }));
 </script>
 
 <Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...$$restProps}>

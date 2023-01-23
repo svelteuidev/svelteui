@@ -33,7 +33,7 @@
 		radius,
 		size,
 		transitionFunction
-	}));
+	}, { name: "Switch" }));
 </script>
 
 <!--
