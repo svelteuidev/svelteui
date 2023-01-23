@@ -111,13 +111,18 @@ Base component to create custom inputs
 			class:disabled
 			class:invalid
 			class:withIcon={icon}
-			class={cx(className, classes.input, `${variant}Variant`)}
+			class={cx(
+				className,
+				classes.input,
+				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
+				`${variant}Variant`
+			)}
 			{...$$restProps}
 		/>
 	{:else if isHTMLElement && isInput(String(root))}
 		<!-- on:change needs to appear before use:forwardEvents so that the
     ordering of the events is correct and the value is updated before propagation -->
-    <!-- prettier-ignore -->
+		<!-- prettier-ignore -->
 		<svelte:element
 			this={castRoot()}
 			bind:this={element}
