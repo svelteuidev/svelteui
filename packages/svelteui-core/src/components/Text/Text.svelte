@@ -60,7 +60,7 @@
 		size,
 		weight,
 		tracking
-	}));
+	}, { name: "Text" }));
 </script>
 
 <Error {observable} component="Text" code={err} />

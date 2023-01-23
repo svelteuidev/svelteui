@@ -17,7 +17,7 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, getStyles } = useStyles());
+	$: ({ cx, getStyles } = useStyles(null, { name: "UnstyledButton" }));
 </script>
 
 <Box

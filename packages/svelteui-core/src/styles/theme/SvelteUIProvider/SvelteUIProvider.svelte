@@ -5,7 +5,7 @@
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
 	import { key, useSvelteUIThemeContext } from './svelteui.provider';
-	import { createStyles, dark, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
+	import { createStyles, dark, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
 	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from './svelteui.provider';

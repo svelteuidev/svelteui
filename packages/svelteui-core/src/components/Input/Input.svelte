@@ -67,7 +67,7 @@
 		showRightSection,
 		size,
 		variant
-	}));
+	}, { name: "Input" }));
 </script>
 
 <!--

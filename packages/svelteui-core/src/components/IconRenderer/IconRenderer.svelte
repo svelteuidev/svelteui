@@ -13,7 +13,7 @@
 	// Verifies if CSR only elements are defined, or else it won't use them
 	const requiresShim = typeof HTMLElement === 'undefined' && typeof SVGElement === 'undefined';
 
-	$: ({ cx, getStyles, classes } = useStyles({ iconSize }));
+	$: ({ cx, getStyles, classes } = useStyles({ iconSize }, { name: "IconRenderer" }));
 	$: if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
 		icon.classList.add(classes.icon);
 	}

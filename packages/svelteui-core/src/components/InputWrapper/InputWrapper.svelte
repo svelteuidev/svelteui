@@ -27,7 +27,7 @@
 	$: {
 		_labelProps = labelElement === 'label' ? { htmlFor: id, ...labelProps } : { ...labelProps };
 	}
-	$: ({ cx, classes, getStyles } = useStyles({ size }));
+	$: ({ cx, classes, getStyles } = useStyles({ size }, { name: "InputWrapper" }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>

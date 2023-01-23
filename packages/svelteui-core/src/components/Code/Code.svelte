@@ -54,7 +54,7 @@
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }, { name: "Code" }));
 </script>
 
 <Error {observable} component="Code" code={err} />

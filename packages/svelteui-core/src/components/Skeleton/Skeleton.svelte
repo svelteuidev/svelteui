@@ -17,7 +17,7 @@
 		animate: $$Props['animate'] = true;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ animate, circle, height, radius, width }));
+	$: ({ cx, getStyles } = useStyles({ animate, circle, height, radius, width }, { name: "Skeleton" }));
 </script>
 
 <Box
