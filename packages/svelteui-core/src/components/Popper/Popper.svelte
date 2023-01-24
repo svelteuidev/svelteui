@@ -5,7 +5,7 @@
 	import { get_current_component, onDestroy } from 'svelte/internal';
 	import { createEventForwarder, getTransition, useActions } from '$lib/internal';
 	import type { Placement } from '@floating-ui/dom';
-	import type { PopperProps as $$PopperProps } from './Popper.styles';
+	import type { PopperProps as $$PopperProps } from './Popper';
 
 	interface $$Props extends $$PopperProps {}
 
@@ -32,14 +32,14 @@
 	let cleanup = () => {};
 	let arrowElement;
 
-	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	onDestroy(() => {
 		cleanup();
 	});
 
-	function updatePopper(_props) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+	function updatePopper(_) {
 		if (!element || !reference) return;
 
 		const _placement = placement;
@@ -99,7 +99,7 @@
 	$: _transition = getTransition(transition) as any;
 	$: _exitTransition = getTransition(exitTransition) as any;
 	$: updatePopper({ ...$$props });
-	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }));
+	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }, { name: "Popper" }));
 </script>
 
 <!--

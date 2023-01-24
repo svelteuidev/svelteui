@@ -1,11 +1,11 @@
 <script lang="ts">
-	import useStyles from './Tab.styles';
-	import { ctx } from '../Tabs.svelte';
-	import { Box } from '../../Box';
 	import { getContext, onMount } from 'svelte';
-	import type { TabsContext } from '../Tabs.styles';
-	import type { TabProps as $$TabProps } from './Tab.styles';
-	import IconRenderer from '$lib/components/IconRenderer/IconRenderer.svelte';
+	import { Box } from '../../Box';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { ctx } from '../Tabs.svelte';
+	import type { TabsContext } from '../Tabs';
+	import useStyles from './Tab.styles';
+	import type { TabProps as $$TabProps } from './Tab';
 
 	interface $$Props extends $$TabProps {}
 
@@ -15,11 +15,14 @@
 		override: $$Props['override'] = {},
 		active: $$Props['active'] = undefined,
 		icon: $$Props['icon'] = undefined,
+		iconProps: $$Props['iconProps'] = undefined,
 		label: $$Props['label'] = undefined,
 		color: $$Props['color'] = undefined,
 		variant: $$Props['variant'] = undefined,
 		orientation: $$Props['orientation'] = undefined,
-		tabKey: $$Props['tabKey'] = undefined;
+		tabKey: $$Props['tabKey'] = undefined,
+    disabled: $$Props['disabled'] = false,
+		title: $$Props['title'] = undefined;
 	export { className as class };
 
 	// retrieves the reactive context so that Tab has access
@@ -43,30 +46,36 @@
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override }));
+	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override, name: "Tab" }));
 </script>
 
 <Box
 	bind:element
 	{use}
-	class={cx('svelteui-tab', className, classes.root, classes[_variant], {
+	class={cx('svelteui-Tab', className, classes.root, {
 		active: _active,
-		[_variant]: true
+    [_variant]: true
 	})}
 	root="button"
 	role="tab"
 	aria-selected={_active}
 	data-key={tabKey}
+  disabled={disabled}
+  title={title}
 	{...$$restProps}
 >
 	<div class={classes.inner}>
-		{#if icon}
-			<IconRenderer {icon} className={classes.icon} />
-		{/if}
-		{#if label}
-			<div class={classes.label}>{label}</div>
-		{/if}
-		<div class={cx('svelteui-tab-content', classes.tabContent)}>
+		<slot name="icon" {color} {...iconProps}>
+			{#if icon}
+				<IconRenderer {icon} {iconProps} className={classes.icon} />
+			{/if}
+		</slot>
+		<slot name="label">
+			{#if label}
+				<div class={classes.label}>{label}</div>
+			{/if}
+		</slot>
+		<div class={cx('svelteui-Tab-content', classes.tabContent, { active: _active })}>
 			<slot />
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-import type { SimpleGridBreakpoint } from './SimpleGrid.styles';
+import type { SimpleGridBreakpoint } from './SimpleGrid';
 
 interface GetSize {
 	size: string | number;

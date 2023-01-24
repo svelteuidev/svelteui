@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './Skeleton.styles';
 	import { Box } from '../Box';
-	import type { SkeletonProps as $$SkeletonProps } from './Skeleton.styles';
+	import useStyles from './Skeleton.styles';
+	import type { SkeletonProps as $$SkeletonProps } from './Skeleton';
 
 	interface $$Props extends $$SkeletonProps {}
 
@@ -17,7 +17,7 @@
 		animate: $$Props['animate'] = true;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ animate, circle, height, radius, width }));
+	$: ({ cx, getStyles } = useStyles({ animate, circle, height, radius, width }, { name: "Skeleton" }));
 </script>
 
 <Box

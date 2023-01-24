@@ -1,42 +1,9 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type {
-	SvelteUIColor,
-	SvelteUINumberSize,
-	SvelteUIGradient,
-	DefaultProps
-} from '$lib/styles';
-import type { LoaderPropsExtended } from '../Loader/Loader.styles';
-
-export interface ButtonProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
-	variant?: ButtonVariant;
-	color?: SvelteUIColor;
-	size?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize | number;
-	gradient?: SvelteUIGradient;
-	loaderPosition?: 'left' | 'right';
-	loaderProps?: LoaderProps;
-	href?: string;
-	external?: boolean;
-	disabled?: boolean;
-	compact?: boolean;
-	loading?: boolean;
-	uppercase?: boolean;
-	fullSize?: boolean;
-	ripple?: boolean;
-}
-
-export type ButtonVariant =
-	| 'filled'
-	| 'light'
-	| 'outline'
-	| 'default'
-	| 'white'
-	| 'gradient'
-	| 'subtle';
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import type { ButtonVariant } from './Button';
 
 export interface ButtonStylesParams {
 	variant: ButtonVariant;
-
 	color: SvelteUIColor;
 	size: SvelteUINumberSize;
 	radius: SvelteUINumberSize;
@@ -49,12 +16,6 @@ export interface GetVariantStyles {
 	color: SvelteUIColor;
 	variant: ButtonVariant;
 	gradient?: { from: SvelteUIColor; to: SvelteUIColor; deg: number };
-}
-
-export interface LoaderProps {
-	variant: LoaderPropsExtended['variant'];
-	color: LoaderPropsExtended['color'];
-	size: LoaderPropsExtended['size'];
 }
 
 export const sizes = {

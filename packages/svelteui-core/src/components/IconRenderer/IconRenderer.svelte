@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer.styles';
 	import useStyles from './IconRenderer.styles';
+	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer';
 
 	interface $$Props extends $$IconRendererProps {}
 
@@ -10,9 +10,11 @@
 		iconSize: $$Props['iconSize'] = 16,
 		iconProps: $$Props['iconProps'] = {};
 
-	$: ({ cx, getStyles, classes } = useStyles({ iconSize }));
+	// Verifies if CSR only elements are defined, or else it won't use them
+	const requiresShim = typeof HTMLElement === 'undefined' && typeof SVGElement === 'undefined';
 
-	$: if (icon instanceof HTMLElement || icon instanceof SVGElement) {
+	$: ({ cx, getStyles, classes } = useStyles({ iconSize }, { name: "IconRenderer" }));
+	$: if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
 		icon.classList.add(classes.icon);
 	}
 </script>
@@ -23,8 +25,10 @@
 		class={cx(className, getStyles({ css: override }))}
 		{...iconProps}
 	/>
-{:else if icon instanceof HTMLElement || icon instanceof SVGElement}
-	<span class={cx(className, getStyles({ css: override }))}>
-		{@html icon.outerHTML}
-	</span>
+{:else if !requiresShim}
+	{#if icon instanceof HTMLElement || icon instanceof SVGElement}
+		<span class={cx(className, getStyles({ css: override }))}>
+			{@html icon.outerHTML}
+		</span>
+	{/if}
 {/if}

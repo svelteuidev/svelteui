@@ -1,10 +1,10 @@
 <script lang="ts">
-	import useStyles from './Divider.styles';
+	import Error from '$lib/internal/errors/Error.svelte';
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
-	import Error from '$lib/internal/errors/Error.svelte';
+	import useStyles from './Divider.styles';
 	import { DividerErrors } from './Divider.errors';
-	import type { DividerProps as $$DividerProps } from './Divider.styles';
+	import type { DividerProps as $$DividerProps } from './Divider';
 
 	interface $$Props extends $$DividerProps {}
 
@@ -35,7 +35,7 @@
 	}
 
 	$: if (observable) override = { display: 'none' };
-	$: ({ cx, classes, getStyles } = useStyles({ color, size, variant }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, size, variant }, { name: "Divider" }));
 </script>
 
 <Error {observable} component="Divider" code={err} />

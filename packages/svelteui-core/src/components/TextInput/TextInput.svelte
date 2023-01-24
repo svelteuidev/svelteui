@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import { InputWrapper } from '../InputWrapper';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { randomID } from '$lib/styles';
 	import { Input } from '../Input';
-	import type { TextInputProps as $$TextInputProps } from './TextInput.styles';
+	import { InputWrapper } from '../InputWrapper';
+	import type { TextInputProps as $$TextInputProps } from './TextInput';
 
 	interface $$Props extends $$TextInputProps {}
 
@@ -11,7 +12,6 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		overrideInput: $$Props['overrideInput'] = {},
 		label: $$Props['label'] = '',
 		description: $$Props['description'] = null,
 		error: $$Props['error'] = null,
@@ -30,7 +30,7 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-
+	const baseId = randomID(id);
 	// Flag that enables the override of the right section slot
 	// of the Input component only if it was provided
 	const _showRightSection =
@@ -72,16 +72,15 @@ Input for text that also uses labels for the input
 	{labelProps}
 	{descriptionProps}
 	{errorProps}
-	{id}
+	id={baseId}
 	{labelElement}
 	{size}
 >
 	<Input
 		bind:value
-		{overrideInput}
 		{required}
 		{size}
-		{id}
+		id={baseId}
 		{placeholder}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}

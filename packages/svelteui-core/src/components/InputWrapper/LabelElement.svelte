@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Box from '../Box/Box.svelte';
-	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
+	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper';
 
 	interface $$Props extends $$InputWrapperProps {}
 

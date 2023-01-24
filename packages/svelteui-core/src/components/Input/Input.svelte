@@ -1,10 +1,10 @@
 <script lang="ts">
-	import useStyles from './Input.styles';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
-	import type { InputProps as $$InputProps } from './Input.styles';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import useStyles from './Input.styles';
+	import type { InputProps as $$InputProps } from './Input';
 
 	interface $$Props extends $$InputProps {}
 
@@ -37,9 +37,15 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** workaround for root type errors, this should be replaced by a better type system */
-	const castRoot = () => root as string;
-	let isHTMLElement;
-	let isComponent;
+	type Input = 'input' | 'select' | 'textarea' | 'datalist';
+	function castRoot() {
+		return root as string as Input;
+	}
+	function isInput(root: string): root is Input {
+		return ['input', 'select', 'textarea', 'datalist'].includes(root);
+	}
+	let isHTMLElement = true;
+	let isComponent = false;
 
 	function onChange() {
 		// the 'this' keyword in this case is the
@@ -61,7 +67,7 @@
 		showRightSection,
 		size,
 		variant
-	}));
+	}, { name: "Input" }));
 </script>
 
 <!--
@@ -105,32 +111,39 @@ Base component to create custom inputs
 			class:disabled
 			class:invalid
 			class:withIcon={icon}
-			class={cx(className, classes.input, `${variant}Variant`)}
+			class={cx(
+				className,
+				classes.input,
+				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
+				`${variant}Variant`
+			)}
 			{...$$restProps}
 		/>
-	{:else if isHTMLElement}
+	{:else if isHTMLElement && isInput(String(root))}
+		<!-- on:change needs to appear before use:forwardEvents so that the
+    ordering of the events is correct and the value is updated before propagation -->
 		<!-- prettier-ignore -->
 		<svelte:element
-			bind:this={element}
 			this={castRoot()}
-			value={value}
-			use:useActions={use}
-			use:forwardEvents
-			on:change={onChange}
+			bind:this={element}
+			{value}
 			{required}
 			{disabled}
 			{id}
-      {autocomplete}
+			{autocomplete}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
 			class:withIcon={icon}
 			class={cx(className, classes.input, `${variant}Variant`)}
+			on:change={onChange}
+			use:useActions={use}
+			use:forwardEvents
 			{...$$restProps}
-			>
+		>
 			<slot />
 		</svelte:element>
-	{:else if isComponent}
+	{:else if isComponent && typeof root !== 'string'}
 		<svelte:component
 			this={root}
 			bind:element

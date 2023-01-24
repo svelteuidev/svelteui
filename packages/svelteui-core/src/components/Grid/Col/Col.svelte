@@ -1,10 +1,9 @@
 <script lang="ts">
-	import useStyles from './Col.styles';
-	import { ctx } from '../Grid.svelte';
-	import { Box } from '../../Box';
 	import { getContext } from 'svelte';
-	import type { GridContext } from '../Grid.styles';
-	import type { ColProps as $$ColProps } from './Col.styles';
+	import { Box } from '../../Box';
+	import type { GridContext } from '../Grid';
+	import useStyles from './Col.styles';
+	import type { ColProps as $$ColProps } from './Col';
 
 	export let use: $$ColProps['use'] = [],
 		element: $$ColProps['element'] = undefined,
@@ -52,7 +51,7 @@
 		md,
 		lg,
 		xl
-	}));
+	}, { name: "Col" }));
 </script>
 
 {#if valid}

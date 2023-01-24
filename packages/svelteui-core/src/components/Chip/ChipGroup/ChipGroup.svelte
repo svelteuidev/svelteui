@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
-	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup.styles.js';
-	import Chip from '$lib/components/Chip/Chip.svelte';
+	import Chip from '../Chip.svelte';
+	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup';
 
 	interface $$Props extends $$ChipGroupProps {}
 
@@ -11,10 +12,10 @@
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
 		color: $$Props['color'] = undefined,
-		items: $$Props['items'] = [],
-		value: $$Props['value'] = [],
-		label: $$Props['label'] = null,
 		multiple: $$Props['multiple'] = false,
+		items: $$Props['items'] = [],
+		value: $$Props['value'] = multiple ? [] : undefined,
+		label: $$Props['label'] = null,
 		disabled: $$Props['disabled'] = false,
 		variant: $$Props['variant'] = 'outline',
 		size: $$Props['size'] = undefined,
@@ -25,13 +26,16 @@
 		spacing: $$Props['spacing'] = 'md';
 	export { className as class };
 
+	const dispatch = createEventDispatcher();
+
 	function onChanged(item: string, el: EventTarget) {
-		if ((el as HTMLInputElement).checked) {
-			if (multiple) value = [...value, item];
-			else value = [item];
+		const checked = (el as HTMLInputElement).checked;
+		if (Array.isArray(value)) {
+			value = checked ? [...value, item] : value.filter((val) => val !== item);
 		} else {
-			value = value.filter((val) => val !== item);
+			value = checked ? item : undefined;
 		}
+		dispatch('change', value);
 	}
 </script>
 
@@ -57,7 +61,7 @@ A chip group component is a container for Chips.
 				{use}
 				label={item.label}
 				value={item.value}
-				checked={value.includes(item.value)}
+				checked={Array.isArray(value) ? value.includes(item.value) : value === item.value}
 				{radius}
 				{size}
 				{color}

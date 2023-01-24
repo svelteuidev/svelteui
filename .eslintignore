@@ -3,4 +3,3 @@ public
 .cache
 .eslintrc.js
 /packages/svelteui-prism/static
-*.d.ts

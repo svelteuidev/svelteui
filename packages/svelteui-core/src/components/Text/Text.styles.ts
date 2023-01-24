@@ -1,34 +1,12 @@
 import { createStyles } from '$lib/styles';
 import type {
 	SvelteUIGradient,
-	SvelteUIColor,
-	Override,
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
 	SvelteUINumberSize,
-	SvelteUINumberFontSize,
-	DefaultProps
+	SvelteUINumberFontSize
 } from '$lib/styles';
-import type { Component, LiteralUnion } from '$lib/internal';
-
-export interface TextProps extends DefaultProps {
-	className?: string;
-	override?: Override['props'];
-	align?: SvelteUITextAlignment;
-	color?: TextColors;
-	root?: LiteralUnion<HTMLTextElements | Component, string>;
-	transform?: SvelteUITextTransform;
-	variant?: TextVariant;
-	size?: SvelteUINumberSize;
-	weight?: SvelteUINumberFontSize;
-	gradient?: SvelteUIGradient;
-	inline?: boolean;
-	lineClamp?: number;
-	underline?: boolean;
-	inherit?: boolean;
-	href?: string;
-	tracking?: Tracking;
-}
+import type { Tracking, TextVariant, TextColors } from './Text';
 
 export interface TextStyleParams {
 	lineClamp?: number;
@@ -44,14 +22,6 @@ export interface TextStyleParams {
 	weight?: SvelteUINumberFontSize;
 	tracking?: Tracking;
 }
-
-export type Tracking = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest' | number;
-
-export type TextVariant = 'link' | 'text' | 'gradient';
-
-export type TextColors = SvelteUIColor | 'dimmed';
-
-export type HTMLTextElements = keyof HTMLElementTagNameMap;
 
 export function getTextColor(
 	color: TextColors,

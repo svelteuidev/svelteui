@@ -6,7 +6,7 @@
 	import { Badge, Button, Card, Group, Image, Text } from '@svelteuidev/core';
 <\/script>
 
-<Card shadow='sm' p='lg'>
+<Card shadow='sm' padding='lg'>
 	<Card.Section first padding='lg'>
 		<Image
 			src='./image.png'
@@ -56,7 +56,7 @@
 </script>
 
 <div style="width: 340px; margin: auto">
-	<Card shadow="sm" p="lg">
+	<Card shadow="sm" padding="lg">
 		<Card.Section first padding="lg">
 			<Image
 				src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"

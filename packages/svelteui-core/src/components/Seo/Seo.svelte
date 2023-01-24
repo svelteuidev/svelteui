@@ -1,10 +1,10 @@
-<!-- 
+<!--
     # Adapted from oekazuma/svelte-meta-tags which is inspired by garmeeh next-seo
     # In it's current form there are minimal differences
     # however, there are plans to modify some of it.
 -->
 <script lang="ts">
-	import type { SeoProps as $$SeoProps } from './Seo.styles';
+	import type { SeoProps as $$SeoProps } from './Seo';
 
 	export let title: $$SeoProps['title'] = '';
 	export let titleTemplate: $$SeoProps['titleTemplate'] = '';

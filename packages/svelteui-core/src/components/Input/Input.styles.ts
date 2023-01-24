@@ -1,31 +1,7 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { Component } from '$lib/internal';
-
-export interface InputBaseProps extends DefaultProps {
-	icon?: Component | HTMLOrSVGElement;
-	iconWidth?: number;
-	iconProps?: { size: number; color: 'currentColor' | string };
-	showRightSection?: boolean;
-	rightSectionWidth?: number;
-	rightSectionProps?: Record<string, unknown>;
-	wrapperProps?: Record<string, unknown>;
-	placeholder?: string;
-	id?: string;
-	required?: boolean;
-	radius?: SvelteUINumberSize;
-	variant?: InputVariant;
-	disabled?: boolean;
-	size?: SvelteUISize;
-	root?: Component | keyof HTMLElementTagNameMap;
-	value?: string;
-}
-
-export interface InputProps extends InputBaseProps {
-	invalid?: boolean;
-	multiline?: boolean;
-	autocomplete?: string;
-}
+import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { InputVariant } from './Input';
 
 export interface InputStylesParams {
 	icon: Component | HTMLOrSVGElement;
@@ -38,8 +14,6 @@ export interface InputStylesParams {
 	showRightSection: boolean;
 	iconWidth: number;
 }
-
-export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
 export const sizes = {
 	xs: 30,
@@ -66,7 +40,7 @@ export default createStyles(
 	) => {
 		return {
 			root: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					'& .input':
 						variant === 'headless'
 							? {}
@@ -205,8 +179,21 @@ export default createStyles(
 			withIcon: {
 				paddingLeft: typeof iconWidth === 'number' ? iconWidth : sizes[size] ?? sizes.md
 			},
+			disabled: {
+				darkMode: {
+					backgroundColor: '$dark600 !important'
+				},
+				backgroundColor: '$gray100 !important',
+				color: '$dark200 !important',
+				opacity: 0.6,
+				cursor: 'not-allowed',
+
+				'&::placeholder': {
+					color: '$dark200 !important'
+				}
+			},
 			invalid: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: '$red600 !important',
 					borderColor: '$red600 !important',
 					'&::placeholder': {
@@ -221,21 +208,8 @@ export default createStyles(
 					color: '$red700 !important'
 				}
 			},
-			disabled: {
-				[`${theme.dark} &`]: {
-					backgroundColor: '$dark600 !important'
-				},
-				backgroundColor: '$gray100 !important',
-				color: '$dark200 !important',
-				opacity: 0.6,
-				cursor: 'not-allowed',
-
-				'&::placeholder': {
-					color: '$dark200 !important'
-				}
-			},
 			icon: {
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: invalid ? 'red600' : '$dark200'
 				},
 				pointerEvents: 'none',

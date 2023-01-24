@@ -1,26 +1,12 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
-
-export interface ImageProps extends DefaultProps {
-	override: Override['props'];
-	overridePlaceholder: Override['props'];
-	radius: SvelteUINumberSize;
-	className: string;
-	src: string;
-	alt: string;
-	fit: 'cover' | 'contain' | undefined;
-	width: string | number;
-	height: string | number;
-	caption: string;
-	usePlaceholder: boolean;
-	loader: boolean;
-}
+import type { SvelteUINumberSize } from '$lib/styles';
+import type { ImageFit } from './Image';
 
 export interface ImageStylesParams {
 	radius: SvelteUINumberSize;
 	width: string | number;
 	height: string | number;
-	fit: 'cover' | 'contain' | undefined;
+	fit: ImageFit;
 }
 
 export default createStyles((theme, { radius, height, width, fit }: ImageStylesParams) => {

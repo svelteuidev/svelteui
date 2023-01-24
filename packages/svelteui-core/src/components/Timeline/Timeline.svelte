@@ -5,9 +5,9 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import useStyles from './Timeline.styles';
 	import Box from '../Box/Box.svelte';
-	import type { TimelineProps as $$TimelineProps } from './Timeline.styles';
+	import useStyles from './Timeline.styles';
+	import type { TimelineContext, TimelineProps as $$TimelineProps } from './Timeline';
 
 	interface $$Props extends $$TimelineProps {}
 
@@ -27,7 +27,7 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	const contextStore = writable({
+	const contextStore: TimelineContext = writable({
 		active: active,
 		reverseActive: reverseActive,
 		align: align,
@@ -47,7 +47,7 @@
 		lineWidth: lineWidth
 	};
 
-	$: ({ cx, classes } = useStyles({ align, bulletSize, lineWidth }, { override }));
+	$: ({ cx, classes } = useStyles({ align, bulletSize, lineWidth }, { override, name: "Timeline" }));
 </script>
 
 <!--

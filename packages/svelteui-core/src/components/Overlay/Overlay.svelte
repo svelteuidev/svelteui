@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Center } from '../Center';
-	import { getDefaultZIndex } from './Overlay.styles';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { OverlayProps as $$OverlayProps } from './Overlay.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
+	import Center from '../Center/Center.svelte';
+	import { getDefaultZIndex } from './Overlay.styles';
+	import type { OverlayProps as $$OverlayProps } from './Overlay';
 
 	interface $$Props extends $$OverlayProps {}
 

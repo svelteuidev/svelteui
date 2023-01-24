@@ -1,10 +1,9 @@
 <script lang="ts">
-	import useStyles from './Tooltip.styles';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
-	import type { CSS } from '$lib/styles';
-	import type { TooltipProps as $$TooltipProps } from './Tooltip.styles';
+	import useStyles from './Tooltip.styles';
+	import type { TooltipProps as $$TooltipProps } from './Tooltip';
 
 	interface $$Props extends $$TooltipProps {}
 
@@ -72,7 +71,7 @@
 	});
 
 	$: visible = (typeof opened === 'boolean' ? opened : _opened) && !disabled;
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, radius }, { name: 'Tooltip' }));
 </script>
 
 <Box
@@ -94,6 +93,7 @@
 		{withArrow}
 		{arrowSize}
 		{zIndex}
+		arrowClassName={classes.arrow}
 		reference={tooltipRefElement}
 		mounted={visible}
 		arrowDistance={3}

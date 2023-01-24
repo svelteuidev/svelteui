@@ -1,23 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps } from '$lib/styles';
-
-export interface VerticalSectionSharedProps extends DefaultProps {
-	height: number | string;
-	fixed?: boolean;
-	position?: VerticalSectionPosition;
-	zIndex?: number;
-}
-
-export interface VerticalSectionProps extends VerticalSectionSharedProps {
-	section: 'header' | 'footer';
-}
-
-export interface VerticalSectionPosition {
-	top?: number;
-	left?: number;
-	bottom?: number;
-	right?: number;
-}
+import type { VerticalSectionPosition } from './VerticalSection';
 
 interface VerticalSectionStyles {
 	height: number | string;

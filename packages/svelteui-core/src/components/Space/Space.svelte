@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './Space.styles';
 	import { Box } from '../Box';
-	import type { SpaceProps as $$SpaceProps } from './Space.styles';
+	import useStyles from './Space.styles';
+	import type { SpaceProps as $$SpaceProps } from './Space';
 
 	interface $$Props extends $$SpaceProps {}
 
@@ -13,7 +13,7 @@
 		h: $$Props['h'] = 0;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ h, w }));
+	$: ({ cx, getStyles } = useStyles({ h, w }, { name: "Space" }));
 </script>
 
 <!--

@@ -5,7 +5,7 @@
 	import { Text } from '../Text';
 	import { randomID } from '$lib/styles';
 	import { cubicOut } from 'svelte/easing';
-	import type { ProgressProps as $$ProgressProps } from './Progress.styles';
+	import type { ProgressProps as $$ProgressProps } from './Progress';
 
 	interface $$Props extends $$ProgressProps {}
 
@@ -39,7 +39,7 @@
 		size,
 		shade,
 		striped: striped || animate
-	}));
+	}, { name: "Progress" }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

@@ -1,11 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
-
-export interface BurgerProps extends DefaultProps<HTMLButtonElement | HTMLAnchorElement> {
-	opened?: boolean;
-	color?: SvelteUIColor;
-	size?: SvelteUINumberSize;
-}
+import type { SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
 
 export interface BurgerStyleParams {
 	opened?: boolean;

@@ -15,10 +15,10 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
 	import type { MenuContextValue } from './Menu.context';
-	import type { PopperProps } from '../Popper';
-	import type { MenuProps as $$MenuProps } from './Menu.styles';
+	import type { MenuProps as $$MenuProps, MenuEvents as $$MenuEvents } from './Menu';
 
-	interface $$Props extends $$MenuProps, Omit<PopperProps, 'transition'> {}
+	interface $$Props extends $$MenuProps {}
+	interface $$Events extends $$MenuEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -37,15 +37,15 @@
 		trapFocus: $$Props['trapFocus'] = true,
 		withinPortal: $$Props['withinPortal'] = true,
 		zIndex: $$Props['zIndex'] = 300,
-		withArrow: PopperProps['withArrow'] = false,
-		gutter: PopperProps['gutter'] = 5,
-		placement: PopperProps['placement'] = 'start',
-		position: PopperProps['position'] = 'bottom',
+		withArrow: $$Props['withArrow'] = false,
+		gutter: $$Props['gutter'] = 5,
+		placement: $$Props['placement'] = 'start',
+		position: $$Props['position'] = 'bottom',
 		transition: $$Props['transition'] = 'fade',
 		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
 	export { className as class };
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {
@@ -180,7 +180,7 @@
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
 	});
-	$: ({ cx, classes } = useStyles({ size }, { override }));
+	$: ({ cx, classes } = useStyles({ size }, { override, name: "Menu" }));
 	setContext<Writable<MenuContextValue>>(ctx, contextStore);
 </script>
 
@@ -194,7 +194,7 @@
 	on:mouseenter={handleMouseEnter}
 	{...$$restProps}
 >
-	<slot name="control" class="menu-control">
+	<slot name="control">
 		<MenuIcon
 			bind:element={referenceElement}
 			role="button"

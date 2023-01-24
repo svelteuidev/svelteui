@@ -3,7 +3,6 @@ export { useSvelteUITheme } from './default-theme';
 export { colorScheme } from './svelteui.stores';
 export {
 	key,
-	ssrStyles,
 	globalStyles,
 	useSvelteUIDefaultProps,
 	useSvelteUIThemeContext

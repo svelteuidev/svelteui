@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './Stack.styles';
 	import Box from '../Box/Box.svelte';
-	import type { StackProps as $$StackProps } from './Stack.styles';
+	import useStyles from './Stack.styles';
+	import type { StackProps as $$StackProps } from './Stack';
 
 	interface $$Props extends $$StackProps {}
 
@@ -14,7 +14,7 @@
 		justify: $$Props['justify'] = 'center';
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }));
+	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }, { name: "Stack" }));
 </script>
 
 <!--

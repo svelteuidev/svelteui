@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
+	import { Meta, Story } from '@storybook/addon-svelte-csf';
 	import { InfoCircled } from 'radix-icons-svelte';
 	import Alert from '../Alert/Alert.svelte';
 	import Button from '../Button/Button.svelte';

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import useStyles from './Switch.styles';
-	import { randomID } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { SwitchProps as $$SwitchProps } from './Switch.styles';
+	import { randomID } from '$lib/styles';
+	import useStyles from './Switch.styles';
+	import type { SwitchProps as $$SwitchProps } from './Switch';
 
 	interface $$Props extends $$SwitchProps {}
 
@@ -33,7 +33,7 @@
 		radius,
 		size,
 		transitionFunction
-	}));
+	}, { name: "Switch" }));
 </script>
 
 <!--

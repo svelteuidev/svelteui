@@ -2,6 +2,7 @@
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
 	import { Tabs } from './index';
+	import { Badge } from '../Badge';
 </script>
 
 <Meta title="Components/Tabs" component={Tabs} />
@@ -15,3 +16,14 @@
 </Template>
 
 <Story name="Tabs" id="tabs" />
+
+<Story name="Tabs using icon slot" id="tabs_slot">
+	<Tabs>
+		<Tabs.Tab label="Gallery">
+			<svelte:fragment slot="icon">
+				<Badge>New</Badge>
+			</svelte:fragment>
+			Gallery tab content
+		</Tabs.Tab>
+	</Tabs>
+</Story>

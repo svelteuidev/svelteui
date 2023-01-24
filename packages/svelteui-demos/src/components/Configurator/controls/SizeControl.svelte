@@ -12,13 +12,7 @@
 		{ value: 100, label: 'xl' }
 	];
 
-  const values = [
-    "xs",
-    "sm",
-    "md",
-    "lg",
-    "xl"
-  ]
+	const values = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 	const dispatch = createEventDispatcher();
 

@@ -3,7 +3,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import Box from '../Box/Box.svelte';
-	import type { BadgeProps as $$BadgeProps } from './Badge.styles';
+	import type { BadgeProps as $$BadgeProps } from './Badge';
 
 	interface $$Props extends $$BadgeProps {}
 
@@ -32,7 +32,7 @@
 			gradientFrom: gradient.from,
 			gradientTo: gradient.to
 		},
-		{ override }
+		{ override, name: 'Badge' }
 	));
 </script>
 

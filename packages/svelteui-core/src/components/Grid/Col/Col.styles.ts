@@ -1,20 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUITheme } from '$lib/styles';
-
-export interface ColProps extends DefaultProps {
-	span?: number;
-	offset?: number;
-	offsetXs?: number;
-	offsetSm?: number;
-	offsetMd?: number;
-	offsetLg?: number;
-	offsetXl?: number;
-	xs?: number;
-	sm?: number;
-	md?: number;
-	lg?: number;
-	xl?: number;
-}
+import type { SvelteUINumberSize, SvelteUITheme } from '$lib/styles';
 
 export interface ColStyleParams {
 	cols?: number;
@@ -53,7 +38,7 @@ const breakpointsStyles = (
 				flexShrink: 0,
 				maxWidth: grow ? 'unset' : columnWidth(sizes[size], columns),
 				marginLeft: columnOffset(offsets[size], columns),
-        padding: theme.fn.size({ size: size, sizes: theme.space }) / 2,
+				padding: theme.fn.size({ size: size, sizes: theme.space }) / 2
 			};
 		}
 		return acc;
