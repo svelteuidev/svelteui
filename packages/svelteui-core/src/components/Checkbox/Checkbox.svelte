@@ -31,7 +31,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: checked = indeterminate || checked;
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration }, { name: "Checkbox" }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration }));
 </script>
 
 <!--

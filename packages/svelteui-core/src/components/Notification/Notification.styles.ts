@@ -6,7 +6,7 @@ export interface NotificationStylesParams {
 	radius: SvelteUINumberSize;
 }
 
-export default createStyles((theme, { color, radius }: NotificationStylesParams, getRef) => {
+export default createStyles((theme, { color, radius }: NotificationStylesParams) => {
 	const _radiusPx = theme.fn.radius(radius);
 	const _radius = parseInt(_radiusPx.toString().split('px')[0]);
 	const topBottom = Math.min(Math.max(_radius / 1.2, 4), 30);
@@ -52,14 +52,13 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams,
 				'&::before': {
 					display: 'none'
 				},
-				[`& .${getRef('icon')}`]: {
+				'& .icon': {
 					backgroundColor: colors.backgroundColor,
 					color: theme.colors.white.value
 				}
 			}
 		},
 		icon: {
-			ref: getRef('icon'),
 			boxSizing: 'border-box',
 			marginRight: theme.space.mdPX.value,
 			width: 28,

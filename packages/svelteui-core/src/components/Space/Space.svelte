@@ -13,7 +13,7 @@
 		h: $$Props['h'] = 0;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ h, w }, { name: "Space" }));
+	$: ({ cx, getStyles } = useStyles({ h, w }));
 </script>
 
 <!--

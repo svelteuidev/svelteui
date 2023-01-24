@@ -28,13 +28,13 @@
 		}
 	});
 
-	$: ({ cx, getStyles, theme } = useStyles(null, { name: "Card" }));
+	$: ({ cx, getStyles, theme } = useStyles());
 </script>
 
 <Paper
 	bind:element
 	class={cx(className, getStyles({ css: override }))}
-	{padding}
+	p={padding}
 	{use}
 	{...$$restProps}
 >

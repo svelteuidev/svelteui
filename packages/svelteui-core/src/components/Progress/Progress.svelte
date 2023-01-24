@@ -39,7 +39,7 @@
 		size,
 		shade,
 		striped: striped || animate
-	}, { name: "Progress" }));
+	}));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

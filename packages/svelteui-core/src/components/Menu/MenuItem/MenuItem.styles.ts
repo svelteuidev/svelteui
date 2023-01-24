@@ -21,39 +21,41 @@ export function getContextItemIndex(
 	}
 
 	return Array.from(
-		findAncestor(node, options.parentClassName)?.querySelectorAll(options.elementSelector) ?? []
+		findAncestor(node, options.parentClassName).querySelectorAll(options.elementSelector)
 	).findIndex((element) => element === node);
 }
 
 export default createStyles((theme, { color, radius }: MenuItemStylesParams) => {
 	return {
 		root: {
-			darkMode: {
-				color: color ? theme.fn.themeColor(color, 5) : theme.fn.themeColor('dark', 0),
+			'&.svelteui-Menu-item': {
+				[`${theme.dark} &`]: {
+					color: color ? theme.fn.themeColor(color, 5) : theme.fn.themeColor('dark', 0),
+					'&:disabled': {
+						color: theme.fn.themeColor('dark', 3)
+					}
+				},
+				WebkitTapHighlightColor: 'transparent',
+				fontSize: theme.fontSizes.sm,
+				border: 0,
+				backgroundColor: 'transparent',
+				outline: 0,
+				width: '100%',
+				textAlign: 'left',
+				display: 'inline-block',
+				textDecoration: 'none',
+				boxSizing: 'border-box',
+				padding: `${+theme.space.xs.value}px ${+theme.space.sm.value}px`,
+				cursor: 'pointer',
+				borderRadius: theme.fn.radius(radius),
+				color: color ? theme.fn.themeColor(color, 7) : 'black',
+
 				'&:disabled': {
-					color: theme.fn.themeColor('dark', 3)
+					color: theme.fn.themeColor('gray', 5),
+					pointerEvents: 'none'
 				}
 			},
-			WebkitTapHighlightColor: 'transparent',
-			fontSize: theme.fontSizes.sm,
-			border: 0,
-			backgroundColor: 'transparent',
-			outline: 0,
-			width: '100%',
-			textAlign: 'left',
-			display: 'inline-block',
-			textDecoration: 'none',
-			boxSizing: 'border-box',
-			padding: `${+theme.space.xs.value}px ${+theme.space.sm.value}px`,
-			cursor: 'pointer',
-			borderRadius: theme.fn.radius(radius),
-			color: color ? theme.fn.themeColor(color, 7) : 'black',
-
-			'&:disabled': {
-				color: theme.fn.themeColor('gray', 5),
-				pointerEvents: 'none'
-			},
-			'&:hover': {
+			'&.itemHovered': {
 				[`${theme.dark} &`]: {
 					backgroundColor: color
 						? theme.fn.rgba(theme.fn.themeColor(color, 8), 0.35)

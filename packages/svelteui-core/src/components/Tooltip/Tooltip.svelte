@@ -71,7 +71,7 @@
 	});
 
 	$: visible = (typeof opened === 'boolean' ? opened : _opened) && !disabled;
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius }, { name: 'Tooltip' }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, radius }));
 </script>
 
 <Box
@@ -93,7 +93,6 @@
 		{withArrow}
 		{arrowSize}
 		{zIndex}
-		arrowClassName={classes.arrow}
 		reference={tooltipRefElement}
 		mounted={visible}
 		arrowDistance={3}

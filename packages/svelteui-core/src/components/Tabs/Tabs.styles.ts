@@ -8,8 +8,7 @@ export interface TabsStyleParams {
 
 export const getVariantStyles = (
 	orientation: 'horizontal' | 'vertical',
-	theme: SvelteUITheme,
-	getRef
+	theme: SvelteUITheme
 ): VariantThemeFunction => {
 	return {
 		default: {
@@ -22,7 +21,7 @@ export const getVariantStyles = (
 					: 'borderRight']: `2px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
-			[`& .${getRef('tabs')}`]: {
+			[`& .tabs`]: {
 				[orientation === 'horizontal' ? 'marginBottom' : 'marginRight']: -2
 			}
 		},
@@ -36,7 +35,7 @@ export const getVariantStyles = (
 					: 'borderRight']: `1px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
-			[`& .${getRef('tabs')}`]: {
+			[`& .tabs`]: {
 				[orientation === 'horizontal' ? 'marginBottom' : 'marginRight']: -1
 			}
 		},
@@ -46,22 +45,19 @@ export const getVariantStyles = (
 	};
 };
 
-export default createStyles((theme, { orientation, tabPadding }: TabsStyleParams, getRef) => {
+export default createStyles((theme, { orientation, tabPadding }: TabsStyleParams) => {
 	return {
 		root: {
 			display: orientation === 'vertical' ? 'flex' : 'block'
 		},
 		wrapper: {},
-		tabs: {
-			ref: getRef('tabs')
-		},
+		tabs: {},
 		content: {
 			[orientation === 'horizontal' ? 'paddingTop' : 'paddingLeft']: theme.fn.size({
 				size: tabPadding,
 				sizes: theme.space
-			}),
-			display: 'block'
+			})
 		},
-		...getVariantStyles(orientation, theme, getRef)
+		...getVariantStyles(orientation, theme)
 	};
 });

@@ -13,7 +13,7 @@
 		underline: $$Props['underline'] = true;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ primaryColor, underline }, { name: "TypographyProvider" }));
+	$: ({ cx, getStyles } = useStyles({ primaryColor, underline }));
 </script>
 
 <Box bind:element class={cx(className, getStyles({ css: override }))} {use} {...$$restProps}>

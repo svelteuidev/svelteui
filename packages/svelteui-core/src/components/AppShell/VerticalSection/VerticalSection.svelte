@@ -23,7 +23,7 @@
 		height,
 		position,
 		zIndex
-	}, { name: "VerticalSection" }));
+	}));
 
 	const injectStyles = globalCss({
 		':root': {

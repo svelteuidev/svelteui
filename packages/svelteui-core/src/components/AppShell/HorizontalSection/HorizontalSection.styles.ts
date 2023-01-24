@@ -45,7 +45,7 @@ export default createStyles(
 
 		return {
 			root: {
-				darkMode: {
+				[`${theme.dark} &`]: {
 					backgroundColor: theme.fn.themeColor('dark', 7),
 					[section === 'navbar' ? 'borderRight' : 'borderLeft']: `1px solid ${theme.fn.themeColor(
 						'dark',

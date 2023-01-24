@@ -34,7 +34,7 @@
 		noWrap,
 		position,
 		spacing
-	}, { name: "Group" }));
+	}));
 </script>
 
 <!--

@@ -35,7 +35,7 @@
 	}
 
 	$: if (observable) override = { display: 'none' };
-	$: ({ cx, classes, getStyles } = useStyles({ color, size, variant }, { name: "Divider" }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, size, variant }));
 </script>
 
 <Error {observable} component="Divider" code={err} />

@@ -7,12 +7,10 @@
 <\/script>
 
 <NativeSelect
-	data={['Svelte', 'Vue', 'Angular', 'React']}
-	label="Select your favorite framework/library"
->
-  <svelte:component slot="rightSection" this={ChevronDown} />
-</NativeSelect>
-`;
+    data={['Svelte', 'Vue', 'Angular', 'React']}
+    label="Select your favorite framework/library"
+    rightSection={ChevronDown}
+/>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 
@@ -29,6 +27,5 @@
 <NativeSelect
 	data={['Svelte', 'Vue', 'Angular', 'React']}
 	label="Select your favorite framework/library"
->
-  <svelte:component slot="rightSection" this={ChevronDown} />
-</NativeSelect>
+	rightSection={ChevronDown}
+/>

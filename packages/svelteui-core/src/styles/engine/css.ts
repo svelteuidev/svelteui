@@ -4,7 +4,6 @@ export type ArgumentArray = Array<Argument>;
 export type Argument = Value | Mapping | ArgumentArray;
 
 const hasOwn = {}.hasOwnProperty;
-
 function cx(...args: ArgumentArray): string {
 	const classes = [];
 

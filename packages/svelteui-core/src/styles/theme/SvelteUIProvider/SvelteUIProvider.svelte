@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+x<script lang="ts" context="module">
 	import { setContext } from 'svelte';
 	import { beforeUpdate, get_current_component } from 'svelte/internal';
 	import { mergeTheme } from '../';
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
 	import { key, useSvelteUIThemeContext } from './svelteui.provider';
-	import { createStyles, dark, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
+	import { createStyles, dark, getCssText, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { SvelteUITheme } from '../types';
 	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from './svelteui.provider';
