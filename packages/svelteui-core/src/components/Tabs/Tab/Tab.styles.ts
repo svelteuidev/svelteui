@@ -61,14 +61,11 @@ export const getVariantStyles = (
 				}
 			},
 			'&.active': {
-				color: theme.colors.white.value,
-				background: theme.fn.variant({ variant: 'filled', color }).background[1],
+				color: theme.colors.black.value,
+				background: theme.fn.themeColor('gray', 0),
 				darkMode: {
 					color: theme.colors.white.value,
-					background: theme.fn.variant({ variant: 'filled', color })
-				},
-				'&:hover': {
-					background: theme.fn.variant({ variant: 'filled', color }).background[1]
+					background: theme.fn.themeColor('dark', 6)
 				}
 			}
 		}
@@ -110,7 +107,7 @@ export default createStyles((theme, { color, orientation }: TabStyleParams) => {
 		},
 		icon: {
 			'&:not(:only-child)': {
-				marginRight: `${theme.space.xs.value}px`
+				marginRight: theme.space.xsPX
 			},
 			'& *': {
 				display: 'block'
@@ -118,10 +115,7 @@ export default createStyles((theme, { color, orientation }: TabStyleParams) => {
 		},
 		label: {},
 		tabContent: {
-			display: 'none',
-			'&.active': {
-				display: 'block'
-			}
+			display: 'none'
 		}
 	};
 });

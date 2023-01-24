@@ -47,7 +47,7 @@
 		lineWidth: lineWidth
 	};
 
-	$: ({ cx, classes } = useStyles({ align, bulletSize, lineWidth }, { override, name: "Timeline" }));
+	$: ({ cx, classes } = useStyles({ align, bulletSize, lineWidth }, { override }));
 </script>
 
 <!--

@@ -170,7 +170,7 @@
 	$: value = _valueC(value);
 	$: showControls = !hideControls && variant !== 'unstyled' && !disabled;
 
-	$: ({ cx, classes, getStyles } = useStyles({ radius, size }, { name: "NumberInput" }));
+	$: ({ cx, classes, getStyles } = useStyles({ radius, size }));
 </script>
 
 <!--
@@ -216,11 +216,11 @@ values and add custom parsers and formatters.
 >
 	<div
 		slot="rightSection"
-		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
+		class={cx(className, classes.control, getStyles({ css: overrideControls }))}
 	>
 		{#if showControls}
 			<button
-				class={cx(classes.control, classes.controlUp)}
+				class="control control-up"
 				type="button"
 				tabIndex={-1}
 				aria-hidden
@@ -230,7 +230,7 @@ values and add custom parsers and formatters.
 				on:mouseleave={onStepDone}
 			/>
 			<button
-				class={cx(classes.control, classes.controlDown)}
+				class=" control control-down"
 				type="button"
 				tabIndex={-1}
 				aria-hidden

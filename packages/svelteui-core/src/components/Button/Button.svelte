@@ -59,7 +59,7 @@
 		radius,
 		size,
 		variant
-	}, { name: "Button" }));
+	}));
 </script>
 
 <Error {observable} component="Button" code={err} />

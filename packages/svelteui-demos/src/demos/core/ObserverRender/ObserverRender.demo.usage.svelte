@@ -9,7 +9,7 @@
 <Paper>
   <ObserverRender let:visible options={{ threshold: 1 }}>
     <Paper
-        padding="xl"
+        p="xl"
         override={{
           bc: visible ? '$green900' : '$red900', minW: '50%'
         }}
@@ -37,7 +37,7 @@
 <Paper override={{ overflowY: 'scroll', h: 300 }}>
 	<div style="padding-top: 260px; padding-bottom: 280px;">
 		<ObserverRender let:visible options={{ threshold: 1 }}>
-			<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} padding="xl">
+			<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} p="xl">
 				<Text override={{ color: 'white' }} weight="extrabold">
 					{visible ? 'Fully visible' : 'Obscured'}
 				</Text>

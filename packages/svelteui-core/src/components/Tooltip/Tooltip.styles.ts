@@ -13,8 +13,8 @@ export default createStyles((theme, { color, radius }: TooltipStyleParams) => {
 		},
 
 		body: {
-			darkMode: {
-				backgroundColor: theme.fn.themeColor(color, 3),
+			[`${theme.dark} &`]: {
+				bc: theme.fn.themeColor(color, 3),
 				color: theme.fn.themeColor('dark', 9)
 			},
 			backgroundColor: theme.fn.themeColor(color, 9),
@@ -29,8 +29,8 @@ export default createStyles((theme, { color, radius }: TooltipStyleParams) => {
 		},
 
 		arrow: {
-			darkMode: {
-				backgroundColor: theme.fn.themeColor(color, 3)
+			[`${theme.dark} &`]: {
+				bg: theme.fn.themeColor(color, 3)
 			},
 			background: theme.fn.themeColor(color, 9),
 			zIndex: 0

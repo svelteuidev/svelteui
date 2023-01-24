@@ -12,7 +12,7 @@
 		inline: $$Props['inline'] = false;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ inline }, { name: "Center" }));
+	$: ({ cx, getStyles } = useStyles({ inline }));
 </script>
 
 <!--

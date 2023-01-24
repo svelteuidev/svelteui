@@ -54,7 +54,7 @@
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }, { name: "Code" }));
+	$: ({ cx, getStyles } = useStyles({ color, block, noMono, width }));
 </script>
 
 <Error {observable} component="Code" code={err} />
@@ -76,7 +76,7 @@ Inline or block code without syntax highlighting
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(className, classes.root, getStyles({ css: override }))}
+		class={cx(className, getStyles({ css: override }))}
 		{...$$restProps}>
 		{#if !noMono}
 			<code class={className}><slot>Write some code</slot></code>
@@ -84,7 +84,7 @@ Inline or block code without syntax highlighting
 			<p class={className}><slot>Write some code</slot></p>
 		{/if}
       {#if copy}
-			<button on:click={toggle} use:clipboard={message} class={classes.copy}><CopyIcon {copied} /></button>
+			<button on:click={toggle} use:clipboard={message} class:copy><CopyIcon {copied} /></button>
 		{/if}
     </pre>
 {:else}
@@ -92,7 +92,7 @@ Inline or block code without syntax highlighting
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(className, classes.root, getStyles({ css: override }))}
+		class={cx(className, getStyles({ css: override }))}
 		{...$$restProps}
 	>
 		<slot>Write some code</slot>

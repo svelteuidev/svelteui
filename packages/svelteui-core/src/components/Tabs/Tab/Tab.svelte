@@ -20,9 +20,7 @@
 		color: $$Props['color'] = undefined,
 		variant: $$Props['variant'] = undefined,
 		orientation: $$Props['orientation'] = undefined,
-		tabKey: $$Props['tabKey'] = undefined,
-    disabled: $$Props['disabled'] = false,
-		title: $$Props['title'] = undefined;
+		tabKey: $$Props['tabKey'] = undefined;
 	export { className as class };
 
 	// retrieves the reactive context so that Tab has access
@@ -46,22 +44,20 @@
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override, name: "Tab" }));
+	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override }));
 </script>
 
 <Box
 	bind:element
 	{use}
-	class={cx('svelteui-Tab', className, classes.root, {
+	class={cx('svelteui-tab', className, classes.root, classes[_variant], {
 		active: _active,
-    [_variant]: true
+		[_variant]: true
 	})}
 	root="button"
 	role="tab"
 	aria-selected={_active}
 	data-key={tabKey}
-  disabled={disabled}
-  title={title}
 	{...$$restProps}
 >
 	<div class={classes.inner}>
@@ -75,7 +71,7 @@
 				<div class={classes.label}>{label}</div>
 			{/if}
 		</slot>
-		<div class={cx('svelteui-Tab-content', classes.tabContent, { active: _active })}>
+		<div class={cx('svelteui-tab-content', classes.tabContent)}>
 			<slot />
 		</div>
 	</div>
