@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './Space.styles';
 	import { Box } from '../Box';
-	import type { SpaceProps as $$SpaceProps } from './Space.styles';
+	import useStyles from './Space.styles';
+	import type { SpaceProps as $$SpaceProps } from './Space';
 
 	interface $$Props extends $$SpaceProps {}
 

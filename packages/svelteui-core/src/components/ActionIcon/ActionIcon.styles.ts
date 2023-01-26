@@ -1,36 +1,6 @@
 import { vFunc, dark, createStyles } from '$lib/styles';
-import type { LoaderProps } from '../Loader/Loader.styles';
-import type { BoxProps } from '../Box';
-import type {
-	SvelteUIColor,
-	SvelteUINumberSize,
-	SvelteUIGradient,
-	DefaultProps
-} from '$lib/styles';
-
-export interface ActionIconProps extends DefaultProps, Pick<BoxProps, 'root'> {
-	color?: SvelteUIColor;
-	variant?: ActionIconVariant;
-	size?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize | number;
-	loaderProps?: LoaderProps;
-	loading?: boolean;
-	disabled?: boolean;
-	href?: string;
-	external?: boolean;
-}
-
-export interface CloseButtonProps extends ActionIconProps {
-	iconSize?: SvelteUINumberSize;
-}
-
-export type ActionIconVariant =
-	| 'hover'
-	| 'filled'
-	| 'outline'
-	| 'light'
-	| 'default'
-	| 'transparent';
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import type { ActionIconVariant } from './ActionIcon';
 
 export interface ActionIconStylesParams {
 	color: SvelteUIColor;

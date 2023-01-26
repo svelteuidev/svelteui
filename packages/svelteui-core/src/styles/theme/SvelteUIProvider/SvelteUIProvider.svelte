@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+x<script lang="ts" context="module">
 	import { setContext } from 'svelte';
 	import { beforeUpdate, get_current_component } from 'svelte/internal';
 	import { mergeTheme } from '../';
@@ -33,7 +33,7 @@
 	});
 
 	const ctx = useSvelteUIThemeContext();
-	const useStyles = createStyles((_) => ({ root: {} }));
+	const useStyles = createStyles(() => ({ root: {} }));
 	const forwardEvents = createEventForwarder(get_current_component());
 	const DEFAULT_THEME = useSvelteUITheme();
 	const currentTheme = () => {

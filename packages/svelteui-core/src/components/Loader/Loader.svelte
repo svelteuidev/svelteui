@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Circle from '$lib/components/Loader/loaders/Circle.svelte';
-	import Bars from '$lib/components/Loader/loaders/Bars.svelte';
-	import Dots from '$lib/components/Loader/loaders/Dots.svelte';
-	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { LoaderProps as $$LoaderProps } from './Loader.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import Circle from './loaders/Circle.svelte';
+	import Bars from './loaders/Bars.svelte';
+	import Dots from './loaders/Dots.svelte';
+	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
+	import type { LoaderProps as $$LoaderProps } from './Loader';
 
 	interface $$Props extends $$LoaderProps {}
 

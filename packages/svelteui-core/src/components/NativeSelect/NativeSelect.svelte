@@ -5,7 +5,7 @@
 	import Input from '../Input/Input.svelte';
 	import InputWrapper from '../InputWrapper/InputWrapper.svelte';
 	import ChevronUpDown from './ChevronUpDown.svelte';
-	import type { NativeSelectProps as $$NativeSelectProps } from './NativeSelect.styles';
+	import type { NativeSelectProps as $$NativeSelectProps } from './NativeSelect';
 
 	interface $$Props extends $$NativeSelectProps {}
 
@@ -22,7 +22,6 @@
 		icon: $$Props['icon'] = null,
 		iconWidth: $$Props['iconWidth'] = 36,
 		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
-		rightSection: $$Props['rightSection'] = null,
 		rightSectionWidth: $$Props['rightSectionWidth'] = 36,
 		rightSectionProps: $$Props['rightSectionProps'] = {},
 		required: $$Props['required'] = false,
@@ -105,7 +104,6 @@ Capture user feedback limited to large set of options
 		{iconWidth}
 		{iconProps}
 		{placeholder}
-		{rightSection}
 		{rightSectionWidth}
 		{rightSectionProps}
 		{...$$restProps}
@@ -120,13 +118,12 @@ Capture user feedback limited to large set of options
 				{item.label ?? item.value}
 			</option>
 		{:else}
-			<option value="" disabled hidden> Add Some Options </option>
+			<option value="" disabled hidden>Add Some Options</option>
 		{/each}
-		<svelte:component
-			this={rightSection ? rightSection : ChevronUpDown}
-			slot="rightSection"
-			size={iconProps.size}
-			color={iconProps.color}
-		/>
+		<svelte:fragment slot="rightSection">
+			<slot name="rightSection" size={iconProps.size} color={iconProps.color}>
+				<svelte:component this={ChevronUpDown} size={iconProps.size} color={iconProps.color} />
+			</slot>
+		</svelte:fragment>
 	</Input>
 </InputWrapper>

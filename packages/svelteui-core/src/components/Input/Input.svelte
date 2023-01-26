@@ -1,10 +1,10 @@
 <script lang="ts">
-	import useStyles from './Input.styles';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
-	import type { InputProps as $$InputProps } from './Input.styles';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import useStyles from './Input.styles';
+	import type { InputProps as $$InputProps } from './Input';
 
 	interface $$Props extends $$InputProps {}
 
@@ -37,9 +37,15 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** workaround for root type errors, this should be replaced by a better type system */
-	const castRoot = () => root as string;
-	let isHTMLElement;
-	let isComponent;
+	type Input = 'input' | 'select' | 'textarea' | 'datalist';
+	function castRoot() {
+		return root as string as Input;
+	}
+	function isInput(root: string): root is Input {
+		return ['input', 'select', 'textarea', 'datalist'].includes(root);
+	}
+	let isHTMLElement = true;
+	let isComponent = false;
 
 	function onChange() {
 		// the 'this' keyword in this case is the
@@ -108,14 +114,14 @@ Base component to create custom inputs
 			class={cx(className, classes.input, `${variant}Variant`)}
 			{...$$restProps}
 		/>
-	{:else if isHTMLElement}
+	{:else if isHTMLElement && isInput(String(root))}
 		<!-- on:change needs to appear before use:forwardEvents so that the
     ordering of the events is correct and the value is updated before propagation -->
+    <!-- prettier-ignore -->
 		<svelte:element
 			this={castRoot()}
 			bind:this={element}
 			{value}
-			on:change={onChange}
 			{required}
 			{disabled}
 			{id}
@@ -125,13 +131,14 @@ Base component to create custom inputs
 			class:invalid
 			class:withIcon={icon}
 			class={cx(className, classes.input, `${variant}Variant`)}
+			on:change={onChange}
 			use:useActions={use}
 			use:forwardEvents
 			{...$$restProps}
 		>
 			<slot />
 		</svelte:element>
-	{:else if isComponent}
+	{:else if isComponent && typeof root !== 'string'}
 		<svelte:component
 			this={root}
 			bind:element

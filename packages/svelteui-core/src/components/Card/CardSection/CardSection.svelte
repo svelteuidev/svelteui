@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './CardSection.styles';
 	import { Box } from '../../Box';
-	import type { CardSectionProps as $$CardSectionProps } from './CardSection.styles';
+	import type { CardSectionProps as $$CardSectionProps } from './CardSection';
 
 	interface $$Props extends $$CardSectionProps {}
 

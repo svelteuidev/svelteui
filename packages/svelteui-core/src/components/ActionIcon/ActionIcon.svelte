@@ -6,7 +6,7 @@
 	import { Box } from '../Box';
 	import Loader from '../Loader/Loader.svelte';
 	import Error from '$lib/internal/errors/Error.svelte';
-	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon.styles';
+	import type { ActionIconProps as $$ActionIconProps } from './ActionIcon';
 
 	interface $$Props extends $$ActionIconProps {}
 
@@ -64,7 +64,7 @@ Icon button to indicate secondary action.
 <Box
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
-	tabindex="0"
+	tabindex={0}
 	disabled={disabled || loading}
 	class={cx(className, { loading, disabled }, getStyles({ css: override, variation: variant }))}
 	target={external ? '_blank' : null}

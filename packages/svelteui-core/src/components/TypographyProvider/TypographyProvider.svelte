@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './TypographyProvider.styles';
 	import { Box } from '../Box';
-	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider.styles';
+	import useStyles from './TypographyProvider.styles';
+	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider';
 
 	interface $$Props extends $$TypographyProviderProps {}
 

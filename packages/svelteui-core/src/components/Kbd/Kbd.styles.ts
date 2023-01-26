@@ -1,11 +1,5 @@
 import { createStyles } from '$lib/styles';
 
-import type { DefaultProps } from '$lib';
-
-export interface KbdProps extends DefaultProps {
-	temp?: never;
-}
-
 export default createStyles((theme) => {
 	return {
 		root: {

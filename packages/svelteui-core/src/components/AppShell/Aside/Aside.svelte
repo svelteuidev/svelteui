@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { HorizontalSection } from '../HorizontalSection';
-	import type { HorizontalSectionSharedProps as $$HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection.styles';
+	import type { HorizontalSectionSharedProps as $$HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection';
 
 	interface $$Props extends $$HorizontalSectionSharedProps {}
 

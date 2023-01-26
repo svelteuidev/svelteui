@@ -1,33 +1,7 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, ElementProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { Component } from '$lib/internal';
-
-export interface InputBaseProps
-	extends DefaultProps<HTMLInputElement>,
-		ElementProps<HTMLInputElement> {
-	icon?: Component | HTMLOrSVGElement;
-	iconWidth?: number;
-	iconProps?: { size: number; color: 'currentColor' | string };
-	showRightSection?: boolean;
-	rightSectionWidth?: number;
-	rightSectionProps?: Record<string, unknown>;
-	wrapperProps?: Record<string, unknown>;
-	placeholder?: string;
-	id?: string;
-	required?: boolean;
-	radius?: SvelteUINumberSize;
-	variant?: InputVariant;
-	disabled?: boolean;
-	size?: SvelteUISize;
-	root?: Component | keyof HTMLElementTagNameMap;
-	value?: string;
-}
-
-export interface InputProps extends InputBaseProps {
-	invalid?: boolean;
-	multiline?: boolean;
-	autocomplete?: string;
-}
+import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { InputVariant } from './Input';
 
 export interface InputStylesParams {
 	icon: Component | HTMLOrSVGElement;
@@ -40,8 +14,6 @@ export interface InputStylesParams {
 	showRightSection: boolean;
 	iconWidth: number;
 }
-
-export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
 export const sizes = {
 	xs: 30,

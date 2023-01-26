@@ -1,4 +1,4 @@
-import { clamp } from '$clib/shared';
+import { clamp } from '../../shared';
 import type { Action } from '../../shared/actions/types';
 
 /**

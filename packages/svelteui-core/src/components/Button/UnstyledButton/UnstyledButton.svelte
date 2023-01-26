@@ -3,7 +3,7 @@
 	import { Box } from '../../Box';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton.styles';
+	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton';
 
 	interface $$Props extends $$UnstyledButtonProps {}
 

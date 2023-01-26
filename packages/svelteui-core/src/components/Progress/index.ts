@@ -1,2 +1,3 @@
 export { default as Progress } from './Progress.svelte';
-export type { ProgressProps, ProgressStylesParams, Sections } from './Progress.styles';
+export type { ProgressStylesParams } from './Progress.styles';
+export type { ProgressProps, Sections } from './Progress';

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer.styles';
 	import useStyles from './IconRenderer.styles';
+	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer';
 
 	interface $$Props extends $$IconRendererProps {}
 

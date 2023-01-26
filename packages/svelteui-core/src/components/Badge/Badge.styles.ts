@@ -1,20 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type {
-	DefaultProps,
-	SvelteUIColor,
-	SvelteUIGradient,
-	SvelteUINumberSize,
-	SvelteUISize
-} from '$lib/styles';
-
-export interface BadgeProps extends DefaultProps<HTMLDivElement | HTMLElement> {
-	color?: SvelteUIColor;
-	variant?: BadgeVariant;
-	gradient?: SvelteUIGradient;
-	size?: SvelteUISize;
-	radius?: SvelteUINumberSize;
-	fullWidth?: boolean;
-}
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface BadgeStyleParams {
 	color: SvelteUIColor;
@@ -25,8 +10,6 @@ export interface BadgeStyleParams {
 	gradientDeg: number;
 	fullWidth: boolean;
 }
-
-export type BadgeVariant = 'light' | 'filled' | 'outline' | 'dot' | 'gradient';
 
 export const sizes = {
 	xs: {

@@ -6,7 +6,7 @@
 	import Box from '../Box/Box.svelte';
 	import ThemeIcon from '../ThemeIcon/ThemeIcon.svelte';
 	import CheckboxIcon from './CheckboxIcon.svelte';
-	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
+	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
 
 	interface $$Props extends $$CheckboxProps {}
 

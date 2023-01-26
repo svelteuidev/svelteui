@@ -1,20 +1,6 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { Component } from '$lib/internal';
-
-export interface AlertProps extends DefaultProps {
-	title?: string;
-	color?: SvelteUIColor;
-	radius?: SvelteUINumberSize;
-	variant?: AlertVariant;
-	icon?: Component | HTMLOrSVGElement;
-	iconSize?: number;
-	iconProps?: Record<string, unknown>;
-	withCloseButton?: boolean;
-	closeButtonLabel?: string;
-}
-
-export type AlertVariant = 'filled' | 'outline' | 'light';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { AlertVariant } from './Alert';
 
 export interface AlertStylesParams {
 	color: SvelteUIColor;

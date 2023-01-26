@@ -1,8 +1,8 @@
 <script lang="ts">
-	import useStyles from './SimpleGrid.styles';
 	import { Box } from '../Box';
 	import { getSortedBreakpoints, size, theme } from './get-sorted-breakpoints';
-	import type { SimpleGridProps as $$SimpleGridProps } from './SimpleGrid.styles';
+	import useStyles from './SimpleGrid.styles';
+	import type { SimpleGridProps as $$SimpleGridProps } from './SimpleGrid';
 
 	interface $$Props extends $$SimpleGridProps {}
 

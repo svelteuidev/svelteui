@@ -1,40 +1,10 @@
 import { createStyles } from '$lib/styles';
-import type { TextInputProps } from '../TextInput/TextInput.styles';
-import type { Override, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-
-export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
-	value?: number;
-	defaultValue?: number;
-	invalid?: boolean;
-	decimalSeparator?: string;
-	max?: number;
-	min?: number;
-	step?: number;
-	stepHoldDelay?: number;
-	stepHoldInterval?: number | ((step: number) => number);
-	hideControls?: boolean;
-	overrideControls?: Override['props'];
-	precision?: number;
-	noClampOnBlur?: boolean;
-	formatter?: Formatter;
-	parser?: Parser;
-}
+import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface NumberInputStyleParams {
 	radius: SvelteUINumberSize;
 	size: SvelteUISize;
 }
-
-export type Formatter = (value: string | undefined) => string;
-export type Parser = (value: string | undefined) => string | undefined;
-
-export const defaultFormatter: Formatter = (value) => value || '';
-export const defaultParser: Parser = (num) => {
-	if (num === '-') return num;
-
-	const parsedNum = parseFloat(num);
-	return Number.isNaN(parsedNum) ? undefined : num;
-};
 
 export const CONTROL_SIZES = {
 	xs: 20,
