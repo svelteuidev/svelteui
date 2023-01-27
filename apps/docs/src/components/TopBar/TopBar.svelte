@@ -1,42 +1,21 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
 	import {
-		ActionIcon,
-		Tooltip,
-		Menu,
-		Divider,
 		colorScheme,
-		Modal,
-		TextInput,
-		Paper,
-		Box,
-		Kbd
-	} from '@svelteuidev/core';
-	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
-	import {
 		ActionIcon,
-		Tooltip,
-		Menu,
-		Divider,
-		colorScheme,
-		Modal,
-		TextInput,
-		Paper,
 		Box,
-		Kbd
+		Divider,
+		Kbd,
+		Menu,
+		Modal,
+		Paper,
+		TextInput,
+		Tooltip
 	} from '@svelteuidev/core';
-	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
+	import { hotkey } from '@svelteuidev/composables';
+	import { MagnifyingGlass, Moon, Sun } from 'radix-icons-svelte';
 	import { mobile } from 'components';
 	import { config, searchLinks } from './data';
-	import { onMount } from 'svelte';
-	import { hotkey } from '@svelteuidev/composables';
-
-	let recentSearches,
-		searchTerm = '',
-		matchingSearches = [],
-		modalOpened = false;
-	import { config, searchLinks } from './data';
-	import { onMount } from 'svelte';
-	import { hotkey } from '@svelteuidev/composables';
 
 	let recentSearches,
 		searchTerm = '',
@@ -47,29 +26,6 @@
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
-	}
-
-	function changeModalState() {
-		modalOpened = !modalOpened;
-		searchTerm = '';
-	}
-
-	onMount(() => (recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []));
-
-	function onSearchValueInput() {
-		matchingSearches = searchLinks.filter((item) =>
-			item.title.toLowerCase().includes(searchTerm.toLowerCase())
-		);
-	}
-
-	function addSearch(matchingSearch) {
-		changeModalState();
-		let existingSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-		let elementExists = existingSearches.some((item) => item.title === matchingSearch.title);
-		if (!elementExists) existingSearches.unshift(matchingSearch);
-		if (existingSearches.length > 6) existingSearches.pop();
-		recentSearches = existingSearches;
-		localStorage.setItem('recentSearches', JSON.stringify(existingSearches));
 	}
 
 	function changeModalState() {
@@ -92,8 +48,6 @@
 		recentSearches = existingSearches;
 		localStorage.setItem('recentSearches', JSON.stringify(existingSearches));
 	}
-
-	// @ts-nocheck
 </script>
 
 {#if $mobile}
@@ -127,47 +81,6 @@
 		</Menu.Item>
 	</Menu>
 {:else}
-	<ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
-		<li class="searchBox">
-			<Box
-				css={{
-					width: '100%',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'space-between'
-				}}
-				on:click={changeModalState}
-			>
-				<div style="display: flex; align-items: center">
-					<MagnifyingGlass size={25} />
-					<p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
-				</div>
-				<div>
-					<Kbd>{navigator.platform === 'MacIntel' ? '⌘' : 'Ctrl'}</Kbd> + <Kbd>K</Kbd>
-				</div>
-			</Box>
-		</li>
-		{#each config.buttons as { title, props, icon }}
-			<li>
-				<Tooltip withArrow label={title}>
-					<ActionIcon root="a" {...props} radius="md" size="lg">
-						<svelte:component this={icon} size={20} />
-					</ActionIcon>
-				</Tooltip>
-			</li>
-		{/each}
-		<li>
-			<Tooltip withArrow label="Experimental Theme Toggle">
-				<ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
-					{#if $colorScheme === 'light'}
-						<Moon size={20} />
-					{:else}
-						<Sun size={20} />
-					{/if}
-				</ActionIcon>
-			</Tooltip>
-		</li>
-	</ul>
 	<ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
 		<li class="searchBox">
 			<Box
