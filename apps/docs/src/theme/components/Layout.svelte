@@ -37,32 +37,32 @@
 </div>
 
 <SvelteUIProvider>
-  {#if !nosidebar}
-    {#if !mobile || (mobile && show_sidebar)}
-      <div
-        transition:fly={{ x: -100, duration: 300 }}
-        class="sidebar"
-        use:set_active_link
-        use:outside_click={{
-          handler: () => (show_sidebar = !show_sidebar),
-          detail: sidebar_details
-        }}
-      >
-        <Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} />
-      </div>
-    {/if}
-  {/if}
+	{#if !nosidebar}
+		{#if !mobile || (mobile && show_sidebar)}
+			<div
+				transition:fly={{ x: -100, duration: 300 }}
+				class="sidebar"
+				use:set_active_link
+				use:outside_click={{
+					handler: () => (show_sidebar = !show_sidebar),
+					detail: sidebar_details
+				}}
+			>
+				<Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} />
+			</div>
+		{/if}
+	{/if}
 
-  <div class="topbar">
-    {#if mobile && !nosidebar}
-      <Burger
-        color="blue"
-        opened={show_sidebar}
-        class="show_sidebar"
-        on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
-      />
-    {/if}
-    <div class="logo"><Logo /></div>
-    <div><Topbar /></div>
-  </div>
+	<div class="topbar">
+		{#if mobile && !nosidebar}
+			<Burger
+				color="blue"
+				opened={show_sidebar}
+				class="show_sidebar"
+				on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
+			/>
+		{/if}
+		<div class="logo"><Logo /></div>
+		<div><Topbar /></div>
+	</div>
 </SvelteUIProvider>

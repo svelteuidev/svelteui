@@ -1,6 +1,6 @@
 .logo {
 	display: flex;
-  align-items: center;
+	align-items: center;
 }
 
 .topbar {
@@ -30,24 +30,24 @@
 }
 
 .searchTerm {
-  padding: 0.75rem !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 0.5rem !important;
-  transition-timing-function: ease-in !important;
-  transition-duration: 100ms !important;
+	padding: 0.75rem !important;
+	margin-top: 0.5rem !important;
+	margin-bottom: 0.5rem !important;
+	transition-timing-function: ease-in !important;
+	transition-duration: 100ms !important;
 }
 .searchTerm:hover {
-  background-color: var(--search-item) !important;
-  border: 1px solid var(--search-item) !important;
+	background-color: var(--search-item) !important;
+	border: 1px solid var(--search-item) !important;
 }
 .searchBox {
-  width: 20rem !important;
-  height: 2.5rem;
-  background-color: rgba(227, 227, 227, 0.7);
-  border-radius: 6px;
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
+	width: 20rem !important;
+	height: 2.5rem;
+	background-color: rgba(227, 227, 227, 0.7);
+	border-radius: 6px;
+	padding: 0 0.5rem;
+	display: flex;
+	align-items: center;
 }
 .searchBox:hover {
   background-color: rgba(227, 227, 227, 1);
@@ -80,13 +80,14 @@
   min-height: 15rem;
 }
 .componentExamplesTabPanel {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  display: flex
+  display: flex;
+  justify-content: space-evenly;
 }
-.componentExamplesSectionOne {
+.componentExamplesSectionOne  {
   display: flex;
   flex-direction: column;
   margin-right: 5rem
@@ -97,6 +98,15 @@
 }
 
 /* ---------------------------Media Query's below----------------------------------- */
+
+@media (max-width: 1074px) {
+  .componentExamplesTabPanel {
+    display: block;
+  }
+  .componentExamplesSectionOne {
+    margin-right: 0
+  }
+}
 
 @media (max-width: 800px) {
 	.article {
