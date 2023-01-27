@@ -94,7 +94,6 @@ Capture user feedback limited to large set of options
 		autocomplete="off"
 		invalid={Boolean(error)}
 		override={{ ...base, ...inputStyle }}
-		aria-required={required}
 		{size}
 		{icon}
 		{radius}
