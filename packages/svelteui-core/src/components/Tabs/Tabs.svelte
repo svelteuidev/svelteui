@@ -33,7 +33,7 @@
 	onMount(() => {
 		const children = element.querySelectorAll('.svelteui-Tab-content');
 		tabNodes = Array.from(children);
-    setupTabs();
+		setupTabs();
 		calculateActive();
 	});
 
@@ -121,7 +121,7 @@
 	$: previousTabCode = orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp';
 	$: $contextStore, _active, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ orientation, tabPadding }, { override, name: "Tabs" }));
+	$: ({ cx, classes } = useStyles({ orientation, tabPadding }, { override, name: 'Tabs' }));
 </script>
 
 <!--

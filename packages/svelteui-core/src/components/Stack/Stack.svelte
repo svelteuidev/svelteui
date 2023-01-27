@@ -14,7 +14,7 @@
 		justify: $$Props['justify'] = 'center';
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }, { name: "Stack" }));
+	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }, { name: 'Stack' }));
 </script>
 
 <!--

@@ -21,7 +21,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: _color = color ? color : $colorScheme === 'dark' ? 'white' : 'black';
-	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }, { name: "Burger" }));
+	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }, { name: 'Burger' }));
 </script>
 
 <UnstyledButton

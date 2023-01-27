@@ -21,7 +21,7 @@
 		variant: $$Props['variant'] = undefined,
 		orientation: $$Props['orientation'] = undefined,
 		tabKey: $$Props['tabKey'] = undefined,
-    disabled: $$Props['disabled'] = false,
+		disabled: $$Props['disabled'] = false,
 		title: $$Props['title'] = undefined;
 	export { className as class };
 
@@ -46,7 +46,10 @@
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override, name: "Tab" }));
+	$: ({ cx, classes } = useStyles(
+		{ color: _color, orientation: _orientation },
+		{ override, name: 'Tab' }
+	));
 </script>
 
 <Box
@@ -54,14 +57,14 @@
 	{use}
 	class={cx('svelteui-Tab', className, classes.root, {
 		active: _active,
-    [_variant]: true
+		[_variant]: true
 	})}
 	root="button"
 	role="tab"
 	aria-selected={_active}
 	data-key={tabKey}
-  disabled={disabled}
-  title={title}
+	{disabled}
+	{title}
 	{...$$restProps}
 >
 	<div class={classes.inner}>

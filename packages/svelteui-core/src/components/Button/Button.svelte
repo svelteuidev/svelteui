@@ -51,15 +51,18 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
-	$: ({ getStyles, cx } = useStyles({
-		color,
-		compact,
-		fullSize,
-		gradient,
-		radius,
-		size,
-		variant
-	}, { name: "Button" }));
+	$: ({ getStyles, cx } = useStyles(
+		{
+			color,
+			compact,
+			fullSize,
+			gradient,
+			radius,
+			size,
+			variant
+		},
+		{ name: 'Button' }
+	));
 </script>
 
 <Error {observable} component="Button" code={err} />

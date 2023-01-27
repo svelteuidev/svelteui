@@ -54,7 +54,7 @@
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }, { name: "Code" }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }, { name: 'Code' }));
 </script>
 
 <Error {observable} component="Code" code={err} />
@@ -84,7 +84,9 @@ Inline or block code without syntax highlighting
 			<p class={className}><slot>Write some code</slot></p>
 		{/if}
       {#if copy}
-			<button on:click={toggle} use:clipboard={message} class={classes.copy}><CopyIcon {copied} /></button>
+			<button on:click={toggle} use:clipboard={message} class={classes.copy}
+				><CopyIcon {copied} /></button
+			>
 		{/if}
     </pre>
 {:else}

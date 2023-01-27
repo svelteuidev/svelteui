@@ -28,7 +28,7 @@
 		}
 	});
 
-	$: ({ cx, getStyles, theme } = useStyles(null, { name: "Card" }));
+	$: ({ cx, getStyles, theme } = useStyles(null, { name: 'Card' }));
 </script>
 
 <Paper

@@ -170,7 +170,7 @@
 	$: value = _valueC(value);
 	$: showControls = !hideControls && variant !== 'unstyled' && !disabled;
 
-	$: ({ cx, classes, getStyles } = useStyles({ radius, size }, { name: "NumberInput" }));
+	$: ({ cx, classes, getStyles } = useStyles({ radius, size }, { name: 'NumberInput' }));
 </script>
 
 <!--

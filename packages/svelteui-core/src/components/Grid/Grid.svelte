@@ -29,7 +29,7 @@
 	setContext(ctx, contextStore);
 
 	$: $contextStore = { cols, grow, spacing };
-	$: ({ cx, classes } = useStyles({ align, spacing, justify }, { override, name: "Grid" }));
+	$: ({ cx, classes } = useStyles({ align, spacing, justify }, { override, name: 'Grid' }));
 </script>
 
 <!--

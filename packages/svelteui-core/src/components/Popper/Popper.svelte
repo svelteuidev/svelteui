@@ -38,7 +38,7 @@
 		cleanup();
 	});
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	function updatePopper(_) {
 		if (!element || !reference) return;
 
@@ -99,7 +99,7 @@
 	$: _transition = getTransition(transition) as any;
 	$: _exitTransition = getTransition(exitTransition) as any;
 	$: updatePopper({ ...$$props });
-	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }, { name: "Popper" }));
+	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }, { name: 'Popper' }));
 </script>
 
 <!--

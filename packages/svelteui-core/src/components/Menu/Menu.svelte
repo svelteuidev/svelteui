@@ -180,7 +180,7 @@
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
 	});
-	$: ({ cx, classes } = useStyles({ size }, { override, name: "Menu" }));
+	$: ({ cx, classes } = useStyles({ size }, { override, name: 'Menu' }));
 	setContext<Writable<MenuContextValue>>(ctx, contextStore);
 </script>
 

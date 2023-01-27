@@ -68,15 +68,15 @@
 			lineVariant,
 			lineWidth: _lineWidth
 		},
-		{ override, name: "TimelineItem" }
+		{ override, name: 'TimelineItem' }
 	));
 </script>
 
 <Box
 	bind:element
 	{use}
-	class={cx(className, classes.root,  {
-    lineActive: _lineActive,
+	class={cx(className, classes.root, {
+		lineActive: _lineActive,
 		active: _active
 	})}
 	{...$$restProps}

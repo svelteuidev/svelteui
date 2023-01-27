@@ -30,5 +30,5 @@
 	data={['Svelte', 'Vue', 'Angular', 'React']}
 	label="Select your favorite framework/library"
 >
-  <svelte:component slot="rightSection" this={ChevronDown} />
+	<svelte:component this={ChevronDown} slot="rightSection" />
 </NativeSelect>

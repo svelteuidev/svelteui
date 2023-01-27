@@ -47,20 +47,23 @@
 	}
 	// --------------End Error Handling-------------------
 
-	$: ({ cx, getStyles } = useStyles({
-		lineClamp,
-		underline,
-		inline,
-		inherit,
-		gradient,
-		variant,
-		align,
-		color,
-		transform,
-		size,
-		weight,
-		tracking
-	}, { name: "Text" }));
+	$: ({ cx, getStyles } = useStyles(
+		{
+			lineClamp,
+			underline,
+			inline,
+			inherit,
+			gradient,
+			variant,
+			align,
+			color,
+			transform,
+			size,
+			weight,
+			tracking
+		},
+		{ name: 'Text' }
+	));
 </script>
 
 <Error {observable} component="Text" code={err} />

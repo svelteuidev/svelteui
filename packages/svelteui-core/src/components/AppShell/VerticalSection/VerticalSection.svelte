@@ -17,13 +17,16 @@
 		section: $$Props['section'];
 	export { className as class };
 
-	$: ({ getStyles } = useStyles({
-		borderPosition: section === 'header' ? 'bottom' : 'top',
-		fixed,
-		height,
-		position,
-		zIndex
-	}, { name: "VerticalSection" }));
+	$: ({ getStyles } = useStyles(
+		{
+			borderPosition: section === 'header' ? 'bottom' : 'top',
+			fixed,
+			height,
+			position,
+			zIndex
+		},
+		{ name: 'VerticalSection' }
+	));
 
 	const injectStyles = globalCss({
 		':root': {

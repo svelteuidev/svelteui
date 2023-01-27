@@ -57,17 +57,20 @@
 		isHTMLElement = root && typeof root === 'string';
 		isComponent = root && typeof root === 'function';
 	}
-	$: ({ cx, classes, getStyles } = useStyles({
-		icon,
-		iconWidth,
-		invalid,
-		multiline,
-		radius,
-		rightSectionWidth,
-		showRightSection,
-		size,
-		variant
-	}, { name: "Input" }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{
+			icon,
+			iconWidth,
+			invalid,
+			multiline,
+			radius,
+			rightSectionWidth,
+			showRightSection,
+			size,
+			variant
+		},
+		{ name: 'Input' }
+	));
 </script>
 
 <!--

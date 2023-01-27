@@ -26,15 +26,18 @@
 		children = element.childElementCount;
 	});
 
-	$: ({ cx, getStyles } = useStyles({
-		align,
-		children,
-		direction,
-		grow,
-		noWrap,
-		position,
-		spacing
-	}, { name: "Group" }));
+	$: ({ cx, getStyles } = useStyles(
+		{
+			align,
+			children,
+			direction,
+			grow,
+			noWrap,
+			position,
+			spacing
+		},
+		{ name: 'Group' }
+	));
 </script>
 
 <!--
