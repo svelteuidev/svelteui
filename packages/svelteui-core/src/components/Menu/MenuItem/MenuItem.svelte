@@ -28,10 +28,10 @@
 	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
 	$: itemIndex = getContextItemIndex(
-		{ elementSelector: '.svelteui-Menu-item', parentClassName: 'svelteui-Menu-body' },
+		{ elementSelector: '.svelteui-MenuItem-root', parentClassName: 'svelteui-Menu-body' },
 		element
 	);
-	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ cx, classes } = useStyles({ color, radius }, { override, name: 'MenuItem' }));
 	$: ({ hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state);
 </script>
 
@@ -41,7 +41,7 @@
 	bind:element
 	type="button"
 	role="menuitem"
-	class={cx(className, classes.root, 'svelteui-Menu-item', {
+	class={cx(className, classes.root, {
 		itemHovered: hovered === itemIndex
 	})}
 	{disabled}

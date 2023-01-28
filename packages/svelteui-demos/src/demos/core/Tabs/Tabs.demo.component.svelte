@@ -33,7 +33,7 @@
 		First tab content
 	</Tabs.Tab>
 	<Tabs.Tab label="Not allowed" disabled>https://youtu.be/dQw4w9WgXcQ</Tabs.Tab>
-	<Tabs.Tab label="Delete this?" color="red" override={{ fontWeight: 500 }}>
+	<Tabs.Tab label="Delete this?" color="red" override={{ backgroundColor: 'red' }}>
 		Yes, delete this
 	</Tabs.Tab>
 </Tabs>

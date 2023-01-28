@@ -19,7 +19,7 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, getStyles } = useStyles({ height, radius, src, width }));
+	$: ({ cx, getStyles } = useStyles({ height, radius, src, width }, { name: 'BackgroundImage' }));
 </script>
 
 <!--

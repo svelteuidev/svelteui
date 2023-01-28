@@ -30,7 +30,7 @@
 		return acc;
 	}, {});
 
-	$: ({ cx, getStyles } = useStyles({ cols, spacing, gridBreakpoints }));
+	$: ({ cx, getStyles } = useStyles({ cols, spacing, gridBreakpoints }, { name: 'SimpleGrid' }));
 </script>
 
 <!--

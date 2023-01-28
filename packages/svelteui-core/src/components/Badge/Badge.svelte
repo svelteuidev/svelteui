@@ -32,7 +32,7 @@
 			gradientFrom: gradient.from,
 			gradientTo: gradient.to
 		},
-		{ override }
+		{ override, name: 'Badge' }
 	));
 </script>
 

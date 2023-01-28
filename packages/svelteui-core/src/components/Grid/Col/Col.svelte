@@ -35,23 +35,26 @@
 	$: _span = span || cols || 0;
 	$: valid = isSpanValid(_span) && _span <= cols;
 
-	$: ({ cx, getStyles } = useStyles({
-		span: _span,
-		cols,
-		grow,
-		spacing,
-		offset,
-		offsetXs,
-		offsetSm,
-		offsetMd,
-		offsetLg,
-		offsetXl,
-		xs,
-		sm,
-		md,
-		lg,
-		xl
-	}));
+	$: ({ cx, getStyles } = useStyles(
+		{
+			span: _span,
+			cols,
+			grow,
+			spacing,
+			offset,
+			offsetXs,
+			offsetSm,
+			offsetMd,
+			offsetLg,
+			offsetXl,
+			xs,
+			sm,
+			md,
+			lg,
+			xl
+		},
+		{ name: 'Col' }
+	));
 </script>
 
 {#if valid}
