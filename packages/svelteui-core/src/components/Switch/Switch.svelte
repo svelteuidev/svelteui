@@ -26,14 +26,17 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles({
-		color,
-		offLabel,
-		onLabel,
-		radius,
-		size,
-		transitionFunction
-	}));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{
+			color,
+			offLabel,
+			onLabel,
+			radius,
+			size,
+			transitionFunction
+		},
+		{ name: 'Switch' }
+	));
 </script>
 
 <!--

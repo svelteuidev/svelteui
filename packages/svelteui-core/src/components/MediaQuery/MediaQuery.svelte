@@ -16,7 +16,10 @@
 		query: $$Props['query'] = undefined;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ query, styles, largerThan, smallerThan }));
+	$: ({ cx, getStyles } = useStyles(
+		{ query, styles, largerThan, smallerThan },
+		{ name: 'MediaQuery' }
+	));
 
 	function styleChildElement() {
 		element.children[0].classList.add(getStyles().selector);

@@ -40,16 +40,19 @@
 		{}
 	);
 
-	$: ({ getStyles } = useStyles({
-		fixed,
-		height,
-		hiddenBreakpoint,
-		position,
-		width,
-		zIndex,
-		section,
-		hidden
-	}));
+	$: ({ getStyles } = useStyles(
+		{
+			fixed,
+			height,
+			hiddenBreakpoint,
+			position,
+			width,
+			zIndex,
+			section,
+			hidden
+		},
+		{ name: 'HorizontalSection' }
+	));
 
 	const injectRoot = globalCss({
 		':root': {

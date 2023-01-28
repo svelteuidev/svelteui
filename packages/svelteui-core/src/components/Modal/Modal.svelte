@@ -79,7 +79,10 @@
 		);
 	}
 	$: lockScroll = opened;
-	$: ({ cx, classes, getStyles } = useStyles({ centered, overflow, size, zIndex }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ centered, overflow, size, zIndex },
+		{ name: 'Modal' }
+	));
 </script>
 
 {#if opened}

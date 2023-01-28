@@ -27,7 +27,10 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ color, radius, size, transitionDuration },
+		{ name: 'Chip' }
+	));
 </script>
 
 <!--

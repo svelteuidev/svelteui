@@ -68,7 +68,7 @@
 			lineVariant,
 			lineWidth: _lineWidth
 		},
-		{ override }
+		{ override, name: 'TimelineItem' }
 	));
 </script>
 
@@ -76,12 +76,12 @@
 	bind:element
 	{use}
 	class={cx(className, classes.root, {
-		active: _active,
-		lineActive: _lineActive
+		lineActive: _lineActive,
+		active: _active
 	})}
 	{...$$restProps}
 >
-	<div class={cx(classes.bulletContainer, { bulletContainerWithChild: bullet })}>
+	<div class={cx(classes.bulletContainer, bullet && classes.bulletContainerWithChild)}>
 		<slot name="bullet">
 			{#if bullet}
 				<IconRenderer icon={bullet} className={classes.bullet} iconSize={bulletSize} {color} />

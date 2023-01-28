@@ -25,7 +25,7 @@ export const iconSizes = {
 };
 
 export default createStyles(
-	(theme, { color, radius, size, transitionDuration }: CheckboxStyleParams) => {
+	(theme, { color, radius, size, transitionDuration }: CheckboxStyleParams, getRef) => {
 		return {
 			root: {
 				display: 'flex',
@@ -64,7 +64,7 @@ export default createStyles(
 				margin: 0,
 				transition: `border-color ${transitionDuration}ms ease, background-color ${transitionDuration}ms ease`,
 
-				[`${theme.dark} &`]: {
+				darkMode: {
 					backgroundColor: '$dark400',
 					borderColor: '$dark400'
 				},
@@ -74,7 +74,7 @@ export default createStyles(
 					color: '#ffffff',
 					borderRadius: `$${radius}`,
 
-					[`& + .iconWrapper`]: {
+					[`& + .${getRef('iconWrapper')}`]: {
 						opacity: 1,
 						transform: 'translateY(0) scale(1)'
 					}
@@ -85,7 +85,7 @@ export default createStyles(
 					borderColor: '$gray300',
 					cursor: 'not-allowed',
 
-					[`& + .iconWrapper`]: {
+					[`& + .${getRef('iconWrapper')}`]: {
 						color: '$gray500',
 						backgroundColor: '$gray200',
 						borderColor: '$gray300'
@@ -94,7 +94,7 @@ export default createStyles(
 					[`${theme.dark} &`]: {
 						backgroundColor: '$dark400',
 						borderColor: '$dark600',
-						[`& + .icon`]: {
+						[`& + .${getRef('icon')}`]: {
 							color: '$dark600'
 						}
 					}
@@ -102,6 +102,7 @@ export default createStyles(
 			},
 
 			iconWrapper: {
+				ref: getRef('iconWrapper'),
 				color: '#ffffff',
 				transform: 'translateY(5px) scale(0.5)',
 				opacity: 0,
@@ -127,6 +128,7 @@ export default createStyles(
 			},
 
 			icon: {
+				ref: getRef('icon'),
 				color: '#ffffff',
 				width: iconSizes[size],
 				height: iconSizes[size],

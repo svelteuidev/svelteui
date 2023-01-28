@@ -32,14 +32,17 @@
 	const progress = tweened(undefined, { ...defaultTweenOptions, ...tweenOptions });
 
 	$: progress.set(value);
-	$: ({ cx, classes, getStyles, theme } = useStyles({
-		animate,
-		color,
-		radius,
-		size,
-		shade,
-		striped: striped || animate
-	}));
+	$: ({ cx, classes, getStyles, theme } = useStyles(
+		{
+			animate,
+			color,
+			radius,
+			size,
+			shade,
+			striped: striped || animate
+		},
+		{ name: 'Progress' }
+	));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

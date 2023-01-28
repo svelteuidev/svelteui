@@ -18,7 +18,10 @@
 	export { className as class };
 
 	$: iconSize = typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md;
-	$: ({ cx, getStyles } = useStyles({ color, gradient, iconSize, radius, variant }));
+	$: ({ cx, getStyles } = useStyles(
+		{ color, gradient, iconSize, radius, variant },
+		{ name: 'ThemeIcon' }
+	));
 </script>
 
 <!--
