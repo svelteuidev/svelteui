@@ -68,26 +68,6 @@ To enable these global styles, set `withNormalizeCSS` and `withGlobalStyles` pro
 </SvelteUIProvider>
 ```
 
-You can change the base `background-color` and `color` through the config prop:
-
-```svelte
-<script>
-	import { SvelteUIProvider } from '@svelteuidev/core';
-	import type { SvelteUIProviderConfig } from '@svelteuidev/core'; // <-- If using TypeScript you can import the config type
-
-	config = {
-		light: { bg: 'White', color: 'Black' },
-		dark: { bg: '#1A1B1E', color: '#C1C2C5' }
-	};
-</script>
-
-<SvelteUIProvider {config} withNormalizeCSS withGlobalStyles>
-	<YourApp />
-</SvelteUIProvider>
-```
-
-> Note that extending or overriding the default theme will come later. This config only handles global styles as defined above.
-
 ## Component concepts
 
 SvelteUIProvider can accept actions, classes, element bindings, and style overrides just like any other component
