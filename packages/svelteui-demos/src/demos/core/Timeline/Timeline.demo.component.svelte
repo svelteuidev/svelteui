@@ -27,7 +27,7 @@
 	</Timeline.Item>
 	<Timeline.Item title='Image'>
 		<svelte:fragment slot='bullet'>
-			<Image src="https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4" />
+			<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
 		</svelte:fragment>
 		<Text color='dimmed' size='sm'>
 			Item with bullet as image
@@ -64,7 +64,7 @@
 		<Timeline.Item title="Image">
 			<svelte:fragment slot="bullet">
 				<Image
-					src="https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4"
+					src="https://avatars.githubusercontent.com/u/1024025?v=4"
 				/>
 			</svelte:fragment>
 			<Text color="dimmed" size="sm">Item with bullet as image</Text>
