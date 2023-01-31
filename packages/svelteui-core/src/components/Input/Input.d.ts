@@ -10,7 +10,7 @@ type InputElementType =
 	| HTMLTextAreaElement
 	| HTMLDataListElement;
 
-export interface InputBaseProps extends DefaultProps<InputElementType> {
+export interface InputBaseProps<T = string> extends DefaultProps<InputElementType> {
 	icon?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
@@ -26,7 +26,7 @@ export interface InputBaseProps extends DefaultProps<InputElementType> {
 	disabled?: boolean;
 	size?: SvelteUISize;
 	root?: Component | keyof HTMLElementTagNameMap;
-	value?: string;
+	value?: T;
 }
 
 interface InputPropsInternal extends InputBaseProps {
