@@ -30,7 +30,8 @@
 		invalid: $$Props['invalid'] = false,
 		multiline: $$Props['multiline'] = false,
 		autocomplete: $$Props['autocomplete'] = 'on',
-		placeholder: $$Props['placeholder'] = '';
+		type: $$Props['type'] = 'text',
+		placeholder: $$Props['placeholder'] = undefined;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -51,6 +52,16 @@
 		// the 'this' keyword in this case is the
 		// HTML element provided in prop 'root'
 		value = this.value;
+	}
+
+	function onInput(event) {
+		if (event.target.type === 'checkbox') {
+			value = event.target.checked;
+		} else if (event.target.type === 'number' || event.target.type === 'range') {
+			value = +event.target.value;
+		} else {
+			value = event.target.value;
+		}
 	}
 
 	$: {
@@ -101,7 +112,8 @@ Base component to create custom inputs
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input
-			bind:value
+			{value}
+			{type}
 			bind:this={element}
 			use:useActions={use}
 			use:forwardEvents
@@ -121,6 +133,7 @@ Base component to create custom inputs
 				`${variant}Variant`
 			)}
 			{...$$restProps}
+			on:input={onInput}
 		/>
 	{:else if isHTMLElement && isInput(String(root))}
 		<!-- on:change needs to appear before use:forwardEvents so that the
@@ -134,6 +147,7 @@ Base component to create custom inputs
 			{disabled}
 			{id}
 			{autocomplete}
+      {type}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -165,6 +179,7 @@ Base component to create custom inputs
 			{disabled}
 			{required}
 			{id}
+			{type}
 			{...$$restProps}
 		>
 			<slot />
