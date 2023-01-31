@@ -1,5 +1,5 @@
-import { createFilterWrapper, throttleFilter } from '$clib/shared//utils/index.js';
-import type { FunctionArgs } from '$clib/shared/utils';
+import { createFilterWrapper, throttleFilter } from '../../shared//utils/index.js';
+import type { FunctionArgs } from '../../shared/utils';
 
 /**
  * Throttle execution of a function. Useful for rate limiting

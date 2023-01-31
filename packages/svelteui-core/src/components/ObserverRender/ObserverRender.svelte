@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { io } from '@svelteuidev/composables';
 	import { Box } from '../Box';
-	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender.styles';
+	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender';
 
 	interface $$Props extends $$ObserverRenderProps {}
 
@@ -12,8 +12,8 @@
 		options: $$Props['options'] = {};
 	export { className as class };
 
-	let visible = null;
-	let entry = null;
+	let visible: boolean = null;
+	let entry: IntersectionObserverEntry = null;
 	let scrollDirection = null;
 	let observer = null;
 	let node = null;

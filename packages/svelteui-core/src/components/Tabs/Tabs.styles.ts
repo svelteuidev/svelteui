@@ -1,32 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { Writable } from 'svelte/store';
-import type {
-	DefaultProps,
-	SvelteUINumberSize,
-	SvelteUIColor,
-	SvelteUITheme,
-	VariantThemeFunction
-} from '$lib/styles';
-
-export type TabsContext = Writable<{
-	active: number;
-	color: SvelteUIColor;
-	variant: TabsVariant;
-	orientation: 'horizontal' | 'vertical';
-}>;
-
-export interface TabsProps extends DefaultProps {
-	active?: number;
-	color?: SvelteUIColor;
-	grow?: boolean;
-	initialTab?: number;
-	orientation?: 'horizontal' | 'vertical';
-	position?: 'right' | 'center' | 'left' | 'apart';
-	tabPadding?: SvelteUINumberSize;
-	variant?: TabsVariant;
-}
-
-export type TabsVariant = 'default' | 'outline' | 'pills' | 'unstyled';
+import type { SvelteUINumberSize, SvelteUITheme, VariantThemeFunction } from '$lib/styles';
 
 export interface TabsStyleParams {
 	orientation?: 'horizontal' | 'vertical';
@@ -35,7 +8,8 @@ export interface TabsStyleParams {
 
 export const getVariantStyles = (
 	orientation: 'horizontal' | 'vertical',
-	theme: SvelteUITheme
+	theme: SvelteUITheme,
+	getRef
 ): VariantThemeFunction => {
 	return {
 		default: {
@@ -48,7 +22,7 @@ export const getVariantStyles = (
 					: 'borderRight']: `2px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
-			[`& .tabs`]: {
+			[`& .${getRef('tabs')}`]: {
 				[orientation === 'horizontal' ? 'marginBottom' : 'marginRight']: -2
 			}
 		},
@@ -62,7 +36,7 @@ export const getVariantStyles = (
 					: 'borderRight']: `1px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
-			[`& .tabs`]: {
+			[`& .${getRef('tabs')}`]: {
 				[orientation === 'horizontal' ? 'marginBottom' : 'marginRight']: -1
 			}
 		},
@@ -72,19 +46,22 @@ export const getVariantStyles = (
 	};
 };
 
-export default createStyles((theme, { orientation, tabPadding }: TabsStyleParams) => {
+export default createStyles((theme, { orientation, tabPadding }: TabsStyleParams, getRef) => {
 	return {
 		root: {
 			display: orientation === 'vertical' ? 'flex' : 'block'
 		},
 		wrapper: {},
-		tabs: {},
+		tabs: {
+			ref: getRef('tabs')
+		},
 		content: {
 			[orientation === 'horizontal' ? 'paddingTop' : 'paddingLeft']: theme.fn.size({
 				size: tabPadding,
 				sizes: theme.space
-			})
+			}),
+			display: 'block'
 		},
-		...getVariantStyles(orientation, theme)
+		...getVariantStyles(orientation, theme, getRef)
 	};
 });

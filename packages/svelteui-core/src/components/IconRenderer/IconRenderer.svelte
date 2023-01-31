@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer.styles';
 	import useStyles from './IconRenderer.styles';
+	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer';
 
 	interface $$Props extends $$IconRendererProps {}
 
@@ -13,9 +13,9 @@
 	// Verifies if CSR only elements are defined, or else it won't use them
 	const requiresShim = typeof HTMLElement === 'undefined' && typeof SVGElement === 'undefined';
 
-	$: ({ cx, getStyles, classes } = useStyles({ iconSize }));
+	$: ({ cx, getStyles, classes } = useStyles({ iconSize }, { name: 'IconRenderer' }));
 	$: if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
-		icon.classList.add(classes.icon);
+		icon.classList.add(...classes.icon.split(' '));
 	}
 </script>
 

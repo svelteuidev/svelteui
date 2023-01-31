@@ -1,2 +1,3 @@
 export { default as Badge } from './Badge.svelte';
-export type { BadgeProps, BadgeStyleParams, BadgeVariant } from './Badge.styles';
+export type { BadgeStyleParams } from './Badge.styles';
+export type { BadgeProps, BadgeVariant } from './Badge';

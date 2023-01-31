@@ -1,12 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, CSS } from '$lib/styles';
-
-export interface MediaQueryProps extends DefaultProps<HTMLDivElement | HTMLElement> {
-	smallerThan?: SvelteUINumberSize;
-	largerThan?: SvelteUINumberSize;
-	styles?: CSS;
-	query?: string;
-}
+import type { CSS, SvelteUINumberSize } from '$lib/styles';
 
 export interface MediaQueryStylesParams {
 	smallerThan: SvelteUINumberSize;

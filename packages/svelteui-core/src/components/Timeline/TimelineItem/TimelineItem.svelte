@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
-	import useStyles from './TimelineItem.styles';
-	import { ctx } from '../Timeline.svelte';
 	import Box from '../../Box/Box.svelte';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
 	import Text from '../../Text/Text.svelte';
-	import type { TimelineContext } from '../Timeline.styles';
-	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem.styles';
+	import { ctx } from '../Timeline.svelte';
+	import type { TimelineContext } from '../Timeline';
+	import useStyles from './TimelineItem.styles';
+	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem';
 
 	export let use: $$TimelineItemProps['use'] = [],
 		element: $$TimelineItemProps['element'] = undefined,
@@ -67,7 +68,7 @@
 			lineVariant,
 			lineWidth: _lineWidth
 		},
-		{ override }
+		{ override, name: 'TimelineItem' }
 	));
 </script>
 
@@ -75,15 +76,15 @@
 	bind:element
 	{use}
 	class={cx(className, classes.root, {
-		active: _active,
-		lineActive: _lineActive
+		lineActive: _lineActive,
+		active: _active
 	})}
 	{...$$restProps}
 >
-	<div class={cx(classes.bulletContainer, { bulletContainerWithChild: bullet })}>
+	<div class={cx(classes.bulletContainer, bullet && classes.bulletContainerWithChild)}>
 		<slot name="bullet">
 			{#if bullet}
-				<svelte:component this={bullet} size={bulletSize} {color} class={classes.bullet} />
+				<IconRenderer icon={bullet} className={classes.bullet} iconSize={bulletSize} {color} />
 			{/if}
 		</slot>
 	</div>

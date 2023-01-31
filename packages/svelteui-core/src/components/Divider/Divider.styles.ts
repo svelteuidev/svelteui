@@ -1,24 +1,12 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { TextProps } from '../Text/Text.styles';
-
-export interface DividerProps extends DefaultProps {
-	color?: SvelteUIColor;
-	orientation?: 'horizontal' | 'vertical';
-	size?: SvelteUINumberSize;
-	label?: string;
-	labelPosition?: 'left' | 'center' | 'right';
-	labelProps?: TextProps;
-	variant?: DividerVariant;
-}
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { DividerVariant } from './Divider';
 
 export interface DividerStyleParams {
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
 	variant?: DividerVariant;
 }
-
-export type DividerVariant = 'solid' | 'dashed' | 'dotted';
 
 export const sizes = {
 	xs: 1,

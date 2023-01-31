@@ -1,7 +1,5 @@
 import { useSvelteUITheme, useSvelteUIThemeContext } from '../../../SvelteUIProvider';
-import type { SvelteUIColor } from '../../../index';
-
-export type ColorShades = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+import type { ColorShades, SvelteUIColor } from '../../../index';
 
 export function themeColor(color: SvelteUIColor, shade: ColorShades = 0) {
 	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();

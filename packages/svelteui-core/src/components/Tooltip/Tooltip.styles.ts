@@ -1,22 +1,5 @@
 import { createStyles } from '$lib/styles';
 import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { PopperProps } from '../Popper/Popper.styles';
-
-export interface TooltipProps extends PopperProps {
-	label: any;
-	opened?: boolean;
-	openDelay?: number;
-	closeDelay?: number;
-	color?: SvelteUIColor;
-	radius?: SvelteUINumberSize;
-	disabled?: boolean;
-	arrowSize?: number;
-	width?: number | 'auto';
-	wrapLines?: boolean;
-	allowPointerEvents?: boolean;
-	tooltipRef?: HTMLElement | any;
-	tooltipId?: string;
-}
 
 export interface TooltipStyleParams {
 	color?: SvelteUIColor;
@@ -30,8 +13,8 @@ export default createStyles((theme, { color, radius }: TooltipStyleParams) => {
 		},
 
 		body: {
-			[`${theme.dark} &`]: {
-				bc: theme.fn.themeColor(color, 3),
+			darkMode: {
+				backgroundColor: theme.fn.themeColor(color, 3),
 				color: theme.fn.themeColor('dark', 9)
 			},
 			backgroundColor: theme.fn.themeColor(color, 9),
@@ -46,8 +29,8 @@ export default createStyles((theme, { color, radius }: TooltipStyleParams) => {
 		},
 
 		arrow: {
-			[`${theme.dark} &`]: {
-				bg: theme.fn.themeColor(color, 3)
+			darkMode: {
+				backgroundColor: theme.fn.themeColor(color, 3)
 			},
 			background: theme.fn.themeColor(color, 9),
 			zIndex: 0

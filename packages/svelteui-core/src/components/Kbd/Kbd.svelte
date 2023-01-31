@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Kbd.styles';
 	import { Box } from '../Box';
-	import type { KbdProps as $$KbdProps } from './Kbd.styles';
+	import type { KbdProps as $$KbdProps } from './Kbd';
 
 	interface $$Props extends $$KbdProps {}
 
@@ -11,7 +11,7 @@
 		override: $$Props['override'] = {};
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles());
+	$: ({ cx, getStyles } = useStyles(null, { name: 'Kbd' }));
 </script>
 
 <Box

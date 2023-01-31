@@ -2,10 +2,14 @@
 	import useStyles from './NumberInput.styles';
 	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '../TextInput';
-	import { defaultFormatter, defaultParser } from './NumberInput.styles';
-	import type { NumberInputProps as $$NumberInputProps } from './NumberInput.styles';
+	import { defaultFormatter, defaultParser } from './utils';
+	import type {
+		NumberInputProps as $$NumberInputProps,
+		NumberInputEvents as $$NumberInputEvents
+	} from './NumberInput';
 
 	interface $$Props extends $$NumberInputProps {}
+	interface $$Events extends $$NumberInputEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -166,7 +170,7 @@
 	$: value = _valueC(value);
 	$: showControls = !hideControls && variant !== 'unstyled' && !disabled;
 
-	$: ({ cx, classes, getStyles } = useStyles({ radius, size }));
+	$: ({ cx, classes, getStyles } = useStyles({ radius, size }, { name: 'NumberInput' }));
 </script>
 
 <!--
@@ -216,7 +220,7 @@ values and add custom parsers and formatters.
 	>
 		{#if showControls}
 			<button
-				class="control control-up"
+				class={cx(classes.control, classes.controlUp)}
 				type="button"
 				tabIndex={-1}
 				aria-hidden
@@ -226,7 +230,7 @@ values and add custom parsers and formatters.
 				on:mouseleave={onStepDone}
 			/>
 			<button
-				class=" control control-down"
+				class={cx(classes.control, classes.controlDown)}
 				type="button"
 				tabIndex={-1}
 				aria-hidden

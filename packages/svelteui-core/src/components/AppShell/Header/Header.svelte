@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { VerticalSection } from '../VerticalSection';
-	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection.styles';
+	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection';
 
 	interface $$Props extends $$VerticalSectionSharedProps {}
 

@@ -7,7 +7,7 @@
 	import { writable } from 'svelte/store';
 	import useStyles from './Grid.styles';
 	import { Box } from '../Box';
-	import type { GridProps as $$GridProps } from './Grid.styles';
+	import type { GridProps as $$GridProps, GridContext } from './Grid';
 
 	interface $$Props extends $$GridProps {}
 
@@ -25,11 +25,11 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	const contextStore = writable({ cols, grow, spacing });
+	const contextStore: GridContext = writable({ cols, grow, spacing });
 	setContext(ctx, contextStore);
 
 	$: $contextStore = { cols, grow, spacing };
-	$: ({ cx, classes } = useStyles({ align, cols, grow, spacing, justify }, { override }));
+	$: ({ cx, classes } = useStyles({ align, spacing, justify }, { override, name: 'Grid' }));
 </script>
 
 <!--

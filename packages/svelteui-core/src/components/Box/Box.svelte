@@ -3,7 +3,7 @@
 	import { css as _css, useSvelteUITheme, useSvelteUIThemeContext } from '$lib/styles';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
-	import type { BoxProps as $$BoxProps } from './Box.styles';
+	import type { BoxProps as $$BoxProps } from './Box';
 
 	interface $$Props extends $$BoxProps {}
 
@@ -89,7 +89,7 @@ Add inline styles to any element or component with sx.
 	>
 		<slot></slot>
 	</svelte:element>
-{:else if isComponent}
+{:else if isComponent && typeof root !== 'string'}
 	<svelte:component
 		this={root}
 		bind:this={element}

@@ -34,7 +34,7 @@
 </script>
 
 <Group position="center">
-	<UnstyledButton aria-label="Open user menu" onClick={() => {}}>
+	<UnstyledButton aria-label="Open user menu">
 		<Group>
 			<ThemeIcon size={40} color="blue" variant="outline">BH</ThemeIcon>
 			<div>

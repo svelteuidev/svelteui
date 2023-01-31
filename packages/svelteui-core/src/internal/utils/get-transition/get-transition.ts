@@ -1,38 +1,6 @@
 import { fade, blur, fly, slide, scale, draw } from 'svelte/transition';
-import type { TransitionConfig, EasingFunction } from 'svelte/transition';
-import type {
-	FadeParams,
-	BlurParams,
-	FlyParams,
-	SlideParams,
-	ScaleParams,
-	DrawParams
-} from 'svelte/transition';
-
-export type TransitionName = 'fade' | 'blur' | 'fly' | 'slide' | 'scale' | 'draw';
-export type Transition =
-	| typeof fade
-	| typeof blur
-	| typeof fly
-	| typeof slide
-	| typeof scale
-	| typeof draw;
-export type TransitionOptions =
-	| FadeParams
-	| BlurParams
-	| FlyParams
-	| SlideParams
-	| ScaleParams
-	| DrawParams
-	| TransitionParams;
-
-interface TransitionParams {
-	delay?: number;
-	duration?: number;
-	easing?: EasingFunction;
-	css?: (t: number, u: number) => string;
-	tick?: (t: number, u: number) => void;
-}
+import type { TransitionConfig } from 'svelte/transition';
+import type { Transition, TransitionName, TransitionParams } from '../../types';
 
 export function getTransition(
 	name: TransitionName | ((node: Element, params: TransitionParams) => TransitionConfig)

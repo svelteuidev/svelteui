@@ -1,29 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { Component, TransitionName, TransitionOptions } from '$lib/internal';
-import type { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
-
-export interface MenuProps extends DefaultProps {
-	control?: Component | HTMLOrSVGElement;
-	closeOnItemClick?: boolean;
-	controlRefProp?: string;
-	clickOutsideEvents?: string[];
-	closeOnScroll?: boolean;
-	delay?: number;
-	menuButtonLabel?: string;
-	menuId?: string;
-	radius?: SvelteUINumberSize;
-	opened?: boolean;
-	shadow?: SvelteUIShadow;
-	size?: SvelteUINumberSize | 'auto';
-	trigger?: 'click' | 'hover';
-	trapFocus?: boolean;
-	withinPortal?: boolean;
-	zIndex?: number;
-	transition?: TransitionName;
-	transitionOptions?: TransitionOptions;
-	onClose?(): void;
-	onOpen?(): void;
-}
+import type { MenuProps } from './Menu';
 
 export interface MenuStyleParams {
 	size: MenuProps['size'];

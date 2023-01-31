@@ -1,4 +1,6 @@
 export { default as Chip } from './Chip.svelte';
+export type { ChipStyleParams } from './Chip.styles';
+export type { ChipProps } from './Chip';
+
 export { default as ChipGroup } from './ChipGroup/ChipGroup.svelte';
-export type { ChipProps, ChipStyleParams } from './Chip.styles.js';
-export type { ChipGroupProps } from './ChipGroup/ChipGroup.styles.js';
+export type { ChipGroupProps } from './ChipGroup/ChipGroup';

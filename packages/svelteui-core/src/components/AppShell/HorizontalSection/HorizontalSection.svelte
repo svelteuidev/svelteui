@@ -11,7 +11,7 @@
 		getSortedBreakpoints,
 		theme as appShellTheme
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
-	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection.styles';
+	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection';
 
 	interface $$Props extends $$HorizontalSectionProps {}
 
@@ -40,16 +40,19 @@
 		{}
 	);
 
-	$: ({ getStyles } = useStyles({
-		fixed,
-		height,
-		hiddenBreakpoint,
-		position,
-		width,
-		zIndex,
-		section,
-		hidden
-	}));
+	$: ({ getStyles } = useStyles(
+		{
+			fixed,
+			height,
+			hiddenBreakpoint,
+			position,
+			width,
+			zIndex,
+			section,
+			hidden
+		},
+		{ name: 'HorizontalSection' }
+	));
 
 	const injectRoot = globalCss({
 		':root': {

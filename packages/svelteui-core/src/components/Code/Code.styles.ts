@@ -1,14 +1,5 @@
 import { createStyles, fns } from '$lib/styles';
-import type { SvelteUIColor, DefaultProps } from '$lib/styles';
-
-export interface CodeProps extends DefaultProps<HTMLPreElement | Partial<HTMLElement>> {
-	color?: SvelteUIColor;
-	block?: boolean;
-	width?: number;
-	copy?: boolean;
-	message?: string;
-	noMono?: boolean;
-}
+import type { SvelteUIColor } from '$lib/styles';
 
 export interface CodeStyleParams {
 	color: SvelteUIColor;
@@ -23,7 +14,7 @@ export default createStyles((theme, { color, block, noMono, width }: CodeStylePa
 	const { themeColor }: typeof theme.fn = theme.fn;
 	return {
 		root: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				backgroundColor: color === 'dark' ? themeColor(color, 4) : rgba(themeColor(color, 8), 0.35),
 				color: color === 'dark' ? themeColor('dark', 0) : 'white'
 			},
@@ -38,7 +29,7 @@ export default createStyles((theme, { color, block, noMono, width }: CodeStylePa
 			width: block ? `${width}%` : 'auto'
 		},
 		copy: {
-			[`${theme.dark} &`]: {
+			darkMode: {
 				backgroundColor: 'rgba(52, 58, 64, 0.35);',
 				color: 'white'
 			},

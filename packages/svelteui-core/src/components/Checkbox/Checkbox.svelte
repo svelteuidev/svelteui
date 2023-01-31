@@ -6,7 +6,7 @@
 	import Box from '../Box/Box.svelte';
 	import ThemeIcon from '../ThemeIcon/ThemeIcon.svelte';
 	import CheckboxIcon from './CheckboxIcon.svelte';
-	import type { CheckboxProps as $$CheckboxProps } from './Checkbox.styles';
+	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
 
 	interface $$Props extends $$CheckboxProps {}
 
@@ -23,7 +23,7 @@
 		label: $$Props['label'] = null,
 		radius: $$Props['radius'] = 'sm',
 		size: $$Props['size'] = 'md',
-    name: $$Props['name'] = '',
+		name: $$Props['name'] = '',
 		transitionDuration: $$Props['transitionDuration'] = 100;
 	export { className as class };
 
@@ -31,7 +31,10 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: checked = indeterminate || checked;
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ color, radius, size, transitionDuration },
+		{ name: 'Checkbox' }
+	));
 </script>
 
 <!--
@@ -61,7 +64,7 @@ A checkbox input component using the theme styles with support for a label and i
 			{disabled}
 			{value}
 			{id}
-      {name}
+			{name}
 		/>
 		<ThemeIcon class={classes.iconWrapper} variant={null} {size}>
 			<slot>

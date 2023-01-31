@@ -2,7 +2,7 @@
 	import useStyles from './VerticalSection.styles';
 	import { Box } from '../../Box';
 	import { globalCss } from '$lib/styles';
-	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection.styles';
+	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection';
 
 	interface $$Props extends $$VerticalSectionProps {}
 
@@ -17,13 +17,16 @@
 		section: $$Props['section'];
 	export { className as class };
 
-	$: ({ getStyles } = useStyles({
-		borderPosition: section === 'header' ? 'bottom' : 'top',
-		fixed,
-		height,
-		position,
-		zIndex
-	}));
+	$: ({ getStyles } = useStyles(
+		{
+			borderPosition: section === 'header' ? 'bottom' : 'top',
+			fixed,
+			height,
+			position,
+			zIndex
+		},
+		{ name: 'VerticalSection' }
+	));
 
 	const injectStyles = globalCss({
 		':root': {
