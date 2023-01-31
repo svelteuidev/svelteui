@@ -15,7 +15,7 @@
 
 	$: ({ cx, getStyles, classes } = useStyles({ iconSize }, { name: 'IconRenderer' }));
 	$: if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
-		icon.classList.add(...classes.icon.split(" "));
+		icon.classList.add(...classes.icon.split(' '));
 	}
 </script>
 
