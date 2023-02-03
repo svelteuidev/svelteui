@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import {
 		Group,
 		TextInput,
@@ -28,6 +28,7 @@
 		Popper,
 		Box
 	} from '@svelteuidev/core';
+	import type { SvelteUITheme } from '@svelteuidev/core';
 	import { Month } from '@svelteuidev/dates';
 
 	import {
@@ -49,7 +50,7 @@
 
 	let value = 0,
 		modalOpened = false,
-		reference,
+		reference: HTMLElement,
 		popperMounted = false,
 		monthValue = new Date(),
 		windowWidth = 0;
@@ -58,7 +59,7 @@
 		popperMounted = !popperMounted;
 	};
 
-	function changeProgressValue(type) {
+	function changeProgressValue(type: string) {
 		if (type === 'increment') {
 			value = value !== 100 ? (value += 10) : value;
 		} else {
@@ -66,7 +67,7 @@
 		}
 	}
 
-	const useStyles = createStyles((theme) => {
+	const useStyles = createStyles((theme: SvelteUITheme) => {
 		const { themeColor, size } = theme.fn;
 		return {
 			root: {
@@ -120,7 +121,7 @@
 			}
 		};
 	});
-	const minifiedStyles = createStyles((theme) => ({
+	const minifiedStyles = createStyles((theme: SvelteUITheme) => ({
 		root: {
 			color: theme.fn.themeColor('gray', 7),
 			'&.active': {
@@ -170,7 +171,7 @@
 						value="Invalid Value"
 						override={{ marginBottom: '1rem' }}
 					/>
-          <h3>Button component</h3>
+					<h3>Button component</h3>
 					<Group grow override={{ marginBottom: '1rem' }}>
 						<Button>Default</Button>
 						<Button disabled>Disabled</Button>

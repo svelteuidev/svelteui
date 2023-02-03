@@ -1,7 +1,7 @@
 <script>
-	import { ComponentsExample, Features, mobile, HomePageExample } from '$lib/components';
-	import { GithubLogo } from 'radix-icons-svelte';
 	import { Box, Button, Group, Container, Title, Text } from '@svelteuidev/core';
+	import { GithubLogo } from 'radix-icons-svelte';
+	import { ComponentsExample, Features, mobile, HomePageExample } from '$lib/components';
 
 	const srcCodeButton = {
 		m: 0,
@@ -63,15 +63,17 @@ index: true
 	<Container override={{ py: '7rem' }} size="xl">
 		<Features />
 	</Container>
-  <Container size="xl">
-    <Title weight="bold" override={{ fontFamily: "var(--font)", paddingBottom: "2rem" }} align="center">
-      40+ customizable components
-    </Title>
-    <ComponentsExample />
-    <Group position="right" override={{ pt: "1.5rem" }}>
-      and many more...
-    </Group>
-  </Container>
+	<Container size="xl">
+		<Title
+			weight="bold"
+			override={{ fontFamily: 'var(--font)', paddingBottom: '2rem' }}
+			align="center"
+		>
+			40+ customizable components
+		</Title>
+		<ComponentsExample />
+		<Group position="right" override={{ pt: '1.5rem' }}>and many more...</Group>
+	</Container>
 	<Container override={{ py: '7rem' }} size="xl">
 		<Title override={title} weight="extrabold" tracking="tight" align="center">
 			Less Code. Elegant Solutions.

@@ -1,17 +1,18 @@
 <script lang="ts">
-	// @ts-nocheck
-	import '$lib/theme/style.css';
-	import '$lib/theme/theme.css';
+	import { fly } from 'svelte/transition';
+	import { colorScheme, Burger, SvelteUIProvider } from '@svelteuidev/core';
 	import { browser } from '$app/environment';
-	import { SvelteUIProvider, Burger } from '@svelteuidev/core';
+	import { page } from '$app/stores';
+	import PageTransition from '$lib/components/PageTransition.svelte';
 	import Logo from '$lib/includes/logo.svelte';
 	import Topbar from '$lib/includes/topbar.svelte';
 	import Sidebar from '$lib/includes/sidebar.svelte';
-	import { fly } from 'svelte/transition';
-	import { page } from '$app/stores';
 	import { set_active_link } from '$lib/theme/utils';
-  import PageTransition from '$lib/components/PageTransition.svelte';
-  import type { PageData } from './$types';
+	import '$lib/theme/style.css';
+	import '$lib/theme/theme.css';
+	import type { PageData } from './$types';
+
+	let show_sidebar: boolean;
 
 	$: mobile = window_width < 800;
 	$: nosidebar = browser && $page.url.pathname === '/';
@@ -29,7 +30,7 @@
 	];
 
 	let window_width = 0,
-		sidebar_details;
+		sidebar_details: { index: number, expand: boolean };
 	$: {
     if (sidebar_details) {
       sidebar = sidebar.map((sidebarItem) =>
@@ -52,7 +53,7 @@
   </div>
 </PageTransition>
 
-<SvelteUIProvider>
+<SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 	{#if !nosidebar}
 		{#if !mobile || (mobile && show_sidebar)}
 			<div transition:fly={{ x: -100, duration: 300 }} class="sidebar">
