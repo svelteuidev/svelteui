@@ -1,5 +1,16 @@
 <script lang="ts">
-	import { ActionIcon, Tooltip, Menu, Divider, colorScheme, Modal, TextInput, Paper, Box, Kbd } from '@svelteuidev/core';
+	import {
+		ActionIcon,
+		Tooltip,
+		Menu,
+		Divider,
+		colorScheme,
+		Modal,
+		TextInput,
+		Paper,
+		Box,
+		Kbd
+	} from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { mobile } from '$lib/components';
 	import { config, searchLinks } from './data.js';
@@ -7,12 +18,20 @@
 	import { hotkey } from '@svelteuidev/composables';
 	import { browser } from '$app/environment';
 
-	let recentSearches,
+	type SearchItem = {
+		title: string;
+		link: string;
+		section?: string;
+	};
+
+	let recentSearches: SearchItem[],
 		searchTerm = '',
-		matchingSearches = [],
+		matchingSearches: SearchItem[] = [],
 		modalOpened = false;
 
-	onMount(() => (recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || []));
+	onMount(
+		() => (recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [])
+	);
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
@@ -29,22 +48,23 @@
 		);
 	}
 
-	function addSearch(matchingSearch) {
+	function addSearch(matchingSearch: SearchItem) {
 		changeModalState();
-		const existingSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-		const elementExists = existingSearches.some((item) => item.title === matchingSearch.title);
+		const existingSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
+		const elementExists = existingSearches.some(
+			(item: SearchItem) => item.title === matchingSearch.title
+		);
 		if (!elementExists) existingSearches.unshift(matchingSearch);
 		if (existingSearches.length > 6) existingSearches.pop();
 		recentSearches = existingSearches;
 		localStorage.setItem('recentSearches', JSON.stringify(existingSearches));
 	}
+
+	// @ts-nocheck
 </script>
 
-{#if $mobile}
-	<Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
 		<Menu.Label>Navigation</Menu.Label>
 		{#each config.links as { title, href }}
-			<Menu.Item root="a" {href}>
 				{title}
 			</Menu.Item>
 		{/each}
@@ -64,46 +84,51 @@
 				<MagnifyingGlass />
 			</ActionIcon>
 		</Menu.Item>
-		<Menu.Item>
-			<ActionIcon variant="default" on:click={changeModalState} size={30}>
-				<MagnifyingGlass />
-			</ActionIcon>
-		</Menu.Item>
 	</Menu>
 {:else}
-  <ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
-    <li class="searchBox">
-      <Box css={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between"}} on:click={changeModalState}>
-        <div style="display: flex; align-items: center">
-          <MagnifyingGlass size={25} />
-          <p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
-        </div>
-        <div>
-          <Kbd>{browser && window.navigator.platform === "MacIntel" ? "⌘" : "Ctrl"}</Kbd> + <Kbd>K</Kbd>
-        </div>
-      </Box>
-    </li>
-    {#each config.buttons as { title, props, icon }}
-      <li>
-        <Tooltip withArrow label={title}>
-          <ActionIcon root="a" {...props} radius="md" size="lg">
-            <svelte:component this={icon} size={20} />
-          </ActionIcon>
-        </Tooltip>
-      </li>
-    {/each}
-    <li>
-      <Tooltip withArrow label="Experimental Theme Toggle">
-        <ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
-          {#if $colorScheme === 'light'}
-            <Moon size={20} />
-          {:else}
-            <Sun size={20} />
-          {/if}
-        </ActionIcon>
-      </Tooltip>
-    </li>
-  </ul>
+	<ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
+		<li class="searchBox">
+			<Box
+				css={{
+					width: '100%',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'space-between'
+				}}
+				on:click={changeModalState}
+			>
+				<div style="display: flex; align-items: center">
+					<MagnifyingGlass size={25} />
+					<p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
+				</div>
+				<div>
+					<Kbd>{browser && window.navigator.platform === 'MacIntel' ? '⌘' : 'Ctrl'}</Kbd> + <Kbd
+						>K</Kbd
+					>
+				</div>
+			</Box>
+		</li>
+		{#each config.buttons as { title, props, icon }}
+			<li>
+				<Tooltip withArrow label={title}>
+					<ActionIcon root="a" {...props} radius="md" size="lg">
+						<svelte:component this={icon} size={20} />
+					</ActionIcon>
+				</Tooltip>
+			</li>
+		{/each}
+		<li>
+			<Tooltip withArrow label="Experimental Theme Toggle">
+				<ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
+					{#if $colorScheme === 'light'}
+						<Moon size={20} />
+					{:else}
+						<Sun size={20} />
+					{/if}
+				</ActionIcon>
+			</Tooltip>
+		</li>
+	</ul>
 {/if}
 
 <Modal
