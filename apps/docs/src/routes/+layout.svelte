@@ -3,10 +3,7 @@
 	import { colorScheme, Burger, SvelteUIProvider } from '@svelteuidev/core';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import PageTransition from '$lib/components/PageTransition.svelte';
-	import Logo from '$lib/includes/logo.svelte';
-	import Topbar from '$lib/includes/topbar.svelte';
-	import Sidebar from '$lib/includes/sidebar.svelte';
+	import { Device, Logo, PageTransition, TopBar, Sidebar } from '$lib/components';
 	import { set_active_link } from '$lib/theme/utils';
 	import '$lib/theme/style.css';
 	import '$lib/theme/theme.css';
@@ -29,8 +26,12 @@
 		{ id: 8, expand: false }
 	];
 
-	let window_width = 0,
-		sidebar_details: { index: number, expand: boolean };
+	let sidebar_details: { index: number; expand: boolean };
+
+	function onToggleSidebar(event: CustomEvent<{ index: number; expand: boolean }>) {
+		sidebar_details = event.detail;
+	}
+
 	$: {
     if (sidebar_details) {
       sidebar = sidebar.map((sidebarItem) =>
@@ -47,7 +48,7 @@
 
 <PageTransition refresh={data.pathname}>
   <div class="main" class:nosidebar={nosidebar || mobile}>
-    <div class="article" class:homepage={$page.url.pathname === "/"}>
+		<div class="article" class:homepage={$page.url.pathname === '/'}>
       <slot />
     </div>
   </div>
@@ -58,10 +59,8 @@
 		{#if !mobile || (mobile && show_sidebar)}
 			<div transition:fly={{ x: -100, duration: 300 }} class="sidebar">
 				{#key $page}
-					<div
-						use:set_active_link={{ page: $page }}
-					>
-						<Sidebar on:toggleSidebar={({ detail }) => (sidebar_details = detail)} {sidebar} />
+					<div use:set_active_link={{ page: $page }}>
+						<Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
 					</div>
 				{/key}
 			</div>
@@ -77,7 +76,10 @@
 			/>
 		{/if}
 		<div class="logo"><Logo /></div>
-		<div><Topbar /></div>
+		<div>
+			<Device />
+			<TopBar />
+		</div>
 	</div>
 </SvelteUIProvider>
 

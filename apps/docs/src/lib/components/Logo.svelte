@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Badge, Center, Title, Box } from '@svelteuidev/core';
 
 	const override = {
@@ -20,8 +20,8 @@
 </a>
 
 <style>
-  .logoEl {
-    display: flex;
-    align-items: center;
-  }
+	.logoEl {
+		display: flex;
+		align-items: center;
+	}
 </style>
