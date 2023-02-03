@@ -1,5 +1,5 @@
 {
-	"name": "docs",
+	"name": "svelteui-docs",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
