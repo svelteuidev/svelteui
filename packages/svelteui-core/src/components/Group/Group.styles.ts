@@ -1,15 +1,6 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, CSS, SvelteUINumberSize } from '$lib/styles';
-
-export interface GroupProps extends DefaultProps<HTMLDivElement | HTMLElement> {
-	position?: GroupPosition;
-	noWrap?: boolean;
-	grow?: boolean;
-	spacing?: SvelteUINumberSize;
-	direction?: 'row' | 'column';
-	align?: CSS['alignItems'];
-	children?: number;
-}
+import type { CSS, SvelteUINumberSize } from '$lib/styles';
+import type { GroupPosition } from './Group';
 
 export interface GroupStylesParams {
 	position: GroupPosition;
@@ -20,8 +11,6 @@ export interface GroupStylesParams {
 	align: CSS['alignItems'];
 	children: number;
 }
-
-export type GroupPosition = 'right' | 'center' | 'left' | 'apart';
 
 export const POSITIONS = {
 	left: 'flex-start',

@@ -1,40 +1,10 @@
 import { createStyles } from '$lib/styles';
-import type { TextInputProps } from '../TextInput/TextInput.styles';
-import type { Override, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-
-export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
-	value?: number;
-	defaultValue?: number;
-	invalid?: boolean;
-	decimalSeparator?: string;
-	max?: number;
-	min?: number;
-	step?: number;
-	stepHoldDelay?: number;
-	stepHoldInterval?: number | ((step: number) => number);
-	hideControls?: boolean;
-	overrideControls?: Override['props'];
-	precision?: number;
-	noClampOnBlur?: boolean;
-	formatter?: Formatter;
-	parser?: Parser;
-}
+import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface NumberInputStyleParams {
 	radius: SvelteUINumberSize;
 	size: SvelteUISize;
 }
-
-export type Formatter = (value: string | undefined) => string;
-export type Parser = (value: string | undefined) => string | undefined;
-
-export const defaultFormatter: Formatter = (value) => value || '';
-export const defaultParser: Parser = (num) => {
-	if (num === '-') return num;
-
-	const parsedNum = parseFloat(num);
-	return Number.isNaN(parsedNum) ? undefined : num;
-};
 
 export const CONTROL_SIZES = {
 	xs: 20,
@@ -54,6 +24,10 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 			marginRight: 1
 		},
 
+		controls: {
+			width: 'calc(100% - 22px)'
+		},
+
 		control: {
 			margin: 0,
 			position: 'relative',
@@ -69,7 +43,7 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 			backgroundColor: 'transparent',
 			marginRight: 1,
 
-			[`${theme.dark} &`]: {
+			darkMode: {
 				borderBottom: '1px solid $dark400',
 				borderLeft: '1px solid $dark400'
 			},
@@ -77,7 +51,7 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 			'&:not(:disabled):hover': {
 				backgroundColor: '$gray50',
 
-				[`${theme.dark} &`]: {
+				darkMode: {
 					backgroundColor: '$dark600'
 				}
 			},
@@ -91,44 +65,44 @@ export default createStyles((theme, { size, radius }: NumberInputStyleParams) =>
 				width: 0,
 				height: 0,
 				borderStyle: 'solid'
-			},
-			'&.control-up': {
-				borderTopRightRadius: `$${radius}`,
+			}
+		},
+		controlUp: {
+			borderTopRightRadius: `$${radius}`,
 
-				'&::after': {
-					borderWidth: '0px 5px 5px 5px',
-					borderColor: 'transparent transparent $black transparent',
+			'&::after': {
+				borderWidth: '0px 5px 5px 5px',
+				borderColor: 'transparent transparent $black transparent',
 
-					[`${theme.dark} &`]: {
-						borderColor: 'transparent transparent $dark50 transparent'
-					}
-				},
-
-				'&:disabled::after': {
-					borderBottomColor: '$gray500',
-					[`${theme.dark} &`]: {
-						borderBottomColor: '$dark200'
-					}
+				darkMode: {
+					borderColor: 'transparent transparent $dark50 transparent'
 				}
 			},
-			'&.control-down': {
-				borderTopRightRadius: `$${radius}`,
-				borderBottom: 0,
 
-				'&::after': {
-					borderWidth: '5px 5px 0px 5px',
-					borderColor: '$black transparent transparent transparent',
+			'&:disabled::after': {
+				borderBottomColor: '$gray500',
+				darkMode: {
+					borderBottomColor: '$dark200'
+				}
+			}
+		},
+		controlDown: {
+			borderTopRightRadius: `$${radius}`,
+			borderBottom: 0,
 
-					[`${theme.dark} &`]: {
-						borderColor: '$dark50 transparent transparent transparent'
-					}
-				},
+			'&::after': {
+				borderWidth: '5px 5px 0px 5px',
+				borderColor: '$black transparent transparent transparent',
 
-				'&:disabled::after': {
-					borderTopColor: '$gray500',
-					[`${theme.dark} &`]: {
-						borderTopColor: '$dark200'
-					}
+				darkMode: {
+					borderColor: '$dark50 transparent transparent transparent'
+				}
+			},
+
+			'&:disabled::after': {
+				borderTopColor: '$gray500',
+				darkMode: {
+					borderTopColor: '$dark200'
 				}
 			}
 		}

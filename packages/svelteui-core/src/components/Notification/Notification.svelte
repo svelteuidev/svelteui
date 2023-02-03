@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import useStyles from './Notification.styles';
-	import { Box } from '../Box';
 	import { CloseButton } from '../ActionIcon';
+	import { Box } from '../Box';
+	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
-	import type { NotificationProps as $$NotificationProps } from './Notification.styles';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import useStyles from './Notification.styles';
+	import type {
+		NotificationProps as $$NotificationProps,
+		NotificationEvents as $$NotificationEvents
+	} from './Notification';
 
 	interface $$Props extends $$NotificationProps {}
+	interface $$Events extends $$NotificationEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -32,7 +36,7 @@
 		dispatch('close');
 	}
 
-	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ cx, classes } = useStyles({ color, radius }, { override, name: 'Notification' }));
 </script>
 
 <Box

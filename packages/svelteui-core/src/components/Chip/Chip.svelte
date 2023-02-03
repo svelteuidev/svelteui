@@ -4,7 +4,7 @@
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
-	import type { ChipProps as $$ChipProps } from './Chip.styles.js';
+	import type { ChipProps as $$ChipProps } from './Chip';
 
 	interface $$Props extends $$ChipProps {}
 
@@ -27,7 +27,10 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size, transitionDuration, variant }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ color, radius, size, transitionDuration },
+		{ name: 'Chip' }
+	));
 </script>
 
 <!--

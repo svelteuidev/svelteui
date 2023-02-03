@@ -6,7 +6,7 @@
 	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonProps as $$ButtonProps } from './Button.styles';
+	import type { ButtonProps as $$ButtonProps } from './Button';
 
 	interface $$Props extends $$ButtonProps {}
 
@@ -51,15 +51,18 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------Error Handling-------------------
-	$: ({ getStyles, cx } = useStyles({
-		color,
-		compact,
-		fullSize,
-		gradient,
-		radius,
-		size,
-		variant
-	}));
+	$: ({ getStyles, cx } = useStyles(
+		{
+			color,
+			compact,
+			fullSize,
+			gradient,
+			radius,
+			size,
+			variant
+		},
+		{ name: 'Button' }
+	));
 </script>
 
 <Error {observable} component="Button" code={err} />

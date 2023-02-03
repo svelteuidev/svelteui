@@ -4,7 +4,7 @@
 	import { colorScheme } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { BurgerProps as $$BurgerProps } from './Burger.styles';
+	import type { BurgerProps as $$BurgerProps } from './Burger';
 
 	interface $$Props extends $$BurgerProps {}
 
@@ -21,7 +21,7 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: _color = color ? color : $colorScheme === 'dark' ? 'white' : 'black';
-	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }));
+	$: ({ classes, getStyles, cx } = useStyles({ color: _color, size, opened }, { name: 'Burger' }));
 </script>
 
 <UnstyledButton

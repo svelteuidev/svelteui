@@ -1,22 +1,6 @@
 import { createStyles, keyframes } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles';
-
-type EasingFunction = (t: number) => number;
-
-export interface ProgressProps extends DefaultProps {
-	value?: number;
-	color?: SvelteUIColor;
-	size?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize;
-	striped?: boolean;
-	animate?: boolean;
-	label?: string;
-	ariaLabel?: string;
-	shade?: ColorShades;
-	tween?: boolean;
-	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
-	sections?: Sections[];
-}
+import type { SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles';
+import type { Sections } from './Progress';
 
 export interface ProgressStylesParams {
 	color: SvelteUIColor;
@@ -25,12 +9,6 @@ export interface ProgressStylesParams {
 	shade: ColorShades;
 	striped: boolean;
 	animate: boolean;
-}
-
-export interface Sections {
-	value: number;
-	color: SvelteUIColor;
-	label?: string;
 }
 
 interface AccumulatedSection {

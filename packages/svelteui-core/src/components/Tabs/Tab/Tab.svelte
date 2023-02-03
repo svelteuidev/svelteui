@@ -1,11 +1,11 @@
 <script lang="ts">
-	import useStyles from './Tab.styles';
-	import { ctx } from '../Tabs.svelte';
-	import { Box } from '../../Box';
 	import { getContext, onMount } from 'svelte';
-	import type { TabsContext } from '../Tabs.styles';
-	import type { TabProps as $$TabProps } from './Tab.styles';
-	import IconRenderer from '$lib/components/IconRenderer/IconRenderer.svelte';
+	import { Box } from '../../Box';
+	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { ctx } from '../Tabs.svelte';
+	import type { TabsContext } from '../Tabs';
+	import useStyles from './Tab.styles';
+	import type { TabProps as $$TabProps } from './Tab';
 
 	interface $$Props extends $$TabProps {}
 
@@ -20,7 +20,9 @@
 		color: $$Props['color'] = undefined,
 		variant: $$Props['variant'] = undefined,
 		orientation: $$Props['orientation'] = undefined,
-		tabKey: $$Props['tabKey'] = undefined;
+		tabKey: $$Props['tabKey'] = undefined,
+		disabled: $$Props['disabled'] = false,
+		title: $$Props['title'] = undefined;
 	export { className as class };
 
 	// retrieves the reactive context so that Tab has access
@@ -44,13 +46,16 @@
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ color: _color, orientation: _orientation }, { override }));
+	$: ({ cx, classes } = useStyles(
+		{ color: _color, orientation: _orientation },
+		{ override, name: 'Tab' }
+	));
 </script>
 
 <Box
 	bind:element
 	{use}
-	class={cx('svelteui-tab', className, classes.root, classes[_variant], {
+	class={cx('svelteui-Tab', className, classes.root, {
 		active: _active,
 		[_variant]: true
 	})}
@@ -58,6 +63,8 @@
 	role="tab"
 	aria-selected={_active}
 	data-key={tabKey}
+	{disabled}
+	{title}
 	{...$$restProps}
 >
 	<div class={classes.inner}>
@@ -71,7 +78,7 @@
 				<div class={classes.label}>{label}</div>
 			{/if}
 		</slot>
-		<div class={cx('svelteui-tab-content', classes.tabContent)}>
+		<div class={cx('svelteui-Tab-content', classes.tabContent, { active: _active })}>
 			<slot />
 		</div>
 	</div>

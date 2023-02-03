@@ -1,6 +1,10 @@
 <script lang="ts">
+	import type { SvelteUINumberSize } from '$lib/styles';
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { ChipGroup } from '../index';
+
+	const spacings: SvelteUINumberSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+	const directions: ('column' | 'row')[] = ['column', 'row'];
 
 	let bindValue;
 </script>
@@ -47,7 +51,7 @@
 </Story>
 
 <Story name="Spacing">
-	{#each ['xs', 'sm', 'md', 'lg', 'xl'] as spacing}
+	{#each spacings as spacing}
 		<p>Spacing: {spacing}</p>
 		<ChipGroup
 			bind:value={bindValue}
@@ -62,7 +66,7 @@
 </Story>
 
 <Story name="Directions">
-	{#each ['row', 'column'] as direction}
+	{#each directions as direction}
 		<p>Direction: {direction}</p>
 		<ChipGroup
 			bind:value={bindValue}

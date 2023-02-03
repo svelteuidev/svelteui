@@ -1,14 +1,14 @@
 <script lang="ts">
-	import useStyles, { getContextItemIndex } from './MenuItem.styles';
-	import { Box } from '../../Box';
-	import { ctx } from '../Menu.svelte';
 	import { getContext } from 'svelte';
-	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
-	import type { MenuContextValue } from '../Menu.context';
-	import type { MenuItemProps as $$MenuItemProps } from './MenuItem.styles';
+	import { createEventForwarder, useActions } from '$lib/internal';
+	import { Box } from '../../Box';
 	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { ctx } from '../Menu.svelte';
+	import type { MenuContextValue } from '../Menu.context';
+	import useStyles, { getContextItemIndex } from './MenuItem.styles';
+	import type { MenuItemProps as $$MenuItemProps } from './MenuItem';
 
 	interface $$Props extends $$MenuItemProps {}
 
@@ -28,10 +28,10 @@
 	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
 
 	$: itemIndex = getContextItemIndex(
-		{ elementSelector: '.svelteui-Menu-item', parentClassName: 'svelteui-Menu-body' },
+		{ elementSelector: '.svelteui-MenuItem-root', parentClassName: 'svelteui-Menu-body' },
 		element
 	);
-	$: ({ cx, classes } = useStyles({ color, radius }, { override }));
+	$: ({ cx, classes } = useStyles({ color, radius }, { override, name: 'MenuItem' }));
 	$: ({ hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state);
 </script>
 
@@ -41,7 +41,7 @@
 	bind:element
 	type="button"
 	role="menuitem"
-	class={cx(className, classes.root, 'svelteui-Menu-item', {
+	class={cx(className, classes.root, {
 		itemHovered: hovered === itemIndex
 	})}
 	{disabled}

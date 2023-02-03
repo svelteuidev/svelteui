@@ -28,8 +28,7 @@
 		Popper,
 		Box
 	} from '@svelteuidev/core';
-
-  import { Month } from "@svelteuidev/dates";
+	import { Month } from '@svelteuidev/dates';
 
 	import {
 		Input,
@@ -45,14 +44,15 @@
 		Gear,
 		MagnifyingGlass,
 		Trash,
-    Calendar
+		Calendar
 	} from 'radix-icons-svelte';
 
 	let value = 0,
 		modalOpened = false,
 		reference,
 		popperMounted = false,
-    monthValue = new Date();
+		monthValue = new Date(),
+		windowWidth = 0;
 
 	const toggleMount = () => {
 		popperMounted = !popperMounted;
@@ -66,46 +66,97 @@
 		}
 	}
 
-	const useStyles = createStyles((theme) => ({
+	const useStyles = createStyles((theme) => {
+		const { themeColor, size } = theme.fn;
+		return {
+			root: {
+				color: theme.fn.themeColor('gray', 7),
+				fontSize: theme.fontSizes.md.value,
+				padding: `${theme.space.lg.value}px ${theme.space.xl.value}px`,
+				darkMode: {
+					backgroundColor: theme.fn.themeColor('dark', 6),
+					color: theme.fn.themeColor('dark', 0),
+					border: `1px solid ${theme.fn.themeColor('dark', 6)}`
+				},
+				transitionProperty: 'all',
+				transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+				transitionDuration: '200ms',
+				borderRadius: theme.radii.sm.value,
+				width: '15rem !important',
+				height: '4rem !important',
+				fontWeight: 'bold !important',
+
+				'&:hover': {
+					backgroundColor: '#f2f2f2 !important'
+				},
+				'&.active': {
+					backgroundColor: '#228be6 !important',
+					color: theme.colors.white.value
+				},
+				'&.active:hover': {
+					backgroundColor: theme.colors.white.value
+				},
+				preview: {
+					[`${theme.dark} &`]: {
+						backgroundColor: themeColor('dark', 7)
+					},
+					backgroundColor: 'white',
+					padding: size({ size: 'md', sizes: theme.space }),
+					borderRadius: theme.radii.md.value,
+					position: 'relative',
+
+					['@media (max-width: 755px)']: {
+						padding: 0,
+						borderTopRightRadius: 0,
+						borderTopLeftRadius: 0,
+						'& .noCode': {
+							padding: size({ size: 'xs', sizes: theme.space })
+						}
+					}
+				}
+			},
+			icon: {
+				size: 30
+			}
+		};
+	});
+	const minifiedStyles = createStyles((theme) => ({
 		root: {
 			color: theme.fn.themeColor('gray', 7),
-			fontSize: theme.fontSizes.md.value,
-			padding: `${theme.space.lg.value}px ${theme.space.xl.value}px`,
-			darkMode: {
-				backgroundColor: theme.fn.themeColor('dark', 6),
-				color: theme.fn.themeColor('dark', 0),
-				border: `1px solid ${theme.fn.themeColor('dark', 6)}`
-			},
-			transitionProperty: 'all',
-			transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
-			transitionDuration: '200ms',
-      borderRadius: theme.radii.sm.value,
-			width: '15rem !important',
-			height: '4rem !important',
-			fontWeight: 'bold !important',
-
-			'&:hover': {
-				backgroundColor: '#f2f2f2 !important'
-			},
 			'&.active': {
 				backgroundColor: '#228be6 !important',
 				color: theme.colors.white.value
 			},
+			'&:hover': {
+				backgroundColor: '#f2f2f2'
+			},
 			'&.active:hover': {
 				backgroundColor: theme.colors.white.value
-			}
-		},
-    icon: {
-      size: 30,
-    }
+			},
+			transitionProperty: 'all',
+			transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+			transitionDuration: '200ms',
+			borderRadius: theme.radii.sm.value
+		}
 	}));
+	$: ({ classes: minifiedClasses } = minifiedStyles());
 	$: ({ classes } = useStyles());
 	const variants = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
 </script>
 
+<svelte:window bind:innerWidth={windowWidth} />
+
 <div class="componentExamplesWrapper">
-	<Tabs orientation="vertical" variant="unstyled">
-		<Tabs.Tab label="Inputs and Actions" class={classes.root} icon={Input}>
+	<Tabs
+		orientation={windowWidth < 1075 ? 'horizontal' : 'vertical'}
+		variant="unstyled"
+		position={windowWidth < 1075 ? 'center' : 'left'}
+	>
+		<Tabs.Tab
+			label="Inputs and Actions"
+			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
+			icon={Input}
+		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<TextInput
@@ -133,13 +184,13 @@
 					<NumberInput
 						placeholder="Number Input"
 						label="Number Input"
-						override={{ marginBottom: '2rem', width: '18rem' }}
+						override={{ marginBottom: '2rem' }}
 					/>
 					<NativeSelect
 						data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
 						placeholder="Pick one"
 						label="Native Select"
-						override={{ marginBottom: '1rem', width: '18rem' }}
+						override={{ marginBottom: '1rem' }}
 					/>
 					<h3>Chip component</h3>
 					<Group override={{ marginBottom: '1rem' }}>
@@ -156,7 +207,11 @@
 				</div>
 			</div>
 		</Tabs.Tab>
-		<Tabs.Tab label="Data Display" class={classes.root} icon={Dashboard}>
+		<Tabs.Tab
+			label="Data Display"
+			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
+			icon={Dashboard}
+		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Badge component</h3>
@@ -194,8 +249,8 @@
 								</Timeline.Item>
 								<Timeline.Item title="Code review" bullet={EyeOpen}>
 									<Text color="dimmed" size="sm"
-										><Text variant="link" root="span" href="#" inherit>Robert Gluesticker</Text> left
-										a code review on your pull request</Text
+										><Text variant="link" root="span" href="#" inherit>Robert Gluesticker</Text>
+										left a code review on your pull request</Text
 									>
 									<Text size="xs" override={{ marginTop: '4px' }}>12 minutes ago</Text>
 								</Timeline.Item>
@@ -203,10 +258,10 @@
 						</Center>
 					</Group>
 				</div>
-				<div style="width: 25rem">
+				<div>
 					<h3>Card component</h3>
-					<Card shadow="sm" p="lg">
-						<Card.Section first padding="lg">
+					<Card override={{ maxW: 340 }} shadow="sm" padding="lg">
+						<Card.Section padding="lg">
 							<Image
 								src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
 								height="160"
@@ -214,13 +269,15 @@
 							/>
 						</Card.Section>
 
-						<Group override={{ marginBottom: '10px', marginTop: '$smPX' }}>
-							<Text>Portugal Porto Adventures</Text>
+						<Group position="apart" override={{ marginBottom: '5px', marginTop: '$smPX' }}>
+							<Text size="lg" weight="500" tracking="tight" override={{ mb: '$mdPX' }}
+								>Portugal Porto Adventures</Text
+							>
 						</Group>
 
 						<Text size="sm" override={{ lineHeight: 1.5 }}>
-							With Portugal Porto Adventures you can explore more of the beautiful Portuguese
-							cities, by walking on foot, meeting the locals and eating excellent food and wine
+							With Portugal Porto Adventures you can explore more of the beautiful portuguese
+							cities, by walking on food, meeting the locals and eat excellent food and wine
 						</Text>
 
 						<Button variant="light" color="blue" fullSize override={{ marginTop: '14px' }}>
@@ -230,7 +287,11 @@
 				</div>
 			</div>
 		</Tabs.Tab>
-		<Tabs.Tab label="Feedback" class={classes.root} icon={ExclamationTriangle}>
+		<Tabs.Tab
+			label="Feedback"
+			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
+			icon={ExclamationTriangle}
+		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Alert component</h3>
@@ -264,7 +325,11 @@
 				</div>
 			</div>
 		</Tabs.Tab>
-		<Tabs.Tab label="Overlays" class={classes.root} icon={Stack}>
+		<Tabs.Tab
+			label="Overlays"
+			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
+			icon={Stack}
+		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Overlays</h3>
@@ -278,11 +343,9 @@
 								<p>Hope you liked it!</p>
 							</Group>
 						</Modal>
-
 						<Group position="center">
 							<Button on:click={() => (modalOpened = true)}>Open Modal</Button>
 						</Group>
-
 						<Tooltip label="Label">
 							<Button>With tooltip</Button>
 						</Tooltip>
@@ -293,7 +356,7 @@
 						override={{ '& .arrow': { backgroundColor: '$gray100' } }}
 						{reference}
 						mounted={popperMounted}
-            position="bottom"
+						position="bottom"
 					>
 						<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
 							<Center>Popper content</Center>
@@ -312,21 +375,28 @@
 							</svelte:fragment>
 							Search
 						</Menu.Item>
-
 						<Divider />
-
 						<Menu.Label>Danger zone</Menu.Label>
 						<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
 					</Menu>
 				</div>
 			</div>
 		</Tabs.Tab>
-    <Tabs.Tab label="Dates" class={classes.root} icon={Calendar}>
+		<Tabs.Tab
+			label="Dates"
+			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
+			icon={Calendar}
+		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
-          <h3>Month component</h3>
-          <Month firstDayOfWeek="sunday" bind:value={monthValue} month={monthValue} onChange={(val) => (monthValue = val)} />
-        </div>
+					<h3>Month component</h3>
+					<Month
+						firstDayOfWeek="sunday"
+						bind:value={monthValue}
+						month={monthValue}
+						onChange={(val) => (monthValue = val)}
+					/>
+				</div>
 			</div>
 		</Tabs.Tab>
 	</Tabs>

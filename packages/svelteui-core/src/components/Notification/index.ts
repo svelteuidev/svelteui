@@ -1,2 +1,3 @@
 export { default as Notification } from './Notification.svelte';
-export type { NotificationProps, NotificationStylesParams } from './Notification.styles';
+export type { NotificationStylesParams } from './Notification.styles';
+export type { NotificationProps } from './Notification';

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './TypographyProvider.styles';
 	import { Box } from '../Box';
-	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider.styles';
+	import useStyles from './TypographyProvider.styles';
+	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider';
 
 	interface $$Props extends $$TypographyProviderProps {}
 
@@ -13,7 +13,7 @@
 		underline: $$Props['underline'] = true;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ primaryColor, underline }));
+	$: ({ cx, getStyles } = useStyles({ primaryColor, underline }, { name: 'TypographyProvider' }));
 </script>
 
 <Box bind:element class={cx(className, getStyles({ css: override }))} {use} {...$$restProps}>

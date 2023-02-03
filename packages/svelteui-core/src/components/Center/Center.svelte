@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Center.styles';
 	import Box from '../Box/Box.svelte';
-	import type { CenterProps as $$CenterProps } from './Center.styles';
+	import type { CenterProps as $$CenterProps } from './Center';
 
 	interface $$Props extends $$CenterProps {}
 
@@ -12,7 +12,7 @@
 		inline: $$Props['inline'] = false;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ inline }));
+	$: ({ cx, getStyles } = useStyles({ inline }, { name: 'Center' }));
 </script>
 
 <!--
@@ -29,5 +29,5 @@ Centers content vertically and horizontally.
     ```
 -->
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
-	<slot>This is centered</slot>
+	<slot />
 </Box>

@@ -1,11 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-
-export interface ContainerProps extends DefaultProps {
-	size?: SvelteUINumberSize;
-	fluid?: boolean;
-	sizes?: Record<SvelteUISize, number>;
-}
+import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface ContainerStyleParams {
 	fluid: boolean;

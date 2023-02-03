@@ -2,7 +2,7 @@
 	import useStyles from './Group.styles';
 	import { onMount } from 'svelte';
 	import Box from '../Box/Box.svelte';
-	import type { GroupProps as $$GroupProps } from './Group.styles';
+	import type { GroupProps as $$GroupProps } from './Group';
 
 	interface $$Props extends $$GroupProps {}
 
@@ -26,15 +26,18 @@
 		children = element.childElementCount;
 	});
 
-	$: ({ cx, getStyles } = useStyles({
-		align,
-		children,
-		direction,
-		grow,
-		noWrap,
-		position,
-		spacing
-	}));
+	$: ({ cx, getStyles } = useStyles(
+		{
+			align,
+			children,
+			direction,
+			grow,
+			noWrap,
+			position,
+			spacing
+		},
+		{ name: 'Group' }
+	));
 </script>
 
 <!--

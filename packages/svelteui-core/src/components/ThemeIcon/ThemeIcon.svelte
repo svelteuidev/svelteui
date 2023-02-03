@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Box from '../Box/Box.svelte';
 	import useStyles from './ThemeIcon.styles';
 	import { sizes } from './ThemeIcon.styles';
-	import Box from '../Box/Box.svelte';
-	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon.styles';
+	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon';
 
 	interface $$Props extends $$ThemeIconProps {}
 
@@ -18,7 +18,10 @@
 	export { className as class };
 
 	$: iconSize = typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md;
-	$: ({ cx, getStyles } = useStyles({ color, gradient, iconSize, radius, variant }));
+	$: ({ cx, getStyles } = useStyles(
+		{ color, gradient, iconSize, radius, variant },
+		{ name: 'ThemeIcon' }
+	));
 </script>
 
 <!--

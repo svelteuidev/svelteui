@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Portal from './Portal.svelte';
-	import type { OptionalPortalProps as $$OptionalPortalProps } from './Portal.styles';
+	import type { OptionalPortalProps as $$OptionalPortalProps } from './OptionalPortal';
 
 	interface $$Props extends $$OptionalPortalProps {}
 

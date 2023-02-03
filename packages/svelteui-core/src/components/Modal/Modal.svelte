@@ -1,19 +1,20 @@
 <script lang="ts">
-	import useStyles from './Modal.styles';
-	import { CloseButton } from '../ActionIcon';
-	import { Text } from '../Text';
-	import { Paper } from '../Paper';
-	import { Overlay } from '../Overlay';
-	import { OptionalPortal } from '../Portal';
-	import { Box } from '../Box';
-	import { randomID, colorScheme, css } from '$lib/styles';
-	import { focustrap, lockscroll } from '@svelteuidev/composables';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
-	import type { ModalProps as $$ModalProps } from './Modal.styles';
+	import { focustrap, lockscroll } from '@svelteuidev/composables';
+	import { randomID, colorScheme, css } from '$lib/styles';
+	import { CloseButton } from '../ActionIcon';
+	import { Box } from '../Box';
+	import { Overlay } from '../Overlay';
+	import { Paper } from '../Paper';
+	import { OptionalPortal } from '../Portal';
+	import { Text } from '../Text';
+	import useStyles from './Modal.styles';
+	import type { ModalProps as $$ModalProps, ModalEvents as $$ModalEvents } from './Modal';
 
 	interface $$Props extends $$ModalProps {}
+	interface $$Events extends $$ModalEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -78,7 +79,10 @@
 		);
 	}
 	$: lockScroll = opened;
-	$: ({ cx, classes, getStyles } = useStyles({ centered, overflow, size, zIndex }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ centered, overflow, size, zIndex },
+		{ name: 'Modal' }
+	));
 </script>
 
 {#if opened}
@@ -104,13 +108,13 @@
 					<Paper
 						class={classes.modal}
 						{shadow}
-						p={padding}
+						{padding}
 						{radius}
 						role="dialog"
 						aria-labelledby={titleId}
 						aria-describedby={bodyId}
 						aria-modal
-						tabIndex={-1}
+						tabindex={-1}
 						use={[focustrap]}
 					>
 						{#if title || withCloseButton}

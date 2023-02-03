@@ -1,12 +1,12 @@
 <script lang="ts">
-	import useStyles from './Image.styles';
-	import ImageIcon from './ImageIcon.svelte';
-	import { Skeleton } from '../Skeleton';
-	import { Text } from '../Text';
-	import { Box } from '../Box';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { ImageProps as $$ImageProps } from './Image.styles';
+	import { Box } from '../Box';
+	import { Skeleton } from '../Skeleton';
+	import { Text } from '../Text';
+	import useStyles from './Image.styles';
+	import ImageIcon from './ImageIcon.svelte';
+	import type { ImageProps as $$ImageProps } from './Image';
 
 	interface $$Props extends $$ImageProps {}
 
@@ -25,16 +25,16 @@
 		loader: $$Props['loader'] = false;
 	export { className as class };
 
+	const forwardEvents = createEventForwarder(get_current_component());
+
 	let loaded: boolean = false;
 	let error: boolean = false;
 	let showPlaceholder: boolean = false;
 	const onLoad = () => (loaded = true);
 	const onError = () => (error = true);
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: showPlaceholder = usePlaceholder && (!loaded || error);
-	$: ({ cx, classes, getStyles } = useStyles({ radius, fit, height, width }));
+	$: ({ cx, classes, getStyles } = useStyles({ radius, fit, height, width }, { name: 'Image' }));
 </script>
 
 <!--

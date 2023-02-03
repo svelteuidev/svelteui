@@ -1,8 +1,8 @@
 <script lang="ts">
-	import useStyles from './MediaQuery.styles';
-	import { Box } from '../Box';
 	import { onMount } from 'svelte';
-	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery.styles';
+	import { Box } from '../Box';
+	import useStyles from './MediaQuery.styles';
+	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery';
 
 	interface $$Props extends $$MediaQueryProps {}
 
@@ -16,7 +16,10 @@
 		query: $$Props['query'] = undefined;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ query, styles, largerThan, smallerThan }));
+	$: ({ cx, getStyles } = useStyles(
+		{ query, styles, largerThan, smallerThan },
+		{ name: 'MediaQuery' }
+	));
 
 	function styleChildElement() {
 		element.children[0].classList.add(getStyles().selector);

@@ -1,21 +1,6 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type { Component } from '$lib/internal';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-
-export interface TimelineItemProps extends DefaultProps {
-	active?: boolean;
-	align?: 'left' | 'right';
-	bullet?: Component | HTMLOrSVGElement;
-	bulletSize?: SvelteUINumberSize;
-	radius?: SvelteUINumberSize;
-	color?: SvelteUIColor;
-	lineActive?: boolean;
-	lineVariant?: TimelineItemVariant;
-	lineWidth?: number;
-	title?: string;
-}
-
-export type TimelineItemVariant = 'dashed' | 'dotted' | 'solid';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { TimelineItemVariant } from './TimelineItem';
 
 export interface TimelineItemStyleParams {
 	align?: 'left' | 'right';
@@ -29,7 +14,8 @@ export interface TimelineItemStyleParams {
 export default createStyles(
 	(
 		theme,
-		{ align, bulletSize, radius, color, lineVariant, lineWidth }: TimelineItemStyleParams
+		{ align, bulletSize, radius, color, lineVariant, lineWidth }: TimelineItemStyleParams,
+		getRef
 	) => {
 		const colors = vFunc(color).filled;
 
@@ -38,8 +24,8 @@ export default createStyles(
 				position: 'relative',
 				boxSizing: 'border-box',
 				color: theme.colors.black.value,
-				paddingLeft: align === 'left' ? theme.space.xlPX : 0,
-				paddingRight: align === 'right' ? theme.space.xlPX : 0,
+				paddingLeft: align === 'left' ? theme.space.xlPX.value : 0,
+				paddingRight: align === 'right' ? theme.space.xlPX.value : 0,
 				textAlign: align,
 				darkMode: {
 					color: theme.fn.themeColor('dark', 0)
@@ -50,14 +36,14 @@ export default createStyles(
 				},
 
 				'&:not(:first-of-type)': {
-					marginTop: theme.space.xlPX
+					marginTop: theme.space.xlPX.value
 				},
 
 				'&::before': {
 					boxSizing: 'border-box',
 					position: 'absolute',
 					top: 0,
-					bottom: -theme.space.xl.value,
+					bottom: `${-theme.space.xl.value}px`,
 					left: align === 'left' ? -lineWidth : 'auto',
 					right: align === 'right' ? -lineWidth : 'auto',
 					borderLeft: `${lineWidth}px ${lineVariant} ${theme.fn.themeColor('gray', 3)}`,
@@ -67,21 +53,22 @@ export default createStyles(
 						borderLeft: `${lineWidth}px ${lineVariant} ${theme.fn.themeColor('dark', 4)}`
 					}
 				},
-				'&.active .bulletContainer': {
-					borderColor: colors.backgroundColor,
-					backgroundColor: theme.colors.white.value
-				},
-				'&.active .bulletContainerWithChild': {
-					backgroundColor: colors.backgroundColor,
-					color: theme.colors.white.value
-				},
 				'&.lineActive': {
 					'&::before': {
 						borderLeftColor: colors.backgroundColor
 					}
+				},
+				[`&.active .${getRef('bulletContainer')}`]: {
+					borderColor: colors.backgroundColor,
+					backgroundColor: theme.colors.white.value
+				},
+				[`&.active .${getRef('bulletContainerWithChild')}`]: {
+					backgroundColor: colors.backgroundColor,
+					color: theme.colors.white.value
 				}
 			},
 			bulletContainer: {
+				ref: getRef('bulletContainer'),
 				boxSizing: 'border-box',
 				width: bulletSize,
 				height: bulletSize,
@@ -102,6 +89,7 @@ export default createStyles(
 				}
 			},
 			bulletContainerWithChild: {
+				ref: getRef('bulletContainerWithChild'),
 				borderWidth: 1,
 				backgroundColor: theme.fn.themeColor('gray', 3),
 				color: theme.colors.black.value,
@@ -115,7 +103,7 @@ export default createStyles(
 			title: {
 				fontWeight: 500,
 				lineHeight: 1,
-				marginBottom: +theme.space.xs.value / 2,
+				marginBottom: `${+theme.space.xs.value / 2}px`,
 				textAlign: align
 			},
 			content: {

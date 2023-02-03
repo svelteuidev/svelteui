@@ -31,7 +31,7 @@ Note that due to certain limitations of Svelte, this is not automatic behavior. 
 This may change in the future, as the Group component used to export a `children` prop. However, the need for that is gone. We've found a way to have runtime checks, but haven't perfected the API yet.
 
 ```svelte
-<Card.Container p="xl">
+<Card.Container padding="xl">
 	<!-- top, right, left margins are negative – -1 * theme.spacing.xl -->
 	<Card.Section first>First section</Card.Section>
 
@@ -49,7 +49,7 @@ This may change in the future, as the Group component used to export a `children
 Note that Card relies on mapping direct children and you cannot use fragments or others wrappers for `Card.Section`:
 
 ```svelte
-<Card.Container p="xl">
+<Card.Container padding="xl">
 	<div>
 		<Card.Section>Won't work</Card.Section>
 	</div>

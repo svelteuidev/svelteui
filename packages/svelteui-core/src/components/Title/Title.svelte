@@ -2,9 +2,9 @@
 	import useStyles from './Title.styles';
 	import { Text } from '../Text';
 	import { titleSizes } from './Title.styles';
-	import type { TitleProps, HTMLHeadingElements } from './Title.styles';
+	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title';
 
-	interface $$Props extends TitleProps {}
+	interface $$Props extends $$TitleProps {}
 
 	export let element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
@@ -16,7 +16,7 @@
 	let node: HTMLHeadingElements;
 
 	$: node = `h${order}` as HTMLHeadingElements;
-	$: ({ cx, classes } = useStyles(null, { override }));
+	$: ({ cx, classes } = useStyles(null, { override, name: 'Title' }));
 </script>
 
 <!--

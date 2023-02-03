@@ -86,13 +86,14 @@
   min-height: 15rem;
 }
 .componentExamplesTabPanel {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  display: flex
+  display: flex;
+  justify-content: space-evenly;
 }
-.componentExamplesSectionOne {
+.componentExamplesSectionOne  {
   display: flex;
   flex-direction: column;
   margin-right: 5rem
@@ -103,6 +104,15 @@
 }
 
 /* ---------------------------Media Query's below----------------------------------- */
+
+@media (max-width: 1074px) {
+  .componentExamplesTabPanel {
+    display: block;
+  }
+  .componentExamplesSectionOne {
+    margin-right: 0
+  }
+}
 
 @media (max-width: 800px) {
 	.article {

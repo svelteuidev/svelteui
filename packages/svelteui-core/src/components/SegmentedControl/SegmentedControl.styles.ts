@@ -1,27 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-
-export interface SegmentedControlProps extends DefaultProps {
-	data: string[] | SegmentedControlItem[];
-	value?: string;
-	disabled?: boolean;
-	name?: string;
-	fullWidth?: boolean;
-	color?: SvelteUIColor;
-	size?: SvelteUISize;
-	radius?: SvelteUINumberSize;
-	transitionDuration?: number;
-	transitionTimingFunction?: string;
-	defaultValue?: string;
-	orientation?: 'vertical' | 'horizontal';
-	onChange?(value: string): void;
-}
-
-export interface SegmentedControlItem {
-	value: string;
-	label: unknown;
-	disabled?: boolean;
-}
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface SegmentedControlStylesParams {
 	fullWidth: boolean;

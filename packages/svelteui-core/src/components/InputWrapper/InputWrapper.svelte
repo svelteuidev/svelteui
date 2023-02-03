@@ -3,7 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
 	import LabelElement from './LabelElement.svelte';
-	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper.styles';
+	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper';
 
 	interface $$Props extends $$InputWrapperProps {}
 
@@ -27,7 +27,7 @@
 	$: {
 		_labelProps = labelElement === 'label' ? { htmlFor: id, ...labelProps } : { ...labelProps };
 	}
-	$: ({ cx, classes, getStyles } = useStyles({ size }));
+	$: ({ cx, classes, getStyles } = useStyles({ size }, { name: 'InputWrapper' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>

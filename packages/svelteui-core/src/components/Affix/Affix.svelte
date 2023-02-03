@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Box } from '../Box';
 	import { Portal } from '../Portal';
-	import type { AffixProps as $$AffixProps } from './Affix.styles';
+	import type { AffixProps as $$AffixProps } from './Affix';
 
 	interface $$Props extends $$AffixProps {}
 

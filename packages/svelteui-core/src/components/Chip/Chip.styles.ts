@@ -1,26 +1,9 @@
 import { createStyles } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-import type { Component } from '$lib/internal';
-
-export interface ChipProps extends DefaultProps {
-	color?: SvelteUIColor;
-	id?: string;
-	checked?: boolean;
-	disabled?: boolean;
-	value?: string;
-	label?: Component | string;
-	radius?: SvelteUINumberSize | number;
-	size?: SvelteUISize;
-	type?: 'checkbox' | 'radio';
-	variant?: 'outline' | 'filled';
-	transitionDuration?: number;
-	wrapperProps?: { [key: string]: any };
-}
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface ChipStyleParams {
 	size: SvelteUISize;
 	color: SvelteUIColor;
-	variant: 'outline' | 'filled';
 	radius: SvelteUINumberSize | number;
 	transitionDuration: number;
 }
@@ -58,7 +41,7 @@ const checkedPadding = {
 };
 
 export default createStyles(
-	(theme, { color, radius, size, transitionDuration, variant }: ChipStyleParams, getRef) => {
+	(theme, { color, radius, size, transitionDuration }: ChipStyleParams, getRef) => {
 		return {
 			root: {},
 

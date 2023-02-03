@@ -1,27 +1,12 @@
 import { createStyles, vFunc } from '$lib/styles';
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { Component } from '$lib/internal';
-import type { CloseButtonProps } from '../ActionIcon/ActionIcon.styles';
-
-export interface NotificationProps extends DefaultProps {
-	title?: string;
-	color?: SvelteUIColor;
-	radius?: SvelteUINumberSize;
-	loading?: boolean;
-	icon?: Component | HTMLOrSVGElement;
-	iconSize?: number;
-	iconProps?: Record<string, unknown>;
-	withCloseButton?: boolean;
-	closeButtonLabel?: string;
-	closeButtonProps?: CloseButtonProps;
-}
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface NotificationStylesParams {
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize;
 }
 
-export default createStyles((theme, { color, radius }: NotificationStylesParams) => {
+export default createStyles((theme, { color, radius }: NotificationStylesParams, getRef) => {
 	const _radiusPx = theme.fn.radius(radius);
 	const _radius = parseInt(_radiusPx.toString().split('px')[0]);
 	const topBottom = Math.min(Math.max(_radius / 1.2, 4), 30);
@@ -67,13 +52,14 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams)
 				'&::before': {
 					display: 'none'
 				},
-				'& .icon': {
+				[`& .${getRef('icon')}`]: {
 					backgroundColor: colors.backgroundColor,
 					color: theme.colors.white.value
 				}
 			}
 		},
 		icon: {
+			ref: getRef('icon'),
 			boxSizing: 'border-box',
 			marginRight: theme.space.mdPX.value,
 			width: 28,
