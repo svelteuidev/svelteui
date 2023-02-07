@@ -29,7 +29,15 @@ export function getVariantStyles(color: SvelteUIColor, variant: ActionIconVarian
 				border: '1px solid transparent',
 				backgroundColor: 'transparent',
 				color: `$${color}700`,
-				'&:hover': { backgroundColor: variant === 'transparent' ? null : `$${color}50` }
+				'&:hover': { backgroundColor: variant === 'transparent' ? null : `$${color}50` },
+				'&:disabled': {
+					pointerEvents: 'none',
+					borderColor: 'transparent',
+					backgroundColor: 'rgb(233, 236, 239)',
+					background: 'rgb(233, 236, 239)',
+					color: 'rgb(173, 181, 189)',
+					cursor: 'not-allowed'
+				}
 			}
 		};
 	}
