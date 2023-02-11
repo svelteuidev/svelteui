@@ -14,9 +14,9 @@
 	<Button {...args} />
 </Template>
 
-<Story name="Button" />
+<Story name="Button" id="button" />
 
-<Story name="Colors">
+<Story name="Colors" id="buttonColors">
 	<div style="padding:40px;">
 		{#each colors as color}
 			<Group mt="xl">
