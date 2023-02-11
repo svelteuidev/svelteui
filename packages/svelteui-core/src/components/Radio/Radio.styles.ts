@@ -5,7 +5,6 @@ export interface RadioStyleParams {
 	size: SvelteUISize;
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize | number;
-	transitionDuration: number;
 	labelDirection?: 'right' | 'bottom';
 }
 
@@ -34,15 +33,6 @@ const padding = {
 	xl: 12
 };
 
-const checkedPadding = {
-	xs: 6,
-	sm: 7,
-	md: 8.5,
-	lg: 10,
-	xl: 10
-};
-
-
 export const fontSizes = {
 	xs: 12,
 	sm: 14,
@@ -51,7 +41,7 @@ export const fontSizes = {
 	xl: 20
 };
 export default createStyles(
-	(theme, { color, radius, size, transitionDuration, labelDirection }: RadioStyleParams, getRef) => {
+	(theme, { color, radius, size, labelDirection }: RadioStyleParams, getRef) => {
 		return {
 			root: {
 				display: 'flex',
@@ -59,7 +49,6 @@ export default createStyles(
 				flexDirection: `${labelDirection == 'bottom' ? 'column' : 'row'}`,
 				alignItems: 'center'
 			},
-
 			label: {
 				ref: getRef('label'),
 				boxSizing: 'border-box',
@@ -72,34 +61,21 @@ export default createStyles(
 				justifyContent: 'center',
 				alignItems: 'center',
 				userSelect: 'none',
-				border: '1px solid transparent',
 				borderRadius: theme.fn.radius(radius),
 				height: theme.fn.size({ size, sizes }),
 				width: theme.fn.size({ size, sizes }),
 				fontSize: theme.fn.size({ size, sizes: theme.fontSizes }),
 				lineHeight: `${theme.fn.size({ size, sizes }) - 2}px`,
 				cursor: 'pointer',
-
 				whiteSpace: 'nowrap',
 				position: 'relative',
-				transition: `border-color ${transitionDuration}ms ease, background-color ${transitionDuration}ms ease`,
 				WebkitTapHighlightColor: 'transparent',
-
-				'&.outline': {
 					[`${theme.dark} &`]: {
 						border: `1px solid ${theme.fn.themeColor('dark', 4)}`,
 						backgroundColor: theme.fn.themeColor('dark', 6)
 					},
 					border: `1px solid ${theme.fn.themeColor('gray', 4)}`,
-					backgroundColor: theme.colors.white.value
-				},
-
-				'&.filled': {
-					[`${theme.dark} &`]: {
-						backgroundColor: theme.fn.themeColor('dark', 4)
-					},
-					backgroundColor: theme.fn.themeColor('gray', 1)
-				},
+					backgroundColor: theme.colors.white.value,
 				'&:hover': {
 					backgroundColor: theme.fn.themeColor('gray', 2)
 				},
@@ -117,8 +93,9 @@ export default createStyles(
 					}
 
 				},
-
 				'&.checked': {
+					border: `1px solid ${theme.fn.themeColor(color, 5)}`,
+					backgroundColor: theme.fn.themeColor(color, 6),
 					'&::after': {
 						position: 'absolute',
 						width: theme.fn.size({ size, sizes }),
@@ -127,26 +104,7 @@ export default createStyles(
 						borderRadius: '50%',
 						content: '',
 						transform: 'scale(.4)',
-
-
-					},
-					'&.outline': {
-						border: `1px solid ${theme.fn.themeColor(color, 5)}`,
-						// backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0],
-						backgroundColor: theme.fn.themeColor(color, 6),
-					},
-
-					'&.filled': {
-						[`${theme.dark} &`]: {
-							backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0],
-							'&:hover': {
-								backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0]
-							}
-						},
-						backgroundColor: theme.fn.themeColor(color, 6),
-						'&:hover': {
-							backgroundColor: theme.fn.themeColor(color, 4),
-						}
+					
 					},
 					'&.disabled': {
 						backgroundColor: theme.fn.themeColor(color, 2),
@@ -154,7 +112,6 @@ export default createStyles(
 					}
 				}
 			},
-
 			labelText: {
 				fontSize: fontSizes[size],
 				marginTop: `${labelDirection == 'bottom' ? theme.fn.size({ size, sizes: padding }) + 'px' : '0'}`,
@@ -163,10 +120,6 @@ export default createStyles(
 					color: theme.fn.themeColor('gray', 5),
 				}
 			},
-
-
-
-
 			inputContainer: {
 				width: 0,
 				height: 0,

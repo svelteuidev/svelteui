@@ -2,10 +2,15 @@ import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
+
+export type RadioContext = Writable<{ 
+	value?: string;
+}>;
+
 export interface RadioProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	color?: SvelteUIColor;
 	id?: string;
-	name?:string;
+	name?: string;
 	checked?: boolean;
 	disabled?: boolean;
 	value?: string;
@@ -13,8 +18,6 @@ export interface RadioProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	radius?: SvelteUINumberSize | number;
 	size?: SvelteUISize;
 	type?: 'checkbox' | 'radio';
-	variant?: 'outline' | 'filled';
 	labelDirection?: 'right' | 'bottom';
-	transitionDuration?: number;
-	isgrouped?:boolean;
+	isGrouped?: boolean;
 }

@@ -2,7 +2,7 @@
 	import { createEventDispatcher, beforeUpdate, onMount, setContext } from 'svelte';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
-	import Radio from '../Radio.svelte';
+	import Radio, { ctx } from '../Radio.svelte';
 	import type { RadioGroupProps as $$RadioGroupProps } from './RadioGroup';
 	import { randomID } from '$lib/styles';
 
@@ -19,17 +19,14 @@
 		value: $$Props['value'] = undefined,
 		label: $$Props['label'] = null,
 		disabled: $$Props['disabled'] = false,
-		variant: $$Props['variant'] = 'outline',
 		size: $$Props['size'] = undefined,
 		radius: $$Props['radius'] = undefined,
 		direction: $$Props['direction'] = 'row',
 		labelDirection: $$Props['labelDirection'] = 'right',
 		align: $$Props['align'] = 'flex-start',
 		position: $$Props['position'] = 'left',
-		spacing: $$Props['spacing'] = 'md',
 		name: $$Props['name'] = randomID();
 	export { className as class };
-	const multiple = false;
 	const dispatch = createEventDispatcher();
 
 	function onChanged(item: string, el: EventTarget) {
@@ -38,8 +35,11 @@
 		dispatch('change', value);
 	}
 
+	// initialize a 'reactive context' which is basically
+	// a store inside the context, so that all children
+	// components can react to changes made in props
 	const selectedValue = writable(value);
-	setContext('RadioButtonGroup', {
+	setContext(ctx, {
 		selectedValue,
 		add: ({ checked, val }) => {
 			if (checked) {
@@ -79,7 +79,7 @@ A Radio group component is a container for Radios.
 
 <InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
 	{#if items && items.length > 0}
-		<Group {direction} {spacing} {align} {position}>
+		<Group {direction} {align} {position}>
 			{#each items as item}
 				<Radio
 					{use}
@@ -91,15 +91,14 @@ A Radio group component is a container for Radios.
 					{size}
 					{color}
 					{name}
-					{variant}
 					{disabled}
-					isgrouped={true}
+					isGrouped={true}
 					on:change={(e) => onChanged(item.value, e.target)}
 				/>
 			{/each}
 		</Group>
 	{:else}
-		<Group {direction} {spacing} {align} {position}>
+		<Group {direction} {align} {position}>
 			<slot />
 		</Group>
 	{/if}
