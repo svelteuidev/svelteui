@@ -107,15 +107,14 @@ export default createStyles(
 					backgroundColor: theme.fn.themeColor('dark', 5)
 				},
 				'&.disabled': {
-					backgroundColor: `${theme.fn.themeColor('gray', 1)} !important`,
-					borderColor: `${theme.fn.themeColor('gray', 1)} !important`,
-					color: theme.fn.themeColor('gray', 5),
-					[`${theme.dark} &`]: {
-						backgroundColor: `${theme.fn.themeColor('dark', 5)} !important`,
-						borderColor: `${theme.fn.themeColor('dark', 5)} !important`,
-						color: theme.fn.themeColor('dark', 3)
-					},
+					backgroundColor: '$gray200',
+					borderColor: '$gray300',
 					cursor: 'not-allowed',
+					[`${theme.dark} &`]: {
+						color: theme.fn.themeColor('dark', 3) + '!important',
+						backgroundColor: '$dark400',
+						borderColor: '$dark600',
+					}
 
 				},
 
@@ -127,12 +126,14 @@ export default createStyles(
 						backgroundColor: theme.colors.white.value,
 						borderRadius: '50%',
 						content: '',
-						transform: 'scale(.4)'
+						transform: 'scale(.4)',
+
 
 					},
 					'&.outline': {
 						border: `1px solid ${theme.fn.themeColor(color, 5)}`,
-						backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0],
+						// backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0],
+						backgroundColor: theme.fn.themeColor(color, 6),
 					},
 
 					'&.filled': {
@@ -142,10 +143,14 @@ export default createStyles(
 								backgroundColor: theme.fn.variant({ color, variant: 'light' }).background[0]
 							}
 						},
-						backgroundColor: theme.fn.themeColor(color, 1),
+						backgroundColor: theme.fn.themeColor(color, 6),
 						'&:hover': {
-							backgroundColor: theme.fn.themeColor(color, 2)
+							backgroundColor: theme.fn.themeColor(color, 4),
 						}
+					},
+					'&.disabled': {
+						backgroundColor: theme.fn.themeColor(color, 2),
+						border: `1px solid ${theme.fn.themeColor(color, 2)}`,
 					}
 				}
 			},
@@ -160,7 +165,7 @@ export default createStyles(
 			},
 
 
-			  
+
 
 			inputContainer: {
 				width: 0,
