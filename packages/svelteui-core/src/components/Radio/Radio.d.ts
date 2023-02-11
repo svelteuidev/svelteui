@@ -17,7 +17,6 @@ export interface RadioProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	label?: Component | string;
 	radius?: SvelteUINumberSize | number;
 	size?: SvelteUISize;
-	type?: 'checkbox' | 'radio';
 	labelDirection?: 'right' | 'bottom';
 	isGrouped?: boolean;
 }
