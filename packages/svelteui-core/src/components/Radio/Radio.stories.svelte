@@ -1,34 +1,31 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import { useSvelteUITheme, type SvelteUINumberSize } from '$lib/styles';
-	import { Radio } from './index';
+	import type { SvelteUINumberSize } from '$lib/styles';
 	import RadioGroup from './RadioGroup/RadioGroup.svelte';
+	import { Radio } from './index';
 
-	const theme = useSvelteUITheme();
-	const colors = Object.keys(theme.colorNames);
 	const spacings: SvelteUINumberSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 	const directions: ('column' | 'row')[] = ['column', 'row'];
-	const labelDirections: ('right' | 'bottom')[] = ['right', 'bottom'];
 
-	let bindValue; 
-	let selectedval = 'default';
+	let bindValue = 'three';
+	let bindGroup = 'two';
 </script>
 
 <Meta title="Components/Radio" component={Radio} />
 
 <Template let:args>
+	<Radio {...args} checked />
 	<Radio {...args} />
 </Template>
 
-<Story name="Radio">
-	<RadioGroup bind:value={selectedval}>
-		<Radio  value="default">Default Radio</Radio>
-		<Radio   value="filed">Filled Radio</Radio>
-		<Radio  labelDirection="bottom"   value="outline">Outline Radio</Radio>
-		<Radio disabled value="disable">Disabled Radio</Radio> 
-	</RadioGroup>
-	<Radio checked disabled value="test">Checked Disabled Radio</Radio>
-	<p>Variable bound to value: <code>{selectedval}</code></p>
+<Story name="Default" args={{ label: 'Default Radio' }}>
+	<Radio checked label="Default Radio" />
+	<Radio label="Default Radio" />
+</Story>
+
+<Story name="Label Direction">
+	<Radio labelDirection={'right'}>Right label</Radio>
+	<Radio labelDirection={'left'}>Left label</Radio>
 </Story>
 
 <Story name="Bind value">
@@ -40,7 +37,19 @@
 			{ label: 'Three', value: 'three' }
 		]}
 	/>
-	<p>Variable bound to value: <code>{JSON.stringify(bindValue)}</code></p>
+	<p>Variable bound to value: <code>{bindValue}</code></p>
+</Story>
+
+<Story name="Bind group">
+	<RadioGroup
+		bind:group={bindGroup}
+		items={[
+			{ label: 'One', value: 'one' },
+			{ label: 'Two', value: 'two' },
+			{ label: 'Three', value: 'three' }
+		]}
+	/>
+	<p>Variable bound to group: <code>{bindGroup}</code></p>
 </Story>
 
 <Story name="Spacing">
@@ -49,7 +58,7 @@
 		<RadioGroup
 			bind:value={bindValue}
 			{spacing}
-			size={spacing.toString()}
+			size={spacing}
 			items={[
 				{ label: 'One', value: 'one' },
 				{ label: 'Two', value: 'two' },
@@ -64,7 +73,6 @@
 		<p>Direction: {direction}</p>
 		<RadioGroup
 			bind:value={bindValue}
-			labelDirection={'right'}
 			{direction}
 			items={[
 				{ label: 'One', value: 'one' },

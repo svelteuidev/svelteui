@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { createEventDispatcher, beforeUpdate, onMount, setContext } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
-	import Radio, { ctx } from '../Radio.svelte';
+	import Radio from '../Radio.svelte';
 	import type { RadioGroupProps as $$RadioGroupProps } from './RadioGroup';
 	import { randomID } from '$lib/styles';
-
-	import { writable } from 'svelte/store';
 
 	interface $$Props extends $$RadioGroupProps {}
 
@@ -14,52 +12,31 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		color: $$Props['color'] = undefined,
 		items: $$Props['items'] = [],
+		group: $$Props['group'] = undefined,
+		color: $$Props['color'] = undefined,
 		value: $$Props['value'] = undefined,
 		label: $$Props['label'] = null,
 		disabled: $$Props['disabled'] = false,
 		size: $$Props['size'] = undefined,
 		radius: $$Props['radius'] = undefined,
+		position: $$Props['position'] = 'left',
 		direction: $$Props['direction'] = 'row',
 		labelDirection: $$Props['labelDirection'] = 'right',
 		align: $$Props['align'] = 'flex-start',
-		position: $$Props['position'] = 'left',
+		spacing: $$Props['spacing'] = 'md',
 		name: $$Props['name'] = randomID();
 	export { className as class };
+
 	const dispatch = createEventDispatcher();
 
-	function onChanged(item: string, el: EventTarget) {
+	function onChanged(val: string, el: EventTarget) {
 		const checked = (el as HTMLInputElement).checked;
-		value = checked ? item : undefined;
-		dispatch('change', value);
+		value = checked ? val : undefined;
+		dispatch('change', val);
 	}
 
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	const selectedValue = writable(value);
-	setContext(ctx, {
-		selectedValue,
-		add: ({ checked, val }) => {
-			if (checked) {
-				selectedValue.set(val);
-			}
-		},
-		update: (val) => {
-			value = val;
-		}
-	});
-	onMount(() => {
-		$selectedValue = value;
-	});
-	beforeUpdate(() => {
-		$selectedValue = value;
-	});
-	selectedValue.subscribe((val) => {
-		value = val;
-		dispatch('change', val);
-	});
+	$: group = group || value;
 </script>
 
 <!--
@@ -78,28 +55,25 @@ A Radio group component is a container for Radios.
 -->
 
 <InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
-	{#if items && items.length > 0}
-		<Group {direction} {align} {position}>
+	<Group {direction} {align} {position} {spacing}>
+		{#if items && items.length > 0}
 			{#each items as item}
 				<Radio
 					{use}
+					bind:group
 					label={item.label}
 					value={item.value}
 					{labelDirection}
-					checked={value === item.value}
 					{radius}
 					{size}
 					{color}
 					{name}
 					{disabled}
-					isGrouped={true}
 					on:change={(e) => onChanged(item.value, e.target)}
 				/>
 			{/each}
-		</Group>
-	{:else}
-		<Group {direction} {align} {position}>
+		{:else}
 			<slot />
-		</Group>
-	{/if}
+		{/if}
+	</Group>
 </InputWrapper>
