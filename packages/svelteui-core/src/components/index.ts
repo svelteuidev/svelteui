@@ -47,3 +47,4 @@ export * from './Timeline';
 export * from './Title';
 export * from './Tooltip';
 export * from './TypographyProvider';
+export * from './Breadcrumb';

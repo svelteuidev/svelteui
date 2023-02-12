@@ -1,0 +1,18 @@
+import { HTMLAttributes } from 'svelte/elements';
+import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+
+
+export type BreadcrumbContext = Writable<{
+	separetor?: string;
+	size?: SvelteUINumberSize;
+	color?: SvelteUIColor;
+}>;
+
+
+export interface BreadcrumbProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
+	value?: number;
+	color?: SvelteUIColor;
+	size?: SvelteUINumberSize;
+	label?: string;
+	separetor?: string;
+}
