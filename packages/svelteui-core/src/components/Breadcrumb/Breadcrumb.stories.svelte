@@ -1,12 +1,9 @@
 <script lang="ts">
-	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import { useSvelteUITheme, type SvelteUINumberSize } from '$lib/styles';
+	import { Meta, Story, Template } from '@storybook/addon-svelte-csf'; 
 	import { Breadcrumb } from './index';
 	import BreadcrumbItem from './BreadcrumbItem/BreadcrumbItem.svelte';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
-	import { Home, Person } from 'radix-icons-svelte';
-
-	const theme = useSvelteUITheme();
+	import { Home, Person } from 'radix-icons-svelte'; 
 </script>
 
 <Meta title="Components/Breadcrumb" component={Breadcrumb} />

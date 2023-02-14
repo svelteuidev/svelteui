@@ -27,35 +27,34 @@ export default createStyles(
 	(theme, { color, size }: BreadcrumbItemStylesParams) => ({
 		root: {
 			position: 'relative',
-			'& .wrapper': {
-				display: 'flex',
-				gap: size,
-				alignItems: 'center',
-				overflow: 'hidden',
-				fontSize: fontSizes[size],
-				'& a': {
-					display: 'flex',
-					alignItems: 'center',
-					'text-decoration': 'none',
-					color: theme.fn.themeColor(color, 6)
-				},
-				'& .innerText': {
-					marginLeft: '4px'
-				},
-				'& .icon': {
-					fontSize: fontSizes[size],
-				}
-			}
-			// ,
-			// '& .active': {
-			// 	color: '$red500'
-			// }
 
 		},
-
-
-
-
+		// ,
+		// '& .active': {
+		// 	color: '$red500'
+		// } 
+		wrapper: {
+			display: 'flex',
+			gap: size,
+			alignItems: 'center',
+			overflow: 'hidden',
+			fontSize: fontSizes[size],
+			'& a': {
+				display: 'flex',
+				alignItems: 'center',
+				'text-decoration': 'none',
+				color: theme.fn.themeColor(color, 6)
+			}
+		},
+		innerText: {
+			marginLeft: '4px'
+		},
+		icon: {
+			fontSize: fontSizes[size],
+		},
+		separator: {
+			margin: '0 8px'
+		}
 
 	})
 );

@@ -30,7 +30,7 @@
 	});
 	setContext(ctx, contextStore);
 
-	$: ({ cx, classes, getStyles, theme } = useStyles({ color, size }, { name: 'Progress' }));
+	$: ({ cx, classes, getStyles, theme } = useStyles({ color, size }, { name: 'Breadcrumb' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>
