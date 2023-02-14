@@ -7,7 +7,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
-	import type { RadioProps as $$RadioProps, RadioContext } from './Radio';
+	import type { RadioProps as $$RadioProps } from './Radio';
 	import useStyles from './Radio.styles';
 
 	interface $$Props extends $$RadioProps {}

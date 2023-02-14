@@ -1,5 +1,5 @@
 import { createStyles } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { SvelteUIColor, SvelteUISize } from '$lib/styles';
 
 export interface RadioStyleParams {
 	size: SvelteUISize;
