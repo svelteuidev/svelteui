@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Box } from '../../Box';
-	import type { BreadcrumbContext } from '../Breadcrumb';
-	import { ctx } from '../Breadcrumb.svelte';
-	import type { BreadcrumbItemProps as $$BreadcrumbItemProps } from './BreadcrumbItem';
-	import useStyles from './BreadcrumbItem.styles';
+	import type { BreadcrumbContext } from '../Breadcrumbs';
+	import { ctx } from '../Breadcrumbs.svelte';
+	import type { BreadcrumbItemProps as $$BreadcrumbItemProps } from './BreadcrumbsItem';
+	import useStyles from './BreadcrumbsItem.styles';
 
 	interface $$Props extends $$BreadcrumbItemProps {}
 
@@ -24,7 +24,7 @@
 	let size = $state.size;
 	let color = $state.color;
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'BreadcrumbItem' }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'BreadcrumbsItem' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

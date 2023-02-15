@@ -1,11 +1,11 @@
 <script lang="ts" context="module">
-	export const ctx = 'Breadcrumb';
+	export const ctx = 'Breadcrumbs';
 </script>
 
 <script lang="ts">
-	import useStyles from './Breadcrumb.styles';
+	import useStyles from './Breadcrumbs.styles';
 	import { Box } from '../Box';
-	import type { BreadcrumbContext, BreadcrumbProps as $$BreadcrumbProps } from './Breadcrumb';
+	import type { BreadcrumbContext, BreadcrumbProps as $$BreadcrumbProps } from './Breadcrumbs';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
@@ -30,7 +30,7 @@
 	});
 	setContext(ctx, contextStore);
 
-	$: ({ cx, getStyles } = useStyles(null, { name: 'Breadcrumb' }));
+	$: ({ cx, getStyles } = useStyles(null, { name: 'Breadcrumbs' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

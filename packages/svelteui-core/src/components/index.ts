@@ -5,7 +5,7 @@ export * from './Anchor';
 export * from './AppShell';
 export * from './Badge';
 export * from './Box';
-export * from './Breadcrumb';
+export * from './Breadcrumbs';
 export * from './Burger';
 export * from './Button';
 export * from './Card';
