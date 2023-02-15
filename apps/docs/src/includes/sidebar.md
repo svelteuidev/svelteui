@@ -79,6 +79,7 @@
   - [UnstyledButton](core/unstyled-button)
 - **<HamburgerMenu/><Space w="md" />Navigation**
   - [Anchor](core/anchor)
+  - [Breadcrumbs](core/breadcrumbs)
   - [Burger](core/burger)
   - [Seo](core/seo)
   - [Tabs](core/tabs)

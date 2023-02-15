@@ -17,6 +17,7 @@ export * from './Container';
 export * from './Divider';
 export * from './Grid';
 export * from './Group';
+export * from './IconRenderer';
 export * from './Image';
 export * from './Input';
 export * from './InputWrapper';
