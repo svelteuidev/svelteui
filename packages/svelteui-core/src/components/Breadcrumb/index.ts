@@ -1,3 +1,3 @@
-export { default as Breadcrumb } from './Breadcrumb.svelte';
-export type { BreadcrumbStylesParams } from './Breadcrumb.styles';
+export { Breadcrumb } from './combinator';
 export type { BreadcrumbProps } from './Breadcrumb';
+export type { BreadcrumbItemProps, BreadcrumbItemStylesParams } from './BreadcrumbItem';

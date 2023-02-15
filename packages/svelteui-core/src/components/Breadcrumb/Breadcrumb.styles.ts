@@ -1,11 +1,5 @@
-import { createStyles, keyframes } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles';
-
-export interface BreadcrumbStylesParams {
-	color: SvelteUIColor;
-	size: SvelteUINumberSize;
-}
-
+import { createStyles } from '$lib/styles';
+import type { SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
 
 export const sizes = {
 	xs: 3,
@@ -15,13 +9,9 @@ export const sizes = {
 	xl: 16
 };
 
-export default createStyles(
-	(theme, { color, size }: BreadcrumbStylesParams) => ({
-		root: {
-			position: 'relative',
-			display: 'flex'
-		}
-
-
-	})
-);
+export default createStyles(() => ({
+	root: {
+		position: 'relative',
+		display: 'flex'
+	}
+}));

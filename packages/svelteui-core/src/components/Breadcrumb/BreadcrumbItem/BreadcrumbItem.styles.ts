@@ -1,5 +1,5 @@
-import { createStyles, keyframes } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles';
+import { createStyles } from '$lib/styles';
+import type { SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
 
 export interface BreadcrumbItemStylesParams {
 	color: SvelteUIColor;
@@ -14,34 +14,30 @@ export const fontSizes = {
 	xl: 20
 };
 
-export default createStyles(
-	(theme, { color, size }: BreadcrumbItemStylesParams) => ({
-		root: {
-			position: 'relative',
-
-		},
-		wrapper: {
+export default createStyles((theme, { color, size }: BreadcrumbItemStylesParams) => ({
+	root: {
+		position: 'relative'
+	},
+	wrapper: {
+		display: 'flex',
+		gap: size,
+		alignItems: 'center',
+		overflow: 'hidden',
+		fontSize: fontSizes[size],
+		'& a': {
 			display: 'flex',
-			gap: size,
 			alignItems: 'center',
-			overflow: 'hidden',
-			fontSize: fontSizes[size],
-			'& a': {
-				display: 'flex',
-				alignItems: 'center',
-				textDecoration: 'none',
-				color: theme.fn.themeColor(color, 6)
-			}
-		},
-		innerText: {
-			marginLeft: '4px'
-		},
-		icon: {
-			fontSize: fontSizes[size],
-		},
-		separator: {
-			margin: '0 8px'
+			textDecoration: 'none',
+			color: theme.fn.themeColor(color, 6)
 		}
-
-	})
-);
+	},
+	innerText: {
+		marginLeft: '4px'
+	},
+	icon: {
+		fontSize: fontSizes[size]
+	},
+	separator: {
+		margin: '0 8px'
+	}
+}));
