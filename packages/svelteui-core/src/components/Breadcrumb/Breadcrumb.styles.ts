@@ -18,14 +18,8 @@ export const sizes = {
 export default createStyles(
 	(theme, { color, size }: BreadcrumbStylesParams) => ({
 		root: {
-			// [`${theme.dark} &`]: {
-			// 	backgroundColor: theme.fn.themeColor('dark', 4)
-			// },
 			position: 'relative',
-			display:'flex'
-			//height: theme.fn.size({ size, sizes }),
-			// backgroundColor: theme.fn.themeColor('gray', 2),
-			// overflow: 'hidden'
+			display: 'flex'
 		}
 
 

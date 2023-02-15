@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import useStyles from './Breadcrumb.styles';
-	import { Box } from '../Box'; 
+	import { Box } from '../Box';
 	import type { BreadcrumbContext, BreadcrumbProps as $$BreadcrumbProps } from './Breadcrumb';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -30,9 +30,9 @@
 	});
 	setContext(ctx, contextStore);
 
-	$: ({ cx, classes, getStyles, theme } = useStyles({ color, size }, { name: 'Breadcrumb' }));
+	$: ({ cx, getStyles } = useStyles({ color, size }, { name: 'Breadcrumb' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>
-	<slot class="breadcrumb-items" />
+	<slot />
 </Box>

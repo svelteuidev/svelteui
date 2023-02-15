@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import {  DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Writable } from 'svelte/store';
 
 
 export type BreadcrumbContext = Writable<{

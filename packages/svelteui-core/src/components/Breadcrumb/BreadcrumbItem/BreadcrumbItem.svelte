@@ -25,7 +25,7 @@
 	let size =  $state.size;
 	let color = $state.color;
 
-	$: ({ cx, classes, getStyles, theme } = useStyles({ color, size }, { name: 'BreadcrumbItem' }));
+	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'BreadcrumbItem' }));
 </script>
 
 <Box bind:element {use} class={cx(className, getStyles({ css: override }))}>

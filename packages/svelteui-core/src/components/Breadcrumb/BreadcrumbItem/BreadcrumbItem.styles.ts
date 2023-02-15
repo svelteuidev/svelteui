@@ -6,15 +6,6 @@ export interface BreadcrumbItemStylesParams {
 	size: SvelteUINumberSize;
 }
 
-
-export const sizes = {
-	xs: 3,
-	sm: 5,
-	md: 8,
-	lg: 12,
-	xl: 16
-};
-
 export const fontSizes = {
 	xs: 12,
 	sm: 14,
@@ -29,10 +20,6 @@ export default createStyles(
 			position: 'relative',
 
 		},
-		// ,
-		// '& .active': {
-		// 	color: '$red500'
-		// } 
 		wrapper: {
 			display: 'flex',
 			gap: size,
@@ -42,7 +29,7 @@ export default createStyles(
 			'& a': {
 				display: 'flex',
 				alignItems: 'center',
-				'text-decoration': 'none',
+				textDecoration: 'none',
 				color: theme.fn.themeColor(color, 6)
 			}
 		},
