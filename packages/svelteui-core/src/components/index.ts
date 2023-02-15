@@ -34,6 +34,7 @@ export * from './Paper';
 export * from './Popper';
 export * from './Portal';
 export * from './Progress';
+export * from './Radio';
 export * from './Seo';
 export * from './SimpleGrid';
 export * from './Skeleton';

@@ -43,6 +43,7 @@ export * as OverlayDemos from './demos/core/Overlay';
 export * as PaperDemos from './demos/core/Paper';
 export * as PopperDemos from './demos/core/Popper';
 export * as ProgressDemos from './demos/core/Progress';
+export * as RadioDemos from './demos/core/Radio';
 export * as SeoDemos from './demos/core/Seo';
 export * as SimpleGridDemos from './demos/core/SimpleGrid';
 export * as SkeletonDemos from './demos/core/Skeleton';

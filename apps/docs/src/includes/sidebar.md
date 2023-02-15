@@ -73,6 +73,7 @@
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)
   - [NumberInput](core/number-input)
+  - [Radio](core/radio)
   - [Switch](core/switch)
   - [TextInput](core/text-input)
   - [UnstyledButton](core/unstyled-button)
