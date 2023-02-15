@@ -7,7 +7,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
-	import type { RadioProps as $$RadioProps, RadioContext } from './Radio';
+	import type { RadioProps as $$RadioProps } from './Radio';
 	import useStyles from './Radio.styles';
 
 	interface $$Props extends $$RadioProps {}
@@ -23,7 +23,7 @@
 		checked: $$Props['checked'] = false,
 		label: $$Props['label'] = '',
 		error: $$Props['error'] = false,
-		labelDirection: $$Props['labelDirection'] = 'right',
+		labelDirection: $$Props['labelDirection'] = 'left',
 		size: $$Props['size'] = 'sm',
 		name: $$Props['name'] = '',
 		group: $$Props['group'] = undefined;
@@ -36,6 +36,10 @@
 		{ color, size, labelDirection, error },
 		{ name: 'Radio' }
 	));
+
+  function onChange(e: InputEvent) {
+    checked = (e.target as HTMLInputElement).checked;
+  }
 </script>
 
 <!--
@@ -57,8 +61,6 @@ Radio component.
 		<div class={classes.inputContainer}>
 			{#if group}
 				<input
-					use:useActions={use}
-					use:forwardEvents
 					bind:group
 					class={classes.input}
 					class:disabled
@@ -68,20 +70,23 @@ Radio component.
 					{value}
 					{id}
 					{...$$restProps}
+          use:useActions={use}
+					use:forwardEvents
 				/>
 			{:else}
 				<input
-					use:useActions={use}
-					use:forwardEvents
-					class={classes.input}
-					class:disabled
-					type="radio"
-					{checked}
-					{name}
-					{disabled}
-					{value}
-					{id}
-					{...$$restProps}
+          class={classes.input}
+          class:disabled
+          type="radio"
+          {checked}
+          {name}
+          {disabled}
+          {value}
+          {id}
+          {...$$restProps}
+          on:change={onChange}
+          use:useActions={use}
+          use:forwardEvents
 				/>
 			{/if}
 			<div class={classes.inner} aria-hidden />
