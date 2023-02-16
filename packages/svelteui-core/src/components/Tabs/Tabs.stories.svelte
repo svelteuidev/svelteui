@@ -71,3 +71,15 @@
 </Story>
 
 <Story name="Tabs in vertical orientation" id="tabsVertical" args={{ orientation: 'vertical' }} />
+
+<Story name="Nested Tabs" id="nestedTabs">
+	<Tabs>
+		<Tabs.Tab label="Gallery">
+			<Tabs>
+				<Tabs.Tab label="Photos">Photos tab content</Tabs.Tab>
+				<Tabs.Tab label="Images">Images tab content</Tabs.Tab>
+			</Tabs>
+		</Tabs.Tab>
+		<Tabs.Tab label="Messages">Messages tab content</Tabs.Tab>
+	</Tabs>
+</Story>

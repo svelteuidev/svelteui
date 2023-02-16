@@ -5,10 +5,12 @@ import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 export type TabsVariant = 'default' | 'outline' | 'pills' | 'unstyled';
 
 export type TabsContext = Writable<{
-	active: number;
-	color: SvelteUIColor;
-	variant: TabsVariant;
-	orientation: 'horizontal' | 'vertical';
+	[tabsId: string]: {
+		active: number;
+		color: SvelteUIColor;
+		variant: TabsVariant;
+		orientation: 'horizontal' | 'vertical';
+	};
 }>;
 
 export interface TabsProps extends DefaultProps, HTMLAttributes<HTMLElement> {
