@@ -32,16 +32,21 @@
 	function calculateActive() {
 		if (!element) return;
 		const children = element.parentNode.children;
+		const tabsId = element.parentElement.getAttribute('data-tabsid');
 		const index = Array.prototype.indexOf.call(children, element);
-		_active = active !== undefined ? active : $state.active === index;
+
+		_active = active !== undefined ? active : $state[tabsId].active === index;
+		_color = color !== undefined ? color : $state[tabsId].color;
+		_orientation = orientation !== undefined ? orientation : $state[tabsId].orientation;
+		_variant = variant !== undefined ? variant : $state[tabsId].variant;
 	}
 
 	onMount(() => calculateActive());
 
 	$: _active = active;
-	$: _color = color !== undefined ? color : $state.color;
-	$: _orientation = orientation !== undefined ? orientation : $state.orientation;
-	$: _variant = variant !== undefined ? variant : $state.variant;
+	$: _color = color !== undefined ? color : _color;
+	$: _orientation = orientation !== undefined ? orientation : _orientation;
+	$: _variant = variant !== undefined ? variant : _variant;
 
 	// check if item is still checked when the context store updates
 	$: $state, calculateActive();

@@ -4,6 +4,17 @@ import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib
 export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
 	const { themeColor, rgba } = fns;
 
+	const disabled = {
+		'&.disabled': {
+			pointerEvents: 'none',
+			borderColor: 'transparent',
+			backgroundColor: 'rgb(233, 236, 239)',
+			background: 'rgb(233, 236, 239)',
+			color: 'rgb(173, 181, 189)',
+			cursor: 'not-allowed'
+		}
+	};
+
 	const variants = {
 		/** Filled variant */
 		filled: {
@@ -13,7 +24,8 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			border: 'transparent',
 			backgroundColor: themeColor(color, 6),
 			color: 'White',
-			'&:hover': { backgroundColor: themeColor(color, 7) }
+			'&:hover': { backgroundColor: themeColor(color, 7) },
+			...disabled
 		},
 		/** Light variant */
 		light: {
@@ -25,7 +37,8 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			border: 'transparent',
 			backgroundColor: themeColor(color, 0),
 			color: color === 'dark' ? themeColor('dark', 9) : themeColor(color, 6),
-			'&:hover': { backgroundColor: themeColor(color, 1) }
+			'&:hover': { backgroundColor: themeColor(color, 1) },
+			...disabled
 		},
 		/** Outline variant */
 		outline: {
@@ -39,7 +52,8 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			color: themeColor(color, 7),
 			'&:hover': {
 				backgroundColor: rgba(themeColor(color, 0), 0.35)
-			}
+			},
+			...disabled
 		},
 		/** Subtle variant */
 		subtle: {
@@ -52,7 +66,8 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			color: color === 'dark' ? themeColor('dark', 9) : themeColor(color, 6),
 			'&:hover': {
 				backgroundColor: themeColor(color, 0)
-			}
+			},
+			...disabled
 		},
 		/** Default variant */
 		default: {
@@ -65,14 +80,16 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			border: `1px solid ${themeColor('gray', 4)}`,
 			backgroundColor: 'White',
 			color: 'Black',
-			'&:hover': { backgroundColor: themeColor('gray', 0) }
+			'&:hover': { backgroundColor: themeColor('gray', 0) },
+			...disabled
 		},
 		/** White variant */
 		white: {
 			border: 'transparent',
 			backgroundColor: 'White',
 			color: themeColor(color, 7),
-			'&:hover': { backgroundColor: 'White' }
+			'&:hover': { backgroundColor: 'White' },
+			...disabled
 		},
 		gradient: {}
 	};

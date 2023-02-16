@@ -36,6 +36,7 @@
 
 - ### <NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle>
   {#if sidebar[0].expand}
+  - [Version 0.10.0](changelog/v0-10-0)
   - [Version 0.7.0](changelog/v0-7-0)
   - [Version 0.6.5](changelog/v0-6-5)
   - [Version 0.6.0](changelog/v0-6-0)
@@ -73,11 +74,13 @@
   - [InputWrapper](core/input-wrapper)
   - [NativeSelect](core/native-select)
   - [NumberInput](core/number-input)
+  - [Radio](core/radio)
   - [Switch](core/switch)
   - [TextInput](core/text-input)
   - [UnstyledButton](core/unstyled-button)
 - **<HamburgerMenu/><Space w="md" />Navigation**
   - [Anchor](core/anchor)
+  - [Breadcrumbs](core/breadcrumbs)
   - [Burger](core/burger)
   - [Seo](core/seo)
   - [Tabs](core/tabs)

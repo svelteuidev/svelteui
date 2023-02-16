@@ -4,7 +4,7 @@ group: 'svelteuidev-core'
 packageGroup: '@svelteuidev/core'
 slug: /core/checkbox/
 category: 'inputs'
-description: 'Add inline styles to any element or component with css prop'
+description: 'Wrapper around the checkbox input type'
 import: "import { Checkbox } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Checkbox/Checkbox.svelte'
 docs: 'core/checkbox.md'

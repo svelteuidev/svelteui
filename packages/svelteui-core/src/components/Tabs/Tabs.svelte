@@ -3,8 +3,9 @@
 </script>
 
 <script lang="ts">
-	import { createEventDispatcher, onMount, setContext } from 'svelte';
+	import { createEventDispatcher, getContext, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
 	import useStyles from './Tabs.styles';
@@ -27,11 +28,14 @@
 		variant: $$Props['variant'] = 'default';
 	export { className as class };
 
+	const tabsId = randomID();
 	let tabNodes: Element[];
 	const dispatch = createEventDispatcher();
 
 	onMount(() => {
-		const children = element.querySelectorAll('.svelteui-Tab-content');
+		const children = element.querySelectorAll(
+			':scope > div > [role="tablist"] > .svelteui-Tab > div > .svelteui-Tab-content'
+		);
 		tabNodes = Array.from(children);
 		setupTabs();
 		calculateActive();
@@ -40,14 +44,19 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	const contextStore: TabsContext = writable({
-		active: active === -1 ? initialTab : active,
-		color: color,
-		variant: variant,
-		orientation: orientation
-	});
-	setContext(ctx, contextStore);
-	$: $contextStore = {
+	let contextStore: TabsContext = getContext(ctx);
+	if (!contextStore) {
+		contextStore = writable({
+			[tabsId]: {
+				active: active === -1 ? initialTab : active,
+				color: color,
+				variant: variant,
+				orientation: orientation
+			}
+		});
+		setContext(ctx, contextStore);
+	}
+	$: $contextStore[tabsId] = {
 		active: _active,
 		color: color,
 		variant: variant,
@@ -60,7 +69,10 @@
 	 * to tab changes.
 	 */
 	function setupTabs() {
-		const tabs = element.querySelectorAll('.svelteui-Tab');
+    // TODO: rethink current approach, this can be problematic
+    // in the future
+		const tabs = element.querySelectorAll(':scope > div > [role="tablist"] > .svelteui-Tab');
+
 		for (let [index, tab] of Array.from(tabs).entries()) {
 			const key = tab.getAttribute('data-key');
 			tab.addEventListener('click', () => onTabClick(index, key));
@@ -75,7 +87,7 @@
 	function calculateActive() {
 		if (!element) return;
 
-		const content = element.querySelector('.tabs-content');
+		const content = element.querySelector(':scope > .tabs-content');
 		if (!content) return;
 
 		const activeTab = Array.from(tabNodes)[_active];
@@ -91,7 +103,7 @@
 	function onTabClick(index: number, key: string) {
 		dispatch('change', { index: index, key: key });
 		_active = index;
-		contextStore.set({ ...$contextStore, active: index });
+		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 	}
 
 	function onTabKeyDown(event: KeyboardEvent) {
@@ -112,7 +124,7 @@
 
 		dispatch('change', { index: _index, key: key });
 		_active = _index;
-		contextStore.set({ ...$contextStore, active: _index });
+		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
 	}
 
 	// check if item is still checked when the context store updates
@@ -149,6 +161,7 @@ Display list of events in chronological order
 		<Group
 			class={classes.tabs}
 			role="tablist"
+			data-tabsid={tabsId}
 			direction={orientation === 'horizontal' ? 'row' : 'column'}
 			aria-orientation={orientation}
 			spacing={variant === 'pills' ? 5 : 0}

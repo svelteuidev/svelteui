@@ -60,6 +60,7 @@ export default createStyles((theme, { orientation, tabPadding }: TabsStyleParams
 				size: tabPadding,
 				sizes: theme.space
 			}),
+			flex: orientation === 'vertical' ? 1 : 'none',
 			display: 'block'
 		},
 		...getVariantStyles(orientation, theme, getRef)
