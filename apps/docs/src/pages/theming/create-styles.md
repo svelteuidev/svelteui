@@ -170,7 +170,7 @@ To apply the new theme, add it to your SvelteUIProvider
     const newTheme = createTheme('new-theme', {...});
 </script>
 
-<SvelteUIProvider class={newTheme} themeObserver={null}>
+<SvelteUIProvider theme={newTheme} themeObserver={null}>
 	<Box>Content nested in the new theme.</Box>
 </SvelteUIProvider>
 ```
