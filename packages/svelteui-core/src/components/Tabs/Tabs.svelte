@@ -69,6 +69,8 @@
 	 * to tab changes.
 	 */
 	function setupTabs() {
+    // TODO: rethink current approach, this can be problematic
+    // in the future
 		const tabs = element.querySelectorAll(':scope > div > [role="tablist"] > .svelteui-Tab');
 
 		for (let [index, tab] of Array.from(tabs).entries()) {
