@@ -122,8 +122,6 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 ### REPO/MISC:
 
-**Version 0.8.0:**
-
 | Status          | Priority | Description                                                          |
 | --------------- | -------- | -------------------------------------------------------------------- |
 | :red_circle:    | !        | Move Stitches to peer-deps (svelteui-core)                           |
@@ -134,23 +132,17 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 | :red_circle:    | !!       | Figure out how to get cjs,esm,umd distributions in release processes |
 | :red_circle:    | !!!      | Figure out how to add minification to the release processes          |
 
-**Version 0.9.0:**
-
 **Version 1.0.0:**
 
 **Future:**
 
 ### DOCS:
 
-**Version 0.8.0:**
-
 - [ ]
 
 | Status          | Priority | Description            |
 | --------------- | -------- | ---------------------- |
 | :yellow_circle: | !!!      | Migration to SvelteKit |
-
-**Version 0.9.0:**
 
 **Version 1.0.0:**
 
@@ -160,21 +152,19 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 > Component creation, deletion, and modification should always be discussed with a maintainer before taking any action (Discord, Issues, and Discussions)!
 
-**Version 0.8.0:**
-
-| Status          | Priority | Description                                          |
-| --------------- | -------- | ---------------------------------------------------- |
-| :red_circle:    | !        | Create `Section` component                           |
-| :red_circle:    | !        | Create `ScrollArea` component                        |
-| :red_circle:    | !        | Create `Accordion` component                         |
-| :red_circle:    | !        | Create `ARIA` component                              |
-| :red_circle:    | !        | Create `Slider` component                            |
-| :red_circle:    | !        | Create `SegmentedControl` component                  |
-| :green_circle:  | !        | Create `Chip` component                              |
-| :yellow_circle: | !!!      | Find an effective solution to SSR in SSR mode (#172) |
-| :red_circle:    | !!!      | Find an effective solution to SSR in SSG mode (#107) |
-
-**Version 0.9.0:**
+| Status         | Priority | Description                                          |
+| -------------- | -------- | ---------------------------------------------------- |
+| :red_circle:   | !        | Create `Section` component                           |
+| :red_circle:   | !        | Create `ScrollArea` component                        |
+| :red_circle:   | !        | Create `Accordion` component                         |
+| :red_circle:   | !        | Create `ARIA` component                              |
+| :red_circle:   | !        | Create `Slider` component                            |
+| :red_circle:   | !        | Create `SegmentedControl` component                  |
+| :green_circle: | !        | Create `Chip` component                              |
+| :red_circle:   | !        | Create `Select` component                            |
+| :green_circle: | !!!      | Find an effective solution to SSR in SSR mode (#172) |
+| :green_circle: | !!!      | Find an effective solution to SSR in SSG mode (#107) |
+| :red_circle:   | !!!      | Fix types for native events                          |
 
 **Version 1.0.0:**
 
@@ -184,13 +174,9 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 > Composable creation and deletion should always be discussed with a maintainer before taking any action (Discord, Issues, and Discussions)!
 
-**Version 0.8.0:**
-
 | Status       | Priority | Description |
 | ------------ | -------- | ----------- |
 | :red_circle: | !        | Placeholder |
-
-**Version 0.9.0:**
 
 **Version 1.0.0:**
 
@@ -198,27 +184,16 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 ### SVELTEUI-DATES:
 
-**Version 0.8.0:**
-
 | Status          | Priority | Description                 |
 | --------------- | -------- | --------------------------- |
 | :red_circle:    | !!       | Create TimePicker component |
 | :yellow_circle: | !!!      | Complete Calendar component |
-
-- [ ]
-- [ ]
-
-**Version 0.9.0:**
 
 **Version 1.0.0:**
 
 **Future:**
 
 ### SVELTEUI-PREPROCESSORS:
-
-**Version 0.8.0:**
-
-**Version 0.9.0:**
 
 **Version 1.0.0:**
 
@@ -228,22 +203,16 @@ There are different categories on the roadmap. Items for versions `0.8–1.0` an
 
 ### SVELTEUI-PRISM:
 
-**Version 0.8.0:**
-
 | Status       | Priority | Description                     |
 | ------------ | -------- | ------------------------------- |
 | :red_circle: | !        | Add more tokens to style object |
 | :red_circle: | !!!      | Adapt new styling practices     |
-
-**Version 0.9.0:**
 
 **Version 1.0.0:**
 
 **Future:**
 
 ### SVELTEUI-NOTIFICATIONS:
-
-**Version 0.8.0:**
 
 - [ ] create new notifications package
 
