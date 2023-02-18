@@ -66,7 +66,7 @@ export default createStyles((theme, { color, size }: ResultViewStylesParams, get
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'flex-start',
-			marginRight: theme.space.mdPX.value,
+		
 			marginTop: 1,
 			color: theme.fn.variant({ variant: 'light', color }).color[1],
 
