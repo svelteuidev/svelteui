@@ -33,6 +33,6 @@ export interface FileUploadProps extends DefaultProps<HTMLDivElement>, HTMLAttri
 
 export interface FileUploadEvents {
 	selected?: CustomEvent<any>;
-	removed?: CustomEvent<File, Number>;
+	removed?: CustomEvent<File, number>;
 	reset?: CustomEvent<>;
 }
