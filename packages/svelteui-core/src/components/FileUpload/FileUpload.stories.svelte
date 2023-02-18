@@ -25,7 +25,7 @@
 
 <Template let:args>
 	<div style="width: 500px;">
-		<FileUpload {...args} on:selected={ handleSelected}/>
+		<FileUpload {...args} />
 	</div>
 </Template>
 
@@ -37,7 +37,7 @@
 			type="drag"
 			multiple={true}
 			size={'md'}
-			on:selected={ e => { alert('I am clicked') } }
+			on:selected={ handleSelected}
 		>
 			<IconRenderer iconSize={48} icon={Download} />
 			<Text align="center" weight={'semibold'}>Click or drag file to this area to FileUpload</Text>

@@ -13,7 +13,7 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { createEventDispatcher, get_current_component } from 'svelte/internal';
 	import { randomID } from '$lib/styles';
-	import { File, Reset, Trash, Upload,  } from 'radix-icons-svelte';
+	import { File, Reset, Trash, Upload } from 'radix-icons-svelte';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import Button from '../Button/Button.svelte';
 	interface $$Props extends $$FileUploadProps {}
@@ -41,17 +41,18 @@
 		preview: $$Props['preview'] = true;
 	export { className as class };
 
-	
-
 	let active: boolean = false;
 	let fileUploadComponent = undefined;
 	const dispatch = createEventDispatcher();
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	/** An action that forwards inner dom node events from parent component */ 
+	const forwardEvents = createEventForwarder(get_current_component(), [
+		'selected',
+		'removed',
+		'reset'
+	]);
 
 	function onFileSelected(e) {
-		
 		let localFile: FileItem[] = [];
 
 		for (let i = 0; i < e.files.length; i++) {
