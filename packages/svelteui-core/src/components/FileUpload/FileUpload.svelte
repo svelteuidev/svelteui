@@ -34,7 +34,7 @@
 		name: $$Props['name'] = undefined,
 		files: $$Props['files'] = [],
 		label: $$Props['label'] = 'Upload',
-		reset: $$Props['reset'] = false,
+		reset: $$Props['reset'] = true,
 		resetLabel: $$Props['resetLabel'] = 'Reset',
 		resetColor: $$Props['resetColor'] = 'red',
 		resetIcon: $$Props['resetIcon'] = Reset,
@@ -45,7 +45,7 @@
 	let fileUploadComponent = undefined;
 	const dispatch = createEventDispatcher();
 
-	/** An action that forwards inner dom node events from parent component */ 
+	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component(), [
 		'selected',
 		'removed',
@@ -54,7 +54,6 @@
 
 	function onFileSelected(e) {
 		let localFile: FileItem[] = [];
-
 		for (let i = 0; i < e.files.length; i++) {
 			let file = e.files[i];
 			localFile.push({
@@ -69,22 +68,25 @@
 		} else {
 			files = [...localFile];
 		}
-
 		dispatch('selected', files);
 	}
 
 	function remove(index) {
+		fileUploadComponent.value = '';
 		dispatch('removed', files[index], index);
 		files = files.filter((e, i) => i !== index);
 	}
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
+
+	function resetFiles() {
+		fileUploadComponent.value = '';
+		files = [];
+		dispatch('reset');
+	}
 
 	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'FileUpload' }));
 </script>
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box bind:element {use} class={cx(className)} {...$$restProps}>
 	<div class={classes.inputContainer}>
 		<input
 			bind:this={fileUploadComponent}
@@ -94,29 +96,26 @@
 			{id}
 			{disabled}
 			tabindex="-1"
-			use:useActions={use}
-			use:forwardEvents
 			{name}
 			on:change={({ target }) => {
 				onFileSelected(target);
 			}}
+			use:useActions={use}
+			use:forwardEvents
 		/>
 	</div>
 
 	{#if type && type == 'drag'}
 		<label
-			on:dragover
 			on:dragleave
-			on:dragover|preventDefault|stopPropagation={({ dataTransfer }) => {
-				//onFileSelected(dataTransfer);
-			}}
-			on:drop
+			on:dragover={(ev) => {
+				ev.preventDefault();
+			}} 
 			on:drop|preventDefault|stopPropagation={({ dataTransfer }) => {
 				onFileSelected(dataTransfer);
 			}}
 			for={id}
 			class={cx(classes.drag, getStyles({ css: override }))}
-			class:active
 			class:disabled
 		>
 			<slot />
@@ -136,15 +135,7 @@
 				{label}
 			</Button>
 			{#if reset}
-				<Button
-					{size}
-					color={resetColor}
-					disabled={files.length == 0}
-					on:click={() => {
-						files = [];
-						dispatch('reset');
-					}}
-				>
+				<Button {size} color={resetColor} disabled={files.length == 0} on:click={resetFiles}>
 					<IconRenderer slot="leftIcon" icon={resetIcon} />
 					{resetLabel}
 				</Button>

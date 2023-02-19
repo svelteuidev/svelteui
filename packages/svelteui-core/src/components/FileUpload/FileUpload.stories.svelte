@@ -7,7 +7,7 @@
 	import { FileUpload } from './index';
 
 	function handleSelected(files) {
-		alert('hello');
+		console.log(files);
 	}
 
 	let files = [];
@@ -33,7 +33,7 @@
 
 <Story name="Drop">
 	<div style="width: 500px;">
-		<FileUpload
+		<FileUpload 
 			type="drag"
 			multiple={true}
 			size={'md'}

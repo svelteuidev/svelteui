@@ -51,6 +51,16 @@ export default createStyles(
 			cursor: 'pointer',
 			'&:hover': {
 				border: `1px dashed ${color}`,
+			},
+			'&.disabled *': {
+				[`${theme.dark} &`]: {
+					background: theme.fn.themeColor('dark', 4),
+					border: `1px dashed ${theme.fn.themeColor('dark', 4)}`,
+					color: theme.fn.themeColor('gray', 6)
+				},
+				background: theme.fn.themeColor('light', 4),
+				border: `1px dashed ${theme.fn.themeColor('light', 4)}`,
+				color: theme.fn.themeColor('gray', 4)
 			}
 
 		},
@@ -87,10 +97,8 @@ export default createStyles(
 			border: `1px solid ${theme.fn.themeColor('gray', 4)}`,
 			borderRadius: '2px',
 			margin: '8px 0px'
-
 		},
 		fileItemIcon: {
-
 			lineHeight: '60px',
 			textAlign: 'center',
 			opacity: '.8',
@@ -112,9 +120,6 @@ export default createStyles(
 		buttonType: {
 			display: 'flex',
 			gap: '10px'
-		},
-		disabled: {
-			backgroundColor: '#000'
 		}
 	})
 );
