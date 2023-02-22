@@ -64,7 +64,7 @@ export default createStyles((theme, { size }: MenuStyleParams) => ({
 		background: theme.colors.white.value
 	},
 
-	'svelteui-Menu-body': {
+	body: {
 		darkMode: {
 			border: `1px solid ${theme.fn.themeColor('dark', 6)}`,
 			backgroundColor: theme.fn.themeColor('dark', 6),
