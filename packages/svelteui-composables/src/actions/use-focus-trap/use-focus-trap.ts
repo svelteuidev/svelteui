@@ -1,30 +1,89 @@
-import type { Action, FocusableElement } from '../../shared/actions/types';
-
-const FOCUSABLE = 'input, textarea, select, a, button, [tabindex]:not([tabindex="-1"])';
+import type { Action } from '../../shared/actions/types';
+import { FOCUS_SELECTOR, focusable, tabbable } from './tabbable';
+import { scopeTab } from './scope-tab';
+import { createAriaHider } from './create-aria-hider';
 
 /**
  * With the `use-focus-trap` action, the first focusable child gets the focus in the provided affected dom node
  *
  * ```tsx
- *  <div use:focus-trap>
+ *  <div use:focustrap>
  *    <input placeholder="Focused" />
  *  </div>
  * ```
  * @see https://svelteui.org/actions/use-focus-trap
  */
-export function focustrap(node: HTMLElement): ReturnType<Action> | undefined {
-	let focusElement = node.querySelector('[autofocus]') as FocusableElement;
+export function focustrap(node: HTMLElement, active = true): ReturnType<Action> | undefined {
+	let restoreAria: (() => void) | null = null;
 
-	if (!focusElement) {
-		const focusableElements = node.querySelectorAll(FOCUSABLE);
-		if (focusableElements.length === 0) {
-			if (process.env.NODE_ENV === 'development') {
-				console.warn('[@svelteuidev/composables/use-focus-trap] No focusable children in element');
+	const handleKeyDown = (event: KeyboardEvent) => {
+		if (!active) {
+			return;
+		}
+
+		if (event.key === 'Tab' && node) {
+			scopeTab(node, event);
+		}
+	};
+
+	document.addEventListener('keydown', handleKeyDown);
+
+	activate();
+
+	// since action called only once and don't rerun on params update we have to make a function
+	// which we can call on initialization and update
+	function activate() {
+		if (!active) {
+			if (restoreAria) {
+				restoreAria();
 			}
 			return;
 		}
-		focusElement = focusableElements[0] as FocusableElement;
+
+		restoreAria = createAriaHider(node);
+
+		const processNode = () => {
+			let focusElement: HTMLElement | null = node.querySelector('[autofocus]');
+
+			if (!focusElement) {
+				const children = Array.from<HTMLElement>(node.querySelectorAll(FOCUS_SELECTOR));
+				focusElement = children.find(tabbable) || children.find(focusable) || null;
+				if (!focusElement && focusable(node)) focusElement = node;
+			}
+
+			if (focusElement) {
+				focusElement.focus({ preventScroll: true });
+			} else if (process.env.NODE_ENV === 'development') {
+				// eslint-disable-next-line no-console
+				console.warn(
+					'[@svelteuidev/composables/use-focus-trap] Failed to find focusable element within provided node',
+					node
+				);
+			}
+		};
+
+		// Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
+		setTimeout(() => {
+			if (node.getRootNode()) {
+				processNode();
+			} else if (process.env.NODE_ENV === 'development') {
+				// eslint-disable-next-line no-console
+				console.warn('[@svelteuidev/composables/use-focus-trap] node is not part of the dom', node);
+			}
+		});
 	}
 
-	setTimeout(() => focusElement?.focus({ preventScroll: true }), 0);
+	return {
+		update(newActive) {
+			active = newActive;
+			activate();
+		},
+		destroy() {
+			document.removeEventListener('keydown', handleKeyDown);
+
+			if (restoreAria) {
+				restoreAria();
+			}
+		}
+	};
 }
