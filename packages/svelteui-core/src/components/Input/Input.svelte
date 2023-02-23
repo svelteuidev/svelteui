@@ -31,7 +31,8 @@
 		multiline: $$Props['multiline'] = false,
 		autocomplete: $$Props['autocomplete'] = 'on',
 		type: $$Props['type'] = 'text',
-		placeholder: $$Props['placeholder'] = undefined;
+		placeholder: $$Props['placeholder'] = undefined,
+		autofocus: $$Props['autofocus'] = undefined;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -106,6 +107,7 @@ Base component to create custom inputs
     ```
 -->
 
+<!-- svelte-ignore a11y-autofocus -->
 <Box {...wrapperProps} class={getStyles({ css: override })} {...$$restProps}>
 	{#if icon}
 		<IconRenderer {icon} className={classes.icon} {...iconProps} iconSize={16} />
@@ -122,6 +124,7 @@ Base component to create custom inputs
 			{id}
 			{placeholder}
 			{autocomplete}
+			{autofocus}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -148,6 +151,7 @@ Base component to create custom inputs
 			{id}
 			{autocomplete}
       {type}
+      {autofocus}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
@@ -180,6 +184,7 @@ Base component to create custom inputs
 			{required}
 			{id}
 			{type}
+			{autofocus}
 			{...$$restProps}
 		>
 			<slot />

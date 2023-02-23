@@ -36,7 +36,7 @@
 		padding: $$Props['padding'] = 'lg',
 		closeOnClickOutside: $$Props['closeOnClickOutside'] = true,
 		closeOnEscape: $$Props['closeOnEscape'] = true,
-		trapFocus: $$Props['trapFocus'] = false,
+		trapFocus: $$Props['trapFocus'] = true,
 		centered: $$Props['centered'] = null,
 		target: $$Props['target'] = '#SVELTEUI_PROVIDER',
 		withinPortal: $$Props['withinPortal'] = true;
@@ -115,7 +115,7 @@
 						aria-describedby={bodyId}
 						aria-modal
 						tabindex={-1}
-						use={[focustrap]}
+						use={[[focustrap, trapFocus]]}
 					>
 						{#if title || withCloseButton}
 							<div class={classes.header}>

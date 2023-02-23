@@ -2,12 +2,17 @@
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Button, Text, Title, NativeSelect, TextInput } from '@svelteuidev/core';
 	import { focustrap } from './use-focus-trap';
+
+	let active = false;
 </script>
 
 <Meta title="Composables/use-focus-trap" />
 
 <Template let:args>
-	<div use:focustrap>
+	<Button on:click={() => (active = !active)}
+		>{active ? 'Deactivate Focus Trap' : 'Activate Focus Trap'}</Button
+	>
+	<div use:focustrap={active}>
 		<Title>Form</Title>
 		<Text>Please fill out this form</Text>
 		<TextInput placeholder="Your name" label="Full name" />
