@@ -53,7 +53,7 @@ export default createStyles((theme, { color, radius }: MenuItemStylesParams) => 
 				color: theme.fn.themeColor('gray', 5),
 				pointerEvents: 'none'
 			},
-			'&:hover': {
+			'&.itemHovered': {
 				[`${theme.dark} &`]: {
 					backgroundColor: color
 						? theme.fn.rgba(theme.fn.themeColor(color, 8), 0.35)

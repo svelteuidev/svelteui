@@ -128,7 +128,7 @@
 	const handleKeyDown = (event: KeyboardEvent) => {
 		if (_opened) {
 			const elements = Array.from(
-				dropdownElement.querySelectorAll<HTMLButtonElement>('.svelteui-Menu-item')
+				dropdownElement.querySelectorAll<HTMLButtonElement>('.svelteui-MenuItem-root')
 			);
 
 			if (event.code === 'Tab' && trapFocus) {
@@ -227,7 +227,7 @@
 			use={[[clickoutside, clickOutsideParams]]}
 			id={uuid}
 			role="menu"
-			class={cx(classes['svelteui-Menu-body'])}
+			class={cx(classes.body)}
 			aria-orientation="vertical"
 			{radius}
 			on:mouseleave={() => (hovered = -1)}
