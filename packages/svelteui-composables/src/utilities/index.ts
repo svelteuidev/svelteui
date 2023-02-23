@@ -1,6 +1,7 @@
 export * from './use-browser-context/index.js';
 export * from './use-debounce/index.js';
 export * from './use-eye-dropper/index.js';
+export * from './use-focus-return/index';
 export * from './use-focus-within/index.js';
 export * from './use-hash/index.js';
 export * from './use-id/index.js';
