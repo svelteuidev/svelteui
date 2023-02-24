@@ -57,14 +57,14 @@
 		}
 	};
 
-	$: handleFocusReturn(opened);
-
 	function onClose() {
 		dispatch('close');
 	}
 
 	// Temporary, just add zIndex to Portal component
 	const zIndexStyles = css({ zIndex });
+
+	$: handleFocusReturn(opened);
 
 	$: {
 		onMount(() => {
