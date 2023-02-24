@@ -12,7 +12,7 @@ export function useFocusReturn(): useFocusReturnResult {
 			'focus' in lastActiveElement &&
 			typeof lastActiveElement.focus === 'function'
 		) {
-			lastActiveElement?.focus({ preventScroll: true });
+			lastActiveElement.focus({ preventScroll: true });
 		}
 	};
 

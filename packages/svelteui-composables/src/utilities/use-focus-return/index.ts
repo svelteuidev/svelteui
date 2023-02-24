@@ -1,1 +1,1 @@
-export { useFocusReturn } from './use-focus-return';
+export { useFocusReturn } from './use-focus-return.js';
