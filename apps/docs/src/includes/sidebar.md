@@ -140,6 +140,7 @@
   - [use-debounce](composables/use-debounce)
   - [use-element-size](composables/use-element-size)
   - [use-eye-dropper](composables/use-eye-dropper)
+  - [use-focus-return](composables/use-focus-return)
   - [use-focus-within](composables/use-focus-within)
   - [use-hash](composables/use-hash)
   - [use-id](composables/use-id)

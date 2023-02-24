@@ -2,7 +2,7 @@
 	import { createEventDispatcher, onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
-	import { focustrap, lockscroll } from '@svelteuidev/composables';
+	import { focustrap, lockscroll, useFocusReturn } from '@svelteuidev/composables';
 	import { randomID, colorScheme, css } from '$lib/styles';
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
@@ -49,6 +49,7 @@
 	const bodyId = `${baseId}-body`;
 	const _overlayOpacity =
 		typeof overlayOpacity === 'number' ? overlayOpacity : $colorScheme === 'dark' ? 0.85 : 0.75;
+	const { handleFocusReturn } = useFocusReturn();
 
 	const closeOnEscapePress = (event: KeyboardEvent) => {
 		if (!trapFocus && event.code === 'Escape' && closeOnEscape) {
@@ -62,6 +63,8 @@
 
 	// Temporary, just add zIndex to Portal component
 	const zIndexStyles = css({ zIndex });
+
+	$: handleFocusReturn(opened);
 
 	$: {
 		onMount(() => {
