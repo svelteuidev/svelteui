@@ -1,38 +1,37 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-
-
+import { Component, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface FileItem {
 	name?: string;
 	icon?: string;
 	size?: number;
-	file?: File
-
+	file?: File;
 }
 
-
-export interface FileUploadProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
+export interface FileUploadProps<T = 'drag'>
+	extends DefaultProps<HTMLDivElement>,
+		HTMLAttributes<HTMLElement> {
 	accept?: string;
+	type?: T;
+	name?: string;
+	multiple?: boolean;
+	files?: FileItem[];
+	label?: string;
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
-	label?: string;
-	type?: string = undefined | 'drag';
-	multiple?: boolean;
-	name?: string;
-	files?: FileItem[];
+	disabled?: boolean;
 	icon?: Component | HTMLOrSVGElement;
-	preview?: boolean;
+	id?: string;
 	resetLabel?: string;
 	reset?: boolean;
 	resetColor?: SvelteUIColor;
-	disabled?: boolean;
 	resetIcon?: Component | HTMLOrSVGElement;
+	preview?: boolean;
 }
 
-
 export interface FileUploadEvents {
-	selected?: CustomEvent<any>;
-	removed?: CustomEvent<File, number>;
-	reset?: CustomEvent<>;
+	selected?: CustomEvent<FileItem[]>;
+	removed?: CustomEvent<{ file: File; index: number }>;
+	reset?: CustomEvent;
+	[evt: string]: CustomEvent<any>;
 }

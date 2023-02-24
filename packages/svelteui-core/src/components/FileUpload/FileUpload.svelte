@@ -21,19 +21,19 @@
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
-		accept: $$Props['accept'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		disabled: $$Props['disabled'] = false,
-		color: $$Props['color'] = 'blue',
-		icon: $$Props['icon'] = Upload,
-		size: $$Props['size'] = 'xs',
+		accept: $$Props['accept'] = undefined,
 		type: $$Props['type'] = undefined,
-		multiple: $$Props['multiple'] = false,
-		id: $$Props['id'] = randomID(),
 		name: $$Props['name'] = undefined,
+		multiple: $$Props['multiple'] = false,
 		files: $$Props['files'] = [],
 		label: $$Props['label'] = 'Upload',
+		color: $$Props['color'] = 'blue',
+		size: $$Props['size'] = 'sm',
+		disabled: $$Props['disabled'] = false,
+		icon: $$Props['icon'] = Upload,
+		id: $$Props['id'] = randomID(),
 		reset: $$Props['reset'] = true,
 		resetLabel: $$Props['resetLabel'] = 'Reset',
 		resetColor: $$Props['resetColor'] = 'red',
@@ -73,7 +73,7 @@
 
 	function remove(index) {
 		fileUploadComponent.value = '';
-		dispatch('removed', files[index], index);
+		dispatch('removed', { file: files[index], index });
 		files = files.filter((e, i) => i !== index);
 	}
 
@@ -110,7 +110,7 @@
 			on:dragleave
 			on:dragover={(ev) => {
 				ev.preventDefault();
-			}} 
+			}}
 			on:drop|preventDefault|stopPropagation={({ dataTransfer }) => {
 				onFileSelected(dataTransfer);
 			}}

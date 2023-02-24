@@ -33,11 +33,11 @@
 
 <Story name="Drop">
 	<div style="width: 500px;">
-		<FileUpload 
+		<FileUpload
 			type="drag"
 			multiple={true}
 			size={'md'}
-			on:selected={ handleSelected}
+			on:selected={handleSelected}
 		>
 			<IconRenderer iconSize={48} icon={Download} />
 			<Text align="center" weight={'semibold'}>Click or drag file to this area to FileUpload</Text>
