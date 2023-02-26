@@ -41,8 +41,7 @@ Examples:
 
 ## Git branches
 
-- **main** - When the project hits 1.0, this will be for the current version, and patches for current minor version (1.0.x)
-- **next-minor** - Contains next minor version (1.x.0), most likely you would want to create a PR to this branch
+- **main** - The main branch where the code to push for the next release resides
 - **experimental** - Up to date with next minor version (1.x.0), implementing some experimental features that may or may not be added
 
 ## Get started with SvelteUI locally
@@ -55,16 +54,10 @@ Examples:
 
 **If developing in [svelteui-prism, svelteui-dates, or svelteui-demos]**
 
-1. run `yarn package`
+1. Run `yarn package`
    - If you want to watch for changes in one of the packages that they depend on, run `yarn watch` in their directory.
    - You will need two terminal sessions open at the very least. If this doesn't apply to your situation move on to step 2
-2. cd into the package you want to develop on
-3. run `yarn dev`
-
-**If developing in [svelteui-core, svelteui-actions, svelteui-utilities, or svelteui-motion]**
-
-1. cd into the package you want to develop on
-2. run `yarn dev`
+2. Run `yarn dev`, which should boot up a Storybook page where you can see the components in action
 
 **If developing in docs**
 
@@ -79,7 +72,7 @@ All packages yarn scripts are located at [main package.json](https://github.com/
 individual packages have scripts, but they should not be interacted with directly. This is due to the nature of [TurboRepo](https://turborepo.org/). All scripts should be ran from the root of the monorepo.
 
 - `dev:{docs, etc}` - runs the development environment for whatever you choose to work on
-- `storybook` - runs Storybook for all the packages that contain stories
+- `dev` - runs Storybook for all the packages that contain stories
 - `clean` - removes all unnecessary files and folders from packages (i.e. node_modules)
 - `format` - runs prettier on packages folder
 - `lint` - runs eslint on packages folder (run format before running lint)

@@ -14,11 +14,6 @@
 	};
 </script>
 
-<!-- ---
-layout: 'no_sidebar'
-title: 'SvelteUI - A variety of components, actions, transition and utility functions'
-index: true
---- -->
 <svelte:head>
 	<title>SvelteUI - A variety of components, actions, transition and utility functions</title>
 </svelte:head>

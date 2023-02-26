@@ -9,6 +9,7 @@
 	import '$lib/theme/theme.css';
 	import type { PageData } from './$types';
 
+	let window_width = 0;
 	let show_sidebar: boolean;
 
 	$: mobile = window_width < 800;

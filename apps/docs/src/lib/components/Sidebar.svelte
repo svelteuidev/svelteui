@@ -43,6 +43,7 @@
     <h3><NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle></h3>
     {#if sidebar[0].expand}
       <ul>
+        <li><a href="/changelog/v0-10-0">Version 0.10.0</a></li>
         <li><a href="/changelog/v0-7-0">Version 0.7.0</a></li>
         <li><a href="/changelog/v0-6-5">Version 0.6.5</a></li>
         <li><a href="/changelog/v0-6-0">Version 0.6.0</a></li>
@@ -96,6 +97,7 @@
             <li><a href="/core/input-wrapper">InputWrapper</a></li>
             <li><a href="/core/native-select">NativeSelect</a></li>
             <li><a href="/core/number-input">NumberInput</a></li>
+            <li><a href="/core/radio">Radio</a></li>
             <li><a href="/core/switch">Switch</a></li>
             <li><a href="/core/text-input">TextInput</a></li>
             <li><a href="/core/unstyled-button">UnstyledButton</a></li>
@@ -105,6 +107,7 @@
           <strong><HamburgerMenu/><Space w="md" />Navigation</strong>
           <ul>
             <li><a href="/core/anchor">Anchor</a></li>
+            <li><a href="/core/breadcrumbs">Breadcrumbs</a></li>
             <li><a href="/core/burger">Burger</a></li>
             <li><a href="/core/seo">Seo</a></li>
             <li><a href="/core/tabs">Tabs</a></li>
@@ -197,6 +200,7 @@
             <li><a href="/composables/use-debounce">use-debounce</a></li>
             <li><a href="/composables/use-element-size">use-element-size</a></li>
             <li><a href="/composables/use-eye-dropper">use-eye-dropper</a></li>
+            <li><a href="/composables/use-focus-return">use-focus-return</a></li>
             <li><a href="/composables/use-focus-within">use-focus-within</a></li>
             <li><a href="/composables/use-hash">use-hash</a></li>
             <li><a href="/composables/use-id">use-id</a></li>
