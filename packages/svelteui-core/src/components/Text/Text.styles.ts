@@ -4,7 +4,8 @@ import type {
 	SvelteUITextAlignment,
 	SvelteUITextTransform,
 	SvelteUINumberSize,
-	SvelteUINumberFontSize
+	SvelteUINumberFontSize,
+	SvelteUITheme
 } from '$lib/styles';
 import type { Tracking, TextVariant, TextColors } from './Text';
 
@@ -23,16 +24,20 @@ export interface TextStyleParams {
 	tracking?: Tracking;
 }
 
-export function getTextColor(
+function getTextColor(
+	theme: SvelteUITheme,
 	color: TextColors,
 	variant: TextVariant,
 	gradient: SvelteUIGradient,
 	dark: boolean = false
 ) {
-	if (color === 'dimmed') return dark ? '$dark200' : '$gray600';
-	if (variant === 'gradient' || gradient) return `$${color}600`;
-	if (variant === 'link') return dark ? `$blue400` : `$blue700`;
-	if (variant === 'text') return dark ? `$${color}500` : `$${color}700`;
+	if (color === 'dimmed')
+		return dark ? theme.fn.themeColor('dark', 2) : theme.fn.themeColor('gray', 6);
+	if (variant === 'gradient' || gradient) return theme.fn.themeColor(color, 6);
+	if (variant === 'link')
+		return dark ? theme.fn.themeColor('blue', 4) : theme.fn.themeColor('blue', 7);
+	if (variant === 'text')
+		return dark ? theme.fn.themeColor(color, 5) : theme.fn.themeColor(color, 7);
 }
 
 export default createStyles(
@@ -57,7 +62,7 @@ export default createStyles(
 			root: {
 				focusRing: 'auto',
 				[`${theme.dark} &`]: {
-					color: color === 'dark' ? '$dark50' : getTextColor(color, variant, gradient, true)
+					color: color === 'dark' ? '$dark50' : getTextColor(theme, color, variant, gradient, true)
 				},
 				fontFamily: inherit ? 'inherit' : '$standard',
 				fontSize: inherit ? 'inherit' : typeof size === 'string' ? `$${size}` : `${size}px`,
@@ -74,7 +79,7 @@ export default createStyles(
 				textDecoration: underline ? 'underline' : 'none',
 				textAlign: align,
 				cursor: variant === 'link' ? 'pointer' : 'inherit',
-				color: color === 'green' ? 'Black' : getTextColor(color, variant, gradient),
+				color: color === 'green' ? 'Black' : getTextColor(theme, color, variant, gradient),
 				backgroundImage:
 					variant === 'gradient'
 						? `linear-gradient(${gradient?.deg}deg, $${gradient?.from}600 0%, $${gradient?.to}600 100%)`
