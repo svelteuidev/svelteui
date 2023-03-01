@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade, fly, scale } from 'svelte/transition';
-	import { cubicOut, quintOut, sineIn, sineInOut } from 'svelte/easing';
+	import { fade } from 'svelte/transition';
+	import { sineInOut } from 'svelte/easing';
 	import { focustrap, lockscroll } from '@svelteuidev/composables';
-	import { randomID, colorScheme, css, useSvelteUITheme } from '$lib/styles';
+	import { randomID, colorScheme, css } from '$lib/styles';
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
 	import { Overlay } from '../Overlay';
 	import { Paper } from '../Paper';
 	import { OptionalPortal } from '../Portal';
 	import { Text } from '../Text';
-	import useStyles, { sizes } from './Drawer.styles';
+	import useStyles from './Drawer.styles';
 	import type { DrawerProps as $$DrawerProps, DrawerEvents as $$DrawerEvents } from './Drawer';
 
 	interface $$Props extends $$DrawerProps {}
@@ -43,7 +43,6 @@
 		speed: $$Props['speed'] = 250;
 	export { className as class };
 
-	const theme = useSvelteUITheme();
 	const dispatch = createEventDispatcher();
 	const castAny = (self: unknown) => self as any;
 	const baseId = randomID(id);
@@ -65,7 +64,6 @@
 		dispatch('close');
 	}
 
-	// Temporary, just add zIndex to Portal component
 	const zIndexStyles = css({ zIndex });
 
 	$: {

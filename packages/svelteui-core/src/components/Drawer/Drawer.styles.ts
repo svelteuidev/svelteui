@@ -30,23 +30,18 @@ export default createStyles((theme, { overflow, size, zIndex, position, speed }:
 			left: 0,
 			right: 0,
 			bottom: 0
-
-
 		},
 
 		wrapper: {
 			backgroundColor: 'white',
-			zIndex: 1111,
-
-
+			zIndex: 1111
 		},
 		title: {
 			marginRight: +theme.space.md.value,
 			textOverflow: 'ellipsis',
 			display: 'block',
-			wordBreak: 'break-word',
+			wordBreak: 'break-word'
 		},
-
 		Drawer: {
 			[`${theme.dark} &`]: {
 				backgroundColor: theme.fn.themeColor('dark', 7)

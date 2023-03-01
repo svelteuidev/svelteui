@@ -15,6 +15,7 @@ export * from './Chip';
 export * from './Code';
 export * from './Container';
 export * from './Divider';
+export * from './Drawer';
 export * from './FileUpload';
 export * from './Grid';
 export * from './Group';
