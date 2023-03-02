@@ -5,13 +5,10 @@ docs: 'theming/default-theme.md'
 ---
 
 <script>
-    import { CodeBlock, Heading, Preview } from 'components'
-    import { Button } from "@svelteuidev/core";
-    import { Prism } from "@svelteuidev/prism";
+  import { Demo, ThemeDemos } from "@svelteuidev/demos";
+    import { Heading } from 'components';
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
-
-    const colors = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange']
 </script>
 
 <svelte:head>
@@ -228,11 +225,7 @@ export const colors = {
 };
 ```
 
-<Preview>
-    {#each colors as color}
-        <Button color={color}>{color}600</Button>
-    {/each}
-</Preview>
+<Demo demo={ThemeDemos.defaultTheme} />
 
 ## Typography
 

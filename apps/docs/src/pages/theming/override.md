@@ -5,40 +5,10 @@ docs: 'theming/override.md'
 ---
 
 <script>
-    import { Heading, Preview } from 'components'
-    import { Button } from "@svelteuidev/core";
-    import { GithubLogo } from 'radix-icons-svelte'
-    import { Prism } from "@svelteuidev/prism";
+    import { Heading} from 'components';
+    import { Demo, ThemeDemos } from "@svelteuidev/demos";
 
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
-
-    const code = `
-    <script>
-        import { Button } from '@svelteuidev/core'
-
-        const PrimaryButton = {
-            '$$blue': '#228be6',
-            boxShadow: '0 2px 14px $$blue',
-            transition: 'all 0.2s ease-in-out',
-            '&:hover': {
-                boxShadow: '0 4px 20px $$blue',
-            },
-        };
-    <\/script>
-
-    <Button override={PrimaryButton}>
-        <GithubLogo slot='leftIcon' size={16} /> I love open source!
-    <\/Button>
-    `
-
-    const PrimaryButton = {
-        '$$blue': '#228be6',
-        boxShadow: '0 2px 14px $$blue',
-        transition: 'all 0.2s ease-in-out',
-        '&:hover': {
-            boxShadow: '0 4px 20px $$blue',
-        },
-    };
 </script>
 
 <svelte:head>
@@ -59,11 +29,7 @@ Remember that all [Stitches](https://stitches.dev) features are available in Sve
 
 SvelteUI provides all components the `override` prop for overriding styles easily. It's like the `style` attribute on normal elements, but it supports tokens, media queries, nesting and token-aware values.
 
-<Preview cols={1} code={code}>
-    <Button override={PrimaryButton}>
-        <GithubLogo slot='leftIcon' size={16} /> I love open source!
-    </Button>
-</Preview>
+<Demo demo={ThemeDemos.override} />
 
 ## Overriding styles with the createStyles function
 
