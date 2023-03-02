@@ -6,7 +6,6 @@ export * from './svgs';
 export { default as CodeBlock } from './CodeBlock.svelte';
 export { default as MinorHeading } from './MinorHeading.svelte';
 export { default as Heading } from './Heading.svelte';
-export { default as Preview } from './ComponentPreview.svelte';
 export { default as Device } from './Device.svelte';
 export { default as BottomNav } from './BottomNav.svelte';
 export { default as NavigationTitle } from './NavigationTitle.svelte';

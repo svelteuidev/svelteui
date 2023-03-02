@@ -10,7 +10,7 @@ source: 'svelteui-preprocessors'
 <script>
     import { Alert, Space } from "@svelteuidev/core";
 	import { ExclamationTriangle } from 'radix-icons-svelte';
-    import { Heading, CodeBlock } from 'components';
+    import { Heading } from 'components';
 </script>
 
 <Heading />

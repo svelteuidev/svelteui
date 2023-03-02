@@ -3,7 +3,7 @@ title: Learn the basics
 ---
 
 <script>
-    import { CodeBlock, MinorHeading, BottomNav } from 'components'
+    import { MinorHeading, BottomNav } from 'components'
     const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 

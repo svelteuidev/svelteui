@@ -3,12 +3,12 @@ title: 'Contributing'
 ---
 
 <script>
-    import { CodeBlock, MinorHeading, BottomNav } from 'components'
-    import { Demo, MiscDemos } from '@svelteuidev/demos';
-    import { Alert } from '@svelteuidev/core';
-    import { InfoCircled } from 'radix-icons-svelte';
+  import { MinorHeading, BottomNav } from 'components'
+  import { Demo, MiscDemos } from '@svelteuidev/demos';
+  import { Alert } from '@svelteuidev/core';
+  import { InfoCircled } from 'radix-icons-svelte';
 
-    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
+  const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:1rem!important;}<\/style>`;
 </script>
 
 <svelte:head>
