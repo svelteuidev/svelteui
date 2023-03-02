@@ -20,20 +20,20 @@
 				initialValue: 'blue',
 				defaultValue: 'blue'
 			},
-      { name: 'label', type: 'string', initialValue: 'I agree to sell my privacy' },
-      {
+			{ name: 'label', type: 'string', initialValue: 'I agree to sell my privacy' },
+			{
 				name: 'labelDirection',
 				type: 'select',
 				data: [
 					{ label: 'right', value: 'right' },
-					{ label: 'left', value: 'left' },
+					{ label: 'left', value: 'left' }
 				],
 				initialValue: 'left',
 				defaultValue: 'left'
 			},
 			{ name: 'size', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },
-			{ name: 'checked', type: 'boolean', initialValue: true, defaultValue: true },
+			{ name: 'checked', type: 'boolean', initialValue: true, defaultValue: true }
 		]
 	};
 </script>

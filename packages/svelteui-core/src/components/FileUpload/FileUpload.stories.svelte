@@ -33,12 +33,7 @@
 
 <Story name="Drop">
 	<div style="width: 500px;">
-		<FileUpload
-			type="drag"
-			multiple={true}
-			size={'md'}
-			on:selected={handleSelected}
-		>
+		<FileUpload type="drag" multiple={true} size={'md'} on:selected={handleSelected}>
 			<IconRenderer iconSize={48} icon={Download} />
 			<Text align="center" weight={'semibold'}>Click or drag file to this area to FileUpload</Text>
 			<Text align="center" size="sm" color="dimmed">
@@ -80,12 +75,10 @@
 
 		<ul style="list-style: none;padding: 0;">
 			{#each files as { file }, i}
-				<li style="display: flex;align-items: center;gap:10px;margin-bottom:10px;border: 1px solid #ccc;padding: 3px;">
-					<img
-						style="width: 50px; height: 50px;"
-						src={preview(file)}
-						alt="image{i}"
-					/>
+				<li
+					style="display: flex;align-items: center;gap:10px;margin-bottom:10px;border: 1px solid #ccc;padding: 3px;"
+				>
+					<img style="width: 50px; height: 50px;" src={preview(file)} alt="image{i}" />
 					<span style="flex: 1;">{file.name}</span>
 					<Button variant="default" size={'md'} on:click={() => remove(i)}>
 						<IconRenderer iconSize={20} icon={Trash} />
