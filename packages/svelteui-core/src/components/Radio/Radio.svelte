@@ -37,9 +37,9 @@
 		{ name: 'Radio' }
 	));
 
-  function onChange(e: InputEvent) {
-    checked = (e.target as HTMLInputElement).checked;
-  }
+	function onChange(e: InputEvent) {
+		checked = (e.target as HTMLInputElement).checked;
+	}
 </script>
 
 <!--
@@ -70,23 +70,23 @@ Radio component.
 					{value}
 					{id}
 					{...$$restProps}
-          use:useActions={use}
+					use:useActions={use}
 					use:forwardEvents
 				/>
 			{:else}
 				<input
-          class={classes.input}
-          class:disabled
-          type="radio"
-          {checked}
-          {name}
-          {disabled}
-          {value}
-          {id}
-          {...$$restProps}
-          on:change={onChange}
-          use:useActions={use}
-          use:forwardEvents
+					class={classes.input}
+					class:disabled
+					type="radio"
+					{checked}
+					{name}
+					{disabled}
+					{value}
+					{id}
+					{...$$restProps}
+					on:change={onChange}
+					use:useActions={use}
+					use:forwardEvents
 				/>
 			{/if}
 			<div class={classes.inner} aria-hidden />

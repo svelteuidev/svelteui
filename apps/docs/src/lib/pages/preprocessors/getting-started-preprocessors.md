@@ -8,9 +8,8 @@ source: 'svelteui-preprocessors'
 ---
 
 <script>
-    import { Alert, Space } from "@svelteuidev/core";
+  import { Alert, Space } from "@svelteuidev/core";
 	import { ExclamationTriangle } from 'radix-icons-svelte';
-    import { CodeBlock } from '$lib/components';
 </script>
 
 <Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled'>

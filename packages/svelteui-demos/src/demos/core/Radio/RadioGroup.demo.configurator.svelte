@@ -14,9 +14,9 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-      { name: 'label', type: 'string', initialValue: 'Select your favorite framework/library' },
-      { name: 'description', type: 'string', initialValue: 'Please be honest' },
-      { name: 'error', type: 'string', initialValue: '' },
+			{ name: 'label', type: 'string', initialValue: 'Select your favorite framework/library' },
+			{ name: 'description', type: 'string', initialValue: 'Please be honest' },
+			{ name: 'error', type: 'string', initialValue: '' },
 			{
 				name: 'color',
 				type: 'color',
@@ -39,7 +39,7 @@
 		]
 	};
 
-  const items = [
+	const items = [
 		{ label: 'Svelte', value: 'svelte' },
 		{ label: 'React', value: 'react' },
 		{ label: 'Vue', value: 'vue' },
@@ -56,5 +56,5 @@
 </script>
 
 <Center>
-	<RadioGroup {...props} value={'svelte'} items={items} />
+	<RadioGroup {...props} value={'svelte'} {items} />
 </Center>

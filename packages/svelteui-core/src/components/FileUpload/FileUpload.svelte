@@ -41,7 +41,6 @@
 		preview: $$Props['preview'] = true;
 	export { className as class };
 
-	let active: boolean = false;
 	let fileUploadComponent = undefined;
 	const dispatch = createEventDispatcher();
 

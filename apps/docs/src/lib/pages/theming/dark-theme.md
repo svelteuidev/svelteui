@@ -5,60 +5,14 @@ docs: 'theming/dark-theme.md'
 ---
 
 <script>
-    import { Preview } from '$lib/components'
-    import { SvelteUIProvider, Text, Switch, Stack } from "@svelteuidev/core";
-    import { Prism } from "@svelteuidev/prism";
-
-    const code = `
-    <script>
-        import { SvelteUIProvider, Switch } from '@svelteuidev/core';
-
-        let isDark = false;
-        function toggleTheme() {
-            isDark = !isDark;
-        }
-    <\/script>
-
-    <SvelteUIProvider withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
-        <Switch on:change={toggleTheme} />
-        <YourApp />
-    <\/SvelteUIProvider>
-    `
-
-    let isDark = false;
-	function toggleTheme() {
-		isDark = !isDark;
-	}
+  import { Demo, ThemeDemos } from '@svelteuidev/demos';
 </script>
 
 ## Getting Started
 
 Without any additional steps, all SvelteUI components support the dark color scheme by default. Wrap your application in SvelteUIProvider and specify the `themeObserver` prop to use a dark color scheme:
 
-<Preview cols={1} code={code}>
-    <SvelteUIProvider withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
-        <Stack align='center'>
-            <Text>Change the theme</Text>
-            <Switch on:change={toggleTheme} />
-        </Stack>
-    </SvelteUIProvider>
-</Preview>
-
-```svelte
-<script>
-	import { SvelteUIProvider, Switch } from '@svelteuidev/core';
-
-	let isDark = false;
-	function toggleTheme() {
-		isDark = !isDark;
-	}
-</script>
-
-<SvelteUIProvider withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
-	<Switch on:change={toggleTheme} />
-	<YourApp />
-</SvelteUIProvider>
-```
+<Demo demo={ThemeDemos.darkTheme} />
 
 ## Global styles
 

@@ -5,11 +5,7 @@ docs: 'theming/default-theme.md'
 ---
 
 <script>
-    import { CodeBlock, Preview } from '$lib/components'
-    import { Button } from "@svelteuidev/core";
-    import { Prism } from "@svelteuidev/prism";
-
-    const colors = ['dark', 'gray', 'red', 'pink', 'grape', 'violet', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'orange']
+  import { Demo, ThemeDemos } from "@svelteuidev/demos";
 </script>
 
 # Getting Started
@@ -220,11 +216,7 @@ export const colors = {
 };
 ```
 
-<Preview>
-    {#each colors as color}
-        <Button color={color}>{color}600</Button>
-    {/each}
-</Preview>
+<Demo demo={ThemeDemos.defaultTheme} />
 
 ## Typography
 

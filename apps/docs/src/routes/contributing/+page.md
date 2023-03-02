@@ -7,7 +7,7 @@ title: 'Contributing'
 </svelte:head>
 
 <script>
-    import { CodeBlock, MinorHeading, BottomNav } from '$lib/components'
+    import { MinorHeading, BottomNav } from '$lib/components'
     import { Demo, MiscDemos } from '@svelteuidev/demos';
     import { Alert } from '@svelteuidev/core';
     import { InfoCircled } from 'radix-icons-svelte';
