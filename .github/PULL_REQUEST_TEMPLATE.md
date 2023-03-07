@@ -8,7 +8,7 @@ Before submitting a PR, please read https://github.com/svelteuidev/svelteui/blob
 1. Give the PR a descriptive title
 2. Ensure there is a related issue and it is referenced in the PR text
 3. Ensure there are tests that cover the changes
-4. Ensure that `yarn repo:prepush` passes.
+4. Ensure that `yarn prepush:repo` passes.
 
 Happy contributing!
 
@@ -19,7 +19,8 @@ Happy contributing!
 - [ ] Read the [Contributing guide](https://github.com/svelteuidev/svelteui/blob/main/CONTRIBUTING.md)
 - [ ] Prefix your PR title with `[@svelteui/core]`, `[@svelteui/actions]`, `[@svelteui/motion]`, `[@svelteui/core]`, `[core]`, or `[docs]`.
 - [ ] This message body should clearly illustrate what problems it solves.
+- [ ] Run `yarn prepush:repo`
 
 ### Tests
 
-- [ ] Run the tests with `npm test` and lint the project with `yarn lint` or just run `yarn repo:prepush` and check to see if it's passing.
+- [ ] Run the tests with `yarn test`.
