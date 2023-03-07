@@ -28,8 +28,8 @@
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
 	override={{ padding: 5 }}
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{...$$restProps}
 >
-	<div class={cx(classes.burger, { opened: opened })} />
+	<span class={cx(classes.burger, { opened: opened })} />
 </UnstyledButton>
