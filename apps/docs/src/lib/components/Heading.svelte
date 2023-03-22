@@ -32,23 +32,21 @@
 
 <Stack
 	override={{
-		bc: 'rgb(248, 249, 250)',
+		bc: 'rgba(115, 176, 230, 0.2)',
 		padding: '$8',
-		position: 'absolute',
-		left: 0,
-		right: 0
+    borderRadius: "0.5rem"
 	}}
 >
-	<Stack override={{ mt: 50, mb: 20, h1: { mb: 0 }, '@md': { mt: 0 } }} spacing="xs">
+	<Stack override={{ mb: 20, h1: { mb: 0, mt: 0 }, '@md': { mt: 0 } }} spacing="xs">
 		<h1>{title}</h1>
 		{#if description}
-			<Title color="dimmed" order={3}>{description}</Title>
+			<Title order={3}>{description}</Title>
 		{/if}
 	</Stack>
 	{#if importCode}
 		<Group noWrap spacing={$screenW < 650 ? 10 : 70}>
 			{#if $screenW > 975}
-				<Text color="dimmed">Import</Text>
+				<Text>Import</Text>
 			{/if}
 			<Tooltip
 				closeDelay={200}
@@ -67,7 +65,7 @@
 	{/if}
 	{#if source}
 		<Group spacing={65}>
-			<Text color="dimmed">Source</Text>
+			<Text>Source</Text>
 			<Text variant="link" root="a" href={`${links.github}${source}`}>
 				<Center override={{ gap: '$4' }} inline>
 					<GithubLogo />
@@ -78,7 +76,7 @@
 	{/if}
 	{#if docs}
 		<Group spacing={78}>
-			<Text color="dimmed">Docs</Text>
+			<Text>Docs</Text>
 			<Text variant="link" root="a" href={`${links.docs}${docs}`}>
 				<Center override={{ gap: '$4' }} inline>
 					<Pencil1 />
@@ -89,7 +87,7 @@
 	{/if}
 	{#if packageGroup}
 		<Group spacing={55}>
-			<Text color="dimmed">Package</Text>
+			<Text>Package</Text>
 			<Text variant="link" root="a" href={`${links.npm}${packageGroup}`}>
 				<Center override={{ gap: '$4' }} inline>
 					<Cube />
@@ -99,7 +97,6 @@
 		</Group>
 	{/if}
 </Stack>
-<hr />
 
 <style>
   h1 {

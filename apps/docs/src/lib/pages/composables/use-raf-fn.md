@@ -29,7 +29,7 @@ The `useRafFn` composable also takes a second argument of options, which is an o
 
 You can import `RafFnOptions` interface type from `@svelteuidev/utilities`:
 
-```ts
+```js
 export interface RafFnOptions extends ConfigurableWindow {
 	/**
 	 * Start the requestAnimationFrame loop immediately on creation
@@ -42,6 +42,6 @@ export interface RafFnOptions extends ConfigurableWindow {
 
 ## Definition
 
-```ts
+```js
 function useRafFn(fn: Fn, options: RafFnOptions = {}): Pauseable;
 ```

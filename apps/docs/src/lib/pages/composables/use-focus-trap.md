@@ -30,6 +30,6 @@ The `use-focus-trap` action traps the focus inside a given DOM node. The node mu
 
 ## Definition
 
-```ts
+```js
 export function focustrap(node: HTMLElement): ReturnType<Action>;
 ```

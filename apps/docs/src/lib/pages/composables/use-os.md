@@ -21,13 +21,13 @@ The `use-os` composable detects a user's Operating System. Possible values are: 
 
 ## Typescript
 
-```ts
+```js
 import type { OS } from '@svelteuidev/composables';
 // OS type is 'undetermined' | 'macos' | 'ios' | 'windows' | 'android' | 'linux'
 ```
 
 ## Definition
 
-```ts
+```js
 export function useOs(): OS;
 ```

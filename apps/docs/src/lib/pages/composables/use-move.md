@@ -23,7 +23,7 @@ With the `use-move` action, it is possible to move an element in the screen with
 
 The use-move action dispatches three custom event. The custom event takes a callback function just like other events.
 
-```ts
+```js
 on:move?: (callback: (event: CustomEvent<{ x: number; y: number }> & { target: EventTarget & T }) => unknown) => void;
 on:move:start?: (callback: (event: CustomEvent<{ x: number; y: number }> & { target: EventTarget & T }) => unknown) => void;
 on:move:stop?: (callback: (event: CustomEvent<{ x: number; y: number }> & { target: EventTarget & T }) => unknown) => void;
@@ -31,7 +31,7 @@ on:move:stop?: (callback: (event: CustomEvent<{ x: number; y: number }> & { targ
 
 ## Definition
 
-```ts
+```js
 export function move(
 	node: HTMLElement
 ): ReturnType<Action>;

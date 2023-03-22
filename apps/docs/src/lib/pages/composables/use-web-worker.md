@@ -57,6 +57,6 @@ A more basic example would look something like this:
 
 ## Definition
 
-```tsx
+```js
 export function useWebWorker: <T extends (...fnArgs: any[]) => any>(fn: T, options?: WebWorkerOptions) => UseWebWorkerReturn
 ```

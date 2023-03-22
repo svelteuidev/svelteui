@@ -27,7 +27,7 @@ With the `use-persistent-tab` action, you can prevent current tab from being clo
 
 ## Definition
 
-```ts
+```js
 export function persistenttab(
 	node: HTMLElement,
 	attributes: Record<string, number | string>

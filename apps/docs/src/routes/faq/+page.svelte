@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { Heading } from '$lib/components';
+	import { MinorHeading } from '$lib/components';
 
 	export let data: PageData;
 </script>
@@ -9,5 +9,5 @@
 	<title>{data.title} - SvelteUI</title>
 </svelte:head>
 
-<Heading {...data} />
+<MinorHeading title={data.title} />
 <svelte:component this={data.content} />

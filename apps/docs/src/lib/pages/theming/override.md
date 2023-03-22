@@ -124,10 +124,3 @@ Given a component with a known structure, like `AppShell`, which contains a `div
 The [TailwindCSS][tailwindcss]-flavored example code above makes targeted changes to the implicit inner `<div>` contained in [`AppShell`](https://github.com/svelteuidev/svelteui/blob/main/packages/svelteui-core/src/components/AppShell/AppShell.svelte) and another internal `<div>` in order to create a full page AppShell which expands to the height of the page.
 
 [tailwindcss]: https://tailwindcss.com
-
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

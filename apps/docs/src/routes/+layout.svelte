@@ -48,9 +48,9 @@
 
 <PageTransition refresh={data.pathname}>
   <div class="main" class:nosidebar={nosidebar || mobile}>
-		<div class="article" class:homepage={$page.url.pathname === '/'}>
+		<article class="article" class:homepage={$page.url.pathname === '/'}>
       <slot />
-    </div>
+    </article>
   </div>
 </PageTransition>
 

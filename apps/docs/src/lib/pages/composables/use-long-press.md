@@ -29,13 +29,13 @@ With the `use-long-press` action, a `long press` event is created when `mousedow
 
 The `use-longpress` action dispatches one custom event. The custom event takes a callback function just like other events.
 
-```ts
+```js
 on:uselongpress?: (callback: (any) => unknown) => void;
 ```
 
 ## Definition
 
-```ts
+```js
 export function longpress(
 	node: HTMLElement,
 	duration: number

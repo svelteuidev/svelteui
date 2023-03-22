@@ -29,7 +29,7 @@ With the `use-clipboard` action, text passed into the text param will be copied 
 
 The use-clipboard action dispatches custom events. Each custom event takes a callback function just like other events.
 
-```ts
+```js
 on:useclipboard?: (callback: (any) => unknown) => void;
 on:useclipboard-error?: (callback: (any) => unknown) => void;
 ```

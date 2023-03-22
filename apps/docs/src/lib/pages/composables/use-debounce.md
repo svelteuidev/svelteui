@@ -28,7 +28,7 @@ source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 
 ## Definition
 
-```tsx
+```js
 export function useDebounce<T extends FunctionArgs>(
 	fn: T,
 	ms?: number,

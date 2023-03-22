@@ -8,25 +8,6 @@ docs: 'theming/ssr.md'
     import { Preview } from '$lib/components'
     import { SvelteUIProvider } from "@svelteuidev/core";
     import { Prism } from "@svelteuidev/prism";
-
-    const step1 = `
-    <script>
-        import { SvelteUIProvider } from '@svelteuidev/core';
-    <\/script>
-
-    <SvelteUIProvider>
-        <slot />
-    <\/SvelteUIProvider>
-    `
-    const step2 = `
-    <script>
-        import { SvelteUIProvider } from '@svelteuidev/core';
-    <\/script>
-
-    <SvelteUIProvider ssr>
-        <slot />
-    <\/SvelteUIProvider>
-    `
 </script>
 
 ## Getting Started
@@ -56,9 +37,3 @@ import { prepareStylesSSR } from '@svelteuidev/core';
 
 export const handle = prepareStylesSSR;
 ```
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

@@ -27,6 +27,6 @@ The `use-eye-dropper` composable allows you to create an eyedropper tool. Users 
 
 ## Definition
 
-```ts
+```js
 export function useEyeDropper(options?: EyeDropperOptions): EyeDropperReturn;
 ```

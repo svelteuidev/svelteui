@@ -13,7 +13,7 @@ source: 'svelteui-preprocessors'
     import { CodeBlock } from '$lib/components';
 </script>
 
-<Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled'>
+<Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled' override={{ marginTop: "1.1875rem" }}>
     If you have any suggestions for preprocessors, start a discussion or hop onto Discord!
 </Alert>
 
@@ -23,13 +23,13 @@ source: 'svelteui-preprocessors'
 
 Install with npm:
 
-```bash
+```
 npm install @svelteuidev/preprocessors
 ```
 
 Install with yarn:
 
-```bash
+```
 yarn add @svelteuidev/preprocessors
 ```
 
@@ -48,9 +48,3 @@ So far the list of available preprocessors are
 | Title      | Description                                         |
 | ---------- | --------------------------------------------------- |
 | viewSource | Allows you to display source code with fine control |
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 16rem!important;
-  }
-</style>

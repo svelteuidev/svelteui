@@ -70,9 +70,3 @@ Here is the detailed list of all the mapped tokens:
 </Box>
 
 > You can read [this](https://stitches.dev/docs/tokens#property-mapping) for more information about `defaultStitchesThemeMap`.
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

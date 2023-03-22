@@ -27,6 +27,6 @@ source: 'svelteui-composables/src/actions/use-lock-scroll/use-lock-scroll.ts'
 
 ## Definition
 
-```ts
+```js
 export function lockscroll(node: HTMLElement, lock?: boolean): ReturnType<Action>;
 ```

@@ -5,17 +5,14 @@ packageGroup: '@svelteuidev/core'
 slug: /core/radio/
 category: 'inputs'
 description: 'Wrapper around the radio input type'
-import: "import { Radio } from '@svelteuidev/core';"
+importCode: "import { Radio } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Radio/Radio.svelte'
 docs: 'core/radio.md'
 ---
 
 <script>
     import { Demo, RadioDemos } from '@svelteuidev/demos';
-    import { Heading } from 'components';
 </script>
-
-<Heading />
 
 ## Usage
 

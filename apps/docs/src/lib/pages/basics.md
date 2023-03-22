@@ -3,14 +3,14 @@ title: Learn the basics
 ---
 
 <svelte:head>
+
   <title>Learn the basics - SvelteUI</title>
 </svelte:head>
 
 <script>
-  import { CodeBlock, MinorHeading, BottomNav } from '$lib/components'
+  import { CodeBlock, BottomNav } from '$lib/components'
 </script>
 
-<MinorHeading title="Learn the Basics" />
 
 This guide will help you get familiar with core SvelteUI concepts. Please read this guide and the [theming](/theming/svelteui-provider) section before starting development to learn about all available theming features and component behaviors.
 
@@ -74,15 +74,13 @@ This library will forward all events to the underlying elements, so you can add 
 
 ```svelte
 <script>
-  import { Button } from "@svelteuidev/core";
+	import { Button } from '@svelteuidev/core';
 
-  let clicked = false;
+	let clicked = false;
 </script>
 
-<Button
-    on:click={() => clicked = true}
->
-    {clicked ? "Don't click me anymore" : 'Click me'}
+<Button on:click={() => (clicked = true)}>
+	{clicked ? "Don't click me anymore" : 'Click me'}
 </Button>
 ```
 
@@ -135,11 +133,10 @@ All components support a class prop which is useful for things like global styli
 
 ```svelte
 <script>
-    import { Button } from "@svelteuidev/core";
+	import { Button } from '@svelteuidev/core';
 </script>
 
-<Button class='animation-bounce'>I have a tailwind animation</Button>
+<Button class="animation-bounce">I have a tailwind animation</Button>
 ```
 
 <BottomNav both slug={{ prev: 'installation', next: 'contributing' }} title={{ prev: 'Installation', next: 'Contributing' }} group={{ prev: 'Getting Started', next: 'Getting Started' }} />
-

@@ -3,23 +3,15 @@
   align-items: center;
 }
 
-.topbar {
-	padding: 0.5rem 0.25rem !important;
-}
-
-.main {
-	position: relative;
-}
-
 .article {
 	max-width: 80rem !important;
-	margin: auto 2rem !important;
-	padding-bottom: 10rem !important;
+  height: calc(100vh - var(--topbar-height)) !important;
+  padding: 2rem
 }
-
+/*
 .article > article > *:nth-child(3) {
 	margin-top: 20rem;
-}
+} */
 
 .main.nosidebar {
   margin-left: 0 !important;
@@ -29,7 +21,6 @@
 
 .sidebar {
 	overflow-y: scroll;
-	padding-top: 1em !important;
 	padding-right: 1em !important;
 	padding-left: 1em !important;
 	padding-bottom: 5rem !important;
@@ -121,10 +112,11 @@
 		padding-left: 1rem !important;
 		padding-right: 1rem !important;
 		padding-bottom: 5rem !important;
+    height: calc(100vh - var(--topbar-height)) !important
 	}
-	.article > *:nth-child(3) {
+	/* .article > *:nth-child(3) {
 		margin-top: 25rem;
-	}
+	} */
 	.sidebar {
 		--sidebar-width: 100% !important;
 	}

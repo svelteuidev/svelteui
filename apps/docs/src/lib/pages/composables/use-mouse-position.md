@@ -29,6 +29,6 @@ If you pass in a truthy value for it's only argument, then the mouse position wi
 
 ## Definition
 
-```ts
+```js
 export function useMousePosition(append?: boolean): MousePosition;
 ```

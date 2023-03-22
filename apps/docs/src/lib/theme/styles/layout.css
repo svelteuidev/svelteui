@@ -86,7 +86,6 @@ body {
 	height: calc(100vh - var(--topbar-height));
 	margin-top: var(--topbar-height);
 	border-right: 1px solid var(--light);
-	padding: 1em;
 	box-sizing: border-box;
 	font-size: 0.9em;
 	background-color: var(--white);

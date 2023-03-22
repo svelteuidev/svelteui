@@ -30,14 +30,14 @@ With the `use-download` action, a download will occur with a given Blob object a
 
 The `use-download` action dispatches custom events. Each custom event takes a callback function just like other events _e.g._ `on:click=`
 
-```ts
+```js
 on:usedownload?: (callback: (any) => unknown) => void;
 on:usedownload-error?: (callback: (any) => unknown) => void;
 ```
 
 ## Definition
 
-```ts
+```js
 export function download(
 	node: HTMLElement,
 	params: { blob: Blob; filename: string }

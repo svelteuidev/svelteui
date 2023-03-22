@@ -7,15 +7,13 @@ title: 'Installation'
 </svelte:head>
 
 <script>
-	import { CodeBlock, MinorHeading, NextSteps, Installation, StartGuide, BottomNav } from '$lib/components'
+	import { CodeBlock, NextSteps, Installation, StartGuide, BottomNav } from '$lib/components'
 	import { STARTGUIDE_DATA as guideData, ID } from '$lib/components/mainpages/GettingStarted/Guides/data'
 
 	let packages = ["@svelteuidev/core", "@svelteuidev/composables"];
     let value = 'kit'
 	$: sanitizedPKG = packages || ["@svelteuidev/core", "@svelteuidev/composables"].join(' ')
 </script>
-
-<MinorHeading title="Installation" />
 
 ## Initialize a new Svelte or SvelteKit project
 

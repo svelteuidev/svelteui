@@ -488,9 +488,3 @@ export const darkTheme = {
     ...
 };
 ```
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

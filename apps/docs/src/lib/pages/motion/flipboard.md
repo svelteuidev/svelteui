@@ -32,7 +32,7 @@ The flipboard transition displays text with a glitch like effect. Just like ever
 
 You can import `FlipboardParams` interface type from `@svelteuidev/motion`:
 
-```ts
+```js
 import type { FlipboardParams } from '@svelteuidev/motion';
 
 export interface FlipboardParams {
@@ -46,6 +46,6 @@ export interface FlipboardParams {
 
 ## Definition
 
-```ts
+```js
 function flipboard(node: HTMLElement, { delay, duration, easing }: FlipboardParams): TransitionConfig;
 ```
