@@ -57,24 +57,24 @@
 
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 	{#if !nosidebar}
-		{#if !mobile || (mobile && show_sidebar)}
-			<div transition:fly={{ x: -100, duration: 300 }} class="sidebar">
-				{#key $page}
-					<div use:set_active_link={{ page: $page }}>
-						<Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
-					</div>
-				{/key}
-			</div>
-		{/if}
+    <div transition:fly={{ x: -100, duration: 300 }} class="sidebar" class:active-sidebar={show_sidebar}>
+      {#key $page}
+        <div use:set_active_link={{ page: $page }}>
+          <Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
+        </div>
+      {/key}
+    </div>
 	{/if}
 	<div class="topbar">
 		{#if mobile && !nosidebar}
-			<Burger
-				color="blue"
-				opened={show_sidebar}
-				class="show_sidebar"
-				on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
-			/>
+			<div style="margin-left: 12px">
+        <Burger
+          color="blue"
+          opened={show_sidebar}
+          class="show_sidebar"
+          on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
+        />
+      </div>
 		{/if}
 		<div class="logo"><Logo /></div>
 		<div>

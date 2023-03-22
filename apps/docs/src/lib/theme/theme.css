@@ -5,17 +5,11 @@
 
 .article {
 	max-width: 80rem !important;
-  height: calc(100vh - var(--topbar-height)) !important;
   padding: 2rem
 }
-/*
-.article > article > *:nth-child(3) {
-	margin-top: 20rem;
-} */
 
 .main.nosidebar {
   margin-left: 0 !important;
-  /* padding-top: 0 !important; */
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
 }
 
@@ -112,14 +106,14 @@
 		padding-left: 1rem !important;
 		padding-right: 1rem !important;
 		padding-bottom: 5rem !important;
-    height: calc(100vh - var(--topbar-height)) !important
 	}
-	/* .article > *:nth-child(3) {
-		margin-top: 25rem;
-	} */
 	.sidebar {
-		--sidebar-width: 100% !important;
+		display: none;
 	}
+  .sidebar.active-sidebar {
+    --sidebar-width: 100% !important;
+    display: block;
+  }
 }
 
 /* Put in media query to have less clutter at the top of the file */
