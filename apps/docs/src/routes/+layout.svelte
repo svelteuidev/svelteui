@@ -9,7 +9,8 @@
 	import '$lib/theme/theme.css';
 	import type { PageData } from './$types';
 
-	let show_sidebar: boolean;
+	let window_width = 0;
+	let show_sidebar: boolean = false;
 
 	$: mobile = window_width < 800;
 	$: nosidebar = browser && $page.url.pathname === '/';
