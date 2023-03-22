@@ -29,6 +29,6 @@ You can specify a DOM node where portal will be rendered by passing target argum
 
 ## Definition
 
-```ts
+```js
 export function portal(node: HTMLElement, target: Target): ReturnType<Action>;
 ```

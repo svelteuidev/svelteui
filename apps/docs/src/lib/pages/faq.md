@@ -7,12 +7,10 @@ title: FAQ
 </svelte:head>
 
 <script>
-  import { CodeBlock, MinorHeading, BottomNav } from '$lib/components'
+  import { CodeBlock, BottomNav } from '$lib/components'
 	import { Box, Space } from '@svelteuidev/core'
 </script>
 
-
-<MinorHeading title="FAQ" />
 
 ## How do I integrate TailwindCSS with SvelteUI?
 

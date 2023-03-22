@@ -16,7 +16,7 @@ Theme
 | `--tag-border`         | #fdd58a                                                                                                                      |                                   |
 | `--tag-text`           | #DD6B20                                                                                                                      |                                   |
 | `--text`               | --dark                                                                                                                       |                                   |
-| `--topbar-height`      | 50px                                                                                                                         |                                   |
+| `--topbar-height`      | 67px                                                                                                                         |                                   |
 | `--sidebar-width`      | 250px                                                                                                                        |                                   |
 | `--quote`              | --tag                                                                                                                        |                                   |
 | `--quote-side`         | --tag-text                                                                                                                   |                                   |

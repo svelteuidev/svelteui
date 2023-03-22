@@ -14,7 +14,7 @@ source: 'svelteui-dates'
     import { CodeBlock } from '$lib/components';
 </script>
 
-<Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled'>
+<Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled' override={{ marginTop: "1.1875rem" }}>
     Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
 </Alert>
 
@@ -157,8 +157,3 @@ isSameMonth(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> true
 isSameMonth(new Date(2020, 7, 21), new Date(2020, 8, 22)); // -> false
 </script>
 ```
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 16rem!important;
-  }
-</style>

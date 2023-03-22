@@ -60,9 +60,3 @@ To remove copy button set `copy` prop to false.
 <Demo demo={PrismDemos.copy} />
 
 > This is only Prism v1. More updates will roll out overtime.
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 20rem!important;
-  }
-</style>

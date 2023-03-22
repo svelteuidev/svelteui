@@ -32,7 +32,7 @@ With the Intersection Observer API, `use-intersection` gets information about th
 
 The `use-clipboard` action dispatches custom events. Each custom event takes a callback function just like other events.
 
-```ts
+```js
 on:useclipboard?: (callback: (any) => unknown) => void;
 on:change?: (callback: (any) => unknown) => void;
 on:enter?: (callback: (any) => unknown) => void;
@@ -42,6 +42,6 @@ on:init?: (callback: (any) => unknown) => void;
 
 ## Definition
 
-```ts
+```js
 export function io(node: HTMLElement, options?: Options): ReturnType<Action>;
 ```

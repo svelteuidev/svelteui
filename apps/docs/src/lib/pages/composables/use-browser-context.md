@@ -21,6 +21,6 @@ If you are using SvelteKit, then you'll want to use the page store rather than t
 
 ## Definition
 
-```ts
+```js
 export function useBrowserContext(): Writable<BrowserContextState>;
 ```

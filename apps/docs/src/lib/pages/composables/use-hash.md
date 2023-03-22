@@ -27,12 +27,12 @@ The `use-hash` composable also takes a second argument which is a boolean value.
 
 ## Typescript
 
-```ts
+```js
 // no specific exported types
 ```
 
 ## Definition
 
-```ts
+```js
 export function useHash(prefix: string = 'svelteui', persist: boolean = false): string;
 ```

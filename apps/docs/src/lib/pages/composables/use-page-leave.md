@@ -27,6 +27,6 @@ The `use-page-leave` action calls given function when mouse leaves the page.
 
 ## Definition
 
-```ts
+```js
 export function pageleave(node: HTMLElement, callback: Fn<void>): ReturnType<Action>;
 ```

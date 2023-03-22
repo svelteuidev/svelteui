@@ -13,7 +13,7 @@ docs: 'preprocessors/view-source.md'
 
 Setting up the preprocessor requires you to place it in an array of preprocessors. It should come after `svelte-preprocess` but before others.
 
-```ts
+```js
 // svelte.config.js
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
@@ -30,7 +30,7 @@ export default config;
 
 `viewSource` optionally accepts an options object containing two keys: `sourceTagName` and `displayTagName`, which can be used to set the component the preprocessor looks for (in case you want to rename the components when you import them, or make your own).
 
-```ts
+```js
 viewSource({
 	sourceTagName: 'ComponentOne',
 	displayTagName: 'ComponentTwo'
@@ -63,9 +63,3 @@ The view-source preprocessor exports two components, `SourceCode` and `DisplaySo
 <p>
     The `DisplaySourceCode` element will display whatever source code appears between the opening and closing tags of the `SourceCode` element. It will trim any leading or trailing blank lines and unindent the source code before passing it to a child component. If `DisplaySourceCode` does not receive a slot, it will display the source code in a `pre` element. If it does receive a slot, it will pass that slot a `source` prop. This prop is a string containing the exact source code from `SourceCode`. A `DisplaySourceCode` element must have one and only one corresponding `SourceCode` element.
 </p>
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 17rem!important;
-  }
-</style>

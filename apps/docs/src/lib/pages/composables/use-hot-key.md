@@ -43,6 +43,6 @@ docs: 'composables/use-hot-key.md'
 
 ## Definition
 
-```ts
+```js
 export function hotkey(node: HTMLElement, hotkeys: HotkeyItem[]): ReturnType<Action>;
 ```

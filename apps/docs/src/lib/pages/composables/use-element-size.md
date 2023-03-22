@@ -19,6 +19,6 @@ source: 'svelteui-composables/src/utilities/use-element-size/use-element-size.ts
 
 ## Definition
 
-```tsx
+```js
 export function useElementSize(): ElementSize;
 ```

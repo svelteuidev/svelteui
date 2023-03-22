@@ -30,7 +30,7 @@ Limit the execution of a function. This is especially useful for rate limiting t
 
 ## Definition
 
-```tsx
+```js
 export function useThrottle<T extends FunctionArgs>(
 	fn: T,
 	ms?: number,

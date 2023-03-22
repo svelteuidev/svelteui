@@ -31,7 +31,7 @@ The typewriter transition will give your text a typed effect. Just like every ot
 
 You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
 
-```ts
+```js
 import type { TypewriterParams } from '@svelteuidev/motion';
 
 interface TypewriterParams {
@@ -42,6 +42,6 @@ interface TypewriterParams {
 
 ## Definition
 
-```ts
+```js
 function typewriter(node: HTMLElement, { speed }: TypewriterParams): TransitionConfig;
 ```

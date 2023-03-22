@@ -28,7 +28,7 @@ With the `use-click-outside` action, a callback function will be fired whenever 
 
 ## Definition
 
-```ts
+```js
 export function clickOutside(
 	node: HTMLElement,
 	params: { enabled: boolean; callback?: (node?: HTMLElement) => void }

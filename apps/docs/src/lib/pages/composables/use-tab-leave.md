@@ -27,6 +27,6 @@ The `use-tab-leave` action calls given function when the current tab is switched
 
 ## Definition
 
-```tsx
+```js
 export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Action>;
 ```
