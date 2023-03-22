@@ -9,7 +9,6 @@ export { default as Heading } from './Heading.svelte';
 export { default as Device } from './Device.svelte';
 export { default as BottomNav } from './BottomNav.svelte';
 export { default as NavigationTitle } from './NavigationTitle.svelte';
-export { default as Preview } from "./ComponentPreview.svelte"
 export { default as Banner } from './Banner.svelte';
 export { default as Global } from './Global.svelte';
 export { default as Logo } from './Logo.svelte';
