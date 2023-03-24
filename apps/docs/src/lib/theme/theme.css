@@ -87,7 +87,15 @@
   display: flex;
   flex-direction: column
 }
-
+.desktop_topbar {
+  display: block
+}
+.mobile_topbar {
+  display: none
+}
+.sidebar_burger {
+  display: none
+}
 /* ---------------------------Media Query's below----------------------------------- */
 
 @media (max-width: 1074px) {
@@ -113,6 +121,19 @@
   .sidebar.active-sidebar {
     --sidebar-width: 100% !important;
     display: block;
+  }
+  .desktop_topbar {
+    display: none
+  }
+  .mobile_topbar {
+    display: block
+  }
+  .sidebar_burger {
+    display: block
+  }
+  .main {
+    margin-left: 0 !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
   }
 }
 
