@@ -9,10 +9,8 @@
 	import '$lib/theme/theme.css';
 	import type { PageData } from './$types';
 
-	let window_width = 0;
 	let show_sidebar: boolean = false;
 
-	$: mobile = window_width < 800;
 	$: nosidebar = browser && $page.url.pathname === '/';
 
 	let sidebar = [
@@ -44,7 +42,6 @@
   export let data: PageData
 </script>
 
-<svelte:window bind:innerWidth={window_width} />
 
 <PageTransition refresh={data.pathname}>
   <div class="main" class:nosidebar={nosidebar}>
