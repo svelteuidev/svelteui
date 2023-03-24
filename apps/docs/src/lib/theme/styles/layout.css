@@ -27,7 +27,6 @@ body {
 	height: var(--topbar-height);
 	border-bottom: 1px solid var(--light);
 	width: 100vw;
-	line-height: var(--topbar-height);
 	background-color: var(--white);
 }
 
