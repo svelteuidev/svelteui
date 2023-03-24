@@ -14,7 +14,6 @@
 
 	$: mobile = window_width < 800;
 	$: nosidebar = browser && $page.url.pathname === '/';
-	$: show_sidebar = mobile ? show_sidebar : false;
 
 	let sidebar = [
 		{ id: 1, expand: false },
@@ -48,7 +47,7 @@
 <svelte:window bind:innerWidth={window_width} />
 
 <PageTransition refresh={data.pathname}>
-  <div class="main" class:nosidebar={nosidebar || mobile}>
+  <div class="main" class:nosidebar={nosidebar}>
 		<article class="article" class:homepage={$page.url.pathname === '/'}>
       <slot />
     </article>
@@ -66,8 +65,8 @@
     </div>
 	{/if}
 	<div class="topbar">
-		{#if mobile && !nosidebar}
-			<div style="margin-left: 12px">
+		{#if !nosidebar}
+			<div style="margin-left: 12px" class="sidebar_burger">
         <Burger
           color="blue"
           opened={show_sidebar}
@@ -87,5 +86,6 @@
 <style>
   .article.homepage {
     margin: 0 auto !important;
+    padding-top: 0 !important;
   }
 </style>

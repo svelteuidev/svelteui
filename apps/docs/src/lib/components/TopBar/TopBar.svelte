@@ -63,29 +63,33 @@
 	// @ts-nocheck
 </script>
 
-		<Menu.Label>Navigation</Menu.Label>
-		{#each config.links as { title, href }}
-				{title}
-			</Menu.Item>
-		{/each}
-		<Divider />
-		<Menu.Label>Experimental Theme Toggle</Menu.Label>
-		<Menu.Item>
-			<ActionIcon variant="default" on:click={toggleTheme} size={30}>
-				{#if $colorScheme === 'dark'}
-					<Moon />
-				{:else}
-					<Sun />
-				{/if}
-			</ActionIcon>
-		</Menu.Item>
-		<Menu.Item>
-			<ActionIcon variant="default" on:click={changeModalState} size={30}>
-				<MagnifyingGlass />
-			</ActionIcon>
-		</Menu.Item>
-	</Menu>
-{:else}
+<div class="mobile_topbar">
+  <Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
+    <Menu.Label>Navigation</Menu.Label>
+    {#each config.links as { title, href }}
+      <Menu.Item root="a" {href}>
+        {title}
+      </Menu.Item>
+    {/each}
+    <Divider />
+    <Menu.Label>Experimental Theme Toggle</Menu.Label>
+    <Menu.Item>
+      <ActionIcon variant="default" on:click={toggleTheme} size={30}>
+        {#if $colorScheme === 'dark'}
+          <Moon />
+        {:else}
+          <Sun />
+        {/if}
+      </ActionIcon>
+    </Menu.Item>
+    <Menu.Item>
+      <ActionIcon variant="default" on:click={changeModalState} size={30}>
+        <MagnifyingGlass />
+      </ActionIcon>
+    </Menu.Item>
+  </Menu>
+</div>
+<div class="desktop_topbar">
 	<ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
 		<li class="searchBox">
 			<Box
@@ -129,7 +133,7 @@
 			</Tooltip>
 		</li>
 	</ul>
-{/if}
+</div>
 
 <Modal
 	opened={modalOpened}

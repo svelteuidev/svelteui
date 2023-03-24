@@ -115,7 +115,7 @@ index: true
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-bottom: 2rem;
-		padding-top: 4rem;
+		padding-top: 0rem !important;
 		width: auto;
 	}
 	.title {
