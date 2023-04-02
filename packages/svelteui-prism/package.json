@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/prism",
-	"version": "0.10.0",
+	"version": "0.11.0",
 	"description": "Code highlight with SvelteUI theme",
 	"keywords": [
 		"svelte",
@@ -84,8 +84,8 @@
 		"vite": "3.2.2"
 	},
 	"peerDependencies": {
-		"@svelteuidev/composables": "0.10.0",
-		"@svelteuidev/core": "0.10.0",
+		"@svelteuidev/composables": "0.11.0",
+		"@svelteuidev/core": "0.11.0",
 		"svelte": ">=3.55.0"
 	}
 }
