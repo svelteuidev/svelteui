@@ -36,6 +36,7 @@
 
 - ### <NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle>
   {#if sidebar[0].expand}
+  - [Version 0.11.0](changelog/v0-11-0)
   - [Version 0.10.0](changelog/v0-10-0)
   - [Version 0.7.0](changelog/v0-7-0)
   - [Version 0.6.5](changelog/v0-6-5)
