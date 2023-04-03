@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/demos",
-	"version": "0.11.0",
+	"version": "0.11.1",
 	"private": true,
 	"description": "Demos used in documentation",
 	"keywords": [
@@ -50,11 +50,11 @@
 		"watch": "svelte-package -w"
 	},
 	"dependencies": {
-		"@svelteuidev/composables": "0.11.0",
-		"@svelteuidev/core": "0.11.0",
-		"@svelteuidev/motion": "0.11.0",
-		"@svelteuidev/preprocessors": "0.11.0",
-		"@svelteuidev/prism": "0.11.0"
+		"@svelteuidev/composables": "0.11.1",
+		"@svelteuidev/core": "0.11.1",
+		"@svelteuidev/motion": "0.11.1",
+		"@svelteuidev/preprocessors": "0.11.1",
+		"@svelteuidev/prism": "0.11.1"
 	},
 	"devDependencies": {
 		"@babel/core": "7.18.6",
