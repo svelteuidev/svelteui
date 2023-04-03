@@ -13,7 +13,6 @@
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { createEventDispatcher, get_current_component } from 'svelte/internal';
 	import { randomID } from '$lib/styles';
-	import { File, Reset, Trash, Upload } from 'radix-icons-svelte';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import Button from '../Button/Button.svelte';
 	interface $$Props extends $$FileUploadProps {}
@@ -32,12 +31,14 @@
 		color: $$Props['color'] = 'blue',
 		size: $$Props['size'] = 'sm',
 		disabled: $$Props['disabled'] = false,
-		icon: $$Props['icon'] = Upload,
 		id: $$Props['id'] = randomID(),
+		icon: $$Props['icon'] = undefined,
+		fileIcon: $$Props['fileIcon'] = undefined,
+		removeIcon: $$Props['removeIcon'] = undefined,
 		reset: $$Props['reset'] = true,
 		resetLabel: $$Props['resetLabel'] = 'Reset',
 		resetColor: $$Props['resetColor'] = 'red',
-		resetIcon: $$Props['resetIcon'] = Reset,
+		resetIcon: $$Props['resetIcon'] = undefined,
 		preview: $$Props['preview'] = true;
 	export { className as class };
 
@@ -146,7 +147,7 @@
 	{#each files as { file }, i}
 		<div class={classes.fileItemWrapper}>
 			<div class={classes.fileItemIcon}>
-				<IconRenderer iconSize={fontSizes[size] * 1.8} icon={File} />
+				<IconRenderer iconSize={fontSizes[size] * 1.8} icon={fileIcon} />
 			</div>
 			<span class={classes.fileItemName}>
 				{file.name}
@@ -154,7 +155,7 @@
 			<span class={classes.fileItemAction}>
 				<span>
 					<Button variant="default" {size} on:click={() => remove(i)}>
-						<IconRenderer iconSize={fontSizes[size] * 1.5} icon={Trash} />
+						<IconRenderer iconSize={fontSizes[size] * 1.5} icon={removeIcon} />
 					</Button>
 				</span>
 			</span>

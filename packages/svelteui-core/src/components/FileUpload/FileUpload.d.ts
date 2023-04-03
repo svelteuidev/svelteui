@@ -20,10 +20,12 @@ export interface FileUploadProps<T = 'drag'>
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
 	disabled?: boolean;
-	icon?: Component | HTMLOrSVGElement;
 	id?: string;
-	resetLabel?: string;
+	icon?: Component | HTMLOrSVGElement;
+	fileIcon?: Component | HTMLOrSVGElement;
+	removeIcon?: Component | HTMLOrSVGElement;
 	reset?: boolean;
+	resetLabel?: string;
 	resetColor?: SvelteUIColor;
 	resetIcon?: Component | HTMLOrSVGElement;
 	preview?: boolean;

@@ -3,7 +3,7 @@
 	import { Burger } from './index';
 	import { Button } from '../Button';
 
-    let opened = false;
+	let opened = false;
 </script>
 
 <Meta title="Components/Burger" component={Burger} />
@@ -15,8 +15,8 @@
 <Story name="Burger" id="burger" />
 
 <Story name="Burger inside a button" id="burgerButton">
-    <Button ripple variant="default" color="black" on:click={() => (opened = !opened)}>
-        <Burger {opened} size="sm" />
-        Menu
-    </Button>
+	<Button ripple variant="default" color="black" on:click={() => (opened = !opened)}>
+		<Burger {opened} size="sm" />
+		Menu
+	</Button>
 </Story>
