@@ -12,7 +12,6 @@ docs: 'core/container.md'
 
 <script>
     import { Demo, ContainerDemos } from '@svelteuidev/demos'
-    import { Preview } from '$lib/components';
 </script>
 
 ## Usage

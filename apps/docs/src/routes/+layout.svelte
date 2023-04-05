@@ -11,7 +11,7 @@
 
 	let show_sidebar: boolean = false;
 
-	$: nosidebar = browser && $page.url.pathname === '/';
+	$: nosidebar = $page.url.pathname === '/';
 
 	let sidebar = [
 		{ id: 1, expand: false },
