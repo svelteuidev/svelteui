@@ -30,9 +30,11 @@
 	</div>
 </Story>
 
-<Story name="Button with icon" id="buttonIcon">
+<Story name="With icon" id="buttonIcon">
 	<Button>
 		<LockClosed slot="leftIcon" />
     	Sign Up
 	</Button>
 </Story>
+
+<Story name="Disabled" id="buttonDisabled" args={{ disabled: true }} />

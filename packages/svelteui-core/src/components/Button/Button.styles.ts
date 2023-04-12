@@ -90,7 +90,7 @@ export default createStyles(
 						? `0px ${size}px`
 						: sizes[compact ? `compact-${size}` : size].padding,
 				fontFamily: '$standard',
-				fontWeight: '$SemiBold',
+				fontWeight: '$semibold',
 				fontSize: `$${size}`,
 				lineHeight: 1,
 				flexGrow: 0,
@@ -101,29 +101,32 @@ export default createStyles(
 				},
 				'&:active': {
 					transform: 'translateY(1px)'
-				},
-				'&.disabled': {
-					pointerEvents: 'none',
-					borderColor: 'transparent',
-					backgroundColor: 'rgb(233, 236, 239)',
-					background: 'rgb(233, 236, 239)',
-					color: 'rgb(173, 181, 189)',
+				}
+			},
+			loading: {
+				pointerEvents: 'none',
+				'&::before': {
+					content: '""',
+					position: 'absolute',
+					inset: -1,
+					backgroundColor: 'rgba(255, 255, 255, .5)',
+					borderRadius: `$${radius}`,
 					cursor: 'not-allowed'
-				},
-				'&.loading': {
-					pointerEvents: 'none',
-					'&::before': {
-						content: '""',
-						position: 'absolute',
-						inset: -1,
-						backgroundColor: 'rgba(255, 255, 255, .5)',
-						borderRadius: `$${radius}`,
-						cursor: 'not-allowed'
-					}
 				}
 			},
 			variants: {
 				variation: vFunc(color, gradient)
+			},
+			disabled: {
+				pointerEvents: 'none',
+				borderColor: 'transparent',
+				backgroundColor: theme.fn.themeColor('gray', 2),
+				color: theme.fn.themeColor('gray', 5),
+				cursor: 'not-allowed',
+				darkMode: {
+					backgroundColor: theme.fn.themeColor('dark', 4),
+					color: theme.fn.themeColor('dark', 6)
+				}
 			}
 		};
 	}
