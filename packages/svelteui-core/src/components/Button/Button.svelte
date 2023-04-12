@@ -95,11 +95,11 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		tabindex="0"
 	>
 		{#if loading && loaderPosition === 'left'}
-			<span class="loader-left">
+			<span class="left-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.leftIcon}
-			<span class="loader-left">
+			<span class="left-section">
 				<slot name="leftIcon">X</slot>
 			</span>
 		{/if}
@@ -108,11 +108,11 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			<Ripple center={false} circle={false} />
 		{/if}
 		{#if loading && loaderPosition === 'right'}
-			<span class="loader-right">
+			<span class="right-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.rightIcon}
-			<span class="loader-right">
+			<span class="right-section">
 				<slot name="rightIcon">X</slot>
 			</span>
 		{/if}
@@ -130,11 +130,11 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		tabindex="0"
 	>
 		{#if loading && loaderPosition === 'left'}
-			<span class="loader-left">
+			<span class="left-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.leftIcon}
-			<span class="loader-left">
+			<span class="left-section">
 				<slot name="leftIcon">X</slot>
 			</span>
 		{/if}
@@ -143,11 +143,11 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			<Ripple center={false} circle={false} />
 		{/if}
 		{#if loading && loaderPosition === 'right'}
-			<span class="loader-right">
+			<span class="right-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
 		{:else if $$slots.rightIcon}
-			<span class="loader-right">
+			<span class="right-section">
 				<slot name="rightIcon">X</slot>
 			</span>
 		{/if}
@@ -158,10 +158,16 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	.uppercase {
 		text-transform: uppercase;
 	}
-	.loader-left {
+	.left-section {
 		margin-right: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	.loader-right {
+	.right-section {
 		margin-left: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 </style>

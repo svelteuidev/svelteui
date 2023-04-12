@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Input } from './index';
+	import { EnvelopeClosed } from 'radix-icons-svelte';
 
 	let value = 'Hello';
 	let valueNumber = 0;
@@ -27,3 +28,5 @@
 <Story name="Input invalid" id="inputInvalid" args={{ invalid: true }} />
 
 <Story name="Input disabled" id="inputDisabled" args={{ disabled: true }} />
+
+<Story name="Input with icon" id="inputIcon" args={{ icon: EnvelopeClosed }} />

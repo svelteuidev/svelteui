@@ -173,7 +173,7 @@ export default createStyles(
 				}
 			},
 			withIcon: {
-				paddingLeft: typeof iconWidth === 'number' ? iconWidth : sizes[size] ?? sizes.md
+				paddingLeft: typeof iconWidth === 'number' ? `${iconWidth}px` : sizes[size] ?? sizes.md
 			},
 			disabled: {
 				backgroundColor: theme.fn.themeColor('gray', 1),
@@ -212,12 +212,12 @@ export default createStyles(
 				position: 'absolute',
 				zIndex: 1,
 				left: 0,
-				top: 8,
+				top: 0,
 				bottom: 0,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				width: sizes[size] ?? sizes.md,
+				width: iconWidth ? `${iconWidth}px` : sizes[size] ?? sizes.md,
 				color: invalid ? theme.fn.themeColor('red', 7) : theme.fn.themeColor('gray', 5),
 				darkMode: {
 					color: invalid ? theme.fn.themeColor('red', 6) : theme.fn.themeColor('dark', 2)

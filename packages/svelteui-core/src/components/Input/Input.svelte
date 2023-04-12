@@ -110,7 +110,9 @@ Base component to create custom inputs
 <!-- svelte-ignore a11y-autofocus -->
 <Box {...wrapperProps} class={getStyles({ css: override })} {...$$restProps}>
 	{#if icon}
-		<IconRenderer {icon} className={classes.icon} {...iconProps} iconSize={16} />
+		<div class={classes.icon}>
+			<IconRenderer {icon} {...iconProps} iconSize={16} />
+		</div>
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input

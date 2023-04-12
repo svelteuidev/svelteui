@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+	import { LockClosed } from 'radix-icons-svelte';
 	import { Button } from './index';
 	import { Group } from '../Group';
 	import { useSvelteUITheme } from '$lib/styles';
@@ -27,4 +28,11 @@
 			</Group>
 		{/each}
 	</div>
+</Story>
+
+<Story name="Button with icon" id="buttonIcon">
+	<Button>
+		<LockClosed slot="leftIcon" />
+    	Sign Up
+	</Button>
 </Story>
