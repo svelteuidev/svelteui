@@ -8,16 +8,22 @@
 
 <Meta title="Components/Input" component={Input} />
 
-<Template>
-	<Input bind:value />
-	{value}
-	{typeof value}
+<Template let:args>
+	<Input bind:value {...args} />
 </Template>
 
 <Story name="Input" id="input" />
+
+<Story name="Input Filled variant" id="inputFilled" args={{ variant: "filled" }} />
+
+<Story name="Input Unstyled variant" id="inputUnstyled" args={{ variant: "unstyled" }} />
 
 <Story name="Input as a number" id="inputNumber">
 	<Input bind:value={valueNumber} type="number" />
 	{valueNumber}
 	{typeof valueNumber}
 </Story>
+
+<Story name="Input invalid" id="inputInvalid" args={{ invalid: true }} />
+
+<Story name="Input disabled" id="inputDisabled" args={{ disabled: true }} />

@@ -41,29 +41,21 @@ export default createStyles(
 		return {
 			root: {
 				darkMode: {
-					'& .input':
-						variant === 'headless'
-							? {}
-							: {
-									color: '$dark50'
-							  },
+					'& .input': variant === 'headless' ? {} : { color: theme.fn.themeColor('dark', 0) },
 					'&:disabled': {
-						backgroundColor: '$dark600'
+						backgroundColor: theme.fn.themeColor('dark', 6)
 					},
 					'&::placeholder': {
-						color: '$dark300'
+						color: theme.fn.themeColor('dark', 3)
 					}
 				},
 				position: 'relative'
 			},
 			input:
-				variant === 'headless'
-					? {}
-					: {
+				variant !== 'headless'
+					? {
 							height: multiline
-								? variant === 'unstyled'
-									? undefined
-									: 'auto'
+								? 'auto'
 								: typeof size === 'number'
 								? `${size}px`
 								: sizes[size] ?? sizes.md,
@@ -92,20 +84,20 @@ export default createStyles(
 							borderRadius: variant === 'default' || variant === 'filled' ? `$${radius}` : null,
 
 							'&:disabled': {
-								backgroundColor: '$gray100',
-								color: '$dark200',
+								backgroundColor: theme.fn.themeColor('gray', 1),
+								color: theme.fn.themeColor('dark', 2),
 								opacity: 0.6,
 								cursor: 'not-allowed',
 
 								'&::placeholder': {
-									color: '$dark200'
+									color: theme.fn.themeColor('dark', 2)
 								}
 							},
 
 							'&::placeholder': {
 								opacity: 1,
 								userSelect: 'none',
-								color: '$gray500'
+								color: theme.fn.themeColor('gray', 5)
 							},
 
 							'&::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration':
@@ -116,102 +108,106 @@ export default createStyles(
 							'&[type=number]': {
 								MozAppearance: 'textfield'
 							},
-							'&.defaultVariant': {
-								[`${theme.dark} &`]: {
-									border: `1px solid $dark500`,
-									backgroundColor: '$dark800',
-									'&:focus, &:focus-within': {
-										borderColor: '$blue800'
-									}
-								},
-								border: `1px solid $gray400`,
-								backgroundColor: 'White',
-								transition: 'border-color 100ms ease',
 
-								'&:focus, &:focus-within': {
-									outline: 'none',
-									borderColor: '$blue500'
-								}
-							},
-
-							'&.filledVariant': {
-								[`${theme.dark} &`]: {
-									backgroundColor: '$dark500',
-									'&:focus, &:focus-within': {
-										borderColor: '$blue800 !important'
-									}
-								},
-								border: '1px solid transparent',
-								backgroundColor: '$gray100',
-
-								'&:focus, &:focus-within': {
-									outline: 'none',
-									borderColor: `$blue500 !important`
-								}
-							},
-
-							'&.unstyledVariant': {
-								[`${theme.dark} &`]: {
-									color: '$dark50'
-								},
-								borderWidth: 0,
-								color: 'Black',
-								backgroundColor: 'transparent',
-								minHeight: 28,
-								outline: 0,
-
-								'&:focus, &:focus-within': {
-									outline: 'none',
-									borderColor: 'transparent'
-								},
-
-								'&:disabled': {
-									backgroundColor: 'transparent',
-
-									'&:focus, &:focus-within': {
-										outline: 'none',
-										borderColor: 'transparent'
-									}
-								}
+							darkMode: {
+								color: theme.fn.themeColor('dark', 0)
 							}
-					  },
+					  }
+					: {},
+			defaultVariant: {
+				border: `1px solid ${theme.fn.themeColor('gray', 4)}`,
+				backgroundColor: 'White',
+				transition: 'border-color 100ms ease',
+				minHeight: sizes[size] ?? sizes.md,
 
+				'&:focus, &:focus-within': {
+					outline: 'none',
+					borderColor: theme.fn.themeColor('blue', 5)
+				},
+
+				darkMode: {
+					border: `1px solid ${theme.fn.themeColor('dark', 5)}`,
+					backgroundColor: theme.fn.themeColor('dark', 8),
+					'&:focus, &:focus-within': {
+						borderColor: theme.fn.themeColor('blue', 8)
+					}
+				}
+			},
+			filledVariant: {
+				border: '1px solid transparent',
+				backgroundColor: theme.fn.themeColor('gray', 1),
+				minHeight: sizes[size] ?? sizes.md,
+
+				'&:focus, &:focus-within': {
+					outline: 'none',
+					borderColor: `${theme.fn.themeColor('blue', 5)} !important`
+				},
+
+				darkMode: {
+					backgroundColor: theme.fn.themeColor('dark', 5),
+					'&:focus, &:focus-within': {
+						borderColor: `${theme.fn.themeColor('blue', 8)} !important`
+					}
+				}
+			},
+			unstyledVariant: {
+				height: multiline ? undefined : 'auto',
+				borderWidth: 0,
+				color: 'Black',
+				backgroundColor: 'transparent',
+				minHeight: 28,
+				outline: 0,
+
+				'&:focus, &:focus-within': {
+					outline: 'none',
+					borderColor: 'transparent'
+				},
+
+				'&:disabled': {
+					backgroundColor: 'transparent',
+
+					'&:focus, &:focus-within': {
+						outline: 'none',
+						borderColor: 'transparent'
+					}
+				}
+			},
 			withIcon: {
 				paddingLeft: typeof iconWidth === 'number' ? iconWidth : sizes[size] ?? sizes.md
 			},
 			disabled: {
-				darkMode: {
-					backgroundColor: '$dark600 !important'
-				},
-				backgroundColor: '$gray100 !important',
-				color: '$dark200 !important',
+				backgroundColor: theme.fn.themeColor('gray', 1),
+				color: theme.fn.themeColor('dark', 2),
 				opacity: 0.6,
 				cursor: 'not-allowed',
 
 				'&::placeholder': {
-					color: '$dark200 !important'
+					color: theme.fn.themeColor('dark', 2)
+				},
+
+				darkMode: {
+					backgroundColor: theme.fn.themeColor('dark', 6),
+					borderColor: theme.fn.themeColor('dark', 4)
 				}
 			},
 			invalid: {
-				darkMode: {
-					color: '$red600 !important',
-					borderColor: '$red600 !important',
-					'&::placeholder': {
-						color: '$red600 !important'
-					}
-				},
-				color: '$red700 !important',
-				borderColor: '$red700 !important',
+				color: theme.fn.themeColor('red', 7),
+				borderColor: theme.fn.themeColor('red', 7),
 
 				'&::placeholder': {
 					opacity: 1,
-					color: '$red700 !important'
+					color: theme.fn.themeColor('red', 7)
+				},
+
+				darkMode: {
+					color: theme.fn.themeColor('red', 6),
+					borderColor: theme.fn.themeColor('red', 6),
+					'&::placeholder': {
+						color: theme.fn.themeColor('red', 6)
+					}
 				}
 			},
 			icon: {
-				darkMode: {
-					color: invalid ? 'red600' : '$dark200'
-				},
 				pointerEvents: 'none',
 				position: 'absolute',
 				zIndex: 1,
@@ -222,7 +218,10 @@ export default createStyles(
 				alignItems: 'center',
 				justifyContent: 'center',
 				width: sizes[size] ?? sizes.md,
-				color: invalid ? '$red700' : '$gray500'
+				color: invalid ? theme.fn.themeColor('red', 7) : theme.fn.themeColor('gray', 5),
+				darkMode: {
+					color: invalid ? theme.fn.themeColor('red', 6) : theme.fn.themeColor('dark', 2)
+				}
 			},
 			rightSection: {
 				position: 'absolute',

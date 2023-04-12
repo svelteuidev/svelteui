@@ -126,14 +126,12 @@ Base component to create custom inputs
 			{autocomplete}
 			{autofocus}
 			aria-invalid={invalid}
-			class:disabled
-			class:invalid
 			class:withIcon={icon}
 			class={cx(
 				className,
 				classes.input,
 				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
-				`${variant}Variant`
+				classes[`${variant}Variant`] ?? {}
 			)}
 			{...$$restProps}
 			on:input={onInput}
