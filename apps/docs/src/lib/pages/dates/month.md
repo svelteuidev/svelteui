@@ -24,7 +24,7 @@ Month is the most basic `@svelteuidev/dates` component, it displays a single mon
 All `@svelteuidev/dates` components are built with [dayjs](https://day.js.org/) library.
 The default locale is `en`, and to change this, follow the [dayjs localization guide](https://day.js.org/docs/en/i18n/loading-into-nodejs):
 
-```ts
+```js
 // First import locale data
 import 'dayjs/locale/ru';
 ```
@@ -70,9 +70,3 @@ To exclude dates set `excludeDate` prop with function that receives date as an a
 To hide weekdays names row, set `hideWeekdays` prop:
 
 <Demo demo={MonthDemos.weekdays} />
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 20rem!important;
-  }
-</style>

@@ -3,33 +3,18 @@
   align-items: center;
 }
 
-.topbar {
-	padding: 0.5rem 0.25rem !important;
-}
-
-.main {
-	position: relative;
-}
-
 .article {
 	max-width: 80rem !important;
-	margin: auto 2rem !important;
-	padding-bottom: 10rem !important;
-}
-
-.article > article > *:nth-child(3) {
-	margin-top: 20rem;
+  padding: 2rem
 }
 
 .main.nosidebar {
   margin-left: 0 !important;
-  /* padding-top: 0 !important; */
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
 }
 
 .sidebar {
 	overflow-y: scroll;
-	padding-top: 1em !important;
 	padding-right: 1em !important;
 	padding-left: 1em !important;
 	padding-bottom: 5rem !important;
@@ -102,7 +87,15 @@
   display: flex;
   flex-direction: column
 }
-
+.desktop_topbar {
+  display: block
+}
+.mobile_topbar {
+  display: none
+}
+.sidebar_burger {
+  display: none
+}
 /* ---------------------------Media Query's below----------------------------------- */
 
 @media (max-width: 1074px) {
@@ -122,12 +115,26 @@
 		padding-right: 1rem !important;
 		padding-bottom: 5rem !important;
 	}
-	.article > *:nth-child(3) {
-		margin-top: 25rem;
-	}
 	.sidebar {
-		--sidebar-width: 100% !important;
+		display: none;
 	}
+  .sidebar.active-sidebar {
+    --sidebar-width: 100% !important;
+    display: block;
+  }
+  .desktop_topbar {
+    display: none
+  }
+  .mobile_topbar {
+    display: block
+  }
+  .sidebar_burger {
+    display: block
+  }
+  .main {
+    margin-left: 0 !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
+  }
 }
 
 /* Put in media query to have less clutter at the top of the file */

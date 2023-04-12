@@ -8,8 +8,6 @@ docs: 'theming/ssr.md'
     import { Preview } from '$lib/components'
     import { SvelteUIProvider } from "@svelteuidev/core";
     import { Prism } from "@svelteuidev/prism";
-
-    const styles = `<style id='svelteui-inject-body' type='text/css'>.article>*:nth-child(3){margin-top:15rem!important;}@media(max-width: 800px){.article>*:nth-child(3){margin-top:18rem!important;}}<\/style>`;
 </script>
 
 ## Getting Started
@@ -39,9 +37,3 @@ import { prepareStylesSSR } from '@svelteuidev/core';
 
 export const handle = prepareStylesSSR;
 ```
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

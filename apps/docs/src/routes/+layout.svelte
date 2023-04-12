@@ -9,12 +9,9 @@
 	import '$lib/theme/theme.css';
 	import type { PageData } from './$types';
 
-	let window_width = 0;
-	let show_sidebar: boolean;
+	let show_sidebar: boolean = false;
 
-	$: mobile = window_width < 800;
-	$: nosidebar = browser && $page.url.pathname === '/';
-	$: show_sidebar = mobile ? show_sidebar : false;
+	$: nosidebar = $page.url.pathname === '/';
 
 	let sidebar = [
 		{ id: 1, expand: false },
@@ -45,36 +42,35 @@
   export let data: PageData
 </script>
 
-<svelte:window bind:innerWidth={window_width} />
 
 <PageTransition refresh={data.pathname}>
-  <div class="main" class:nosidebar={nosidebar || mobile}>
-		<div class="article" class:homepage={$page.url.pathname === '/'}>
+  <div class="main" class:nosidebar={nosidebar}>
+		<article class="article" class:homepage={$page.url.pathname === '/'}>
       <slot />
-    </div>
+    </article>
   </div>
 </PageTransition>
 
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 	{#if !nosidebar}
-		{#if !mobile || (mobile && show_sidebar)}
-			<div transition:fly={{ x: -100, duration: 300 }} class="sidebar">
-				{#key $page}
-					<div use:set_active_link={{ page: $page }}>
-						<Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
-					</div>
-				{/key}
-			</div>
-		{/if}
+    <div transition:fly={{ x: -100, duration: 300 }} class="sidebar" class:active-sidebar={show_sidebar}>
+      {#key $page}
+        <div use:set_active_link={{ page: $page }}>
+          <Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
+        </div>
+      {/key}
+    </div>
 	{/if}
 	<div class="topbar">
-		{#if mobile && !nosidebar}
-			<Burger
-				color="blue"
-				opened={show_sidebar}
-				class="show_sidebar"
-				on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
-			/>
+		{#if !nosidebar}
+			<div style="margin-left: 12px" class="sidebar_burger">
+        <Burger
+          color="blue"
+          opened={show_sidebar}
+          class="show_sidebar"
+          on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
+        />
+      </div>
 		{/if}
 		<div class="logo"><Logo /></div>
 		<div>
@@ -87,5 +83,6 @@
 <style>
   .article.homepage {
     margin: 0 auto !important;
+    padding-top: 0 !important;
   }
 </style>

@@ -27,6 +27,6 @@ With the `use-css-variable` action, an object of properties will be treated as C
 
 ## Definition
 
-```ts
+```js
 export function cssvariable(node: HTMLElement, props: UnknownKeyString<string>): ReturnType<Action>;
 ```

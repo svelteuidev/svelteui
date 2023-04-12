@@ -276,9 +276,3 @@ For creating CSS animations, you can either use the Svelte transition api, or Sv
 
 <Button override={styles}>I will grow on hover</Button>
 ```
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem!important;
-  }
-</style>

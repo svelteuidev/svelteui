@@ -3,15 +3,14 @@ title: 'Introduction'
 ---
 
 <svelte:head>
+
   <title>Introduction - SvelteUI</title>
 </svelte:head>
 
 <script>
   // @ts-nocheck
-  import { MinorHeading, BottomNav } from '$lib/components'
+  import { BottomNav } from '$lib/components'
 </script>
-
-<MinorHeading title="Introduction" />
 
 ## What is SvelteUI?
 
@@ -29,7 +28,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 - Minimal to no third-party dependency usage.
 - Easy setup - **Zero Configuration**.
 
-<br />
+  <br />
 
 ## Packages
 
@@ -45,7 +44,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 **[`@svelteui/preprocessors`](preprocessors/view-source)** - Svelte preprocessor library to assist in many areas of development
 
-<br />
+  <br />
 
 ## Getting help
 
@@ -54,4 +53,4 @@ We want to build a friendly community that is happy to help those who need it. H
 - [Join Discord community](https://discord.gg/2J2xmzCS79) - it will be the easiest way to get help.
 - [Github Discussions](https://github.com/svelteuidev/svelteui/discussions) - you can discuss anything relating to the project here.
 
-<BottomNav slug='installation' title='Installation' group='Getting Started' />
+  <BottomNav slug='installation' title='Installation' group='Getting Started' />

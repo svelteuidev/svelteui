@@ -21,6 +21,6 @@ source: 'svelteui-composables/src/utilities/use-id/use-id.ts'
 
 ## Definition
 
-```tsx
+```js
 export function useId(): string;
 ```

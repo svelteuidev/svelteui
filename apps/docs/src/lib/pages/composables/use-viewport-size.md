@@ -21,7 +21,7 @@ The `use-viewport-size` composable allows you get access to the current with and
 
 ## Definition
 
-```ts
+```js
 export function useViewportSize(): Writable<{
 	width: number;
 	height: number;

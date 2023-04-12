@@ -21,6 +21,6 @@ The `use-focus` action is the simplest action out of all. It has a single purpos
 
 ## Definition
 
-```ts
+```js
 export function focus(node: FocusableElement): ReturnType<Action>;
 ```

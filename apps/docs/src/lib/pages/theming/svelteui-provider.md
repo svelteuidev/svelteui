@@ -5,11 +5,7 @@ docs: 'theming/svelteui-provider.md'
 ---
 
 <script>
-    import { Preview } from '$lib/components'
     import { Prism } from "@svelteuidev/prism";
-
-    const step1 = `
-    `
 </script>
 
 # Getting Started
@@ -84,9 +80,3 @@ SvelteUIProvider can accept actions, classes, element bindings, and style overri
 ```
 
 For information on SSR and color scheme changes, refer to [Server Side Rendering](theming/ssr), [Dark Theme](theming/dark-theme)
-
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

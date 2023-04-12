@@ -37,8 +37,3 @@ We are in constant development, so here are some things you can expect down the 
 - Changing theme based on keyboard shortcut
 - Detect preferred color scheme
 
-<style>
-  :global(article>*:nth-child(3)) {
-    margin-top: 13rem !important;
-  }
-</style>

@@ -28,6 +28,6 @@ The `use-focus-within` composable determines whether any element within has focu
 
 ## Definition
 
-```ts
+```js
 export function useFocusWithin({ onBlur, onFocus }?: UseFocusWithinOptions): FocusWithin;
 ```

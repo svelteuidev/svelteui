@@ -27,7 +27,7 @@ With the `use-lazy` action, you can set attributes on an element when it is visi
 
 ## Definition
 
-```ts
+```js
 export function lazy(
 	node: HTMLElement,
 	attributes: Record<string, number | string>

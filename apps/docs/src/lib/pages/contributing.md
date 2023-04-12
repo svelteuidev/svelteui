@@ -7,13 +7,11 @@ title: 'Contributing'
 </svelte:head>
 
 <script>
-    import { MinorHeading, BottomNav } from '$lib/components'
+    import { BottomNav } from '$lib/components'
     import { Demo, MiscDemos } from '@svelteuidev/demos';
     import { Alert } from '@svelteuidev/core';
     import { InfoCircled } from 'radix-icons-svelte';
 </script>
-
-<MinorHeading title="Contributing" />
 
 ## Ways to contribute
 
