@@ -15,18 +15,18 @@
 
 <Story name="Input" id="input" />
 
-<Story name="Input Filled variant" id="inputFilled" args={{ variant: "filled" }} />
+<Story name="Filled variant" id="inputFilled" args={{ variant: "filled" }} />
 
-<Story name="Input Unstyled variant" id="inputUnstyled" args={{ variant: "unstyled" }} />
+<Story name="Unstyled variant" id="inputUnstyled" args={{ variant: "unstyled" }} />
 
-<Story name="Input as a number" id="inputNumber">
+<Story name="Number value" id="inputNumber">
 	<Input bind:value={valueNumber} type="number" />
 	{valueNumber}
 	{typeof valueNumber}
 </Story>
 
-<Story name="Input invalid" id="inputInvalid" args={{ invalid: true }} />
+<Story name="Invalid" id="inputInvalid" args={{ invalid: true }} />
 
-<Story name="Input disabled" id="inputDisabled" args={{ disabled: true }} />
+<Story name="Disabled" id="inputDisabled" args={{ disabled: true }} />
 
-<Story name="Input with icon" id="inputIcon" args={{ icon: EnvelopeClosed }} />
+<Story name="With icon" id="inputIcon" args={{ icon: EnvelopeClosed }} />
