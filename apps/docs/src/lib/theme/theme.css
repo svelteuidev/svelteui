@@ -27,10 +27,17 @@
   transition-timing-function: ease-in !important;
   transition-duration: 100ms !important;
 }
+
 .searchTerm:hover {
   background-color: var(--search-item) !important;
   border: 1px solid var(--search-item) !important;
 }
+
+.searchLink {
+  margin: 0;
+  font-size: 0.87rem
+}
+
 .searchBox {
   width: 20rem !important;
   height: 2.5rem;
@@ -39,13 +46,15 @@
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
 }
+
 .searchBox:hover {
   background-color: rgba(227, 227, 227, 1);
 }
 
 .recentSearchesTitle {
-  font-size: 0.9rem;
   margin-top: 0.8rem;
 }
 
@@ -55,7 +64,7 @@
 }
 
 .searchItemDescription {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin: 0
 }
 
