@@ -85,8 +85,8 @@
 			width: '100%',
 			maxWidth: '40rem',
 			background: 'linear-gradient(135deg, #3e97e6, #86b8e3) !important',
-      marginRight: "auto",
-      marginLeft: "auto"
+      marginRight: "auto !important",
+      marginLeft: "auto !important"
 		}
 	}));
 	$: ({ getStyles } = useStyles());
@@ -132,7 +132,7 @@
 			>
 				<div style="display: flex; align-items: center">
 					<MagnifyingGlass size={25} color="#228be6" />
-					<h1 style="margin-left: 0.5rem; font-size: 1.1rem">Search</h1>
+					<p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
 				</div>
 				<div>
 					<Kbd>{browser && window.navigator.platform === 'MacIntel' ? '⌘' : 'Ctrl'}</Kbd> + <Kbd
