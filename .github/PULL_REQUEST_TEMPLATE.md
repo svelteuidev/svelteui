@@ -14,13 +14,17 @@ Happy contributing!
 
 -->
 
+## Description
+
+<!--
+Please write here a description of what this Pull Request added/changed.
+Feel free to add screenshots/videos that illustrate the changes made.
+-->
+
 ### Before submitting the PR, please make sure you do the following
 
 - [ ] Read the [Contributing guide](https://github.com/svelteuidev/svelteui/blob/main/CONTRIBUTING.md)
 - [ ] Prefix your PR title with `[@svelteui/core]`, `[@svelteui/actions]`, `[@svelteui/motion]`, `[@svelteui/core]`, `[core]`, or `[docs]`.
-- [ ] This message body should clearly illustrate what problems it solves.
-- [ ] Run `yarn prepush`
-
-### Tests
-
-- [ ] Run the tests with `yarn test`.
+- [ ] Include a description of the changes made in the PR description and in the commit messages.
+- [ ] Include screenshots/videos of the changes made.
+- [ ] Verify that the linter and tests are passing, with `yarn lint` and `yarn test` or just run `yarn prepush`.
