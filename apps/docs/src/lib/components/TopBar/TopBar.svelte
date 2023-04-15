@@ -42,7 +42,7 @@
 		searchTerm = '';
 	}
 
-	let previousSection = "";
+	let previousSection = '';
 
 	function onSearchValueInput() {
 		matchingSearches = searchLinks.filter((item) =>
@@ -67,9 +67,9 @@
 		return newVal;
 	}
 
-  function validateSearchLink(searchLinkSection: string) {
-    return searchLinkSection === previousSection
-  }
+	function validateSearchLink(searchLinkSection: string) {
+		return searchLinkSection === previousSection;
+	}
 
 	// @ts-nocheck
 
@@ -84,9 +84,8 @@
 		'.svelteui-Modal-modal': {
 			width: '100% !important',
 			maxWidth: '40rem',
-			background: 'linear-gradient(135deg, #3e97e6, #86b8e3) !important',
-      marginRight: "auto !important",
-      marginLeft: "auto !important"
+			marginRight: 'auto !important',
+			marginLeft: 'auto !important'
 		}
 	}));
 	$: ({ getStyles } = useStyles());
@@ -211,13 +210,25 @@
 	{:else}
 		<p class="noMatches">No matches</p>
 	{/if}
-	<Divider  />
+	<Divider />
 	{#each searchLinks as searchLink}
 		{#if validateSearchLink(searchLink.section)}
-			<SearchItem search={searchLink} />
+			<a
+				href={searchLink.link}
+				style={`text-decoration: none`}
+				on:click={() => addSearch(searchLink)}
+			>
+				<SearchItem search={searchLink} />
+			</a>
 		{:else}
 			<h2>{changePreviousSection(searchLink.section)}</h2>
-			<SearchItem search={searchLink} />
+			<a
+				href={searchLink.link}
+				style={`text-decoration: none`}
+				on:click={() => addSearch(searchLink)}
+			>
+				<SearchItem search={searchLink} />
+			</a>
 		{/if}
 	{/each}
 </Modal>

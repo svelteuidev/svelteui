@@ -16,7 +16,7 @@
         <p class="searchItemDescription">{search.section}</p>
       {/if}
     </div>
-    <Group position="center" direction="column" override={{ color: "#969696" }}>
+    <Group position="center" direction="column" override={{ color: "#f5f5f5" }}>
       <p class="searchLink">{search.link}</p>
     </Group>
   </Group>

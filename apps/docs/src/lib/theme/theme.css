@@ -26,11 +26,12 @@
   margin-bottom: 0.5rem !important;
   transition-timing-function: ease-in !important;
   transition-duration: 100ms !important;
+  background-color: var(--search-item) !important;
 }
 
 .searchTerm:hover {
-  background-color: var(--search-item) !important;
-  border: 1px solid var(--search-item) !important;
+  background-color: var(--search-item-hover) !important;
+  border: 1px solid var(--search-item-hover) !important;
 }
 
 .searchLink {
