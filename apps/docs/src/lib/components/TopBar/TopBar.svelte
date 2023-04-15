@@ -82,7 +82,7 @@
 			display: 'block !important'
 		},
 		'.svelteui-Modal-modal': {
-			width: '100%',
+			width: '100% !important',
 			maxWidth: '40rem',
 			background: 'linear-gradient(135deg, #3e97e6, #86b8e3) !important',
       marginRight: "auto !important",
