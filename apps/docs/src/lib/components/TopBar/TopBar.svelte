@@ -186,26 +186,14 @@
 		{#if recentSearches.length > 0}
 			<h3 class="recentSearchesTitle">Recent searches:</h3>
 			{#each recentSearches as recentSearch}
-				<a
-					href={recentSearch.link}
-					style={`text-decoration: none`}
-					on:click={() => addSearch(recentSearch)}
-				>
-					<SearchItem search={recentSearch} />
-				</a>
+				<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
 			{/each}
 		{:else}
 			<p class="noMatches">No recent searches</p>
 		{/if}
 	{:else if matchingSearches.length > 0}
 		{#each matchingSearches as matchingSearch}
-			<a
-				href={matchingSearch.link}
-				style={`text-decoration: none`}
-				on:click={() => addSearch(matchingSearch)}
-			>
-				<SearchItem search={matchingSearch} />
-			</a>
+			<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
 		{/each}
 	{:else}
 		<p class="noMatches">No matches</p>
@@ -213,22 +201,10 @@
 	<Divider />
 	{#each searchLinks as searchLink}
 		{#if validateSearchLink(searchLink.section)}
-			<a
-				href={searchLink.link}
-				style={`text-decoration: none`}
-				on:click={() => addSearch(searchLink)}
-			>
-				<SearchItem search={searchLink} />
-			</a>
+			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
 		{:else}
 			<h2>{changePreviousSection(searchLink.section)}</h2>
-			<a
-				href={searchLink.link}
-				style={`text-decoration: none`}
-				on:click={() => addSearch(searchLink)}
-			>
-				<SearchItem search={searchLink} />
-			</a>
+			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
 		{/if}
 	{/each}
 </Modal>
