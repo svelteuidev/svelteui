@@ -43,7 +43,7 @@ In case you want smoother transitions between values, you can tween them with th
 Size controls progress bar height. Progress has predefined sizes: `xs`, `sm`, `md`, `lg`, `xl`.
 Alternatively, you can use a number to set height in px:
 
-```tsx
+```svelte
 <Progress size="sm" /> // -> predefined small size
 <Progress size={50} /> // -> { height: 50 }
 ```
@@ -54,7 +54,7 @@ Radius controls border-radius of body and filled part.
 `xs`, `sm`, `md`, `lg`, `xl` radius values are defined in [theme.radius](/theming/extend-theme/#spacing-radius-and-shadows).
 Alternatively, you can use a number to set radius in px:
 
-```tsx
+```svelte
 <Progress radius="lg" /> // -> theme predefined large radius
 <Progress radius={10} /> // -> { borderRadius: 10 }
 ```
@@ -71,6 +71,6 @@ Alternatively, you can use a number to set radius in px:
 
 Provide aria-label attribute to label progress:
 
-```tsx
+```svelte
 <Progress aria-label="Uploading progress" value={10} />
 ```
