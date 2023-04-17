@@ -75,7 +75,7 @@ You can change styles of any element in button component with `override` prop to
 
 Control button font-size, height and padding with `size` and border-radius with `radius` props. Both props have predefined values: `xs`, `sm`, `md`, `lg`, `xl`. Alternatively, you can use a number to set radius in px:
 
-```tsx
+```svelte
 <Button radius="lg" /> // -> theme predefined large radius
 <Button radius={10} /> // -> { borderRadius: '10px' }
 <Button size="sm" /> // -> predefined small size

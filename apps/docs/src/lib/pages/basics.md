@@ -27,11 +27,11 @@ All SvelteUI components support light and dark color themes out of the box. You 
 
 ```svelte
 <script>
-	import { SvelteUIProvider } from '@svelteuidev/core';
+  import { SvelteUIProvider } from '@svelteuidev/core';
 </script>
 
 <SvelteUIProvider themeObserver="dark">
-	<YourApp />
+  <YourApp />
 </SvelteUIProvider>
 ```
 
@@ -60,7 +60,7 @@ SvelteUI components work in SvelteKit environments without any configuration nee
 
 You can import the props type of any component by adding `Props` to the component name:
 
-```svel
+```svelte
 import type { ButtonProps } from '@svelteuidev/core';
 ```
 

@@ -42,7 +42,7 @@ It will still be possible to close modal by clicking on overlay or pressing esca
 You can change modal width by setting `size` prop to predefined size or any valid width, for example, 55% or 200px.
 Size controls modal width, max-width is set to 100% with spacing on left and right, no matter what `size` is passed 100% will not be exceeded:
 
-```tsx
+```svelte
 <Modal size="sm" /> // -> predefined small size
 <Modal size={378} /> // -> size in px
 <Modal size="55%" /> // -> size in %
@@ -84,7 +84,7 @@ In most cases you should not turn these features off as it will make your modal 
 
 For better screen reader support set `closeButtonLabel` prop:
 
-```tsx
+```svelte
 // sets title attribute on close button
 <Modal closeButtonLabel="Close authentication modal" />
 ```
