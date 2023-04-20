@@ -7,16 +7,16 @@
 		colorScheme,
 		Modal,
 		TextInput,
-		Paper,
 		Box,
-		Kbd
+		Kbd,
+		createStyles
 	} from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
-	import { mobile } from '$lib/components';
 	import { config, searchLinks } from './data.js';
 	import { onMount } from 'svelte';
 	import { hotkey } from '@svelteuidev/composables';
 	import { browser } from '$app/environment';
+	import SearchItem from '$lib/components/SearchItem.svelte';
 
 	type SearchItem = {
 		title: string;
@@ -42,6 +42,8 @@
 		searchTerm = '';
 	}
 
+	let previousSection = '';
+
 	function onSearchValueInput() {
 		matchingSearches = searchLinks.filter((item) =>
 			item.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -60,34 +62,60 @@
 		localStorage.setItem('recentSearches', JSON.stringify(existingSearches));
 	}
 
+	function changePreviousSection(newVal: string) {
+		previousSection = newVal;
+		return newVal;
+	}
+
+	function validateSearchLink(searchLinkSection: string) {
+		return searchLinkSection === previousSection;
+	}
+
 	// @ts-nocheck
+
+	const useStyles = createStyles(() => ({
+		'.svelteui-Modal-inner > div': {
+			width: '100%',
+			display: 'block !important'
+		},
+		'.svelteui-Modal-inner': {
+			display: 'block !important'
+		},
+		'.svelteui-Modal-modal': {
+			width: '100% !important',
+			maxWidth: '40rem',
+			marginRight: 'auto !important',
+			marginLeft: 'auto !important'
+		}
+	}));
+	$: ({ getStyles } = useStyles());
 </script>
 
 <div class="mobile_topbar">
-  <Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
-    <Menu.Label>Navigation</Menu.Label>
-    {#each config.links as { title, href }}
-      <Menu.Item root="a" {href}>
-        {title}
-      </Menu.Item>
-    {/each}
-    <Divider />
-    <Menu.Label>Experimental Theme Toggle</Menu.Label>
-    <Menu.Item>
-      <ActionIcon variant="default" on:click={toggleTheme} size={30}>
-        {#if $colorScheme === 'dark'}
-          <Moon />
-        {:else}
-          <Sun />
-        {/if}
-      </ActionIcon>
-    </Menu.Item>
-    <Menu.Item>
-      <ActionIcon variant="default" on:click={changeModalState} size={30}>
-        <MagnifyingGlass />
-      </ActionIcon>
-    </Menu.Item>
-  </Menu>
+	<Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
+		<Menu.Label>Navigation</Menu.Label>
+		{#each config.links as { title, href }}
+			<Menu.Item root="a" {href}>
+				{title}
+			</Menu.Item>
+		{/each}
+		<Divider />
+		<Menu.Label>Experimental Theme Toggle</Menu.Label>
+		<Menu.Item>
+			<ActionIcon variant="default" on:click={toggleTheme} size={30}>
+				{#if $colorScheme === 'dark'}
+					<Moon />
+				{:else}
+					<Sun />
+				{/if}
+			</ActionIcon>
+		</Menu.Item>
+		<Menu.Item>
+			<ActionIcon variant="default" on:click={changeModalState} size={30}>
+				<MagnifyingGlass />
+			</ActionIcon>
+		</Menu.Item>
+	</Menu>
 </div>
 <div class="desktop_topbar">
 	<ul style={`padding-right: 0.75rem`} use:hotkey={[['mod+k', () => changeModalState()]]}>
@@ -102,7 +130,7 @@
 				on:click={changeModalState}
 			>
 				<div style="display: flex; align-items: center">
-					<MagnifyingGlass size={25} />
+					<MagnifyingGlass size={25} color="#228be6" />
 					<p style="margin-left: 0.5rem; font-size: 1.1rem">Search</p>
 				</div>
 				<div>
@@ -138,9 +166,10 @@
 <Modal
 	opened={modalOpened}
 	on:close={changeModalState}
-	title="SvelteUI Docs"
 	overflow="inside"
 	trapFocus
+	class={getStyles()}
+	withCloseButton={false}
 >
 	<TextInput
 		placeholder="Search..."
@@ -155,40 +184,27 @@
 	</TextInput>
 	{#if searchTerm.length === 0}
 		{#if recentSearches.length > 0}
-			<p class="recentSearchesTitle">Recent searches:</p>
+			<h3 class="recentSearchesTitle">Recent searches:</h3>
 			{#each recentSearches as recentSearch}
-				<a
-					href={recentSearch.link}
-					style={`text-decoration: none`}
-					on:click={() => addSearch(recentSearch)}
-				>
-					<Paper class="searchTerm" withBorder>
-						<p class="searchItemTitle">{recentSearch.title}</p>
-						{#if recentSearch.section}
-							<p class="searchItemDescription">{recentSearch.section}</p>
-						{/if}
-					</Paper>
-				</a>
+				<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
 			{/each}
 		{:else}
 			<p class="noMatches">No recent searches</p>
 		{/if}
 	{:else if matchingSearches.length > 0}
 		{#each matchingSearches as matchingSearch}
-			<a
-				href={matchingSearch.link}
-				style={`text-decoration: none`}
-				on:click={() => addSearch(matchingSearch)}
-			>
-				<Paper class="searchTerm" withBorder>
-					<p class="searchItemTitle">{matchingSearch.title}</p>
-					{#if matchingSearch.section}
-						<p class="searchItemDescription">{matchingSearch.section}</p>
-					{/if}
-				</Paper>
-			</a>
+			<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
 		{/each}
 	{:else}
 		<p class="noMatches">No matches</p>
 	{/if}
+	<Divider />
+	{#each searchLinks as searchLink}
+		{#if validateSearchLink(searchLink.section)}
+			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+		{:else}
+			<h2>{changePreviousSection(searchLink.section)}</h2>
+			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+		{/if}
+	{/each}
 </Modal>

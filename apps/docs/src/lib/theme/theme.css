@@ -21,16 +21,33 @@
 }
 
 .searchTerm {
-  padding: 0.75rem !important;
+  padding: 1rem 0.75rem !important;
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
   transition-timing-function: ease-in !important;
   transition-duration: 100ms !important;
-}
-.searchTerm:hover {
   background-color: var(--search-item) !important;
-  border: 1px solid var(--search-item) !important;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--search-item);
 }
+
+.searchTerm:focus {
+	background-color: #3696eb !important;
+  outline: none !important;
+}
+
+.searchTerm:hover {
+  background-color: var(--search-item-hover) !important;
+  border: 1px solid var(--search-item-hover) !important;
+}
+
+.searchLink {
+  margin: 0;
+  font-size: 0.87rem
+}
+
 .searchBox {
   width: 20rem !important;
   height: 2.5rem;
@@ -39,24 +56,30 @@
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
+  transition-timing-function: ease-in !important;
+  transition-duration: 100ms !important;
 }
+
 .searchBox:hover {
   background-color: rgba(227, 227, 227, 1);
 }
 
 .recentSearchesTitle {
-  font-size: 0.9rem;
   margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .searchItemTitle {
   margin: 0;
-  font-size: 1rem
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
 }
 
 .searchItemDescription {
-  font-size: 0.8rem;
-  margin: 0
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
 }
 
 .noMatches {

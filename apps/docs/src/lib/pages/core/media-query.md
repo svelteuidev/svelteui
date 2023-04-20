@@ -34,7 +34,7 @@ MediaQuery component adds styles to child element if the given media query match
    MediaQuery only works with a single child element or component that renders an element. Strings, numbers, fragments and other parts will not have correct styles.
 </Alert>
 
-```tsx
+```svelte
 // Will work with MediaQuery – single element
 <MediaQuery>
     <button>Button</button>
