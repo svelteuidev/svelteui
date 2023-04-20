@@ -97,7 +97,7 @@
 			in:slide={{ duration: 300, easing: expoIn }}
 			out:slide={{ duration: 200, easing: expoOut }}
 		>
-			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
+			<Box>
 				<Prism
 					language="svelte"
 					code={code.trimEnd()}

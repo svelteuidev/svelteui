@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import { colorScheme, Burger, SvelteUIProvider } from '@svelteuidev/core';
-	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { Device, Logo, PageTransition, TopBar, Sidebar } from '$lib/components';
 	import { set_active_link } from '$lib/theme/utils';
 	import '$lib/theme/style.css';
-	import '$lib/theme/theme.css';
 	import type { PageData } from './$types';
 
 	let show_sidebar: boolean = false;

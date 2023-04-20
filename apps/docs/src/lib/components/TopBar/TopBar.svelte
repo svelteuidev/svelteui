@@ -76,16 +76,19 @@
 	const useStyles = createStyles(() => ({
 		'.svelteui-Modal-inner > div': {
 			width: '100%',
-			display: 'block !important'
+			display: 'block !important',
 		},
 		'.svelteui-Modal-inner': {
-			display: 'block !important'
+			display: 'block !important',
 		},
 		'.svelteui-Modal-modal': {
 			width: '100% !important',
 			maxWidth: '40rem',
 			marginRight: 'auto !important',
-			marginLeft: 'auto !important'
+			marginLeft: 'auto !important',
+			darkMode: {
+				backgroundColor: "$dark800"
+			}
 		}
 	}));
 	$: ({ getStyles } = useStyles());
@@ -102,7 +105,7 @@
 		<Divider />
 		<Menu.Label>Experimental Theme Toggle</Menu.Label>
 		<Menu.Item>
-			<ActionIcon variant="default" on:click={toggleTheme} size={30}>
+			<ActionIcon variant="outline" on:click={toggleTheme} size={30}>
 				{#if $colorScheme === 'dark'}
 					<Moon />
 				{:else}
@@ -111,7 +114,7 @@
 			</ActionIcon>
 		</Menu.Item>
 		<Menu.Item>
-			<ActionIcon variant="default" on:click={changeModalState} size={30}>
+			<ActionIcon variant="outline" on:click={changeModalState} size={30}>
 				<MagnifyingGlass />
 			</ActionIcon>
 		</Menu.Item>
@@ -151,7 +154,7 @@
 		{/each}
 		<li>
 			<Tooltip withArrow label="Experimental Theme Toggle">
-				<ActionIcon size="lg" color="dark" variant="outline" on:click={toggleTheme} radius="md">
+				<ActionIcon size="lg" variant="outline" on:click={toggleTheme} radius="md">
 					{#if $colorScheme === 'light'}
 						<Moon size={20} />
 					{:else}
@@ -185,26 +188,32 @@
 	{#if searchTerm.length === 0}
 		{#if recentSearches.length > 0}
 			<h3 class="recentSearchesTitle">Recent searches:</h3>
-			{#each recentSearches as recentSearch}
-				<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
-			{/each}
+			<div class="searchWrapper">
+				{#each recentSearches as recentSearch}
+					<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
+				{/each}
+			</div>
 		{:else}
 			<p class="noMatches">No recent searches</p>
 		{/if}
 	{:else if matchingSearches.length > 0}
-		{#each matchingSearches as matchingSearch}
-			<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
-		{/each}
+		<div class="searchWrapper">
+			{#each matchingSearches as matchingSearch}
+				<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
+			{/each}
+		</div>
 	{:else}
 		<p class="noMatches">No matches</p>
 	{/if}
 	<Divider />
-	{#each searchLinks as searchLink}
-		{#if validateSearchLink(searchLink.section)}
-			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
-		{:else}
-			<h2>{changePreviousSection(searchLink.section)}</h2>
-			<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
-		{/if}
-	{/each}
+	<div class="searchWrapper">
+		{#each searchLinks as searchLink}
+			{#if validateSearchLink(searchLink.section)}
+				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+			{:else}
+				<h2>{changePreviousSection(searchLink.section)}</h2>
+				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+			{/if}
+		{/each}
+	</div>
 </Modal>
