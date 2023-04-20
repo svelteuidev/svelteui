@@ -1,7 +1,7 @@
-import { HTMLButtonAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { UnstyledButtonProps } from '../Button/UnstyledButton/UnstyledButton';
 
-export interface BurgerProps extends DefaultProps<HTMLButtonElement>, HTMLButtonAttributes {
+export interface BurgerProps extends UnstyledButtonProps {
 	opened?: boolean;
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;

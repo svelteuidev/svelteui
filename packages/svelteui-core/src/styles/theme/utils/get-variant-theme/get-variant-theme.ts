@@ -4,32 +4,20 @@ import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib
 export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
 	const { themeColor, rgba } = fns;
 
-	const disabled = {
-		'&.disabled': {
-			pointerEvents: 'none',
-			borderColor: 'transparent',
-			backgroundColor: 'rgb(233, 236, 239)',
-			background: 'rgb(233, 236, 239)',
-			color: 'rgb(173, 181, 189)',
-			cursor: 'not-allowed'
-		}
-	};
-
 	const variants = {
 		/** Filled variant */
 		filled: {
-			[`${dark.selector} &`]: {
+			darkMode: {
 				backgroundColor: themeColor(color, 8)
 			},
 			border: 'transparent',
 			backgroundColor: themeColor(color, 6),
 			color: 'White',
-			'&:hover': { backgroundColor: themeColor(color, 7) },
-			...disabled
+			'&:hover': { backgroundColor: themeColor(color, 7) }
 		},
 		/** Light variant */
 		light: {
-			[`${dark.selector} &`]: {
+			darkMode: {
 				backgroundColor: rgba(themeColor(color, 8), 0.35),
 				color: color === 'dark' ? themeColor('dark', 0) : themeColor(color, 2),
 				'&:hover': { backgroundColor: rgba(themeColor(color, 7), 0.45) }
@@ -37,12 +25,11 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			border: 'transparent',
 			backgroundColor: themeColor(color, 0),
 			color: color === 'dark' ? themeColor('dark', 9) : themeColor(color, 6),
-			'&:hover': { backgroundColor: themeColor(color, 1) },
-			...disabled
+			'&:hover': { backgroundColor: themeColor(color, 1) }
 		},
 		/** Outline variant */
 		outline: {
-			[`${dark.selector} &`]: {
+			darkMode: {
 				border: `1px solid ${themeColor(color, 4)}`,
 				color: `${themeColor(color, 4)}`,
 				'&:hover': { backgroundColor: rgba(themeColor(color, 4), 0.05) }
@@ -52,12 +39,11 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			color: themeColor(color, 7),
 			'&:hover': {
 				backgroundColor: rgba(themeColor(color, 0), 0.35)
-			},
-			...disabled
+			}
 		},
 		/** Subtle variant */
 		subtle: {
-			[`${dark.selector} &`]: {
+			darkMode: {
 				color: color === 'dark' ? themeColor('dark', 0) : themeColor(color, 2),
 				'&:hover': { backgroundColor: rgba(themeColor(color, 8), 0.35) }
 			},
@@ -66,12 +52,11 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			color: color === 'dark' ? themeColor('dark', 9) : themeColor(color, 6),
 			'&:hover': {
 				backgroundColor: themeColor(color, 0)
-			},
-			...disabled
+			}
 		},
 		/** Default variant */
 		default: {
-			[`${dark.selector} &`]: {
+			darkMode: {
 				border: `1px solid ${themeColor('dark', 5)}`,
 				backgroundColor: themeColor('dark', 5),
 				color: 'White',
@@ -80,16 +65,14 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 			border: `1px solid ${themeColor('gray', 4)}`,
 			backgroundColor: 'White',
 			color: 'Black',
-			'&:hover': { backgroundColor: themeColor('gray', 0) },
-			...disabled
+			'&:hover': { backgroundColor: themeColor('gray', 0) }
 		},
 		/** White variant */
 		white: {
 			border: 'transparent',
 			backgroundColor: 'White',
 			color: themeColor(color, 7),
-			'&:hover': { backgroundColor: 'White' },
-			...disabled
+			'&:hover': { backgroundColor: 'White' }
 		},
 		gradient: {}
 	};

@@ -110,7 +110,9 @@ Base component to create custom inputs
 <!-- svelte-ignore a11y-autofocus -->
 <Box {...wrapperProps} class={getStyles({ css: override })} {...$$restProps}>
 	{#if icon}
-		<IconRenderer {icon} className={classes.icon} {...iconProps} iconSize={16} />
+		<div class={classes.icon}>
+			<IconRenderer {icon} {...iconProps} iconSize={16} />
+		</div>
 	{/if}
 	{#if isHTMLElement && root === 'input'}
 		<input
@@ -126,14 +128,12 @@ Base component to create custom inputs
 			{autocomplete}
 			{autofocus}
 			aria-invalid={invalid}
-			class:disabled
-			class:invalid
 			class:withIcon={icon}
 			class={cx(
 				className,
 				classes.input,
 				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
-				`${variant}Variant`
+				classes[`${variant}Variant`] ?? {}
 			)}
 			{...$$restProps}
 			on:input={onInput}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import { Download, Trash } from 'radix-icons-svelte';
+	import { File, Reset, Download, Trash, Upload } from 'radix-icons-svelte';
 	import Button from '../Button/Button.svelte';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import { Text } from '../Text';
@@ -25,7 +25,7 @@
 
 <Template let:args>
 	<div style="width: 500px;">
-		<FileUpload {...args} />
+		<FileUpload {...args} icon={Upload} fileIcon={File} removeIcon={Trash} resetIcon={Reset} />
 	</div>
 </Template>
 
@@ -33,7 +33,16 @@
 
 <Story name="Drop">
 	<div style="width: 500px;">
-		<FileUpload type="drag" multiple={true} size={'md'} on:selected={handleSelected}>
+		<FileUpload
+			type="drag"
+			multiple={true}
+			size={'md'}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+			on:selected={handleSelected}
+		>
 			<IconRenderer iconSize={48} icon={Download} />
 			<Text align="center" weight={'semibold'}>Click or drag file to this area to FileUpload</Text>
 			<Text align="center" size="sm" color="dimmed">
@@ -46,19 +55,55 @@
 
 <Story name="Size">
 	<div style="width: 500px;">
-		<FileUpload size="lg" reset={true} />
+		<FileUpload
+			size="lg"
+			reset={true}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+		/>
 		<br />
-		<FileUpload size="md" reset={true} />
+		<FileUpload
+			size="md"
+			reset={true}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+		/>
 		<br />
-		<FileUpload size="sm" reset={true} />
+		<FileUpload
+			size="sm"
+			reset={true}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+		/>
 		<br />
-		<FileUpload size="xs" reset={true} />
+		<FileUpload
+			size="xs"
+			reset={true}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+		/>
 	</div>
 </Story>
 
 <Story name="Accept">
 	<div style="width: 500px;">
-		<FileUpload size="md" reset={true} accept="image/png,image/jpeg" />
+		<FileUpload
+			size="md"
+			reset={true}
+			accept="image/png,image/jpeg"
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
+		/>
 	</div>
 </Story>
 
@@ -71,6 +116,10 @@
 			bind:files
 			reset={true}
 			preview={false}
+			icon={Upload}
+			fileIcon={File}
+			removeIcon={Trash}
+			resetIcon={Reset}
 		/>
 
 		<ul style="list-style: none;padding: 0;">

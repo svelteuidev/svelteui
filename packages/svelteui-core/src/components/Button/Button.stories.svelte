@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+	import { LockClosed } from 'radix-icons-svelte';
 	import { Button } from './index';
 	import { Group } from '../Group';
 	import { useSvelteUITheme } from '$lib/styles';
@@ -28,3 +29,12 @@
 		{/each}
 	</div>
 </Story>
+
+<Story name="With icon" id="buttonIcon">
+	<Button>
+		<LockClosed slot="leftIcon" />
+    	Sign Up
+	</Button>
+</Story>
+
+<Story name="Disabled" id="buttonDisabled" args={{ disabled: true }} />
