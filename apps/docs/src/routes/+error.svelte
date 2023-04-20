@@ -11,6 +11,6 @@
       text-align:center
     }
     h1 {
-      color: var(--primary)
+      color: var(--svelteui-colors-primary)
     }
 </style>

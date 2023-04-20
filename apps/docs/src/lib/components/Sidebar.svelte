@@ -261,8 +261,3 @@
   </li>
 </ul>
 
-<style>
-  * {
-    font-family: var(--svelteui-fonts-standard) !important;
-  }
-</style>

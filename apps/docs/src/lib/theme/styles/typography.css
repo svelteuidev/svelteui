@@ -1,5 +1,4 @@
 body:not(h1, h2, h3, h4, h5, h6) {
-	color: var(--text);
 	line-height: 1.6;
 	font-family: var(--svelteui-fonts-standard);
 }
@@ -14,28 +13,24 @@ h6 {
 }
 
 a {
-	color: var(--primary);
+	color: var(--svelteui-colors-primary);
 	text-decoration: none;
 }
 
-code {
-	font-family: var(--font-mono);
-	font-size: 0.9rem;
-	background: var(--tag);
-	border: 1px solid var(--tag-border);
-	color: var(--tag-text);
-	padding: 0 0.2em;
-	border-radius: 0.2em;
-	white-space: wrap;
-}
-
 pre {
-	background-color: var(--code);
+	background-color: var(--svelteui-colors-gray50);
+	color: var(--svelteui-colors-gray900);
 	padding: 1rem;
 	overflow-x: auto;
 	border-radius: 0.7em;
 }
 
+.dark-theme pre {
+	color: var(--svelteui-colors-gray400);
+	background-color: var(--svelteui-colors-dark800);
+}
+
+/*
 pre code {
 	background: none;
 	border: none;
@@ -45,7 +40,7 @@ pre code {
 	line-height: 1rem;
 	color: var(--hl-text);
 }
-
+ 
 blockquote {
 	background-color: var(--quote);
 	padding: 1rem 2rem;
@@ -53,4 +48,4 @@ blockquote {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: 100%;
-}
+} */

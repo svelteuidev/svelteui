@@ -220,7 +220,7 @@
 	</div>
 	{#if code}
 		<div class="code">
-			<Box css={{ pre: { bc: '$gray50' }, 'pre code': { color: '$gray900' } }}>
+			<Box>
 				<Prism
 					language="svelte"
 					code={code.trim()}

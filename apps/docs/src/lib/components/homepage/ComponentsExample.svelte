@@ -75,9 +75,9 @@
 				fontSize: theme.fontSizes.md.value,
 				padding: `${theme.space.lg.value}px ${theme.space.xl.value}px`,
 				darkMode: {
-					backgroundColor: theme.fn.themeColor('dark', 6),
+					backgroundColor: theme.fn.themeColor('dark', 7),
 					color: theme.fn.themeColor('dark', 0),
-					border: `1px solid ${theme.fn.themeColor('dark', 6)}`
+					border: `1px solid ${theme.fn.themeColor('dark', 7)}`
 				},
 				transitionProperty: 'all',
 				transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -88,7 +88,10 @@
 				fontWeight: 'bold !important',
 
 				'&:hover': {
-					backgroundColor: '#f2f2f2 !important'
+					backgroundColor: theme.fn.themeColor('blue', 1),
+					darkMode: {
+						backgroundColor: theme.fn.themeColor('gray', 7),
+					}
 				},
 				'&.active': {
 					backgroundColor: '#228be6 !important',

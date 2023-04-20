@@ -146,7 +146,6 @@ export const config = {
 			title: 'GitHub',
 			props: {
 				override: baseStyles,
-				color: 'dark',
 				variant: 'outline',
 				href: links[1].href
 			},
