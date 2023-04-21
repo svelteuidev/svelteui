@@ -20,21 +20,26 @@
 <Anchor
 	underline={false}
 	href={data.slug}
-	class={cx(
+	class={`${cx(
 		getStyles({
 			// @ts-ignore
 			css: override
 		}),
 		{ next: type === 'next' },
 		className
-	)}
+	)} sibling`}
 >
 	{#if type === 'prev'}
 		<ArrowLeft size={22} />
 	{/if}
 
 	<div class={classes.body}>
-		<Text size="lg" align={type === 'next' ? 'left' : 'right'} override={{ lineHeight: '$md' }}>
+		<Text
+			size="lg"
+			align={type === 'next' ? 'left' : 'right'}
+			override={{ lineHeight: '$md' }}
+			class={classes.text}
+		>
 			{type === 'next' ? 'Up next' : 'Go back'}
 		</Text>
 		<Text color="dimmed" size="sm" align={type === 'next' ? 'left' : 'right'}>

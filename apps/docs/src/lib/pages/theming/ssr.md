@@ -5,7 +5,6 @@ docs: 'theming/ssr.md'
 ---
 
 <script>
-    import { Preview } from '$lib/components'
     import { SvelteUIProvider } from "@svelteuidev/core";
     import { Prism } from "@svelteuidev/prism";
 </script>
