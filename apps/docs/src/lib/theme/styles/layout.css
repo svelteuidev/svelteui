@@ -347,9 +347,14 @@ body {
 .dark-theme .sibling,
 .dark-theme .guides,
 .dark-theme .packages,
-.dark-theme .next_steps {
+.dark-theme .next_steps,
+.dark-theme thead > tr > th {
   background-color: #191b1e !important;
   color: white !important
+}
+
+.dark-theme td {
+  color: rgb(195, 195, 195) !important;
 }
 
 .dark-theme .sidebar ul li a.main-link.active {
