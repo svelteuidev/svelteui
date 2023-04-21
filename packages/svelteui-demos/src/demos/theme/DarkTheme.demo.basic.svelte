@@ -3,15 +3,14 @@
 
 	const code = `
 <script>
-  import { SvelteUIProvider, Stack, Switch, Text } from '@svelteuidev/core';
+ 	import { colorScheme, SvelteUIProvider, Stack, Switch, Text } from '@svelteuidev/core';
 
-  let isDark = false;
 	function toggleTheme() {
-		isDark = !isDark;
+		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
 	}
 <\/script>
 
-<SvelteUIProvider withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
+<SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
     <Stack align='center'>
         <Text>Press to change the theme</Text>
         <Switch on:change={toggleTheme} />
@@ -27,17 +26,14 @@
 </script>
 
 <script lang="ts">
-	import { Stack, SvelteUIProvider, Switch, Text } from '@svelteuidev/core';
+	import { colorScheme, Stack, Switch, Text } from '@svelteuidev/core';
 
-	let isDark = false;
 	function toggleTheme() {
-		isDark = !isDark;
+		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
 	}
 </script>
 
-<SvelteUIProvider withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
-	<Stack align="center">
-		<Text>Press to change the theme</Text>
-		<Switch on:change={toggleTheme} />
-	</Stack>
-</SvelteUIProvider>
+<Stack align="center">
+	<Text>Press to change the theme</Text>
+	<Switch on:change={toggleTheme} />
+</Stack>
