@@ -2,7 +2,7 @@
 	// @ts-nocheck
 	import { Text, ThemeIcon, theme } from '@svelteuidev/core';
 
-	export let color = 'blue';
+	export let color;
 	export let href = '';
 
 	const styles = {
@@ -16,7 +16,7 @@
 		padding: 5,
 		marginLeft: -5,
 		marginRight: -5,
-		borderRadius: '$sm',
+		borderRadius: '6px ',
 		userSelect: 'none',
 
 		'&:hover': {
@@ -39,7 +39,7 @@
 </script>
 
 <Text class="main-link" variant="link" root="a" override={styles} {href}>
-	<ThemeIcon size={30} override={{ bc: `$${color}600`, color: 'white' }} radius="lg">
+	<ThemeIcon size={30} override={{ bc: `$${color}600 !important`, color: 'white', borderRadius: "6px" }} radius="lg">
 		<slot name="icon" />
 	</ThemeIcon>
 	<div class="body"><slot /></div>

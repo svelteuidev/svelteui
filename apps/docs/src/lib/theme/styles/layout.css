@@ -344,6 +344,19 @@ body {
 	font-size: 0.87rem
 }
 
+.dark-theme .sibling,
+.dark-theme .guides,
+.dark-theme .packages,
+.dark-theme .next_steps {
+  background-color: #191b1e !important;
+  color: white !important
+}
+
+.dark-theme .sidebar ul li a.main-link.active {
+  background-color: #000000;
+	font-weight: normal;
+}
+
 .recentSearchesTitle {
 	margin-top: 0.8rem;
 	margin-bottom: 0.3rem;
@@ -461,7 +474,7 @@ body {
 }
 
 
-/* 
+/*
 table.properties {
 	margin: 25px;
 	border-collapse: collapse;

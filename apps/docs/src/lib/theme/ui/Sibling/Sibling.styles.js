@@ -3,7 +3,7 @@ import { createStyles } from '@svelteuidev/core';
 export default createStyles((theme, _params, getRef) => {
 	return {
 		root: {
-			[`${theme.dark} &`]: {
+			[`${theme.dark}`]: {
 				color: theme.colors.white.value,
 				backgroundColor: theme.fn.themeColor('dark', 8),
 				border: `1px solid ${theme.fn.themeColor('dark', 8)}`
@@ -34,6 +34,12 @@ export default createStyles((theme, _params, getRef) => {
 			ref: getRef('body'),
       marginRight: `${_params.type === "next" ? theme.space.mdPX.value : "0px"} !important`,
       marginLeft: `${_params.type === "prev" ? theme.space.mdPX.value : "0px"} !important`
-		}
+		},
+
+    text: {
+      [`${theme.dark} &`]: {
+        color: "white !important"
+      }
+    }
 	};
 });

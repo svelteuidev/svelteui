@@ -10,7 +10,7 @@
 	$: ({ cx, classes, getStyles } = useStyles());
 </script>
 
-<UnstyledButton on:click class={cx(className, getStyles(active))}>
+<UnstyledButton on:click class={`${cx(className, getStyles(active))} guides`}>
 	<svelte:component this={icon || null} />
 	<p class={classes.title}>{title}</p>
 </UnstyledButton>

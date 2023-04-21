@@ -18,7 +18,7 @@
 
 <ul>
   <li>
-    <MainLink href='/introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
+    <MainLink color='blue' href='/introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
   </li>
   <li>
     <MainLink color='red' href='/installation'><Download slot='icon' size={20} />Installation</MainLink>

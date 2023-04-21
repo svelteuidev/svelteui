@@ -1,11 +1,16 @@
-<script>
+<script lang="ts">
 	import { Sibling } from '@ui';
 	import { Group, Divider, Stack } from '@svelteuidev/core';
 	import { useViewportSize } from '@svelteuidev/composables';
 
-	export let slug,
-		title,
-		group,
+  type DataType = {
+    prev: String,
+    next: String
+  }
+
+	export let slug: DataType,
+		title: DataType,
+		group: DataType,
 		both = false,
 		type = 'next';
 

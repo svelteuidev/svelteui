@@ -13,7 +13,7 @@
 </script>
 
 <UnstyledButton
-	class={cx(className, getStyles())}
+	class={`${cx(className, getStyles())} packages`}
 	on:click={() => {
 		checked = !checked;
 		onChange();
