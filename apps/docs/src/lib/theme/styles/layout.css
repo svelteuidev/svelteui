@@ -349,8 +349,9 @@ body {
 .dark-theme .packages,
 .dark-theme .next_steps,
 .dark-theme thead > tr > th {
-  background-color: #191b1e !important;
-  color: white !important
+  background-color: var(--svelteui-colors-dark800) !important;
+  color: white !important;
+  border: 0px !important;
 }
 
 .dark-theme td {
@@ -358,7 +359,8 @@ body {
 }
 
 .dark-theme .sidebar ul li a.main-link.active {
-  background-color: #000000;
+  background-color: rgba(24, 100, 171, 0.45);
+  color: var(--svelteui-colors-white);
 	font-weight: normal;
 }
 
