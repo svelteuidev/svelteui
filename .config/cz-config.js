@@ -2,6 +2,30 @@ module.exports = {
 	typePrefix: '[',
 	typeSuffix: ']',
 	types: [
+		{ value: 'feat', name: 'feat: A new feature' },
+		{ value: 'fix', name: 'fix: A bug fix' },
+		{ value: 'docs', name: 'docs: Changes to the documentation' },
+		{
+			value: 'style',
+			name: 'style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
+		},
+		{
+			value: 'refactor',
+			name: 'refactor: A code change that neither fixes a bug nor adds a feature',
+		},
+		{
+			value: 'perf',
+			name: 'perf: A code change that improves performance',
+		},
+		{ value: 'test', name: 'test: Adding missing tests' },
+		{
+			value: 'chore',
+			name: 'chore: Changes to the build process or auxiliary tools and libraries such as documentation generation',
+		},
+		{ value: 'revert', name: 'revert: Revert to a commit' },
+		{ value: 'WIP', name: 'WIP: Work in progress' },
+	],
+	scopes: [
 		{
 			value: 'core',
 			name: 'core: A change made in repository tooling (not a package)'
@@ -23,14 +47,16 @@ module.exports = {
 		{ value: '@svelteui/tests', name: '@svelteui/tests: A change made in testing package' }
 	],
 
+	allowCustomScopes: false,
 	allowTicketNumber: false,
 	isTicketNumberRequired: false,
-	ticketNumberPrefix: 'TICKET-',
-	ticketNumberRegExp: '\\d{1,5}',
+	// ticketNumberPrefix: 'TICKET-',
+	// ticketNumberRegExp: '\\d{1,5}',
 
 	// override the messages, defaults are as follows
 	messages: {
 		type: "Select the type of change that you're committing:",
+		scope: 'Denote the scope of this change:',
 		subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
 		body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
 		breaking: 'List any BREAKING CHANGES (optional):\n',
@@ -41,7 +67,7 @@ module.exports = {
 	allowCustomScopes: false,
 	allowBreakingChanges: ['feat', 'fix'],
 	// skip any questions you want
-	skipQuestions: ['body', 'breaking', 'footer', 'scope'],
+	// skipQuestions: ['body', 'breaking', 'footer', 'scope'],
 
 	// limit subject length
 	subjectLimit: 100
