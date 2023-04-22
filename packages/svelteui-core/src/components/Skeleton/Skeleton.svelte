@@ -17,7 +17,7 @@
 		animate: $$Props['animate'] = true;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{ animate, circle, height, radius, width },
 		{ name: 'Skeleton' }
 	));
@@ -25,7 +25,7 @@
 
 <Box
 	bind:element
-	class={cx(className, { visible }, getStyles({ css: override }))}
+	class={cx(className, classes.root, { visible }, getStyles({ css: override }))}
 	{use}
 	{...$$restProps}
 >

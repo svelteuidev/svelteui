@@ -87,7 +87,10 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		use:forwardEvents
 		class:compact
 		class:uppercase
-		class={cx(className, getStyles({ css: override, variation: variant }), { disabled, loading })}
+		class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
+			disabled,
+			loading
+		})}
 		role="button"
 		rel="noreferrer noopener"
 		target={external ? '_blank' : '_self'}
@@ -122,7 +125,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(className, getStyles({ css: override, variation: variant }), {
+		class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
 			[classes.disabled]: disabled,
 			[classes.loading]: loading
 		})}

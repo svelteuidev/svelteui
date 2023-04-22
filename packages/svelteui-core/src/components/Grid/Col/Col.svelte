@@ -35,7 +35,7 @@
 	$: _span = span || cols || 0;
 	$: valid = isSpanValid(_span) && _span <= cols;
 
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{
 			span: _span,
 			cols,
@@ -58,7 +58,12 @@
 </script>
 
 {#if valid}
-	<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+	<Box
+		bind:element
+		{use}
+		class={cx(className, classes.root, getStyles({ css: override }))}
+		{...$$restProps}
+	>
 		<slot />
 	</Box>
 {/if}

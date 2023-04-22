@@ -40,7 +40,7 @@
 		{}
 	);
 
-	$: ({ getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{
 			fixed,
 			height,
@@ -67,7 +67,7 @@
 	{use}
 	bind:element
 	root={section === 'navbar' ? 'nav' : 'aside'}
-	class="{className} {getStyles({ css: override })}"
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{...$$restProps}
 >
 	<slot />

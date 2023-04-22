@@ -24,7 +24,7 @@
 		external: $$Props['external'] = false;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles(null, { name: 'Anchor' }));
+	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Anchor' }));
 </script>
 
 <!--
@@ -44,7 +44,7 @@ root.
 -->
 <Text
 	bind:element
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	variant="link"
 	{use}
 	{root}

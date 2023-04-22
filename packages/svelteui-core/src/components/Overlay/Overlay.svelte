@@ -60,21 +60,16 @@ Overlays given element with div element with any color and opacity
 	<Box
 		use={[forwardEvents, [useActions, use]]}
 		bind:element
-		id="outterOverlay"
 		css={{ ...baseStyles, backdropFilter: `blur(${blur}px)` }}
 		class={className}
 		{...$$restProps}
 	>
-		<Box
-			id="innerOverlay"
-			css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }}
-		/>
+		<Box css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }} />
 	</Box>
 {:else}
 	<Box
 		use={[forwardEvents, [useActions, use]]}
 		bind:element
-		id="innerOverlay"
 		css={{ ...background, ...baseStyles, opacity, borderRadius: `${radius}`, ...override }}
 		{...$$restProps}
 		class={className}

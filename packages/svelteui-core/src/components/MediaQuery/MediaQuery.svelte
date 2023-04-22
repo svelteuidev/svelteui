@@ -16,7 +16,7 @@
 		query: $$Props['query'] = undefined;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{ query, styles, largerThan, smallerThan },
 		{ name: 'MediaQuery' }
 	));
@@ -28,6 +28,6 @@
 	onMount(styleChildElement);
 </script>
 
-<Box {use} bind:element class={cx(className, getStyles({ css: override }))}>
+<Box {use} bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
 	<slot />
 </Box>

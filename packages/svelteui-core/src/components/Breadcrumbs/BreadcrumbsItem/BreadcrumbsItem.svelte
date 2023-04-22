@@ -27,7 +27,7 @@
 	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'BreadcrumbsItem' }));
 </script>
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))}>
+<Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	{#if href}
 		<div class={cx(classes.wrapper, { active: active })}>
 			<a {href}>

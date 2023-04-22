@@ -11,13 +11,13 @@
 		override: $$Props['override'] = {};
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles(null, { name: 'Kbd' }));
+	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Kbd' }));
 </script>
 
 <Box
 	bind:element
 	root="kbd"
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
 	{...$$restProps}
 >

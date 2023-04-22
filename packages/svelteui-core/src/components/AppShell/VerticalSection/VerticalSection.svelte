@@ -17,7 +17,7 @@
 		section: $$Props['section'];
 	export { className as class };
 
-	$: ({ getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{
 			borderPosition: section === 'header' ? 'bottom' : 'top',
 			fixed,
@@ -40,7 +40,7 @@
 	{use}
 	bind:element
 	root={section === 'header' ? 'nav' : 'footer'}
-	class="{getStyles({ css: override })} {className}"
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{...$$restProps}
 >
 	<slot />

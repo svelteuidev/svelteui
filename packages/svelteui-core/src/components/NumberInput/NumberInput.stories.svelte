@@ -11,4 +11,4 @@
 
 <Story name="NumberInput" id="numberInputStory" />
 
-<Story name="Colors" id="buttonColorsDecimalsStory" args={{ precision: 0.01, step: 0.01 }} />
+<Story name="Decimals" id="numberInputDecimalsStory" args={{ precision: 0.01, step: 0.01 }} />

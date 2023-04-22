@@ -86,7 +86,7 @@
 	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'FileUpload' }));
 </script>
 
-<Box bind:element {use} class={cx(className)} {...$$restProps}>
+<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
 	<div class={classes.inputContainer}>
 		<input
 			bind:this={fileUploadComponent}

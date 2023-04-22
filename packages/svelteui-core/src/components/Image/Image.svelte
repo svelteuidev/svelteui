@@ -51,7 +51,7 @@ Dynamic Image component with optional placeholder for loading and error state
     ```
 -->
 
-<Box class={cx(className, getStyles({ css: override }))}>
+<Box class={cx(className, classes.root, getStyles({ css: override }))}>
 	<figure class={classes.figure}>
 		<div class={classes.imageWrapper}>
 			<Skeleton visible={loader ? loaded : false}>

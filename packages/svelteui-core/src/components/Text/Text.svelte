@@ -47,7 +47,7 @@
 	}
 	// --------------End Error Handling-------------------
 
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{
 			lineClamp,
 			underline,
@@ -87,7 +87,7 @@ Display text and links with theme styles.
 	{root}
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	href={href ?? undefined}
 	{...$$restProps}
 >

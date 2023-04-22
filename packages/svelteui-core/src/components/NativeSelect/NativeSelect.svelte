@@ -73,7 +73,7 @@ Capture user feedback limited to large set of options
 -->
 <InputWrapper
 	id={uuid}
-	class={className}
+	class="{className} svelteui-NativeSelect-root"
 	{size}
 	{label}
 	{error}

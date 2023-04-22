@@ -18,7 +18,7 @@
 	export { className as class };
 
 	$: iconSize = typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md;
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{ color, gradient, iconSize, radius, variant },
 		{ name: 'ThemeIcon' }
 	));
@@ -45,7 +45,7 @@ Render icon inside element with theme colors
 <Box
 	bind:element
 	{use}
-	class={cx(className, getStyles({ css: override, variation: variant }))}
+	class={cx(className, classes.root, getStyles({ css: override, variation: variant }))}
 	{...$$restProps}
 >
 	<slot />

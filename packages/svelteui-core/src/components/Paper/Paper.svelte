@@ -15,9 +15,17 @@
 		padding: $$Props['padding'] = 'md';
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ radius, shadow, withBorder, padding }, { name: 'Paper' }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ radius, shadow, withBorder, padding },
+		{ name: 'Paper' }
+	));
 </script>
 
-<Box bind:element class={cx(className, getStyles({ css: override }))} {use} {...$$restProps}>
+<Box
+	bind:element
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{use}
+	{...$$restProps}
+>
 	<slot />
 </Box>

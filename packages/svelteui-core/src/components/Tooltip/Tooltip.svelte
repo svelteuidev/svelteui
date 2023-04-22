@@ -80,7 +80,7 @@
 	on:pointerleave={(event) => handleClose(event)}
 	on:focus!capture={handleOpen}
 	on:blur!capture={handleClose}
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
 	id={tooltipId}
 	{...$$restProps}

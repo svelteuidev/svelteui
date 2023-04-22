@@ -26,7 +26,7 @@
 		children = element.childElementCount;
 	});
 
-	$: ({ cx, getStyles } = useStyles(
+	$: ({ cx, classes, getStyles } = useStyles(
 		{
 			align,
 			children,
@@ -56,6 +56,11 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

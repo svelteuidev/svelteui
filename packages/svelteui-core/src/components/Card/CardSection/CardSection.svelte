@@ -12,13 +12,13 @@
 		padding: $$Props['padding'] = 'md';
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ padding }));
+	$: ({ cx, classes, getStyles } = useStyles({ padding }));
 </script>
 
 <Box
 	id="svelteui_card_section"
 	bind:element
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
 	{...$$restProps}
 >

@@ -20,7 +20,7 @@
 		};
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ fluid, size, sizes }, { name: 'Container' }));
+	$: ({ cx, classes, getStyles } = useStyles({ fluid, size, sizes }, { name: 'Container' }));
 </script>
 
 <!--
@@ -44,6 +44,11 @@ Center content horizontally with predefined max-width
     </Container>
     ```
 -->
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

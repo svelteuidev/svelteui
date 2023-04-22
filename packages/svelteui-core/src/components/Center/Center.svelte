@@ -12,7 +12,7 @@
 		inline: $$Props['inline'] = false;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ inline }, { name: 'Center' }));
+	$: ({ cx, classes, getStyles } = useStyles({ inline }, { name: 'Center' }));
 </script>
 
 <!--
@@ -28,6 +28,11 @@ Centers content vertically and horizontally.
 	</Center>
     ```
 -->
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

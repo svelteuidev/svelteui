@@ -14,7 +14,7 @@
 		justify: $$Props['justify'] = 'center';
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ align, justify, spacing }, { name: 'Stack' }));
+	$: ({ cx, classes, getStyles } = useStyles({ align, justify, spacing }, { name: 'Stack' }));
 </script>
 
 <!--
@@ -33,6 +33,11 @@ Compose elements and components in a vertical flex container.
     ```
 -->
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

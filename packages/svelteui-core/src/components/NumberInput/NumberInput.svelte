@@ -203,7 +203,7 @@ values and add custom parsers and formatters.
 	{variant}
 	{disabled}
 	{placeholder}
-	class={className}
+	class={cx(className, classes.root)}
 	override={{ '& .rightSection': { width: 'auto' }, ...override }}
 	value={formatNumber(value)}
 	showRightSection={showControls}

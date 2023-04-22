@@ -135,7 +135,7 @@ and placement options.
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(className, getStyles({ css: override }))}
+		class={cx(className, classes.root, getStyles({ css: override }))}
 		in:_transition={transitionOptions}
 		out:_exitTransition={exitTransitionOptions}
 	>

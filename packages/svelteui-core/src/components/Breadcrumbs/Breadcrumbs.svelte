@@ -30,9 +30,9 @@
 	});
 	setContext(ctx, contextStore);
 
-	$: ({ cx, getStyles } = useStyles(null, { name: 'Breadcrumbs' }));
+	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Breadcrumbs' }));
 </script>
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))}>
+<Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	<slot />
 </Box>

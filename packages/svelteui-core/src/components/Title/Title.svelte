@@ -12,7 +12,6 @@
 		order: $$Props['order'] = 1;
 	export { className as class };
 
-	const classNames = 'title';
 	let node: HTMLHeadingElements;
 
 	$: node = `h${order}` as HTMLHeadingElements;
@@ -35,7 +34,7 @@ Display text that uses title styling and title HTML tags.
 
 <Text
 	bind:element
-	class={cx(className, classNames, classes.root)}
+	class={cx(className, classes.root)}
 	root={node}
 	size={titleSizes[order].fontSize}
 	{...$$restProps}

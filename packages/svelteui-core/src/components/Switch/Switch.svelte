@@ -51,7 +51,7 @@ A user can use this component to enable/disable something, normally used for boo
     <Switch label="Lights" onLabel="ON" offLabel="OFF"/> // switch with labels
     ```
 -->
-<div class={cx('switch', classes.root, className)}>
+<div class={cx(className, classes.root)}>
 	<input
 		bind:this={element}
 		{id}

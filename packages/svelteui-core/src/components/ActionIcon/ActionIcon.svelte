@@ -42,7 +42,10 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------End Error Handling-------------------
-	$: ({ cx, getStyles } = useStyles({ color, radius, size, variant }, { name: 'ActionIcon' }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ color, radius, size, variant },
+		{ name: 'ActionIcon' }
+	));
 </script>
 
 <Error {observable} component="ActionIcon" code={err} />
@@ -66,7 +69,12 @@ Icon button to indicate secondary action.
 	use={[forwardEvents, [useActions, use]]}
 	tabindex={0}
 	disabled={disabled || loading}
-	class={cx(className, { loading, disabled }, getStyles({ css: override, variation: variant }))}
+	class={cx(
+		className,
+		classes.root,
+		{ loading, disabled },
+		getStyles({ css: override, variation: variant })
+	)}
 	target={external ? '_blank' : null}
 	rel={external ? 'noreferrer noopener' : null}
 	{root}

@@ -52,7 +52,11 @@ A checkbox input component using the theme styles with support for a label and i
     ```
 -->
 
-<Box bind:element class={cx('checkbox', className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<div class={classes.inner}>
 		<input
 			use:useActions={use}

@@ -45,7 +45,7 @@
 	));
 </script>
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))}>
+<Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	{#if segments}
 		{#each getCumulativeSections(sections) as section}
 			<Box

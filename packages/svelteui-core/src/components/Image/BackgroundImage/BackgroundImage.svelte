@@ -19,7 +19,10 @@
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, getStyles } = useStyles({ height, radius, src, width }, { name: 'BackgroundImage' }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ height, radius, src, width },
+		{ name: 'BackgroundImage' }
+	));
 </script>
 
 <!--
@@ -46,7 +49,7 @@ BackgroundImage component can be used to add any content on image. It is useful 
 	bind:this={element}
 	use:forwardEvents
 	use:useActions={use}
-	class={cx(className, getStyles({ css: override }))}
+	class={cx(className, classes.root, getStyles({ css: override }))}
 >
 	<slot>Text</slot>
 </div>

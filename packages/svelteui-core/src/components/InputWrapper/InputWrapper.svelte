@@ -30,7 +30,12 @@
 	$: ({ cx, classes, getStyles } = useStyles({ size }, { name: 'InputWrapper' }));
 </script>
 
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	{#if label}
 		<LabelElement class={classes.label} {..._labelProps} {label} {id} {labelElement} {required} />
 	{/if}

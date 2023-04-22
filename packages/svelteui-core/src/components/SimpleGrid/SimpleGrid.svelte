@@ -30,7 +30,10 @@
 		return acc;
 	}, {});
 
-	$: ({ cx, getStyles } = useStyles({ cols, spacing, gridBreakpoints }, { name: 'SimpleGrid' }));
+	$: ({ cx, classes, getStyles } = useStyles(
+		{ cols, spacing, gridBreakpoints },
+		{ name: 'SimpleGrid' }
+	));
 </script>
 
 <!--
@@ -50,6 +53,11 @@ Responsive grid where each item takes equal amount of space
     </SimpleGrid>
     ```
 -->
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

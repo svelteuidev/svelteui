@@ -48,7 +48,11 @@ A picker for one or more options.
     ```
 -->
 
-<Box bind:element class={cx('chip', className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<div class={classes.inputContainer}>
 		<input
 			use:useActions={use}

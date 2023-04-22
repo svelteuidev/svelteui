@@ -13,7 +13,7 @@
 		h: $$Props['h'] = 0;
 	export { className as class };
 
-	$: ({ cx, getStyles } = useStyles({ h, w }, { name: 'Space' }));
+	$: ({ cx, classes, getStyles } = useStyles({ h, w }, { name: 'Space' }));
 </script>
 
 <!--
@@ -29,6 +29,11 @@ Add horizontal or vertical spacing from theme.
 		<Space w={30} /> // Width will be set to 30px
     ```
 -->
-<Box bind:element {use} class={cx(className, getStyles({ css: override }))} {...$$restProps}>
+<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...$$restProps}
+>
 	<slot />
 </Box>

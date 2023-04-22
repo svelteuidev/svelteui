@@ -56,7 +56,7 @@ Radio component.
     ```
 -->
 
-<Box bind:element class={cx(className, getStyles({ css: override }))}>
+<Box bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
 	<div class={classes.container}>
 		<div class={classes.inputContainer}>
 			{#if group}

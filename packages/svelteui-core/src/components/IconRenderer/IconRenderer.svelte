@@ -22,12 +22,12 @@
 {#if typeof icon === 'function'}
 	<svelte:component
 		this={icon}
-		class={cx(className, getStyles({ css: override }))}
+		class={cx(className, classes.root, getStyles({ css: override }))}
 		{...iconProps}
 	/>
 {:else if !requiresShim}
 	{#if icon instanceof HTMLElement || icon instanceof SVGElement}
-		<span class={cx(className, getStyles({ css: override }))}>
+		<span class={cx(className, classes.root, getStyles({ css: override }))}>
 			{@html icon.outerHTML}
 		</span>
 	{/if}

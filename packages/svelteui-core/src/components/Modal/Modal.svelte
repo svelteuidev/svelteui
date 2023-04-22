@@ -95,7 +95,7 @@
 			bind:element
 			{use}
 			{...$$restProps}
-			class={cx(className, getStyles({ css: override }))}
+			class={cx(className, classes.root, getStyles({ css: override }))}
 		>
 			<div
 				role="presentation"
