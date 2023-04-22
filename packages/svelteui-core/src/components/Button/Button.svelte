@@ -122,11 +122,10 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		bind:this={element}
 		use:useActions={use}
 		use:forwardEvents
-		class={cx(
-			className,
-			getStyles({ css: override, variation: variant }),
-			{ [classes.disabled]: disabled, [classes.loading]: loading }
-		)}
+		class={cx(className, getStyles({ css: override, variation: variant }), {
+			[classes.disabled]: disabled,
+			[classes.loading]: loading
+		})}
 		class:compact
 		class:uppercase
 		{disabled}
