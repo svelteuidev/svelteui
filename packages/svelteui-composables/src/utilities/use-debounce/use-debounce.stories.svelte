@@ -26,4 +26,4 @@
 	</Stack>
 </Template>
 
-<Story name="use-debounce" />
+<Story name="use-debounce" id="useDebounceStory" />

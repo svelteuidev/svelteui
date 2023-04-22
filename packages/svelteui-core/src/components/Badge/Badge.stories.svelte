@@ -10,9 +10,9 @@
 	<Badge {...args}>Hello</Badge>
 </Template>
 
-<Story name="Badge" id="badge" />
+<Story name="Badge" id="badgeStory" />
 
-<Story name="Gradient" parameters={{ controls: { exclude: /.*/g } }}>
+<Story name="Gradient" parameters={{ controls: { exclude: /.*/g } }} id="badgeGradientStory">
 	<Group>
 		<Badge variant="gradient">Hello</Badge>
 		<Badge variant="gradient" gradient={{ from: 'green', to: 'yellow', deg: 90 }}>Hello</Badge>

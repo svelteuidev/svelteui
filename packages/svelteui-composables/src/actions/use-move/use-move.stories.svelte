@@ -38,4 +38,4 @@
 	</div>
 </Template>
 
-<Story name="use-move" />
+<Story name="use-move" id="useMoveStory" />

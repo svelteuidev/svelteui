@@ -17,4 +17,4 @@
 	</div>
 </Template>
 
-<Story name="use-click-outside" />
+<Story name="use-click-outside" id="useClickOutsideStory" />

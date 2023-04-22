@@ -26,4 +26,4 @@
 	</div>
 </Template>
 
-<Story name="use-focus-trap" />
+<Story name="use-focus-trap" id="useFocusTrapStory" />

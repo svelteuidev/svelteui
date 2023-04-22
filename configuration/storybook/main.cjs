@@ -1,12 +1,19 @@
-const preprocess = require('svelte-preprocess');
 const path = require('path');
-const { mergeConfig } = require('vite');
+const {
+	mergeConfig
+} = require('vite');
 
+/**
+ * Since Storybook@7 does not yet support monorepos, we are running the configuration
+ * from package svelteui-core so that it uses it's svelte config.
+ * 
+ * @see https://github.com/storybookjs/storybook/discussions/20490
+ */
 module.exports = {
 	stories: [
-    '../../packages/{svelteui-composables,svelteui-core,svelteui-dates}/src/**/*.stories.mdx',
-    '../../packages/{svelteui-composables,svelteui-core,svelteui-dates}/src/**/*.stories.@(js|jsx|ts|tsx|svelte)'
-  ],
+		'../../packages/svelteui-core/src/components/**/*.stories.svelte',
+		'../../packages/{svelteui-composables,svelteui-dates}/src/**/*.stories.svelte',
+	],
 	addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
@@ -14,38 +21,29 @@ module.exports = {
 		'@storybook/addon-svelte-csf',
 		'storybook-dark-mode'
 	],
-	framework: '@storybook/svelte',
+	framework: '@storybook/sveltekit',
 	core: {
 		builder: '@storybook/builder-vite'
 	},
-	svelteOptions: {
-		preprocess: preprocess()
-	},
-	features: {
-		// On-demand store does not work for .svelte stories, only CSF.
-		// Requires all stories to be loaded in bulk.
-		// REFERENCE https://storybook.js.org/docs/svelte/configure/overview#feature-flags
-		storyStoreV7: false
-	},
 	async viteFinal(config) {
 		return mergeConfig(config, {
-      resolve: {
-        alias: {
-          $lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
-          $clib: path.resolve(__dirname, '../../packages/svelteui-composables/src'),
-          $dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src'),
-          '@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core/src'),
-          '@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables/src'),
-          '@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/src'),
-        }
-      },
-      define: {
-        ...config.define,
-        global: "window",
-      },
-      optimizeDeps: {
-        include: ['storybook-dark-mode'],
-      },
+			resolve: {
+				alias: {
+					$lib: path.resolve(__dirname, '../../packages/svelteui-core/src'),
+					$clib: path.resolve(__dirname, '../../packages/svelteui-composables/src'),
+					$dlib: path.resolve(__dirname, '../../packages/svelteui-dates/src'),
+					'@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core/src'),
+					'@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables/src'),
+					'@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/src')
+				}
+			},
+			define: {
+				...config.define,
+				global: "window"
+			},
+			optimizeDeps: {
+				include: ['storybook-dark-mode'],
+			},
 		});
-	}
+	},
 };

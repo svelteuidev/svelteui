@@ -9,4 +9,4 @@
 	<Text {...args}>This is a nice text</Text>
 </Template>
 
-<Story name="Text" id="textId" />
+<Story name="Text" id="textStory" />

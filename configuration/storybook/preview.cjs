@@ -10,11 +10,6 @@ export const parameters = {
 			date: /Date$/
 		}
 	},
-  options: {
-    storySort: {
-      order: ['Components', 'Composables', 'Dates']
-    }
-  }
 	/* No viewport modifications yet
 	viewport: {
 		viewports: {

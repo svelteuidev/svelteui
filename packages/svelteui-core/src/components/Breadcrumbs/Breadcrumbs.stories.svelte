@@ -14,9 +14,9 @@
 	</Breadcrumbs>
 </Template>
 
-<Story name="Breadcrumbs" />
+<Story name="Breadcrumbs" id="breadcrumbsStory" />
 
-<Story name="Icon">
+<Story name="Icon" id="breadcrumbsIconStory">
 	<Breadcrumbs size="md">
 		<Breadcrumbs.Item href="https://svelteui.org">
 			<IconRenderer slot="icon" icon={Home} />
@@ -29,7 +29,7 @@
 	</Breadcrumbs>
 </Story>
 
-<Story name="Separator">
+<Story name="Separator" id="breadcrumbsSeparatorStory">
 	<Breadcrumbs size="md" separator="→">
 		<Breadcrumbs.Item href="https://svelteui.org">
 			<IconRenderer slot="icon" icon={Home} />

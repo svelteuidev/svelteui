@@ -9,8 +9,8 @@
 	<Switch {...args} />
 </Template>
 
-<Story name="Switch" />
+<Story name="Switch" id="switchStory" />
 
-<Story name="Disabled">
+<Story name="Disabled" id="switchDisabledStory">
 	<Switch disabled />
 </Story>

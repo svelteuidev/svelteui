@@ -9,4 +9,4 @@
 	<Month {...args} month={new Date()} />
 </Template>
 
-<Story name="Month" />
+<Story name="Month" id="monthStory" />

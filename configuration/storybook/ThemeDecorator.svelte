@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import addons from '@storybook/addons';
+	import { addons } from '@storybook/preview-api';
 	import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 	import { SvelteUIProvider } from '@svelteuidev/core';
 	import type { ColorScheme } from '@svelteuidev/core';

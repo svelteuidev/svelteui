@@ -15,9 +15,9 @@
 	<Button {...args} />
 </Template>
 
-<Story name="Button" id="button" />
+<Story name="Button" id="buttonStory" />
 
-<Story name="Colors" id="buttonColors">
+<Story name="Colors" id="buttonColorsStory">
 	<div style="padding:40px;">
 		{#each colors as color}
 			<Group mt="xl">
@@ -30,11 +30,11 @@
 	</div>
 </Story>
 
-<Story name="With icon" id="buttonIcon">
+<Story name="With icon" id="buttonIconStory">
 	<Button>
 		<LockClosed slot="leftIcon" />
 		Sign Up
 	</Button>
 </Story>
 
-<Story name="Disabled" id="buttonDisabled" args={{ disabled: true }} />
+<Story name="Disabled" id="buttonDisabledStory" args={{ disabled: true }} />

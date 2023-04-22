@@ -57,9 +57,9 @@
 	</Tabs>
 </Template>
 
-<Story name="Tabs" id="tabs" />
+<Story name="Tabs" id="tabsStory" />
 
-<Story name="Tabs using icon slot" id="tabsSlot">
+<Story name="Tabs using icon slot" id="tabsSlotStory">
 	<Tabs>
 		<Tabs.Tab label="Gallery">
 			<svelte:fragment slot="icon">
@@ -70,9 +70,13 @@
 	</Tabs>
 </Story>
 
-<Story name="Tabs in vertical orientation" id="tabsVertical" args={{ orientation: 'vertical' }} />
+<Story
+	name="Tabs in vertical orientation"
+	id="tabsVerticalStory"
+	args={{ orientation: 'vertical' }}
+/>
 
-<Story name="Nested Tabs" id="nestedTabs">
+<Story name="Nested Tabs" id="nestedTabsStory">
 	<Tabs>
 		<Tabs.Tab label="Gallery">
 			<Tabs>

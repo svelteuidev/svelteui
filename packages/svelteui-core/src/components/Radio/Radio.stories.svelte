@@ -18,17 +18,17 @@
 	<Radio {...args} />
 </Template>
 
-<Story name="Default" args={{ label: 'Default Radio' }}>
+<Story name="Default" args={{ label: 'Default Radio' }} id="radioStory">
 	<Radio checked label="Default Radio" />
 	<Radio label="Default Radio" />
 </Story>
 
-<Story name="Label Direction">
+<Story name="Label Direction" id="radioLabelDirectionStory">
 	<Radio labelDirection={'right'}>Right label</Radio>
 	<Radio labelDirection={'left'}>Left label</Radio>
 </Story>
 
-<Story name="Bind value">
+<Story name="Bind value" id="radioBindStory">
 	<RadioGroup
 		bind:value={bindValue}
 		items={[
@@ -40,7 +40,7 @@
 	<p>Variable bound to value: <code>{bindValue}</code></p>
 </Story>
 
-<Story name="Bind group">
+<Story name="Bind group" id="radioBindGroupStory">
 	<RadioGroup
 		bind:group={bindGroup}
 		items={[
@@ -52,7 +52,7 @@
 	<p>Variable bound to group: <code>{bindGroup}</code></p>
 </Story>
 
-<Story name="Spacing">
+<Story name="Spacing" id="radioSpacingStory">
 	{#each spacings as spacing}
 		<p>Spacing: {spacing}</p>
 		<RadioGroup
@@ -68,7 +68,7 @@
 	{/each}
 </Story>
 
-<Story name="Directions">
+<Story name="Directions" id="radioDirectionsStory">
 	{#each directions as direction}
 		<p>Direction: {direction}</p>
 		<RadioGroup
@@ -83,7 +83,7 @@
 	{/each}
 </Story>
 
-<Story name="Input label">
+<Story name="Input label" id="radioLabelStory">
 	<RadioGroup
 		bind:value={bindValue}
 		label="Pick as many as you like"

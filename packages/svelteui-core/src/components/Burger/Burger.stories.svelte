@@ -12,9 +12,9 @@
 	<Burger {opened} on:click={() => (opened = !opened)} {...args} />
 </Template>
 
-<Story name="Burger" id="burger" />
+<Story name="Burger" id="burgerStory" />
 
-<Story name="Burger inside a button" id="burgerButton">
+<Story name="Burger inside a button" id="burgerButtonStory">
 	<Button ripple variant="default" color="black" on:click={() => (opened = !opened)}>
 		<Burger {opened} size="sm" />
 		Menu

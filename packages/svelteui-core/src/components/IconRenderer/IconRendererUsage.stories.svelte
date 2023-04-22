@@ -41,7 +41,7 @@
 	}}
 />
 
-<Story name="Alert">
+<Story name="Alert" id="iconRendererAlertStory">
 	<Alert icon={InfoCircled} title="Example 1">
 		This alert uses a Svelte component for it's icon
 	</Alert>
@@ -49,7 +49,7 @@
 	<Alert icon={iconSvg} title="Example 2">This alert uses an SVG element for it's icon</Alert>
 </Story>
 
-<Story name="Button">
+<Story name="Button" id="iconRendererButtonStory">
 	<Button>
 		<IconRenderer slot="leftIcon" icon={InfoCircled} />
 		Button with Svelte component icon
@@ -61,13 +61,13 @@
 	</Button>
 </Story>
 
-<Story name="Input">
+<Story name="Input" id="iconRendererInputStory">
 	<Input icon={InfoCircled} placeholder="Search" />
 	<br />
 	<Input icon={iconSvg} placeholder="Search" />
 </Story>
 
-<Story name="MenuItem">
+<Story name="MenuItem" id="iconRendererMenuItemStory">
 	<Menu>
 		<div slot="control">Click Me</div>
 		<MenuItem icon={InfoCircled}>Svelte component</MenuItem>
@@ -75,7 +75,7 @@
 	</Menu>
 </Story>
 
-<Story name="Notification">
+<Story name="Notification" id="iconRendererNotificationStory">
 	<Notification title="Svelte Component" icon={InfoCircled}>
 		A notification with an Svelte component icon
 	</Notification>
@@ -85,7 +85,7 @@
 	</Notification>
 </Story>
 
-<Story name="Tabs">
+<Story name="Tabs" id="iconRendererTabsStory">
 	<Tabs>
 		<Tab label="Svelte Component" icon={InfoCircled}>A tab with an Svelte component icon</Tab>
 		<Tab label="SVG element" icon={iconSvg}>A tab with an SVG element icon</Tab>

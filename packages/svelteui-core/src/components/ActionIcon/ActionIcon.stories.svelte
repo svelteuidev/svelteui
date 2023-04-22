@@ -9,4 +9,4 @@
 	<ActionIcon {...args} />
 </Template>
 
-<Story name="ActionIcon" id="actionIcon" />
+<Story name="ActionIcon" id="actionIconStory" />

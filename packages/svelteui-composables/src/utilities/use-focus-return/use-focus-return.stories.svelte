@@ -40,4 +40,4 @@
 	</div>
 </Template>
 
-<Story name="use-focus-return" />
+<Story name="use-focus-return" id="useFocusReturnStory" />

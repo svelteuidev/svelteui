@@ -23,9 +23,10 @@
 			{ label: 'Dip', value: 'dip' }
 		]
 	}}
+	id="chipGroupStory"
 />
 
-<Story name="Allow multiple">
+<Story name="Allow multiple" id="chipGroupMultipleStory">
 	<ChipGroup
 		bind:value={bindValue}
 		multiple
@@ -38,7 +39,7 @@
 	<p>Variable bound to value: <code>{JSON.stringify(bindValue)}</code></p>
 </Story>
 
-<Story name="Bind value">
+<Story name="Bind value" id="chipGroupBindStory">
 	<ChipGroup
 		bind:value={bindValue}
 		items={[
@@ -50,7 +51,7 @@
 	<p>Variable bound to value: <code>{JSON.stringify(bindValue)}</code></p>
 </Story>
 
-<Story name="Spacing">
+<Story name="Spacing" id="chipGroupSpacingStory">
 	{#each spacings as spacing}
 		<p>Spacing: {spacing}</p>
 		<ChipGroup
@@ -65,7 +66,7 @@
 	{/each}
 </Story>
 
-<Story name="Directions">
+<Story name="Directions" id="chipGroupDirectionsStory">
 	{#each directions as direction}
 		<p>Direction: {direction}</p>
 		<ChipGroup
@@ -80,7 +81,7 @@
 	{/each}
 </Story>
 
-<Story name="Input label">
+<Story name="Input label" id="chipGroupLabelStory">
 	<ChipGroup
 		bind:value={bindValue}
 		multiple

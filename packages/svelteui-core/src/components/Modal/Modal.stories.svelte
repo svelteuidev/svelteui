@@ -31,4 +31,4 @@
 	</Modal>
 </Template>
 
-<Story name="Modal" />
+<Story name="Modal" id="modalStory" />

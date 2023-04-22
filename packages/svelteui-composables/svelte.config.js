@@ -20,7 +20,11 @@ const config = {
 			if (filepath.endsWith('.d.ts')) return false;
 			return !mm.contains(filepath, '**_');
 		},
-		files: mm.matcher('!**/*.test.{ts, js}')
+		files: (filepath) => {
+			const isNotTest = mm.matcher('!**/*.test.{ts, js}');
+			const isNotStory = mm.matcher('!**/*.stories.svelte');
+			return isNotTest(filepath) && isNotStory(filepath);
+		}
 	}
 };
 

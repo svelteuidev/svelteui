@@ -15,17 +15,17 @@
 	/>
 </Template>
 
-<Story name="NativeSelect" id="nativeSelect" />
+<Story name="NativeSelect" id="nativeSelectStory" />
 
 <Story
 	name="NativeSelect with error"
-	id="nativeSelectError"
+	id="nativeSelectErrorStory"
 	args={{ error: 'Pick at least one item' }}
 />
 
 <Story
 	name="NativeSelect with array of objects"
-	id="nativeSelectObjects"
+	id="nativeSelectObjectsStory"
 	args={{
 		data: [
 			{ value: 'svelte', label: 'Svelte' },
@@ -40,7 +40,7 @@
 	}}
 />
 
-<Story name="NativeSelect with custom right section" id="nativeSelectRightSection">
+<Story name="NativeSelect with custom right section" id="nativeSelectRightSectionStory">
 	<NativeSelect
 		data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
 		placeholder="Pick one"

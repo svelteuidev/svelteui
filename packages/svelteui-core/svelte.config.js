@@ -24,10 +24,10 @@ const config = {
 			return !mm.contains(filepath, '**_');
 		},
 		files: (filepath) => {
-      const isNotTest = mm.matcher('!**/*.test.{ts, js}');
-      const isNotStory = mm.matcher('!**/*.stories.svelte');
-      return isNotTest(filepath) && isNotStory(filepath);
-    }
+			const isNotTest = mm.matcher('!**/*.test.{ts, js}');
+			const isNotStory = mm.matcher('!**/*.stories.svelte');
+			return isNotTest(filepath) && isNotStory(filepath);
+		}
 	}
 };
 

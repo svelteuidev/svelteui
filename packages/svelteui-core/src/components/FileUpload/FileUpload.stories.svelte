@@ -29,9 +29,9 @@
 	</div>
 </Template>
 
-<Story name="FileUpload" />
+<Story name="FileUpload" id="fileUploadStory" />
 
-<Story name="Drop">
+<Story name="Drop" id="fileUploadDropStory">
 	<div style="width: 500px;">
 		<FileUpload
 			type="drag"
@@ -53,7 +53,7 @@
 	</div>
 </Story>
 
-<Story name="Size">
+<Story name="Size" id="fileUploadSizeStory">
 	<div style="width: 500px;">
 		<FileUpload
 			size="lg"
@@ -93,7 +93,7 @@
 	</div>
 </Story>
 
-<Story name="Accept">
+<Story name="Accept" id="fileUploadAcceptStory">
 	<div style="width: 500px;">
 		<FileUpload
 			size="md"
@@ -107,7 +107,7 @@
 	</div>
 </Story>
 
-<Story name="Custom Preview">
+<Story name="Custom Preview" id="fileUploadCustomStory">
 	<div style="width: 500px;">
 		<FileUpload
 			size="md"

@@ -15,9 +15,9 @@
 	<Chip {...args} />
 </Template>
 
-<Story name="Chip" args={{ label: 'Chip' }} />
+<Story name="Chip" args={{ label: 'Chip' }} id="chipStory" />
 
-<Story name="Colors">
+<Story name="Colors" id="chipColorsStory">
 	<Stack>
 		{#each colors as color}
 			<Group>
@@ -28,7 +28,7 @@
 	</Stack>
 </Story>
 
-<Story name="States">
+<Story name="States" id="chipStatesStory">
 	<Group>
 		<Chip>Default chip</Chip>
 		<Chip variant="filled">Filled chip</Chip>
@@ -38,7 +38,7 @@
 	</Group>
 </Story>
 
-<Story name="Sizes">
+<Story name="Sizes" id="chipSizesStory">
 	<Group>
 		<Chip>Default chip</Chip>
 		<Chip size="xs">Extra small chip</Chip>

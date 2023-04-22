@@ -9,4 +9,4 @@
 	<Title {...args}>Title Storybook</Title>
 </Template>
 
-<Story name="Title" />
+<Story name="Title" id="titleStory" />

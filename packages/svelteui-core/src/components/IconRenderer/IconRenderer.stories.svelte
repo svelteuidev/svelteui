@@ -48,4 +48,5 @@
 	args={{
 		iconSize: 16
 	}}
+	id="iconRendererStory"
 />

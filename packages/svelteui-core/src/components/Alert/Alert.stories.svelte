@@ -9,4 +9,4 @@
 	<Alert {...args}>This is an alert!</Alert>
 </Template>
 
-<Story name="Alert" id="alert" />
+<Story name="Alert" id="alertStory" />
