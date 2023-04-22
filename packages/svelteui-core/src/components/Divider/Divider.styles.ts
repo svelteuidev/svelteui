@@ -19,25 +19,24 @@ export const sizes = {
 export default createStyles((theme, { color, size, variant }: DividerStyleParams) => {
 	const { size: sizeFn, themeColor } = theme.fn;
 	return {
-		root: {
-			'&.svelteui-Divider-horizontal': {
-				border: 0,
-				borderTopWidth: typeof size === 'number' ? `${size}px` : sizeFn({ size, sizes }),
-				borderTopColor: themeColor(color, 4),
-				borderTopStyle: variant,
-				margin: '12px 0px 12px 0px'
-			},
-			'&.svelteui-Divider-vertical': {
-				border: 0,
-				alignSelf: 'stretch',
-				height: '100%',
-				borderLeftWidth: typeof size === 'number' ? `${size}px` : sizeFn({ size, sizes }),
-				borderLeftColor: themeColor(color, 4),
-				borderLeftStyle: variant
-			},
-			'&.shows-label': {
-				borderTop: '0 !important'
-			}
+		root: {},
+		horizontal: {
+			border: 0,
+			borderTopWidth: typeof size === 'number' ? `${size}px` : sizeFn({ size, sizes }),
+			borderTopColor: themeColor(color, 4),
+			borderTopStyle: variant,
+			margin: '12px 0px 12px 0px'
+		},
+		vertical: {
+			border: 0,
+			alignSelf: 'stretch',
+			height: '100%',
+			borderLeftWidth: typeof size === 'number' ? `${size}px` : sizeFn({ size, sizes }),
+			borderLeftColor: themeColor(color, 4),
+			borderLeftStyle: variant
+		},
+		showsLabel: {
+			borderTop: '0 !important'
 		},
 		label: {
 			display: 'flex',

@@ -65,11 +65,9 @@ Renders horizontal or vertical line with support for label string or component.
 	class={cx(
 		className,
 		classes.root,
-		{
-			'svelteui-Divider-horizontal': isHorizontal,
-			'svelteui-Divider-vertical': isVertical,
-			'shows-label': showsLabel
-		},
+		isHorizontal ? classes.horizontal : {},
+		isVertical ? classes.vertical : {},
+		showsLabel ? classes.showsLabel : {},
 		getStyles({ css: override })
 	)}
 	{...$$restProps}
