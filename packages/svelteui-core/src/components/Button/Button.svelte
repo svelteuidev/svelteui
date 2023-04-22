@@ -14,7 +14,7 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		variant: $$Props['variant'] = 'filled',
+		variant: $$Props['variant'] = 'default',
 		color: $$Props['color'] = 'blue',
 		size: $$Props['size'] = 'sm',
 		radius: $$Props['radius'] = 'sm',
