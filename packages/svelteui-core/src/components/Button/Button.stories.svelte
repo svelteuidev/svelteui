@@ -33,7 +33,7 @@
 <Story name="With icon" id="buttonIcon">
 	<Button>
 		<LockClosed slot="leftIcon" />
-    	Sign Up
+		Sign Up
 	</Button>
 </Story>
 

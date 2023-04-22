@@ -15,9 +15,9 @@
 
 <Story name="Input" id="input" />
 
-<Story name="Filled variant" id="inputFilled" args={{ variant: "filled" }} />
+<Story name="Filled variant" id="inputFilled" args={{ variant: 'filled' }} />
 
-<Story name="Unstyled variant" id="inputUnstyled" args={{ variant: "unstyled" }} />
+<Story name="Unstyled variant" id="inputUnstyled" args={{ variant: 'unstyled' }} />
 
 <Story name="Number value" id="inputNumber">
 	<Input bind:value={valueNumber} type="number" />
