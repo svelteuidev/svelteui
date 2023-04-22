@@ -30,7 +30,11 @@
 		modalOpened = false;
 
 	onMount(
-		() => (recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [])
+		() => {
+      recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || []
+      const colorSchemeValue = localStorage.getItem("coloScheme")
+      if (colorSchemeValue) $colorScheme = colorSchemeValue
+    }
 	);
 
 	function toggleTheme() {
