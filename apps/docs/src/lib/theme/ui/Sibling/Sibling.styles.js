@@ -3,7 +3,7 @@ import { createStyles } from '@svelteuidev/core';
 export default createStyles((theme, _params, getRef) => {
 	return {
 		root: {
-			[`${theme.dark}`]: {
+			darkMode: {
 				color: theme.colors.white.value,
 				backgroundColor: theme.fn.themeColor('dark', 8),
 				border: `1px solid ${theme.fn.themeColor('dark', 8)}`
@@ -37,7 +37,7 @@ export default createStyles((theme, _params, getRef) => {
 		},
 
     text: {
-      [`${theme.dark} &`]: {
+      darkMode: {
         color: "white !important"
       }
     }

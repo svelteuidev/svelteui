@@ -5,9 +5,11 @@ const baseStyles = {};
 
 const discordStyles = {
 	...baseStyles,
-	bc: '#6875f5',
+	bc: '#6875f5 !important',
+  transitionProperty: "all",
+  transitionDuration: "150ms",
 	'&:hover': {
-		bc: '#5850ec'
+		bc: '#5850ec !important'
 	}
 };
 
@@ -111,10 +113,10 @@ export const searchLinks = [
   { title: "use-viewport-size", link: "/composables/use-viewport-size", section: "Composables" },
   { title: "use-web-worker", link: "/composables/use-web-worker", section: "Composables" },
 
-  { title: "SvelteUI Dates", link: "dates/getting-started-dates", section: "Dates" },
+  { title: "SvelteUI Dates", link: "/dates/getting-started-dates", section: "Dates" },
   { title: "Month", link: "/dates/month", section: "Dates" },
 
-  { title: "SvelteUI Preprocessors", link: "preprocessors/getting-started-preprocessors", section: "Preprocessors"},
+  { title: "SvelteUI Preprocessors", link: "/preprocessors/getting-started-preprocessors", section: "Preprocessors"},
   { title: "view-source", link: "/preprocessors/view-source", section: "Preprocessors"},
 
   { title: "Typewriter", link: "/motion/typewriter", section: "Motion" },
@@ -136,7 +138,6 @@ export const config = {
 			title: 'Discord',
 			props: {
 				override: discordStyles,
-				color: 'blue',
 				variant: 'filled',
 				href: links[0].href
 			},
