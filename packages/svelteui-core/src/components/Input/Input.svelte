@@ -156,7 +156,12 @@ Base component to create custom inputs
 			class:disabled
 			class:invalid
 			class:withIcon={icon}
-			class={cx(className, classes.input, `${variant}Variant`)}
+			class={cx(
+				className,
+				classes.input,
+				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
+				classes[`${variant}Variant`] ?? {}
+			)}
 			on:change={onChange}
 			use:useActions={use}
 			use:forwardEvents
@@ -178,7 +183,7 @@ Base component to create custom inputs
 					[classes.invalid]: invalid,
 					[classes.withIcon]: icon
 				},
-				`${variant}Variant`
+				classes[`${variant}Variant`] ?? {}
 			)}
 			{disabled}
 			{required}

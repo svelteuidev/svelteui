@@ -34,7 +34,7 @@
     "cm:noadd": "./node_modules/cz-customizable/standalone.js",
     "coverage": "turbo run coverage --parallel",
     "deploy:docs": "yarn build:docs && yarn script:build-docs && yarn workspace svelteui-docs deploy:nobuild",
-    "dev": "start-storybook -p 6006 -c configuration/storybook",
+    "dev": "yarn storybook",
     "dev:docs": "yarn workspace svelteui-docs dev",
     "format": "turbo run format --parallel",
     "generate-types": "turbo run generate-types --parallel --force",
@@ -51,6 +51,7 @@
     "script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
     "script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
     "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges -p -d",
+    "storybook": "start-storybook -p 6006 -c configuration/storybook",
     "sync:repo": "sh scripts/git/sync-branches.sh",
     "test": "turbo run test --parallel",
     "watch": "turbo run watch --parallel"
