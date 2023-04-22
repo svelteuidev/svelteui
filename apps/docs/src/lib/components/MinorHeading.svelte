@@ -9,7 +9,8 @@
 
 <Stack
 	override={{
-    bc: 'rgba(115, 176, 230, 0.2)',
+    // bc: 'rgba(115, 176, 230, 0.2)',
+    bc: 'rgba(24, 100, 171, 0.45)',
 		padding: '$8',
     borderRadius: "0.5rem"
 	}}
