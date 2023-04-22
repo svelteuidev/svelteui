@@ -35,6 +35,7 @@
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
+    localStorage.setItem("colorScheme", $colorScheme)
 	}
 
 	function changeModalState() {
@@ -76,10 +77,10 @@
 	const useStyles = createStyles(() => ({
 		'.svelteui-Modal-inner > div': {
 			width: '100%',
-			display: 'block !important',
+			display: 'block !important'
 		},
 		'.svelteui-Modal-inner': {
-			display: 'block !important',
+			display: 'block !important'
 		},
 		'.svelteui-Modal-modal': {
 			width: '100% !important',
@@ -87,7 +88,7 @@
 			marginRight: 'auto !important',
 			marginLeft: 'auto !important',
 			darkMode: {
-				backgroundColor: "$dark800"
+				backgroundColor: '$dark800'
 			}
 		}
 	}));
