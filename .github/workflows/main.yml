@@ -9,7 +9,7 @@ jobs:
     name: Actions
     strategy:
       matrix:
-        node-version: [16, 18]
+        node-version: [18]
     runs-on: ubuntu-latest
     container:
       image: node:${{ matrix.node-version }}

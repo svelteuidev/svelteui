@@ -31,13 +31,13 @@ describe('time', () => {
 			timeStyle: 'medium',
 			timeZone: 'utc'
 		});
-		expect(result).eq('quinta-feira, 25 de abril de 1974 22:55:00');
+		expect(result).eq('quinta-feira, 25 de abril de 1974 às 22:55:00');
 
 		result = dateTimeString(timestamp, 'pt', {
 			dateStyle: 'full',
 			timeStyle: 'medium',
 			timeZone: 'utc'
 		});
-		expect(result).eq('quinta-feira, 25 de abril de 1974 22:55:00');
+		expect(result).eq('quinta-feira, 25 de abril de 1974 às 22:55:00');
 	});
 });
