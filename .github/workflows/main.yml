@@ -1,7 +1,7 @@
 name: Main Workflow
 on:
   pull_request:
-    branches: [main, next-minor]
+    branches: [main]
   push:
     branches: [main]
 jobs:
