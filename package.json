@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build:docs": "yarn workspace svelteui-docs build",
-    "build:storybook": "storybook build -c configuration/storybook",
+    "build:storybook": "cd packages/svelteui-core && storybook build -c ../../configuration/storybook",
     "bump:major": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts major",
     "bump:minor": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts minor",
     "bump:next": "deno run --unstable --allow-read --allow-write ./scripts/bump.ts next",
