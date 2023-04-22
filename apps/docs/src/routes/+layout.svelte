@@ -6,6 +6,7 @@
 	import { set_active_link } from '$lib/theme/utils';
 	import '$lib/theme/style.css';
 	import type { PageData } from './$types';
+  import { onMount } from 'svelte';
 
 	let show_sidebar: boolean = false;
 
@@ -27,6 +28,11 @@
 	function onToggleSidebar(event: CustomEvent<{ index: number; expand: boolean }>) {
 		sidebar_details = event.detail;
 	}
+
+  onMount(() => {
+    const colorSchemeValue = localStorage.getItem("colorScheme")
+    if (colorSchemeValue) $colorScheme = colorSchemeValue
+  })
 
 	$: {
     if (sidebar_details) {
