@@ -20,7 +20,8 @@
 	<div style="padding:40px;">
 		{#each colors as color}
 			<Group mt="xl">
-				<Button {color}>Filled button</Button>
+        <Button {color}>Default button</Button>
+				<Button {color} variant="filled">Filled button</Button>
 				<Button {color} variant="light">Light button</Button>
 				<Button {color} variant="outline">Outline button</Button>
 				<Button {color} variant="gradient">Gradient button</Button>
