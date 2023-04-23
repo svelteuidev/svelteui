@@ -1,7 +1,6 @@
 <script lang="ts">
 	// @ts-ignore
-	// import { current_page } from '@svelte-docs/get/routes';
-	import { Stack, Box, Title, Text, Group, Center, Tooltip } from '@svelteuidev/core';
+	import { colorScheme, Stack, Box, Title, Text, Group, Center, Tooltip } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/composables';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
 	import { screenW } from '$lib/components';
@@ -32,9 +31,9 @@
 
 <Stack
 	override={{
-		bc: 'rgba(24, 100, 171, 0.45)',
+		backgroundColor: $colorScheme === 'light' ? "$blue100" : "$dark800",
 		padding: '$8',
-    borderRadius: "0.5rem"
+    	borderRadius: "0.5rem"
 	}}
 >
 	<Stack override={{ mb: 20, h1: { mb: 0, mt: 0 }, '@md': { mt: 0 } }} spacing="xs">
