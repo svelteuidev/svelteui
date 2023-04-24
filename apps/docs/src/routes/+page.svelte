@@ -1,5 +1,5 @@
 <script>
-	import { Box, Button, Group, Container, Title, Text } from '@svelteuidev/core';
+	import { colorScheme, Box, Button, Group, Container, Title, Text } from '@svelteuidev/core';
 	import { GithubLogo } from 'radix-icons-svelte';
 	import { ComponentsExample, Features, mobile, HomePageExample } from '$lib/components';
 
@@ -52,10 +52,10 @@ index: true
 					fullSize={$mobile ? true : false}
 					override={srcCodeButton}
 					size="xl"
-					variant="default"
+					color={$colorScheme === 'dark' ? 'gray' : 'dark'}
 				>
 					<GithubLogo size={25} slot="leftIcon" />
-					<Text weight="bold" color="dark">Source Code</Text>
+					<Text weight="bold" color="white">Source Code</Text>
 				</Button>
 			</a>
 		</Group>
