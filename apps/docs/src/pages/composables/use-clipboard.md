@@ -24,9 +24,9 @@ With the `use-clipboard` action, text passed into the text param will be copied 
 
 ## Params
 
-| Param | Description                                               |
-| ----- | --------------------------------------------------------- |
-| text  | The text that will be copied when the action is triggered |
+| Param | Description                                                                               |
+| ----- | ----------------------------------------------------------------------------------------- |
+| text  | The text (or function that returns text) that will be copied when the action is triggered |
 
 ## Events
 
@@ -40,5 +40,5 @@ on:useclipboard-error?: (callback: (any) => unknown) => void;
 ## Definition
 
 ```ts
-export function clipboard(node: HTMLElement, text: string): ReturnType<Action>;
+export function clipboard(node: HTMLElement, text: string | () => string): ReturnType<Action>;
 ```
