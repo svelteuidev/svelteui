@@ -6,16 +6,23 @@ import type { Action } from '../../shared/actions/types';
  * ```tsx
  *  <button use:clipboard={'This text will be copied'}>Copy Me</button>
  * ```
+ * or
+ *
+ * ```tsx
+ *  <button use:clipboard={() => `This text will be copied at ${new Date().toUTCString()}`}>Copy Me</button>
+ * ```
+ *
  * @param text - The text that you want to be copied when the DOM element is clicked
  * @see https://svelteui.org/actions/use-clipboard
  */
-export function clipboard(node: HTMLElement, text: string): ReturnType<Action> {
+export function clipboard(node: HTMLElement, text: string | (() => string)): ReturnType<Action> {
 	const click = async () => {
-		if (text)
+		const detailText = typeof text === 'function' ? text() : text;
+		if (detailText)
 			try {
-				await navigator.clipboard.writeText(text);
+				await navigator.clipboard.writeText(detailText);
 
-				node.dispatchEvent(new CustomEvent('useclipboard', { detail: text }));
+				node.dispatchEvent(new CustomEvent('useclipboard', { detail: detailText }));
 			} catch (e) {
 				node.dispatchEvent(new CustomEvent('useclipboard-error', { detail: e }));
 			}
@@ -24,7 +31,7 @@ export function clipboard(node: HTMLElement, text: string): ReturnType<Action> {
 	node.addEventListener('click', click, true);
 
 	return {
-		update: (t: string) => (text = t),
+		update: (t: string | (() => string)) => (text = t),
 		destroy: () => node.removeEventListener('click', click, true)
 	};
 }

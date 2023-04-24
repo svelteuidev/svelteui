@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { clipboard } from '$clib/actions/use-clipboard/use-clipboard';
 
-	export let text = 'This text will be copied';
+	export let text: string | (() => string) = 'This text will be copied';
 	export let callback;
 	export let callbackError;
 </script>
