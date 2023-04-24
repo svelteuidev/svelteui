@@ -1,10 +1,19 @@
 import { tick } from 'svelte';
-import { describe, expect, test, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { render } from '@testing-library/svelte';
 
 import UseClipboard from './components/use-clipboard.svelte';
 
 describe('use-clipboard', () => {
+	beforeEach(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date(949406400000));
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
 	test('copies text to clipboard', async () => {
 		const container = document.createElement('div');
 		document.body.appendChild(container);
@@ -54,6 +63,34 @@ describe('use-clipboard', () => {
 		expect(writeTextMock).toHaveBeenCalledTimes(2);
 		expect(writeTextMock).toHaveBeenCalledWith('This text will be copied');
 		expect(callbackMock).toHaveBeenCalledTimes(1);
+		expect(callbackErrorMock).toHaveBeenCalledTimes(1);
+
+		const textFunction = vi.fn(
+			() => `This is dynamic text with ${new Date(Date.now()).toUTCString()}`
+		);
+		await component.$set({ text: textFunction });
+		btn.click();
+		await tick();
+		expect(textFunction).toHaveBeenCalledTimes(1);
+		expect(writeTextMock).toHaveBeenCalledTimes(3);
+		expect(writeTextMock).toHaveBeenCalledWith(
+			'This is dynamic text with Tue, 01 Feb 2000 12:00:00 GMT'
+		);
+		expect(callbackMock).toHaveBeenCalledTimes(2);
+		expect(callbackMock).toHaveBeenCalledWith(
+			'This is dynamic text with Tue, 01 Feb 2000 12:00:00 GMT'
+		);
+		expect(callbackErrorMock).toHaveBeenCalledTimes(1);
+
+		await component.$set({ text: () => '' });
+		// eslint-disable-next-line @typescript-eslint/no-empty-function
+		writeTextMock.mockImplementation(() => {});
+		btn.click();
+		expect(writeTextMock).toHaveBeenCalledTimes(3);
+		expect(writeTextMock).toHaveBeenCalledWith(
+			'This is dynamic text with Tue, 01 Feb 2000 12:00:00 GMT'
+		);
+		expect(callbackMock).toHaveBeenCalledTimes(2);
 		expect(callbackErrorMock).toHaveBeenCalledTimes(1);
 	});
 });
