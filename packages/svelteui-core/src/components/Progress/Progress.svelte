@@ -28,9 +28,9 @@
 	export { className as class };
 
 	const defaultTweenOptions = { delay: 0, duration: 400, easing: cubicOut };
-	const segments = Array.isArray(sections);
 	const progress = tweened(undefined, { ...defaultTweenOptions, ...tweenOptions });
-
+	
+	$: segments = Array.isArray(sections);
 	$: progress.set(value);
 	$: ({ cx, classes, getStyles, theme } = useStyles(
 		{
@@ -47,7 +47,7 @@
 
 <Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	{#if segments}
-		{#each getCumulativeSections(sections) as section}
+		{#each getCumulativeSections(sections) as section (section)}
 			<Box
 				class={classes.bar}
 				css={{
