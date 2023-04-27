@@ -1,0 +1,176 @@
+/**
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--svelteui-colors-gray900);
+    background: var(--svelteui-colors-gray50);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: var(--svelteui-fontSizes-sm);
+    line-height: var(--svelteui-lineHeights-sm);
+
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"] {
+    margin: 0;
+	overflow: 'auto';
+}
+
+:not(pre)>code[class*="language-"] {
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+}
+
+.token.comment {
+    color: var(--svelteui-colors-gray600);
+}
+.token.string {
+    color: var(--svelteui-colors-indigo900);
+}
+.token.inserted {
+    color: var(--svelteui-colors-indigo900);
+}
+.token.number {
+    color: var(--svelteui-colors-blue700);
+}
+.token.builtin {
+    color: var(--svelteui-colors-lime900);
+}
+.token.char {
+    color: var(--svelteui-colors-lime900);
+}
+.token.constant {
+    color: var(--svelteui-colors-lime900);
+}
+.token.function {
+    color: var(--svelteui-colors-lime900);
+}
+.token.selector {
+    color: var(--svelteui-colors-lime900);
+}
+.token.atrule {
+    color: var(--svelteui-colors-lime900);
+}
+.token.punctuation {
+    color: var(--svelteui-colors-gray700);
+}
+.token.variable {
+    color: var(--svelteui-colors-violet900);
+}
+.token.attr-name {
+    color: var(--svelteui-colors-green900);
+}
+.token.class-name {
+    color: var(--svelteui-colors-red900);
+}
+.token.tag {
+    color: var(--svelteui-colors-violet900);
+}
+.token.deleted {
+    color: var(--svelteui-colors-violet900);
+}
+.token.operator {
+    color: var(--svelteui-colors-red900);
+}
+.token.boolean {
+    color: var(--svelteui-colors-red900);
+}
+.token.keyword {
+    color: var(--svelteui-colors-red900);
+}
+.token.doctype {
+    color: var(--svelteui-colors-gray700);
+}
+.token.url {
+    color: var(--svelteui-colors-gray700);
+}
+
+/* DARK THEME */
+
+.dark-theme code[class*="language-"],
+.dark-theme pre[class*="language-"] {
+    color: var(--svelteui-colors-gray400);
+    background: var(--svelteui-colors-dark800);
+}
+
+.dark-theme .token.comment {
+    color: var(--svelteui-colors-gray600);
+}
+.dark-theme .token.string {
+    color: var(--svelteui-colors-teal400);
+}
+.dark-theme .token.inserted {
+    color: var(--svelteui-colors-teal400);
+}
+.dark-theme .token.number {
+    color: var(--svelteui-colors-blue400);
+}
+.dark-theme .token.builtin {
+    color: var(--svelteui-colors-orange500);
+}
+.dark-theme .token.char {
+    color: var(--svelteui-colors-orange500);
+}
+.dark-theme .token.constant {
+    color: var(--svelteui-colors-orange500);
+}
+.dark-theme .token.function {
+    color: var(--svelteui-colors-orange500);
+}
+.dark-theme .token.selector {
+    color: var(--svelteui-colors-teal400);
+}
+.dark-theme .token.atrule {
+    color: var(--svelteui-colors-teal400);
+}
+.dark-theme .token.punctuation {
+    color: var(--svelteui-colors-gray500);
+}
+.dark-theme .token.variable {
+    color: var(--svelteui-colors-gray500);
+}
+.dark-theme .token.attr-name {
+    color: var(--svelteui-colors-yellow500);
+}
+.dark-theme .token.class-name {
+    color: var(--svelteui-colors-yellow500);
+}
+.dark-theme .token.tag {
+    color: var(--svelteui-colors-red600);
+}
+.dark-theme .token.deleted {
+    color: var(--svelteui-colors-red600);
+}
+.dark-theme .token.operator {
+    color: var(--svelteui-colors-gray500);
+}
+.dark-theme .token.boolean {
+    color: var(--svelteui-colors-red600);
+}
+.dark-theme .token.keyword {
+    color: var(--svelteui-colors-indigo300);
+}
+.dark-theme .token.doctype {
+    color: var(--svelteui-colors-gray500);
+}
+.dark-theme .token.url {
+    color: var(--svelteui-colors-gray500);
+}

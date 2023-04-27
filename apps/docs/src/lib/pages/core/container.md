@@ -11,7 +11,7 @@ docs: 'core/container.md'
 ---
 
 <script>
-    import { Demo, ContainerDemos } from '@svelteuidev/demos'
+    import { Demo, ContainerDemos } from '@svelteuidev/demos';
 </script>
 
 ## Usage
