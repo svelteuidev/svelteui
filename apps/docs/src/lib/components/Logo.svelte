@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Badge, Center, Title, Box } from '@svelteuidev/core';
+	import { base } from '$app/paths';
 
 	const override = {
 		gap: '0.5rem'
@@ -9,7 +10,7 @@
 	};
 </script>
 
-<a href="/" class="logoEl">
+<a href="{base}/" class="logoEl">
 	<Center {override} inline>
 		<Box css={{ d: 'flex' }}>
 			<Title override={title} order={2} inline>Svelte</Title>

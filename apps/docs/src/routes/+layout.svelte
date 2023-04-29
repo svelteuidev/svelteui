@@ -6,7 +6,7 @@
 	import { set_active_link } from '$lib/theme/utils';
 	import '$lib/theme/style.css';
 	import type { PageData } from './$types';
-  import { onMount } from 'svelte';
+  	import { onMount } from 'svelte';
 
 	let show_sidebar: boolean = false;
 

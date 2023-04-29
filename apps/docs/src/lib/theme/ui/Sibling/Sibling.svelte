@@ -3,6 +3,7 @@
 	import { Anchor, Text } from '@svelteuidev/core';
 	import { ArrowLeft, ArrowRight } from 'radix-icons-svelte';
 	import { upperFirst } from '@svelteuidev/composables';
+	import { base } from '$app/paths';
 
 	export let data = {
 			slug: '/',
@@ -19,7 +20,7 @@
 
 <Anchor
 	underline={false}
-	href={data.slug}
+	href="{base}{data.slug}"
 	class={`${cx(
 		getStyles({
 			// @ts-ignore

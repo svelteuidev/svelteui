@@ -2,6 +2,7 @@
 	import { colorScheme, Box, Button, Group, Container, Title, Text } from '@svelteuidev/core';
 	import { GithubLogo } from 'radix-icons-svelte';
 	import { ComponentsExample, Features, mobile, HomePageExample } from '$lib/components';
+  	import { base } from '$app/paths';
 
 	const srcCodeButton = {
 		m: 0,
@@ -36,7 +37,7 @@ index: true
 			the documentation & get started!
 		</p>
 		<Group class="dark-theme" direction={$mobile ? 'column' : 'row'} position="center">
-			<a href="/introduction">
+			<a href="{base}/introduction">
 				<Button
 					fullSize={$mobile ? true : false}
 					size="xl"
@@ -90,10 +91,10 @@ index: true
 			Ready to get started?
 		</Title>
 		<Group position="center" override={{ mt: '$10' }} direction={$mobile ? 'column' : 'row'}>
-			<a href="/installation"
+			<a href="{base}/installation"
 				><Button fullSize={$mobile ? true : false} size="lg">Yes I am</Button></a
 			>
-			<a href="/introduction">
+			<a href="{base}/introduction">
 				<Button fullSize={$mobile ? true : false} size="lg" variant="outline">
 					I'd like to learn more
 				</Button>
