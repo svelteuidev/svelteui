@@ -36,7 +36,7 @@
 	const useStyles = createStyles(() => ({ root: {} }));
 	const forwardEvents = createEventForwarder(get_current_component());
 	const DEFAULT_THEME = useSvelteUITheme();
-	const currentTheme = () => {
+	$: currentTheme = () => {
 		if (themeObserver === null) return null;
 		return themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
 	};
