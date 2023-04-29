@@ -24,7 +24,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/your-repo-name'
+          BASE_PATH: ''
         run: |
           cd apps/docs
           yarn build
