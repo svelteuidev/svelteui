@@ -1,5 +1,7 @@
 name: Deploy Docs to GitHub Pages
 
+on: workflow_dispatch
+
 jobs:
   build_site:
     runs-on: ubuntu-latest
