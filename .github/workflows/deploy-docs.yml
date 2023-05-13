@@ -25,16 +25,15 @@ jobs:
         env:
           BASE_PATH: ''
         run: |
-          cd apps/docs
-          yarn build
-          touch build/.nojekyll
-          touch build/CNAME && echo 'www.svelteui.org' > build/CNAME
+          yarn build:docs
+          touch apps/docs/build/.nojekyll
+          touch apps/docs/build/CNAME && echo 'www.svelteui.org' > apps/docs/build/CNAME
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
         with:
           # this should match the `pages` option in your adapter-static options
-          path: 'build/'
+          path: 'apps/docs/build/'
 
   deploy:
     needs: build_site
