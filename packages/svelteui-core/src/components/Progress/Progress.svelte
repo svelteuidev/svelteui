@@ -29,7 +29,7 @@
 
 	const defaultTweenOptions = { delay: 0, duration: 400, easing: cubicOut };
 	const progress = tweened(undefined, { ...defaultTweenOptions, ...tweenOptions });
-	
+
 	$: segments = Array.isArray(sections);
 	$: progress.set(value);
 	$: ({ cx, classes, getStyles, theme } = useStyles(

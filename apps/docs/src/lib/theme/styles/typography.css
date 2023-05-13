@@ -1,0 +1,51 @@
+body:not(h1, h2, h3, h4, h5, h6) {
+	line-height: 1.6;
+	font-family: var(--svelteui-fonts-standard);
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font);
+}
+
+a {
+	color: var(--svelteui-colors-primary);
+	text-decoration: none;
+}
+
+pre {
+	background-color: var(--svelteui-colors-gray50);
+	color: var(--svelteui-colors-gray900);
+	padding: 1rem;
+	overflow-x: auto;
+	border-radius: 0.7em;
+}
+
+.dark-theme pre {
+	color: var(--svelteui-colors-gray400);
+	background-color: var(--svelteui-colors-dark800);
+}
+
+/*
+pre code {
+	background: none;
+	border: none;
+	padding: 0;
+	white-space: pre;
+	font-size: 0.9rem;
+	line-height: 1rem;
+	color: var(--hl-text);
+}
+ 
+blockquote {
+	background-color: var(--quote);
+	padding: 1rem 2rem;
+	border-left: 3px solid var(--quote-side);
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 100%;
+} */

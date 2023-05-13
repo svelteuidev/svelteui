@@ -9,16 +9,15 @@
 	<Progress {...args} />
 </Template>
 
-<Story name="Menu" id="progressStory" args={{ value: 40 }}/>
+<Story name="Menu" id="progressStory" args={{ value: 40 }} />
 
 <Story name="Sections" id="progressSectionsStory">
 	<Progress
-        size="xl"
-        sections={[
-            { value: 40, color: 'cyan' },
-            { value: 20, color: 'blue' },
-            { value: 15, color: 'indigo' }
-        ]}
-    />
+		size="xl"
+		sections={[
+			{ value: 40, color: 'cyan' },
+			{ value: 20, color: 'blue' },
+			{ value: 15, color: 'indigo' }
+		]}
+	/>
 </Story>
-
