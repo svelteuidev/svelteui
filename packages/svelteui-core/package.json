@@ -24,25 +24,17 @@
 	"author": "Kamell Perry <kamellperry33@gmail.com>",
 	"sideEffects": false,
 	"type": "module",
-	"module": "./package/index.js",
-	"types": "types/index.d.ts",
-	"files": [
-		"index.js",
-		"stitches.config.js",
-		"components/**/*.{js,svelte}",
-		"internal/**/*.{js,svelte}",
-		"styles/**/*.{js,svelte}",
-		"types/**/*.d.ts"
-	],
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": ["dist"],
 	"scripts": {
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"dev": "vite dev",
 		"format": "prettier --write --plugin-search-dir=. src/",
-		"generate-types": "deno run --unstable --allow-read --allow-write ../../scripts/generate-types.ts",
 		"lint": "prettier --check --plugin-search-dir=. src/ && eslint .",
-		"package": "svelte-package",
+		"package": "svelte-kit sync && svelte-package",
 		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
 		"pub": "cd package && yarn publish",
@@ -54,38 +46,51 @@
 		"watch": "svelte-package -w"
 	},
 	"dependencies": {
-		"@floating-ui/dom": "0.5.2",
+		"@floating-ui/dom": "1.2.8",
 		"@stitches/core": "1.2.8"
 	},
 	"devDependencies": {
-		"@babel/core": "7.18.6",
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
-		"@sveltejs/package": "1.0.0-next.3",
-		"@typescript-eslint/eslint-plugin": "5.27.0",
-		"@typescript-eslint/parser": "5.27.0",
-		"autoprefixer": "10.4.4",
-		"babel-loader": "8.2.5",
-		"cssnano": "5.1.7",
-		"eslint": "8.16.0",
-		"eslint-config-prettier": "8.3.0",
-		"eslint-plugin-storybook": "0.6.1",
+		"@babel/core": "7.21.8",
+		"@sveltejs/adapter-auto": "2.0.1",
+		"@sveltejs/kit": "1.16.3",
+		"@sveltejs/package": "2.0.2",
+		"@typescript-eslint/eslint-plugin": "5.59.5",
+		"@typescript-eslint/parser": "5.59.5",
+		"autoprefixer": "10.4.14",
+		"babel-loader": "9.1.2",
+		"cssnano": "6.0.1",
+		"eslint": "8.40.0",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-storybook": "0.6.12",
 		"eslint-plugin-svelte3": "4.0.0",
-		"postcss": "8.4.12",
-		"prettier": "2.6.2",
-		"prettier-plugin-svelte": "2.7.0",
-		"sass": "1.50.0",
-		"svelte": "3.58.0",
-		"svelte-check": "3.2.0",
+		"postcss": "8.4.23",
+		"prettier": "2.8.8",
+		"prettier-plugin-svelte": "2.10.0",
+		"sass": "1.62.1",
+		"svelte": "3.59.1",
+		"svelte-check": "3.3.2",
 		"svelte-loader": "3.1.7",
-		"svelte-preprocess": "4.10.7",
-		"svelte2tsx": "0.6.11",
-		"tslib": "2.3.1",
-		"typescript": "4.7.4",
-		"vite": "4.3.1"
+		"svelte-preprocess": "5.0.3",
+		"svelte2tsx": "0.6.14",
+		"tslib": "2.5.0",
+		"typescript": "5.0.4",
+		"vite": "4.3.5"
 	},
 	"peerDependencies": {
 		"@svelteuidev/composables": "0.12.1",
 		"svelte": ">=3.55.0"
-	}
+	},
+	"exports": {
+		".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
+		"./package.json": "./package.json"
+	},
+	"typesVersions": {
+        ">4.0": {
+            "*": ["./dist/index.d.ts"]
+        }
+    }
 }

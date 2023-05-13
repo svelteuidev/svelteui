@@ -1,4 +1,3 @@
-import mm from 'micromatch';
 import path from 'path';
 import preprocess from 'svelte-preprocess';
 
@@ -13,17 +12,6 @@ const config = {
 		},
 		alias: {
 			$clib: path.resolve('./src')
-		}
-	},
-	package: {
-		exports: (filepath) => {
-			if (filepath.endsWith('.d.ts')) return false;
-			return !mm.contains(filepath, '**_');
-		},
-		files: (filepath) => {
-			const isNotTest = mm.matcher('!**/*.test.{ts, js}');
-			const isNotStory = mm.matcher('!**/*.stories.svelte');
-			return isNotTest(filepath) && isNotStory(filepath);
 		}
 	}
 };

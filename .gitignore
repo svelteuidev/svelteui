@@ -25,11 +25,9 @@ storybook-static
 # project
 /coverage
 .svelte-kit/*
-!.svelte-kit/tsconfig.json
 /.svelte-kit/*
-!/.svelte-kit/tsconfig.json
-package
-/package
+dist
+/dist
 /packages/svelteui-errors/dist
 .vercel
 .turbo
