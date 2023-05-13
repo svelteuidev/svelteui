@@ -46,7 +46,7 @@
     "prepare:release": "yarn clean && yarn prepush && yarn script:pre-release && yarn package && yarn generate-types",
     "prepush": "yarn sort && yarn format && yarn lint",
     "pub": "turbo run pub --parallel",
-    "pub:docs": "touch apps/docs/__DOCS__/dist/CNAME && echo 'www.svelteui.org' > apps/docs/__DOCS__/dist/CNAME && gh-pages -d apps/docs/__DOCS__/dist -t true -b gh-pages",
+    "pub:docs": "touch apps/docs/__DOCS__/dist/CNAME && echo 'www.svelteui.org' > apps/docs/build/CNAME && gh-pages -d apps/docs/build -t true -b gh-pages",
     "release": "yarn pub && sh scripts/git/discard.sh",
     "script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
     "script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
