@@ -36,10 +36,14 @@
 	const useStyles = createStyles(() => ({ root: {} }));
 	const forwardEvents = createEventForwarder(get_current_component());
 	const DEFAULT_THEME = useSvelteUITheme();
-	const currentTheme = () => {
-		if (themeObserver === null) return null;
-		return themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
-	};
+
+  let currentTheme: string | null = null;
+	$: {
+		if (themeObserver !== null)
+    {
+      currentTheme = themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
+    }
+	}
 
 	$: if (withGlobalStyles) SvelteUIGlobalCSS();
 	$: if (withNormalizeCSS) NormalizeCSS();
@@ -63,7 +67,7 @@
 	bind:this={element}
 	use:useActions={use}
 	use:forwardEvents
-	class={cx(className, classes.root, currentTheme())}
+	class={cx(className, classes.root, currentTheme)}
 	{...$$restProps}
 >
 	<slot />
