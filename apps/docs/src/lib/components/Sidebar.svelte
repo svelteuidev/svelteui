@@ -115,11 +115,18 @@
             <li><a href={`${base}/core/tabs`}>Tabs</a></li>
           </ul>
         </li>
+        <li>
+          <strong><Dashboard/><Space w="md" />Data Display</strong>
+          <ul>
+            <li><a href={`${base}/core/badge`}>Badge</a></li>
+            <li><a href={`${base}/core/card`}>Card</a></li>
+            <li><a href={`${base}/core/image`}>Image</a></li>
             <li><a href={`${base}/core/kbd`}>Kbd</a></li>
             <li><a href={`${base}/core/theme-icon`}>ThemeIcon</a></li>
             <li><a href={`${base}/core/timeline`}>Timeline</a></li>
           </ul>
         </li>
+        <li>
           <strong><ExclamationTriangle/><Space w="md" />Feedback</strong>
           <ul>
             <li><a href={`${base}/core/alert`}>Alert</a></li>
@@ -254,4 +261,3 @@
     {/if}
   </li>
 </ul>
-
