@@ -41,7 +41,6 @@ export default createStyles(
 		return {
 			root: {
 				darkMode: {
-					'& .input': variant === 'headless' ? {} : { color: theme.fn.themeColor('dark', 0) },
 					'&:disabled': {
 						backgroundColor: theme.fn.themeColor('dark', 6)
 					},
