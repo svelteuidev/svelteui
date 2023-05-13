@@ -18,7 +18,10 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
 
-      - name: Build
+      - name: Build packages
+        run: yarn package
+
+      - name: Build docs
         env:
           BASE_PATH: ''
         run: |

@@ -9,7 +9,9 @@ docs: 'theming/stitches-utilities.md'
   import { Prism } from "@svelteuidev/prism";
   import { Box } from "@svelteuidev/core";
   import { Heading } from '$lib/components';
-  import { theme, utils } from '$lib/data/theming'
+  import { theme, utils } from '$lib/data/theming';
+
+  const override = {'& .token.literal-property.property': {color: '$violet400'}}
 </script>
 
 <svelte:head>
