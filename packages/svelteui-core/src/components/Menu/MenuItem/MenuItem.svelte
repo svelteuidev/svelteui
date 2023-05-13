@@ -20,6 +20,7 @@
 		color: $$Props['color'] = undefined,
 		disabled: $$Props['disabled'] = false,
 		icon: $$Props['icon'] = undefined,
+		iconSize: $$Props['iconSize'] = undefined,
 		iconProps: $$Props['iconProps'] = undefined;
 	export { className as class };
 
@@ -53,7 +54,7 @@
 >
 	<div class={classes.itemInner}>
 		{#if icon}
-			<IconRenderer {icon} className={classes.itemIcon} {...iconProps} />
+			<IconRenderer {icon} className={classes.itemIcon} {iconSize} {iconProps} />
 		{/if}
 		<div class={classes.itemBody}>
 			<div class={classes.itemLabel}>
