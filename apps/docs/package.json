@@ -1,6 +1,6 @@
 {
 	"name": "svelteui-docs",
-	"version": "0.12.0",
+	"version": "0.12.1",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",

@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/tests",
-	"version": "0.12.0",
+	"version": "0.12.1",
 	"private": true,
 	"description": "Svelte testing library utilities",
 	"keywords": [
