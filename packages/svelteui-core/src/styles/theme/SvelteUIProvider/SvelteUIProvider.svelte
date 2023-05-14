@@ -37,12 +37,13 @@
 	const forwardEvents = createEventForwarder(get_current_component());
 	const DEFAULT_THEME = useSvelteUITheme();
 
-  let currentTheme: string | null = null;
+	let currentTheme: string | null = null;
 	$: {
-		if (themeObserver !== null)
-    {
-      currentTheme = themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
-    }
+		if (themeObserver !== null) {
+			currentTheme = themeObserver === 'light'
+        ? (mergedTheme as unknown as string)
+        : (dark as string);
+		}
 	}
 
 	$: if (withGlobalStyles) SvelteUIGlobalCSS();
