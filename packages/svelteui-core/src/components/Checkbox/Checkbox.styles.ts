@@ -45,7 +45,7 @@ export default createStyles(
 				fontSize: `$${size}`,
 				lineHeight: `$${size}`,
 				color: '#000000',
-				[`${theme.dark} &`]: {
+				darkMode: {
 					color: '$dark000'
 				}
 			},
@@ -65,9 +65,12 @@ export default createStyles(
 				transition: `border-color ${transitionDuration}ms ease, background-color ${transitionDuration}ms ease`,
 
 				darkMode: {
-					backgroundColor: '$dark400',
-					borderColor: '$dark400'
+					'&:not(:checked)': {
+						backgroundColor: '$dark400',
+						borderColor: '$dark400'
+					}
 				},
+
 				'&:checked': {
 					border: 'transparent',
 					backgroundColor: theme.fn.themeColor(color, 6),
@@ -80,7 +83,7 @@ export default createStyles(
 					}
 				},
 
-				'&.disabled': {
+				'&:disabled': {
 					backgroundColor: '$gray200',
 					borderColor: '$gray300',
 					cursor: 'not-allowed',
@@ -91,7 +94,7 @@ export default createStyles(
 						borderColor: '$gray300'
 					},
 
-					[`${theme.dark} &`]: {
+					darkMode: {
 						backgroundColor: '$dark400',
 						borderColor: '$dark600',
 						[`& + .${getRef('icon')}`]: {
