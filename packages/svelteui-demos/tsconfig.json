@@ -20,12 +20,6 @@
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"],
-			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/prism": ["../svelteui-prism/src"],
-			"@svelteuidev/dates": ["../svelteui-dates/src"],
-			"@svelteuidev/preprocessors": ["../svelteui-preprocessors/src"]
 		}
 	},
 	"references": [

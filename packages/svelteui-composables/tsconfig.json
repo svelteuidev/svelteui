@@ -20,17 +20,10 @@
 			"$lib": ["src"],
 			"$lib/*": ["src/*"],
 			"$clib": ["src"],
-			"$clib/*": ["src/*"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/prism": ["../svelteui-prism/src"],
-			"@svelteuidev/tests": ["../svelteui-tests/src"]
+			"$clib/*": ["src/*"]
 		}
 	},
 	"references": [
-		{ "path": "../svelteui-motion" },
-		{ "path": "../svelteui-core" },
-		{ "path": "../svelteui-prism" },
 		{ "path": "../svelteui-tests" }
 	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

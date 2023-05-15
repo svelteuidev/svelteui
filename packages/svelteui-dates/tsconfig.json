@@ -22,17 +22,11 @@
 			"$lib/*": ["src/*"],
 			"$dlib": ["src"],
 			"$dlib/*": ["src/*"],
-			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/tests": ["../svelteui-tests/src"]
 		}
 	},
 	"references": [
 		{ "path": "../svelteui-core" },
-		{ "path": "../svelteui-composables" },
-		{ "path": "../svelteui-motion" },
-		{ "path": "../svelteui-tests" }
+		{ "path": "../svelteui-composables" }
 	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }
