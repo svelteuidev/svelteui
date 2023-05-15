@@ -10,22 +10,27 @@ SvelteUI is a Svelte library (heavily inspired by but not affiliated with Mantin
 Instead of remaking the same components, recreating custom actions, transitions, utilities, etc. SvelteUI is designed so you can start making projects quickly. It works amazingly well out-of-the-box, with zero-configuration, and can be customized to your liking as your application grows.
 
 # Features
- - SvelteKit and SSR Compatible
- - TypeScript and type definitions are supported, but optional.
- - All components are accessible according to WAI-ARIA standards.
- - Dark theme included, as well as a custom theming api.
- - Highly customizable
- - Minimal to no third-party dependency usage.
- - Easy setup - Zero Configuration
+
+- SvelteKit and SSR Compatible
+- TypeScript and type definitions are supported, but optional.
+- All components are accessible according to WAI-ARIA standards.
+- Dark theme included, as well as a custom theming api.
+- Highly customizable
+- Minimal to no third-party dependency usage.
+- Easy setup - Zero Configuration
 
 # Installation
+
 See https://www.svelteui.org/installation for complete guide.
+
 ```
 npm i @svelteuidev/core @svelteuidev/composables
 ```
 
 # Project Configuration
+
 Wrap your app in the `SvelteUIProvider` component for more theming options, such as dark theme.
+
 ```svelte
 <script>
     import { SvelteUIProvider } from '@svelteuidev/core';

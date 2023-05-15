@@ -48,7 +48,8 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "vite dev",
-    "format": "prettier --write --plugin-search-dir=. src/",
+    "format": "prettier --write --plugin-search-dir=. .",
+
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "package": "svelte-kit sync && svelte-package",
     "prepare": "svelte-kit sync",

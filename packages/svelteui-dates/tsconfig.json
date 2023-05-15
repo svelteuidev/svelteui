@@ -21,12 +21,9 @@
 			"$lib": ["src"],
 			"$lib/*": ["src/*"],
 			"$dlib": ["src"],
-			"$dlib/*": ["src/*"],
+			"$dlib/*": ["src/*"]
 		}
 	},
-	"references": [
-		{ "path": "../svelteui-core" },
-		{ "path": "../svelteui-composables" }
-	],
+	"references": [{ "path": "../svelteui-core" }, { "path": "../svelteui-composables" }],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

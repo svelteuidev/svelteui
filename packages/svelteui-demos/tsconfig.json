@@ -19,7 +19,7 @@
 		"checkJs": true,
 		"paths": {
 			"$lib": ["src"],
-			"$lib/*": ["src/*"],
+			"$lib/*": ["src/*"]
 		}
 	},
 	"references": [
