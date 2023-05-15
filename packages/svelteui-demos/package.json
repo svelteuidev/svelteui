@@ -93,5 +93,8 @@
     "tslib": "2.5.0",
     "typescript": "5.0.4",
     "vite": "4.3.5"
+  },
+  "peerDependencies": {
+    "svelte": ">=3.55.0"
   }
 }
