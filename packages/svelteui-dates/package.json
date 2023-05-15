@@ -58,7 +58,7 @@
     "package": "svelte-kit sync && svelte-package",
     "prepare": "svelte-kit sync",
     "preview": "vite preview",
-    "pub": "cd package && yarn publish",
+    "pub": "yarn publish",
     "sort": "npx sort-package-json",
     "storybook": "start-storybook -p 6006",
     "update:lockfile": "yarn",
