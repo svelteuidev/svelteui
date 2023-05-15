@@ -73,7 +73,6 @@
     "gh-pages": "5.0.0",
     "husky": "7.0.4",
     "lint-staged": "13.2.2",
-    "micromatch": "4.0.5",
     "patch-package": "6.5.1",
     "prettier": "2.8.8",
     "prettier-plugin-svelte": "2.10.0",
