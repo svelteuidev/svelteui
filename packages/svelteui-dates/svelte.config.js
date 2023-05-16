@@ -1,4 +1,3 @@
-import mm from 'micromatch';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import preprocess from 'svelte-preprocess';
@@ -21,20 +20,6 @@ const config = {
 		},
 		alias: {
 			$dlib: path.resolve('./src')
-		}
-	},
-	package: {
-		exports: (filepath) => {
-			if (filepath.endsWith('.d.ts')) return false;
-			if (filepath.endsWith('.config.js')) return false;
-			if (mm.contains(filepath, 'internal/**')) return false;
-			if (mm.contains(filepath, 'styles/**')) return false;
-			return !mm.contains(filepath, '**_');
-		},
-		files: (filepath) => {
-			const isNotTest = mm.matcher('!**/*.test.{ts, js}');
-			const isNotStory = mm.matcher('!**/*.stories.svelte');
-			return isNotTest(filepath) && isNotStory(filepath);
 		}
 	}
 };

@@ -19,18 +19,8 @@
 		"checkJs": true,
 		"paths": {
 			"$lib": ["src"],
-			"$lib/*": ["src/*"],
-			"@svelteuidev/core": ["../svelteui-core/src"],
-			"@svelteuidev/composables": ["../svelteui-composables/src"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/prism": ["../svelteui-prism/src"]
+			"$lib/*": ["src/*"]
 		}
 	},
-	"references": [
-		{ "path": "../svelteui-core" },
-		{ "path": "../svelteui-composables" },
-		{ "path": "../svelteui-motion" },
-		{ "path": "../svelteui-prism" }
-	],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
 }

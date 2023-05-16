@@ -19,10 +19,7 @@
 		"checkJs": true,
 		"paths": {
 			"$lib": ["src"],
-			"$lib/*": ["src/*"],
-			"@svelteuidev/composables": ["../svelteui-composables/src"],
-			"@svelteuidev/motion": ["../svelteui-motion/src/lib"],
-			"@svelteuidev/tests": ["../svelteui-tests/src"]
+			"$lib/*": ["src/*"]
 		}
 	},
 	"references": [
