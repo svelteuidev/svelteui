@@ -78,7 +78,7 @@
 		for (let [index, tab] of Array.from(tabs).entries()) {
 			const key = tab.getAttribute('data-key');
 			tab.addEventListener('click', () => onTabClick(index, key));
-			tab.addEventListener('keydown', (event) => onTabKeyDown(event as KeyboardEvent));
+			tab.addEventListener('keydown', (event) => onTabKeyDown(event as KeyboardEvent, index, key));
 		}
 	}
 
@@ -108,8 +108,22 @@
 		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 	}
 
-	function onTabKeyDown(event: KeyboardEvent) {
+	function onTabKeyDown(event: KeyboardEvent, index: number, key: string) {
 		const tabs = element.querySelectorAll('.svelteui-Tab');
+
+    // Set current tab as the active one if the enter was pressed, allowing
+    // selecting the tab when doing tab cycling
+    if (event.code === "Enter") {
+      dispatch('change', { index, key });
+      _active = index;
+		  contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } })
+      return;
+    }
+
+    // Do not prevent default logic if tab cycling is being done
+    if (event.code === "Tab") {
+      return;
+    }
 
 		let _index = _active;
 		if (event.code === nextTabCode) {
@@ -121,10 +135,10 @@
 		}
 
 		event.preventDefault();
-		const tab = Array.from(tabs)[_index];
-		const key = tab.getAttribute('data-key');
+		const selectedTab = Array.from(tabs)[_index];
+		const selectedKey = selectedTab.getAttribute('data-key');
 
-		dispatch('change', { index: _index, key: key });
+		dispatch('change', { index: _index, key: selectedKey });
 		_active = _index;
 		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
 	}
