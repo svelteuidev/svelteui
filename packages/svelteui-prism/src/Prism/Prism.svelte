@@ -11,7 +11,7 @@
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 	import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
-	import type { PrismStyles as $$PrismStyles } from './Prism.styles';
+	import type { PrismStyles as $$PrismStyles } from './Prism.styles.js';
 
 	export let className: $$PrismStyles['className'] = '',
 		override: $$PrismStyles['override'] = {},
@@ -279,5 +279,6 @@
 	{/if}
 	<!-- Do not format this line since it will break Prism indentation result -->
 	<!-- prettier-ignore -->
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	<pre class={lineNumbers ? 'line-numbers' : ''} data-line={highlightLines}><code class={prismClasses}>{@html prettyCode}</code></pre>
 </div>
