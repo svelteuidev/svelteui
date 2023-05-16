@@ -12,6 +12,8 @@
 	import type { TabsProps as $$TabsProps, TabsEvents as $$TabEvents, TabsContext } from './Tabs';
 
 	interface $$Props extends $$TabsProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$TabEvents {}
 
 	export let use: $$Props['use'] = [],

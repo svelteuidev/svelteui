@@ -52,7 +52,6 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "vite dev",
     "format": "prettier --write --plugin-search-dir=. .",
-
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "package": "svelte-kit sync && svelte-package",
     "prepare": "svelte-kit sync",
@@ -82,7 +81,7 @@
     "eslint": "8.40.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-storybook": "0.6.12",
-    "eslint-plugin-svelte3": "4.0.0",
+    "eslint-plugin-svelte": "2.28.0",
     "postcss": "8.4.23",
     "prettier": "2.8.8",
     "prettier-plugin-svelte": "2.10.0",

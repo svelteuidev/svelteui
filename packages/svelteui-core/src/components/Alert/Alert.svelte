@@ -7,6 +7,8 @@
 	import type { AlertProps as $$AlertProps, AlertEvents as $$AlertEvents } from './Alert';
 
 	interface $$Props extends $$AlertProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$AlertEvents {}
 
 	export let use: $$Props['use'] = [],

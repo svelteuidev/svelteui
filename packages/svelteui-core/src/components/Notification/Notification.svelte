@@ -12,6 +12,8 @@
 	} from './Notification';
 
 	interface $$Props extends $$NotificationProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$NotificationEvents {}
 
 	export let use: $$Props['use'] = [],

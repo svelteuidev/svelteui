@@ -18,6 +18,8 @@
 	import type { MenuProps as $$MenuProps, MenuEvents as $$MenuEvents } from './Menu';
 
 	interface $$Props extends $$MenuProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$MenuEvents {}
 
 	export let use: $$Props['use'] = [],

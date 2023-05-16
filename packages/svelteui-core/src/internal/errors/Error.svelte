@@ -8,5 +8,6 @@
 </script>
 
 {#if observable}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html exception(component, code)}
 {/if}

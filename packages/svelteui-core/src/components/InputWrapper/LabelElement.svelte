@@ -10,11 +10,6 @@
 	export let labelElement: $$Props['labelElement'] = 'label';
 	export let required: $$Props['required'] = false;
 	export let id: $$Props['id'] = undefined;
-
-	let _id;
-	$: {
-		_id = id ? `${id}-label` : 'ctx-label';
-	}
 </script>
 
 <Box for={id} root={labelElement} class={className}>

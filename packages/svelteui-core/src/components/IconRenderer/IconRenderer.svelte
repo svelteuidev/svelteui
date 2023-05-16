@@ -28,6 +28,7 @@
 {:else if !requiresShim}
 	{#if icon instanceof HTMLElement || icon instanceof SVGElement}
 		<span class={cx(className, classes.root, getStyles({ css: override }))}>
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html icon.outerHTML}
 		</span>
 	{/if}

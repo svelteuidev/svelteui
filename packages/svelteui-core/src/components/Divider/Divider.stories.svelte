@@ -6,7 +6,7 @@
 
 <Meta title="Components/Divider" component={Divider} />
 
-<Template let:args>
+<Template>
 	<Divider label="Label on the left" labelPosition="left" />
 	<Divider label="Label in the center" labelPosition="center" />
 	<Divider label="Label on the right" labelPosition="right" />

@@ -15,7 +15,10 @@
 	import { randomID } from '$lib/styles';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import Button from '../Button/Button.svelte';
+
 	interface $$Props extends $$FileUploadProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$FileUploadEvents {}
 
 	export let use: $$Props['use'] = [],

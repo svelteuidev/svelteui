@@ -9,6 +9,8 @@
 	} from './NumberInput';
 
 	interface $$Props extends $$NumberInputProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$NumberInputEvents {}
 
 	export let use: $$Props['use'] = [],

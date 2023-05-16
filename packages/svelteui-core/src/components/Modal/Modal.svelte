@@ -14,6 +14,8 @@
 	import type { ModalProps as $$ModalProps, ModalEvents as $$ModalEvents } from './Modal';
 
 	interface $$Props extends $$ModalProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$ModalEvents {}
 
 	export let use: $$Props['use'] = [],
