@@ -24,11 +24,11 @@ const config = {
 			base: dev ? '' : process.env.BASE_PATH,
 		},
 		alias: {
-			'@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core/package/index.js'),
-			'@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables/package/index.js'),
-			'@svelteuidev/motion': path.resolve(__dirname, '../../packages/svelteui-motion/package/index.js'),
-			'@svelteuidev/prism': path.resolve(__dirname, '../../packages/svelteui-prism/package/index.js'),
-			'@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates/package/index.js'),
+			'@svelteuidev/core': path.resolve(__dirname, '../../packages/svelteui-core'),
+			'@svelteuidev/composables': path.resolve(__dirname, '../../packages/svelteui-composables'),
+			'@svelteuidev/motion': path.resolve(__dirname, '../../packages/svelteui-motion'),
+			'@svelteuidev/prism': path.resolve(__dirname, '../../packages/svelteui-prism'),
+			'@svelteuidev/dates': path.resolve(__dirname, '../../packages/svelteui-dates'),
 			'@ui': './src/lib/theme/ui/index.js'
 		}
 	}

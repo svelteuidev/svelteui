@@ -35,7 +35,7 @@
     "coverage": "turbo run coverage --parallel",
     "deploy:docs": "yarn build:docs && yarn script:build-docs && yarn workspace svelteui-docs deploy:nobuild",
     "dev": "yarn storybook",
-    "dev:docs": "yarn workspace svelteui-docs dev",
+    "dev:docs": "yarn package && yarn workspace svelteui-docs dev",
     "format": "turbo run format --parallel",
     "postinstall": "npx patch-package",
     "lint": "turbo run lint --parallel",
