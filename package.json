@@ -50,7 +50,8 @@
     "script:build-docs": "deno run -A --unstable ./scripts/docs/build.ts",
     "script:pre-release": "deno run --unstable --allow-read --allow-write ./scripts/pre-release.ts",
     "sort": "npx sort-package-json && turbo run sort && syncpack set-semver-ranges -p -d",
-    "storybook": "cd packages/svelteui-core && storybook dev -p 6006 -c ../../configuration/storybook",
+    "storybook": "yarn sync && cd packages/svelteui-core && storybook dev -p 6006 -c ../../configuration/storybook",
+    "sync": "turbo run sync --parallel",
     "sync:repo": "sh scripts/git/sync-branches.sh",
     "test": "turbo run test --parallel",
     "watch": "turbo run watch --parallel"

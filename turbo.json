@@ -15,6 +15,9 @@
 		"sort": {
 			"cache": false
 		},
+    "sync": {
+      "outputs": [".svelte-kit"]
+    },
 		"package": {
 			"dependsOn": ["^package"],
 			"outputs": ["package"],

@@ -16,8 +16,8 @@
 		<Tabs.Tab label="Gallery" icon={Camera}>
 			<Title align="left" mb="lg" order={3}>Your photos</Title>
 			<SimpleGrid cols={3}>
-				{#each Array(9) as i (i)}
-					<Image src="https://cataas.com/cat"/>
+				{#each Array(9) as i}
+					<Image alt={i} src="https://cataas.com/cat"/>
 				{/each}
 			</SimpleGrid>
 		</Tabs.Tab>

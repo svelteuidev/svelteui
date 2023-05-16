@@ -51,11 +51,11 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "package": "svelte-kit sync && svelte-package",
-    "prepare": "svelte-kit sync",
     "preview": "vite preview",
     "pub": "yarn publish",
     "sort": "npx sort-package-json",
     "storybook": "start-storybook -p 6006",
+    "sync": "svelte-kit sync",
     "update:lockfile": "yarn",
     "watch": "svelte-package -w"
   },
