@@ -5,7 +5,7 @@ import type { Action, UnknownKeyString } from '../../shared/actions/types';
  *
  * ```tsx
  *   <script>
- *       import {cssvariable} from '@svelteuidev/actions'
+ *       import {cssvariable} from '@svelteuidev/composables'
  *
  *       let isRed = true;
  *

@@ -1,10 +1,10 @@
 ---
 title: rafFn
 group: 'svelteuidev-utilities'
-packageGroup: '@svelteuidev/utilities'
+packageGroup: '@svelteuidev/composables'
 slug: /utilities/raf-fn/
 description: 'Call function on every requestAnimationFrame'
-importCode: "import { useRafFn } from '@svelteuidev/utilities';"
+importCode: "import { useRafFn } from '@svelteuidev/composables';"
 source: 'svelteui-composables/src/utilities/use-raf-fn/use-raf-fn.ts'
 docs: 'utilities/raf-fn.md'
 ---
@@ -35,7 +35,7 @@ The `useRafFn` composable also takes a second argument of options, which is an o
 
 ## Typescript
 
-You can import `RafFnOptions` interface type from `@svelteuidev/utilities`:
+You can import `RafFnOptions` interface type from `@svelteuidev/composables`:
 
 ```js
 export interface RafFnOptions extends ConfigurableWindow {

@@ -5,7 +5,7 @@ import type { Action } from '../../shared/actions/types';
  *
  * ```tsx
  * <script>
- *     import { clickoutside } from '@svelteuidev/actions'
+ *     import { clickoutside } from '@svelteuidev/composables'
  *
  *     let open = true;
  * </script>

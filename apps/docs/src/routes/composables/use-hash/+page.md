@@ -1,10 +1,10 @@
 ---
 title: hash
 group: 'svelteuidev-utilities'
-packageGroup: '@svelteuidev/utilities'
+packageGroup: '@svelteuidev/composables'
 slug: /utilities/hash/
 description: 'Util generates a random hash with a specified prefix.'
-importCode: "import { useHash } from '@svelteuidev/utilities';"
+importCode: "import { useHash } from '@svelteuidev/composables';"
 source: 'svelteui-composables/src/utilities/use-hash/use-hash.ts'
 docs: 'utilities/hash.md'
 ---

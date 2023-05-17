@@ -71,7 +71,7 @@ SvelteUIProvider can accept actions, classes, element bindings, and style overri
 ```svelte
 <script>
 	import { SvelteUIProvider } from '@svelteuidev/core';
-	import { pageleave } from '@svelteuidev/actions';
+	import { pageleave } from '@svelteuidev/composables';
 
     let element
     console.log({ element })

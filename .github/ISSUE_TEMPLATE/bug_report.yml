@@ -13,9 +13,11 @@ body:
       label: What package has an issue
       options:
         - '@svelteuidev/core'
-        - '@svelteuidev/utilities'
-        - '@svelteuidev/actions'
+        - '@svelteuidev/composables'
         - '@svelteuidev/motion'
+        - '@svelteuidev/dates'
+        - '@svelteuidev/preprocessors'
+        - '@svelteuidev/prism'
     validations:
       required: true
   - type: textarea
