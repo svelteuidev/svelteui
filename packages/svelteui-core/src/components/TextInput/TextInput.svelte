@@ -63,7 +63,6 @@ Input for text that also uses labels for the input
 
 <InputWrapper
 	bind:element
-	class={className}
 	{override}
 	{label}
 	{description}
@@ -78,6 +77,7 @@ Input for text that also uses labels for the input
 >
 	<Input
 		bind:value
+		class={className}
 		{required}
 		{size}
 		id={baseId}
