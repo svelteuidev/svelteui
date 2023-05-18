@@ -55,7 +55,7 @@ In this case, menu will use `mouseenter` and `focus` events instead of `click`:
 
 ## Menu.Item component
 
-`Menu.Item` renders a  button and accepts following props:
+`Menu.Item` renders a button and accepts following props:
 
 - `icon` – icon on the left
 - `disabled` – disables item
@@ -76,6 +76,24 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
         </svelte:fragment>
         Settings
     </Menu.Item>
+</Menu>
+```
+
+## Menu.Label component
+
+`Menu.Label` renders a text element. This element does not cause the menu to close on click, so it can be useful to wrap elements that should keep focus, like inputs.
+
+```svelte
+<script lang="ts">
+	import { Menu, Text } from '@svelteuidev/core';
+    import { Gear } from 'radix-icons-svelte';
+</script>
+
+<Menu>
+    <Menu.Item icon={Gear}>Settings</Menu.Item>
+    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+    <Menu.Item icon={Camera}>Gallery</Menu.Item>
+    <Menu.Label><TextInput placeholder="Search" /></Menu.Label>
 </Menu>
 ```
 

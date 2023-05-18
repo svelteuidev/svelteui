@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
+	import { focustrap } from '@svelteuidev/composables';
 	import { Menu } from './index';
 	import { Button } from '../Button';
 	import { Kbd } from '../Kbd';
 	import { Divider } from '../Divider';
 	import { Center } from '../Center';
 	import { SimpleGrid } from '../SimpleGrid';
+	import { TextInput } from '../TextInput';
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
 	let menuEvents = [];
@@ -107,4 +109,14 @@
 			<li>{event}</li>
 		{/each}
 	</ol>
+</Story>
+
+<Story name="Menu with Input" id="menuWithInputStory">
+	<Menu>
+		<Button slot="control">Toggle Menu</Button>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+		<Menu.Label><TextInput placeholder="Search" /></Menu.Label>
+	</Menu>
 </Story>
