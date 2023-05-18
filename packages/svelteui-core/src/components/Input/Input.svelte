@@ -111,7 +111,7 @@ Base component to create custom inputs
 <Box {...wrapperProps} class={cx(classes.root, getStyles({ css: override }))} {...$$restProps}>
 	{#if icon}
 		<div class={classes.icon}>
-			<IconRenderer {icon} {...iconProps} iconSize={16} />
+			<IconRenderer {icon} {iconProps} iconSize={16} />
 		</div>
 	{/if}
 	{#if isHTMLElement && root === 'input'}
