@@ -34,7 +34,7 @@ docs: 'core/chip.md'
   let checked = false;
 </script>
 
-<Chip checked={checked} onChange={() => { checked = !checked }}>I'm a chip</Chip>
+<Chip checked={checked} on:change={() => { checked = !checked }}>I'm a chip</Chip>
 ```
 
 ## States
