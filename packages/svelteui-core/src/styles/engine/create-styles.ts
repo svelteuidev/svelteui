@@ -58,6 +58,8 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	const _sanitize = (obj: Record<string, any>) => {
 		Object.keys(obj).map((value) => {
 			// transforms certain keywords into the correct CSS selectors
+
+			// TODO: also make this transformation for variants
 			if (value === 'variants') return;
 
 			// saves the reference value so that later it can be added

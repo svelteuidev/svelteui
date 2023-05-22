@@ -1,4 +1,4 @@
-import { fns } from '$lib/styles';
+import { dark, fns } from '$lib/styles';
 import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib/styles';
 
 export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
@@ -7,7 +7,7 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 	const variants = {
 		/** Filled variant */
 		filled: {
-			darkMode: {
+			[`${dark.selector} &`]: {
 				backgroundColor: themeColor(color, 8)
 			},
 			border: 'transparent',
@@ -17,7 +17,7 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 		},
 		/** Light variant */
 		light: {
-			darkMode: {
+			[`${dark.selector} &`]: {
 				backgroundColor: rgba(themeColor(color, 8), 0.35),
 				color: color === 'dark' ? themeColor('dark', 0) : themeColor(color, 2),
 				'&:hover': { backgroundColor: rgba(themeColor(color, 7), 0.45) }
@@ -29,7 +29,7 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 		},
 		/** Outline variant */
 		outline: {
-			darkMode: {
+			[`${dark.selector} &`]: {
 				border: `1px solid ${themeColor(color, 4)}`,
 				color: `${themeColor(color, 4)}`,
 				'&:hover': { backgroundColor: rgba(themeColor(color, 4), 0.05) }
@@ -43,7 +43,7 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 		},
 		/** Subtle variant */
 		subtle: {
-			darkMode: {
+			[`${dark.selector} &`]: {
 				color: color === 'dark' ? themeColor('dark', 0) : themeColor(color, 2),
 				'&:hover': { backgroundColor: rgba(themeColor(color, 8), 0.35) }
 			},
@@ -56,7 +56,7 @@ export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): Varian
 		},
 		/** Default variant */
 		default: {
-			darkMode: {
+			[`${dark.selector} &`]: {
 				border: `1px solid ${themeColor('dark', 5)}`,
 				backgroundColor: themeColor('dark', 5),
 				color: 'White',
