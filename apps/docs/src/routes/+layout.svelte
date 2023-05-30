@@ -47,42 +47,44 @@
 </script>
 
 
-<PageTransition refresh={data.pathname}>
-  <div class="main" class:nosidebar={nosidebar}>
-		<article class="article" class:homepage={$page.url.pathname === '/'}>
-      <slot />
-    </article>
-  </div>
-</PageTransition>
-
-<SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
-	{#if !nosidebar}
-    <div transition:fly={{ x: -100, duration: 300 }} class="sidebar" class:active-sidebar={show_sidebar}>
-      {#key $page}
-        <div use:set_active_link={{ page: $page }}>
-          <Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
-        </div>
-      {/key}
+<div style="overflow: hidden">
+  <PageTransition refresh={data.pathname}>
+    <div class="main" class:nosidebar={nosidebar}>
+      <article class="article" class:homepage={$page.url.pathname === '/'}>
+        <slot />
+      </article>
     </div>
-	{/if}
-	<div class="topbar">
-		{#if !nosidebar}
-			<div style="margin-left: 12px" class="sidebar_burger">
-        <Burger
-          color="blue"
-          opened={show_sidebar}
-          class="show_sidebar"
-          on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
-        />
+  </PageTransition>
+
+  <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
+    {#if !nosidebar}
+      <div transition:fly={{ x: -100, duration: 300 }} class="sidebar" class:active-sidebar={show_sidebar}>
+        {#key $page}
+          <div use:set_active_link={{ page: $page }}>
+            <Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
+          </div>
+        {/key}
       </div>
-		{/if}
-		<div class="logo"><Logo /></div>
-		<div>
-			<Device />
-			<TopBar />
-		</div>
-	</div>
-</SvelteUIProvider>
+    {/if}
+    <div class="topbar">
+      {#if !nosidebar}
+        <div style="margin-left: 12px" class="sidebar_burger">
+          <Burger
+            color="blue"
+            opened={show_sidebar}
+            class="show_sidebar"
+            on:click!stopPropagation={() => (show_sidebar = !show_sidebar)}
+          />
+        </div>
+      {/if}
+      <div class="logo"><Logo /></div>
+      <div>
+        <Device />
+        <TopBar />
+      </div>
+    </div>
+  </SvelteUIProvider>
+</div>
 
 <style>
   .article.homepage {
