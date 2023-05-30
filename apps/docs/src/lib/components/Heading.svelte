@@ -13,7 +13,7 @@
 	};
 
 	let importStyles = {
-		overflowX: 'scroll',
+		overflowX: 'hidden',
 		'&:hover': { cursor: 'pointer' },
 		code: {
 			fontSize: $screenW < 500 ? 10 : '$sm'
