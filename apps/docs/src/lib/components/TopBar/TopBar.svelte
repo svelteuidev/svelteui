@@ -158,7 +158,7 @@
 			</li>
 		{/each}
 		<li>
-			<Tooltip withArrow label="Experimental Theme Toggle">
+			<Tooltip withArrow label="Toggle Theme">
 				<ActionIcon size="lg" variant="outline" on:click={toggleTheme} radius="md">
 					{#if $colorScheme === 'light'}
 						<Moon size={20} />
