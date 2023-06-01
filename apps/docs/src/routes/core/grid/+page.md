@@ -7,7 +7,7 @@ category: 'layout'
 description: 'Flexbox grid with variable amount of columns'
 importCode: "import { Grid } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Grid/Grid.svelte'
-docs: 'core/grid.md'
+docs: 'core/grid'
 ---
 
 <script>

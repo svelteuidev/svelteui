@@ -7,7 +7,7 @@ category: 'navigation'
 description: 'List of links to different parts of navigation'
 importCode: "import { Breadcrumbs } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Breadcrumbs/Breadcrumbs.svelte'
-docs: 'core/breadcrumbs.md'
+docs: 'core/breadcrumbs'
 ---
 
 <script>

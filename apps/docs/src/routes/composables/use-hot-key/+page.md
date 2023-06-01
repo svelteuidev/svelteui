@@ -6,7 +6,7 @@ slug: /composables/use-hot-key/
 description: 'Listen for key combinations/shortcuts on document or a given element.'
 importCode: "import { hotkey } from '@svelteuidev/composables';"
 source: 'svelteui-composables/src/actions/use-hot-key/use-hot-key.ts'
-docs: 'composables/use-hot-key.md'
+docs: 'composables/use-hot-key'
 ---
 
 <script>

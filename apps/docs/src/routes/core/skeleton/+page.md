@@ -7,7 +7,7 @@ category: 'feedback'
 description: 'Indicate content loading state'
 importCode: "import { Skeleton } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Skeleton/Skeleton.svelte'
-docs: 'core/skeleton.md'
+docs: 'core/skeleton'
 ---
 
 <script>

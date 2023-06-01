@@ -7,7 +7,7 @@ category: 'layout'
 description: 'Compose elements and components in a horizontal flex container'
 importCode: "import { Group } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Group/Group.svelte'
-docs: 'core/group.md'
+docs: 'core/group'
 ---
 
 <script>

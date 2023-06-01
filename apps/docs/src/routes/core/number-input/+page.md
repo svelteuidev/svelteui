@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Number input with optional controls'
 importCode: "import { NumberInput } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/NumberInput/NumberInput.svelte'
-docs: 'core/number-input.md'
+docs: 'core/number-input'
 ---
 
 <script>

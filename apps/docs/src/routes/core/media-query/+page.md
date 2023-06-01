@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Apply styles to children if media query matches'
 importCode: "import { MediaQuery } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/MediaQuery/MediaQuery.svelte'
-docs: 'core/media-query.md'
+docs: 'core/media-query'
 ---
 
 <script>

@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-click-outside/
 description: 'Detect click and touch events outside of specified element'
 importCode: "import { clickoutside } from '@svelteuidev/composables';"
-docs: 'composables/use-click-outside.md'
+docs: 'composables/use-click-outside'
 source: 'svelteui-composables/src/actions/use-click-outside/use-click-outside.ts'
 ---
 

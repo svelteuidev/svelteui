@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Wrapper around the checkbox input type'
 importCode: "import { Checkbox } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Checkbox/Checkbox.svelte'
-docs: 'core/checkbox.md'
+docs: 'core/checkbox'
 ---
 
 <script>

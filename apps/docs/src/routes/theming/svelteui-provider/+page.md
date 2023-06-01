@@ -1,7 +1,7 @@
 ---
 title: SvelteUIProvider
 description: The SvelteUIProvider is the central part of your app.
-docs: 'theming/svelteui-provider.md'
+docs: 'theming/svelteui-provider'
 ---
 
 <script>

@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-focus-return/
 description: 'Capture last focused element on the page and return focus to it once condition is met'
 importCode: "import { useFocusReturn } from '@svelteuidev/composables';"
-docs: 'composables/use-focus-return.md'
+docs: 'composables/use-focus-return'
 source: 'svelteui-composables/src/utilities/use-focus-return/use-focus-return.ts'
 ---
 

@@ -6,7 +6,7 @@ slug: /preprocessors/view-source/
 description: 'Preprocessor for displaying source code'
 importCode: "import { viewSource, SourceCode, DisplaySourceCode } from '@svelteuidev/preprocessors';"
 source: 'svelteui-preprocessors/src/SourceCode/preprocess.ts'
-docs: 'preprocessors/view-source.md'
+docs: 'preprocessors/view-source'
 ---
 
 <script>

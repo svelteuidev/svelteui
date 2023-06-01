@@ -8,7 +8,7 @@
   export let title: String, description = false, docs = false, importCode = false, source = false, packageGroup = false
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/blob/main/packages/',
-		docs: 'https://github.com/svelteuidev/svelteui/blob/main/apps/docs/src/pages/',
+		docs: 'https://github.com/svelteuidev/svelteui/blob/main/apps/docs/src/routes/',
 		npm: 'https://www.npmjs.com/package/'
 	};
 
@@ -76,7 +76,7 @@
 	{#if docs}
 		<Group spacing={78}>
 			<Text>Docs</Text>
-			<Text variant="link" root="a" href={`${links.docs}${docs}`}>
+			<Text variant="link" root="a" href={`${links.docs}${docs}/+page.md`}>
 				<Center override={{ gap: '$4' }} inline>
 					<Pencil1 />
 					Edit This Page

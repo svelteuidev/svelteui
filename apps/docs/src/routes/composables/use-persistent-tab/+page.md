@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-persistent-tab/
 description: 'Prevent current tab from being closed by the user.'
 importCode: "import { persistenttab } from '@svelteuidev/composables';"
-docs: 'composables/use-persistent-tab.md'
+docs: 'composables/use-persistent-tab'
 source: 'svelteui-composables/src/actions/use-persistent-tab/use-persistent-tab.ts'
 ---
 

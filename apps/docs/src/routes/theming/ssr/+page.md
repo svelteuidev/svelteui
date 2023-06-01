@@ -1,7 +1,7 @@
 ---
 title: Server side rendering
 description: How to use SvelteUI in a ssr environment.
-docs: 'theming/ssr.md'
+docs: 'theming/ssr'
 ---
 
 <script>

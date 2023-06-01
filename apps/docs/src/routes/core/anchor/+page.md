@@ -7,7 +7,7 @@ category: 'navigation'
 description: 'Display links with theme styles'
 importCode: "import { Anchor } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Anchor/Anchor.svelte'
-docs: 'core/anchor.md'
+docs: 'core/anchor'
 ---
 
 <script>

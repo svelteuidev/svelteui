@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Render icon inside element with theme colors'
 importCode: "import { ThemeIcon } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/ThemeIcon/ThemeIcon.svelte'
-docs: 'core/theme-icon.md'
+docs: 'core/theme-icon'
 ---
 
 <script>

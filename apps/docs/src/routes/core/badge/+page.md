@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Display badge, pill or tag'
 importCode: "import { Badge } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Badge/Badge.svelte'
-docs: 'core/badge.md'
+docs: 'core/badge'
 ---
 
 <script>

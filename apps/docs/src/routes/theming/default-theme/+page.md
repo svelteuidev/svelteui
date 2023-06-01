@@ -1,7 +1,7 @@
 ---
 title: Default Theme
 description: SvelteUI's default color palette, fonts, font sizes, breakpoints, border radius, and more..
-docs: 'theming/default-theme.md'
+docs: 'theming/default-theme'
 ---
 
 <script>

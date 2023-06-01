@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-eye-dropper/
 description: 'Get access to a reactive EyeDropper API.'
 importCode: "import { useEyeDropper } from '@svelteuidev/composables';"
-docs: 'composables/use-eye-dropper.md'
+docs: 'composables/use-eye-dropper'
 source: 'svelteui-composables/src/utilities/use-eye-dropper/use-eye-dropper.ts'
 ---
 

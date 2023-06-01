@@ -7,7 +7,7 @@ category: 'feedback'
 description: 'Indicate loading state'
 importCode: "import { Loader } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Loader/Loader.svelte'
-docs: 'core/loader.md'
+docs: 'core/loader'
 ---
 
 <script lang="ts">

@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-focus/
 description: 'Calls focus on a node once mounted into the DOM'
 importCode: "import { focus } from '@svelteuidev/composables';"
-docs: 'composables/use-focus.md'
+docs: 'composables/use-focus'
 source: 'svelteui-composables/src/actions/use-focus/use-focus.ts'
 ---
 

@@ -7,7 +7,7 @@ category: 'overlay'
 description: 'Renders tooltip at given element on mouse over or any other event'
 importCode: "import { Tooltip } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Tooltip/Tooltip.svelte'
-docs: 'core/tooltip.md'
+docs: 'core/tooltip'
 ---
 
 <script>

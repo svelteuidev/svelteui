@@ -7,7 +7,7 @@ category: 'misc'
 description: 'Horizontal line with optional label or vertical divider'
 importCode: "import { Divider } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Divider/Divider.svelte'
-docs: 'core/divider.md'
+docs: 'core/divider'
 ---
 
 <script>

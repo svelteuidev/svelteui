@@ -7,7 +7,7 @@ category: 'transitions'
 description: 'Type writer transition effect for text'
 importCode: "import { typewriter } from '@svelteuidev/motion';"
 source: 'svelteui-motion/src/lib/dist/transitions/typewriter/typewriter.ts'
-docs: 'motion/typewriter.md'
+docs: 'motion/typewriter'
 ---
 
 <script lang='ts'>

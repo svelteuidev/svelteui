@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-css-variable/
 description: 'Whenever some of their values change, update css properties on the fly'
 importCode: "import { cssvariable } from '@svelteuidev/composables';"
-docs: 'composables/use-css-variable.md'
+docs: 'composables/use-css-variable'
 source: 'svelteui-composables/src/actions/use-css-variable/use-css-variable.ts'
 ---
 

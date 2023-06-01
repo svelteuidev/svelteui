@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Card with context styles for Image and Divider components'
 importCode: "import { Card } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Card/Card.svelte'
-docs: 'core/card.md'
+docs: 'core/card'
 ---
 
 <script>

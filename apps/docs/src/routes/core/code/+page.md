@@ -7,7 +7,7 @@ category: 'typography'
 description: 'Inline or block code without syntax highlight'
 importCode: "import { Code } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Code/Code.svelte'
-docs: 'core/code.md'
+docs: 'core/code'
 ---
 
 <script lang="ts">

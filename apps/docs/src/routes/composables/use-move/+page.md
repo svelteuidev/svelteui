@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-move/
 description: 'Handles the movement of an element based on mouse and touch events'
 importCode: "import { move } from '@svelteuidev/composables';"
-docs: 'composables/use-move.md'
+docs: 'composables/use-move'
 source: 'svelteui-composables/src/actions/use-move/use-move.ts'
 ---
 

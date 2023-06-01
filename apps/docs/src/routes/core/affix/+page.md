@@ -7,7 +7,7 @@ category: 'overlay'
 description: 'Render Svelte component inside portal at fixed position'
 importCode: "import { Affix } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Affix/Affix.svelte'
-docs: 'core/affix.md'
+docs: 'core/affix'
 ---
 
 <script>
