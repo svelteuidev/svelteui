@@ -1,18 +1,15 @@
 <script lang="ts">
 	export let title = 'Title';
 	export let date: String;
-	// @ts-ignore
-	// import { current_page } from '@svelte-docs/get/routes';
-	import { Stack, Text, Group, Center } from '@svelteuidev/core';
+	import { colorScheme, Stack, Text, Group, Center } from '@svelteuidev/core';
 	import { Calendar } from 'radix-icons-svelte';
 </script>
 
 <Stack
 	override={{
-    // bc: 'rgba(115, 176, 230, 0.2)',
-    bc: 'rgba(24, 100, 171, 0.45)',
+		backgroundColor: $colorScheme === 'light' ? "$blue100" : "$dark800",
 		padding: '$8',
-    borderRadius: "0.5rem"
+    	borderRadius: "0.5rem"
 	}}
 >
 	<Stack override={{ h1: { mb: 0 } }} spacing="xs">
