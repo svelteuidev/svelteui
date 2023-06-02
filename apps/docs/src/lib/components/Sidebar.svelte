@@ -6,7 +6,6 @@
   import { Layout, Input, Stack, Dashboard, LetterCaseToggle, ExclamationTriangle, BoxModel } from "radix-icons-svelte";
 	import { Cube, Download, GithubLogo, HamburgerMenu, QuestionMarkCircled, StarFilled, LightningBolt, Archive } from 'radix-icons-svelte';
   import { base } from '$app/paths';
-  import { fly } from "svelte/transition"
 
   const dispatch = createEventDispatcher();
 
@@ -44,7 +43,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle></h3>
     {#if sidebar[0].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li><a href={`${base}/changelog/v0-12-0`}>Version 0.12.0</a></li>
         <li><a href={`${base}/changelog/v0-11-0`}>Version 0.11.0</a></li>
         <li><a href={`${base}/changelog/v0-10-0`}>Version 0.10.0</a></li>
@@ -60,7 +59,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[1].expand} on:click={() => toggleSidebar(1)}>theming</NavigationTitle></h3>
     {#if sidebar[1].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li><a href={`${base}/theming/svelteui-provider`}>SvelteUIProvider</a></li>
         <li><a href={`${base}/theming/create-styles`}>Creating styles</a></li>
         <li><a href={`${base}/theming/default-theme`}>Default Theme</a></li>
@@ -75,7 +74,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[2].expand} on:click={() => toggleSidebar(2)}>svelteui core (components)</NavigationTitle></h3>
     {#if sidebar[2].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li>
           <strong><Layout /><Space w="md" />Layout</strong>
           <ul>
@@ -175,7 +174,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[3].expand} on:click={() => toggleSidebar(3)}>svelteui composables (svelte actions)</NavigationTitle></h3>
     {#if sidebar[3].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li>
           <strong><LightningBolt/><Space w="md" />Actions</strong>
           <ul>
@@ -223,7 +222,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[4].expand} on:click={() => toggleSidebar(4)}>svelteui dates</NavigationTitle></h3>
     {#if sidebar[4].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li><a href={`${base}/dates/getting-started`}>Getting Started</a></li>
         <!-- - [Calendar](dates/calendar) -->
         <li><a href={`${base}/dates/month`}>Month</a></li>
@@ -233,7 +232,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[5].expand} on:click={() => toggleSidebar(5)}>svelteui preprocessors</NavigationTitle></h3>
     {#if sidebar[5].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li><a href={`${base}/preprocessors/getting-started`}>Getting Started</a></li>
         <li><a href={`${base}/preprocessors/view-source`}>view-source</a></li>
       </ul>
@@ -242,7 +241,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[6].expand} on:click={() => toggleSidebar(6)}>svelteui motion</NavigationTitle></h3>
     {#if sidebar[6].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li>
           <strong>Transitions</strong>
           <ul>
@@ -257,7 +256,7 @@
   <li>
     <h3><NavigationTitle expanded={sidebar[7].expand} on:click={() => toggleSidebar(7)}>other packages</NavigationTitle></h3>
     {#if sidebar[7].expand}
-      <ul transition:fly={{ y: -20, duration: 150 }}>
+      <ul>
         <li><a href={`${base}/others/prism`}>Prism</a></li>
       </ul>
     {/if}
