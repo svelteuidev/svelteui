@@ -72,7 +72,7 @@ Icon button to indicate secondary action.
 	class={cx(
 		className,
 		classes.root,
-		{ loading, disabled },
+		{ [classes.loading]: loading },
 		getStyles({ css: override, variation: variant })
 	)}
 	target={external ? '_blank' : null}
