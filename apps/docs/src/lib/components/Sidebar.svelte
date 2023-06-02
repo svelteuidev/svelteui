@@ -44,6 +44,7 @@
     <h3><NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle></h3>
     {#if sidebar[0].expand}
       <ul>
+        <li><a href={`${base}/changelog/v0-13-0`}>Version 0.13.0</a></li>
         <li><a href={`${base}/changelog/v0-12-0`}>Version 0.12.0</a></li>
         <li><a href={`${base}/changelog/v0-11-0`}>Version 0.11.0</a></li>
         <li><a href={`${base}/changelog/v0-10-0`}>Version 0.10.0</a></li>
