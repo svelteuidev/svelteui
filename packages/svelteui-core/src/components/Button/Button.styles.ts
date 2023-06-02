@@ -1,4 +1,4 @@
-import { createStyles, vFunc } from '$lib/styles';
+import { createStyles, dark, vFunc } from '$lib/styles';
 import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 import type { ButtonVariant } from './Button';
 
@@ -110,6 +110,7 @@ export default createStyles(
 					color: theme.fn.themeColor('gray', 5),
 					cursor: 'not-allowed',
 					darkMode: {
+						borderColor: 'transparent',
 						backgroundColor: theme.fn.themeColor('dark', 4),
 						color: theme.fn.themeColor('dark', 6)
 					}
@@ -150,7 +151,8 @@ export default createStyles(
 						backgroundColor: theme.fn.themeColor('gray', 2),
 						color: theme.fn.themeColor('gray', 5),
 						cursor: 'not-allowed',
-						darkMode: {
+						[`${dark.selector} &`]: {
+							borderColor: 'transparent',
 							backgroundColor: theme.fn.themeColor('dark', 4),
 							color: theme.fn.themeColor('dark', 6)
 						}

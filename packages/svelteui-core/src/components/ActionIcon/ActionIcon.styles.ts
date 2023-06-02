@@ -76,10 +76,16 @@ export default createStyles((theme, { color, radius, size, variant }: ActionIcon
 				background: theme.fn.themeColor('gray', 2),
 				backgroundColor: theme.fn.themeColor('gray', 2),
 				color: theme.fn.themeColor('gray', 5),
-				cursor: 'not-allowed'
+				cursor: 'not-allowed',
+				darkMode: {
+					borderColor: 'transparent',
+					backgroundColor: theme.fn.themeColor('dark', 4),
+					color: theme.fn.themeColor('dark', 6)
+				}
 			}
 		},
 		loading: {
+      pointerEvents: 'none',
 			'&::before': {
 				content: '""',
 				position: 'absolute',
