@@ -53,4 +53,4 @@
 
 <Story name="Loading" id="buttonLoadingStory" template="variants" args={{ loading: true }} />
 
-<Story name="With href" id="buttonHrefStory" args={{ href: 'https://www.svelteui.org', external: true, disabled: false }} />
+<Story name="With href" id="buttonHrefStory" template="variants" args={{ href: 'https://www.svelteui.org', external: true, disabled: false, loading: false }} />

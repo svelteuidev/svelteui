@@ -79,7 +79,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
     ```
 -->
 
-{#if href && !disabled}
+{#if href}
 	<a
 		{href}
 		bind:this={element}
@@ -87,9 +87,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		use:forwardEvents
 		class:compact
 		class:uppercase
-		class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
-			disabled,
-			loading
+		class={cx(className, classes.root, getStyles({ css: override, variation: variant, disabled }), {
+			[classes.disabled]: disabled,
+			[classes.loading]: loading
 		})}
 		role="button"
 		rel="noreferrer noopener"
