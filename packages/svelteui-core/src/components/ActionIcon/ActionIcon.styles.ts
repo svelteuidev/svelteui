@@ -85,7 +85,7 @@ export default createStyles((theme, { color, radius, size, variant }: ActionIcon
 			}
 		},
 		loading: {
-      pointerEvents: 'none',
+			pointerEvents: 'none',
 			'&::before': {
 				content: '""',
 				position: 'absolute',
