@@ -39,13 +39,13 @@ A section that collapses with animation, occupying no space on the page.
 >
   {#if open}
     {#if animateOpacity}
-      <div transition:fade|local={{ duration: transitionDuration }}>
-        <div transition:slide|local={slideTransitionOptions} use:forwardEvents>
+      <div transition:fade={{ duration: transitionDuration }}>
+        <div transition:slide={slideTransitionOptions} use:forwardEvents>
           <slot />
         </div>
       </div>
     {:else}
-      <div transition:slide|local={slideTransitionOptions} use:forwardEvents>
+      <div transition:slide={slideTransitionOptions} use:forwardEvents>
         <slot />
       </div>
     {/if}
