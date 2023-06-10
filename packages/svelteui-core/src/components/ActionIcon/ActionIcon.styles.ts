@@ -1,6 +1,5 @@
 import { fns, dark, createStyles, vFunc } from '$lib/styles';
 import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import type { ActionIconVariant } from './ActionIcon';
 
 export interface ActionIconStylesParams {
 	color: SvelteUIColor;
