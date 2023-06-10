@@ -149,7 +149,7 @@
 	}
 
 	function onBlur() {
-		if (noClampOnBlur) return;
+		if (noClampOnBlur || value === undefined) return;
 
 		const clamped = _clamp(value);
 		value = parseFloat(clamped.toFixed(precision));
