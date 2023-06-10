@@ -1,12 +1,11 @@
 import { fns, dark, createStyles, vFunc } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { ActionIconVariant } from './ActionIcon';
 
 export interface ActionIconStylesParams {
 	color: SvelteUIColor;
 	size: SvelteUINumberSize;
 	radius: SvelteUINumberSize;
-	variant: ActionIconVariant;
 }
 
 export const sizes = {
@@ -46,7 +45,7 @@ export function getVariantStyles(color: SvelteUIColor) {
 	};
 }
 
-export default createStyles((theme, { color, radius, size, variant }: ActionIconStylesParams) => {
+export default createStyles((theme, { color, radius, size }: ActionIconStylesParams) => {
 	return {
 		root: {
 			focusRing: 'auto',
