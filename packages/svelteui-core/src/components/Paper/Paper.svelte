@@ -23,7 +23,7 @@
 
 <Box
 	bind:element
-	class={cx(className, classes.root, getStyles({ css: override }))}
+	class={cx(classes.root, className, withBorder && classes.withBorder,  getStyles({ css: override }))}
 	{use}
 	{...$$restProps}
 >
