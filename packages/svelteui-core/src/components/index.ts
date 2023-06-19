@@ -18,6 +18,7 @@ export * from './Collapse';
 export * from './Container';
 export * from './Divider';
 export * from './FileUpload';
+export * from './Flex';
 export * from './Grid';
 export * from './Group';
 export * from './IconRenderer';
