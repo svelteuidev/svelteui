@@ -121,6 +121,7 @@
 						<li><a href={`${base}/core/aspect-ratio`}>AspectRatio</a></li>
 						<li><a href={`${base}/core/container`}>Container</a></li>
 						<li><a href={`${base}/core/center`}>Center</a></li>
+						<li><a href={`${base}/core/flex`}>Flex</a></li>
 						<li><a href={`${base}/core/grid`}>Grid</a></li>
 						<li><a href={`${base}/core/group`}>Group</a></li>
 						<li><a href={`${base}/core/media-query`}>MediaQuery</a></li>
