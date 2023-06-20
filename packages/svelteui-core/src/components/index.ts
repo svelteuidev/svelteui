@@ -4,6 +4,7 @@ export * from './Affix';
 export * from './Alert';
 export * from './Anchor';
 export * from './AppShell';
+export * from './AspectRatio';
 export * from './Badge';
 export * from './Box';
 export * from './Breadcrumbs';

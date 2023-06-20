@@ -14,6 +14,7 @@ export * as AppShellDemos from './demos/core/AppShell';
 export * as AffixDemos from './demos/core/Affix';
 export * as AlertDemos from './demos/core/Alert';
 export * as AnchorDemos from './demos/core/Anchor';
+export * as AspectRatioDemos from './demos/core/AspectRatio';
 export * as BadgeDemos from './demos/core/Badge';
 export * as BoxDemos from './demos/core/Box';
 export * as BreadcrumbsDemos from './demos/core/Breadcrumbs';

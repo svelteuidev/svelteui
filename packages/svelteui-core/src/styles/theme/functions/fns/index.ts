@@ -1,4 +1,5 @@
 import { themeColor } from './theme-color/theme-color.js';
+import { cover } from './cover/cover.js';
 import { size } from './size/size.js';
 import { radius } from './radius/radius.js';
 import { variant } from './variant/variant.js';
@@ -7,6 +8,7 @@ import { rgba } from './rgba/rgba.js';
 export type { GetSize } from './size/size';
 
 export const fns = {
+	cover,
 	size,
 	radius,
 	themeColor,
