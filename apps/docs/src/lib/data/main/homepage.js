@@ -7,6 +7,7 @@ import {
 	Stack,
 	Group,
 	ActionIcon,
+	AspectRatio,
 	Button,
 	Checkbox,
 	Input,
@@ -64,6 +65,14 @@ export const components = [
 		component: Container,
 		link: 'core/container',
 		title: 'Container',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: AspectRatio,
+		link: 'core/aspect-ratio',
+		title: 'AspectRatio',
 		color: '$blue600',
 		content: 'Read about me'
 	},
@@ -212,5 +221,5 @@ export const components = [
 		title: 'Box',
 		color: '$blue600',
 		content: 'Read about me'
-	},
+	}
 ];
