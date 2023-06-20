@@ -14,4 +14,4 @@
 	</Flex>
 </Template>
 
-<Story name="Flex" id="FlexStory" args={{ gap: 'md' }} />
+<Story name="Flex" id="FlexStory" args={{ gap: 'xl' }} />

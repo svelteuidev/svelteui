@@ -35,12 +35,12 @@
 <!--
 @component
 
-Compose elements and components in a vertical flex container.
+CSS flexbox component.
 
 @see https://svelteui.org/core/flex
 @example
     ```svelte
-    <Flex>
+  <Flex>
 		<Button variant="outline">1</Button>
 		<Button variant="outline">2</Button>
 		<Button variant="outline">3</Button>

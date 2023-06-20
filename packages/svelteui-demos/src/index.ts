@@ -27,6 +27,7 @@ export * as ChipDemos from './demos/core/Chip';
 export * as CodeDemos from './demos/core/Code';
 export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
+export * as FlexDemos from './demos/core/Flex';
 export * as GridDemos from './demos/core/Grid';
 export * as GroupDemos from './demos/core/Group';
 export * as ImageDemos from './demos/core/Image';

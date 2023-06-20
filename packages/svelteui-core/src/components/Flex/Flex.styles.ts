@@ -13,9 +13,11 @@ export default createStyles(
 				alignItems: align,
 				flexWrap: wrap,
 				justifyContent: justify,
-				gap: theme.fn.size({ size: gap as string, sizes: theme.space }),
-				rowGap: theme.fn.size({ size: rowGap as string, sizes: theme.space }),
-				columnGap: theme.fn.size({ size: columnGap as string, sizes: theme.space })
+				gap: gap ? theme.fn.size({ size: gap as string, sizes: theme.space }) : undefined,
+				rowGap: rowGap ? theme.fn.size({ size: rowGap as string, sizes: theme.space }) : undefined,
+				columnGap: columnGap
+					? theme.fn.size({ size: columnGap as string, sizes: theme.space })
+					: undefined
 			}
 		};
 	}
