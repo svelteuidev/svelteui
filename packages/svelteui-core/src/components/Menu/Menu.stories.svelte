@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import { focustrap } from '@svelteuidev/composables';
 	import { Menu } from './index';
 	import { Button } from '../Button';
 	import { Kbd } from '../Kbd';

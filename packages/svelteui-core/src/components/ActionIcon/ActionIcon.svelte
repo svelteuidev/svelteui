@@ -43,7 +43,7 @@
 	$: if (observable) override = { display: 'none' };
 	// --------------End Error Handling-------------------
 	$: ({ cx, classes, getStyles } = useStyles(
-		{ color, radius, size, variant },
+		{ color, radius, size },
 		{ name: 'ActionIcon' }
 	));
 </script>
@@ -72,7 +72,7 @@ Icon button to indicate secondary action.
 	class={cx(
 		className,
 		classes.root,
-		{ loading, disabled },
+		{ [classes.loading]: loading },
 		getStyles({ css: override, variation: variant })
 	)}
 	target={external ? '_blank' : null}

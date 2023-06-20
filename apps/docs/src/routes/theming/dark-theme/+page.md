@@ -1,7 +1,7 @@
 ---
 title: Dark Theme
 description: Change the color scheme of your application.
-docs: 'theming/dark-theme.md'
+docs: 'theming/dark-theme'
 ---
 
 <script>

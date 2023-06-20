@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Render button or link with button styles from SvelteUI theme'
 importCode: "import { Button } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Button/Button.svelte'
-docs: 'core/button.md'
+docs: 'core/button'
 ---
 
 <script lang="ts">

@@ -7,7 +7,7 @@ category: 'layout'
 description: 'Centers content vertically and horizontally'
 importCode: "import { Center } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Center/Center.svelte'
-docs: 'core/center.md'
+docs: 'core/center'
 ---
 
 <script>

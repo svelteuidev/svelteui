@@ -1,7 +1,7 @@
 ---
 title: Override
 description: Overriding base styles.
-docs: 'theming/override.md'
+docs: 'theming/override'
 ---
 
 <script>

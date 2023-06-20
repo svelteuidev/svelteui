@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Icon button to indicate secondary action'
 importCode: "import { ActionIcon } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/ActionIcon/ActionIcon.svelte'
-docs: 'core/action-icon.md'
+docs: 'core/action-icon'
 ---
 
 <script lang="ts">

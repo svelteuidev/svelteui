@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Give user feedback for status of the task'
 importCode: "import { Progress } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Progress/Progress.svelte'
-docs: 'core/progress.md'
+docs: 'core/progress'
 ---
 
 <script>

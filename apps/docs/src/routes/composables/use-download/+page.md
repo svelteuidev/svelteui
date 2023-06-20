@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-download/
 description: 'Causes a download to occur with a given Blob object'
 importCode: "import { download } from '@svelteuidev/composables';"
-docs: 'composables/use-download.md'
+docs: 'composables/use-download'
 source: 'svelteui-composables/src/actions/use-download/use-download.ts'
 ---
 

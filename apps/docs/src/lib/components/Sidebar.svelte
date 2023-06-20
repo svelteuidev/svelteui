@@ -8,34 +8,43 @@
   import { base } from '$app/paths';
   import { fly } from "svelte/transition"
 
-  const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
-  export let sidebar
+	export let sidebar;
 
-  function toggleSidebar(index) {
-    sidebar[index].expand = !sidebar[index].expand;
-    dispatch('toggleSidebar', { index, expand: sidebar[index].expand });
-  }
+	function toggleSidebar(index) {
+		sidebar[index].expand = !sidebar[index].expand;
+		dispatch('toggleSidebar', { index, expand: sidebar[index].expand });
+	}
 </script>
 
 <ul>
-  <li>
-    <MainLink color='blue' href='{base}/introduction'><Cube slot='icon' size={20} />Introduction</MainLink>
-  </li>
-  <li>
-    <MainLink color='red' href='{base}/installation'><Download slot='icon' size={20} />Installation</MainLink>
-  </li>
-  <li>
-    <MainLink color='green' href='{base}/basics'><StarFilled slot='icon' size={20} />Learn The Basics</MainLink>
-  </li>
-  <li>
-    <MainLink color='dark' href='{base}/contributing'><GithubLogo slot='icon' size={20} />Contributing</MainLink>
-  </li>
-    <!-- - <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink> -->
-  <li>
-    <MainLink color='indigo' href='{base}/faq'><QuestionMarkCircled slot='icon' size={20} />FAQ</MainLink>
-  </li>
-
+	<li>
+		<MainLink color="blue" href="{base}/introduction"
+			><Cube slot="icon" size={20} />Introduction</MainLink
+		>
+	</li>
+	<li>
+		<MainLink color="red" href="{base}/installation"
+			><Download slot="icon" size={20} />Installation</MainLink
+		>
+	</li>
+	<li>
+		<MainLink color="green" href="{base}/basics"
+			><StarFilled slot="icon" size={20} />Learn The Basics</MainLink
+		>
+	</li>
+	<li>
+		<MainLink color="dark" href="{base}/contributing"
+			><GithubLogo slot="icon" size={20} />Contributing</MainLink
+		>
+	</li>
+	<!-- - <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink> -->
+	<li>
+		<MainLink color="indigo" href="{base}/faq"
+			><QuestionMarkCircled slot="icon" size={20} />FAQ</MainLink
+		>
+	</li>
 </ul>
 
 <hr />
@@ -45,6 +54,7 @@
     <h3><NavigationTitle expanded={sidebar[0].expand} on:click={() => toggleSidebar(0)}>changelog</NavigationTitle></h3>
     {#if sidebar[0].expand}
       <ul transition:fly|local={{ y: -20, duration: 150 }}>
+        <li><a href={`${base}/changelog/v0-13-0`}>Version 0.13.0</a></li>
         <li><a href={`${base}/changelog/v0-12-0`}>Version 0.12.0</a></li>
         <li><a href={`${base}/changelog/v0-11-0`}>Version 0.11.0</a></li>
         <li><a href={`${base}/changelog/v0-10-0`}>Version 0.10.0</a></li>
@@ -80,8 +90,10 @@
           <strong><Layout /><Space w="md" />Layout</strong>
           <ul>
             <li><a href={`${base}/core/app-shell`}>AppShell</a></li>
+            <li><a href={`${base}/core/aspect-ratio`}>AspectRatio</a></li>
             <li><a href={`${base}/core/container`}>Container</a></li>
             <li><a href={`${base}/core/center`}>Center</a></li>
+            <li><a href={`${base}/core/flex`}>Flex</a></li>
             <li><a href={`${base}/core/grid`}>Grid</a></li>
             <li><a href={`${base}/core/group`}>Group</a></li>
             <li><a href={`${base}/core/media-query`}>MediaQuery</a></li>

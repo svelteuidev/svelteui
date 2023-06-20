@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Capture user feedback limited to large set of options'
 importCode: "import { NativeSelect } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/NativeSelect/NativeSelect.svelte'
-docs: 'core/native-select.md'
+docs: 'core/native-select'
 ---
 
 <script>

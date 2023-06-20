@@ -1,6 +1,6 @@
 {
   "name": "@svelteuidev/preprocessors",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "Svelte preprocessor library to assist in many areas of development",
   "keywords": [
     "svelte",

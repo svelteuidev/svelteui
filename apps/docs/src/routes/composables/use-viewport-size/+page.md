@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-viewport-size/
 description: 'Get viewport width and height.'
 importCode: "import { useViewportSize } from '@svelteuidev/composables';"
-docs: 'composables/use-viewport-size.md'
+docs: 'composables/use-viewport-size'
 source: 'svelteui-composables/src/utilities/use-viewport-size/use-viewport-size.ts'
 ---
 

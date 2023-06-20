@@ -7,6 +7,8 @@ import {
 	Stack,
 	Group,
 	ActionIcon,
+	AspectRatio,
+	Flex,
 	Button,
 	Checkbox,
 	Input,
@@ -69,9 +71,25 @@ export const components = [
 	},
 	{
 		icon: BoxIcon,
+		component: AspectRatio,
+		link: 'core/aspect-ratio',
+		title: 'AspectRatio',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
 		component: Center,
 		link: 'core/center',
 		title: 'Center',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: Flex,
+		link: 'core/flex',
+		title: 'Flex',
 		color: '$blue600',
 		content: 'Read about me'
 	},
@@ -212,5 +230,5 @@ export const components = [
 		title: 'Box',
 		color: '$blue600',
 		content: 'Read about me'
-	},
+	}
 ];

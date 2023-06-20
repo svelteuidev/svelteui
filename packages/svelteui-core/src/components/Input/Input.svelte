@@ -140,7 +140,7 @@ Base component to create custom inputs
 		/>
 	{:else if isHTMLElement && isInput(String(root))}
 		<!-- on:change needs to appear before use:forwardEvents so that the
-    ordering of the events is correct and the value is updated before propagation -->
+   		ordering of the events is correct and the value is updated before propagation -->
 		<!-- prettier-ignore -->
 		<svelte:element
 			this={castRoot()}
@@ -150,8 +150,8 @@ Base component to create custom inputs
 			{disabled}
 			{id}
 			{autocomplete}
-      {type}
-      {autofocus}
+			{type}
+			{autofocus}
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid

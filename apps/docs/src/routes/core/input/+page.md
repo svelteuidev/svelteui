@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Base component to create custom inputs'
 importCode: "import { Input } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Input/Input.svelte'
-docs: 'core/input.md'
+docs: 'core/input'
 ---
 
 <script>

@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Enhance custom inputs with label, error and description'
 importCode: "import { InputWrapper } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/InputWrapper/InputWrapper.svelte'
-docs: 'core/input-wrapper.md'
+docs: 'core/input-wrapper'
 ---
 
 <script>

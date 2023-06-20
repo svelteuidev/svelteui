@@ -7,7 +7,7 @@ category: 'typography'
 description: 'Display text and links with theme styles or gradient'
 importCode: "import { Text } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Text/Text.svelte'
-docs: 'core/text.md'
+docs: 'core/text'
 ---
 
 <script lang="ts">

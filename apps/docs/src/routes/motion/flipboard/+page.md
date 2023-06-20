@@ -7,7 +7,7 @@ category: 'transitions'
 description: 'Flipboard transition effect for text'
 importCode: "import { flipboard } from '@svelteuidev/motion';"
 source: 'svelteui-motion/src/lib/dist/transitions/flipboard/flipboard.ts'
-docs: 'motion/flipboard.md'
+docs: 'motion/flipboard'
 ---
 
 <script>

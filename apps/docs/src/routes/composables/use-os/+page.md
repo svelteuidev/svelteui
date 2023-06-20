@@ -6,7 +6,7 @@ slug: /composables/os/
 description: 'Get user os'
 importCode: "import { useOs } from '@svelteuidev/composables';"
 source: 'svelteui-composables/src/utilities/use-os/use-os.ts'
-docs: 'composables/use-os.md'
+docs: 'composables/use-os'
 ---
 
 <script lang='ts'>

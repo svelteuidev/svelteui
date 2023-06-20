@@ -1,4 +1,4 @@
-import { createStyles, vFunc } from '$lib/styles';
+import { createStyles, dark, vFunc } from '$lib/styles';
 import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 import type { ButtonVariant } from './Button';
 
@@ -94,13 +94,38 @@ export default createStyles(
 				fontSize: `$${size}`,
 				lineHeight: 1,
 				flexGrow: 0,
-				width: fullSize ? '100%' : 'auto',
+				width: fullSize ? '100%' : 'fit-content',
 				'&:hover': {
 					backgroundColor: variant === 'gradient' ? null : theme.fn.themeColor(color, 7),
 					backgroundSize: variant === 'gradient' ? '200%' : null
 				},
 				'&:active': {
 					transform: 'translateY(1px)'
+				},
+				'&:disabled': {
+					pointerEvents: 'none',
+					borderColor: 'transparent',
+					background: theme.fn.themeColor('gray', 2),
+					backgroundColor: theme.fn.themeColor('gray', 2),
+					color: theme.fn.themeColor('gray', 5),
+					cursor: 'not-allowed',
+					darkMode: {
+						borderColor: 'transparent',
+						backgroundColor: theme.fn.themeColor('dark', 4),
+						color: theme.fn.themeColor('dark', 6)
+					}
+				}
+			},
+			disabled: {
+				pointerEvents: 'none',
+				borderColor: 'transparent',
+				background: theme.fn.themeColor('gray', 2),
+				backgroundColor: theme.fn.themeColor('gray', 2),
+				color: theme.fn.themeColor('gray', 5),
+				cursor: 'not-allowed',
+				darkMode: {
+					backgroundColor: theme.fn.themeColor('dark', 4),
+					color: theme.fn.themeColor('dark', 6)
 				}
 			},
 			loading: {
@@ -115,17 +140,23 @@ export default createStyles(
 				}
 			},
 			variants: {
-				variation: vFunc(color, gradient)
-			},
-			disabled: {
-				pointerEvents: 'none',
-				borderColor: 'transparent',
-				backgroundColor: theme.fn.themeColor('gray', 2),
-				color: theme.fn.themeColor('gray', 5),
-				cursor: 'not-allowed',
-				darkMode: {
-					backgroundColor: theme.fn.themeColor('dark', 4),
-					color: theme.fn.themeColor('dark', 6)
+				variation: vFunc(color, gradient),
+
+				// Used to override the disable style when using anchor HTML element
+				disabled: {
+					true: {
+						pointerEvents: 'none',
+						borderColor: 'transparent',
+						background: theme.fn.themeColor('gray', 2),
+						backgroundColor: theme.fn.themeColor('gray', 2),
+						color: theme.fn.themeColor('gray', 5),
+						cursor: 'not-allowed',
+						[`${dark.selector} &`]: {
+							borderColor: 'transparent',
+							backgroundColor: theme.fn.themeColor('dark', 4),
+							color: theme.fn.themeColor('dark', 6)
+						}
+					}
 				}
 			}
 		};

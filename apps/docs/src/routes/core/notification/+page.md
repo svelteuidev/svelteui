@@ -7,7 +7,7 @@ category: 'feedback'
 description: 'Attract user attention with an important message'
 importCode: "import { Notification } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Notification/Notification.svelte'
-docs: 'core/notification.md'
+docs: 'core/notification'
 ---
 
 <script>

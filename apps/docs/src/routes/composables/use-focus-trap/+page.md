@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-focus-trap/
 description: 'Traps the focus inside the given DOM node'
 importCode: "import { focustrap } from '@svelteuidev/composables';"
-docs: 'composables/use-focus-trap.md'
+docs: 'composables/use-focus-trap'
 source: 'svelteui-composables/src/actions/use-focus/use-focus-trap.ts'
 ---
 

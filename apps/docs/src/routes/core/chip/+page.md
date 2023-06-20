@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Pick one or multiple values'
 importCode: "import { Chip } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Chip/Chip.svelte'
-docs: 'core/chip.md'
+docs: 'core/chip'
 ---
 
 <script>

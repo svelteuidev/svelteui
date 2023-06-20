@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Manage your SEO information'
 importCode: "import { Seo } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Seo/Seo.svelte'
-docs: 'core/seo.md'
+docs: 'core/seo'
 ---
 
 <script>

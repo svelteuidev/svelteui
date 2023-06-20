@@ -7,7 +7,7 @@ category: 'inputs'
 description: 'Wrapper around the radio input type'
 importCode: "import { Radio } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Radio/Radio.svelte'
-docs: 'core/radio.md'
+docs: 'core/radio'
 ---
 
 <script>

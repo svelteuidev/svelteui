@@ -7,7 +7,7 @@ category: 'misc'
 description: 'Add inline styles to any element or component with css prop'
 importCode: "import { Box } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Box/Box.svelte'
-docs: 'core/box.md'
+docs: 'core/box'
 ---
 
 <script>

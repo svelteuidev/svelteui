@@ -6,7 +6,7 @@ slug: /utilities/hash/
 description: 'Util generates a random hash with a specified prefix.'
 importCode: "import { useHash } from '@svelteuidev/composables';"
 source: 'svelteui-composables/src/utilities/use-hash/use-hash.ts'
-docs: 'utilities/hash.md'
+docs: 'utilities/hash'
 ---
 
 <script>

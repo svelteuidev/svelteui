@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Image with optional placeholder for loading and error state'
 importCode: "import { Image } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Image/Image.svelte'
-docs: 'core/image.md'
+docs: 'core/image'
 ---
 
 <script lang="ts">

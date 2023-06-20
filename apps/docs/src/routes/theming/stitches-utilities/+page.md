@@ -1,7 +1,7 @@
 ---
 title: Stitches Utilities
 description: SvelteUI provides out of the box Stitches utilities.
-docs: 'theming/stitches-utilities.md'
+docs: 'theming/stitches-utilities'
 ---
 
 <script>

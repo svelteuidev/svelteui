@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/prism'
 description: 'Code highlight with SvelteUI theme colors and styles'
 importCode: "import { Prism } from '@svelteuidev/prism';"
 source: 'svelteui-src/dist/Prism/Prism.svelte'
-docs: 'others/prism.md'
+docs: 'others/prism'
 license: MIT
 ---
 

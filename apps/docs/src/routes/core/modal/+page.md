@@ -7,7 +7,7 @@ category: 'overlay'
 description: 'Modal with optional header'
 importCode: "import { Modal } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Modal/Modal.svelte'
-docs: 'core/modal.md'
+docs: 'core/modal'
 ---
 
 <script>

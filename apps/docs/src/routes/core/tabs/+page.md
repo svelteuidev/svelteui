@@ -7,7 +7,7 @@ category: 'navigation'
 description: 'Display links with theme styles'
 importCode: "import { Tabs } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Tabs/Tabs.svelte'
-docs: 'core/tabs.md'
+docs: 'core/tabs'
 ---
 
 <script>

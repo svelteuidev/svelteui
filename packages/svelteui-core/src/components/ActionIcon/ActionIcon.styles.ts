@@ -1,12 +1,10 @@
-import { vFunc, dark, createStyles } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
-import type { ActionIconVariant } from './ActionIcon';
+import { fns, dark, createStyles, vFunc } from '$lib/styles';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface ActionIconStylesParams {
 	color: SvelteUIColor;
 	size: SvelteUINumberSize;
 	radius: SvelteUINumberSize;
-	variant: ActionIconVariant;
 }
 
 export const sizes = {
@@ -17,35 +15,36 @@ export const sizes = {
 	xl: 44
 };
 
-export function getVariantStyles(color: SvelteUIColor, variant: ActionIconVariant) {
-	const ctx: SvelteUIGradient = { from: 'indigo', to: 'cyan', deg: 45 };
-	if (variant === 'hover' || variant === 'transparent') {
-		return {
-			[`${variant}`]: {
-				[`${dark.selector} &`]: {
-					color: `$${color}800`,
-					'&:hover': { backgroundColor: variant === 'transparent' ? null : `$dark800` }
-				},
-				border: '1px solid transparent',
-				backgroundColor: 'transparent',
-				color: `$${color}700`,
-				'&:hover': { backgroundColor: variant === 'transparent' ? null : `$${color}50` },
-				'&:disabled': {
-					pointerEvents: 'none',
-					borderColor: 'transparent',
-					backgroundColor: 'rgb(233, 236, 239)',
-					background: 'rgb(233, 236, 239)',
-					color: 'rgb(173, 181, 189)',
-					cursor: 'not-allowed'
-				}
-			}
-		};
-	}
+export function getVariantStyles(color: SvelteUIColor) {
+	const { themeColor } = fns;
+	const variants = vFunc(color);
 
-	return vFunc(color, ctx);
+	return {
+		...variants,
+		hover: {
+			[`${dark.selector} &`]: {
+				color: themeColor(color, 8),
+				'&:hover': { backgroundColor: themeColor('dark', 8) }
+			},
+			border: '1px solid transparent',
+			backgroundColor: 'transparent',
+			color: themeColor(color, 7),
+			'&:hover': { backgroundColor: themeColor(color) }
+		},
+		transparent: {
+			[`${dark.selector} &`]: {
+				color: themeColor(color, 8),
+				'&:hover': { backgroundColor: null }
+			},
+			border: '1px solid transparent',
+			backgroundColor: 'transparent',
+			color: themeColor(color, 7),
+			'&:hover': { backgroundColor: null }
+		}
+	};
 }
 
-export default createStyles((_, { color, radius, size, variant }: ActionIconStylesParams) => {
+export default createStyles((theme, { color, radius, size }: ActionIconStylesParams) => {
 	return {
 		root: {
 			focusRing: 'auto',
@@ -69,30 +68,36 @@ export default createStyles((_, { color, radius, size, variant }: ActionIconStyl
 			'&:not(:disabled):active': {
 				transform: 'translateY(1px)'
 			},
-			'&.disabled': {
+			'&:disabled': {
 				pointerEvents: 'none',
 				borderColor: 'transparent',
-				backgroundColor: 'rgb(233, 236, 239)',
-				background: 'rgb(233, 236, 239)',
-				color: 'rgb(173, 181, 189)',
-				cursor: 'not-allowed'
-			},
-			'&.loading': {
-				'&::before': {
-					content: '""',
-					position: 'absolute',
-					top: -1,
-					left: -1,
-					right: -1,
-					bottom: -1,
-					backgroundColor: 'rgba(255, 255, 255, .5)',
-					borderRadius: `$${radius}`,
-					cursor: 'not-allowed'
+				background: theme.fn.themeColor('gray', 2),
+				backgroundColor: theme.fn.themeColor('gray', 2),
+				color: theme.fn.themeColor('gray', 5),
+				cursor: 'not-allowed',
+				darkMode: {
+					borderColor: 'transparent',
+					backgroundColor: theme.fn.themeColor('dark', 4),
+					color: theme.fn.themeColor('dark', 6)
 				}
 			}
 		},
+		loading: {
+			pointerEvents: 'none',
+			'&::before': {
+				content: '""',
+				position: 'absolute',
+				top: -1,
+				left: -1,
+				right: -1,
+				bottom: -1,
+				backgroundColor: 'rgba(255, 255, 255, .5)',
+				borderRadius: `$${radius}`,
+				cursor: 'not-allowed'
+			}
+		},
 		variants: {
-			variation: getVariantStyles(color, variant)
+			variation: getVariantStyles(color)
 		}
 	};
 });

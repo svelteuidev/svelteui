@@ -7,7 +7,7 @@ category: 'typography'
 description: 'Renders HTML content with SvelteUI typography styles'
 importCode: "import { TypographyProvider } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/TypographyProvider/TypographyProvider.svelte'
-docs: 'core/typography-provider.md'
+docs: 'core/typography-provider'
 ---
 
 <script>

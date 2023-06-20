@@ -1,7 +1,9 @@
 <script lang="ts">
-	import useStyles from './NumberInput.styles';
 	import { createEventDispatcher } from 'svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { createEventForwarder, useActions } from '$lib/internal';
 	import { TextInput } from '../TextInput';
+	import useStyles from './NumberInput.styles';
 	import { defaultFormatter, defaultParser } from './utils';
 	import type {
 		NumberInputProps as $$NumberInputProps,
@@ -54,6 +56,7 @@
 	}
 
 	const dispatch = createEventDispatcher();
+	const forwardEvents = createEventForwarder(get_current_component());
 
 	let isKeyDown = false;
 	let stepCount = 0;
@@ -146,7 +149,7 @@
 	}
 
 	function onBlur() {
-		if (noClampOnBlur) return;
+		if (noClampOnBlur || value === undefined) return;
 
 		const clamped = _clamp(value);
 		value = parseFloat(clamped.toFixed(precision));
@@ -193,7 +196,6 @@ values and add custom parsers and formatters.
 -->
 
 <TextInput
-	{use}
 	{root}
 	{icon}
 	{iconWidth}
@@ -215,6 +217,7 @@ values and add custom parsers and formatters.
 	on:keyup={onKeyUp}
 	on:keydown={onKeyDown}
 	on:blur={onBlur}
+	use={[forwardEvents, [useActions, use]]}
 >
 	<div
 		slot="rightSection"

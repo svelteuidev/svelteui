@@ -7,7 +7,7 @@ category: 'layout'
 description: 'Center content horizontally with predefined max-width'
 importCode: "import { Container } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Container/Container.svelte'
-docs: 'core/container.md'
+docs: 'core/container'
 ---
 
 <script>

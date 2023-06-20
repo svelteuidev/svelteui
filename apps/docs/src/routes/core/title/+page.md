@@ -7,7 +7,7 @@ category: 'typography'
 description: 'h1-h6 headings'
 importCode: "import { Title } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Title/Title.svelte'
-docs: 'core/title.md'
+docs: 'core/title'
 ---
 
 <script lang="ts">

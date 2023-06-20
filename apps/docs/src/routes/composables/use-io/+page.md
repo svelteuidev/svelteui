@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-io/
 description: 'Detect when an element enters or leaves the viewport.'
 importCode: "import { io } from '@svelteuidev/composables';"
-docs: 'composables/use-io.md'
+docs: 'composables/use-io'
 source: 'svelteui-composables/src/actions/use-io/use-io.ts'
 ---
 

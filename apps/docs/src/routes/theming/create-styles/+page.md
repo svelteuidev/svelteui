@@ -1,7 +1,7 @@
 ---
 title: Customize theme
 description: Learn how to create your own themes and styles.
-docs: 'theming/create-styles.md'
+docs: 'theming/create-styles'
 ---
 
 <script>

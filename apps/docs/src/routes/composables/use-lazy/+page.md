@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-lazy/
 description: 'Lazily attach properties to any DOM element when it is in the window.'
 importCode: "import { lazy } from '@svelteuidev/composables';"
-docs: 'composables/use-lazy.md'
+docs: 'composables/use-lazy'
 source: 'svelteui-composables/src/actions/use-lazy/use-lazy.ts'
 ---
 

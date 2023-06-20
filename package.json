@@ -1,6 +1,6 @@
 {
   "name": "svelteui",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "private": true,
   "description": "SvelteUI Components Monorepo.",
   "keywords": [
@@ -42,7 +42,7 @@
     "package": "yarn clean && turbo run package --parallel",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
-    "prepare:release": "yarn clean && yarn prepush && yarn package",
+    "prepare:release": "yarn prepush && yarn package",
     "prepush": "yarn sort && yarn format && yarn lint",
     "pub": "turbo run pub --parallel",
     "pub:docs": "touch apps/docs/__DOCS__/dist/CNAME && echo 'www.svelteui.org' > apps/docs/build/CNAME && gh-pages -d apps/docs/build -t true -b gh-pages",

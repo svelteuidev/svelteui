@@ -7,7 +7,7 @@ category: 'layout'
 description: 'Add horizontal or vertical spacing from theme'
 importCode: "import { Space } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Space/Space.svelte'
-docs: 'core/space.md'
+docs: 'core/space'
 ---
 
 <script>

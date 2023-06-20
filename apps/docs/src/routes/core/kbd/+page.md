@@ -7,7 +7,7 @@ category: 'data-display'
 description: 'Display keyboard button or keys combination'
 importCode: "import { Kbd } from '@svelteuidev/core';"
 source: 'svelteui-core/src/components/Kbd/Kbd.svelte'
-docs: 'core/kbd.md'
+docs: 'core/kbd'
 ---
 
 <script>

@@ -5,7 +5,7 @@ packageGroup: '@svelteuidev/composables'
 slug: /composables/use-lock-scroll/
 description: 'Lock scroll at current position.'
 importCode: "import { lockscroll } from '@svelteuidev/composables';"
-docs: 'composables/use-lock-scroll.md'
+docs: 'composables/use-lock-scroll'
 source: 'svelteui-composables/src/actions/use-lock-scroll/use-lock-scroll.ts'
 ---
 
