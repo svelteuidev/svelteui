@@ -14,6 +14,7 @@ export function useSvelteUITheme(): SvelteUITheme {
 		colorScheme: observer,
 		dark: dark?.selector,
 		fn: {
+			cover: fns.cover,
 			themeColor: fns.themeColor,
 			size: fns.size,
 			radius: fns.radius,
