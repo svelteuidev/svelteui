@@ -7,3 +7,4 @@ export * as transition from './Menu.demo.transition.svelte';
 export * as size from './Menu.demo.size.svelte';
 export * as custom from './Menu.demo.custom.svelte';
 export * as styles from './Menu.demo.styles.svelte';
+export * as outside from './Menu.demo.outside.svelte';

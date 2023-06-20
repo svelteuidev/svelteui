@@ -152,18 +152,13 @@ You can change styles of any element in the button component with the `override`
 
 ## Control menu state externally
 
-It is possible to control the state of the Menu outside the component.
+It is possible to control the state of the Menu outside the component by binding `bind:this` of `Menu` and then accessing exported methods. There are 3 exported methods:
 
-```svelte
-<script>
-    let element;
-</script>
+- `open()`, opens the menu
+- `close()`, closes the menu
+- `toggles()`, toggle the menu state
 
-<Button on:click={() => element.toggle()}>Click to toggle the menu</Button>
-<Menu bind:element>
-    ...
-</Menu>
-```
+<Demo demo={MenuDemos.outside} />
 
 ## Accessibility and usability
 
