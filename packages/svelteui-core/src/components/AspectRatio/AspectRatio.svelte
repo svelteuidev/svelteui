@@ -23,7 +23,7 @@
 <!--
 @component
 
-Compose elements and components in a vertical flex container.
+Enforce desired width/height ratio.
 
 @see https://svelteui.org/core/aspect-ratio
 @example
