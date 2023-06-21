@@ -23,14 +23,9 @@ export const configuration: ConfiguratorDemoConfiguration = {
 					{ label: 'left', value: 'left' },
 					{ label: 'right', value: 'right' },
 					{ label: 'center', value: 'center' },
-					{ label: 'start', value: 'start' },
-					{ label: 'end', value: 'end' },
-					{ label: 'flex-start', value: 'flex-start' },
-					{ label: 'flex-end', value: 'flex-end' },
 					{ label: 'space-around', value: 'space-around' },
 					{ label: 'space-between', value: 'space-between' },
-					{ label: 'space-evenly', value: 'space-evenly' },
-					{ label: 'stretch', value: 'stretch' }
+					{ label: 'space-evenly', value: 'space-evenly' }
 				],
 				initialValue: 'left',
 				defaultValue: 'left'
@@ -56,8 +51,6 @@ export const configuration: ConfiguratorDemoConfiguration = {
 				defaultValue: 'wrap'
 			},
 			{ name: 'gap', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
-			{ name: 'rowGap', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
-			{ name: 'columnGap', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 		]
 	};
 </script>
