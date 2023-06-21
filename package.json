@@ -57,7 +57,7 @@
 		"watch": "turbo run watch --parallel"
 	},
 	"lint-staged": {
-		"**/*": "prettier --write --ignore-unknown",
+		"*": "prettier --write --ignore-unknown",
 		"*.{js,ts,svelte}": "eslint --fix"
 	},
 	"devDependencies": {
