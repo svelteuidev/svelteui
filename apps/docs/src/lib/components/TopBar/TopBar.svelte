@@ -9,7 +9,8 @@
 		TextInput,
 		Box,
 		Kbd,
-		createStyles
+		createStyles,
+		type ColorScheme
 	} from '@svelteuidev/core';
 	import { Sun, Moon, MagnifyingGlass } from 'radix-icons-svelte';
 	import { config, searchLinks } from './data.js';
@@ -29,17 +30,15 @@
 		matchingSearches: SearchItem[] = [],
 		modalOpened = false;
 
-	onMount(
-		() => {
-      recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || []
-      const colorSchemeValue = localStorage.getItem("coloScheme")
-      if (colorSchemeValue) $colorScheme = colorSchemeValue
-    }
-	);
+	onMount(() => {
+		recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
+		const colorSchemeValue = localStorage.getItem('coloScheme');
+		if (colorSchemeValue) $colorScheme = colorSchemeValue as ColorScheme;
+	});
 
 	function toggleTheme() {
 		colorScheme.update((v) => (v === 'light' ? 'dark' : 'light'));
-    localStorage.setItem("colorScheme", $colorScheme)
+		localStorage.setItem('colorScheme', $colorScheme);
 	}
 
 	function changeModalState() {
@@ -75,8 +74,6 @@
 	function validateSearchLink(searchLinkSection: string) {
 		return searchLinkSection === previousSection;
 	}
-
-	// @ts-nocheck
 
 	const useStyles = createStyles(() => ({
 		'.svelteui-Modal-inner > div': {

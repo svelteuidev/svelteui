@@ -5,10 +5,11 @@
 
 <Meta title="Components/Paper" component={Paper} />
 
-<Template let:args>
-  <Paper>
-    Paper is the most basic UI component. Use it to create cards, dropdowns, modals and other components that require background with shadow
-  </Paper>
+<Template>
+	<Paper>
+		Paper is the most basic UI component. Use it to create cards, dropdowns, modals and other
+		components that require background with shadow
+	</Paper>
 </Template>
 
 <Story name="Paper" id="paperStory" />
