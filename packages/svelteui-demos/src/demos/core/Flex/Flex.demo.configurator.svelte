@@ -20,12 +20,12 @@ export const configuration: ConfiguratorDemoConfiguration = {
 				name: 'justify',
 				type: 'select',
 				data: [
-					{ label: 'left', value: 'left' },
-					{ label: 'right', value: 'right' },
-					{ label: 'center', value: 'center' },
-					{ label: 'space-around', value: 'space-around' },
-					{ label: 'space-between', value: 'space-between' },
-					{ label: 'space-evenly', value: 'space-evenly' }
+					{ label: 'Left', value: 'left' },
+					{ label: 'Right', value: 'right' },
+					{ label: 'Center', value: 'center' },
+					{ label: 'Space Around', value: 'space-around' },
+					{ label: 'Space Between', value: 'space-between' },
+					{ label: 'Space Evenly', value: 'space-evenly' }
 				],
 				initialValue: 'left',
 				defaultValue: 'left'
@@ -34,8 +34,8 @@ export const configuration: ConfiguratorDemoConfiguration = {
 				name: 'direction',
 				type: 'select',
 				data: [
-					{ label: 'row', value: 'row' },
-					{ label: 'column', value: 'column' }
+					{ label: 'Row', value: 'row' },
+					{ label: 'Column', value: 'column' }
 				],
 				initialValue: 'row',
 				defaultValue: 'row'
@@ -44,8 +44,8 @@ export const configuration: ConfiguratorDemoConfiguration = {
 				name: 'wrap',
 				type: 'select',
 				data: [
-					{ label: 'wrap', value: 'wrap' },
-					{ label: 'nowrap', value: 'nowrap' }
+					{ label: 'Wrap', value: 'wrap' },
+					{ label: 'No Wrap', value: 'nowrap' }
 				],
 				initialValue: 'wrap',
 				defaultValue: 'wrap'
