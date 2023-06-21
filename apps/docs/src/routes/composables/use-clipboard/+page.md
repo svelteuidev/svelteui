@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-clipboard/use-clipboard.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

@@ -16,6 +16,7 @@ docs: 'core/typography-provider'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

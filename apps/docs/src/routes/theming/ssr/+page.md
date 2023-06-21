@@ -11,6 +11,7 @@ docs: 'theming/ssr'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

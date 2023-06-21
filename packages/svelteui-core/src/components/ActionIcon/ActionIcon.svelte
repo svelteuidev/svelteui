@@ -42,10 +42,7 @@
 	}
 	$: if (observable) override = { display: 'none' };
 	// --------------End Error Handling-------------------
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ color, radius, size },
-		{ name: 'ActionIcon' }
-	));
+	$: ({ cx, classes, getStyles } = useStyles({ color, radius, size }, { name: 'ActionIcon' }));
 </script>
 
 <Error {observable} component="ActionIcon" code={err} />

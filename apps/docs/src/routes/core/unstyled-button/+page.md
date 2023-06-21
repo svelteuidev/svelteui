@@ -17,6 +17,7 @@ docs: 'core/unstyled-button'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

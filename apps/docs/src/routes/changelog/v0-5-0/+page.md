@@ -21,6 +21,7 @@ date: 'April 1st, 2022'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -91,4 +92,3 @@ date: 'April 1st, 2022'
 - Github Icon replaced with [radix-icons-svelte](https://www.npmjs.com/package/radix-icons-svelte)
 - All pages now show proper titles
 - Removed loaders due to ssr rendering being enabled
-

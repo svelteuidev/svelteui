@@ -51,27 +51,27 @@
 
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {
-    external = true;
+		external = true;
 		handleOpen();
-    onExternal();
+		onExternal();
 	}
 	export function close() {
-    external = true;
+		external = true;
 		handleClose();
-    onExternal();
+		onExternal();
 	}
 	export function toggle() {
-    external = true;
+		external = true;
 		toggleMenu();
-    onExternal();
+		onExternal();
 	}
 
-  // Ugly hack for click outside workaround, since an external
-  // triggered click causes the action to take effect
-  // @TODO: improve this in the future
-  function onExternal() {
-    window.setTimeout(() => external = false, 0);
-  }
+	// Ugly hack for click outside workaround, since an external
+	// triggered click causes the action to take effect
+	// @TODO: improve this in the future
+	function onExternal() {
+		window.setTimeout(() => (external = false), 0);
+	}
 
 	let external = false;
 	let delayTimeout: number;
@@ -120,7 +120,7 @@
 	const handleOpen = () => {
 		_opened = true;
 		opened = true;
-    dispatch('open');
+		dispatch('open');
 	};
 
 	const toggleMenu = () => {

@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-page-leave/use-page-leave.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

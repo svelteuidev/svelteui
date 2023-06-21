@@ -17,6 +17,7 @@ docs: 'core/code'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

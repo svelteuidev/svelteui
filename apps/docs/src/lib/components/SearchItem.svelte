@@ -10,9 +10,9 @@
 	}
 
 	type SearchType = {
-		title: String;
-		link: String;
-		section?: String;
+		title: string;
+		link: string;
+		section?: string;
 	};
 	export let search: SearchType;
 </script>
@@ -24,7 +24,7 @@
 		goto(search.link.toString());
 	}}
 >
-	<Paper override={{ root: { bc: "red !important" }}}>
+	<Paper override={{ root: { bc: 'red !important' } }}>
 		<Group position="apart">
 			<div>
 				<p class="searchItemTitle">{search.title}</p>

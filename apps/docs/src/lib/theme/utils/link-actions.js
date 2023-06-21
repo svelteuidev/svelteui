@@ -3,18 +3,18 @@
 // import { current_page } from '@svelte-docs/get/routes';
 
 export function set_active_link(node, options) {
-  node.querySelectorAll('a').forEach((a) => {
-    if (a.getAttribute('href') === options.page.url.pathname) {
-      a.classList.add('active')
-    } else {
-      a.classList.remove('active');
-    }
-  })
+	node.querySelectorAll('a').forEach((a) => {
+		if (a.getAttribute('href') === options.page.url.pathname) {
+			a.classList.add('active');
+		} else {
+			a.classList.remove('active');
+		}
+	});
 }
 
 export function outside_click(node, options) {
 	const { handler } = options;
-  console.log(node)
+	console.log(node);
 	const HTMLCollection = node.children[1].children;
 	let runner;
 

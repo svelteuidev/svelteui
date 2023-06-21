@@ -16,6 +16,7 @@ docs: 'core/checkbox'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -52,7 +53,8 @@ Provide `aria-label` in case you use checkbox without label for screen reader su
 ```svelte
 <Checkbox /> // -> not ok, input is not labeled
 <Checkbox label="My checkbox" /> // -> ok, input and label is connected
-<Checkbox aria-label="My checkbox" /> // -> ok, label is not visible but will be announced by screen reader
+<Checkbox aria-label="My checkbox" /> // -> ok, label is not visible but will be announced by screen
+reader
 ```
 
 # CheckboxGroup
@@ -63,15 +65,15 @@ Provide `aria-label` in case you use checkbox without label for screen reader su
 
 ```svelte
 <script>
-    import { CheckboxGroup } from '@svelteuidev/core';
+	import { CheckboxGroup } from '@svelteuidev/core';
 
-    const items = [
-        { label: 'Svelte', value: 'svelte' },
-        { label: 'React', value: 'react' },
-        { label: 'Vue', value: 'vue' },
-        { label: 'Angular', value: 'angular' },
-        { label: 'Solid', value: 'solid' }
-    ];
+	const items = [
+		{ label: 'Svelte', value: 'svelte' },
+		{ label: 'React', value: 'react' },
+		{ label: 'Vue', value: 'vue' },
+		{ label: 'Angular', value: 'angular' },
+		{ label: 'Solid', value: 'solid' }
+	];
 </script>
 
 <CheckboxGroup {items} value={['svelte']} />

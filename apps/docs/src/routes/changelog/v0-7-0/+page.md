@@ -27,6 +27,7 @@ date: 'May 13th, 2022'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -163,4 +164,3 @@ Generate a random id
 - All components now support padding and margin props coming in (0.7.1)
 - Box component css prop can now be a function that subscribes to the current theme context
 - Added overrideControls prop to NumberInput
-

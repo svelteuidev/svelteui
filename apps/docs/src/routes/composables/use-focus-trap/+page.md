@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-focus/use-focus-trap.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -27,12 +28,13 @@ The `use-focus-trap` action traps the focus inside a given DOM node. The node mu
 
 ```svelte
 <script>
-  import { focustrap } from './use-focus-trap';
+	import { focustrap } from './use-focus-trap';
 </script>
 
 <div use:focustrap>
-  <h1>Title</h1>
-  <input /> <!-- This will be focused -->
+	<h1>Title</h1>
+	<input />
+	<!-- This will be focused -->
 </div>
 ```
 

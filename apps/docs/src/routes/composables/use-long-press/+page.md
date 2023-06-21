@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-long-press/use-long-press.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

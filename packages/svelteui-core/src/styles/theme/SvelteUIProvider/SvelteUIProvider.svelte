@@ -40,9 +40,8 @@
 	let currentTheme: string | null = null;
 	$: {
 		if (themeObserver !== null) {
-			currentTheme = themeObserver === 'light'
-        ? (mergedTheme as unknown as string)
-        : (dark as string);
+			currentTheme =
+				themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
 		}
 	}
 

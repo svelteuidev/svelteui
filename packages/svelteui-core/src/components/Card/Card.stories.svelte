@@ -34,4 +34,8 @@
 	</Card>
 </Template>
 
-<Story name="Card" id="cardStory" args={{ withBorder: true, radius: "md", shadow: "sm", padding: "lg" }} />
+<Story
+	name="Card"
+	id="cardStory"
+	args={{ withBorder: true, radius: 'md', shadow: 'sm', padding: 'lg' }}
+/>

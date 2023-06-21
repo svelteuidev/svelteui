@@ -9,7 +9,7 @@
 	} from './CheckboxGroup';
 
 	interface $$Props extends $$CheckboxGroupProps {}
-	
+
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$CheckboxGroupEvents {}
 

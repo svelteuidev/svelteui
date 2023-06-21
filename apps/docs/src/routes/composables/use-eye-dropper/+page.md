@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-eye-dropper/use-eye-dropper.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

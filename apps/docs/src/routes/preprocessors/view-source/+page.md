@@ -14,6 +14,7 @@ docs: 'preprocessors/view-source'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

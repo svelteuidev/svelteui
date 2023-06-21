@@ -16,6 +16,7 @@ docs: 'motion/flipboard'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -29,10 +30,10 @@ The flipboard transition displays text with a glitch like effect. Just like ever
 
 ## Params
 
-| Param    | Description                                                                                               |
-| -------- | --------------------------------------------------------------------------------------------------------- |
-| delay    | A number representing the duration before the transition starts (in milliseconds)                         |
-| duration | A number representing the duration of the transition (in milliseconds)                                    |
+| Param    | Description                                                                                              |
+| -------- | -------------------------------------------------------------------------------------------------------- |
+| delay    | A number representing the duration before the transition starts (in milliseconds)                        |
+| duration | A number representing the duration of the transition (in milliseconds)                                   |
 | easing   | An easing function to be applied to the transition. Works with svelte easing and custom easing functions |
 
 ## Typescript
@@ -43,11 +44,11 @@ You can import `FlipboardParams` interface type from `@svelteuidev/motion`:
 import type { FlipboardParams } from '@svelteuidev/motion';
 
 export interface FlipboardParams {
-    delay?: number;
-    duration?: number;
-    easing?: EasingFunction;
-    css?: (t: number, u: number) => string;
-    tick?: (t: number, u: number) => void;
+	delay?: number;
+	duration?: number;
+	easing?: EasingFunction;
+	css?: (t: number, u: number) => string;
+	tick?: (t: number, u: number) => void;
 }
 ```
 
