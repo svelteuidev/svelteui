@@ -1,1 +1,1 @@
-export * as usage from './Flex.demo.usage.svelte';
+export * as configurator from './Flex.demo.configurator.svelte';
