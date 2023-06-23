@@ -1,12 +1,13 @@
 import { createStyles } from '$lib/styles';
 import type { Component } from '$lib/internal';
-import type { SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { CSS, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 import type { InputVariant } from './Input';
 
 export interface InputStylesParams {
 	icon: Component | HTMLOrSVGElement;
 	radius: SvelteUINumberSize;
 	size: SvelteUISize;
+	resize: CSS['resize'];
 	variant: InputVariant;
 	multiline: boolean;
 	invalid: boolean;
@@ -34,6 +35,7 @@ export default createStyles(
 			radius,
 			rightSectionWidth,
 			size,
+			resize,
 			variant,
 			showRightSection
 		}: InputStylesParams
@@ -61,7 +63,7 @@ export default createStyles(
 							WebkitTapHighlightColor: 'transparent',
 							lineHeight: multiline ? '$md' : `${sizes[size] - 2}px`,
 							appearance: 'none',
-							resize: 'none',
+							resize,
 							boxSizing: 'border-box',
 							fontSize: typeof size === 'number' ? `${size}px` : `${size}`,
 							width: '100%',

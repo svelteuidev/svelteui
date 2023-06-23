@@ -21,6 +21,8 @@ import {
 	Loader,
 	Code,
 	Text,
+	Textarea,
+	TextInput,
 	Title,
 	Box
 } from '@svelteuidev/core';
@@ -145,6 +147,22 @@ export const components = [
 		component: InputWrapper,
 		link: 'core/input-wrapper',
 		title: 'InputWrapper',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: TextInput,
+		link: 'core/text-input',
+		title: 'TextInput',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: Textarea,
+		link: 'core/textarea',
+		title: 'Textarea',
 		color: '$blue600',
 		content: 'Read about me'
 	},

@@ -143,6 +143,7 @@
 						<li><a href={`${base}/core/number-input`}>NumberInput</a></li>
 						<li><a href={`${base}/core/radio`}>Radio</a></li>
 						<li><a href={`${base}/core/switch`}>Switch</a></li>
+						<li><a href={`${base}/core/textarea`}>Textarea</a></li>
 						<li><a href={`${base}/core/text-input`}>TextInput</a></li>
 						<li><a href={`${base}/core/unstyled-button`}>UnstyledButton</a></li>
 					</ul>
