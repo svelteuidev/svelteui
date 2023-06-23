@@ -25,4 +25,4 @@ docs: 'core/flex'
 
 ## Usage
 
-<Demo demo={FlexDemos.usage} />
+<Demo demo={FlexDemos.configurator} />
