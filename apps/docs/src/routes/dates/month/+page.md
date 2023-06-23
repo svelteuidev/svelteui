@@ -15,6 +15,7 @@ source: 'svelteui-dates/src/components/Month/Month.svelte'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

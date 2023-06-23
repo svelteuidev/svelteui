@@ -10,6 +10,7 @@ docs: 'theming/dark-theme'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -43,4 +44,3 @@ We are in constant development, so here are some things you can expect down the 
 - Saving theme in local storage
 - Changing theme based on keyboard shortcut
 - Detect preferred color scheme
-

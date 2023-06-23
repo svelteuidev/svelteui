@@ -11,6 +11,7 @@ date: 'June 2th, 2023'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -25,7 +26,7 @@ date: 'June 2th, 2023'
 ## Bug fixes and improvements
 
 - Fix broken navigation in `Tabs` using `Tab` and `Shift + Tab`
-- Fix problem with using  `iconProps` in `Menu` and `Alert`
+- Fix problem with using `iconProps` in `Menu` and `Alert`
 - Fix wrong variant styling in dark mode for `Button`
 - Fix `Menu.Item` types
 - Fix edit page links in docs

@@ -1,4 +1,5 @@
 <script lang="ts" data-manual>
+	/* eslint-disable svelte/no-at-html-tags */
 	// option 'data-manual' needed to use Prism with no automatic highlight on import
 	import Prism from 'prismjs';
 	import { onMount } from 'svelte';
@@ -36,7 +37,7 @@
 		 */
 		window.Prism = window.Prism || {};
 		window.Prism.manual = true;
-		document.removeEventListener('DOMContentLoaded', Prism.highlightAll);
+		document.removeEventListener('DOMContentLoaded', Prism.highlightAll as any);
 
 		if (normalizeWhiteSpace) {
 			Prism.plugins.NormalizeWhitespace.setDefaults(normalizeWhiteSpaceConfig);
@@ -280,5 +281,7 @@
 	<!-- Do not format this line since it will break Prism indentation result -->
 	<!-- prettier-ignore -->
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	<pre class={lineNumbers ? 'line-numbers' : ''} data-line={highlightLines}><code class={prismClasses}>{@html prettyCode}</code></pre>
+	<pre class={lineNumbers ? 'line-numbers' : ''} data-line={highlightLines}><code
+			class={prismClasses}>{@html prettyCode}</code
+		></pre>
 </div>

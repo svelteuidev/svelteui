@@ -9,7 +9,7 @@ export const parameters = {
 			color: /(background|color)$/i,
 			date: /Date$/
 		}
-	},
+	}
 	/* No viewport modifications yet
 	viewport: {
 		viewports: {

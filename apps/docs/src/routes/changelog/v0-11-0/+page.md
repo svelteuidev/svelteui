@@ -11,6 +11,7 @@ date: 'April 2nd, 2023'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

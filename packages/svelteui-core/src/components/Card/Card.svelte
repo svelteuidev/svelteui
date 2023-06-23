@@ -34,12 +34,12 @@
 <Paper
 	bind:element
 	class={cx(className, classes.root)}
-  override={{
-    [`${theme.dark} &`]: {
-      backgroundColor: theme.fn.themeColor('dark', 6)
-    },
-    ...override
-  }}
+	override={{
+		[`${theme.dark} &`]: {
+			backgroundColor: theme.fn.themeColor('dark', 6)
+		},
+		...override
+	}}
 	{padding}
 	{use}
 	{...$$restProps}

@@ -16,6 +16,7 @@ docs: 'core/switch'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

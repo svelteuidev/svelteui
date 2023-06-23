@@ -10,7 +10,7 @@
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
 	let menuEvents = [];
-  let element;
+	let element;
 </script>
 
 <Meta title="Components/Menu" component={Menu} />
@@ -121,11 +121,10 @@
 	</Menu>
 </Story>
 
-
 <Story name="Outside Toggle" id="menuOutsideToggleStory">
 	<Button on:click={() => element.toggle()}>Toggle Menu</Button>
 
-  <Menu bind:this={element}>
+	<Menu bind:this={element}>
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>

@@ -33,11 +33,11 @@ Wrap your app in the `SvelteUIProvider` component for more theming options, such
 
 ```svelte
 <script>
-    import { SvelteUIProvider } from '@svelteuidev/core';
+	import { SvelteUIProvider } from '@svelteuidev/core';
 </script>
 
 <SvelteUIProvider>
-    <YourApp />
+	<YourApp />
 </SvelteUIProvider>
 ```
 

@@ -90,7 +90,7 @@
 				'&:hover': {
 					backgroundColor: theme.fn.themeColor('blue', 1),
 					darkMode: {
-						backgroundColor: theme.fn.themeColor('gray', 7),
+						backgroundColor: theme.fn.themeColor('gray', 7)
 					}
 				},
 				'&.active': {

@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-persistent-tab/use-persistent-tab.
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

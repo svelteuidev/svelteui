@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-browser-context/use-browser-cont
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

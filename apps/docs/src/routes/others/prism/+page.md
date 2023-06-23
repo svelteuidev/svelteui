@@ -15,6 +15,7 @@ license: MIT
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

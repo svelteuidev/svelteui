@@ -11,6 +11,7 @@ docs: 'theming/svelteui-provider'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

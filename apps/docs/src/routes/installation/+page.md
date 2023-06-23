@@ -3,6 +3,7 @@ title: 'Installation'
 ---
 
 <svelte:head>
+
   <title>Installation - SvelteUI</title>
 </svelte:head>
 

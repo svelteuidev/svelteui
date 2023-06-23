@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-  import { useSvelteUITheme } from '$lib/styles';
-  import { Group } from '../Group';
+	import { useSvelteUITheme } from '$lib/styles';
+	import { Group } from '../Group';
 	import { ActionIcon } from './index';
 
 	const theme = useSvelteUITheme();
@@ -15,14 +15,14 @@
 </Template>
 
 <Template id="variants" let:args>
-  <Group mt="xl">
-    <ActionIcon {...args} variant="hover" />
-    <ActionIcon {...args} variant="filled" />
-    <ActionIcon {...args} variant="outline" />
-    <ActionIcon {...args} variant="light" />
-    <ActionIcon {...args} variant="default" />
-    <ActionIcon {...args} variant="transparent" />
-  </Group>
+	<Group mt="xl">
+		<ActionIcon {...args} variant="hover" />
+		<ActionIcon {...args} variant="filled" />
+		<ActionIcon {...args} variant="outline" />
+		<ActionIcon {...args} variant="light" />
+		<ActionIcon {...args} variant="default" />
+		<ActionIcon {...args} variant="transparent" />
+	</Group>
 </Template>
 
 <Story name="ActionIcon" id="actionIconStory" />

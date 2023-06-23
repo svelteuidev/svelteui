@@ -11,6 +11,7 @@ docs: 'theming/default-theme'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

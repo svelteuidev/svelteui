@@ -17,6 +17,7 @@ docs: 'core/box'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

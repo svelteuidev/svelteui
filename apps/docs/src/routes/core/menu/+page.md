@@ -17,6 +17,7 @@ docs: 'core/menu'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -32,20 +33,21 @@ docs: 'core/menu'
 <script lang="ts">
 	import { Menu } from '@svelteuidev/core';
 
-    let opened = false;
+	let opened = false;
 
-    function onOpen() {}
-    function onClose() {}
+	function onOpen() {}
+	function onClose() {}
 </script>
 
-<Menu {opened} on:open={onOpen} onClose={onClose}>
-    <!-- ... -->
+<Menu {opened} on:open={onOpen} {onClose}>
+	<!-- ... -->
 </Menu>
 ```
 
 ## Show menu on hover
 
 To show menu on hover set the following props:
+
 - `trigger` to `hover`
 - `delay` to number in ms (defaults to 0)
 
@@ -66,16 +68,16 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
 ```svelte
 <script lang="ts">
 	import { Menu, Text } from '@svelteuidev/core';
-    import { Gear } from 'radix-icons-svelte';
+	import { Gear } from 'radix-icons-svelte';
 </script>
 
 <Menu>
-    <Menu.Item icon={Gear} on:click={() => console.log('Hi!')}>
-        <svelte:fragment slot='rightSection'>
-            <Text size="xs" color="dimmed">⌘K</Text>
-        </svelte:fragment>
-        Settings
-    </Menu.Item>
+	<Menu.Item icon={Gear} on:click={() => console.log('Hi!')}>
+		<svelte:fragment slot="rightSection">
+			<Text size="xs" color="dimmed">⌘K</Text>
+		</svelte:fragment>
+		Settings
+	</Menu.Item>
 </Menu>
 ```
 
@@ -86,14 +88,14 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
 ```svelte
 <script lang="ts">
 	import { Menu, Text } from '@svelteuidev/core';
-    import { Gear } from 'radix-icons-svelte';
+	import { Gear } from 'radix-icons-svelte';
 </script>
 
 <Menu>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-    <Menu.Item icon={Camera}>Gallery</Menu.Item>
-    <Menu.Label><TextInput placeholder="Search" /></Menu.Label>
+	<Menu.Item icon={Gear}>Settings</Menu.Item>
+	<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+	<Menu.Item icon={Camera}>Gallery</Menu.Item>
+	<Menu.Label><TextInput placeholder="Search" /></Menu.Label>
 </Menu>
 ```
 

@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-focus/use-focus.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

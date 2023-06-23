@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-lock-scroll/use-lock-scroll.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

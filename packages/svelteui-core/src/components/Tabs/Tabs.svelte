@@ -111,19 +111,19 @@
 	function onTabKeyDown(event: KeyboardEvent, index: number, key: string) {
 		const tabs = element.querySelectorAll('.svelteui-Tab');
 
-    // Set current tab as the active one if the enter was pressed, allowing
-    // selecting the tab when doing tab cycling
-    if (event.code === "Enter") {
-      dispatch('change', { index, key });
-      _active = index;
-		  contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } })
-      return;
-    }
+		// Set current tab as the active one if the enter was pressed, allowing
+		// selecting the tab when doing tab cycling
+		if (event.code === 'Enter') {
+			dispatch('change', { index, key });
+			_active = index;
+			contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
+			return;
+		}
 
-    // Do not prevent default logic if tab cycling is being done
-    if (event.code === "Tab") {
-      return;
-    }
+		// Do not prevent default logic if tab cycling is being done
+		if (event.code === 'Tab') {
+			return;
+		}
 
 		let _index = _active;
 		if (event.code === nextTabCode) {

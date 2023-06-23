@@ -19,6 +19,7 @@ docs: 'core/modal'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -27,9 +28,9 @@ docs: 'core/modal'
 ## Usage
 
 <Alert icon={InfoCircled} title="Important!" color='blue' override={{ marginBottom: '16px' }}>
-  <Text override={{ lineHeight: '1.6' }}>
-    When using the Modal component it's important that you wrap your app in the <a href='theming/svelteui-provider'>SvelteUIProvider</a>. If for some reason you don't want to do that, you must change the <code>target</code> prop to something else. Such as <code>{"target={'body'}"}</code>.
-  </Text>
+<Text override={{ lineHeight: '1.6' }}>
+When using the Modal component it's important that you wrap your app in the <a href='theming/svelteui-provider'>SvelteUIProvider</a>. If for some reason you don't want to do that, you must change the <code>target</code> prop to something else. Such as <code>{"target={'body'}"}</code>.
+</Text>
 </Alert>
 
 <Demo demo={ModalDemos.usage} />

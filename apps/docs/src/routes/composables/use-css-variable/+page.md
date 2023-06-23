@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-css-variable/use-css-variable.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

@@ -29,13 +29,13 @@
 	import { Button, Center, Menu } from '@svelteuidev/core';
 	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 
-  let element;
+	let element;
 </script>
 
 <Center>
 	<Button on:click={() => element.toggle()}>Toggle Menu</Button>
 
-  <Menu bind:this={element}>
+	<Menu bind:this={element}>
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
