@@ -55,12 +55,21 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	const refs: string[] = [];
 	const classMap = {};
 
+	const _sanitizeVariants = (obj: Record<string, any>) => {
+		const variants = Object.keys(obj.variation);
+		for (const variant of variants) {
+			_sanitize(obj.variation[variant]);
+		}
+	};
+
 	const _sanitize = (obj: Record<string, any>) => {
 		Object.keys(obj).map((value) => {
 			// transforms certain keywords into the correct CSS selectors
 
-			// TODO: also make this transformation for variants
-			if (value === 'variants') return;
+			if (value === 'variants') {
+				_sanitizeVariants(obj[value]);
+				return;
+			}
 
 			// saves the reference value so that later it can be added
 			// to reference the CSS selector
