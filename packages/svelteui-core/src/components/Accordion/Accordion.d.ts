@@ -18,13 +18,13 @@ export type AccordionContext = Writable<{
 	isItemActive: () => boolean;
 }>;
 
-export interface AccordionProps extends DefaultProps, HTMLAttributes {
+export interface AccordionProps<T extends boolean = false> extends DefaultProps, HTMLAttributes {
 	variant?: AccordionVariant;
-	value?: string | string[];
-	defaultValue?: string | string[];
+	value?: T extends true ? string[] : string;
+	defaultValue?: T extends true ? string[] : string;
 	radius?: SvelteUINumberSize | number;
 	order?: 2 | 3 | 4 | 5 | 6;
-	multiple?: boolean;
+	multiple?: T;
 	loop?: boolean;
 	id?: string;
 	chevron?: Component | HTMLOrSVGElement;
@@ -32,4 +32,9 @@ export interface AccordionProps extends DefaultProps, HTMLAttributes {
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
 	transitionDuration?: number?;
+}
+
+export interface AccordionEvents {
+	change: CustomEvent<string | string[]>;
+	[evt: string]: CustomEvent<any>;
 }

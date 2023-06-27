@@ -30,7 +30,6 @@
 	const ctx: AccordionContext = getContext(key);
 
 	function onClick() {
-		if ($ctx.isItemActive(value)) return;
 		$ctx.updateActive(value);
 	}
 

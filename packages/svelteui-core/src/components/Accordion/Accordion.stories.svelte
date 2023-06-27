@@ -18,7 +18,7 @@
 			SvelteUI contains more than just components. With Actions, Transitions, and Utilities available
 			to you, development will be fun and easy!
 		</Accordion.Item>
-		<Accordion.Item value="sccessible">
+		<Accordion.Item value="accessible">
 			<div slot="control">Accessible and usable</div>
 			All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 			ring. It will appear only when user navigates with keyboard.
@@ -27,3 +27,5 @@
 </Template>
 
 <Story name="Accordion" id="accordionStory" />
+
+<Story name="Multiple Tabs Open" id="accordionMultipleStory" args={{ multiple: true }} />

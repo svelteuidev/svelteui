@@ -1,16 +1,21 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder } from '$lib/internal';
 	import { randomID } from '$lib/styles';
 	import { Box } from '../Box';
 	import { key } from './key';
 	import Chevron from './Chevron/Chevron.svelte';
 	import useStyles from './Accordion.styles';
-	import type { AccordionContext, AccordionProps as $$AccordionProps } from './Accordion';
+	import type {
+		AccordionContext,
+		AccordionProps as $$AccordionProps,
+		AccordionEvents as $$AccordionEvents
+	} from './Accordion';
 
 	interface $$Props extends $$AccordionProps {}
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	interface $$Events extends $$AccordionEvents {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -31,10 +36,10 @@
 		transitionDuration: $$Props['transitionDuration'] = 200;
 	export { className as class };
 
-	const forwardEvents = createEventForwarder(get_current_component());
+	const dispatch = createEventDispatcher();
 
+	let _value: string | string[] = value || defaultValue;
 	let stateContent = {
-		currentValue: value || defaultValue,
 		variant,
 		order,
 		radius,
@@ -48,10 +53,17 @@
 	};
 	const state = writable(stateContent);
 
+	// converts internal value into correct type
+	$: {
+		if (multiple && !Array.isArray(_value)) {
+			_value = _value ? [_value] : [];
+		}
+	}
+
 	// allows for reactivity to prop changes
 	$: {
 		stateContent = {
-			currentValue: value || defaultValue,
+			currentValue: _value,
 			variant,
 			order,
 			radius,
@@ -62,30 +74,32 @@
 			transitionDuration,
 			updateActive,
 			isItemActive
-		};
+		} as AccordionContext;
 		state.set(stateContent);
 	}
 
 	function updateActive(activeValue: string) {
 		if (!multiple) {
-			state.set({ ...$state, currentValue: activeValue });
+			_value = _value === activeValue ? undefined : activeValue;
+			dispatch('change', _value);
 			return;
 		}
 
-		let v = $state.currentValue;
-		if (v.includes(activeValue)) {
-			v = (v as string[]).filter((v) => v !== activeValue);
+		let values = (_value || []) as string[];
+		if (values.includes(activeValue)) {
+			values = values.filter((v) => v !== activeValue);
 		} else {
-			(v as string[]).push(activeValue);
-			state.set({ ...$state, currentValue: v });
+			values.push(activeValue);
 		}
+		_value = values;
+		dispatch('change', _value);
 	}
 
 	function isItemActive(itemValue: string) {
-		return multiple ? $state.currentValue.includes(itemValue) : $state.currentValue === itemValue;
+		return multiple ? _value.includes(itemValue) : _value === itemValue;
 	}
 
-	setContext(key, state as AccordionContext);
+	setContext(key, state);
 
 	$: ({ cx, classes, getStyles } = useStyles({ radius, variant }, { name: 'Accordion' }));
 </script>
