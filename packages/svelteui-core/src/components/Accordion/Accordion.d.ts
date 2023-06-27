@@ -5,7 +5,8 @@ import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 export type AccordionVariant = 'default' | 'contained' | 'filled' | 'separated';
 
 export type AccordionContext = Writable<{
-	value?: string | string[];
+	currentValue?: string | string[];
+	variant?: AccordionVariant;
 	order?: 2 | 3 | 4 | 5 | 6;
 	radius?: SvelteUINumberSize | number;
 	chevron?: Component | HTMLOrSVGElement;
@@ -13,6 +14,7 @@ export type AccordionContext = Writable<{
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
 	transitionDuration?: number?;
+	updateActive: (value: string) => void;
 	isItemActive: () => boolean;
 }>;
 
