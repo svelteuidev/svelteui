@@ -73,23 +73,25 @@
 			disableChevronRotation,
 			transitionDuration,
 			updateActive,
-			isItemActive
+			isItemActive,
+			getControlsId,
+			getRegionId
 		} as AccordionContext;
 		state.set(stateContent);
 	}
 
-	function updateActive(activeValue: string) {
+	function updateActive(itemValue: string) {
 		if (!multiple) {
-			_value = _value === activeValue ? undefined : activeValue;
+			_value = _value === itemValue ? undefined : itemValue;
 			dispatch('change', _value);
 			return;
 		}
 
 		let values = (_value || []) as string[];
-		if (values.includes(activeValue)) {
-			values = values.filter((v) => v !== activeValue);
+		if (values.includes(itemValue)) {
+			values = values.filter((v) => v !== itemValue);
 		} else {
-			values.push(activeValue);
+			values.push(itemValue);
 		}
 		_value = values;
 		dispatch('change', _value);
@@ -97,6 +99,14 @@
 
 	function isItemActive(itemValue: string) {
 		return multiple ? _value.includes(itemValue) : _value === itemValue;
+	}
+
+	function getControlsId(itemValue: string) {
+		return `${randomID()}-${itemValue}-panel`;
+	}
+
+	function getRegionId(itemValue: string) {
+		return `${randomID()}-${itemValue}-region`;
 	}
 
 	setContext(key, state);

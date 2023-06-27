@@ -66,11 +66,12 @@ Icon button to indicate secondary action.
 	<UnstyledButton
 		class={classes.control}
 		bind:element
-		{use}
 		{disabled}
+		id={$ctx.getRegionId(value)}
 		aria-expanded={$ctx.isItemActive(value)}
-		aria-controls={'TODO'}
+		aria-controls={$ctx.getControlsId(value)}
 		on:click={onClick}
+		use={[forwardEvents]}
 	>
 		<span
 			class={classes.chevron}
@@ -87,7 +88,12 @@ Icon button to indicate secondary action.
 			{/if}
 		</slot>
 	</UnstyledButton>
-	<Collapse open={$ctx.isItemActive(value)}>
+	<Collapse
+		role="region"
+		id={$ctx.getControlsId(value)}
+		aria-labelledby={$ctx.getRegionId(value)}
+		open={$ctx.isItemActive(value)}
+	>
 		<div class={classes.panel}>
 			<slot />
 		</div>

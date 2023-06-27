@@ -31,7 +31,7 @@ A section that collapses with animation, occupying no space on the page.
     <Collapse open>Content that collapses</Collapse>
     ```
 -->
-<Box class={className} bind:element css={override} {use}>
+<Box class={className} bind:element css={override} {use} {...$$restProps}>
 	{#if open}
 		{#if animateOpacity}
 			<div transition:fade={{ duration: transitionDuration }}>

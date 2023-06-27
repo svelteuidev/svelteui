@@ -15,7 +15,9 @@ export type AccordionContext = Writable<{
 	disableChevronRotation?: boolean;
 	transitionDuration?: number?;
 	updateActive: (value: string) => void;
-	isItemActive: () => boolean;
+	isItemActive: (value: string) => boolean;
+	getControlsId: (value: string) => string;
+	getRegionId: (value: string) => string;
 }>;
 
 export interface AccordionProps<T extends boolean = false> extends DefaultProps, HTMLAttributes {
