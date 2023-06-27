@@ -20,7 +20,9 @@ export type AccordionContext = Writable<{
 	getRegionId: (value: string) => string;
 }>;
 
-export interface AccordionProps<T extends boolean = false> extends DefaultProps, HTMLAttributes {
+export interface AccordionProps<T extends boolean = false>
+	extends DefaultProps,
+		HTMLAttributes<HTMLElement> {
 	variant?: AccordionVariant;
 	value?: T extends true ? string[] : string;
 	defaultValue?: T extends true ? string[] : string;
