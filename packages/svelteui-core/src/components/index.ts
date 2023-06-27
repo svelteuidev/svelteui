@@ -47,6 +47,7 @@ export * from './Stack';
 export * from './Switch';
 export * from './Tabs';
 export * from './Text';
+export * from './Textarea';
 export * from './TextInput';
 export * from './ThemeIcon';
 export * from './Timeline';

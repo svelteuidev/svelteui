@@ -32,7 +32,8 @@
 		autocomplete: $$Props['autocomplete'] = 'on',
 		type: $$Props['type'] = 'text',
 		placeholder: $$Props['placeholder'] = undefined,
-		autofocus: $$Props['autofocus'] = undefined;
+		autofocus: $$Props['autofocus'] = undefined,
+		resize: $$Props['resize'] = 'none';
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -79,6 +80,7 @@
 			rightSectionWidth,
 			showRightSection,
 			size,
+			resize,
 			variant
 		},
 		{ name: 'Input' }
@@ -149,6 +151,7 @@ Base component to create custom inputs
 			{required}
 			{disabled}
 			{id}
+			{placeholder}
 			{autocomplete}
 			{type}
 			{autofocus}

@@ -1,6 +1,6 @@
 import { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUISize, SvelteUINumberSize, CSS } from '$lib/styles';
 
 export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
@@ -25,6 +25,7 @@ export interface InputBaseProps<T = string> extends DefaultProps<InputElementTyp
 	variant?: InputVariant;
 	disabled?: boolean;
 	size?: SvelteUISize;
+	resize?: CSS['resize'];
 	root?: Component | keyof HTMLElementTagNameMap;
 	value?: T;
 }

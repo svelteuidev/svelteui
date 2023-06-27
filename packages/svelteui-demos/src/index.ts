@@ -55,6 +55,7 @@ export * as StackDemos from './demos/core/Stack';
 export * as SwitchDemos from './demos/core/Switch';
 export * as TabsDemos from './demos/core/Tabs';
 export * as TextDemos from './demos/core/Text';
+export * as TextareaDemos from './demos/core/Textarea';
 export * as TextInputDemos from './demos/core/TextInput';
 export * as ThemeIconDemos from './demos/core/ThemeIcon';
 export * as TimelineDemos from './demos/core/Timeline';
