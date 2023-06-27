@@ -11,7 +11,7 @@
 
 <Story
 	name="Default"
-	id="TextareaStory"
+	id="textareaStory"
 	args={{
 		label: 'Your story',
 		placeholder: 'Once upon a time'
@@ -20,7 +20,7 @@
 
 <Story
 	name="Description"
-	id="TextareaDescriptionStory"
+	id="textareaDescriptionStory"
 	args={{
 		label: 'Your story',
 		description: 'Tell us about yourself',
@@ -30,7 +30,7 @@
 
 <Story
 	name="Resizeable"
-	id="TextareaResizeableStory"
+	id="textareaResizeableStory"
 	args={{
 		label: 'Your story',
 		placeholder: 'Once upon a time',
@@ -41,7 +41,7 @@
 
 <Story
 	name="Error"
-	id="TextareaErrorStory"
+	id="textareaErrorStory"
 	args={{
 		label: 'Your story',
 		placeholder: 'Once upon a time',

@@ -11,7 +11,7 @@
 
 <Story
 	name="Default"
-	id="TextInputStory"
+	id="textInputStory"
 	args={{
 		label: 'Full name'
 	}}
@@ -19,7 +19,7 @@
 
 <Story
 	name="Description"
-	id="TextInputDescriptionStory"
+	id="textInputDescriptionStory"
 	args={{
 		label: 'Full name',
 		description: 'Tell us your name',
@@ -29,7 +29,7 @@
 
 <Story
 	name="Error"
-	id="TextInputErrorStory"
+	id="textInputErrorStory"
 	args={{
 		label: 'Full Name',
 		placeholder: 'Hanazono Yurine',
