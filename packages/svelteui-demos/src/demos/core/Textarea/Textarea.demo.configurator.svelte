@@ -42,7 +42,6 @@
 				initialValue: 'none',
 				defaultValue: 'none'
 			},
-			{ name: 'rows', type: 'number', initialValue: 3, defaultValue: 3, min: 1 },
 			{ name: 'radius', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
 			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },
 			{ name: 'required', type: 'boolean', initialValue: true, defaultValue: true },
