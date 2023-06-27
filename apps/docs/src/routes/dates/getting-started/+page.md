@@ -16,13 +16,14 @@ source: 'svelteui-dates'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
 <Heading {title} {group} {packageGroup} {slug} {description} {source} />
 
 <Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled' override={{ marginTop: "1.1875rem" }}>
-    Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
+Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
 </Alert>
 
 ## Installation
@@ -87,9 +88,9 @@ Returns an array of weeks of current month:
 
 ```svelte
 <script>
-import { getMonthDays } from '@svelteuidev/dates';
+	import { getMonthDays } from '@svelteuidev/dates';
 
-getMonthDays(new Date()); // -> [[7xDate objects] x amount of weeks in current month]
+	getMonthDays(new Date()); // -> [[7xDate objects] x amount of weeks in current month]
 </script>
 ```
 
@@ -99,17 +100,17 @@ Returns months names for given locale and format:
 
 ```svelte
 <script>
-import { getMonthsNames } from '@svelteuidev/dates';
+	import { getMonthsNames } from '@svelteuidev/dates';
 
-getMonthsNames('en', 'MMMM');
-// -> [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+	getMonthsNames('en', 'MMMM');
+	// -> [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-// to localize import locale from dayjs package
-import 'dayjs/locale/ru';
-import { getMonthsNames } from '@svelteuidev/dates';
+	// to localize import locale from dayjs package
+	import 'dayjs/locale/ru';
+	import { getMonthsNames } from '@svelteuidev/dates';
 
-getMonthsNames('ru', 'MMMM');
-// -> ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь']
+	getMonthsNames('ru', 'MMMM');
+	// -> ['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь']
 </script>
 ```
 
@@ -119,10 +120,10 @@ Returns an array of short weekdays names for given locale:
 
 ```svelte
 <script>
-import { getWeekdaysNames } from '@svelteuidev/dates';
+	import { getWeekdaysNames } from '@svelteuidev/dates';
 
-getWeekdaysNames('en');
-// -> ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+	getWeekdaysNames('en');
+	// -> ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
 </script>
 ```
 
@@ -132,10 +133,10 @@ Returns an array of years, which fall into given range:
 
 ```svelte
 <script>
-import { getYearsRange } from '@svelteuidev/dates';
+	import { getYearsRange } from '@svelteuidev/dates';
 
-getYearsRange({ from: 2020, to: 2025 });
-// -> [2020, 2021, 2022, 2023, 2024, 2025]
+	getYearsRange({ from: 2020, to: 2025 });
+	// -> [2020, 2021, 2022, 2023, 2024, 2025]
 </script>
 ```
 
@@ -145,10 +146,10 @@ Returns true if two dates have the same year, month and date. Other properties (
 
 ```svelte
 <script>
-import { isSameDate } from '@svelteuidev/dates';
+	import { isSameDate } from '@svelteuidev/dates';
 
-isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 21)); // -> true
-isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> false
+	isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 21)); // -> true
+	isSameDate(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> false
 </script>
 ```
 
@@ -158,9 +159,9 @@ Returns true if two dates have the same year and month. Other properties (such a
 
 ```svelte
 <script>
-import { isSameMonth } from '@svelteuidev/dates';
+	import { isSameMonth } from '@svelteuidev/dates';
 
-isSameMonth(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> true
-isSameMonth(new Date(2020, 7, 21), new Date(2020, 8, 22)); // -> false
+	isSameMonth(new Date(2020, 7, 21), new Date(2020, 7, 22)); // -> true
+	isSameMonth(new Date(2020, 7, 21), new Date(2020, 8, 22)); // -> false
 </script>
 ```

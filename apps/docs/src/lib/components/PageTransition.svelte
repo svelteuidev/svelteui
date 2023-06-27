@@ -1,7 +1,6 @@
-<script>
-  // @ts-nocheck
-	import { fly } from "svelte/transition";
-	export let refresh;
+<script lang="ts">
+	import { fly } from 'svelte/transition';
+	export let refresh: string;
 </script>
 
 {#key refresh}

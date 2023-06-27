@@ -3,6 +3,7 @@ title: FAQ
 ---
 
 <svelte:head>
+
   <title>FAQ - SvelteUI</title>
 </svelte:head>
 
@@ -11,7 +12,6 @@ title: FAQ
 	import { Box, Space } from '@svelteuidev/core'
 	import { base } from '$app/paths';
 </script>
-
 
 ## How do I integrate TailwindCSS with SvelteUI?
 

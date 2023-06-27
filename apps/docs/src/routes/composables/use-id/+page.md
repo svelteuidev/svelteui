@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-id/use-id.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

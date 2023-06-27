@@ -11,22 +11,27 @@ export interface PaperStyleParams {
 export default createStyles((theme, { radius, shadow, withBorder, padding }: PaperStyleParams) => {
 	return {
 		root: {
-			[`${theme.dark} &`]: {
-				bc: theme.colors['dark700'].value,
-				color: theme.colors['dark50'].value,
-				border: withBorder ? `1px solid ${theme.colors['dark600'].value}` : undefined
+			darkMode: {
+				backgroundColor: theme.fn.themeColor('dark', 7),
+				color: theme.fn.themeColor('dark')
 			},
 			padding: theme.fn.size({ size: padding, sizes: theme.space }),
 			outline: 0,
 			display: 'block',
 			textDecoration: 'none',
-			color: 'black',
-			backgroundColor: 'white',
+			color: theme.colors.black.value,
+			backgroundColor: theme.colors.white.value,
 			boxSizing: 'border-box',
 			borderRadius: `$${radius}`,
 			WebkitTapHighlightColor: 'transparent',
 			boxShadow: theme.shadows[shadow].value || shadow || 'none',
-			border: withBorder ? `1px solid ${theme.colors['gray200'].value}` : undefined
+			border: undefined
+		},
+		withBorder: {
+			darkMode: {
+				border: `1px solid ${theme.fn.themeColor('dark', 4)}`
+			},
+			border: `1px solid ${theme.fn.themeColor('gray', 3)}`
 		}
 	};
 });

@@ -16,6 +16,7 @@ docs: 'motion/typewriter'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -42,8 +43,8 @@ You can import `TypewriterParams` interface type from `@svelteuidev/motion`:
 import type { TypewriterParams } from '@svelteuidev/motion';
 
 interface TypewriterParams {
-    speed?: number;
-    easing?: EasingFunction;
+	speed?: number;
+	easing?: EasingFunction;
 }
 ```
 

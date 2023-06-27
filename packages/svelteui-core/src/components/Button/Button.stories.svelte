@@ -17,14 +17,14 @@
 
 <Template id="variants" let:args>
 	<Group mt="xl">
-    <Button {...args} variant="filled">Filled button</Button>
-    <Button {...args} variant="light">Light button</Button>
-    <Button {...args} variant="outline">Outline button</Button>
-    <Button {...args} variant="default">Default button</Button>
-    <Button {...args} variant="white">White button</Button>
-    <Button {...args} variant="gradient">Gradient button</Button>
-    <Button {...args} variant="subtle">Subtle button</Button>
-  </Group>
+		<Button {...args} variant="filled">Filled button</Button>
+		<Button {...args} variant="light">Light button</Button>
+		<Button {...args} variant="outline">Outline button</Button>
+		<Button {...args} variant="default">Default button</Button>
+		<Button {...args} variant="white">White button</Button>
+		<Button {...args} variant="gradient">Gradient button</Button>
+		<Button {...args} variant="subtle">Subtle button</Button>
+	</Group>
 </Template>
 
 <Story name="Button" id="buttonStory" />
@@ -53,4 +53,9 @@
 
 <Story name="Loading" id="buttonLoadingStory" template="variants" args={{ loading: true }} />
 
-<Story name="With href" id="buttonHrefStory" template="variants" args={{ href: 'https://www.svelteui.org', external: true, disabled: false, loading: false }} />
+<Story
+	name="With href"
+	id="buttonHrefStory"
+	template="variants"
+	args={{ href: 'https://www.svelteui.org', external: true, disabled: false, loading: false }}
+/>

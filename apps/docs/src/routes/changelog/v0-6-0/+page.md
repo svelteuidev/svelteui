@@ -45,6 +45,7 @@ date: 'May 13th, 2022'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -79,27 +80,29 @@ date: 'May 13th, 2022'
 [Group]({base}/core/group) Component:
 
 <NativeSelect
-  {data}
-  bind:value
-  override={{select: {padding: 0}}}
-  label='Position'
+{data}
+bind:value
+override={{select: {padding: 0}}}
+label='Position'
 />
 
 <Group override={{bc: 'AliceBlue', padding: '$5'}} position={value}>
-  <Button variant="outline">1</Button>
-  <Button variant="outline">2</Button>
-  <Button variant="outline">3</Button>
+<Button variant="outline">1</Button>
+<Button variant="outline">2</Button>
+<Button variant="outline">3</Button>
 </Group>
 
 [Space]({base}/core/space) Component:
 
 <Box css={{d: 'flex', fd: 'column'}}>
+
   <p>there is vertical space between us</p>
   <Space h='sm' />
   <p>there is vertical space between us</p>
 </Box>
 
 <Box css={{d: 'flex'}}>
+
   <p>there is horizontal space between us</p>
   <Space w='md' />
   <p>there is horizontal space between us</p>
@@ -108,9 +111,9 @@ date: 'May 13th, 2022'
 [Stack]({base}/core/stack) Component:
 
 <Stack override={{height: 300}}>
-  <Button variant="outline">1</Button>
-  <Button variant="outline">2</Button>
-  <Button variant="outline">3</Button>
+<Button variant="outline">1</Button>
+<Button variant="outline">2</Button>
+<Button variant="outline">3</Button>
 </Stack>
 
 [ThemeIcon]({base}/core/theme-icon) Component:
@@ -151,37 +154,39 @@ date: 'May 13th, 2022'
 [InputWrapper]({base}/core/input-wrapper) Component:
 
 <InputWrapper
-  id="input-demo"
-  required
-  label="Credit card information"
-  description="Please enter your credit card information, we need some money"
-  error="Your credit card expired"
->
-  <Input id="input-demo" placeholder="Your email" />
-</InputWrapper>
+id="input-demo"
+required
+label="Credit card information"
+description="Please enter your credit card information, we need some money"
+error="Your credit card expired"
+
+>   <Input id="input-demo" placeholder="Your email" />
+> </InputWrapper>
 
 [SimpleGrid]({base}/core/simple-grid) Component:
 
 <SimpleGrid
-  breakpoints={[
-    { maxWidth: 980, cols: 3, spacing: 'md' },
-    { maxWidth: 755, cols: 2, spacing: 'sm' },
-    { maxWidth: 600, cols: 1, spacing: 'sm' }
-  ]}
-  cols={3}
->
-  {#each [...Array(5).keys()] as _, i}
+breakpoints={[
+{ maxWidth: 980, cols: 3, spacing: 'md' },
+{ maxWidth: 755, cols: 2, spacing: 'sm' },
+{ maxWidth: 600, cols: 1, spacing: 'sm' }
+]}
+cols={3}
+
+> {#each [...Array(5).keys()] as \_, i}
+
     <Center override={{ bc: 'AliceBlue', padding: '$12', color: '$blue600' }}>{i + 1}</Center>
-  {/each}
+
+{/each}
 </SimpleGrid>
 
 [NativeSelect]({base}/core/native-select) Component:
 
 <NativeSelect
-  data={example}
-  bind:value={exampleValue}
-  override={{select: {padding: 0}}}
-  label='What is the best framework?'
+data={example}
+bind:value={exampleValue}
+override={{select: {padding: 0}}}
+label='What is the best framework?'
 />
 
 <Text>The best is <Text root='span' inline variant='gradient'>{exampleValue}</Text></Text>
@@ -216,7 +221,7 @@ BrowserRender Component
 [Prism]({base}/others/prism) component:
 
 <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-  <Prism code={code} />
+<Prism code={code} />
 </Box>
 
 ## Bug fixes and improvements
@@ -237,4 +242,3 @@ BrowserRender Component
 ### _Docs:_
 
 - Migrated docs once again to a more custom solution (will allow examples to be better)
-

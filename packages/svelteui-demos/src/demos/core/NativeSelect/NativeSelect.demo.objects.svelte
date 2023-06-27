@@ -10,6 +10,7 @@
       { label: 'Svelte', value: 'svelte' },
       { label: 'Vue', value: 'vue' },
       { label: 'Angular', value: 'angular' },
+      { label: 'JQuery', value: 'jquery', disabled: true },
       { label: 'React', value: 'react' }
     ]}
     placeholder="Pick one"
@@ -32,6 +33,7 @@
 		{ label: 'Svelte', value: 'svelte' },
 		{ label: 'Vue', value: 'vue' },
 		{ label: 'Angular', value: 'angular' },
+		{ label: 'JQuery', value: 'jquery', disabled: true },
 		{ label: 'React', value: 'react' }
 	]}
 	placeholder="Pick one"

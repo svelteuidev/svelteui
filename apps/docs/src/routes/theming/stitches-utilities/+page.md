@@ -15,6 +15,7 @@ docs: 'theming/stitches-utilities'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -41,7 +42,7 @@ You can use any of the utilities through the `override` prop, the `css` function
 Here is a complete list of all available utilities and their values:
 
 <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-  <Prism {override} code={utils} />
+<Prism {override} code={utils} />
 </Box>
 
 > Note: If you would like for us to add more utilities, please let us know on [SvelteUI Discussions](https://github.com/svelteuidev/svelteui/discussions), or on [Discord](https://discord.gg/2J2xmzCS79).
@@ -53,7 +54,7 @@ SvelteUI tokens types are automatically mapped to CSS Properties for an improved
 Here is the detailed list of all the mapped tokens:
 
 <Box css={{pre: {bc: '$gray50'}, 'pre code': {color: '$gray900'}}}>
-  <Prism {override} code={theme} />
+<Prism {override} code={theme} />
 </Box>
 
 > You can read [this](https://stitches.dev/docs/tokens#property-mapping) for more information about `defaultStitchesThemeMap`.

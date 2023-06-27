@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

@@ -16,6 +16,7 @@ docs: 'core/chip'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -29,12 +30,17 @@ docs: 'core/chip'
 
 ```svelte
 <script>
-  import { Chip } from '@svelteuidev/core';
+	import { Chip } from '@svelteuidev/core';
 
-  let checked = false;
+	let checked = false;
 </script>
 
-<Chip checked={checked} on:change={() => { checked = !checked }}>I'm a chip</Chip>
+<Chip
+	{checked}
+	on:change={() => {
+		checked = !checked;
+	}}>I'm a chip</Chip
+>
 ```
 
 ## States

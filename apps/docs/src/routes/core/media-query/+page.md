@@ -18,6 +18,7 @@ docs: 'core/media-query'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -44,15 +45,15 @@ MediaQuery component adds styles to child element if the given media query match
 ```svelte
 // Will work with MediaQuery – single element
 <MediaQuery>
-    <button>Button</button>
+	<button>Button</button>
 </MediaQuery>
 
 // Will work with MediaQuery – component that renders single element
 <MediaQuery>
-    <Tooltip>
-        <ActionIcon>
-            <GearIcon />
-        </ActionIcon>
-    </Tooltip>
+	<Tooltip>
+		<ActionIcon>
+			<GearIcon />
+		</ActionIcon>
+	</Tooltip>
 </MediaQuery>
 ```

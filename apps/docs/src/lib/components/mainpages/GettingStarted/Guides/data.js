@@ -7,7 +7,12 @@ export const ID = {
 };
 export const STARTGUIDE_DATA = [
 	{ id: 'svelte', title: 'Svelte', icon: icon.Svelte, template: 'npm create svelte@latest myapp' },
-	{ id: 'kit', title: 'Svelte Kit', icon: icon.SvelteKit, template: 'npm create svelte@latest my-app' },
+	{
+		id: 'kit',
+		title: 'Svelte Kit',
+		icon: icon.SvelteKit,
+		template: 'npm create svelte@latest my-app'
+	},
 	{
 		id: 'elderjs',
 		title: 'ElderJs',

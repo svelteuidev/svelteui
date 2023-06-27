@@ -56,7 +56,7 @@
 	}
 
 	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component());
+	const forwardEvents = createEventForwarder(get_current_component(), ['change']);
 
 	let isKeyDown = false;
 	let stepCount = 0;

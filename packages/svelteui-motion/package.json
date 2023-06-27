@@ -1,91 +1,91 @@
 {
-  "name": "@svelteuidev/motion",
-  "version": "0.13.0",
-  "description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
-  "keywords": [
-    "svelte",
-    "sveltekit",
-    "svelteui",
-    "library",
-    "frontend",
-    "svelte-motion",
-    "motion",
-    "animation",
-    "transition",
-    "state"
-  ],
-  "homepage": "https://svelteui.org",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/svelteuidev/svelteui",
-    "directory": "packages/svelteui-motion"
-  },
-  "license": "MIT",
-  "author": "Kamell Perry <kamellperry33@gmail.com>",
-  "sideEffects": false,
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "svelte": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    ">4.0": {
-      "*": [
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "vite build",
-    "build-storybook": "build-storybook",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "dev": "vite dev",
-    "format": "prettier --write --plugin-search-dir=. .",
-    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
-    "package": "svelte-kit sync && svelte-package",
-    "preview": "vite preview",
-    "pub": "yarn publish",
-    "pub:test": "npm publish dist/",
-    "sort": "npx sort-package-json",
-    "storybook": "start-storybook -p 6006",
-    "sync": "svelte-kit sync",
-    "update:lockfile": "yarn",
-    "watch": "svelte-package -w"
-  },
-  "devDependencies": {
-    "@babel/core": "7.21.8",
-    "@sveltejs/adapter-auto": "2.0.1",
-    "@sveltejs/kit": "1.16.3",
-    "@sveltejs/package": "2.0.2",
-    "@typescript-eslint/eslint-plugin": "5.59.5",
-    "@typescript-eslint/parser": "5.59.5",
-    "babel-loader": "9.1.2",
-    "eslint": "8.40.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-storybook": "0.6.12",
-    "eslint-plugin-svelte": "2.28.0",
-    "prettier": "2.8.8",
-    "prettier-plugin-svelte": "2.10.0",
-    "svelte": "3.59.1",
-    "svelte-check": "3.3.2",
-    "svelte-loader": "3.1.7",
-    "svelte-preprocess": "5.0.3",
-    "tslib": "2.5.0",
-    "typescript": "5.0.4",
-    "vite": "4.3.5"
-  },
-  "peerDependencies": {
-    "svelte": ">=3.55.0"
-  }
+	"name": "@svelteuidev/motion",
+	"version": "0.13.0",
+	"description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"svelteui",
+		"library",
+		"frontend",
+		"svelte-motion",
+		"motion",
+		"animation",
+		"transition",
+		"state"
+	],
+	"homepage": "https://svelteui.org",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/svelteuidev/svelteui",
+		"directory": "packages/svelteui-motion"
+	},
+	"license": "MIT",
+	"author": "Kamell Perry <kamellperry33@gmail.com>",
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"svelte": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"typesVersions": {
+		">4.0": {
+			"*": [
+				"./dist/index.d.ts"
+			]
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "vite build",
+		"build-storybook": "build-storybook",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "vite dev",
+		"format": "prettier --write --plugin-search-dir=. .",
+		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
+		"package": "svelte-kit sync && svelte-package",
+		"preview": "vite preview",
+		"pub": "yarn publish",
+		"pub:test": "npm publish dist/",
+		"sort": "npx sort-package-json",
+		"storybook": "start-storybook -p 6006",
+		"sync": "svelte-kit sync",
+		"update:lockfile": "yarn",
+		"watch": "svelte-package -w"
+	},
+	"devDependencies": {
+		"@babel/core": "7.21.8",
+		"@sveltejs/adapter-auto": "2.0.1",
+		"@sveltejs/kit": "1.16.3",
+		"@sveltejs/package": "2.0.2",
+		"@typescript-eslint/eslint-plugin": "5.59.5",
+		"@typescript-eslint/parser": "5.59.5",
+		"babel-loader": "9.1.2",
+		"eslint": "8.40.0",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-plugin-storybook": "0.6.12",
+		"eslint-plugin-svelte": "2.28.0",
+		"prettier": "2.8.8",
+		"prettier-plugin-svelte": "2.10.0",
+		"svelte": "3.59.1",
+		"svelte-check": "3.3.2",
+		"svelte-loader": "3.1.7",
+		"svelte-preprocess": "5.0.3",
+		"tslib": "2.5.0",
+		"typescript": "5.0.4",
+		"vite": "4.3.5"
+	},
+	"peerDependencies": {
+		"svelte": ">=3.55.0"
+	}
 }

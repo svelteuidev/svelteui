@@ -14,13 +14,14 @@ source: 'svelteui-preprocessors'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
 <Heading {title} {group} {packageGroup} {slug} {description} {source} />
 
 <Alert icon={ExclamationTriangle} title="INFO" color="indigo" variant='filled' override={{ marginTop: "1.1875rem" }}>
-    If you have any suggestions for preprocessors, start a discussion or hop onto Discord!
+If you have any suggestions for preprocessors, start a discussion or hop onto Discord!
 </Alert>
 
 ## Installation

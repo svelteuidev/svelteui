@@ -13,6 +13,7 @@ date: 'April 16th, 2022'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -99,4 +100,3 @@ and other similar sections
 ### _Docs:_
 
 - Migrated docs to [Kit-docs](https://kit-docs.svelteness.dev)
-

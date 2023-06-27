@@ -2,7 +2,7 @@
 	import { colorScheme, Box, Button, Group, Container, Title, Text } from '@svelteuidev/core';
 	import { GithubLogo } from 'radix-icons-svelte';
 	import { ComponentsExample, Features, mobile, HomePageExample } from '$lib/components';
-  	import { base } from '$app/paths';
+	import { base } from '$app/paths';
 
 	const srcCodeButton = {
 		m: 0,

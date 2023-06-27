@@ -17,6 +17,7 @@ docs: 'core/simple-grid'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

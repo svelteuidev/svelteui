@@ -45,6 +45,7 @@ date: 'May 13th, 2022'
 <svelte:window on:scroll={() => scrollY = window.scrollY } />
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -84,17 +85,19 @@ date: 'May 13th, 2022'
 
 <Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
 <Popper
-  {mounted}
-  reference={ref}
-  placement="center"
-  position="bottom"
-  withArrow={true}
-  arrowOverride={{ bc: '$gray100' }}
->
-  <Box css={{ bc: '$gray100', borderRadius: 5, padding: '30px' }}>
+{mounted}
+reference={ref}
+placement="center"
+position="bottom"
+withArrow={true}
+arrowOverride={{ bc: '$gray100' }}
+
+> <Box css={{ bc: '$gray100', borderRadius: 5, padding: '30px' }}>
+
     <Center css={{ width: 100 }}>
       <Text>This is some amazing content</Text>
     </Center>
+
   </Box>
 </Popper>
 
@@ -147,6 +150,7 @@ Portal is a wrapper component for the [use-portal composable]({base}/composables
 [ObserverRender]({base}/core/observer-render) Component:
 
 <Paper override={{ overflowY: 'scroll', h: 300 }}>
+
   <div style="padding-top: 260px; padding-bottom: 280px;" >
     <ObserverRender let:visible options={{ threshold: 1 }}>
       <Paper
@@ -217,8 +221,8 @@ The Seo component gives you the ability to manage SEO easier.
 [Burger]({base}/core/burger) Component:
 
 <Burger
-  {opened}
-  on:click={() => (opened = !opened)}
+{opened}
+on:click={() => (opened = !opened)}
 />
 
 <Space h='xl' />
@@ -234,16 +238,17 @@ The Seo component gives you the ability to manage SEO easier.
 Look at the bottom right!
 
 <Affix position={{ bottom: 20, right: 20 }}>
-  {#if scrollY > 2500}
-    <div transition:fly={{ y: 20, duration: 250 }}>
-      <Button on:click={() => window.scrollTo(0, 0)}>
-        <svelte:fragment slot='leftIcon'>
-          <ArrowUp />
-        </svelte:fragment>
-        Scroll to top
-      </Button>
-    </div>
-  {/if}
+{#if scrollY > 2500}
+
+<div transition:fly={{ y: 20, duration: 250 }}>
+<Button on:click={() => window.scrollTo(0, 0)}>
+<svelte:fragment slot='leftIcon'>
+<ArrowUp />
+</svelte:fragment>
+Scroll to top
+</Button>
+</div>
+{/if}
 </Affix>
 
 <Space h='xl' />
@@ -327,4 +332,3 @@ TextAnimation Component:
 - Added support for [event modifiers](https://svelte.dev/docs#template-syntax-element-directives-on-eventname) on components
 - Added external prop to Anchor component
 - Added automatic children detection to Group
-

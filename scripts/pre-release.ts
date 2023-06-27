@@ -15,11 +15,11 @@ async function preparePackages() {
 async function prepareTSConfig() {
 	for await (const file of expandGlob(`./packages/*/tsconfig.json`)) {
 		const json = JSON.parse(await Deno.readTextFile(file.path));
-		
+
 		// remove all mentions of other packages inside tsconfig.json files
 		for (const key of Object.keys(json.compilerOptions.paths)) {
-			if (!key.startsWith("@svelteuidev")) continue;
-			delete json.compilerOptions.paths[key]
+			if (!key.startsWith('@svelteuidev')) continue;
+			delete json.compilerOptions.paths[key];
 		}
 		json.references = [];
 
@@ -27,7 +27,4 @@ async function prepareTSConfig() {
 	}
 }
 
-await Promise.all([
-	preparePackages(),
-	prepareTSConfig()
-]);
+await Promise.all([preparePackages(), prepareTSConfig()]);

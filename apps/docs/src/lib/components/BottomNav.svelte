@@ -3,10 +3,10 @@
 	import { Group, Divider, Stack } from '@svelteuidev/core';
 	import { useViewportSize } from '@svelteuidev/composables';
 
-  type DataType = {
-    prev: String,
-    next: String
-  }
+	type DataType = {
+		prev: string;
+		next: string;
+	};
 
 	export let slug: DataType,
 		title: DataType,

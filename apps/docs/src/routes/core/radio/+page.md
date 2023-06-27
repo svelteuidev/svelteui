@@ -16,6 +16,7 @@ docs: 'core/radio'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -29,9 +30,9 @@ docs: 'core/radio'
 
 ```svelte
 <script>
-  import { Radio } from '@svelteuidev/core';
+	import { Radio } from '@svelteuidev/core';
 
-  let checked = false;
+	let checked = false;
 </script>
 
 <Radio bind:checked />
@@ -47,18 +48,18 @@ The `RadioGroup` supports two props to bind the current active value: `value` an
 
 ```svelte
 <script>
-    import { RadioGroup } from '@svelteuidev/core';
+	import { RadioGroup } from '@svelteuidev/core';
 
-    const items = [
-        { label: 'Svelte', value: 'svelte' },
-        { label: 'React', value: 'react' },
-        { label: 'Vue', value: 'vue' },
-        { label: 'Angular', value: 'angular' },
-        { label: 'Solid', value: 'solid' }
-    ];
+	const items = [
+		{ label: 'Svelte', value: 'svelte' },
+		{ label: 'React', value: 'react' },
+		{ label: 'Vue', value: 'vue' },
+		{ label: 'Angular', value: 'angular' },
+		{ label: 'Solid', value: 'solid' }
+	];
 
-    let value = 'svelte';
-    let group = 'svelte';
+	let value = 'svelte';
+	let group = 'svelte';
 </script>
 
 <RadioGroup {items} bind:value />

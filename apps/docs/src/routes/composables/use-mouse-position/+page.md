@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-mouse-position/use-mouse-positio
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

@@ -3,6 +3,7 @@ title: 'Contributing'
 ---
 
 <svelte:head>
+
   <title>Contributing - SvelteUI</title>
 </svelte:head>
 

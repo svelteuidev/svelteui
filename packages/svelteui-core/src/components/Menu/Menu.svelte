@@ -51,15 +51,29 @@
 
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {
+		external = true;
 		handleOpen();
+		onExternal();
 	}
 	export function close() {
+		external = true;
 		handleClose();
+		onExternal();
 	}
 	export function toggle() {
+		external = true;
 		toggleMenu();
+		onExternal();
 	}
 
+	// Ugly hack for click outside workaround, since an external
+	// triggered click causes the action to take effect
+	// @TODO: improve this in the future
+	function onExternal() {
+		window.setTimeout(() => (external = false), 0);
+	}
+
+	let external = false;
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement;
 	let dropdownElement: HTMLDivElement;
@@ -68,7 +82,7 @@
 
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
 		enabled: true,
-		callback: () => _opened && handleClose()
+		callback: () => _opened && !external && handleClose()
 	};
 	const uuid: string = useHash(menuId);
 	const forwardEvents = createEventForwarder(get_current_component(), ['open', 'close']);

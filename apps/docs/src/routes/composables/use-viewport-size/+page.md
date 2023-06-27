@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-viewport-size/use-viewport-size.
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

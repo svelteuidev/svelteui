@@ -19,6 +19,7 @@ docs: 'core/input-wrapper'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

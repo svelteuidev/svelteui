@@ -7,6 +7,8 @@ import {
 	Stack,
 	Group,
 	ActionIcon,
+	AspectRatio,
+	Flex,
 	Button,
 	Checkbox,
 	Input,
@@ -19,6 +21,8 @@ import {
 	Loader,
 	Code,
 	Text,
+	Textarea,
+	TextInput,
 	Title,
 	Box
 } from '@svelteuidev/core';
@@ -69,9 +73,25 @@ export const components = [
 	},
 	{
 		icon: BoxIcon,
+		component: AspectRatio,
+		link: 'core/aspect-ratio',
+		title: 'AspectRatio',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
 		component: Center,
 		link: 'core/center',
 		title: 'Center',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: Flex,
+		link: 'core/flex',
+		title: 'Flex',
 		color: '$blue600',
 		content: 'Read about me'
 	},
@@ -127,6 +147,22 @@ export const components = [
 		component: InputWrapper,
 		link: 'core/input-wrapper',
 		title: 'InputWrapper',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: TextInput,
+		link: 'core/text-input',
+		title: 'TextInput',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: Textarea,
+		link: 'core/textarea',
+		title: 'Textarea',
 		color: '$blue600',
 		content: 'Read about me'
 	},
@@ -212,5 +248,5 @@ export const components = [
 		title: 'Box',
 		color: '$blue600',
 		content: 'Read about me'
-	},
+	}
 ];

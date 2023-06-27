@@ -16,6 +16,7 @@ docs: 'core/native-select'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

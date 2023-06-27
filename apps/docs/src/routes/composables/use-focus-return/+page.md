@@ -15,6 +15,7 @@ source: 'svelteui-composables/src/utilities/use-focus-return/use-focus-return.ts
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -25,6 +26,7 @@ source: 'svelteui-composables/src/utilities/use-focus-return/use-focus-return.ts
 `useFocusReturn` returns function to automatically manages focus returning to last focused element when given condition is met. For example it is used in Modal component to restore focus after modal was closed.
 
 In most cases you would want to use this with `use-focus-trap`.
+
 ```js
 const { handleFocusReturn } = useFocusReturn();
 
@@ -36,6 +38,7 @@ $: handleFocusReturn(opened);
 ```
 
 If `shouldReturnFocus`(second param) option is set to false you can call `returnFocus` function to focus last active element manually:
+
 ```js
 const { handleFocusReturn, returnFocus } = useFocusReturn();
 
@@ -46,9 +49,9 @@ let opened = false;
 $: handleFocusReturn(opened, false);
 
 function onClose() {
-  // whenever you call this function it will return focus to last focused element
-  // which was remembered when handleFocusReturn was called with opened: true
-  returnFocus();
+	// whenever you call this function it will return focus to last focused element
+	// which was remembered when handleFocusReturn was called with opened: true
+	returnFocus();
 }
 ```
 

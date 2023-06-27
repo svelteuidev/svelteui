@@ -13,6 +13,7 @@ docs: 'theming/create-styles'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -242,22 +243,24 @@ You can add styles based on themes by retrieving the dynamically generated theme
 For handling things like global resets or custom global styling, you can use the `globalCss` function to generate it. SvelteUI comes with global styles and a CSS reset by default. More information on that in the [SvelteUIProvider section]({base}/theming/svelteui-provider).
 
 ```js
-import { globalCss } from '@svelteuidev/core'
+import { globalCss } from '@svelteuidev/core';
 // declare this anywhere you can export it, or directly in your top level component.
 const globalStyles = globalCss({
-  body: { margin: 0 },
+	body: { margin: 0 }
 });
 ```
+
 Then import it in your top level component i.e +layout.svelte or App.svelte
+
 ```svelte
 <script>
-    import { globalStyles } from 'styles.js'
+	import { globalStyles } from 'styles.js';
 
-    globalStyles();
+	globalStyles();
 </script>
 
 <SvelteUIProvider>
-    <YourApp />
+	<YourApp />
 </SvelteUIProvider>
 ```
 

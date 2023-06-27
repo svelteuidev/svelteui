@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/utilities/use-web-worker/use-web-worker.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

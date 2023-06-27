@@ -17,6 +17,7 @@ docs: 'core/menu'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 
@@ -32,20 +33,21 @@ docs: 'core/menu'
 <script lang="ts">
 	import { Menu } from '@svelteuidev/core';
 
-    let opened = false;
+	let opened = false;
 
-    function onOpen() {}
-    function onClose() {}
+	function onOpen() {}
+	function onClose() {}
 </script>
 
-<Menu {opened} on:open={onOpen} onClose={onClose}>
-    <!-- ... -->
+<Menu {opened} on:open={onOpen} {onClose}>
+	<!-- ... -->
 </Menu>
 ```
 
 ## Show menu on hover
 
 To show menu on hover set the following props:
+
 - `trigger` to `hover`
 - `delay` to number in ms (defaults to 0)
 
@@ -66,16 +68,16 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
 ```svelte
 <script lang="ts">
 	import { Menu, Text } from '@svelteuidev/core';
-    import { Gear } from 'radix-icons-svelte';
+	import { Gear } from 'radix-icons-svelte';
 </script>
 
 <Menu>
-    <Menu.Item icon={Gear} on:click={() => console.log('Hi!')}>
-        <svelte:fragment slot='rightSection'>
-            <Text size="xs" color="dimmed">⌘K</Text>
-        </svelte:fragment>
-        Settings
-    </Menu.Item>
+	<Menu.Item icon={Gear} on:click={() => console.log('Hi!')}>
+		<svelte:fragment slot="rightSection">
+			<Text size="xs" color="dimmed">⌘K</Text>
+		</svelte:fragment>
+		Settings
+	</Menu.Item>
 </Menu>
 ```
 
@@ -86,14 +88,14 @@ The right section of `Menu.Item` can be customized with the slot `rightSection`.
 ```svelte
 <script lang="ts">
 	import { Menu, Text } from '@svelteuidev/core';
-    import { Gear } from 'radix-icons-svelte';
+	import { Gear } from 'radix-icons-svelte';
 </script>
 
 <Menu>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-    <Menu.Item icon={Camera}>Gallery</Menu.Item>
-    <Menu.Label><TextInput placeholder="Search" /></Menu.Label>
+	<Menu.Item icon={Gear}>Settings</Menu.Item>
+	<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+	<Menu.Item icon={Camera}>Gallery</Menu.Item>
+	<Menu.Label><TextInput placeholder="Search" /></Menu.Label>
 </Menu>
 ```
 
@@ -152,18 +154,13 @@ You can change styles of any element in the button component with the `override`
 
 ## Control menu state externally
 
-It is possible to control the state of the Menu outside the component.
+It is possible to control the state of the Menu outside the component by binding `bind:this` of `Menu` and then accessing exported methods. There are 3 exported methods:
 
-```svelte
-<script>
-    let element;
-</script>
+- `open()`, opens the menu
+- `close()`, closes the menu
+- `toggles()`, toggle the menu state
 
-<Button on:click={() => element.toggle()}>Click to toggle the menu</Button>
-<Menu bind:element>
-    ...
-</Menu>
-```
+<Demo demo={MenuDemos.outside} />
 
 ## Accessibility and usability
 

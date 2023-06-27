@@ -17,7 +17,7 @@
 			<Title align="left" mb="lg" order={3}>Your photos</Title>
 			<SimpleGrid cols={3}>
 				{#each Array(9) as i}
-					<Image alt={i} src="https://cataas.com/cat"/>
+					<Image alt={i} src="https://cataas.com/cat" />
 				{/each}
 			</SimpleGrid>
 		</Tabs.Tab>

@@ -26,6 +26,7 @@ export interface HeadingStyle {
 }
 
 export interface Fn {
+	cover: Fns['cover'];
 	themeColor: Fns['themeColor'];
 	size: Fns['size'];
 	radius: Fns['radius'];

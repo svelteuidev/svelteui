@@ -16,6 +16,7 @@ source: 'svelteui-composables/src/actions/use-lazy/use-lazy.ts'
 </script>
 
 <svelte:head>
+
   <title>{title} - SvelteUI</title>
 </svelte:head>
 

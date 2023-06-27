@@ -1,11 +1,15 @@
 <script lang="ts">
-	// @ts-ignore
 	import { colorScheme, Stack, Box, Title, Text, Group, Center, Tooltip } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/composables';
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
 	import { screenW } from '$lib/components';
 
-  export let title: String, description = false, docs = false, importCode = false, source = false, packageGroup = false
+	export let title: string,
+		description = false,
+		docs = false,
+		importCode = '',
+		source = false,
+		packageGroup = false;
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/blob/main/packages/',
 		docs: 'https://github.com/svelteuidev/svelteui/blob/main/apps/docs/src/routes/',
@@ -13,7 +17,7 @@
 	};
 
 	let importStyles = {
-		overflowX: 'scroll',
+		overflowX: 'hidden',
 		'&:hover': { cursor: 'pointer' },
 		code: {
 			fontSize: $screenW < 500 ? 10 : '$sm'
@@ -31,9 +35,9 @@
 
 <Stack
 	override={{
-		backgroundColor: $colorScheme === 'light' ? "$blue100" : "$dark800",
+		backgroundColor: $colorScheme === 'light' ? '$blue100' : '$dark800',
 		padding: '$8',
-    	borderRadius: "0.5rem"
+		borderRadius: '0.5rem'
 	}}
 >
 	<Stack override={{ mb: 20, h1: { mb: 0, mt: 0 }, '@md': { mt: 0 } }} spacing="xs">
@@ -55,7 +59,7 @@
 				color={copied ? 'green' : 'gray'}
 			>
 				<Box css={importStyles}>
-					<code use:clipboard={importCode} on:useclipboard={onCopy}>
+					<code use:clipboard={importCode} on:copy={onCopy}>
 						{importCode}
 					</code>
 				</Box>
@@ -98,7 +102,7 @@
 </Stack>
 
 <style>
-  h1 {
-    font-size: 2em !important
-  }
+	h1 {
+		font-size: 2em !important;
+	}
 </style>
