@@ -36,7 +36,7 @@
 		"deploy:docs": "yarn build:docs && yarn script:build-docs && yarn workspace svelteui-docs deploy:nobuild",
 		"dev": "yarn storybook",
 		"dev:docs": "yarn package && yarn workspace svelteui-docs dev",
-		"format": "turbo run format --parallel",
+		"format": "prettier --write --ignore-unknown ./package.json configuration apps && turbo run format --parallel",
 		"postinstall": "npx patch-package",
 		"lint": "turbo run lint --parallel",
 		"package": "yarn clean && turbo run package --parallel",
