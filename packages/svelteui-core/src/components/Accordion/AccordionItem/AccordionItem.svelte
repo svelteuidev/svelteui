@@ -47,12 +47,15 @@
 <!--
 @component
 
-Icon button to indicate secondary action.
+Item of an accordion.
 
 @see https://svelteui.org/core/accordion
 @example
     ```svelte
-    //TODO
+    <Accordion.Item value="typescript">
+      <div slot="control">Typescript Based</div>
+      Content of the accordion item
+    </Accordion.Item>
     ```
 -->
 

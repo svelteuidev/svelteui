@@ -27,8 +27,7 @@
 		radius: $$Props['radius'] = 'sm',
 		order: $$Props['order'] = undefined,
 		multiple: $$Props['multiple'] = false,
-		// loop: $$Props['loop'] = false,
-		// id: $$Props['id'] = randomID(),
+		id: $$Props['id'] = randomID(),
 		chevron: $$Props['chevron'] = Chevron,
 		chevronPosition: $$Props['chevronPosition'] = 'right',
 		chevronSize: $$Props['chevronSize'] = 24,
@@ -102,11 +101,11 @@
 	}
 
 	function getControlsId(itemValue: string) {
-		return `${randomID()}-${itemValue}-panel`;
+		return `${id}-${itemValue}-panel`;
 	}
 
 	function getRegionId(itemValue: string) {
-		return `${randomID()}-${itemValue}-region`;
+		return `${id}-${itemValue}-region`;
 	}
 
 	setContext(key, state);
@@ -117,12 +116,25 @@
 <!--
 @component
 
-Icon button to indicate secondary action.
+Accordion component that allows the collapsing of each item.
 
 @see https://svelteui.org/core/accordion
 @example
     ```svelte
-    //TODO
+    <Accordion defaultValue="typescript">
+      <Accordion.Item value="typescript">
+        <div slot="control">Typescript Based</div>
+        Content of the accordion item
+      </Accordion.Item>
+      <Accordion.Item value="packed" disabled>
+        <div slot="control">Feature packed</div>
+        ...
+      </Accordion.Item>
+      <Accordion.Item value="accessible">
+        <div slot="control">Accessible and usable</div>
+        ...
+      </Accordion.Item>
+    </Accordion>
     ```
 -->
 
