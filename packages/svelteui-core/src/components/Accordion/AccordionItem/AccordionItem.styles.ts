@@ -31,7 +31,7 @@ export default createStyles(
 				paddingLeft:
 					chevronPosition === 'right'
 						? `calc(${theme.space.mdPX.value} + 4px)`
-						: theme.space.xs.value,
+						: theme.space.xsPX.value,
 				textAlign: 'left',
 				color: theme.colors.black.value,
 
@@ -76,13 +76,6 @@ export default createStyles(
 				textOverflow: 'ellipsis',
 				paddingTop: theme.space.mdPX.value,
 				paddingBottom: theme.space.mdPX.value
-			},
-			icon: {
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
-				marginRight: chevronPosition === 'left' ? 0 : theme.space.smPX.value,
-				marginLeft: chevronPosition === 'left' ? theme.space.lgPX.value : 0
 			},
 			panel: {
 				wordBreak: 'break-word',
