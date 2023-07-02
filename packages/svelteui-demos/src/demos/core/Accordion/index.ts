@@ -1,0 +1,10 @@
+export * as configurator from './Accordion.demo.configurator.svelte';
+export * as custom from './Accordion.demo.custom.svelte';
+export * as chevron from './Accordion.demo.chevron.svelte';
+export * as disabled from './Accordion.demo.disabled.svelte';
+export * as data from './Accordion.demo.data.svelte';
+export * as transitionDuration from './Accordion.demo.transitionDuration.svelte';
+export * as noTransition from './Accordion.demo.noTransition.svelte';
+export * as defaultValue from './Accordion.demo.default.svelte';
+export * as defaultValueMultiple from './Accordion.demo.defaultMultiple.svelte';
+export * as controlled from './Accordion.demo.controlled.svelte';

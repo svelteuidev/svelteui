@@ -161,6 +161,7 @@
 				<li>
 					<strong><Dashboard /><Space w="md" />Data Display</strong>
 					<ul>
+						<li><a href={`${base}/core/accordion`}>Accordion</a></li>
 						<li><a href={`${base}/core/badge`}>Badge</a></li>
 						<li><a href={`${base}/core/card`}>Card</a></li>
 						<li><a href={`${base}/core/image`}>Image</a></li>

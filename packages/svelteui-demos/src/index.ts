@@ -9,6 +9,7 @@ export * as CreateStylesDemos from './demos/createStyles';
 export * as ThemeDemos from './demos/theme';
 
 // @svelteuidev/core
+export * as AccordionDemos from './demos/core/Accordion';
 export * as ActionIconDemos from './demos/core/ActionIcon';
 export * as AppShellDemos from './demos/core/AppShell';
 export * as AffixDemos from './demos/core/Affix';
