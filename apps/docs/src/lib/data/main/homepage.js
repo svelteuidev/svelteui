@@ -1,6 +1,7 @@
 import { Accessibility, Dashboard, Box as BoxIcon } from 'radix-icons-svelte';
 import TypeScript from '../../components/svgs/TypeScript.svelte';
 import {
+	Accordion,
 	Container,
 	Center,
 	SimpleGrid,
@@ -179,6 +180,14 @@ export const components = [
 		link: 'core/switch',
 		title: 'Switch',
 		color: '$blue600'
+	},
+	{
+		icon: BoxIcon,
+		component: Accordion,
+		link: 'core/accordion',
+		title: 'Accordion',
+		color: '$blue600',
+		content: 'BETA'
 	},
 	{
 		icon: BoxIcon,
