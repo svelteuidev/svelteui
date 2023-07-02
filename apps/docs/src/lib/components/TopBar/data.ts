@@ -50,6 +50,7 @@ export const searchLinks = [
 	{ title: 'Checkbox', link: `${base}/core/checkbox`, section: 'Components' },
 	{ title: 'Chip', link: `${base}/core/chip`, section: 'Components' },
 	{ title: 'Code', link: `${base}/core/code`, section: 'Components' },
+	{ title: 'Collapse', link: `${base}/core/collapse`, section: 'Components' },
 	{ title: 'Container', link: `${base}/core/container`, section: 'Components' },
 	{ title: 'Divider', link: `${base}/core/divider`, section: 'Components' },
 	{ title: 'Grid', link: `${base}/core/grid`, section: 'Components' },

@@ -202,6 +202,7 @@
 					<strong><BoxModel /><Space w="md" />Miscellaneous</strong>
 					<ul>
 						<li><a href={`${base}/core/box`}>Box</a></li>
+						<li><a href={`${base}/core/collapse`}>Collapse</a></li>
 						<li><a href={`${base}/core/divider`}>Divider</a></li>
 						<li><a href={`${base}/core/observer-render`}>ObserverRender</a></li>
 						<li><a href={`${base}/core/paper`}>Paper</a></li>

@@ -3,6 +3,7 @@ import TypeScript from '../../components/svgs/TypeScript.svelte';
 import {
 	Container,
 	Center,
+	Collapse,
 	SimpleGrid,
 	Stack,
 	Group,
@@ -246,6 +247,14 @@ export const components = [
 		component: Box,
 		link: 'core/box',
 		title: 'Box',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: Collapse,
+		link: 'core/collapse',
+		title: 'Collapse',
 		color: '$blue600',
 		content: 'Read about me'
 	}
