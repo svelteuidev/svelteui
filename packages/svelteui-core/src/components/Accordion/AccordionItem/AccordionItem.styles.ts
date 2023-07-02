@@ -122,6 +122,7 @@ export default createStyles(
 					contained: {
 						border: `1px solid ${theme.fn.themeColor('gray', 3)}`,
 						transition: 'background-color 150ms ease',
+						overflow: 'hidden',
 
 						[`&.${getRef('active')}`]: {
 							backgroundColor: theme.fn.themeColor('gray')
