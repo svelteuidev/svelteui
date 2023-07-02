@@ -95,6 +95,7 @@ export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 	multiline?: boolean | number;
 	multilineEndNewLine?: boolean;
 	center?: boolean;
+	hideCode?: boolean;
 }
 
 export interface CodeDemoType {

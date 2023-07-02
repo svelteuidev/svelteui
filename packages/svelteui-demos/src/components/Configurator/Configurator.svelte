@@ -19,6 +19,7 @@
 	export let multiline: ConfiguratorDemoConfiguration['multiline'] = false;
 	export let multilineEndNewLine: ConfiguratorDemoConfiguration['multilineEndNewLine'] = true;
 	export let center: ConfiguratorDemoConfiguration['center'] = true;
+	export let hideCode: ConfiguratorDemoConfiguration['hideCode'] = false;
 
 	const BREAKPOINT = 885;
 
@@ -218,7 +219,7 @@
 			<!--			<button />-->
 		</div>
 	</div>
-	{#if code}
+	{#if code && !hideCode}
 		<div class="code">
 			<Box>
 				<Prism
