@@ -14,6 +14,7 @@ export * from './Center';
 export * from './Checkbox';
 export * from './Chip';
 export * from './Code';
+export * from './Collapse';
 export * from './Container';
 export * from './Divider';
 export * from './FileUpload';

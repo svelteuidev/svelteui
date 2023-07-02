@@ -25,6 +25,7 @@ export * as CenterDemos from './demos/core/Center';
 export * as CheckboxDemos from './demos/core/Checkbox';
 export * as ChipDemos from './demos/core/Chip';
 export * as CodeDemos from './demos/core/Code';
+export * as CollapseDemos from './demos/core/Collapse';
 export * as ContainerDemos from './demos/core/Container';
 export * as DividerDemos from './demos/core/Divider';
 export * as FlexDemos from './demos/core/Flex';
