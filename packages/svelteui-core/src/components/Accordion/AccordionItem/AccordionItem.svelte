@@ -5,7 +5,6 @@
 	import { Box } from '../../Box';
 	import { UnstyledButton } from '../../Button';
 	import { Collapse } from '../../Collapse';
-	import { IconRenderer } from '../../IconRenderer';
 	import type { AccordionContext } from '../Accordion';
 	import { key } from '../key';
 	import useStyles from './AccordionItem.styles';
@@ -19,10 +18,7 @@
 		override: $$Props['override'] = {},
 		value: $$Props['value'] = undefined,
 		chevron: $$Props['chevron'] = undefined,
-		disabled: $$Props['disabled'] = false,
-		icon: $$Props['icon'] = undefined,
-		iconSize: $$Props['iconSize'] = undefined,
-		iconProps: $$Props['iconProps'] = undefined;
+		disabled: $$Props['disabled'] = false;
 	export { className as class };
 
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -63,6 +59,7 @@ Item of an accordion.
 	class={cx(className, classes.root, getStyles({ css: override, variation: $ctx.variant }), {
 		[classes.active]: $ctx.isItemActive(value)
 	})}
+	data-active={$ctx.isItemActive(value)}
 	{use}
 	{...$$restProps}
 >
@@ -85,11 +82,6 @@ Item of an accordion.
 		<span class={classes.controlContent}>
 			<slot name="control" {disabled} />
 		</span>
-		<slot name="icon">
-			{#if icon}
-				<IconRenderer {icon} {iconSize} {iconProps} />
-			{/if}
-		</slot>
 	</UnstyledButton>
 	<Collapse
 		role="region"

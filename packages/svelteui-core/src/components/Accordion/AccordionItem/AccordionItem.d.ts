@@ -8,7 +8,4 @@ export interface AccordionItemProps extends ButtonProps {
 	value?: string;
 	chevron?: Component | HTMLOrSVGElement;
 	disabled?: boolean;
-	icon?: Component | HTMLOrSVGElement;
-	iconSize?: SvelteUINumberSize;
-	iconProps?: Record<string, unknown>;
 }
