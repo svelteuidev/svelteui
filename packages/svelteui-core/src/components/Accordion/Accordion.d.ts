@@ -4,8 +4,10 @@ import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export type AccordionVariant = 'default' | 'contained' | 'filled' | 'separated';
 
-export type AccordionContext = Writable<{
-	currentValue?: string | string[];
+export type AccordionValue<Multiple> = Multiple extends true ? string[] : string | null;
+
+export type AccordionContext<Multiple extends boolean = false> = Writable<{
+	currentValue?: AccordionValue<Multiple>;
 	variant?: AccordionVariant;
 	order?: 2 | 3 | 4 | 5 | 6;
 	radius?: SvelteUINumberSize | number;
@@ -20,15 +22,15 @@ export type AccordionContext = Writable<{
 	getRegionId: (value: string) => string;
 }>;
 
-export interface AccordionProps<T extends boolean = false>
+export interface AccordionProps<Multiple extends boolean = false>
 	extends DefaultProps,
 		HTMLAttributes<HTMLElement> {
 	variant?: AccordionVariant;
-	value?: T extends true ? string[] : string;
-	defaultValue?: T extends true ? string[] : string;
+	value?: AccordionValue<Multiple>;
+	defaultValue?: AccordionValue<Multiple>;
 	radius?: SvelteUINumberSize | number;
 	order?: 2 | 3 | 4 | 5 | 6;
-	multiple?: T;
+	multiple?: Multiple;
 	loop?: boolean;
 	id?: string;
 	chevron?: Component | HTMLOrSVGElement;
@@ -38,7 +40,7 @@ export interface AccordionProps<T extends boolean = false>
 	transitionDuration?: number?;
 }
 
-export interface AccordionEvents {
-	change: CustomEvent<string | string[]>;
+export interface AccordionEvents<Multiple extends boolean = false> {
+	change: CustomEvent<AccordionValue<Multiple>>;
 	[evt: string]: CustomEvent<any>;
 }

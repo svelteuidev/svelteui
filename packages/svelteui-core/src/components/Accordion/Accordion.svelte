@@ -1,4 +1,6 @@
-<script lang="ts">
+<script lang="ts" generics="Multiple extends boolean = false">
+	// Temporary eslint disable while svelte-eslint-parser does not support generics in file -->
+	/* eslint-disable no-undef */
 	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
@@ -9,13 +11,14 @@
 	import type {
 		AccordionContext,
 		AccordionProps as $$AccordionProps,
-		AccordionEvents as $$AccordionEvents
+		AccordionEvents as $$AccordionEvents,
+		AccordionValue
 	} from './Accordion';
 
-	interface $$Props extends $$AccordionProps {}
+	interface $$Props extends $$AccordionProps<Multiple> {}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$AccordionEvents {}
+	interface $$Events extends $$AccordionEvents<Multiple> {}
 
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
@@ -26,7 +29,7 @@
 		defaultValue: $$Props['defaultValue'] = undefined,
 		radius: $$Props['radius'] = 'sm',
 		order: $$Props['order'] = undefined,
-		multiple: $$Props['multiple'] = false,
+		multiple: $$Props['multiple'] = false as Multiple,
 		id: $$Props['id'] = randomID(),
 		chevron: $$Props['chevron'] = Chevron,
 		chevronPosition: $$Props['chevronPosition'] = 'right',
@@ -37,7 +40,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	let _value: string | string[] = value || defaultValue;
+	let _value: AccordionValue<Multiple> = value || defaultValue;
 	let stateContent = {
 		variant,
 		order,
@@ -55,7 +58,7 @@
 	// converts internal value into correct type
 	$: {
 		if (multiple && !Array.isArray(_value)) {
-			_value = _value ? [_value] : [];
+			_value = (_value ? [_value] : []) as AccordionValue<Multiple>;
 		}
 	}
 
@@ -81,7 +84,7 @@
 
 	function updateActive(itemValue: string) {
 		if (!multiple) {
-			_value = _value === itemValue ? undefined : itemValue;
+			_value = (_value === itemValue ? undefined : itemValue) as AccordionValue<Multiple>;
 			dispatch('change', _value);
 			return;
 		}
@@ -92,7 +95,7 @@
 		} else {
 			values.push(itemValue);
 		}
-		_value = values;
+		_value = values as AccordionValue<Multiple>;
 		dispatch('change', _value);
 	}
 

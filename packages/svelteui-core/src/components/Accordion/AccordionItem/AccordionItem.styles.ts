@@ -120,7 +120,7 @@ export default createStyles(
 						}
 					},
 					contained: {
-						borderBottom: `1px solid ${theme.fn.themeColor('gray', 3)}`,
+						border: `1px solid ${theme.fn.themeColor('gray', 3)}`,
 						transition: 'background-color 150ms ease',
 
 						[`&.${getRef('active')}`]: {
@@ -140,7 +140,7 @@ export default createStyles(
 							borderTopRightRadius: radiusValue,
 							borderTopLeftRadius: radiusValue,
 
-							'& > [data-accordion-control]': {
+							[`& > ${getRef('control')}`]: {
 								borderTopRightRadius: radiusValue,
 								borderTopLeftRadius: radiusValue
 							}
