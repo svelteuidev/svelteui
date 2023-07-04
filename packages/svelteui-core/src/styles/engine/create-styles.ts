@@ -56,9 +56,10 @@ function sanitizeCss(object: DirtyObject, theme: SvelteUITheme) {
 	const classMap = {};
 
 	const _sanitizeVariants = (obj: Record<string, any>) => {
-		const variants = Object.keys(obj.variation);
+		const variantsObject = obj.variation ?? obj;
+		const variants = Object.keys(variantsObject);
 		for (const variant of variants) {
-			_sanitize(obj.variation[variant]);
+			_sanitize(variantsObject[variant]);
 		}
 	};
 
