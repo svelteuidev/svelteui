@@ -1,6 +1,6 @@
 <script>
+	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import CheckboxCard from './Card.svelte';
-	import { Title, SimpleGrid, Box } from '@svelteuidev/core';
 	import { PACKAGE_DATA } from './data.js';
 
 	export let setDeps;

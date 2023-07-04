@@ -7,7 +7,7 @@ export default createStyles((theme) => {
 			flexDirection: 'column',
 			alignItems: 'center',
 			maxHeight: '198px',
-			border: `1px solid ${theme.fn.themeColor('gray', 4)} !important`,
+			border: `1px solid ${theme.fn.themeColor('gray', 4)}`,
 			borderRadius: `${theme.radii.sm.value} !important`,
 			padding: `${theme.space.lgPX.value} !important`,
 			backgroundColor: 'white !important',
@@ -15,20 +15,13 @@ export default createStyles((theme) => {
 			'&:hover': {
 				transform: 'scale(1.01)',
 				boxShadow: '$md'
+			},
+			'&.active': {
+				borderColor: `$blue600 !important`
 			}
 		},
 		title: {
 			textAlign: 'uppercase'
-		},
-		variants: {
-			state: {
-				active: {
-					['.dark &']: {
-						borderColor: `$blue600`
-					},
-					borderColor: `$blue600 !important`
-				}
-			}
 		}
 	};
 });

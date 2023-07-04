@@ -6,7 +6,6 @@
 	export let setId;
 
 	/** Variable for switching cards stitches variant*/
-	const active = { state: 'active' };
 	$: selected = 'kit';
 	$: setId(selected);
 </script>
@@ -20,12 +19,7 @@
 		]}
 	>
 		{#each STARTGUIDE_DATA as { title, id, icon } (id)}
-			<Guides
-				on:click={() => (selected = id)}
-				{title}
-				{icon}
-				active={selected === id ? active : {}}
-			/>
+			<Guides on:click={() => (selected = id)} {title} {icon} active={selected === id} />
 		{/each}
 	</SimpleGrid>
 </Box>
