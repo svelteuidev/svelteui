@@ -54,7 +54,8 @@ Tooltip arrow is controlled by:
 
 ## Controlled
 
-By default, Tooltip is displayed when the mouse is over the target element. To change this logic set the `opened` prop:
+By default, Tooltip is displayed when the mouse is over the target element. You can get this default behavior by omitting the `opened` prop or setting it to `undefined`.
+To control the open state of the tooltip, you can provide the `opened` prop:
 
 <Demo demo={TooltipDemos.controlled} />
 
