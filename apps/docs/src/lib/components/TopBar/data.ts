@@ -88,7 +88,7 @@ export const searchLinks = [
 	{ title: 'ThemeIcon', link: `${base}/core/theme-icon`, section: 'Components' },
 	{ title: 'Timeline', link: `${base}/core/timeline`, section: 'Components' },
 	{ title: 'Title', link: `${base}/core/title`, section: 'Components' },
-	{ title: 'Tooptip', link: `${base}/core/tooltip`, section: 'Components' },
+	{ title: 'Tooltip', link: `${base}/core/tooltip`, section: 'Components' },
 	{ title: 'TypographyProvider', link: `${base}/core/typography-provider`, section: 'Components' },
 	{ title: 'UnstyledButton', link: `${base}/core/unstyled-button`, section: 'Components' },
 
