@@ -40,7 +40,7 @@ docs: 'core/json-input'
 
 ## JSON validation
 
-<Demo demo={JsonInputDemos.validate} />
+<Demo demo={JsonInputDemos.validation} />
 
 ## Format on blur
 

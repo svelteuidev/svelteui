@@ -7,7 +7,7 @@
 <\/script>
 
 <Center>
-	<JsonInput error label="Validate" validationError="Invalid data" />
+	<JsonInput label="Validate" validationError="Invalid data" />
 </Center>
 `;
 
@@ -23,5 +23,5 @@
 </script>
 
 <Center>
-	<JsonInput error label="Valid data" validationError="Invalid data" />
+	<JsonInput label="Valid data" validationError="Invalid data" />
 </Center>
