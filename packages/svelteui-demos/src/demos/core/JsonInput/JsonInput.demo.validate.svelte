@@ -23,5 +23,5 @@
 </script>
 
 <Center>
-	<JsonInput error label="Validate" validationError="Invalid data" />
+	<JsonInput error label="Valid data" validationError="Invalid data" />
 </Center>

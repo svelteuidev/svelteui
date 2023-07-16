@@ -27,5 +27,5 @@
 </script>
 
 <Center>
-	<JsonInput disabled label="Disabled with value" value={sampleJson} />
+	<JsonInput disabled label="Robot configuration" value={sampleJson} />
 </Center>

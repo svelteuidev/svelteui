@@ -25,5 +25,5 @@
 </script>
 
 <Center>
-	<JsonInput label="Robot Configuration" placeholder="Enter JSON data" icon={Gear} />
+	<JsonInput label="Settings" placeholder="Enter JSON data" icon={Gear} />
 </Center>
