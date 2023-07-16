@@ -1,3 +1,33 @@
 {
-	"editor.formatOnSave": true
+	"cSpell.words": [
+		"clickoutside",
+		"codesandbox",
+		"cssvariable",
+		"flipboard",
+		"focuswithin",
+		"lockscroll",
+		"mousedown",
+		"mouseposition",
+		"nobuild",
+		"okaidia",
+		"onuseclipboard",
+		"onusedownload",
+		"peerdeps",
+		"prepush",
+		"romkor",
+		"svelteui",
+		"svelteuidev",
+		"tableave",
+		"typecheck",
+		"Unstyled",
+		"usedownload",
+		"usehotkey",
+		"uselazy",
+		"uselockscroll",
+		"vercel"
+	],
+	"deno.enable": true,
+	"deno.lint": true,
+	"deno.unstable": true,
+	"deno.enablePaths": ["./scripts", "./apps/docs/prepare"]
 }
