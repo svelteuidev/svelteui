@@ -140,6 +140,7 @@
 						<li><a href={`${base}/core/chip`}>Chip</a></li>
 						<li><a href={`${base}/core/input`}>Input</a></li>
 						<li><a href={`${base}/core/input-wrapper`}>InputWrapper</a></li>
+						<li><a href={`${base}/core/json-input`}>JsonInput</a></li>
 						<li><a href={`${base}/core/native-select`}>NativeSelect</a></li>
 						<li><a href={`${base}/core/number-input`}>NumberInput</a></li>
 						<li><a href={`${base}/core/radio`}>Radio</a></li>
