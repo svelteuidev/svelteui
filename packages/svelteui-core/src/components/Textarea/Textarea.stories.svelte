@@ -29,8 +29,8 @@
 />
 
 <Story
-	name="Resizeable"
-	id="textareaResizeableStory"
+	name="Resizable"
+	id="textareaResizableStory"
 	args={{
 		label: 'Your story',
 		placeholder: 'Once upon a time',
