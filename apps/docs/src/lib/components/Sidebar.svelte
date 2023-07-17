@@ -142,6 +142,7 @@
 						<li><a href={`${base}/core/input-wrapper`}>InputWrapper</a></li>
 						<li><a href={`${base}/core/native-select`}>NativeSelect</a></li>
 						<li><a href={`${base}/core/number-input`}>NumberInput</a></li>
+						<li><a href={`${base}/core/password-input`}>PasswordInput</a></li>
 						<li><a href={`${base}/core/radio`}>Radio</a></li>
 						<li><a href={`${base}/core/switch`}>Switch</a></li>
 						<li><a href={`${base}/core/textarea`}>Textarea</a></li>
