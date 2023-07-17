@@ -42,6 +42,7 @@
 		description: $$Props['description'] = null,
 		error: $$Props['error'] = null,
 		required: $$Props['required'] = false,
+		disabled: $$Props['disabled'] = false,
 		labelProps: $$Props['labelProps'] = {},
 		descriptionProps: $$Props['descriptionProps'] = {},
 		errorProps: $$Props['errorProps'] = {},
@@ -116,6 +117,7 @@ Password input with visibility toggle
 		{placeholder}
 		{radius}
 		{rightSectionWidth}
+		{disabled}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}
@@ -126,6 +128,7 @@ Password input with visibility toggle
 			slot="rightSection"
 			tabindex={toggleTabIndex}
 			{radius}
+			{disabled}
 			size={getSize({ size, sizes: buttonSizes })}
 			aria-hidden={!visibilityToggleLabel}
 			aria-label={visibilityToggleLabel}
