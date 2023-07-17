@@ -23,7 +23,7 @@ export function getVariantStyles(color: SvelteUIColor) {
 		...variants,
 		hover: {
 			[`${dark.selector} &`]: {
-				color: themeColor(color, 8),
+				color: themeColor(color, 2),
 				'&:hover': { backgroundColor: themeColor('dark', 8) }
 			},
 			border: '1px solid transparent',
