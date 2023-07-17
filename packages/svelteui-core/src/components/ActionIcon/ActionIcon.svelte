@@ -16,7 +16,7 @@
 		override: $$Props['override'] = {},
 		root: $$Props['root'] = 'button',
 		color: $$Props['color'] = 'gray',
-		variant: $$Props['variant'] = 'hover',
+		variant: $$Props['variant'] = 'default',
 		size: $$Props['size'] = 'md',
 		radius: $$Props['radius'] = 'sm',
 		loaderProps: $$Props['loaderProps'] = {
