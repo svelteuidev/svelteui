@@ -3,6 +3,7 @@
 	import type { BlockquoteProps as $$BlockquoteProps } from './Blockquote';
 	import { Box } from '../Box';
 	import QuoteIcon from './QuoteIcon.svelte';
+	import { IconRenderer } from '../IconRenderer';
 
 	interface $$Props extends $$BlockquoteProps {}
 
@@ -11,7 +12,8 @@
 		override: $$Props['override'] = {},
 		root: $$Props['root'] = 'blockquote',
 		color: $$Props['color'] = 'gray',
-		showIcon: $$Props['showIcon'] = true;
+		icon: $$Props['icon'] = QuoteIcon,
+		iconSize: $$Props['iconSize'] = 20;
 	export { className as class };
 
 	$: ({ cx, classes } = useStyles({ color }, { override, name: 'Blockquote' }));
@@ -34,9 +36,9 @@ Blockquote with icon and citation
 
 <Box bind:element class={cx(className, classes.root)} {root} {...$$restProps}>
 	<div class={classes.inner}>
-		{#if showIcon}
+		{#if icon}
 			<div class={classes.icon}>
-				<slot name="icon"><QuoteIcon /></slot>
+				<IconRenderer {icon} {iconSize} />
 			</div>
 		{/if}
 		<div class={classes.body}>

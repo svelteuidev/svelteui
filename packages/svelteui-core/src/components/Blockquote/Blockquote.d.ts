@@ -1,9 +1,10 @@
 import { HTMLAttributes } from 'svelte/elements';
-import type { SvelteUIColor } from '$lib/styles';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import { TextProps } from '../Text/Text';
 
 export interface BlockquoteProps extends TextProps<HTMLHeadingElement> {
-	showIcon?: boolean;
+	icon?: Component | HTMLOrSVGElement;
+	iconSize?: SvelteUINumberSize;
 	color?: SvelteUIColor;
 }
 

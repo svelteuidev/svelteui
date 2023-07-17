@@ -2,7 +2,6 @@
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Blockquote } from './index';
 	import { Center } from '../Center/index';
-	import { Text } from '../Text/index';
 	import { EnvelopeClosed } from 'radix-icons-svelte';
 
 	const text = `Money is just one thing, folks. There's a lot of other one things that are everything. There's
@@ -24,18 +23,8 @@
 	</Center>
 </Template>
 
-<Story name="Default" id="blockquoteStory" />
+<Story name="Default" id="blockquoteStory" args={{ iconSize: 20 }} />
 
-<Story name="No Icon" id="blockquoteNoIconStory" args={{ showIcon: false }} />
+<Story name="No Icon" id="blockquoteNoIconStory" args={{ icon: null }} />
 
-<Story name="Custom Icon" id="blockquoteCustomIconStory">
-	<Center>
-		<div style="max-width: 600px;">
-			<Blockquote>
-				{text}
-				<svelte:fragment slot="cite">- Corey Riffin</svelte:fragment>
-				<svelte:fragment slot="icon"><EnvelopeClosed /></svelte:fragment>
-			</Blockquote>
-		</div>
-	</Center>
-</Story>
+<Story name="Custom Icon" id="blockquoteCustomIconStory" args={{ icon: EnvelopeClosed }} />

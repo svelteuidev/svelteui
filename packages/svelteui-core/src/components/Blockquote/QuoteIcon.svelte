@@ -1,17 +1,7 @@
-<script lang="ts">
-	import { rem } from '$lib/styles';
-	import type { QuoteIconProps as $$QuoteIconProps } from './Blockquote';
-
-	interface $$Props extends $$QuoteIconProps {}
-
-	export let style: $$Props['style'] = '';
-</script>
-
 <svg
 	viewBox="0 0 409.294 409.294"
 	fill="currentColor"
 	xmlns="http://www.w3.org/2000/svg"
-	style="width: {rem(20)}; height: {rem(20)};{style}"
 	{...$$restProps}
 >
 	<path
