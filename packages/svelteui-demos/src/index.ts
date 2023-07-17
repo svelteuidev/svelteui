@@ -17,6 +17,7 @@ export * as AlertDemos from './demos/core/Alert';
 export * as AnchorDemos from './demos/core/Anchor';
 export * as AspectRatioDemos from './demos/core/AspectRatio';
 export * as BadgeDemos from './demos/core/Badge';
+export * as BlockquoteDemos from './demos/core/Blockquote';
 export * as BoxDemos from './demos/core/Box';
 export * as BreadcrumbsDemos from './demos/core/Breadcrumbs';
 export * as BurgerDemos from './demos/core/Burger';
