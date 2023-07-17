@@ -11,6 +11,7 @@
 		onBlur: $$Props['on:blur'] = undefined,
 		readOnly: $$Props['readonly'] = undefined,
 		value: $$Props['value'] = undefined,
+		rows: $$Props['rows'] = 4,
 		serialize: $$Props['serialize'] = JSON.stringify,
 		deserialize: $$Props['deserialize'] = JSON.parse;
 
@@ -47,6 +48,7 @@ Textarea specially made for JSON input.
 	on:blur={handleBlur}
 	invalid={!valid}
 	error={!valid ? validationError : error}
+	{rows}
 	{...$$restProps}
 >
 	<slot slot="rightSection" name="rightSection" />
