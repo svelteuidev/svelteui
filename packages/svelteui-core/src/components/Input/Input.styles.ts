@@ -11,7 +11,7 @@ export interface InputStylesParams {
 	variant: InputVariant;
 	multiline: boolean;
 	invalid: boolean;
-	rightSectionWidth: number;
+	rightSectionWidth: number | string;
 	showRightSection: boolean;
 	iconWidth: number;
 }

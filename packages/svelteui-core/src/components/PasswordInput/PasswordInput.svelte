@@ -131,7 +131,7 @@ Password input with visibility toggle
 			aria-label={visibilityToggleLabel}
 			on:click={toggleVisibility}
 		>
-			<slot name="visibilityToggleIcon">
+			<slot name="visibilityToggleIcon" visible={_visible}>
 				<PasswordToggleIcon reveal={_visible} size={getSize({ size, sizes: iconSizes })} />
 			</slot>
 		</ActionIcon>
