@@ -124,19 +124,21 @@ Password input with visibility toggle
 		showRightSection
 		type={_visible ? 'text' : 'password'}
 	>
-		<ActionIcon
-			slot="rightSection"
-			tabindex={toggleTabIndex}
-			{radius}
-			{disabled}
-			size={getSize({ size, sizes: buttonSizes })}
-			aria-hidden={!visibilityToggleLabel}
-			aria-label={visibilityToggleLabel}
-			on:click={toggleVisibility}
-		>
-			<slot name="visibilityToggleIcon" visible={_visible}>
-				<PasswordToggleIcon reveal={_visible} size={getSize({ size, sizes: iconSizes })} />
-			</slot>
-		</ActionIcon>
+		<svelte:fragment slot="rightSection">
+			{#if !disabled}
+				<ActionIcon
+					tabindex={toggleTabIndex}
+					{radius}
+					size={getSize({ size, sizes: buttonSizes })}
+					aria-hidden={!visibilityToggleLabel}
+					aria-label={visibilityToggleLabel}
+					on:click={toggleVisibility}
+				>
+					<slot name="visibilityToggleIcon" visible={_visible}>
+						<PasswordToggleIcon reveal={_visible} size={getSize({ size, sizes: iconSizes })} />
+					</slot>
+				</ActionIcon>
+			{/if}
+		</svelte:fragment>
 	</Input>
 </InputWrapper>

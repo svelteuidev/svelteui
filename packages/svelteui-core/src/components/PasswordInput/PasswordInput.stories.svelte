@@ -38,6 +38,15 @@
 />
 
 <Story
+	name="Disabled"
+	id="passwordInputDisabledStory"
+	args={{
+		label: 'Password',
+		disabled: true
+	}}
+/>
+
+<Story
 	name="Error"
 	id="passwordInputErrorStory"
 	args={{
