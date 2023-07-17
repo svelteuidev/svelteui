@@ -6,6 +6,7 @@ export * from './Anchor';
 export * from './AppShell';
 export * from './AspectRatio';
 export * from './Badge';
+export * from './Blockquote';
 export * from './Box';
 export * from './Breadcrumbs';
 export * from './Burger';
