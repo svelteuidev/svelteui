@@ -13,10 +13,7 @@
 		color: $$Props['color'] = 'yellow';
 	export { className as class };
 
-	$: ({ cx, classes, theme } = useStyles(
-		{ color, colorScheme: $colorScheme },
-		{ override, name: 'Mark' }
-	));
+	$: ({ cx, classes, theme } = useStyles({ color }, { override, name: 'Mark' }));
 	$: textColor = $colorScheme === 'dark' ? theme.colors.dark900.value : 'inherit';
 </script>
 

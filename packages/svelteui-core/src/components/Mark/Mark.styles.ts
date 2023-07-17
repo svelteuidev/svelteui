@@ -1,14 +1,16 @@
-import { createStyles, type SvelteUIColor, type ColorScheme } from '$lib/styles';
+import { createStyles, type SvelteUIColor } from '$lib/styles';
 
 export interface MarkStyleParams {
 	color: SvelteUIColor;
-	colorScheme: ColorScheme;
 }
 
 export default createStyles((theme, { color }: MarkStyleParams) => {
 	return {
 		root: {
-			backgroundColor: theme.fn.themeColor(color, theme.colorScheme === 'dark' ? 5 : 2)
+			backgroundColor: theme.fn.themeColor(color, 2),
+			darkMode: {
+				backgroundColor: theme.fn.themeColor(color, 5)
+			}
 		}
 	};
 });
