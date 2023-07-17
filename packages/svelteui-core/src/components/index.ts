@@ -37,6 +37,7 @@ export * from './NumberInput';
 export * from './ObserverRender';
 export * from './Overlay';
 export * from './Paper';
+export * from './PasswordInput';
 export * from './Popper';
 export * from './Portal';
 export * from './Progress';

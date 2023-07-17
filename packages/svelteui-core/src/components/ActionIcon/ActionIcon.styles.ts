@@ -3,7 +3,7 @@ import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface ActionIconStylesParams {
 	color: SvelteUIColor;
-	size: SvelteUINumberSize;
+	size: SvelteUINumberSize | string;
 	radius: SvelteUINumberSize;
 }
 
