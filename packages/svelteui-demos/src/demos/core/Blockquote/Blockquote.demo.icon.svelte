@@ -6,7 +6,7 @@
   import { Blockquote } from '@svelteuidev/core';
   import { EnvelopeClosed } from 'radix-icons-svelte';
 
-  const text = "Some very wise words with deep meaning, that make you wonder.";
+  const text = 'Some very wise words with deep meaning, that make you wonder.';
 <\/script>
 
 <Blockquote icon={EnvelopeClosed} iconSize={32}>
