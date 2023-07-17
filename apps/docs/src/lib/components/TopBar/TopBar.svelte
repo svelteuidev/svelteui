@@ -32,7 +32,7 @@
 
 	onMount(() => {
 		recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
-		const colorSchemeValue = localStorage.getItem('coloScheme');
+		const colorSchemeValue = localStorage.getItem('colorScheme');
 		if (colorSchemeValue) $colorScheme = colorSchemeValue as ColorScheme;
 	});
 

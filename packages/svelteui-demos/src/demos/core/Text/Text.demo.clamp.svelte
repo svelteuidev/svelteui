@@ -6,7 +6,7 @@
   import { Text } from '@svelteuidev/core';
 <\/script>
 
-<Text${props} >
+<Text${props}>
     From Bulbapedia: Bulbasaur is a small, quadrupedal Pokémon that has blue-green skin ...
 </Text>`;
 
