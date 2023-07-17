@@ -2,7 +2,6 @@
 	import useStyles from './Mark.styles';
 	import { Text } from '../Text';
 	import type { MarkProps as $$MarkProps } from './Mark';
-	import { colorScheme } from '$lib/styles';
 
 	interface $$Props extends $$MarkProps {}
 
@@ -13,8 +12,7 @@
 		color: $$Props['color'] = 'yellow';
 	export { className as class };
 
-	$: ({ cx, classes, theme } = useStyles({ color }, { override, name: 'Mark' }));
-	$: textColor = $colorScheme === 'dark' ? theme.colors.dark900.value : 'inherit';
+	$: ({ cx, classes } = useStyles({ color }, { override, name: 'Mark' }));
 </script>
 
 <!--
@@ -29,6 +27,6 @@ Highlight text within a larger body of text
     ```
 -->
 
-<Text bind:element class={cx(className, classes.root)} {root} color={textColor} {...$$restProps}>
+<Text bind:element class={cx(className, classes.root)} {root} {...$$restProps}>
 	<slot />
 </Text>

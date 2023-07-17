@@ -9,7 +9,8 @@ export default createStyles((theme, { color }: MarkStyleParams) => {
 		root: {
 			backgroundColor: theme.fn.themeColor(color, 2),
 			darkMode: {
-				backgroundColor: theme.fn.themeColor(color, 5)
+				backgroundColor: theme.fn.themeColor(color, 5),
+				color: theme.colors.dark900.value
 			}
 		}
 	};
