@@ -30,6 +30,7 @@ export * from './InputWrapper';
 export * from './JsonInput';
 export * from './Kbd';
 export * from './Loader';
+export * from './Mark';
 export * from './MediaQuery';
 export * from './Menu';
 export * from './Modal';

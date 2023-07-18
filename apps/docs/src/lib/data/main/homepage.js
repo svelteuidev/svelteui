@@ -24,6 +24,7 @@ import {
 	ThemeIcon,
 	Loader,
 	Code,
+	Mark,
 	PasswordInput,
 	Text,
 	Textarea,
@@ -272,6 +273,14 @@ export const components = [
 	},
 	{
 		icon: BoxIcon,
+		component: Mark,
+		link: 'core/mark',
+		title: 'Mark',
+    color: '$blue600',
+		content: 'Enter some text'
+  },
+  {
+    icon: BoxIcon,
 		component: Blockquote,
 		link: 'core/blockquote',
 		title: 'Blockquote',

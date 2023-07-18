@@ -198,6 +198,7 @@
 					<ul>
 						<li><a href={`${base}/core/blockquote`}>Blockquote</a></li>
 						<li><a href={`${base}/core/code`}>Code</a></li>
+						<li><a href={`${base}/core/mark`}>Mark</a></li>
 						<li><a href={`${base}/core/text`}>Text</a></li>
 						<li><a href={`${base}/core/title`}>Title</a></li>
 						<li><a href={`${base}/core/typography-provider`}>TypographyProvider</a></li>
