@@ -15,7 +15,7 @@ export interface InputBaseProps<T = string> extends DefaultProps<InputElementTyp
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
 	showRightSection?: boolean;
-	rightSectionWidth?: number;
+	rightSectionWidth?: number | string;
 	rightSectionProps?: Record<string, unknown>;
 	wrapperProps?: Record<string, unknown>;
 	placeholder?: string;

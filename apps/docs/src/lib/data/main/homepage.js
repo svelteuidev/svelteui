@@ -24,6 +24,7 @@ import {
 	ThemeIcon,
 	Loader,
 	Code,
+	PasswordInput,
 	Text,
 	Textarea,
 	TextInput,
@@ -159,6 +160,14 @@ export const components = [
 		component: TextInput,
 		link: 'core/text-input',
 		title: 'TextInput',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: PasswordInput,
+		link: 'core/password-input',
+		title: 'PasswordInput',
 		color: '$blue600',
 		content: 'Read about me'
 	},

@@ -48,6 +48,7 @@ export * as NumberInputDemos from './demos/core/NumberInput';
 export * as ObserverRenderDemos from './demos/core/ObserverRender';
 export * as OverlayDemos from './demos/core/Overlay';
 export * as PaperDemos from './demos/core/Paper';
+export * as PasswordInputDemos from './demos/core/PasswordInput';
 export * as PopperDemos from './demos/core/Popper';
 export * as ProgressDemos from './demos/core/Progress';
 export * as RadioDemos from './demos/core/Radio';

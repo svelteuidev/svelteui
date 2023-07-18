@@ -35,8 +35,8 @@
 					{ label: 'default', value: 'default' },
 					{ label: 'transparent', value: 'transparent' }
 				],
-				initialValue: 'hover',
-				defaultValue: 'hover'
+				initialValue: 'default',
+				defaultValue: 'default'
 			},
 			{ name: 'disabled', type: 'boolean', initialValue: false, defaultValue: false },
 			{ name: 'loading', type: 'boolean', initialValue: false, defaultValue: false }
