@@ -36,6 +36,7 @@ export * as GroupDemos from './demos/core/Group';
 export * as ImageDemos from './demos/core/Image';
 export * as InputDemos from './demos/core/Input';
 export * as InputWrapperDemos from './demos/core/InputWrapper';
+export * as JsonInputDemos from './demos/core/JsonInput';
 export * as KbdDemos from './demos/core/Kbd';
 export * as LoaderDemos from './demos/core/Loader';
 export * as MediaQueryDemos from './demos/core/MediaQuery';

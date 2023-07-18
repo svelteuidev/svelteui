@@ -20,6 +20,7 @@ import {
 	Switch,
 	Badge,
 	Image,
+	JsonInput,
 	ThemeIcon,
 	Loader,
 	Code,
@@ -166,6 +167,14 @@ export const components = [
 		component: Textarea,
 		link: 'core/textarea',
 		title: 'Textarea',
+		color: '$blue600',
+		content: 'Read about me'
+	},
+	{
+		icon: BoxIcon,
+		component: JsonInput,
+		link: 'core/json-input',
+		title: 'JsonInput',
 		color: '$blue600',
 		content: 'Read about me'
 	},
