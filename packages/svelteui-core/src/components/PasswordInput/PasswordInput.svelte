@@ -47,7 +47,7 @@
 		descriptionProps: $$Props['descriptionProps'] = {},
 		errorProps: $$Props['errorProps'] = {},
 		invalid: $$Props['invalid'] = false,
-		id: $$Props['id'] = 'input-id',
+		id: $$Props['id'] = randomID('password-input'),
 		labelElement: $$Props['labelElement'] = 'label',
 		size: $$Props['size'] = 'sm',
 		radius: $$Props['radius'] = 'sm',
@@ -66,7 +66,7 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	const baseId = randomID(id);
+
 	$: _invalid = invalid || !!error;
 	$: _visible = visible === undefined ? uncontrolledVisible : visible;
 
@@ -105,7 +105,7 @@ Password input with visibility toggle
 	{labelProps}
 	{descriptionProps}
 	{errorProps}
-	id={baseId}
+	{id}
 	{labelElement}
 	{size}
 >
@@ -113,7 +113,7 @@ Password input with visibility toggle
 		bind:value
 		{required}
 		{size}
-		id={baseId}
+		{id}
 		{placeholder}
 		{radius}
 		{rightSectionWidth}

@@ -20,7 +20,7 @@
 		descriptionProps: $$Props['descriptionProps'] = {},
 		errorProps: $$Props['errorProps'] = {},
 		invalid: $$Props['invalid'] = false,
-		id: $$Props['id'] = 'input-id',
+		id: $$Props['id'] = randomID('textarea'),
 		labelElement: $$Props['labelElement'] = 'label',
 		showRightSection: $$Props['showRightSection'] = undefined,
 		value: $$Props['value'] = '',
@@ -29,7 +29,7 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	const baseId = randomID(id);
+
 	// Flag that enables the override of the right section slot
 	// of the Input component only if it was provided
 	const _showRightSection =
@@ -65,13 +65,13 @@ Multiline text input.
 	{labelProps}
 	{descriptionProps}
 	{errorProps}
-	id={baseId}
+	{id}
 	{labelElement}
 >
 	<Input
 		bind:value
 		{required}
-		id={baseId}
+		{id}
 		{placeholder}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
