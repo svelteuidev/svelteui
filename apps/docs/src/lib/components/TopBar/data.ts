@@ -65,6 +65,7 @@ export const searchLinks = [
 	{ title: 'JsonInput', link: `${base}/core/json-input`, section: 'Components' },
 	{ title: 'Kbd', link: `${base}/core/kbd`, section: 'Components' },
 	{ title: 'Loader', link: `${base}/core/loader`, section: 'Components' },
+	{ title: 'Mark', link: `${base}/core/mark`, section: 'Components' },
 	{ title: 'MediaQuery', link: `${base}/core/media-query`, section: 'Components' },
 	{ title: 'Menu', link: `${base}/core/menu`, section: 'Components' },
 	{ title: 'Modal', link: `${base}/core/modal`, section: 'Components' },
