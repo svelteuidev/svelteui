@@ -2,7 +2,7 @@ import { HTMLAttributes, HTMLBlockquoteAttributes, SVGAttributes } from 'svelte/
 import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import { TextProps } from '../Text/Text';
 
-type BaseProps = TextProps<HTMLElement> & HTMLAttributes<HTMLBlockquoteAttributes>;
+type BaseProps = TextProps<HTMLElement> & HTMLBlockquoteAttributes;
 
 export interface BlockquoteProps extends BaseProps {
 	icon?: Component | HTMLOrSVGElement;
