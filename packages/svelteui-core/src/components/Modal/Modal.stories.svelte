@@ -12,6 +12,10 @@
 	function handleClose() {
 		opened = false;
 	}
+
+	const content = Array(100)
+		.fill(0)
+		.map((_, index) => 'Svelte is a complier');
 </script>
 
 <Meta title="Components/Modal" component={Modal} />
@@ -32,3 +36,12 @@
 </Template>
 
 <Story name="Modal" id="modalStory" />
+
+<Story name="With Overflow" id="modalOverflowStory">
+	<Button on:click={toggleOpen}>Click Me</Button>
+	<Modal {opened} on:close={handleClose} overflow="inside">
+		{#each content as _}
+			<p>{_}</p>
+		{/each}
+	</Modal>
+</Story>

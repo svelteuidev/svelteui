@@ -276,11 +276,11 @@ export const components = [
 		component: Mark,
 		link: 'core/mark',
 		title: 'Mark',
-    color: '$blue600',
+		color: '$blue600',
 		content: 'Enter some text'
-  },
-  {
-    icon: BoxIcon,
+	},
+	{
+		icon: BoxIcon,
 		component: Blockquote,
 		link: 'core/blockquote',
 		title: 'Blockquote',

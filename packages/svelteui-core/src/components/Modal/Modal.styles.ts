@@ -44,6 +44,13 @@ export default createStyles((theme, { centered, overflow, size, zIndex }: ModalS
 			alignItems: centered ? 'center' : 'flex-start'
 		},
 
+		transition: {
+			display: 'flex',
+			justifyContent: 'center',
+			width: '100%',
+			maxWidth: '100%'
+		},
+
 		title: {
 			marginRight: +theme.space.md.value,
 			textOverflow: 'ellipsis',
@@ -61,8 +68,7 @@ export default createStyles((theme, { centered, overflow, size, zIndex }: ModalS
 			backgroundColor: 'white',
 			marginTop: centered ? 'auto' : undefined,
 			marginBottom: centered ? 'auto' : undefined,
-			zIndex: 1,
-			marginLeft: 'calc(var(--removed-scroll-width, 0px) * -1)'
+			zIndex: 1
 		},
 
 		header: {

@@ -109,7 +109,7 @@
 					shouldTrigger && event.code === 'Escape' && closeOnEscape && onClose();
 				}}
 			>
-				<div transition:scale={{ duration: 100, easing: sineInOut }}>
+				<div class={classes.transition} transition:scale={{ duration: 100, easing: sineInOut }}>
 					<Paper
 						class={classes.modal}
 						{shadow}
@@ -143,17 +143,17 @@
 						</div>
 					</Paper>
 				</div>
-				<div transition:fade={{ duration: 200, easing: sineInOut }}>
-					<Overlay
-						class={classes.overlay}
-						override={{ position: 'fixed' }}
-						zIndex={0}
-						on:mousedown={() => closeOnClickOutside && onClose()}
-						blur={overlayBlur}
-						color={overlayColor || 'black'}
-						opacity={_overlayOpacity}
-					/>
-				</div>
+			</div>
+			<div transition:fade={{ duration: 200, easing: sineInOut }}>
+				<Overlay
+					class={classes.overlay}
+					override={{ position: 'fixed' }}
+					zIndex={0}
+					on:mousedown={() => closeOnClickOutside && onClose()}
+					blur={overlayBlur}
+					color={overlayColor || 'black'}
+					opacity={_overlayOpacity}
+				/>
 			</div>
 		</Box>
 	</OptionalPortal>
