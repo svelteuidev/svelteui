@@ -1,36 +1,13 @@
 <script lang="ts">
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { getSize, randomID, rem } from '$lib/styles';
+	import { randomID } from '$lib/styles';
 	import { Input } from '../Input';
 	import { InputWrapper } from '../InputWrapper';
 	import type { PasswordInputProps as $$PasswordInputProps } from './PasswordInput';
 	import { ActionIcon } from '../ActionIcon';
 	import PasswordToggleIcon from './PasswordToggleIcon.svelte';
-
-	const buttonSizes = {
-		xs: rem(22),
-		sm: rem(26),
-		md: rem(28),
-		lg: rem(32),
-		xl: rem(40)
-	};
-
-	const iconSizes = {
-		xs: rem(12),
-		sm: rem(15),
-		md: rem(17),
-		lg: rem(19),
-		xl: rem(21)
-	};
-
-	const rightSectionSizes = {
-		xs: rem(28),
-		sm: rem(32),
-		md: rem(34),
-		lg: rem(44),
-		xl: rem(54)
-	};
+	import { getButtonSize, getIconSize, getRightSectionWidth } from './PasswordInput.styles';
 
 	interface $$Props extends $$PasswordInputProps {}
 
@@ -61,8 +38,6 @@
 	export { className as class };
 
 	let uncontrolledVisible = defaultVisible !== undefined ? defaultVisible : false;
-
-	const rightSectionWidth = getSize({ size, sizes: rightSectionSizes });
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -116,7 +91,7 @@ Password input with visibility toggle
 		{id}
 		{placeholder}
 		{radius}
-		{rightSectionWidth}
+		rightSectionWidth={getRightSectionWidth(size)}
 		{disabled}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
@@ -129,13 +104,13 @@ Password input with visibility toggle
 				<ActionIcon
 					tabindex={toggleTabIndex}
 					{radius}
-					size={getSize({ size, sizes: buttonSizes })}
+					size={getButtonSize(size)}
 					aria-hidden={!visibilityToggleLabel}
 					aria-label={visibilityToggleLabel}
 					on:click={toggleVisibility}
 				>
 					<slot name="visibilityToggleIcon" visible={_visible}>
-						<PasswordToggleIcon reveal={_visible} size={getSize({ size, sizes: iconSizes })} />
+						<PasswordToggleIcon reveal={_visible} size={getIconSize(size)} />
 					</slot>
 				</ActionIcon>
 			{/if}

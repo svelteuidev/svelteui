@@ -1,4 +1,4 @@
-import type { DefaultProps } from '$lib/styles';
+import { DefaultProps } from '$lib/styles';
 import { InputProps } from '../Input/Input';
 import { InputWrapperProps } from '../InputWrapper/InputWrapper';
 
