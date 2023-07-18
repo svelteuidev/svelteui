@@ -2,6 +2,7 @@ import { Accessibility, Dashboard, Box as BoxIcon } from 'radix-icons-svelte';
 import TypeScript from '../../components/svgs/TypeScript.svelte';
 import {
 	Accordion,
+	Blockquote,
 	Container,
 	Center,
 	Collapse,
@@ -257,6 +258,14 @@ export const components = [
 		component: Title,
 		link: 'core/title',
 		title: 'Title',
+		color: '$blue600',
+		content: 'Enter some text'
+	},
+	{
+		icon: BoxIcon,
+		component: Blockquote,
+		link: 'core/blockquote',
+		title: 'Blockquote',
 		color: '$blue600',
 		content: 'Enter some text'
 	},
