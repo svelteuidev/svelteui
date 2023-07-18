@@ -26,6 +26,7 @@ export * from './IconRenderer';
 export * from './Image';
 export * from './Input';
 export * from './InputWrapper';
+export * from './JsonInput';
 export * from './Kbd';
 export * from './Loader';
 export * from './MediaQuery';
