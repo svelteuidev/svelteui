@@ -20,7 +20,7 @@
 		descriptionProps: $$Props['descriptionProps'] = {},
 		errorProps: $$Props['errorProps'] = {},
 		invalid: $$Props['invalid'] = false,
-		id: $$Props['id'] = 'input-id',
+		id: $$Props['id'] = randomID('text-input'),
 		labelElement: $$Props['labelElement'] = 'label',
 		size: $$Props['size'] = 'sm',
 		showRightSection: $$Props['showRightSection'] = undefined,
@@ -30,7 +30,7 @@
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
-	const baseId = randomID(id);
+
 	// Flag that enables the override of the right section slot
 	// of the Input component only if it was provided
 	const _showRightSection =
@@ -43,7 +43,7 @@
 
 Input for text that also uses labels for the input
 
-@see https://svelteui.org/core/text
+@see https://svelteui.org/core/text-input
 @example
     ```tsx
     <TextInput
@@ -72,7 +72,7 @@ Input for text that also uses labels for the input
 	{labelProps}
 	{descriptionProps}
 	{errorProps}
-	id={baseId}
+	{id}
 	{labelElement}
 	{size}
 >
@@ -80,7 +80,7 @@ Input for text that also uses labels for the input
 		bind:value
 		{required}
 		{size}
-		id={baseId}
+		{id}
 		{placeholder}
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}

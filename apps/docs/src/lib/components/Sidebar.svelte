@@ -140,8 +140,10 @@
 						<li><a href={`${base}/core/chip`}>Chip</a></li>
 						<li><a href={`${base}/core/input`}>Input</a></li>
 						<li><a href={`${base}/core/input-wrapper`}>InputWrapper</a></li>
+						<li><a href={`${base}/core/json-input`}>JsonInput</a></li>
 						<li><a href={`${base}/core/native-select`}>NativeSelect</a></li>
 						<li><a href={`${base}/core/number-input`}>NumberInput</a></li>
+						<li><a href={`${base}/core/password-input`}>PasswordInput</a></li>
 						<li><a href={`${base}/core/radio`}>Radio</a></li>
 						<li><a href={`${base}/core/switch`}>Switch</a></li>
 						<li><a href={`${base}/core/textarea`}>Textarea</a></li>
@@ -194,6 +196,7 @@
 				<li>
 					<strong><LetterCaseToggle /><Space w="md" />Typography</strong>
 					<ul>
+						<li><a href={`${base}/core/blockquote`}>Blockquote</a></li>
 						<li><a href={`${base}/core/code`}>Code</a></li>
 						<li><a href={`${base}/core/mark`}>Mark</a></li>
 						<li><a href={`${base}/core/text`}>Text</a></li>

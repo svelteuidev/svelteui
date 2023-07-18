@@ -15,7 +15,7 @@ export interface ActionIconProps extends DefaultProps, HTMLButtonAttributes {
 	root?: LiteralUnion<keyof HTMLElementTagNameMap | Component, string>;
 	color?: SvelteUIColor;
 	variant?: ActionIconVariant;
-	size?: SvelteUINumberSize;
+	size?: SvelteUINumberSize | string;
 	radius?: SvelteUINumberSize | number;
 	loaderProps?: LoaderProps;
 	loading?: boolean;
