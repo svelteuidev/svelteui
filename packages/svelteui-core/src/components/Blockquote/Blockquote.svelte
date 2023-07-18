@@ -13,11 +13,8 @@
 		root: $$Props['root'] = 'blockquote',
 		color: $$Props['color'] = 'gray',
 		icon: $$Props['icon'] = QuoteIcon,
-		iconSize: $$Props['iconSize'] = 20,
-		citeProps: $$Props['citeProps'] = {};
+		iconSize: $$Props['iconSize'] = 20;
 	export { className as class };
-
-	const { class: citeClass, ...restCiteProps } = citeProps;
 
 	$: ({ cx, classes } = useStyles({ color }, { override, name: 'Blockquote' }));
 </script>
@@ -47,7 +44,7 @@ Blockquote with icon and citation
 		<div class={classes.body}>
 			<slot />
 			{#if $$slots.cite}
-				<cite class={cx(classes.cite, citeClass)} {...restCiteProps}>
+				<cite class={classes.cite}>
 					<slot name="cite" />
 				</cite>
 			{/if}
