@@ -88,7 +88,7 @@ Display text and links with theme styles.
 	bind:element
 	use={[forwardEvents, [useActions, use]]}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	href={href ?? undefined}
+	href={href || undefined}
 	{...$$restProps}
 >
 	<slot />

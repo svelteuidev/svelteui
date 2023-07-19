@@ -11,6 +11,7 @@ type InputElementType =
 	| HTMLDataListElement;
 
 export interface InputBaseProps<T = string> extends DefaultProps<InputElementType> {
+	ariaDescribedby?: string;
 	icon?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
