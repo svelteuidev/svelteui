@@ -3,12 +3,12 @@
 	import type { FormProps as $$FormProps } from './Form';
 	import { key } from './formContext';
 	import isEqual from 'fast-deep-equal';
-	import { getInputOnChange } from './src/get-input-on-change';
-	import { getPath, insertPath, removePath, reorderPath, setPath } from './src/paths';
-	import { filterErrors } from './src/filter-errors';
-	import { shouldValidateOnChange, validateFieldValue, validateValues } from './src/validate';
-	import { getStatus } from './src/get-status';
-	import { changeErrorIndices, clearListState, reorderErrors } from './src/lists';
+	import { getInputOnChange } from './utils/get-input-on-change';
+	import { getPath, insertPath, removePath, reorderPath, setPath } from './utils/paths';
+	import { filterErrors } from './utils/filter-errors';
+	import { shouldValidateOnChange, validateFieldValue, validateValues } from './utils/validate';
+	import { getStatus } from './utils/get-status';
+	import { changeErrorIndices, clearListState, reorderErrors } from './utils/lists';
 	import type {
 		_TransformValues,
 		ClearErrors,
@@ -32,7 +32,7 @@
 		SetValues,
 		Validate,
 		ValidateField
-	} from './src/types';
+	} from './utils/types';
 
 	type Values = Record<string, unknown>;
 	interface TransformValues extends _TransformValues<Values> {}

@@ -6,7 +6,7 @@
 	import { TextInput } from '../TextInput';
 	import Field from './Field.svelte';
 	import Form from './Form.svelte';
-	import { hasLength, isNotEmpty } from './src';
+	import { hasLength, isNotEmpty } from './utils';
 </script>
 
 <Form
