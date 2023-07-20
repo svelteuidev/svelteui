@@ -1,12 +1,12 @@
 import type { UseFormReturnType } from './src';
 import type { UseFormInput } from './utils/types';
 
-export type Values = Record<string, unknown>;
+export type Values = Record<string, any>;
 
 export interface FormProps extends Omit<UseFormInput<Values>, 'validate'> {
 	onSubmit?(values: TransformedValues<Form>): void;
 	onReset?(values: TransformedValues<Form>): void;
-	validation?: Record<string, unknown>;
+	validation?: Record<string, any>;
 }
 
 export interface FieldProps {

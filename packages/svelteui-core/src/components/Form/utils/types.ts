@@ -48,20 +48,20 @@ export type SetFormStatus = React.Dispatch<React.SetStateAction<FormStatus>>;
 export type OnSubmit<Values, TransformValues extends _TransformValues<Values>> = (
 	handleSubmit: (
 		values: ReturnType<TransformValues>,
-		event: React.FormEvent<HTMLFormElement>
+		event: Event & { readonly submitter: HTMLElement }
 	) => void,
 	handleValidationFailure?: (
 		errors: FormErrors,
 		values: Values,
-		event: React.FormEvent<HTMLFormElement>
+		event: Event & { readonly submitter: HTMLElement }
 	) => void
-) => (event?: React.FormEvent<HTMLFormElement>) => void;
+) => (event?: Event & { readonly submitter: HTMLElement }) => void;
 
 export type GetTransformedValues<Values, TransformValues extends _TransformValues<Values>> = (
 	values?: Values
 ) => ReturnType<TransformValues>;
 
-export type OnReset = (event: React.FormEvent<HTMLFormElement>) => void;
+export type OnReset = (event: Event & { readonly currentTarget: HTMLElement }) => void;
 
 export type GetInputProps<Values> = <Field extends LooseKeys<Values>>(
 	path: Field,

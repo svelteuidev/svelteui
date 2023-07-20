@@ -34,7 +34,7 @@
 	let:form
 >
 	<form
-		on:submit|preventDefault={form.onSubmit((values) => {
+		on:submit={form.onSubmit((values) => {
 			console.log({ values });
 		})}
 		on:reset={form.onReset}
@@ -58,7 +58,7 @@
 					<TextInput label="Last name (svelteui input)" {...inputProps} on:input={field.onChange} />
 				</Field>
 				<h2>Pokemon</h2>
-				{#each form.values.pokemon as pokemon, i}
+				{#each form.values.pokemon as _pokemon, i}
 					<Flex gap="$md" align="end">
 						<Field {form} name={`pokemon.${i}.name`} let:field let:inputProps>
 							<TextInput label="Name" {...inputProps} on:input={field.onChange} />
