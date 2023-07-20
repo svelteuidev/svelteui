@@ -23,10 +23,6 @@
 		size: $$Props['size'] = 'sm';
 	export { className as class };
 
-	let _labelProps;
-	$: {
-		_labelProps = labelElement === 'label' ? { htmlFor: id, ...labelProps } : { ...labelProps };
-	}
 	$: ({ cx, classes, getStyles } = useStyles({ size }, { name: 'InputWrapper' }));
 </script>
 
@@ -37,7 +33,7 @@
 	{...$$restProps}
 >
 	{#if label}
-		<LabelElement class={classes.label} {..._labelProps} {label} {id} {labelElement} {required} />
+		<LabelElement class={classes.label} {...labelProps} {label} {id} {labelElement} {required} />
 	{/if}
 	{#if description}
 		<Text {...descriptionProps} color="gray" class={classes.description}>
