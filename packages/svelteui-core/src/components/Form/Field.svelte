@@ -1,24 +1,26 @@
 <script lang="ts">
-	// import { getContext } from 'svelte';
 	import type { FieldProps as $$FieldProps } from './Form';
-	// import { key } from './formContext';
 
 	interface $$Props extends $$FieldProps {}
 
 	export let form: $$Props['form'] = undefined,
-		name: $$Props['name'] = undefined;
+		name: $$Props['name'] = undefined,
+		isCheckbox: $$Props['isCheckbox'] = false;
 
-	// const { update } = getContext(key);
-
-	$: field = form.getInputProps(name);
+	$: fieldProps = form.getInputProps(name, { type: isCheckbox ? 'checkbox' : 'input' });
+	$: field = {
+		...fieldProps,
+		onValueChange: fieldProps.onChange,
+		onChange: (e) => fieldProps.onChange(isCheckbox ? e.target.checked : e.target.value)
+	};
 	$: inputProps = {
-		value: field.value,
 		error: field.error,
-		checked: field.checked
+		value: !isCheckbox ? field.value : undefined,
+		checked: isCheckbox ? field.checked : undefined
 	};
 	$: htmlInputProps = {
-		value: field.value,
-		checked: field.checked,
+		value: !isCheckbox ? field.value : undefined,
+		checked: isCheckbox ? field.checked : undefined,
 		'aria-invalid': !!field.error || undefined
 	};
 </script>

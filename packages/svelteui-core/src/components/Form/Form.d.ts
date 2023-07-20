@@ -1,20 +1,16 @@
 import type { UseFormReturnType } from './src';
+import type { UseFormInput } from './utils/types';
 
-export interface FormProps {
+export type Values = Record<string, unknown>;
+
+export interface FormProps extends Omit<UseFormInput<Values>, 'validate'> {
 	onSubmit?(values: TransformedValues<Form>): void;
 	onReset?(values: TransformedValues<Form>): void;
-	initialValues?: any;
-	initialErrors?: any;
-	initialDirty?: any;
-	initialTouched?: any;
-	clearInputErrorOnChange?: boolean;
-	validateInputOnChange?: boolean;
-	validateInputOnBlur?: boolean;
-	transformValues?: (values: any) => any;
-	validation?: any;
+	validation?: Record<string, unknown>;
 }
 
 export interface FieldProps {
-	form: UseFormReturnType<any, (values: any) => any>;
+	form: UseFormReturnType<Values>;
 	name: string;
+	isCheckbox?: boolean;
 }

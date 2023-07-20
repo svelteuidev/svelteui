@@ -4,7 +4,7 @@ export type FormStatus = Record<string, boolean>;
 
 export interface FormFieldValidationResult {
 	hasError: boolean;
-	error: React.ReactNode;
+	error: string;
 }
 
 export interface FormValidationResult {
@@ -12,14 +12,14 @@ export interface FormValidationResult {
 	errors: FormErrors;
 }
 
-export type FormErrors = Record<string, React.ReactNode>;
+export type FormErrors = Record<string, string>;
 
 export interface ReorderPayload {
 	from: number;
 	to: number;
 }
 
-type Rule<Value, Values> = (value: Value, values: Values, path: string) => React.ReactNode;
+type Rule<Value, Values> = (value: Value, values: Values, path: string) => string;
 
 type FormRule<Value, Values> = NonNullable<Value> extends Array<infer ListValue>
 	?
@@ -84,7 +84,7 @@ export type ValidateField<Values> = <Field extends LooseKeys<Values>>(
 
 export type SetFieldError<Values> = <Field extends LooseKeys<Values>>(
 	path: Field,
-	error: React.ReactNode
+	error: string
 ) => void;
 
 export type ReorderListItem<Values> = <Field extends LooseKeys<Values>>(

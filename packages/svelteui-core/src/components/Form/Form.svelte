@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { FormProps as $$FormProps } from './Form';
+	import type { FormProps as $$FormProps, Values } from './Form';
 	import { key } from './formContext';
 	import isEqual from 'fast-deep-equal';
 	import { getInputOnChange } from './utils/get-input-on-change';
@@ -30,11 +30,11 @@
 		SetFieldError,
 		SetFieldValue,
 		SetValues,
+		UseFormReturnType,
 		Validate,
 		ValidateField
 	} from './utils/types';
 
-	type Values = Record<string, unknown>;
 	interface TransformValues extends _TransformValues<Values> {}
 
 	interface $$Props extends $$FormProps {}
@@ -174,7 +174,7 @@
 		return results;
 	};
 
-	const getInputProps: GetInputProps<any> = (
+	const getInputProps: GetInputProps<Values> = (
 		path,
 		{ type = 'input', withError = true, withFocus = true } = {}
 	) => {
@@ -182,7 +182,7 @@
 		const payload: any = { onChange };
 
 		if (withError) {
-			payload.error = errors[path];
+			payload.error = errors[path as any];
 		}
 
 		if (type === 'checkbox') {
@@ -254,7 +254,7 @@
 			? !validateFieldValue(path, rules, values).hasError
 			: !validateValues(rules, values).hasErrors;
 
-	let form;
+	let form: UseFormReturnType<Values>;
 
 	$: form = {
 		values,
