@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { FieldProps as $$FieldProps } from './Form';
+	import type { FieldProps as $$FieldProps, GetInputPropsReturnType } from './Form';
 
 	interface $$Props extends $$FieldProps {}
 
 	export let form: $$Props['form'] = undefined,
 		name: $$Props['name'] = undefined,
 		isCheckbox: $$Props['isCheckbox'] = false;
+
+	let fieldProps: GetInputPropsReturnType;
 
 	$: fieldProps = form.getInputProps(name, { type: isCheckbox ? 'checkbox' : 'input' });
 	$: field = {
