@@ -2,7 +2,7 @@
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
-  import { Button, Menu } from '@svelteuidev/core';
+  import { Button, Menu, type MenuComponent } from '@svelteuidev/core';
   import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 
   let element;
@@ -26,10 +26,10 @@
 </script>
 
 <script lang="ts">
-	import { Button, Center, Menu } from '@svelteuidev/core';
+	import { Button, Center, Menu, type MenuComponent } from '@svelteuidev/core';
 	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 
-	let element;
+	let element: MenuComponent;
 </script>
 
 <Center>
