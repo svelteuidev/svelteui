@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { reorderPath } from './reorder-path';
 
 describe('@mantine/form/reorder-path', () => {

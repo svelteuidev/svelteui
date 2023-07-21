@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { getStatus } from './get-status';
 
 const TEST_STATUS = {

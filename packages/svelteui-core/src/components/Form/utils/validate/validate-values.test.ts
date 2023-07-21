@@ -1,3 +1,4 @@
+import { describe, it, expect, vitest } from 'vitest';
 import { validateValues } from './validate-values';
 
 describe('@mantine/form/validate-values', () => {
@@ -34,7 +35,7 @@ describe('@mantine/form/validate-values', () => {
 	});
 
 	it('calls validate function with values', () => {
-		const spy = jest.fn();
+		const spy = vitest.fn();
 		validateValues(spy, { a: 1, b: 2 });
 		expect(spy).toHaveBeenCalledWith({ a: 1, b: 2 });
 	});

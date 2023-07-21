@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isEmail } from './is-email';
 
 const TEST_ERROR = 'email-error';

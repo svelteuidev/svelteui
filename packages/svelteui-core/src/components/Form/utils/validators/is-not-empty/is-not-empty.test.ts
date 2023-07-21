@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isNotEmpty } from './is-not-empty';
 
 const TEST_ERROR = 'not-empty-error';

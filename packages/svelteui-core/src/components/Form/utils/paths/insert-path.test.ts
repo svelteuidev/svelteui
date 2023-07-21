@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { insertPath } from './insert-path';
 
 describe('@mantine/form/insert-path', () => {

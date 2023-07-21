@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { hasLength } from './has-length';
 
 const TEST_ERROR = 'has-length-error';

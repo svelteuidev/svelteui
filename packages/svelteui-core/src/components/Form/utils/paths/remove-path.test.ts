@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { removePath } from './remove-path';
 
 describe('@mantine/form/remove-path', () => {

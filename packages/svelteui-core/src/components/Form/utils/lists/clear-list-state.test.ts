@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { clearListState } from './clear-list-state';
 
 const TEST_ERRORS = {

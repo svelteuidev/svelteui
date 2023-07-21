@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { getPath } from './get-path';
 
 const values = {

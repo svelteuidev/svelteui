@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { filterErrors } from './filter-errors';
 
 describe('@mantine/form/filter-errors', () => {

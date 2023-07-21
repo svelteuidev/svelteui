@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isInRange } from './is-in-range';
 
 const TEST_ERROR = 'is-in-range-error';

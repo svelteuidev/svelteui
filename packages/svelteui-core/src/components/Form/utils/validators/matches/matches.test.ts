@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { matches } from './matches';
 
 const TEST_ERROR = 'matches-error';

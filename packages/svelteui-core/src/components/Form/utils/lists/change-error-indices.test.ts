@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { changeErrorIndices } from './change-error-indices';
 
 const TEST_ERRORS = {
