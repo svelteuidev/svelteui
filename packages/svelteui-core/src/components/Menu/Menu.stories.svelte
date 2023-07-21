@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import { Menu } from './index';
+	import { Menu, type MenuComponent } from './index';
 	import { Button } from '../Button';
 	import { Kbd } from '../Kbd';
 	import { Divider } from '../Divider';
@@ -10,7 +10,7 @@
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
 	let menuEvents = [];
-	let element;
+	let element: MenuComponent;
 </script>
 
 <Meta title="Components/Menu" component={Menu} />
