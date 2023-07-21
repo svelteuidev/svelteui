@@ -28,6 +28,7 @@
 		size: $$Props['size'] = 'sm',
 		value: $$Props['value'] = '',
 		invalid: $$Props['invalid'] = false,
+		ariaDescribedby: $$Props['ariaDescribedby'] = undefined,
 		multiline: $$Props['multiline'] = false,
 		autocomplete: $$Props['autocomplete'] = 'on',
 		type: $$Props['type'] = 'text',
@@ -129,7 +130,8 @@ Base component to create custom inputs
 			{placeholder}
 			{autocomplete}
 			{autofocus}
-			aria-invalid={invalid}
+			aria-invalid={invalid || undefined}
+			aria-describedby={ariaDescribedby}
 			class:withIcon={icon}
 			class={cx(
 				className,
@@ -155,7 +157,8 @@ Base component to create custom inputs
 			{autocomplete}
 			{type}
 			{autofocus}
-			aria-invalid={invalid}
+			aria-invalid={invalid || undefined}
+      aria-describedby={ariaDescribedby}
 			class:disabled
 			class:invalid
 			class:withIcon={icon}
@@ -178,7 +181,8 @@ Base component to create custom inputs
 			bind:element
 			bind:value
 			use={[forwardEvents, [useActions, use]]}
-			aria-invalid={invalid}
+			aria-invalid={invalid || undefined}
+			aria-describedby={ariaDescribedby}
 			class={cx(
 				className,
 				{

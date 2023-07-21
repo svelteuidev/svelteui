@@ -36,6 +36,7 @@
 	const _showRightSection =
 		showRightSection === undefined ? !!$$slots.rightSection : showRightSection;
 	$: _invalid = invalid || !!error;
+	$: _errorProps = { ...errorProps, id: (errorProps.id as string) || randomID('input-error') };
 </script>
 
 <!--
@@ -71,7 +72,7 @@ Input for text that also uses labels for the input
 	{required}
 	{labelProps}
 	{descriptionProps}
-	{errorProps}
+	errorProps={_errorProps}
 	{id}
 	{labelElement}
 	{size}
@@ -85,6 +86,7 @@ Input for text that also uses labels for the input
 		{...$$restProps}
 		use={[forwardEvents, [useActions, use]]}
 		invalid={_invalid}
+		ariaDescribedby={error ? _errorProps.id : undefined}
 		showRightSection={_showRightSection}
 	>
 		<slot slot="rightSection" name="rightSection" />
