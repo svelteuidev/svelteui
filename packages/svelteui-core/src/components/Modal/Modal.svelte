@@ -124,9 +124,11 @@
 					>
 						{#if title || withCloseButton}
 							<div class={classes.header}>
-								<Text id={titleId} class={classes.title}>
-									{title}
-								</Text>
+								<slot name="title">
+									<Text id={titleId} class={classes.title}>
+										{title}
+									</Text>
+								</slot>
 
 								{#if withCloseButton}
 									<CloseButton
