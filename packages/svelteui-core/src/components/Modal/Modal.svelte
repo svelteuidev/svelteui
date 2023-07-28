@@ -3,6 +3,7 @@
 	import { fade, scale } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import { focustrap, lockscroll, useFocusReturn } from '@svelteuidev/composables';
+	import { getTransition } from '$lib/internal';
 	import { randomID, colorScheme, css } from '$lib/styles';
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
@@ -32,6 +33,10 @@
 		overlayBlur: $$Props['overlayBlur'] = 0,
 		radius: $$Props['radius'] = 'sm',
 		size: $$Props['size'] = 'md',
+		transition: $$Props['transition'] = 'scale',
+		transitionOptions: $$Props['transitionOptions'] = { duration: 100, easing: sineInOut },
+		overlayTransition: $$Props['transition'] = 'fade',
+		overlayTransitionOptions: $$Props['transitionOptions'] = { duration: 200, easing: sineInOut },
 		closeButtonLabel: $$Props['closeButtonLabel'] = 'svelteui-close-button',
 		id: $$Props['id'] = 'svelteui',
 		shadow: $$Props['shadow'] = 'lg',
@@ -84,6 +89,8 @@
 		);
 	}
 	$: lockScroll = opened;
+	$: _transition = getTransition(transition) as any;
+	$: _overlayTransition = getTransition(overlayTransition) as any;
 	$: ({ cx, classes, getStyles } = useStyles(
 		{ centered, overflow, size, zIndex },
 		{ name: 'Modal' }
@@ -109,7 +116,7 @@
 					shouldTrigger && event.code === 'Escape' && closeOnEscape && onClose();
 				}}
 			>
-				<div class={classes.transition} transition:scale={{ duration: 100, easing: sineInOut }}>
+				<div class={classes.transition} transition:_transition={transitionOptions}>
 					<Paper
 						class={classes.modal}
 						{shadow}
@@ -146,7 +153,7 @@
 					</Paper>
 				</div>
 			</div>
-			<div transition:fade={{ duration: 200, easing: sineInOut }}>
+			<div transition:_overlayTransition={overlayTransitionOptions}>
 				<Overlay
 					class={classes.overlay}
 					override={{ position: 'fixed' }}
