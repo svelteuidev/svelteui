@@ -120,23 +120,6 @@ Base component to create custom inputs
 
 <!-- svelte-ignore a11y-autofocus -->
 <Box {...wrapperProps} class={cx(classes.root, getStyles({ css: override }))} {...$$restProps}>
-	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
-	<span bind:this={iconElement} class={cx({ [classes.iconWrapper]: !!icon || isIconSlotUsed })}>
-		<slot name="icon">
-			{#if icon}
-				<div class={classes.icon}>
-					<IconRenderer {icon} {iconProps} iconSize={16} />
-				</div>
-			{/if}
-		</slot>
-	</span>
-	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
-	{#if icon && !isIconSlotUsed}
-		<div class={cx(classes.icon, classes.iconWrapper)}>
-			<IconRenderer {icon} {iconProps} iconSize={16} />
-		</div>
-	{/if}
-
 	{#if isHTMLElement && root === 'input'}
 		<input
 			{value}
@@ -224,6 +207,22 @@ Base component to create custom inputs
 		>
 			<slot />
 		</svelte:component>
+	{/if}
+	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
+	<span bind:this={iconElement} class={cx({ [classes.iconWrapper]: !!icon || isIconSlotUsed })}>
+		<slot name="icon">
+			{#if icon}
+				<div class={classes.icon}>
+					<IconRenderer {icon} {iconProps} iconSize={16} />
+				</div>
+			{/if}
+		</slot>
+	</span>
+	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
+	{#if icon && $$slots.icon && !isIconSlotUsed}
+		<div class={cx(classes.icon, classes.iconWrapper)}>
+			<IconRenderer {icon} {iconProps} iconSize={16} />
+		</div>
 	{/if}
 	{#if showRightSection}
 		<div {...rightSectionProps} class={classes.rightSection}>
