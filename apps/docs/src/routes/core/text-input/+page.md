@@ -48,6 +48,8 @@ docs: 'core/text-input'
 
 ## With icon
 
+The icon can also be set by using the `icon` slot.
+
 <Demo demo={TextInputDemos.icon} />
 
 ## With right section

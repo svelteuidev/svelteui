@@ -57,7 +57,7 @@ Input has 3 variants, all of which are available on all SvelteUI inputs. Note th
 
 ## Icon and right section
 
-The Input component has two ways to render an Icon. The left Icon is passed in as a prop, and it is any valid Svelte Component. The right Icon is passed in through a named slot.
+The Input component has two ways to render an Icon. The left icon is passed in as the prop `icon` or as a slot called `icon`, and it is any valid Svelte Component. The right section is passed in through a named slot called `rightSection`.
 
 <Demo demo={InputDemos.sections} />
 

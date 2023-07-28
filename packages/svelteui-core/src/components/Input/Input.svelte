@@ -50,6 +50,15 @@
 	let isHTMLElement = true;
 	let isComponent = false;
 
+	// @TODO
+	// Slot forwarding and conditional slots will be reworked for Svelte 5. This is waiting
+	// for that fix, since currently setting a slot and then checking for $$slot.icon
+	// for the `withIcon` class won't work.
+	// Discussion here: https://github.com/sveltejs/svelte/pull/8304 and
+	// https://github.com/sveltejs/svelte/issues/8765
+	let iconElement: HTMLElement;
+	$: isIconSlotUsed = Boolean(iconElement?.innerHTML);
+
 	function onChange() {
 		// the 'this' keyword in this case is the
 		// HTML element provided in prop 'root'
@@ -111,11 +120,23 @@ Base component to create custom inputs
 
 <!-- svelte-ignore a11y-autofocus -->
 <Box {...wrapperProps} class={cx(classes.root, getStyles({ css: override }))} {...$$restProps}>
-	{#if icon}
-		<div class={classes.icon}>
+	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
+	<span bind:this={iconElement} class={cx({ [classes.iconWrapper]: !!icon || isIconSlotUsed })}>
+		<slot name="icon">
+			{#if icon}
+				<div class={classes.icon}>
+					<IconRenderer {icon} {iconProps} iconSize={16} />
+				</div>
+			{/if}
+		</slot>
+	</span>
+	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
+	{#if icon && !isIconSlotUsed}
+		<div class={cx(classes.icon, classes.iconWrapper)}>
 			<IconRenderer {icon} {iconProps} iconSize={16} />
 		</div>
 	{/if}
+
 	{#if isHTMLElement && root === 'input'}
 		<input
 			{value}
@@ -130,11 +151,14 @@ Base component to create custom inputs
 			{autocomplete}
 			{autofocus}
 			aria-invalid={invalid}
-			class:withIcon={icon}
 			class={cx(
 				className,
 				classes.input,
-				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
+				{
+					[classes.disabled]: disabled,
+					[classes.invalid]: invalid,
+					[classes.withIcon]: icon || isIconSlotUsed
+				},
 				classes[`${variant}Variant`] ?? {}
 			)}
 			{...$$restProps}
@@ -158,11 +182,14 @@ Base component to create custom inputs
 			aria-invalid={invalid}
 			class:disabled
 			class:invalid
-			class:withIcon={icon}
 			class={cx(
 				className,
 				classes.input,
-				{ [classes.disabled]: disabled, [classes.invalid]: invalid },
+				{
+					[classes.disabled]: disabled,
+					[classes.invalid]: invalid,
+					[classes.withIcon]: icon || isIconSlotUsed
+				},
 				classes[`${variant}Variant`] ?? {}
 			)}
 			on:change={onChange}
@@ -184,7 +211,7 @@ Base component to create custom inputs
 				{
 					[classes.disabled]: disabled,
 					[classes.invalid]: invalid,
-					[classes.withIcon]: icon
+					[classes.withIcon]: icon || isIconSlotUsed
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}

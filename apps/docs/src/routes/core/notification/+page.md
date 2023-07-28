@@ -33,6 +33,8 @@ It has 3 variants:
 - **icon** – line is replaced with icon
 - **loading** – icon or line are replaced with [Loader]({base}/core/loader)
 
+The icon can also be set by using the `icon` slot.
+
 <Demo demo={NotificationDemos.usage} />
 
 ## Colors and state

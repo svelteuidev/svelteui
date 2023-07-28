@@ -42,6 +42,8 @@ Just like with regular inputs you may bind to the value for two way data binding
 
 ## With icon
 
+The icon can also be set by using the `icon` slot.
+
 <Demo demo={NativeSelectDemos.icon} />
 
 ## Right section

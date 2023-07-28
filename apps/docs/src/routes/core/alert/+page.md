@@ -26,6 +26,8 @@ docs: 'core/alert'
 
 <Demo demo={AlertDemos.configurator} />
 
+The icon can also be passed by using the slot `icon`.
+
 ## Accessibility
 
 - Root element role set to `alert`

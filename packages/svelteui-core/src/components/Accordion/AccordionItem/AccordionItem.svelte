@@ -77,7 +77,9 @@ Item of an accordion.
 			class={classes.chevron}
 			data-rotate={!$ctx.disableChevronRotation && $ctx.isItemActive(value)}
 		>
-			<svelte:component this={chevron || $ctx.chevron} />
+			<slot name="chevron">
+				<svelte:component this={chevron || $ctx.chevron} />
+			</slot>
 		</span>
 		<span class={classes.controlContent}>
 			<slot name="control" {disabled} />

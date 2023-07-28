@@ -112,6 +112,7 @@ Capture user feedback limited to large set of options
 				{placeholder}
 			</option>
 		{/if}
+		<slot slot="icon" name="icon" />
 		{#each formattedData as item}
 			<option value={item.value} disabled={item.disabled} selected={item.value === value}>
 				{item.label ?? item.value}

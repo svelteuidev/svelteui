@@ -53,9 +53,11 @@
 	{...$$restProps}
 >
 	<div class={classes.itemInner}>
-		{#if icon}
-			<IconRenderer {icon} className={classes.itemIcon} {iconSize} {iconProps} />
-		{/if}
+		<slot name="icon">
+			{#if icon}
+				<IconRenderer {icon} className={classes.itemIcon} {iconSize} {iconProps} />
+			{/if}
+		</slot>
 		<div class={classes.itemBody}>
 			<div class={classes.itemLabel}>
 				<slot />

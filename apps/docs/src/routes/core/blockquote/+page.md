@@ -36,3 +36,5 @@ To render a custom icon, use the `icon` prop:
 Set `icon` to `null` to show no icon:
 
 <Demo demo={BlockquoteDemos.noicon} />
+
+The icon can also be set by using the `icon` slot.

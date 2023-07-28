@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
+	import { EnvelopeClosed } from 'radix-icons-svelte';
 	import { TextInput } from './index';
 </script>
 
@@ -36,3 +37,21 @@
 		error: 'Something went wrong'
 	}}
 />
+
+<Story
+	name="With icon"
+	id="textInputIconStory"
+	args={{
+		label: 'Email',
+		placeholder: 'Your email',
+		icon: EnvelopeClosed
+	}}
+/>
+
+<Story name="With icon (slot)" id="textInputIconSlotStory">
+	<TextInput label="Email" placeholder="Your email">
+		<svelte:fragment slot="icon">
+			<EnvelopeClosed />
+		</svelte:fragment>
+	</TextInput>
+</Story>

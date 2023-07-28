@@ -133,13 +133,17 @@
 					fileUploadComponent.click();
 				}}
 			>
-				<IconRenderer slot="leftIcon" {icon} />
+				<slot name="leftIcon">
+					<IconRenderer {icon} />
+				</slot>
 
 				{label}
 			</Button>
 			{#if reset}
 				<Button {size} color={resetColor} disabled={files.length == 0} on:click={resetFiles}>
-					<IconRenderer slot="leftIcon" icon={resetIcon} />
+					<slot name="leftIcon">
+						<IconRenderer icon={resetIcon} />
+					</slot>
 					{resetLabel}
 				</Button>
 			{/if}
@@ -150,7 +154,9 @@
 	{#each files as { file }, i}
 		<div class={classes.fileItemWrapper}>
 			<div class={classes.fileItemIcon}>
-				<IconRenderer iconSize={fontSizes[size] * 1.8} icon={fileIcon} />
+				<slot name="fileIcon">
+					<IconRenderer iconSize={fontSizes[size] * 1.8} icon={fileIcon} />
+				</slot>
 			</div>
 			<span class={classes.fileItemName}>
 				{file.name}
@@ -158,7 +164,9 @@
 			<span class={classes.fileItemAction}>
 				<span>
 					<Button variant="default" {size} on:click={() => remove(i)}>
-						<IconRenderer iconSize={fontSizes[size] * 1.5} icon={removeIcon} />
+						<slot name="removeIcon">
+							<IconRenderer iconSize={fontSizes[size] * 1.5} icon={removeIcon} />
+						</slot>
 					</Button>
 				</span>
 			</span>

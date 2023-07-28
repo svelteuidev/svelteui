@@ -104,6 +104,8 @@ NumberInput exposes increment/decrement functions that allow external controls t
 
 ## With icon
 
+The icon can also be set by using the `icon` slot.
+
 <Demo demo={NumberInputDemos.icon} />
 
 ## Accessibility

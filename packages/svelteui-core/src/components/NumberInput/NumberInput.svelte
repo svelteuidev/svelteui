@@ -219,6 +219,7 @@ values and add custom parsers and formatters.
 	on:blur={onBlur}
 	use={[forwardEvents, [useActions, use]]}
 >
+	<slot slot="icon" name="icon" />
 	<div
 		slot="rightSection"
 		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}

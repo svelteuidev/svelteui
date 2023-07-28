@@ -51,11 +51,11 @@
 	})}
 	{...$$restProps}
 >
-	{#if icon && !loading}
-		<slot name="icon">
+	<slot name="icon">
+		{#if icon && !loading}
 			<IconRenderer {icon} className={classes.icon} {...iconProps} />
-		</slot>
-	{/if}
+		{/if}
+	</slot>
 	{#if loading}
 		<Loader class={classes.loader} size={28} {color} />
 	{/if}

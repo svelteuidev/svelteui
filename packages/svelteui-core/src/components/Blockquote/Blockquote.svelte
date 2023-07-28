@@ -36,11 +36,13 @@ Blockquote with icon and citation
 
 <Box bind:element class={cx(className, classes.root)} {root} {...$$restProps}>
 	<div class={classes.inner}>
-		{#if icon}
-			<div class={classes.icon}>
-				<IconRenderer {icon} {iconSize} />
-			</div>
-		{/if}
+		<slot name="icon">
+			{#if icon}
+				<div class={classes.icon}>
+					<IconRenderer {icon} {iconSize} />
+				</div>
+			{/if}
+		</slot>
 		<div class={classes.body}>
 			<slot />
 			{#if $$slots.cite}

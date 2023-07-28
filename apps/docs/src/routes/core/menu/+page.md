@@ -63,7 +63,7 @@ In this case, menu will use `mouseenter` and `focus` events instead of `click`:
 - `disabled` – disables item
 - `...others` – `Menu.Item` produces a button element, all other props will be spread to it
 
-The right section of `Menu.Item` can be customized with the slot `rightSection`.
+The right section of `Menu.Item` can be customized with the slot `rightSection`. The icon can also be set by using the `icon` slot.
 
 ```svelte
 <script lang="ts">

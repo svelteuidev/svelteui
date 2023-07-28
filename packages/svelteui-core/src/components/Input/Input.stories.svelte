@@ -30,3 +30,11 @@
 <Story name="Disabled" id="inputDisabledStory" args={{ disabled: true }} />
 
 <Story name="With icon" id="inputIconStory" args={{ icon: EnvelopeClosed }} />
+
+<Story name="With icon (slot)" id="inputIconSlotStory">
+	<Input bind:value>
+		<svelte:fragment slot="icon">
+			<EnvelopeClosed />
+		</svelte:fragment>
+	</Input>
+</Story>

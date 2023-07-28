@@ -88,5 +88,6 @@ Input for text that also uses labels for the input
 		showRightSection={_showRightSection}
 	>
 		<slot slot="rightSection" name="rightSection" />
+		<slot slot="icon" name="icon" />
 	</Input>
 </InputWrapper>
