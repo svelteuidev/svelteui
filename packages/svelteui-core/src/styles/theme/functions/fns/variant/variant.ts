@@ -1,4 +1,4 @@
-import { useSvelteUITheme, useSvelteUIThemeContext } from '../../../';
+import { useSvelteUITheme, useSvelteUIThemeContext } from '../../../SvelteUIProvider';
 import { rgba } from '../rgba/rgba';
 import { themeColor } from '../theme-color/theme-color';
 import type { SvelteUIColor, SvelteUIGradient } from '../../../types';

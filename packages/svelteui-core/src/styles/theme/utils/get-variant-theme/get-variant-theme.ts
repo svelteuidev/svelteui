@@ -1,5 +1,6 @@
-import { dark, fns } from '$lib/styles';
-import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '$lib/styles';
+import { fns } from '../../functions';
+import { dark } from '../../../stitches.config';
+import type { SvelteUIColor, SvelteUIGradient, VariantThemeFunction } from '../../types';
 
 export const vFunc = (color: SvelteUIColor, gradient?: SvelteUIGradient): VariantThemeFunction => {
 	const { themeColor, rgba } = fns;

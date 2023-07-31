@@ -1,5 +1,5 @@
 import { createStitches, defaultThemeMap } from '@stitches/core';
-import { colors } from './styles';
+import { colors } from './theme/default-colors';
 import type { LiteralUnion } from '$lib/internal';
 import type * as Stitches from '@stitches/core';
 
@@ -627,4 +627,5 @@ const NormalizeCSS = globalCss({
 		display: 'none'
 	}
 });
+
 export { SvelteUIGlobalCSS, NormalizeCSS, dark };

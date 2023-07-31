@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { theme, dark, fns, colorScheme, colorNameMap } from '../../index';
+import { theme, dark } from '../../stitches.config';
+import { fns } from '../functions';
+import { colorNameMap } from '../default-colors';
+import { colorScheme } from './svelteui.stores';
 import type { SvelteUITheme } from '../types';
 
 export function useSvelteUITheme(): SvelteUITheme {

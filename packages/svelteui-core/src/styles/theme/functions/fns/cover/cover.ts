@@ -1,4 +1,4 @@
-import { rem } from '../../../utils';
+import { rem } from '../../../utils/rem/rem';
 
 export function cover(offset: number | string = 0) {
 	return {

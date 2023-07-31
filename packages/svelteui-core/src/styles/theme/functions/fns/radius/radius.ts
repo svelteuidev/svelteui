@@ -1,5 +1,5 @@
 import { useSvelteUITheme, useSvelteUIThemeContext } from '../../../SvelteUIProvider';
-import type { SvelteUINumberSize } from '$lib/styles';
+import type { SvelteUINumberSize } from '../../../types';
 
 export function radius(radii?: SvelteUINumberSize): number | string {
 	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();

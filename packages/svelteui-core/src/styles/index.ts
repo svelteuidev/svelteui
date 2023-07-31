@@ -14,4 +14,4 @@ export {
 	createTheme,
 	NormalizeCSS,
 	SvelteUIGlobalCSS
-} from '../stitches.config.js';
+} from './stitches.config.js';

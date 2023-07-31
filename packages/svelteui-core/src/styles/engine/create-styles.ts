@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { css } from '../index.js';
+import { css } from '../stitches.config';
+import { useSvelteUITheme, useSvelteUIThemeContext } from '../theme';
+import type { CSS } from '../theme';
+import type { SvelteUITheme } from '../theme';
 import { cssFactory } from './css.js';
 import { fromEntries } from './utils/from-entries/from-entries.js';
-import { useSvelteUITheme, useSvelteUIThemeContext } from '$lib/styles';
-import type { CSS } from '$lib/styles';
-import type { SvelteUITheme } from '$lib/styles';
 
 const CLASS_KEY = 'svelteui';
 

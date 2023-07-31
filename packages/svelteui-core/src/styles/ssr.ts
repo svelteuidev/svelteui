@@ -1,4 +1,4 @@
-import { getCssText } from '../stitches.config';
+import { getCssText } from './stitches.config';
 
 /**
  * Injects the stitches stylesheet at the end of the
