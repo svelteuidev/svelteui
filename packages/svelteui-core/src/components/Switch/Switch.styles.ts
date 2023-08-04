@@ -6,6 +6,7 @@ export interface SwitchStyleParams {
 	color: SvelteUIColor;
 	radius: SvelteUINumberSize;
 	size: SvelteUINumberSize;
+	insideLabelSize: SvelteUINumberSize;
 	transitionFunction: SwitchTimingFunction;
 	onLabel: string;
 	offLabel: string;
@@ -58,7 +59,18 @@ export const sizes = {
 };
 
 export default createStyles(
-	(theme, { radius, size, transitionFunction, color, offLabel, onLabel }: SwitchStyleParams) => {
+	(
+		theme,
+		{
+			radius,
+			size,
+			transitionFunction,
+			color,
+			offLabel,
+			onLabel,
+			insideLabelSize
+		}: SwitchStyleParams
+	) => {
 		return {
 			root: {
 				display: 'flex',
@@ -83,7 +95,7 @@ export default createStyles(
 				appearance: 'none',
 				display: 'flex',
 				alignItems: 'center',
-				fontSize: sizes[size].insideLabelFont,
+				fontSize: insideLabelSize || sizes[size].insideLabelFont,
 				fontWeight: 600,
 
 				[`${dark.selector} &`]: {
