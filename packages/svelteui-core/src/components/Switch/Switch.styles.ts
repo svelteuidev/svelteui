@@ -154,7 +154,7 @@ export default createStyles(
 					},
 
 					'&::after': {
-						transform: 'translateX(-200%)',
+						left: '10%',
 						content: onLabel ? `'${onLabel}'` : "''",
 						color: 'White'
 					}
