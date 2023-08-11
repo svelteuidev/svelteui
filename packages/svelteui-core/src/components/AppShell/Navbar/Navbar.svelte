@@ -10,7 +10,7 @@
 		override: $$Props['override'] = {},
 		width: $$Props['width'] = undefined,
 		height: $$Props['height'] = undefined,
-		fixed: $$Props['fixed'] = false,
+		fixed: $$Props['fixed'] = true,
 		position: $$Props['position'] = { top: 0, left: 0 },
 		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
 		hidden: $$Props['hidden'] = false,

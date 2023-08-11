@@ -16,7 +16,7 @@
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
 		zIndex: $$Props['zIndex'] = 100,
-		fixed: $$Props['fixed'] = false,
+		fixed: $$Props['fixed'] = true,
 		padding: $$Props['padding'] = 'md',
 		navbarOffsetBreakpoint: $$Props['navbarOffsetBreakpoint'] = undefined,
 		asideOffsetBreakpoint: $$Props['asideOffsetBreakpoint'] = undefined;
@@ -33,6 +33,7 @@
 	));
 </script>
 
+<!-- @TODO: Remove the AppShellProvider, since it's not being used for anything (react pattern) -->
 <AppShellProvider {use} bind:element value={{ fixed, zIndex }} class={cx(className, classes.root)}>
 	<Box>
 		{#if $$slots.header}
