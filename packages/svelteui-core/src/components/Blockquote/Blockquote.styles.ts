@@ -10,6 +10,7 @@ export default createStyles((theme, { color }: BlockquoteStylesParams) => {
 			darkMode: {
 				color: theme.fn.themeColor('dark', 0)
 			},
+			fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 			fontSize: theme.fontSizes.lg.value,
 			lineHeight: theme.lineHeights.md.value,
 			color: theme.fn.themeColor('black'),

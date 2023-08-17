@@ -16,7 +16,8 @@ export const fontSizes = {
 
 export default createStyles((theme, { color, size }: BreadcrumbItemStylesParams) => ({
 	root: {
-		position: 'relative'
+		position: 'relative',
+		fontFamily: theme.fonts.standard.value ?? 'sans-serif'
 	},
 	wrapper: {
 		display: 'flex',

@@ -65,6 +65,7 @@ export default createStyles(
 							appearance: 'none',
 							resize,
 							boxSizing: 'border-box',
+							fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 							fontSize: typeof size === 'number' ? `${size}px` : `${size}`,
 							width: '100%',
 							color: 'Black',

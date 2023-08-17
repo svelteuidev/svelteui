@@ -92,6 +92,7 @@ export default createStyles((theme, { size }: MenuStyleParams) => ({
 		color: theme.fn.themeColor('gray', 2),
 		fontWeight: 500,
 		fontSize: theme.fontSizes.xs,
+		fontFamily: theme.fonts.standard.value,
 		padding: `${parseInt(theme.space.xs.value) / 2}px ${parseInt(theme.space.sm.value)}px`,
 		cursor: 'default'
 	}

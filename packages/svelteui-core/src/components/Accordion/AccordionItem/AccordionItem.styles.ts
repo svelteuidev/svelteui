@@ -69,6 +69,7 @@ export default createStyles(
 				}
 			},
 			controlContent: {
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				color: 'inherit',
 				fontWeight: 400,
 				flex: 1,

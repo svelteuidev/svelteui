@@ -23,7 +23,7 @@ export default createStyles(
 				...position,
 				zIndex,
 				height,
-				fontFamily: '$standard' || 'sans-serif',
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				maxHeight: height,
 				position: fixed ? 'fixed' : 'static',
 				boxSizing: 'border-box',

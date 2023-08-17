@@ -17,6 +17,7 @@ export default createStyles((theme, { size }: InputWrapperStyleParams) => {
 			},
 			display: 'inline-block',
 			marginBottom: 4,
+			fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 			fontSize: theme.fontSizes[size].value,
 			fontWeight: 500,
 			color: theme.fn.themeColor('gray', 9),
@@ -48,7 +49,7 @@ export default createStyles((theme, { size }: InputWrapperStyleParams) => {
 
 		required: {
 			[`${theme.dark} &`]: {
-				color: '$red500'
+				color: theme.fn.themeColor('red', 5)
 			},
 			color: theme.fn.themeColor('red', 7)
 		}

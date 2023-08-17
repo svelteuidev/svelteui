@@ -10,6 +10,7 @@ export default createStyles((theme) => ({
 		border: 0,
 		padding: 0,
 		appearance: 'none',
+		fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 		fontSize: theme.fontSizes.md.value,
 		backgroundColor: 'transparent',
 		textAlign: 'left',

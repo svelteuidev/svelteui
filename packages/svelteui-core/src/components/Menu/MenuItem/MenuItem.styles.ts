@@ -35,7 +35,8 @@ export default createStyles((theme, { color, radius }: MenuItemStylesParams) => 
 				}
 			},
 			WebkitTapHighlightColor: 'transparent',
-			fontSize: theme.fontSizes.sm,
+			fontFamily: theme.fonts.standard.value,
+			fontSize: theme.fontSizes.sm.value,
 			border: 0,
 			backgroundColor: 'transparent',
 			outline: 0,

@@ -58,6 +58,7 @@ export default createStyles(
 				border: '1px solid transparent',
 				borderRadius: theme.fn.radius(radius),
 				height: theme.fn.size({ size, sizes }),
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				fontSize: theme.fn.size({ size, sizes: theme.fontSizes }),
 				lineHeight: `${theme.fn.size({ size, sizes }) - 2}px`,
 				paddingLeft: theme.fn.size({ size, sizes: padding }),

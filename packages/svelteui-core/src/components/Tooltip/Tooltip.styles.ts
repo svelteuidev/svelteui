@@ -20,6 +20,7 @@ export default createStyles((theme, { color, radius }: TooltipStyleParams) => {
 			backgroundColor: theme.fn.themeColor(color, 9),
 			lineHeight: theme.lineHeights.md,
 			fontSize: theme.fontSizes.sm,
+			fontFamily: theme.fonts.standard.value,
 			borderRadius: theme.radii[radius].value,
 			padding: `${+theme.space.xs.value / 2}px ${theme.space.xs.value}px`,
 			color: 'white',

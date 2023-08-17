@@ -27,6 +27,7 @@ export default createStyles(
 				paddingLeft: align === 'left' ? theme.space.xlPX.value : 0,
 				paddingRight: align === 'right' ? theme.space.xlPX.value : 0,
 				textAlign: align,
+				fontFamily: theme.fonts.standard.value,
 				darkMode: {
 					color: theme.fn.themeColor('dark', 0)
 				},

@@ -52,7 +52,7 @@ export default createStyles(
 						5
 					)}`
 				},
-				fontFamily: '$standard' || 'sans-serif',
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				...position,
 				top: position?.top || 'var(--svelteui-header-height)',
 				zIndex,

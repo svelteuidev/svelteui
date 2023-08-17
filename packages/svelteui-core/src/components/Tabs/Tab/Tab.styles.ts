@@ -85,6 +85,7 @@ export default createStyles((theme, { color, orientation }: TabStyleParams) => {
 			backgroundColor: 'transparent',
 			border: 0,
 			padding: `0 ${theme.space.mdPX}`,
+			fontFamily: theme.fonts.standard.value,
 			fontSize: theme.fontSizes.sm,
 			cursor: 'pointer',
 			width: orientation === 'vertical' ? '100%' : 'auto',

@@ -11,6 +11,7 @@ export interface AlertStylesParams {
 export default createStyles((theme, { color, radius, variant }: AlertStylesParams, getRef) => {
 	return {
 		root: {
+			fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 			position: 'relative',
 			overflow: 'hidden',
 			padding: `${theme.space.sm.value}px ${theme.space.md.value}px`,

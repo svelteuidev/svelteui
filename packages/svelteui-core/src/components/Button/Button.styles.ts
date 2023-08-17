@@ -89,7 +89,7 @@ export default createStyles(
 					typeof size === 'number'
 						? `0px ${size}px`
 						: sizes[compact ? `compact-${size}` : size].padding,
-				fontFamily: '$standard',
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				fontWeight: '$semibold',
 				fontSize: `$${size}`,
 				lineHeight: 1,

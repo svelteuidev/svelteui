@@ -55,7 +55,8 @@ export default createStyles((theme, { centered, overflow, size, zIndex }: ModalS
 			marginRight: +theme.space.md.value,
 			textOverflow: 'ellipsis',
 			display: 'block',
-			wordBreak: 'break-word'
+			wordBreak: 'break-word',
+			fontFamily: theme.fonts.standard.value
 		},
 
 		modal: {

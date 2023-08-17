@@ -73,6 +73,7 @@ export default createStyles(
 				width: fullWidth ? '100%' : 'auto',
 				textTransform: 'uppercase',
 				borderRadius: theme.fn.radius(radius),
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				fontWeight: 700,
 				letterSpacing: 0.25,
 				cursor: 'default',

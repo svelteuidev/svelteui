@@ -18,6 +18,7 @@ export default createStyles((theme, { color, radius }: NotificationStylesParams,
 				backgroundColor: theme.fn.themeColor('dark', 6),
 				border: `1px solid ${theme.fn.themeColor('dark', 6)}`
 			},
+			fontFamily: theme.fonts.standard.value,
 			boxSizing: 'border-box',
 			position: 'relative',
 			display: 'flex',

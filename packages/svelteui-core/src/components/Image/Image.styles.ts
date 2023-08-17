@@ -11,7 +11,9 @@ export interface ImageStylesParams {
 
 export default createStyles((theme, { radius, height, width, fit }: ImageStylesParams) => {
 	return {
-		root: {},
+		root: {
+			fontFamily: theme.fonts.standard.value ?? 'sans-serif'
+		},
 		imageWrapper: {
 			position: 'relative'
 		},
@@ -23,7 +25,6 @@ export default createStyles((theme, { radius, height, width, fit }: ImageStylesP
 		image: {
 			width,
 			height,
-			fontFamily: '$standard',
 			display: 'block',
 			border: 0,
 			borderRadius: theme.fn.radius(radius),
