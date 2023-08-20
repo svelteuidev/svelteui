@@ -45,7 +45,7 @@ The Loader component creates a loading icon. There are three different Loaders w
 	bind:this={element}
 	use={[forwardEvents, [useActions, use]]}
 	color={color === 'white' ? 'white' : getCorrectShade(color)}
-	size={LOADER_SIZES[size]}
+	size={LOADER_SIZES[size] || size}
 	class={className}
 	{...$$restProps}
 />
