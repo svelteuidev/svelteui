@@ -14,3 +14,15 @@
 <Story name="Disabled" id="switchDisabledStory">
 	<Switch disabled />
 </Story>
+
+<Story
+	name="With label"
+	id="switchLabelStory"
+	args={{ label: 'I would like to receive annoying notifications ' }}
+/>
+
+<Story
+	name="With inside label"
+	id="switchInsideLabelStory"
+	args={{ size: 'md', onLabel: 'ON', offLabel: 'OFF' }}
+/>
