@@ -16,6 +16,7 @@ export interface SwitchProps
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
 	radius?: SvelteUINumberSize;
+	insideLabelSize?: SvelteUINumberSize;
 	transitionFunction?: SwitchTimingFunction;
 	className?: string;
 	id?: string;

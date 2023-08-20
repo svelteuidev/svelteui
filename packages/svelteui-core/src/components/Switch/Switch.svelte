@@ -14,6 +14,7 @@
 		color: $$Props['color'] = 'blue',
 		size: $$Props['size'] = 'sm',
 		radius: $$Props['radius'] = 'xl',
+		insideLabelSize: $$Props['insideLabelSize'] = undefined,
 		transitionFunction: $$Props['transitionFunction'] = 'linear',
 		id: $$Props['id'] = randomID(),
 		label: $$Props['label'] = '',
@@ -31,6 +32,7 @@
 			color,
 			offLabel,
 			onLabel,
+			insideLabelSize,
 			radius,
 			size,
 			transitionFunction
