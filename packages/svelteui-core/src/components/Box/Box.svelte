@@ -33,7 +33,7 @@
 	/** workaround for root type errors, this should be replaced by a better type system */
 	const castRoot = () => root as string;
 	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
-	const getCSSStyles = typeof css === 'function' ? css : () => css;
+	$: getCSSStyles = typeof css === 'function' ? css : () => css;
 
 	let isHTMLElement;
 	let isComponent;
