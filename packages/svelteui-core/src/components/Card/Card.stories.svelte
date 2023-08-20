@@ -4,7 +4,9 @@
 	import { Group } from '../Group';
 	import { Image } from '../Image';
 	import { Text } from '../Text';
+	import { Menu } from '../Menu';
 	import { Card } from './index';
+	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 </script>
 
 <Meta title="Components/Card" component={Card} />
@@ -39,3 +41,14 @@
 	id="cardStory"
 	args={{ withBorder: true, radius: 'md', shadow: 'sm', padding: 'lg' }}
 />
+
+<Story name="With Menu inside" id="cardWithMenuStory">
+	<Card shadow="sm" padding="lg">
+		<Menu override={{ root: { position: 'relative' } }}>
+			<Menu.Label>Application</Menu.Label>
+			<Menu.Item icon={Gear}>Settings</Menu.Item>
+			<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+			<Menu.Item icon={Camera}>Gallery</Menu.Item>
+		</Menu>
+	</Card>
+</Story>

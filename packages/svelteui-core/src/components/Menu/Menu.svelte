@@ -8,6 +8,7 @@
 	import { writable } from 'svelte/store';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
+	import { PopperContainer } from '../Popper/PopperContainer';
 	import { Paper } from '../Paper';
 	import { MenuIcon } from './index';
 	import { clickoutside, useHash } from '@svelteuidev/composables';
@@ -224,32 +225,33 @@
 			on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 		/>
 	</slot>
-	<Popper
-		reference={control ?? referenceElement}
-		mounted={_opened}
-		arrowSize={3}
-		arrowClassName={classes.arrow}
-		{transition}
-		{transitionOptions}
-		{position}
-		{placement}
-		{gutter}
-		{withArrow}
-		{zIndex}
-		{withinPortal}
-	>
-		<Paper
-			bind:element={dropdownElement}
-			use={[[clickoutside, clickOutsideParams]]}
-			id={uuid}
-			role="menu"
-			class={cx(classes.body)}
-			aria-orientation="vertical"
-			{radius}
-			on:mouseleave={() => (hovered = -1)}
-			{shadow}
+	<PopperContainer {withinPortal}>
+		<Popper
+			reference={control ?? referenceElement}
+			mounted={_opened}
+			arrowSize={3}
+			arrowClassName={classes.arrow}
+			{transition}
+			{transitionOptions}
+			{position}
+			{placement}
+			{gutter}
+			{withArrow}
+			{zIndex}
 		>
-			<slot />
-		</Paper>
-	</Popper>
+			<Paper
+				bind:element={dropdownElement}
+				use={[[clickoutside, clickOutsideParams]]}
+				id={uuid}
+				role="menu"
+				class={cx(classes.body)}
+				aria-orientation="vertical"
+				{radius}
+				on:mouseleave={() => (hovered = -1)}
+				{shadow}
+			>
+				<slot />
+			</Paper>
+		</Popper>
+	</PopperContainer>
 </Box>
