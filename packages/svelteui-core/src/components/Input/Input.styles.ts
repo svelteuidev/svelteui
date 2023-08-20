@@ -223,6 +223,7 @@ export default createStyles(
 			},
 			icon: {
 				color: invalid ? theme.fn.themeColor('red', 7) : theme.fn.themeColor('gray', 5),
+				pointerEvents: 'none',
 				darkMode: {
 					color: invalid ? theme.fn.themeColor('red', 6) : theme.fn.themeColor('dark', 2)
 				}
@@ -235,6 +236,7 @@ export default createStyles(
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
+				pointerEvents: 'none',
 				width: rightSectionWidth
 			}
 		};
