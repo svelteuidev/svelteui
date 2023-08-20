@@ -11,6 +11,8 @@
 
 <Story name="Menu" id="progressStory" args={{ value: 40 }} />
 
+<Story name="With label" id="progressLabelStory" args={{ size: 'xl', value: 25, label: '25%' }} />
+
 <Story name="Sections" id="progressSectionsStory">
 	<Progress
 		size="xl"

@@ -34,13 +34,13 @@ A section that collapses with animation, occupying no space on the page.
 <Box class={className} bind:element css={override} {use} {...$$restProps}>
 	{#if open}
 		{#if animateOpacity}
-			<div transition:fade={{ duration: transitionDuration }}>
-				<div transition:slide={slideTransitionOptions} use:forwardEvents>
+			<div transition:fade|global={{ duration: transitionDuration }}>
+				<div transition:slide|global={slideTransitionOptions} use:forwardEvents>
 					<slot />
 				</div>
 			</div>
 		{:else}
-			<div transition:slide={slideTransitionOptions} use:forwardEvents>
+			<div transition:slide|global={slideTransitionOptions} use:forwardEvents>
 				<slot />
 			</div>
 		{/if}
