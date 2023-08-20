@@ -32,7 +32,7 @@ Switch component is used to enable/disable something, normally used for boolean 
 
 There is support for inserting text inside the switch for when it is enabled and/or disabled. It is also possible to control the size of the switch with predefined values: `xs`, `sm`, `md`, `lg`, `xl`.
 
-This inner label size can be overridden using the `innerLabelSize` property.
+This inner label size can be overridden using the `insideLabelSize` property.
 
 <Demo demo={SwitchDemos.inner} />
 
