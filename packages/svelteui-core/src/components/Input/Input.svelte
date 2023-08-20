@@ -176,6 +176,7 @@ Base component to create custom inputs
 				classes[`${variant}Variant`] ?? {}
 			)}
 			on:change={onChange}
+			on:input={onInput}
 			use:useActions={use}
 			use:forwardEvents
 			{...$$restProps}
