@@ -74,6 +74,7 @@
 		</h3>
 		{#if sidebar[0].expand}
 			<ul transition:fly|local={{ y: -20, duration: 150 }}>
+				<li><a href={`${base}/changelog/v0-15-0`}>Version 0.15.0</a></li>
 				<li><a href={`${base}/changelog/v0-14-0`}>Version 0.14.0</a></li>
 				<li><a href={`${base}/changelog/v0-13-0`}>Version 0.13.0</a></li>
 				<li><a href={`${base}/changelog/v0-12-0`}>Version 0.12.0</a></li>
