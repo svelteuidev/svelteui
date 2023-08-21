@@ -47,6 +47,9 @@
 	function isInput(root: string): root is Input {
 		return ['input', 'select', 'textarea', 'datalist'].includes(root);
 	}
+	function isSelect(root: string): boolean {
+		return root === 'select';
+	}
 	let isHTMLElement = true;
 	let isComponent = false;
 
@@ -226,7 +229,10 @@ Base component to create custom inputs
 		</div>
 	{/if}
 	{#if showRightSection}
-		<div {...rightSectionProps} class={classes.rightSection}>
+		<div
+			{...rightSectionProps}
+			class={cx(classes.rightSection, { [classes.noPointerEvents]: isSelect(root) })}
+		>
 			<slot name="rightSection" />
 		</div>
 	{/if}

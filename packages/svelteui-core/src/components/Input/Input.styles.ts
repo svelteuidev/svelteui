@@ -236,8 +236,10 @@ export default createStyles(
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				pointerEvents: 'none',
 				width: rightSectionWidth
+			},
+			noPointerEvents: {
+				pointerEvents: 'none'
 			}
 		};
 	}

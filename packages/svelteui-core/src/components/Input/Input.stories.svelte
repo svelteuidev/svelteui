@@ -2,6 +2,7 @@
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Input } from './index';
 	import { EnvelopeClosed } from 'radix-icons-svelte';
+	import { Button } from '../Button';
 
 	let value = 'Hello';
 	let valueNumber = 0;
@@ -35,6 +36,14 @@
 	<Input bind:value>
 		<svelte:fragment slot="icon">
 			<EnvelopeClosed />
+		</svelte:fragment>
+	</Input>
+</Story>
+
+<Story name="With right section" id="inputRightSectionStory">
+	<Input bind:value>
+		<svelte:fragment slot="rightSection">
+			<Button on:click={() => console.log('heelo')} />
 		</svelte:fragment>
 	</Input>
 </Story>
