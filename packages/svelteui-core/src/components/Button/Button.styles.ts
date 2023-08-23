@@ -137,6 +137,11 @@ export default createStyles(
 					backgroundColor: 'rgba(255, 255, 255, .5)',
 					borderRadius: `$${radius}`,
 					cursor: 'not-allowed'
+				},
+				darkMode: {
+					'&::before': {
+						backgroundColor: theme.fn.rgba(theme.fn.themeColor('dark', 7), 0.5)
+					}
 				}
 			},
 			variants: {
