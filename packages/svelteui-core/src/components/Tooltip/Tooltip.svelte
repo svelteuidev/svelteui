@@ -11,7 +11,7 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		label: $$Props['label'] = null,
+		label: $$Props['label'] = undefined,
 		opened: $$Props['opened'] = null,
 		openDelay: $$Props['openDelay'] = 0,
 		closeDelay: $$Props['closeDelay'] = 0,
