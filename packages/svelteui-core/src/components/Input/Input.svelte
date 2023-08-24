@@ -33,7 +33,8 @@
 		type: $$Props['type'] = 'text',
 		placeholder: $$Props['placeholder'] = undefined,
 		autofocus: $$Props['autofocus'] = undefined,
-		resize: $$Props['resize'] = 'none';
+		resize: $$Props['resize'] = 'none',
+		noPointerEventsRightSection: $$Props['noPointerEventsRightSection'] = false;
 	export { className as class };
 
 	/** An action that forwards inner dom node events from parent component */
@@ -46,9 +47,6 @@
 	}
 	function isInput(root: string): root is Input {
 		return ['input', 'select', 'textarea', 'datalist'].includes(root);
-	}
-	function isSelect(root: string): boolean {
-		return root === 'select';
 	}
 	let isHTMLElement = true;
 	let isComponent = false;
@@ -231,7 +229,7 @@ Base component to create custom inputs
 	{#if showRightSection}
 		<div
 			{...rightSectionProps}
-			class={cx(classes.rightSection, { [classes.noPointerEvents]: isSelect(root) })}
+			class={cx(classes.rightSection, { [classes.noPointerEvents]: noPointerEventsRightSection })}
 		>
 			<slot name="rightSection" />
 		</div>

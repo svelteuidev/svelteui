@@ -26,6 +26,7 @@ export interface InputBaseProps<T = string> extends DefaultProps<InputElementTyp
 	disabled?: boolean;
 	size?: SvelteUISize;
 	resize?: CSS['resize'];
+	noPointerEventsRightSection?: boolean;
 	root?: Component | keyof HTMLElementTagNameMap;
 	value?: T;
 }

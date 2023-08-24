@@ -94,6 +94,7 @@ Capture user feedback limited to large set of options
 		autocomplete="off"
 		invalid={Boolean(error)}
 		override={{ ...base, ...inputStyle }}
+		noPointerEventsRightSection
 		{size}
 		{icon}
 		{radius}
