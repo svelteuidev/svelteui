@@ -12,37 +12,11 @@
 
 	$: nosidebar = $page.url.pathname === '/';
 
-	let sidebar = [
-		{ id: 1, expand: false },
-		{ id: 2, expand: false },
-		{ id: 3, expand: false },
-		{ id: 4, expand: false },
-		{ id: 5, expand: false },
-		{ id: 6, expand: false },
-		{ id: 7, expand: false },
-		{ id: 8, expand: false }
-	];
-
-	let sidebar_details: { index: number; expand: boolean };
-
-	function onToggleSidebar(event: CustomEvent<{ index: number; expand: boolean }>) {
-		sidebar_details = event.detail;
-	}
-
 	onMount(() => {
 		const colorSchemeValue = localStorage.getItem('colorScheme');
 		if (colorSchemeValue) $colorScheme = colorSchemeValue;
 	});
 
-	$: {
-		if (sidebar_details) {
-			sidebar = sidebar.map((sidebarItem) =>
-				sidebarItem.id === sidebar_details.index + 1
-					? { ...sidebarItem, expand: sidebar_details.expand }
-					: sidebarItem
-			);
-		}
-	}
 	export let data: PageData;
 </script>
 
@@ -64,7 +38,7 @@
 			>
 				{#key $page}
 					<div use:set_active_link={{ page: $page }}>
-						<Sidebar on:toggleSidebar={onToggleSidebar} {sidebar} />
+						<Sidebar />
 					</div>
 				{/key}
 			</div>
