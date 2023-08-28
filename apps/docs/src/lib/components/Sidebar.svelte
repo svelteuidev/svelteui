@@ -26,6 +26,20 @@
 		'.svelteui-AccordionItem-panel': {
 			padding: '0 !important',
 			paddingBottom: '8px !important'
+		},
+		'.svelteui-AccordionItem-root': {
+			borderBottom: '0 !important'
+		},
+		'.svelteui-AccordionItem-control': {
+			paddingLeft: '0 !important',
+			paddingRight: '0 !important'
+		},
+		'.svelteui-AccordionItem-chevron': {
+			marginRight: '6px !important'
+		},
+		'.svelteui-AccordionItem-controlContent': {
+			paddingTop: '8px !important',
+			paddingBottom: '8px !important'
 		}
 	}));
 	$: ({ getStyles } = useStyles());
@@ -62,7 +76,7 @@
 
 <hr />
 
-<Accordion variant="contained" chevronPosition="left" class={getStyles()}>
+<Accordion variant="default" chevronPosition="left" multiple class={getStyles()}>
 	<Accordion.Item value="changelog">
 		<div slot="control"><NavigationTitle>Changelog</NavigationTitle></div>
 		<ul class="list">
