@@ -1,8 +1,5 @@
 <script>
-	import ChevronDown from './svgs/ChevronDown.svelte';
-	import { Space, UnstyledButton, createStyles } from '@svelteuidev/core';
-
-	export let expanded = false;
+	import { UnstyledButton, createStyles } from '@svelteuidev/core';
 
 	const useStyles = createStyles(() => ({
 		root: {
@@ -21,8 +18,6 @@
 </script>
 
 <UnstyledButton class={classes.root} on:click>
-	<ChevronDown {expanded} />
-	<Space w="xs" />
 	<span class={classes.title}>
 		<slot>Title Here</slot>
 	</span>
