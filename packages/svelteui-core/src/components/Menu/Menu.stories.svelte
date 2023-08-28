@@ -130,3 +130,11 @@
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Story>
+
+<Story name="Close on Item Click (false)" id="menuCloseOnItemClickStory">
+	<Menu closeOnItemClick={false}>
+		<Menu.Item icon={Gear}>Settings</Menu.Item>
+		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+	</Menu>
+</Story>

@@ -173,11 +173,14 @@
 		}
 	};
 
-	const handleItemClick = () => {
-		if (closeOnItemClick) {
-			handleClose();
-			trigger === 'click' && focusReference();
+	const handleItemClick = (event: MouseEvent) => {
+		if (!closeOnItemClick) {
+			event.preventDefault();
+			event.stopPropagation();
+			return;
 		}
+		handleClose();
+		trigger === 'click' && focusReference();
 	};
 
 	const contextStore: Writable<MenuContextValue> = writable({

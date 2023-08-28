@@ -5,5 +5,5 @@ export interface MenuContextValue {
 	radius: SvelteUINumberSize;
 	onItemHover(index: number);
 	onItemKeyDown(event: KeyboardEvent): void;
-	onItemClick(): void;
+	onItemClick(event: MouseEvent): void;
 }
