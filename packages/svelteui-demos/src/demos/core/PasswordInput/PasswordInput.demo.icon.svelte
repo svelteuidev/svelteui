@@ -3,7 +3,7 @@
 
 	const code = `
 <script>
-  import { TextInput } from '@svelteuidev/core';
+  import { PasswordInput } from '@svelteuidev/core';
   import { LockClosed } from 'radix-icons-svelte';
 <\/script>
 
