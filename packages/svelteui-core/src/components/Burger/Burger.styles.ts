@@ -34,7 +34,7 @@ export default createStyles((theme, { color, size, opened }: BurgerStyleParams) 
 
 			'&, &:before, &:after': {
 				[`${theme.dark} &`]: {
-					backgroundColor: 'white'
+					backgroundColor: theme.fn.themeColor(color, 8)
 				},
 				display: 'block',
 				width: sizeValue,
