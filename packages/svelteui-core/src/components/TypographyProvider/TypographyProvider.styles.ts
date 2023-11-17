@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUIColor } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUIColor } from '$lib/styles-old';
 
 export interface TypographyProviderStyleParams {
 	primaryColor: SvelteUIColor;

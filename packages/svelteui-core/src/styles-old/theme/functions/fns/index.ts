@@ -5,7 +5,7 @@ import { radius } from './radius/radius.js';
 import { variant } from './variant/variant.js';
 import { rgba } from './rgba/rgba.js';
 
-export type { GetSize } from './size/size';
+export type { GetSize } from './size/size.js';
 
 export const fns = {
 	cover,

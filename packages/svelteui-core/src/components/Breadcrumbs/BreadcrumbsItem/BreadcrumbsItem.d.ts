@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface BreadcrumbItemProps
 	extends DefaultProps<HTMLDivElement>,

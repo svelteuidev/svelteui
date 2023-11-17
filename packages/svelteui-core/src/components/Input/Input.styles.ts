@@ -1,6 +1,6 @@
-import { createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
 import type { Component } from '$lib/internal';
-import type { CSS, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { CSS, SvelteUINumberSize, SvelteUISize } from '$lib/styles-old';
 import type { InputVariant } from './Input';
 
 export interface InputStylesParams {

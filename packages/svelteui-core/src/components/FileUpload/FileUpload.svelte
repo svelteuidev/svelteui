@@ -12,7 +12,7 @@
 	} from './FileUpload';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { createEventDispatcher, get_current_component } from 'svelte/internal';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import Button from '../Button/Button.svelte';
 

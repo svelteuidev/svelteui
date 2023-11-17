@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import useStyles from './Switch.styles';
 	import type { SwitchProps as $$SwitchProps } from './Switch';
 

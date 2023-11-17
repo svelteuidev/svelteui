@@ -1,5 +1,5 @@
-import { createStyles, keyframes } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles';
+import { createStyles, keyframes } from '$lib/styles-old';
+import type { SvelteUINumberSize, SvelteUIColor, ColorShades } from '$lib/styles-old';
 import type { Sections } from './Progress';
 
 export interface ProgressStylesParams {

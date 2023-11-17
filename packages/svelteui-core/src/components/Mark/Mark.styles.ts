@@ -1,4 +1,4 @@
-import { createStyles, type SvelteUIColor } from '$lib/styles';
+import { createStyles, type SvelteUIColor } from '$lib/styles-old';
 
 export interface MarkStyleParams {
 	color: SvelteUIColor;

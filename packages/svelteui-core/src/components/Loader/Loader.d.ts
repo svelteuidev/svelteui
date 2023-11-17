@@ -1,6 +1,6 @@
 import { SVGAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal/types';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles-old';
 
 export interface LoaderProps
 	extends DefaultProps<Omit<Component, 'prototype'>>,

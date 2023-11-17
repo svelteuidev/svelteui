@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUIColor } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUINumberSize, SvelteUIColor } from '$lib/styles-old';
 
 export interface BreadcrumbItemStylesParams {
 	color: SvelteUIColor;

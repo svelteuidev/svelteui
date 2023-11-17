@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { LiteralUnion, Transition, TransitionOptions } from '$lib/internal';
-import { DefaultProps, SvelteUINumberSize, SvelteUIShadow, SvelteUISize } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize, SvelteUIShadow, SvelteUISize } from '$lib/styles-old';
 
 export interface ModalProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	opened: boolean;

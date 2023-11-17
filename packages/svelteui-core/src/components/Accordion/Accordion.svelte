@@ -3,7 +3,7 @@
 	/* eslint-disable no-undef */
 	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import { Box } from '../Box';
 	import { key } from './key';
 	import Chevron from './Chevron/Chevron.svelte';

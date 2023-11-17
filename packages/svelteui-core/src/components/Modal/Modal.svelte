@@ -4,7 +4,7 @@
 	import { sineInOut } from 'svelte/easing';
 	import { focustrap, lockscroll, useFocusReturn } from '@svelteuidev/composables';
 	import { getTransition } from '$lib/internal';
-	import { randomID, colorScheme, css } from '$lib/styles';
+	import { randomID, colorScheme, css } from '$lib/styles-old';
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
 	import { Overlay } from '../Overlay';

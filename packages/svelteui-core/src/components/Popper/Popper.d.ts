@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
+import { DefaultProps } from '$lib/styles-old';
 import { Transition, TransitionOptions } from '$lib/internal';
 
 export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {

@@ -1,5 +1,5 @@
-import { theme } from '$lib/styles';
-import type { SvelteUIColor } from '$lib/styles';
+import { theme } from '$lib/styles-old';
+import type { SvelteUIColor } from '$lib/styles-old';
 
 export const LOADER_SIZES = {
 	xs: 18,

@@ -1,4 +1,4 @@
-import { getSize, rem, type SvelteUISize } from '$lib/styles';
+import { getSize, rem, type SvelteUISize } from '$lib/styles-old';
 
 export function getButtonSize(size: SvelteUISize) {
 	const sizes = {

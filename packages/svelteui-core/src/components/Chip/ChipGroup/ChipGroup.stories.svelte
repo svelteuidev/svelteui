@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SvelteUINumberSize } from '$lib/styles';
+	import type { SvelteUINumberSize } from '$lib/styles-old';
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { ChipGroup } from '../index';
 

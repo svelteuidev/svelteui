@@ -1,6 +1,6 @@
 import { HTMLInputAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles-old';
 
 export interface CheckboxProps
 	extends DefaultProps<HTMLInputElement>,

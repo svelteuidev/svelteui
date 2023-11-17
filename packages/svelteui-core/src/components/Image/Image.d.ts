@@ -1,5 +1,5 @@
 import { HTMLImgAttributes } from 'svelte/elements';
-import { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles-old';
 
 export type ImageFit = 'cover' | 'contain' | undefined;
 

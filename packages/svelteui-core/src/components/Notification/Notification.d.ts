@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import { CloseButtonProps } from '../ActionIcon/CloseButton/CloseButton';
 
 export interface NotificationProps

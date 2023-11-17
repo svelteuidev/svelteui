@@ -1,5 +1,5 @@
 import { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles-old';
 import { LoaderProps } from '../Loader/Loader';
 
 export type ButtonVariant =

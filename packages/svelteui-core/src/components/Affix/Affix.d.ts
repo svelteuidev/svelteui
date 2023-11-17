@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import type { DefaultProps } from '$lib/styles';
+import type { DefaultProps } from '$lib/styles-old';
 
 export interface AffixProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	target?: HTMLElement | string;

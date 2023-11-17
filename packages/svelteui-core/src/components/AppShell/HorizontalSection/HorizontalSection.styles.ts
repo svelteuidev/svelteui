@@ -1,9 +1,9 @@
-import { createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
 import {
 	getSortedBreakpoints,
 	theme as appShellTheme
 } from './get-sorted-breakpoints/get-sorted-breakpoints';
-import type { SvelteUINumberSize } from '$lib/styles';
+import type { SvelteUINumberSize } from '$lib/styles-old';
 import type { HorizontalSectionPosition } from './HorizontalSection';
 
 interface HorizontalSectionStyles {

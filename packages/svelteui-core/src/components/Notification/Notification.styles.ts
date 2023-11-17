@@ -1,5 +1,5 @@
-import { createStyles, vFunc } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { createStyles, vFunc } from '$lib/styles-old';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface NotificationStylesParams {
 	color: SvelteUIColor;

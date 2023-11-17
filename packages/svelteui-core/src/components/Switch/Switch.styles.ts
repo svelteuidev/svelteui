@@ -1,5 +1,5 @@
-import { createStyles, dark } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { createStyles, dark } from '$lib/styles-old';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import type { SwitchTimingFunction } from './Switch';
 
 export interface SwitchStyleParams {

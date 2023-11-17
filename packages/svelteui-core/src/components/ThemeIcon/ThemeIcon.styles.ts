@@ -1,10 +1,10 @@
-import { dark, createStyles, fns } from '$lib/styles';
+import { dark, createStyles, fns } from '$lib/styles-old';
 import type {
 	SvelteUINumberSize,
 	SvelteUIColor,
 	SvelteUIGradient,
 	VariantThemeFunction
-} from '$lib/styles';
+} from '$lib/styles-old';
 import type { ThemeIconVariant } from './ThemeIcon';
 
 export interface ThemeIconStyleParams {

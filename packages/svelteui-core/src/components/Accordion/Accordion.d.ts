@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { Component } from '$lib/internal';
-import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export type AccordionVariant = 'default' | 'contained' | 'filled' | 'separated';
 

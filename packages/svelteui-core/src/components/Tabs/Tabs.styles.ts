@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUITheme, VariantThemeFunction } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUINumberSize, SvelteUITheme, VariantThemeFunction } from '$lib/styles-old';
 
 export interface TabsStyleParams {
 	orientation?: 'horizontal' | 'vertical';

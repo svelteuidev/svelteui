@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize, SvelteUISize } from '$lib/styles-old';
 
 export interface ContainerProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	size?: SvelteUINumberSize;

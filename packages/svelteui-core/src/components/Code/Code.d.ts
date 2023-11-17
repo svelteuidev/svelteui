@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor } from '$lib/styles';
+import { DefaultProps, SvelteUIColor } from '$lib/styles-old';
 
 export interface CodeProps
 	extends DefaultProps<HTMLPreElement | HTMLElement>,

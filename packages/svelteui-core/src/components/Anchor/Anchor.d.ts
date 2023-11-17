@@ -1,4 +1,4 @@
-import { DefaultProps } from '$lib/styles';
+import { DefaultProps } from '$lib/styles-old';
 import { TextProps } from '../Text/Text';
 
 export type AnchorVariant = 'filled' | 'outline' | 'light';

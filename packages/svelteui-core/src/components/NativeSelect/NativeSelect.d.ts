@@ -1,5 +1,5 @@
 import { HTMLSelectAttributes } from 'svelte/elements';
-import { DefaultProps, Override, SvelteUISize } from '$lib/styles';
+import { DefaultProps, Override, SvelteUISize } from '$lib/styles-old';
 import { InputBaseProps } from '../Input/Input';
 import { InputWrapperBaseProps } from '../InputWrapper/InputWrapper';
 

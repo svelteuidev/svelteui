@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Box } from '../Box';
-	import type { DefaultProps } from '$lib/styles';
+	import type { DefaultProps } from '$lib/styles-old';
 
 	interface AppShellProviderProps extends DefaultProps {
 		value?: { fixed: boolean; zIndex: number };

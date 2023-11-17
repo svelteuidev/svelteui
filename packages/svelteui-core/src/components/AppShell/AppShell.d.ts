@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface AppShellProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	zIndex?: number;

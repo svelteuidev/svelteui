@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import type { AlertVariant } from './Alert';
 
 export interface AlertStylesParams {

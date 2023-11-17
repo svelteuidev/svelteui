@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { Component, TransitionName, TransitionOptions } from '$lib/internal';
-import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles-old';
 import { PopperProps } from '../Popper/Popper';
 
 export interface MenuProps

@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export type HorizontalSectionWidth = Partial<Record<string, string | number>>;
 

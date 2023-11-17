@@ -1,6 +1,6 @@
 import { HTMLAnchorAttributes, HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 import { Component, LiteralUnion } from '$lib/internal';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface SharedMenuItemProps extends DefaultProps, HTMLAttributes<HTMLButtonElement> {
 	color?: SvelteUIColor;

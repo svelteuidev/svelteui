@@ -1,5 +1,11 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import {
+	CSS,
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUISize
+} from '$lib/styles-old';
 import { GroupPosition } from '../../Group/Group';
 
 export interface ChipGroupProps<T = boolean> extends DefaultProps, HTMLAttributes<HTMLElement> {

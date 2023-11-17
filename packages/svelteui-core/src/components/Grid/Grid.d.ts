@@ -1,6 +1,6 @@
 import { Writable } from 'svelte/store';
 import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export type GridContext = Writable<{ cols: number; grow: boolean; spacing: SvelteUINumberSize }>;
 

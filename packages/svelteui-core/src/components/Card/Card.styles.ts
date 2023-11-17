@@ -1,4 +1,4 @@
-import { createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
 
 export default createStyles((theme) => {
 	return {

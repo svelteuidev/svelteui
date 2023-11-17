@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface OverlayProps extends DefaultProps, Omit<HTMLAttributes<HTMLElement>, 'color'> {
 	blur?: number;

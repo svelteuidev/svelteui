@@ -1,4 +1,4 @@
-import type { SvelteUINumberSize } from '$lib/styles';
+import type { SvelteUINumberSize } from '$lib/styles-old';
 
 export interface MenuContextValue {
 	hovered: number;

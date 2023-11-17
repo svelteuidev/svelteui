@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles-old';
 
 export interface BadgeStyleParams {
 	color: SvelteUIColor;

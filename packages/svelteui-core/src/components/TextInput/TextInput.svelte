@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import { Input } from '../Input';
 	import { InputWrapper } from '../InputWrapper';
 	import type { TextInputProps as $$TextInputProps } from './TextInput';

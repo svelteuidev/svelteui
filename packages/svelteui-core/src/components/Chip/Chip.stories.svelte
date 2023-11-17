@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import { useSvelteUITheme } from '$lib/styles';
+	import { useSvelteUITheme } from '$lib/styles-old';
 	import { Group } from '../Group';
 	import { Stack } from '../Stack';
 	import { Chip } from './index';

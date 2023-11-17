@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import { TextProps } from '../Text/Text';
 
 export type DividerVariant = 'solid' | 'dashed' | 'dotted';

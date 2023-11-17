@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './VerticalSection.styles';
 	import { Box } from '../../Box';
-	import { globalCss } from '$lib/styles';
+	import { globalCss } from '$lib/styles-old';
 	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection';
 
 	interface $$Props extends $$VerticalSectionProps {}

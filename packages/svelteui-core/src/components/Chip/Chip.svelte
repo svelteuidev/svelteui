@@ -1,6 +1,6 @@
 <script lang="ts">
 	import useStyles from './Chip.styles.js';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';

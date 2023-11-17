@@ -1,4 +1,4 @@
-import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import { PopperProps } from '../Popper/Popper';
 
 export interface TooltipProps extends PopperProps {

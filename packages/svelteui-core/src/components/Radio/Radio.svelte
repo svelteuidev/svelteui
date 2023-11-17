@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import Box from '../Box/Box.svelte';
 	import type { RadioProps as $$RadioProps } from './Radio';
 	import useStyles from './Radio.styles';

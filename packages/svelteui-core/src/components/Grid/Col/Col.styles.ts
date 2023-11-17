@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUINumberSize, SvelteUITheme } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUINumberSize, SvelteUITheme } from '$lib/styles-old';
 
 export interface ColStyleParams {
 	cols?: number;

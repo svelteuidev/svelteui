@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import type { Writable } from 'svelte/store';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export type TimelineContext = Writable<{
 	active: number;

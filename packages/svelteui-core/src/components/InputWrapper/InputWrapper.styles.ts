@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUISize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUISize } from '$lib/styles-old';
 
 export interface InputWrapperStyleParams {
 	size: SvelteUISize;

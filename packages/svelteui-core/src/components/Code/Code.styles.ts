@@ -1,5 +1,5 @@
-import { createStyles, fns } from '$lib/styles';
-import type { SvelteUIColor } from '$lib/styles';
+import { createStyles, fns } from '$lib/styles-old';
+import type { SvelteUIColor } from '$lib/styles-old';
 
 export interface CodeStyleParams {
 	color: SvelteUIColor;

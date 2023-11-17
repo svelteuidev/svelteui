@@ -1,5 +1,5 @@
 import { HTMLAttributes, HTMLBlockquoteAttributes, SVGAttributes } from 'svelte/elements';
-import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 import { TextProps } from '../Text/Text';
 
 type BaseProps = TextProps<HTMLElement> & HTMLBlockquoteAttributes;

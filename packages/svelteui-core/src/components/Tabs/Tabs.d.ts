@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { Writable } from 'svelte/store';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export type TabsVariant = 'default' | 'outline' | 'pills' | 'unstyled';
 

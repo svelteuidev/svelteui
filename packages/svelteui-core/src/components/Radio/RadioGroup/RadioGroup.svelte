@@ -4,7 +4,7 @@
 	import Group from '../../Group/Group.svelte';
 	import Radio from '../Radio.svelte';
 	import type { RadioGroupProps as $$RadioGroupProps } from './RadioGroup';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 
 	interface $$Props extends $$RadioGroupProps {}
 

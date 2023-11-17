@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles-old';
 
 export interface PaperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
 	shadow?: SvelteUIShadow;

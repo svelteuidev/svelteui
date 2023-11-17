@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { SlideParams } from 'svelte/transition';
-import { DefaultProps } from '$lib/styles';
+import { DefaultProps } from '$lib/styles-old';
 
 export interface CollapseProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	open: boolean;

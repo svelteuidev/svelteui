@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type { Selectors } from '$lib/styles';
+	import type { Selectors } from '$lib/styles-old';
 	export type AppShellStylesNames = Selectors<typeof useStyles>;
 </script>
 

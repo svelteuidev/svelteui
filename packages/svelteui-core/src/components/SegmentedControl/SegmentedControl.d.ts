@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUISize, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUIColor, SvelteUISize, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface SegmentedControlItem {
 	value: string;

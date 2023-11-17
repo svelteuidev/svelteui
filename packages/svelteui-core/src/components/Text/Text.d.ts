@@ -8,7 +8,7 @@ import {
 	SvelteUITextTransform,
 	SvelteUINumberSize,
 	SvelteUINumberFontSize
-} from '$lib/styles';
+} from '$lib/styles-old';
 
 export type Tracking = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest' | number;
 

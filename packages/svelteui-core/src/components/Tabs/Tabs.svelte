@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { createEventDispatcher, getContext, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
 	import useStyles from './Tabs.styles';

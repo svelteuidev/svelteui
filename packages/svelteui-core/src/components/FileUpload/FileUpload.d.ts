@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { Component, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { Component, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface FileItem {
 	name?: string;

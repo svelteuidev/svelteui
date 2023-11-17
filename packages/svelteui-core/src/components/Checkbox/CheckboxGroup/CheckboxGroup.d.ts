@@ -1,4 +1,10 @@
-import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import {
+	CSS,
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUISize
+} from '$lib/styles-old';
 
 export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
 	color?: SvelteUIColor;

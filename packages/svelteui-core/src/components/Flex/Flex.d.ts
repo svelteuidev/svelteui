@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps } from '$lib/styles';
+import { CSS, DefaultProps } from '$lib/styles-old';
 
 export interface FlexProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	gap?: CSS['gap'];

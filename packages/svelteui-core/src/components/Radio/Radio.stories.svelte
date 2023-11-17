@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import type { SvelteUINumberSize } from '$lib/styles';
+	import type { SvelteUINumberSize } from '$lib/styles-old';
 	import RadioGroup from './RadioGroup/RadioGroup.svelte';
 	import { Radio } from './index';
 

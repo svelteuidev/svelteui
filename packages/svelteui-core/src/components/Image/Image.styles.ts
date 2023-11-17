@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUINumberSize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUINumberSize } from '$lib/styles-old';
 import type { ImageFit } from './Image';
 
 export interface ImageStylesParams {

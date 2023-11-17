@@ -1,5 +1,5 @@
-import { keyframes, createStyles } from '$lib/styles';
-import type { SvelteUINumberSize } from '$lib/styles';
+import { keyframes, createStyles } from '$lib/styles-old';
+import type { SvelteUINumberSize } from '$lib/styles-old';
 
 export interface SkeletonStyleParams {
 	height: number | string;

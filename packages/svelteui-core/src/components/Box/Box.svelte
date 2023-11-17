@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getSystemStyles } from './context';
-	import { css as _css, useSvelteUITheme, useSvelteUIThemeContext } from '$lib/styles';
+	import { css as _css, useSvelteUITheme, useSvelteUIThemeContext } from '$lib/styles-old';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import type { BoxProps as $$BoxProps } from './Box';

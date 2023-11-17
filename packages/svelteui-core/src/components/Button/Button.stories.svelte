@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { LockClosed } from 'radix-icons-svelte';
-	import { useSvelteUITheme } from '$lib/styles';
+	import { useSvelteUITheme } from '$lib/styles-old';
 	import { Group } from '../Group';
 	import { Button } from './index';
 

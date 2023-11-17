@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'svelte/elements';
 import { EasingFunction } from 'svelte/transition';
-import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface Sections {
 	value: number;

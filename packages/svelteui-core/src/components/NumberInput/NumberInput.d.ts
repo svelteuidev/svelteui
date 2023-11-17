@@ -1,4 +1,4 @@
-import { Override } from '$lib/styles';
+import { Override } from '$lib/styles-old';
 import { TextInputProps } from '../TextInput/TextInput';
 
 export type Formatter = (value: string | undefined) => string;

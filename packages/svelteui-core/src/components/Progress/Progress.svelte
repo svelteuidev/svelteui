@@ -3,7 +3,7 @@
 	import { tweened } from 'svelte/motion';
 	import { Box } from '../Box';
 	import { Text } from '../Text';
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import { cubicOut } from 'svelte/easing';
 	import type { ProgressProps as $$ProgressProps } from './Progress';
 

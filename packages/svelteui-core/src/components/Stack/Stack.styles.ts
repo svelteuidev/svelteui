@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { CSS, SvelteUINumberSize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { CSS, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface StackStyleParam {
 	spacing: SvelteUINumberSize;

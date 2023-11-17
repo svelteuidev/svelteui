@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface MediaQueryProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	smallerThan?: SvelteUINumberSize;

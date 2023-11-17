@@ -1,4 +1,4 @@
-import type { SvelteUIStyleSystemProps, SvelteUITheme, CSS } from '$lib/styles';
+import type { SvelteUIStyleSystemProps, SvelteUITheme, CSS } from '$lib/styles-old';
 
 const SYSTEM_PROPS = {
 	mt: 'marginTop',

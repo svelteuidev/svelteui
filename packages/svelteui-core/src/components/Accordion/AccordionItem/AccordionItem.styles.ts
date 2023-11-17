@@ -1,5 +1,5 @@
-import { createStyles, dark } from '$lib/styles';
-import type { SvelteUINumberSize } from '$lib/styles';
+import { createStyles, dark } from '$lib/styles-old';
+import type { SvelteUINumberSize } from '$lib/styles-old';
 
 export interface AccordionItemStylesParams {
 	radius?: SvelteUINumberSize | number;

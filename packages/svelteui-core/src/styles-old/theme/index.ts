@@ -10,4 +10,4 @@ export { mergeTheme } from './utils/merge-theme/merge-theme.js';
 
 export * from './types/index.js';
 
-export { colors, colorNameMap } from './default-colors';
+export { colors, colorNameMap } from './default-colors.js';

@@ -7,7 +7,7 @@ import {
 	HTMLFormAttributes,
 	HTMLLabelAttributes
 } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUITheme } from '$lib/styles';
+import { CSS, DefaultProps, SvelteUITheme } from '$lib/styles-old';
 import { Component, LiteralUnion } from '$lib/internal';
 
 interface BoxPropsInternal<T extends EventTarget = HTMLElement>

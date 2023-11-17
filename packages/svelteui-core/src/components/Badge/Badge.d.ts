@@ -5,7 +5,7 @@ import {
 	SvelteUIGradient,
 	SvelteUINumberSize,
 	SvelteUISize
-} from '$lib/styles';
+} from '$lib/styles-old';
 
 export type BadgeVariant = 'light' | 'filled' | 'outline' | 'dot' | 'gradient';
 

@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
+import { DefaultProps } from '$lib/styles-old';
 
 export interface VerticalSectionPosition {
 	top?: number;

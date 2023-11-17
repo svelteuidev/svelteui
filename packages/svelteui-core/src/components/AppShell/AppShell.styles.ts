@@ -1,6 +1,6 @@
-import { createStyles, fns } from '$lib/styles';
+import { createStyles, fns } from '$lib/styles-old';
 import { theme as appShellTheme } from './HorizontalSection/get-sorted-breakpoints/get-sorted-breakpoints';
-import type { SvelteUINumberSize, CSS } from '$lib/styles';
+import type { SvelteUINumberSize, CSS } from '$lib/styles-old';
 import type { AppShellTheme } from './HorizontalSection/get-sorted-breakpoints/get-sorted-breakpoints';
 
 export interface AppShellStylesParams {

@@ -1,4 +1,4 @@
-import { createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
 import type {
 	SvelteUIGradient,
 	SvelteUITextAlignment,
@@ -6,7 +6,7 @@ import type {
 	SvelteUINumberSize,
 	SvelteUINumberFontSize,
 	SvelteUITheme
-} from '$lib/styles';
+} from '$lib/styles-old';
 import type { Tracking, TextVariant, TextColors } from './Text';
 
 export interface TextStyleParams {

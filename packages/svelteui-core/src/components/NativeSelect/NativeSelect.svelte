@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { randomID } from '$lib/styles';
+	import { randomID } from '$lib/styles-old';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import { get_current_component } from 'svelte/internal';
 	import Input from '../Input/Input.svelte';

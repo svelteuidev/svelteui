@@ -1,12 +1,12 @@
 <script lang="ts" context="module">
-	import type { Selectors } from '$lib/styles';
+	import type { Selectors } from '$lib/styles-old';
 	export type HorizontalSectionStylesNames = Selectors<typeof useStyles>;
 </script>
 
 <script lang="ts">
 	import useStyles from './HorizontalSection.styles';
 	import { Box } from '../../Box';
-	import { globalCss } from '$lib/styles';
+	import { globalCss } from '$lib/styles-old';
 	import {
 		getSortedBreakpoints,
 		theme as appShellTheme

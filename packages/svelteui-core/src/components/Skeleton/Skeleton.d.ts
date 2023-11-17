@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import { DefaultProps, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface SkeletonProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	visible?: boolean;

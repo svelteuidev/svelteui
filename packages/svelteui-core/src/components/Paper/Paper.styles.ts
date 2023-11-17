@@ -1,5 +1,5 @@
-import { createStyles } from '$lib/styles';
-import type { SvelteUIShadow, SvelteUINumberSize } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
+import type { SvelteUIShadow, SvelteUINumberSize } from '$lib/styles-old';
 
 export interface PaperStyleParams {
 	shadow: SvelteUIShadow;

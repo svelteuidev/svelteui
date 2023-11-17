@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { fns } from '$lib/styles';
-import type { SvelteUISize } from '$lib/styles';
+import { fns } from '$lib/styles-old';
+import type { SvelteUISize } from '$lib/styles-old';
 
 type Breakpoints<T> = Partial<Record<SvelteUISize | (string & Record<never, never>), T>>;
 

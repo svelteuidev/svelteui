@@ -1,4 +1,4 @@
-import { createStyles, rem, type SvelteUIColor } from '$lib/styles';
+import { createStyles, rem, type SvelteUIColor } from '$lib/styles-old';
 
 export interface BlockquoteStylesParams {
 	color: SvelteUIColor;

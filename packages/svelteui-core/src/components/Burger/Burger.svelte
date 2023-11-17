@@ -1,7 +1,7 @@
 <script lang="ts">
 	import useStyles from './Burger.styles';
 	import { UnstyledButton } from '../Button';
-	import { colorScheme } from '$lib/styles';
+	import { colorScheme } from '$lib/styles-old';
 	import { get_current_component } from 'svelte/internal';
 	import { createEventForwarder, useActions } from '$lib/internal';
 	import type { BurgerProps as $$BurgerProps } from './Burger';

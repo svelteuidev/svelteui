@@ -1,4 +1,4 @@
-import { createStyles } from '$lib/styles';
+import { createStyles } from '$lib/styles-old';
 
 export interface TimelineStyleParams {
 	align?: 'left' | 'right';
