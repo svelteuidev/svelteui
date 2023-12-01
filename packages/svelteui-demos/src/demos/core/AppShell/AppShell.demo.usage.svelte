@@ -55,6 +55,7 @@
 </script>
 
 <AppShell
+	fixed={false}
 	override={{
 		main: {
 			bc: isDark ? fns.themeColor('dark', 8) : fns.themeColor('gray', 0),
@@ -69,6 +70,7 @@
 		hiddenBreakpoint="sm"
 		width={{ base: '100%', sm: 300 }}
 		height={500}
+		fixed={false}
 		override={{ p: '$xsPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
 	>
 		<ShellSection grow>
