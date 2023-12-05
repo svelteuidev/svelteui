@@ -22,6 +22,20 @@
 	} from 'radix-icons-svelte';
 	import { base } from '$app/paths';
 
+	export let pathname: string;
+
+	let accordionEl: HTMLElement;
+	$: {
+		// Sets the active link in the Sidebar when the page changes
+		accordionEl?.querySelectorAll('a').forEach((a) => {
+			if (a.getAttribute('href') === pathname) {
+				a.classList.add('active');
+			} else {
+				a.classList.remove('active');
+			}
+		});
+	}
+
 	const useStyles = createStyles(() => ({
 		'.svelteui-AccordionItem-panel': {
 			padding: '0 !important',
@@ -76,7 +90,13 @@
 
 <hr />
 
-<Accordion variant="default" chevronPosition="left" multiple class={getStyles()}>
+<Accordion
+	bind:element={accordionEl}
+	variant="default"
+	chevronPosition="left"
+	multiple
+	class={getStyles()}
+>
 	<Accordion.Item value="changelog">
 		<div slot="control"><NavigationTitle>Changelog</NavigationTitle></div>
 		<ul class="list">

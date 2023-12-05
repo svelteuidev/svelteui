@@ -3,7 +3,6 @@
 	import { colorScheme, Burger, SvelteUIProvider } from '@svelteuidev/core';
 	import { page } from '$app/stores';
 	import { Device, Logo, PageTransition, TopBar, Sidebar } from '$lib/components';
-	import { set_active_link } from '$lib/theme/utils';
 	import '$lib/theme/style.css';
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
@@ -36,11 +35,7 @@
 				class="sidebar"
 				class:active-sidebar={show_sidebar}
 			>
-				{#key $page}
-					<div use:set_active_link={{ page: $page }}>
-						<Sidebar />
-					</div>
-				{/key}
+				<Sidebar pathname={$page.url.pathname} />
 			</div>
 		{/if}
 		<div class="topbar">
