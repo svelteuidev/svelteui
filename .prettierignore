@@ -1,1 +1,3 @@
 apps/docs/src/routes/changelog/**
+apps/docs/.svelte-kit/**
+apps/docs/build/**
