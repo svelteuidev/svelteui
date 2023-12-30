@@ -1,13 +1,3 @@
-/**
- * Taken from https://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
- *
- * @param color The string possibly containing a color
- * @returns If the given string is an hexadecimal color value
- */
-export function isHexColor(color: string): boolean {
-	return /^#[0-9A-F]{6}[0-9a-f]{0,2}$/i.test(color);
-}
-
 interface RGBA {
 	r: number;
 	g: number;
@@ -38,6 +28,16 @@ function rgbStringToRgba(color: string): RGBA {
 		.map(Number);
 
 	return { r, g, b, a: a || 1 };
+}
+
+/**
+ * Taken from https://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation
+ *
+ * @param color The string possibly containing a color
+ * @returns If the given string is an hexadecimal color value
+ */
+export function isHexColor(color: string): boolean {
+	return /^#[0-9A-F]{6}[0-9a-f]{0,2}$/i.test(color);
 }
 
 export function toRgba(color: string): RGBA {
@@ -77,4 +77,8 @@ export function darken(color: string, alpha: number) {
 	const dark = (input: number) => Math.round(input * f);
 
 	return `rgba(${dark(r)}, ${dark(g)}, ${dark(b)}, ${a})`;
+}
+
+export function isValidSizeValue(size: any) {
+	return typeof size === 'string' || typeof size === 'number';
 }

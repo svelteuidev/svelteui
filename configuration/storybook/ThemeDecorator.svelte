@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { addons } from '@storybook/preview-api';
 	import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
-	import { SvelteUIProvider } from '@svelteuidev/core';
+	// import { SvelteUIProvider } from '@svelteuidev/core';
 	import type { ColorScheme } from '@svelteuidev/core';
 
 	let channel;
@@ -15,9 +15,15 @@
 
 	function setTheme(isDark) {
 		theme = isDark ? 'dark' : 'light';
+		if (isDark) {
+			window.document.documentElement.dataset.theme = 'dark';
+		} else {
+			window.document.documentElement.dataset.theme = 'light';
+		}
 	}
 </script>
 
-<SvelteUIProvider themeObserver={theme} withNormalizeCSS withGlobalStyles>
-	<slot />
-</SvelteUIProvider>
+<slot />
+<!-- TODO(migration): remove this commment -->
+<!-- <SvelteUIProvider themeObserver={theme} withNormalizeCSS withGlobalStyles>
+</SvelteUIProvider> -->

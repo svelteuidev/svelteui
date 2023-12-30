@@ -11,6 +11,7 @@
 	export let use: $$Props['use'] = [],
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
+		style: $$Props['style'] = '',
 		variant: $$Props['variant'] = 'filled',
 		color: $$Props['color'] = undefined,
 		size: $$Props['size'] = 'sm',
@@ -41,7 +42,7 @@
 		`--width: ${fullSize ? '100%' : 'fit-content'}`,
 		'display: contents'
 	];
-	$: style = properties.join(';');
+	$: componentStyle = properties.join(';').concat(style);
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -59,7 +60,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
     ```
 -->
 
-<div {style}>
+<div style={componentStyle}>
 	{#if href}
 		<a
 			{href}
@@ -115,11 +116,16 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		>
 			{#if loading && loaderPosition === 'left'}
 				<span class="left-section">
-					<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
+					<Loader
+						class={buildClass('Button', 'loader')}
+						variant={loaderProps.variant}
+						size={loaderProps.size}
+						color={loaderProps.color}
+					/>
 				</span>
 			{:else if $$slots.leftIcon}
 				<span class="left-section">
-					<slot name="leftIcon">X</slot>
+					<slot name="leftIcon" class={buildClass('Button', 'leftIcon')}>X</slot>
 				</span>
 			{/if}
 			<slot>Button</slot>
@@ -128,11 +134,16 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			{/if}
 			{#if loading && loaderPosition === 'right'}
 				<span class="right-section">
-					<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
+					<Loader
+						class={buildClass('Button', 'loader')}
+						variant={loaderProps.variant}
+						size={loaderProps.size}
+						color={loaderProps.color}
+					/>
 				</span>
 			{:else if $$slots.rightIcon}
 				<span class="right-section">
-					<slot name="rightIcon">X</slot>
+					<slot name="rightIcon" class={buildClass('Button', 'rightIcon')}>X</slot>
 				</span>
 			{/if}
 		</button>
@@ -143,7 +154,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	@import '$lib/styles/css/index.css';
 
 	* {
-		/* @TODO: use rem */
+		/* @TODO(migration): use rem */
 		--height-xs: 30px;
 		--height-sm: 36px;
 		--height-md: 42px;
@@ -218,7 +229,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	}
 
 	.root.loading::before {
-		content: '""';
+		content: '';
 		position: absolute;
 		inset: -1;
 		background-color: var(--white05);

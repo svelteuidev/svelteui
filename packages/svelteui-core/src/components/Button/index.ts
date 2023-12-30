@@ -1,5 +1,4 @@
 export { default as Button } from './Button.svelte';
-export * as ButtonErrors from './Button.errors';
 export type { ButtonStylesParams } from './Button.styles';
 export type { ButtonProps, ButtonVariant } from './Button';
 

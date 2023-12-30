@@ -4,6 +4,7 @@
 	import { useSvelteUITheme } from '$lib/styles-old';
 	import { Group } from '../Group';
 	import { Button } from './index';
+	import UnstyledButton from './UnstyledButton/UnstyledButton.svelte';
 
 	const theme = useSvelteUITheme();
 	const colors = Object.keys(theme.colorNames);
@@ -59,3 +60,9 @@
 	template="variants"
 	args={{ href: 'https://www.svelteui.org', external: true, disabled: false, loading: false }}
 />
+
+<Template id="unstyled" let:args>
+	<UnstyledButton {...args} />
+</Template>
+
+<Story name="Unstyled Button" id="unstyledButtonStory" template="unstyled" />

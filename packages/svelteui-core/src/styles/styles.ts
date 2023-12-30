@@ -1,5 +1,6 @@
 import { getTheme } from './theme.js';
-import { darken, isHexColor, rgba } from './utils.js';
+import type { SvelteUIStyleSystemProps } from './types.js';
+import { darken, isHexColor, isValidSizeValue, rgba } from './utils.js';
 
 const baseColorNames = [
 	'dark',
@@ -19,6 +20,8 @@ const baseColorNames = [
 ];
 
 const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
+
+const NEGATIVE_VALUES = ['-xs', '-sm', '-md', '-lg', '-xl'];
 
 function getColor(color: string): {
 	color: string;
@@ -62,6 +65,14 @@ function getColor(color: string): {
 	};
 }
 
+// TODO(migration): fix this
+function getSizeValue(size: any) {
+	// if (NEGATIVE_VALUES.includes(size)) {
+	// 	return theme.fn.size({ size: margin.replace('-', ''), sizes: theme.space }) * -1;
+	// }
+	// return theme.fn.size({ size: margin, sizes: theme.space });
+}
+
 export function toGradient(
 	gradient: { to: string; from: string; deg?: number } | undefined
 ): string {
@@ -71,14 +82,14 @@ export function toGradient(
 		deg: gradient?.deg || 0
 	};
 
-	// @TODO: better defaults (from theme?)
+	// @TODO(migration): better defaults (from theme?)
 
 	return `linear-gradient(${values.deg}deg, ${values.from} 0%, ${values.to} 100%)`;
 }
 
 export function mapSizeVariable(size: number | string, prefix?: string): string {
 	if (typeof size === 'number') {
-		return `${size}px`; // @TODO: convert to rem later
+		return `${size}px`; // @TODO(migration): convert to rem later
 	}
 
 	return `var(--${prefix}-${size})`;
@@ -99,7 +110,7 @@ export function variantVariables(
 				return [
 					`--variant-background: ${rgba(color, 0.1)}`,
 					`--variant-color: ${color}`,
-					`--variant-border: 1px solid transparent`, // @TODO: change '1px' to rem in the future
+					`--variant-border: 1px solid transparent`, // @TODO(migration): change '1px' to rem in the future
 					`--variant-hover: ${rgba(color, 0.12)}`
 				];
 			}
@@ -264,4 +275,14 @@ export function variantVariables(
 		default:
 			return [];
 	}
+}
+
+export function systemSizeVariables(systemStyles: SvelteUIStyleSystemProps) {
+	const styleVariales = [];
+
+	if (isValidSizeValue(systemStyles.p)) {
+		// const value = getSizeValue(systemStyles.p, theme);
+		// styleVariales.push(`--padding: ${}`)
+	}
+	return [];
 }

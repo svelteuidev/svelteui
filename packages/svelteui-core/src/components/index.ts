@@ -8,6 +8,7 @@ export * from './AspectRatio';
 export * from './Badge';
 export * from './Blockquote';
 export * from './Box';
+export * from './BoxNew';
 export * from './Breadcrumbs';
 export * from './Burger';
 export * from './Button';
