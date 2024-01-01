@@ -1,4 +1,4 @@
-import { colors } from './colors.js';
+import { colors } from './default-theme/colors.js';
 import type { Theme } from './types';
 
 export function getTheme(): Theme {
@@ -6,6 +6,13 @@ export function getTheme(): Theme {
 	return {
 		colors: colors,
 		primary: colors['blue'][6],
-		white: '#ffffff'
+		white: '#ffffff',
+		sizes: {
+			xs: 10,
+			sm: 12,
+			md: 16,
+			lg: 20,
+			xl: 32
+		}
 	};
 }

@@ -62,7 +62,7 @@
 />
 
 <Template id="unstyled" let:args>
-	<UnstyledButton {...args} />
+	<UnstyledButton {...args}>Unstyled button</UnstyledButton>
 </Template>
 
 <Story name="Unstyled Button" id="unstyledButtonStory" template="unstyled" />

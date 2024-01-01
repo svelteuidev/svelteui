@@ -23,7 +23,19 @@ const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '9
 
 const NEGATIVE_VALUES = ['-xs', '-sm', '-md', '-lg', '-xl'];
 
-function getColor(color: string): {
+function getSizeValue(size: any) {
+	const theme = getTheme();
+	const value = theme.sizes[size.replace('-', '')];
+
+	if (!value) throw Error(`Size ${size} is not a valid value.`);
+
+	if (NEGATIVE_VALUES.includes(size)) {
+		return value * -1;
+	}
+	return value;
+}
+
+export function getColor(color: string): {
 	color: string;
 	shade: number | undefined;
 	value: string;
@@ -63,14 +75,6 @@ function getColor(color: string): {
 		value: `var(--${_color}${shade})`,
 		fromTheme: baseColorNames.includes(_color) && shades.includes(shade)
 	};
-}
-
-// TODO(migration): fix this
-function getSizeValue(size: any) {
-	// if (NEGATIVE_VALUES.includes(size)) {
-	// 	return theme.fn.size({ size: margin.replace('-', ''), sizes: theme.space }) * -1;
-	// }
-	// return theme.fn.size({ size: margin, sizes: theme.space });
 }
 
 export function toGradient(
@@ -280,9 +284,75 @@ export function variantVariables(
 export function systemSizeVariables(systemStyles: SvelteUIStyleSystemProps) {
 	const styleVariales = [];
 
+	// @TODO(migration): use this in all components - find a way :)
+
+	// @TODO(migration): perhaps move to rem instead of px
 	if (isValidSizeValue(systemStyles.p)) {
-		// const value = getSizeValue(systemStyles.p, theme);
-		// styleVariales.push(`--padding: ${}`)
+		const value = getSizeValue(systemStyles.p);
+		styleVariales.push(`--padding: ${value}px`);
 	}
-	return [];
+	if (isValidSizeValue(systemStyles.py)) {
+		const value = getSizeValue(systemStyles.py);
+		styleVariales.push(`--paddingVertical: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.px)) {
+		const value = getSizeValue(systemStyles.px);
+		styleVariales.push(`--paddingHorizontal: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.pt)) {
+		const value = getSizeValue(systemStyles.pt);
+		styleVariales.push(`--paddingTop: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.pb)) {
+		const value = getSizeValue(systemStyles.pb);
+		styleVariales.push(`--paddingBottom: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.pl)) {
+		const value = getSizeValue(systemStyles.pl);
+		styleVariales.push(`--paddingLeft: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.pr)) {
+		const value = getSizeValue(systemStyles.pr);
+		styleVariales.push(`--paddingRight: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.m)) {
+		const value = getSizeValue(systemStyles.m);
+		styleVariales.push(`--margin: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.my)) {
+		const value = getSizeValue(systemStyles.my);
+		styleVariales.push(`--marginVertical: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.mx)) {
+		const value = getSizeValue(systemStyles.mx);
+		styleVariales.push(`--marginHorizontal: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.mt)) {
+		const value = getSizeValue(systemStyles.mt);
+		styleVariales.push(`--marginTop: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.mb)) {
+		const value = getSizeValue(systemStyles.mb);
+		styleVariales.push(`--marginBottom: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.ml)) {
+		const value = getSizeValue(systemStyles.ml);
+		styleVariales.push(`--marginLeft: ${value}px`);
+	}
+	if (isValidSizeValue(systemStyles.mr)) {
+		const value = getSizeValue(systemStyles.mr);
+		styleVariales.push(`--marginRight: ${value}px`);
+	}
+
+	// TODO(migration): add other system styles
+	return [
+		`padding-right: var(var(--paddingRight, --paddingHorizontal), --padding)`,
+		`padding-left: var(var(--paddingLeft, --paddingHorizontal), --padding)`,
+		`padding-top: var(var(--paddingTop, --paddingVertical), --padding)`,
+		`padding-bottom: var(var(--paddingBottom, --paddingVertical), --padding)`,
+		`margin-right: var(var(--marginRight, --marginHorizontal), --margin)`,
+		`margin-left: var(var(--marginLeft, --marginHorizontal), --margin)`,
+		`margin-top: var(var(--marginTop, --marginVertical), --margin)`,
+		`margin-bottom: var(var(--marginBottom, --marginVertical), --margin)`
+	];
 }

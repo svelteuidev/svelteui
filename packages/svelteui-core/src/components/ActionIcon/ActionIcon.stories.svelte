@@ -25,6 +25,26 @@
 	</Group>
 </Template>
 
+<Template id="sizes" let:args>
+	<Group mt="xl">
+		<ActionIcon {...args} size="xs" variant="filled" />
+		<ActionIcon {...args} size="sm" variant="filled" />
+		<ActionIcon {...args} size="md" variant="filled" />
+		<ActionIcon {...args} size="lg" variant="filled" />
+		<ActionIcon {...args} size="xl" variant="filled" />
+	</Group>
+</Template>
+
+<Template id="radius" let:args>
+	<Group mt="xl">
+		<ActionIcon {...args} radius="xs" variant="filled" />
+		<ActionIcon {...args} radius="sm" variant="filled" />
+		<ActionIcon {...args} radius="md" variant="filled" />
+		<ActionIcon {...args} radius="lg" variant="filled" />
+		<ActionIcon {...args} radius="xl" variant="filled" />
+	</Group>
+</Template>
+
 <Story name="ActionIcon" id="actionIconStory" />
 
 <Story name="Colors" id="actionIconColorsStory">
@@ -41,6 +61,10 @@
 		{/each}
 	</div>
 </Story>
+
+<Story name="Sizes" id="actionSizesStory" template="sizes" />
+
+<Story name="Radius" id="actionRadiusStory" template="radius" />
 
 <Story name="Disabled" id="actionDisabledStory" template="variants" args={{ disabled: true }} />
 

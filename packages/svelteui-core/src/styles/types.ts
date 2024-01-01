@@ -41,6 +41,7 @@ export type Theme = {
 	colors: Record<SvelteUIColor, string[]>;
 	primary: string;
 	white: string;
+	sizes: Record<SvelteUISize, number>;
 };
 
 // System styles
