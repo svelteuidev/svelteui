@@ -10,9 +10,9 @@ source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 ---
 
 <script lang='ts'>
-    import { Demo, ComposableDemos } from '@svelteuidev/demos';
-	import { Heading } from "$lib/components";
-    import { base } from '$app/paths';
+  import { Demo, ComposableDemos } from '@svelteuidev/demos';
+  import { Heading } from "$lib/components";
+  import { base } from '$app/paths';
 </script>
 
 <svelte:head>
@@ -28,12 +28,17 @@ source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 
 ## Params
 
-| Param    | Description                                            |
-| -------- | ------------------------------------------------------ |
-| fn       | A function to be executed after delay milliseconds.    |
-| ms       | A zero-or-greater delay in milliseconds.               |
-| trailing | If true, call fn again after the time is up.           |
-| leading  | If true, call fn on the leading edge of the ms timeout |
+| Param   | Description                                                       |
+| ------- | ----------------------------------------------------------------- |
+| fn      | A function to be executed after delay milliseconds.               |
+| ms      | A zero-or-greater delay in milliseconds.                          |
+| options | An object that contains options to control the debounce behavior. |
+
+Options:
+
+| Param   | Description                                                                  |
+| ------- | ---------------------------------------------------------------------------- |
+| maxWait | The maximum time allowed to be delayed before it's invoked, in milliseconds. |
 
 ## Definition
 
@@ -41,7 +46,6 @@ source: 'svelteui-composables/src/utilities/use-debounce/use-debounce.ts'
 export function useDebounce<T extends FunctionArgs>(
 	fn: T,
 	ms?: number,
-	trailing?: boolean,
-	leading?: boolean
+	options?: { maxWait?: number}
 ): T;
 ```
