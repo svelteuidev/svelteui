@@ -2,11 +2,13 @@ import { createStyles } from '$lib/styles';
 import type { SvelteUINumberSize } from '$lib/styles';
 
 export interface TableStyleParams {
-	withBorder: boolean;
 	striped: boolean;
 	highlightOnHover: boolean;
 	cellPadding: SvelteUINumberSize;
 	textAlign: 'center' | 'left' | 'right';
+	withRowBorder: boolean;
+	withColumnBorder: boolean;
+	withTableBorder: boolean;
 }
 
 export const padding = {
@@ -16,25 +18,56 @@ export const padding = {
 };
 
 export default createStyles(
-	(theme, { withBorder, highlightOnHover, striped, cellPadding, textAlign }: TableStyleParams) => {
+	(
+		theme,
+		{
+			highlightOnHover,
+			striped,
+			cellPadding,
+			textAlign,
+			withRowBorder,
+			withColumnBorder,
+			withTableBorder
+		}: TableStyleParams
+	) => {
 		const { themeColor } = theme.fn;
 		return {
 			root: {
+				tableLayout: 'auto',
 				borderCollapse: 'collapse',
 				cursor: highlightOnHover ? 'pointer' : 'default',
-				border: withBorder ? `1px solid ${themeColor('gray', 6)}` : '',
-				borderStyle: withBorder ? '' : 'hidden',
-				'& > * > th, & > * > td': {
+				border: withTableBorder ? `1px solid ${themeColor('gray', 3)}` : '',
+				'& > thead > tr > th, & > tbody > tr > td': {
 					padding:
 						typeof cellPadding === 'number' ? `${cellPadding}px` : `${padding[`${cellPadding}`]}px`,
-					border: `1px solid ${themeColor('gray', 6)}`,
 					textAlign
 				},
-				'& > tr:nth-child(even)': {
-					backgroundColor: striped ? themeColor('gray', 9) : ''
+				'& tr': {
+					borderBottom: withRowBorder ? `1px solid ${themeColor('gray', 3)}` : 'none'
 				},
-				'& > tr:hover': {
-					backgroundColor: highlightOnHover ? themeColor('gray', 9) : ''
+				'& td, & th': {
+					borderRight: withColumnBorder ? `1px solid ${themeColor('gray', 3)}` : 'none'
+				},
+				'& tbody tr:last-of-type': {
+					borderBottom: 'none'
+				},
+				'& td:last-of-type': {
+					borderRight: 'none'
+				},
+				'& tr:nth-child(even)': {
+					backgroundColor: striped ? themeColor('gray', 1) : '',
+					darkMode: {
+						backgroundColor: striped ? themeColor('dark', 6) : ''
+					}
+				},
+				'& > tbody > tr:hover': {
+					backgroundColor: highlightOnHover ? themeColor('gray', 2) : '',
+					darkMode: {
+						backgroundColor: highlightOnHover ? themeColor('dark', 5) : ''
+					}
+				},
+				darkMode: {
+					borderColor: themeColor('dark', 4)
 				}
 			}
 		};
