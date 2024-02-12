@@ -57,5 +57,5 @@
 	name="With href"
 	id="buttonHrefStory"
 	template="variants"
-	args={{ href: 'https://www.svelteui.org', external: true, disabled: false, loading: false }}
+	args={{ href: 'https://www.svelteui.dev', external: true, disabled: false, loading: false }}
 />

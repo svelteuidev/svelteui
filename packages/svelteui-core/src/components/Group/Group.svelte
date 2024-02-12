@@ -45,7 +45,7 @@
 
 Compose elements and components in a vertical flex container.
 
-@see https://svelteui.org/core/group
+@see https://svelteui.dev/core/group
 @example
     ```svelte
     <Group grow>

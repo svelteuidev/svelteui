@@ -6,7 +6,7 @@
         import { Anchor, Center, Box } from '@svelteuidev/core';
     <\/script>
     
-    <Anchor href="https://svelteui.org" target="_blank">
+    <Anchor href="https://svelteui.dev" target="_blank">
       <Center inline>
         <ArrowLeft size={14} />
         <Box css={{ ml: 5 }}>Back to SvelteUI website</Box>

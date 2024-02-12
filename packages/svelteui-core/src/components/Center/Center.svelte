@@ -20,7 +20,7 @@
 
 Centers content vertically and horizontally.
 
-@see https://svelteui.org/core/center
+@see https://svelteui.dev/core/center
 @example
     ```svelte
 	<Center override={{ width: 400, height: 200, bg: '$blue100' }}>

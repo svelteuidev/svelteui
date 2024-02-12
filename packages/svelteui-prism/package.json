@@ -15,7 +15,7 @@
 		"syntax",
 		"syntax-highlight"
 	],
-	"homepage": "https://svelteui.org",
+	"homepage": "https://svelteui.dev",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/svelteuidev/svelteui",

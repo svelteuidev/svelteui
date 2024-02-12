@@ -25,7 +25,7 @@ function shouldFireEvent(event: KeyboardEvent) {
  *  </div>
  * ```
  * @param hotkeys - an array of HotKeyItem's which are arrays of key combinations and callback functions
- * @see https://svelteui.org/actions/use-hotkey
+ * @see https://svelteui.dev/actions/use-hotkey
  */
 export function hotkey(node: HTMLElement, hotkeys: HotkeyItem[]): ReturnType<Action> {
 	const keyDownListener = (event: KeyboardEvent) => {

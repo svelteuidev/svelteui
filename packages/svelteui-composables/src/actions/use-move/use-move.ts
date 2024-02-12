@@ -9,7 +9,7 @@ import type { Action } from '../../shared/actions/types';
  *     <div style="left: {position.x * 100}%; top: {position.y * 100}%;" />
  *  </div>
  * ```
- * @see https://svelteui.org/actions/use-move
+ * @see https://svelteui.dev/actions/use-move
  */
 export function move(node: HTMLElement): ReturnType<Action> {
 	let moving: boolean = false;

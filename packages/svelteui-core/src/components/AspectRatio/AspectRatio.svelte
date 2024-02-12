@@ -25,7 +25,7 @@
 
 Enforce desired width/height ratio.
 
-@see https://svelteui.org/core/aspect-ratio
+@see https://svelteui.dev/core/aspect-ratio
 @example
   ```svelte
     <AspectRatio ratio={16 / 9}>

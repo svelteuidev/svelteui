@@ -44,7 +44,7 @@
 
 A Radio group component is a container for Radios.
 
-@see https://svelteui.org/core/Radio
+@see https://svelteui.dev/core/Radio
 @example
     ```svelte
     <RadioGroup bind:value items={items} />

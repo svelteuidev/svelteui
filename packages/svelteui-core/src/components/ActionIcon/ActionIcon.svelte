@@ -52,7 +52,7 @@
 
 Icon button to indicate secondary action.
 
-@see https://svelteui.org/core/action-icon
+@see https://svelteui.dev/core/action-icon
 @example
     ```tsx
     <ActionIcon>Click</ActionIcon> // standard ActionIcon

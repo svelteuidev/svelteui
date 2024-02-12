@@ -40,7 +40,7 @@
 
 Overlays given element with div element with any color and opacity
 
-@see https://svelteui.org/core/overlay
+@see https://svelteui.dev/core/overlay
 @example
     ```svelte
 	<Box sx={{ height: 100, position: 'relative' }}>

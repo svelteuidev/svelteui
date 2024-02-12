@@ -32,7 +32,7 @@
 
 Textarea specially made for JSON input.
 
-@see https://svelteui.org/core/json-input
+@see https://svelteui.dev/core/json-input
 @example
     ```tsx
     <JsonInput

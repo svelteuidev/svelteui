@@ -73,7 +73,7 @@
 
 Display text and links with theme styles.
 
-@see https://svelteui.org/core/text
+@see https://svelteui.dev/core/text
 @example
     ```tsx
     <Text size='lg'>This is a text</Text> // standard text component

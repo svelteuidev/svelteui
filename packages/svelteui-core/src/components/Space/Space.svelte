@@ -21,7 +21,7 @@
 
 Add horizontal or vertical spacing from theme.
 
-@see https://svelteui.org/core/space
+@see https://svelteui.dev/core/space
 @example
     ```svelte
 		<Space h="md" />

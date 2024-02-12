@@ -11,7 +11,7 @@ import type { TypewriterParams } from './typewriter.config';
  * ```
  *
  * @param params Optional params to pass to the transition
- * @see https://svelteui.org/motion/typewriter
+ * @see https://svelteui.dev/motion/typewriter
  */
 //prettier-ignore
 export const typewriter = (node: HTMLElement, { speed = 1.2, easing }: TypewriterParams): TransitionConfig => {

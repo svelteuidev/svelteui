@@ -45,7 +45,7 @@
 
 Item of an accordion.
 
-@see https://svelteui.org/core/accordion
+@see https://svelteui.dev/core/accordion
 @example
     ```svelte
     <Accordion.Item value="typescript">

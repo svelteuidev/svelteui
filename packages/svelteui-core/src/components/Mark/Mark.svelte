@@ -20,7 +20,7 @@
 
 Highlight text within a larger body of text
 
-@see https://svelteui.org/core/mark
+@see https://svelteui.dev/core/mark
 @example
     ```tsx
     <Text>This is a sentence with a <Mark>highlighted part</Mark> in it </Text>

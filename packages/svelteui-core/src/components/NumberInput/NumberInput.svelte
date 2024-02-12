@@ -185,7 +185,7 @@
 Number input component that allows inputting numbers and incremeting/decrementing them, as well as set steps, minimum and maximum
 values and add custom parsers and formatters.
 
-@see https://svelteui.org/core/number-input
+@see https://svelteui.dev/core/number-input
 @example
     ```svelte
     <NumberInput defaultValue={2} />

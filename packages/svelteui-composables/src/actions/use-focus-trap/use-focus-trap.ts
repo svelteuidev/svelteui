@@ -11,7 +11,7 @@ import { createAriaHider } from './create-aria-hider';
  *    <input placeholder="Focused" />
  *  </div>
  * ```
- * @see https://svelteui.org/actions/use-focus-trap
+ * @see https://svelteui.dev/actions/use-focus-trap
  */
 export function focustrap(node: HTMLElement, active = true): ReturnType<Action> | undefined {
 	let restoreAria: (() => void) | null = null;

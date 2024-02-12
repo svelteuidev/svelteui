@@ -121,7 +121,7 @@
 
 Accordion component that allows the collapsing of each item.
 
-@see https://svelteui.org/core/accordion
+@see https://svelteui.dev/core/accordion
 @example
     ```svelte
     <Accordion defaultValue="typescript">

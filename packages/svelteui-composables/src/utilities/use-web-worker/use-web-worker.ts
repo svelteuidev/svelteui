@@ -18,7 +18,7 @@ export interface UseWebWorkerReturn {
 /**
  * Run expensive function without blocking the UI, using a simple syntax that makes use of Promise.
  *
- * @see https://svelteui.org/composables/use-web-worker
+ * @see https://svelteui.dev/composables/use-web-worker
  * @param fn
  * @param options
  */

@@ -32,7 +32,7 @@ const browser = isBrowser();
  *
  * @param fn callback function
  * @param options controls whether the callback is triggered immediately
- * @see https://svelteui.org/utilities/raf-fn
+ * @see https://svelteui.dev/utilities/raf-fn
  */
 export function useRafFn(fn: () => void, options: RafFnOptions = {}): Pauseable {
 	const { immediate = true } = options;

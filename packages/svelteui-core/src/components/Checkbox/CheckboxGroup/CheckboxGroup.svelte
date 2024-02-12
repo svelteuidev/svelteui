@@ -43,7 +43,7 @@
 A checkbox group component using the theme styles and builds a set of checkboxes according to
 the items passed.
 
-@see https://svelteui.org/core/checkbox
+@see https://svelteui.dev/core/checkbox
 @example
     ```svelte
     <CheckboxGroup bind:value items={items} />

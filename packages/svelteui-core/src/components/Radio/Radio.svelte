@@ -47,7 +47,7 @@
 
 Radio component.
 
-@see https://svelteui.org/core/Radio
+@see https://svelteui.dev/core/Radio
 @example
     ```svelte
     <Radio>Radio</Radio>

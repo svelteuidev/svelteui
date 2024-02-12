@@ -27,7 +27,7 @@ jobs:
         run: |
           yarn build:docs
           touch apps/docs/build/.nojekyll
-          touch apps/docs/build/CNAME && echo 'www.svelteui.org' > apps/docs/build/CNAME
+          touch apps/docs/build/CNAME && echo 'www.svelteui.dev' > apps/docs/build/CNAME
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1

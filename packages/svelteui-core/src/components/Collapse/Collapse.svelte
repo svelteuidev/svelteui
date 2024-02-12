@@ -25,7 +25,7 @@
 
 A section that collapses with animation, occupying no space on the page.
 
-@see https://svelteui.org/core/collapse
+@see https://svelteui.dev/core/collapse
 @example
     ```svelte
     <Collapse open>Content that collapses</Collapse>

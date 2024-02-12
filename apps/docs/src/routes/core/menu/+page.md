@@ -138,7 +138,7 @@ By default,`Menu.Item` renders as buttons. To change that, set `root` prop on `M
 
 ```svelte
 // Regular anchor as Menu.Item root element
-<Menu.Item root="a" href="https://svelteui.org" target="_blank" />
+<Menu.Item root="a" href="https://svelteui.dev" target="_blank" />
 
 // Svelte component as Menu.Item root element
 <Menu.Item root={CustomComponent} />

@@ -1,4 +1,4 @@
-name: Report an issue with svelteui.org website
+name: Report an issue with svelteui.dev website
 description: Nothing is perfect, especially these docs, help us find and fix mistakes, bad wording, etc.
 body:
   - type: markdown

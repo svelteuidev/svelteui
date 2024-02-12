@@ -38,7 +38,7 @@
 
 A picker for one or more options.
 
-@see https://svelteui.org/core/chip
+@see https://svelteui.dev/core/chip
 @example
     ```svelte
     <Chip>Chips</Chip>

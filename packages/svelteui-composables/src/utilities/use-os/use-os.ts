@@ -42,7 +42,7 @@ function getOS() {
  * }
  * ```
  *
- * @see https://svelteui.org/utilities/os
+ * @see https://svelteui.dev/utilities/os
  */
 export function useOs(): OS {
 	if (typeof window !== 'undefined') {

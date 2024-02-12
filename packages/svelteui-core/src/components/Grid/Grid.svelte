@@ -37,7 +37,7 @@
 
 Flexbox grid with variable amount of columns
 
-@see https://svelteui.org/core/grid
+@see https://svelteui.dev/core/grid
 @example
     ```svelte
     <Grid cols={3} align='center'>

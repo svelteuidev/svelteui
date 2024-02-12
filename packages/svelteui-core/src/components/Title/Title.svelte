@@ -23,7 +23,7 @@
 
 Display text that uses title styling and title HTML tags.
 
-@see https://svelteui.org/core/title
+@see https://svelteui.dev/core/title
 @example
     ```tsx
     <Title>This is a title</Title> // standard title component

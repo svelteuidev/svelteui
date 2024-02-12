@@ -103,7 +103,7 @@
 
 Base component to create custom inputs
 
-@see https://svelteui.org/core/input
+@see https://svelteui.dev/core/input
 @example
     ```svelte
     <Input

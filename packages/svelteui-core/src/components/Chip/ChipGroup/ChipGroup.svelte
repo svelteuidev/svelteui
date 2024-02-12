@@ -44,7 +44,7 @@
 
 A chip group component is a container for Chips.
 
-@see https://svelteui.org/core/chip
+@see https://svelteui.dev/core/chip
 @example
     ```svelte
     <ChipGroup bind:value items={items} />

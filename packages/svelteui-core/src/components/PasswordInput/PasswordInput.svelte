@@ -58,7 +58,7 @@
 
 Password input with visibility toggle
 
-@see https://svelteui.org/core/password-input
+@see https://svelteui.dev/core/password-input
 @example
     ```tsx
     <PasswordInput

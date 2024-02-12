@@ -11,7 +11,7 @@ import type { FunctionArgs } from '../../shared/utils';
  * @param leading if true, call fn on the leading edge of the ms timeout
  *
  * @return  A new throttled function.
- * @see https://svelteui.org/composables/use-throttle
+ * @see https://svelteui.dev/composables/use-throttle
  */
 export function useThrottle<T extends FunctionArgs>(
 	fn: T,

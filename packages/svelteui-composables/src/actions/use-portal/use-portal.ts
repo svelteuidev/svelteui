@@ -8,7 +8,7 @@ type Target = HTMLElement | string;
  * Usage: <div use:portal={'css selector'}> or <div use:portal={document.body}>
  *
  * @param target- DOM element or CSS selector to be appended to
- * @see https://svelteui.org/actions/use-portal
+ * @see https://svelteui.dev/actions/use-portal
  */
 export function portal(node: HTMLElement, target: Target = 'body'): ReturnType<Action> {
 	let targetNode;

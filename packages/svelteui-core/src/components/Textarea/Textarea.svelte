@@ -42,7 +42,7 @@
 
 Multiline text input.
 
-@see https://svelteui.org/core/textarea
+@see https://svelteui.dev/core/textarea
 @example
     ```tsx
     <Textarea

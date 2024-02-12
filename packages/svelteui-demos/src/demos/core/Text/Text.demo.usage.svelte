@@ -13,7 +13,7 @@
 <Text weight={'semibold'}>Semibold</Text>
 <Text weight={'bold'}>Bold</Text>
 <Text underline>Underlined</Text>
-<Text variant='link' root='a' href='https://svelteui.org'>Link variant</Text>
+<Text variant='link' root='a' href='https://svelteui.dev'>Link variant</Text>
 <Text color='red'>Red text</Text>
 <Text color='blue'>Blue text</Text>
 <Text color='gray'>Gray text</Text>
@@ -41,7 +41,7 @@
 <Text weight={'semibold'}>Semibold</Text>
 <Text weight={'bold'}>Bold</Text>
 <Text underline>Underlined</Text>
-<Text variant="link" root="a" href="https://svelteui.org">Link variant</Text>
+<Text variant="link" root="a" href="https://svelteui.dev">Link variant</Text>
 <Text color="red">Red text</Text>
 <Text color="blue">Blue text</Text>
 <Text color="gray">Gray text</Text>

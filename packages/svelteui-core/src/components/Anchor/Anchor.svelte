@@ -34,11 +34,11 @@
 Display an anchor text that is a wrapper around `Text` component using an `a` as the default
 root.
 
-@see https://svelteui.org/core/anchor
+@see https://svelteui.dev/core/anchor
 @example
     ```svelte
-    <Anchor href="https://svelteui.org/">Main Page</Anchor>
-    <Anchor root={ Button } href="https://svelteui.org/" target="_blank">Documentation</Anchor>
+    <Anchor href="https://svelteui.dev/">Main Page</Anchor>
+    <Anchor root={ Button } href="https://svelteui.dev/" target="_blank">Documentation</Anchor>
     <Anchor root={ Link } to="/home" color='violet' size='lg'>Click here</Anchor>
     ```
 -->

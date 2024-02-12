@@ -9,7 +9,7 @@
 
 <Template let:args>
 	<Breadcrumbs {...args} size="md">
-		<Breadcrumbs.Item href="https://svelteui.org">Home</Breadcrumbs.Item>
+		<Breadcrumbs.Item href="https://svelteui.dev">Home</Breadcrumbs.Item>
 		<Breadcrumbs.Item active={true}>Application List</Breadcrumbs.Item>
 	</Breadcrumbs>
 </Template>
@@ -18,7 +18,7 @@
 
 <Story name="Icon" id="breadcrumbsIconStory">
 	<Breadcrumbs size="md">
-		<Breadcrumbs.Item href="https://svelteui.org">
+		<Breadcrumbs.Item href="https://svelteui.dev">
 			<IconRenderer slot="icon" icon={Home} />
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>
@@ -31,7 +31,7 @@
 
 <Story name="Separator" id="breadcrumbsSeparatorStory">
 	<Breadcrumbs size="md" separator="→">
-		<Breadcrumbs.Item href="https://svelteui.org">
+		<Breadcrumbs.Item href="https://svelteui.dev">
 			<IconRenderer slot="icon" icon={Home} />
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>

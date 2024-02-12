@@ -6,7 +6,7 @@ import type { Action, FocusableElement } from '../../shared/actions/types';
  * ```tsx
  *  <input use:focus placeholder="Focused"/>
  * ```
- * @see https://svelteui.org/actions/use-focus
+ * @see https://svelteui.dev/actions/use-focus
  */
 export function focus(node: FocusableElement): ReturnType<Action> | undefined {
 	node.focus();

@@ -9,7 +9,7 @@ import { browser } from '../../shared/utilities/utils/index.js';
  *
  * @param prefix prefix that is applied to the hash - defaults to `svelteui`
  *
- * @see https://svelteui.org/utilities/hash
+ * @see https://svelteui.dev/utilities/hash
  */
 export function useHash(prefix: string = 'svelteui', persist: boolean = false): string {
 	if (persist && browser) {

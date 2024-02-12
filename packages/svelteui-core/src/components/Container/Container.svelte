@@ -28,7 +28,7 @@
 
 Center content horizontally with predefined max-width
 
-@see https://svelteui.org/core/container
+@see https://svelteui.dev/core/container
 @example
     ```svelte
     <Container>

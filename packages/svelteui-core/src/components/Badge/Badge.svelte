@@ -42,7 +42,7 @@
 
 Display badge, pill or tag
 
-@see https://svelteui.org/core/badge
+@see https://svelteui.dev/core/badge
 @example
     ```svelte
     <Badge>Badge</Badge>

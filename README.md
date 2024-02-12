@@ -17,7 +17,7 @@
   <p align="center">
    SvelteUI is an all inclusive Svelte library - Components, Actions, Utilities, Animations <br /> What more could you ask for ¯\_(ツ)_/¯
     <br />
-    <a href="https://svelteui.org/"><strong>Explore the docs »</strong></a>
+    <a href="https://svelteui.dev/"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://github.com/svelteuidev/svelteui/issues">Report Bug</a>
     ·
@@ -29,7 +29,7 @@
 
 ## **About The Project**
 
-[Read the Changelog](https://svelteui.org/changelog/v0-6-0)
+[Read the Changelog](https://svelteui.dev/changelog/v0-6-0)
 
 ### Features
 
@@ -44,17 +44,17 @@
 
 ## Packages
 
-**[`@svelteui/core`](https://svelteui.org/core/button)** - core components library with 40+ components
+**[`@svelteui/core`](https://svelteui.dev/core/button)** - core components library with 40+ components
 
-**[`@svelteui/composables`](https://svelteui.org/composables/use-click-outside)** - collection of 20+ useful actions and utilities
+**[`@svelteui/composables`](https://svelteui.dev/composables/use-click-outside)** - collection of 20+ useful actions and utilities
 
-**[`@svelteui/dates`](https://svelteui.org/dates/getting-started)** - calendars, date and time pickers based on SvelteUI components
+**[`@svelteui/dates`](https://svelteui.dev/dates/getting-started)** - calendars, date and time pickers based on SvelteUI components
 
-**[`@svelteui/preprocessors`](https://svelteui.org/preprocessors/view-source)** - Svelte preprocessor library to assist in many areas of development
+**[`@svelteui/preprocessors`](https://svelteui.dev/preprocessors/view-source)** - Svelte preprocessor library to assist in many areas of development
 
-**[`@svelteui/motion`](https://svelteui.org/motion/typewriter)** - collection of transitions to utilize on dom elements
+**[`@svelteui/motion`](https://svelteui.dev/motion/typewriter)** - collection of transitions to utilize on dom elements
 
-**[`@svelteui/prism`](https://svelteui.org/others/prism)** - code highlight component built with prism action
+**[`@svelteui/prism`](https://svelteui.dev/others/prism)** - code highlight component built with prism action
 
 <br />
 
@@ -72,7 +72,7 @@ I want to build a friendly community that is happy to help those who need it. He
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 - If you have a suggestion that would make this project better, submit an issue
-- If you would like to directly contribute, read the [contribution guide](https://svelteui.org/contributing) then submit a PR
+- If you would like to directly contribute, read the [contribution guide](https://svelteui.dev/contributing) then submit a PR
 
 <br />
 

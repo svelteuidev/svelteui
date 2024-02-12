@@ -9,7 +9,7 @@ import type { DebounceFilterOptions, FunctionArgs } from '../../shared/utils';
  * @param opts options
  *
  * @return A new debounced function.
- * @see https://svelteui.org/composables/use-debounce
+ * @see https://svelteui.dev/composables/use-debounce
  */
 export function useDebounce<T extends FunctionArgs>(
 	fn: T,

@@ -59,7 +59,7 @@
 
 Capture user feedback limited to large set of options
 
-@see https://svelteui.org/core/native-select
+@see https://svelteui.dev/core/native-select
 @example
     ```svelte
     <NativeSelect

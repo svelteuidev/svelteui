@@ -158,7 +158,7 @@
 
 Display list of events in chronological order
 
-@see https://svelteui.org/core/timeline
+@see https://svelteui.dev/core/timeline
 @example
     ```svelte
     <Tabs>

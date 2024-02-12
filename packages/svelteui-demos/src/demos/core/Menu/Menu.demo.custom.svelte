@@ -7,11 +7,11 @@
 <\/script>
 
 <Menu>
-    <Menu.Item root='a' href='https://svelteui.org'>SvelteUI Website</Menu.Item>
+    <Menu.Item root='a' href='https://svelteui.dev'>SvelteUI Website</Menu.Item>
     <Menu.Item
         icon={ExternalLink}
         root='a'
-        href='https://svelteui.org'
+        href='https://svelteui.dev'
         target='_blank'
     >
         External Link
@@ -33,8 +33,8 @@
 
 <Center>
 	<Menu>
-		<Menu.Item root="a" href="https://svelteui.org">SvelteUI Website</Menu.Item>
-		<Menu.Item icon={ExternalLink} root="a" href="https://svelteui.org" target="_blank">
+		<Menu.Item root="a" href="https://svelteui.dev">SvelteUI Website</Menu.Item>
+		<Menu.Item icon={ExternalLink} root="a" href="https://svelteui.dev" target="_blank">
 			External Link
 		</Menu.Item>
 	</Menu>

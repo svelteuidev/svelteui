@@ -109,7 +109,7 @@
 Shows content that is positioned based on the reference element provided as well as the psitioning
 and placement options.
 
-@see https://svelteui.org/core/overlay
+@see https://svelteui.dev/core/overlay
 @example
     ```svelte
 	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>

@@ -68,7 +68,7 @@
 
 Add inline styles to any element or component with sx.
 
-@see https://svelteui.org/core/box
+@see https://svelteui.dev/core/box
 @example
     ```svelte
     <Box css={{backgroundColor: '$blue600'}}>example</Box>

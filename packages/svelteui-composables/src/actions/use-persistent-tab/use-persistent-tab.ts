@@ -7,7 +7,7 @@ import type { Action } from '../../shared/actions/types';
  *  <button use:persistenttab={true}>Keep tab open</button>
  * ```
  * @param enabled - Determines whether the action should execute or not.
- * @see https://svelteui.org/actions/use-persistenttab
+ * @see https://svelteui.dev/actions/use-persistenttab
  */
 export function persistenttab(node: HTMLElement, enabled: boolean): ReturnType<Action> {
 	function handler(e: BeforeUnloadEvent) {

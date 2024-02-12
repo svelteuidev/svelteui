@@ -30,7 +30,7 @@
 
 Render icon inside element with theme colors
 
-@see https://svelteui.org/core/theme-icon
+@see https://svelteui.dev/core/theme-icon
 @example
     ```svelte
     <ThemeIcon>

@@ -26,7 +26,7 @@ import type { Action } from '../../shared/actions/types';
  * </div>
  * ```
  * @param params - Object that contains two properties {enabled: boolean, callback: (any) => unknown}
- * @see https://svelteui.org/actions/use-click-outside
+ * @see https://svelteui.dev/actions/use-click-outside
  */
 export function clickoutside(
 	node: HTMLElement,

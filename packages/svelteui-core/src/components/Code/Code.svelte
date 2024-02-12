@@ -63,7 +63,7 @@
 @component
 Inline or block code without syntax highlighting
 
-@see https://svelteui.org/core/code
+@see https://svelteui.dev/core/code
 @example
     ```tsx
     <Code color='green' size='lg' variant='bars' /> // standard code component

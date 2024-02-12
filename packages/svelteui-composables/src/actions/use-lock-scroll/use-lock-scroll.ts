@@ -24,7 +24,7 @@ interface LockScrollOptions {
  *
  * @param lock - A boolean to specify whether or not to lock the screen
  * @param options - An object to specify offset width
- * @see https://svelteui.org/actions/use-lock-scroll
+ * @see https://svelteui.dev/actions/use-lock-scroll
  */
 export function lockscroll(
 	node: HTMLElement,

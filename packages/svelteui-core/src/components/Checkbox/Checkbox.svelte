@@ -42,7 +42,7 @@
 
 A checkbox input component using the theme styles with support for a label and indeterminate state.
 
-@see https://svelteui.org/core/checkbox
+@see https://svelteui.dev/core/checkbox
 @example
     ```svelte
     <Checkbox />

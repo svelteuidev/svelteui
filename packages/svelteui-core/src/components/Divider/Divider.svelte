@@ -45,7 +45,7 @@
 
 Renders horizontal or vertical line with support for label string or component.
 
-@see https://svelteui.org/core/container
+@see https://svelteui.dev/core/container
 @example
     ```svelte
     <Divider />
@@ -53,7 +53,7 @@ Renders horizontal or vertical line with support for label string or component.
     <Divider variant='dotted' />
     <Divider size='md' />
     <Divider label="This is a new section" labelPosition='center' />
-    <Divider label="Click here" labelPosition='right' labelProps={{ variant: 'link', href: 'https://svelteui.org', root: 'a' }} />
+    <Divider label="Click here" labelPosition='right' labelProps={{ variant: 'link', href: 'https://svelteui.dev', root: 'a' }} />
     <Divider>
         <Button slot='label' />
     </Divider>

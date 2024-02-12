@@ -13,7 +13,7 @@ import type { Action } from '../../shared/actions/types';
  * ```
  *
  * @param text - The text that you want to be copied when the DOM element is clicked
- * @see https://svelteui.org/actions/use-clipboard
+ * @see https://svelteui.dev/actions/use-clipboard
  */
 export function clipboard(node: HTMLElement, text: string | (() => string)): ReturnType<Action> {
 	const click = async () => {

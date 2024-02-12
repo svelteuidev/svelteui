@@ -24,7 +24,7 @@
 
 Blockquote with icon and citation
 
-@see https://svelteui.org/core/blockquote
+@see https://svelteui.dev/core/blockquote
 @example
     ```tsx
     <Blockquote>

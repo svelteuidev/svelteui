@@ -21,7 +21,7 @@ Instead of remaking the same components, recreating custom actions, transitions,
 
 # Installation
 
-See https://www.svelteui.org/installation for complete guide.
+See https://www.svelteui.dev/installation for complete guide.
 
 ```
 npm i @svelteuidev/core @svelteuidev/composables

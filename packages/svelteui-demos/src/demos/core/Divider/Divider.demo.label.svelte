@@ -21,7 +21,7 @@
     variant='dashed'
     label='Click here'
     labelPosition='left'
-    labelProps={{ variant: 'link', href: 'https://svelteui.org', root: 'a' }}
+    labelProps={{ variant: 'link', href: 'https://svelteui.dev', root: 'a' }}
   \/>
 `;
 
@@ -55,5 +55,5 @@
 	variant="dashed"
 	label="Click here"
 	labelPosition="left"
-	labelProps={{ variant: 'link', href: 'https://svelteui.org', root: 'a' }}
+	labelProps={{ variant: 'link', href: 'https://svelteui.dev', root: 'a' }}
 />

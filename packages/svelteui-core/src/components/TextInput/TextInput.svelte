@@ -43,7 +43,7 @@
 
 Input for text that also uses labels for the input
 
-@see https://svelteui.org/core/text-input
+@see https://svelteui.dev/core/text-input
 @example
     ```tsx
     <TextInput
