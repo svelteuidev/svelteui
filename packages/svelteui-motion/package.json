@@ -1,6 +1,6 @@
 {
 	"name": "@svelteuidev/motion",
-	"version": "0.15.4",
+	"version": "0.15.5",
 	"description": "Svelte animation library with Transition functions and Animation Components to improve the UI experience",
 	"keywords": [
 		"svelte",
