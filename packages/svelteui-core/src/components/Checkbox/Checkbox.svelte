@@ -24,6 +24,7 @@
 		radius: $$Props['radius'] = 'sm',
 		size: $$Props['size'] = 'md',
 		name: $$Props['name'] = '',
+		required: $$Props['required'] = false,
 		transitionDuration: $$Props['transitionDuration'] = 100;
 	export { className as class };
 
@@ -66,6 +67,7 @@ A checkbox input component using the theme styles with support for a label and i
 			class:disabled
 			type="checkbox"
 			{disabled}
+			{required}
 			{value}
 			{id}
 			{name}
