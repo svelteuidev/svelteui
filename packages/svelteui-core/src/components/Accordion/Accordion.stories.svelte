@@ -75,7 +75,14 @@
 </Story>
 
 <Story name="Controlled" id="accordionControlledStory">
-	<Accordion {value} on:change={(e) => (value = e.detail)}>
+	<button
+		on:click={() => {
+			const array = ['typescript', 'packed', 'accessible'];
+			value = array[Math.floor(Math.random() * array.length)];
+		}}>Pick random</button
+	>
+	{value}
+	<Accordion {value}>
 		<Accordion.Item value="typescript">
 			<div slot="control">Typescript Based</div>
 			Build type safe applications. All SvelteUI packages are built with TypeScript and support it by

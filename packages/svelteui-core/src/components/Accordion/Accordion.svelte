@@ -40,7 +40,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	let _value: AccordionValue<Multiple> = value || defaultValue;
+	let _value: AccordionValue<Multiple>;
 	let stateContent = {
 		variant,
 		order,
@@ -56,6 +56,7 @@
 	const state = writable(stateContent);
 
 	// converts internal value into correct type
+	$: _value = value || defaultValue;
 	$: {
 		if (multiple && !Array.isArray(_value)) {
 			_value = (_value ? [_value] : []) as AccordionValue<Multiple>;
