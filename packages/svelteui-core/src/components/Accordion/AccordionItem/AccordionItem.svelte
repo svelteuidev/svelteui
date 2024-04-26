@@ -90,6 +90,7 @@ Item of an accordion.
 		id={$ctx.getControlsId(value)}
 		aria-labelledby={$ctx.getRegionId(value)}
 		open={$ctx.isItemActive(value)}
+		transitionDuration={$ctx.transitionDuration}
 	>
 		<div class={classes.panel}>
 			<slot />

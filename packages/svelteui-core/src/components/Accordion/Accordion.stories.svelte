@@ -94,3 +94,15 @@
 		</Accordion.Item>
 	</Accordion>
 </Story>
+
+<Story
+	name="Transition Duration (1s)"
+	id="accordionTransitionDurationLongStory"
+	args={{ transitionDuration: 1000 }}
+/>
+
+<Story
+	name="Transition Duration (0s)"
+	id="accordionNoTransitionDurationStory"
+	args={{ transitionDuration: 0 }}
+/>

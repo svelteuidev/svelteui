@@ -59,7 +59,7 @@ When `multiple` is `true`, this should be provided as an arrays of strings.
 
 ## Transition
 
-It's possible to change the chevron transition duration by modifying the prop `transitionDuration` (in milliseconds).
+It's possible to change the chevron and collapse transition duration by modifying the prop `transitionDuration` (in milliseconds).
 
 <Demo demo={AccordionDemos.transitionDuration} />
 
