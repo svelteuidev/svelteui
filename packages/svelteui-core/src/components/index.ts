@@ -19,6 +19,7 @@ export * from './Code';
 export * from './Collapse';
 export * from './Container';
 export * from './Divider';
+export * from './Drawer';
 export * from './FileUpload';
 export * from './Flex';
 export * from './Grid';
