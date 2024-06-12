@@ -77,6 +77,20 @@ CloseButton is a pre-made ActionIcon with close icon, it will be used in all oth
 
 <Demo demo={ActionIconDemos.close} />
 
+## OnClick
+
+For interaction, just use the onclick handler:
+
+```svelte
+<script lang="ts">
+	function myfunc() {
+		// ...
+	}
+</script>
+
+<ActionIcon on:click={myfunc} />
+```
+
 ## Accessibility
 
 ActionIcon renders a regular `button` element. Set `title` or `aria-label` props for screen reader support:

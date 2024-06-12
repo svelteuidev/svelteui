@@ -84,6 +84,7 @@ Add inline styles to any element or component with sx.
 		this={castRoot()}
 		use:forwardEvents
 		use:useActions={use}
+		on:click
 		class="{className} {BoxStyles({ css: {...getCSSStyles(theme), ...systemStyles} })}"
 		{...$$restProps}
 	>
@@ -94,6 +95,7 @@ Add inline styles to any element or component with sx.
 		this={root}
 		bind:this={element}
 		use={[forwardEvents, [useActions, use]]}
+		on:click
 		class="{className} {BoxStyles({ css: { ...getCSSStyles(theme), ...systemStyles } })}"
 		{...$$restProps}
 	>
@@ -104,6 +106,7 @@ Add inline styles to any element or component with sx.
 		bind:this={element}
 		use:forwardEvents
 		use:useActions={use}
+		on:click
 		class="{className} {BoxStyles({ css: { ...getCSSStyles(theme), ...systemStyles } })}"
 		{...$$restProps}
 	>

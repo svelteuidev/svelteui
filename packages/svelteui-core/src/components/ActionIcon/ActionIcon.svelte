@@ -76,6 +76,7 @@ Icon button to indicate secondary action.
 	rel={external ? 'noreferrer noopener' : null}
 	{root}
 	{href}
+	on:click
 	{...$$restProps}
 >
 	{#if loading}
