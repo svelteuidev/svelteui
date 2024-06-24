@@ -45,6 +45,7 @@ export default createStyles(
 				fontSize: `$${size}`,
 				lineHeight: `$${size}`,
 				color: '#000000',
+				fontFamily: theme.fonts.standard.value ?? 'sans-serif',
 				darkMode: {
 					color: '$dark000'
 				}
