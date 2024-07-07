@@ -16,7 +16,7 @@
 		group: $$Props['group'] = undefined,
 		color: $$Props['color'] = undefined,
 		value: $$Props['value'] = undefined,
-		label: $$Props['label'] = null,
+		label: $$Props['label'] = undefined,
 		disabled: $$Props['disabled'] = false,
 		size: $$Props['size'] = undefined,
 		radius: $$Props['radius'] = undefined,

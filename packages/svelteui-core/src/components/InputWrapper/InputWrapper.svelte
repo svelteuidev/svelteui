@@ -11,7 +11,7 @@
 		element: $$Props['element'] = undefined,
 		className: $$Props['className'] = '',
 		override: $$Props['override'] = {},
-		label: $$Props['label'] = 'label',
+		label: $$Props['label'] = undefined,
 		description: $$Props['description'] = null,
 		error: $$Props['error'] = null,
 		required: $$Props['required'] = false,
