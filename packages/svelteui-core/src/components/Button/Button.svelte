@@ -93,7 +93,7 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		})}
 		role="button"
 		rel="noreferrer noopener"
-		target={external ? '_blank' : '_self'}
+		target={external ? '_blank' : ''}
 		{...$$restProps}
 		tabindex="0"
 	>
