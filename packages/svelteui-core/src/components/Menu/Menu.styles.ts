@@ -77,7 +77,7 @@ export default createStyles((theme, { size }: MenuStyleParams) => ({
 		pointerEvents: 'all',
 		border: `1px solid ${theme.fn.themeColor('gray', 2)}`,
 		backgroundColor: theme.colors.white.value,
-		padding: MENU_PADDING,
+		padding: `$${MENU_PADDING} !important`,
 
 		'& .svelteui-Divider-horizontal': {
 			margin: `${parseInt(theme.space.xs.value) / 2}px -${MENU_PADDING}px`,
