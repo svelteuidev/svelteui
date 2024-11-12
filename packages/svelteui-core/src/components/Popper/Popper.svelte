@@ -136,8 +136,8 @@ and placement options.
 		use:useActions={use}
 		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override }))}
-		in:_transition={transitionOptions}
-		out:_exitTransition={exitTransitionOptions}
+		in:_transition|global={transitionOptions}
+		out:_exitTransition|global={exitTransitionOptions}
 	>
 		{#if withArrow}
 			<div

@@ -116,7 +116,7 @@
 					shouldTrigger && event.code === 'Escape' && closeOnEscape && onClose();
 				}}
 			>
-				<div class={classes.transition} transition:_transition={transitionOptions}>
+				<div class={classes.transition} transition:_transition|global={transitionOptions}>
 					<Paper
 						class={classes.modal}
 						{shadow}
@@ -153,7 +153,7 @@
 					</Paper>
 				</div>
 			</div>
-			<div transition:_overlayTransition={overlayTransitionOptions}>
+			<div transition:_overlayTransition|global={overlayTransitionOptions}>
 				<Overlay
 					class={classes.overlay}
 					override={{ position: 'fixed' }}
