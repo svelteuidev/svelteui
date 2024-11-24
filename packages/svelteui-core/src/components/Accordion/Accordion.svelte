@@ -1,3 +1,5 @@
+<!-- @migration-task Error while migrating Svelte code: can't migrate `let _value: AccordionValue<Multiple>;` to `$state` because there's a variable named state.
+     Rename the variable and try again or migrate by hand. -->
 <script lang="ts" generics="Multiple extends boolean = false">
 	// Temporary eslint disable while svelte-eslint-parser does not support generics in file -->
 	/* eslint-disable no-undef */

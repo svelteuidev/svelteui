@@ -7,15 +7,17 @@
 	const spacings: SvelteUINumberSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 	const directions: ('column' | 'row')[] = ['column', 'row'];
 
-	let bindValue = 'three';
-	let bindGroup = 'two';
+	let bindValue = $state('three');
+	let bindGroup = $state('two');
 </script>
 
 <Meta title="Components/Radio" component={Radio} />
 
-<Template let:args>
-	<Radio {...args} checked />
-	<Radio {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Radio {...args} checked />
+		<Radio {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Default" args={{ label: 'Default Radio' }} id="radioStory">

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { get_current_component } from 'svelte/internal';
 	import { clipboard, useActions, createEventForwarder } from '$lib/internal';
 	import Error from '$lib/internal/errors/Error.svelte';
@@ -7,25 +9,44 @@
 	import { CodeErrors } from './Code.errors';
 	import type { CodeProps as $$CodeProps } from './Code';
 
-	interface $$Props extends $$CodeProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'gray',
-		block: $$Props['block'] = false,
-		width: $$Props['width'] = 100,
-		copy: $$Props['copy'] = false,
-		message: $$Props['message'] = 'Copied',
-		noMono: $$Props['noMono'] = false;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		block?: $$Props['block'];
+		width?: $$Props['width'];
+		copy?: $$Props['copy'];
+		message?: $$Props['message'];
+		noMono?: $$Props['noMono'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = $bindable({}),
+		color = 'gray',
+		block = false,
+		width = 100,
+		copy = false,
+		message = 'Copied',
+		noMono = false,
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	/** Copy logic */
-	let copied = false;
+	let copied = $state(false);
 	function toggle() {
 		// sets the copied state for icon
 		copied = true;
@@ -33,8 +54,8 @@
 	}
 
 	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
+	let observable: boolean = $state(false);
+	let err = $state();
 
 	if (!block && width < 100) {
 		observable = true;
@@ -51,10 +72,12 @@
 		err = CodeErrors[2];
 	}
 
-	$: if (observable) override = { display: 'none' };
+	run(() => {
+		if (observable) override = { display: 'none' };
+	});
 	// --------------Error Handling-------------------
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, block, noMono, width }, { name: 'Code' }));
+	let { cx, classes, getStyles } = $derived(useStyles({ color, block, noMono, width }, { name: 'Code' }));
 </script>
 
 <Error {observable} component="Code" code={err} />
@@ -77,14 +100,14 @@ Inline or block code without syntax highlighting
 		use:useActions={use}
 		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override }))}
-		{...$$restProps}>
+		{...rest}>
 		{#if !noMono}
-			<code class={className}><slot>Write some code</slot></code>
+			<code class={className}>{#if children}{@render children()}{:else}Write some code{/if}</code>
 		{:else}
-			<p class={className}><slot>Write some code</slot></p>
+			<p class={className}>{#if children}{@render children()}{:else}Write some code{/if}</p>
 		{/if}
       {#if copy}
-			<button on:click={toggle} use:clipboard={message} class={classes.copy}
+			<button onclick={toggle} use:clipboard={message} class={classes.copy}
 				><CopyIcon {copied} /></button
 			>
 		{/if}
@@ -95,9 +118,9 @@ Inline or block code without syntax highlighting
 		use:useActions={use}
 		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override }))}
-		{...$$restProps}
+		{...rest}
 	>
-		<slot>Write some code</slot>
+		{#if children}{@render children()}{:else}Write some code{/if}
 	</code>
 {/if}
 

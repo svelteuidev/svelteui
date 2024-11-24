@@ -6,17 +6,31 @@
 		value?: { fixed: boolean; zIndex: number };
 	}
 
-	export let use: AppShellProviderProps['use'] = [],
-		element: AppShellProviderProps['element'] = undefined,
-		className: AppShellProviderProps['className'] = '',
-		override: AppShellProviderProps['override'] = {},
+	interface Props {
+		use?: AppShellProviderProps['use'];
+		element?: AppShellProviderProps['element'];
+		class?: AppShellProviderProps['className'];
+		override?: AppShellProviderProps['override'];
 		value: AppShellProviderProps['value'];
-	export { className as class };
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		value,
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	const noop = () => value;
 	noop();
 </script>
 
-<Box bind:element class={className} css={{ ...override }} {use} {...$$restProps}>
-	<slot />
+<Box bind:element class={className} css={{ ...override }} {use} {...rest}>
+	{@render children?.()}
 </Box>

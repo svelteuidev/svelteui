@@ -2,20 +2,40 @@
 	import { HorizontalSection } from '../HorizontalSection';
 	import type { HorizontalSectionSharedProps as $$HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection';
 
-	interface $$Props extends $$HorizontalSectionSharedProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		width: $$Props['width'] = undefined,
-		height: $$Props['height'] = undefined,
-		fixed: $$Props['fixed'] = true,
-		position: $$Props['position'] = { top: 0, left: 0 },
-		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
-		hidden: $$Props['hidden'] = false,
-		zIndex: $$Props['zIndex'] = 100;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		width?: $$Props['width'];
+		height?: $$Props['height'];
+		fixed?: $$Props['fixed'];
+		position?: $$Props['position'];
+		hiddenBreakpoint?: $$Props['hiddenBreakpoint'];
+		hidden?: $$Props['hidden'];
+		zIndex?: $$Props['zIndex'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		width = undefined,
+		height = undefined,
+		fixed = true,
+		position = { top: 0, left: 0 },
+		hiddenBreakpoint = 'md',
+		hidden = false,
+		zIndex = 100,
+		children,
+		...rest
+	}: Props = $props();
+	
 </script>
 
 <HorizontalSection
@@ -31,7 +51,7 @@
 	{hiddenBreakpoint}
 	{hidden}
 	{zIndex}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </HorizontalSection>

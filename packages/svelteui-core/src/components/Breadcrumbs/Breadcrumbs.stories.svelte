@@ -7,11 +7,13 @@
 
 <Meta title="Components/Breadcrumbs" component={Breadcrumbs} />
 
-<Template let:args>
-	<Breadcrumbs {...args} size="md">
-		<Breadcrumbs.Item href="https://svelteui.dev">Home</Breadcrumbs.Item>
-		<Breadcrumbs.Item active={true}>Application List</Breadcrumbs.Item>
-	</Breadcrumbs>
+<Template >
+	{#snippet children({ args })}
+		<Breadcrumbs {...args} size="md">
+			<Breadcrumbs.Item href="https://svelteui.dev">Home</Breadcrumbs.Item>
+			<Breadcrumbs.Item active={true}>Application List</Breadcrumbs.Item>
+		</Breadcrumbs>
+	{/snippet}
 </Template>
 
 <Story name="Breadcrumbs" id="breadcrumbsStory" />
@@ -19,10 +21,14 @@
 <Story name="Icon" id="breadcrumbsIconStory">
 	<Breadcrumbs size="md">
 		<Breadcrumbs.Item href="https://svelteui.dev">
-			<IconRenderer slot="icon" icon={Home} />
+			{#snippet icon()}
+						<IconRenderer  icon={Home} />
+					{/snippet}
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>
-			<IconRenderer slot="icon" icon={Person} />
+			{#snippet icon()}
+						<IconRenderer  icon={Person} />
+					{/snippet}
 			Application List
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>
@@ -32,10 +38,14 @@
 <Story name="Separator" id="breadcrumbsSeparatorStory">
 	<Breadcrumbs size="md" separator="→">
 		<Breadcrumbs.Item href="https://svelteui.dev">
-			<IconRenderer slot="icon" icon={Home} />
+			{#snippet icon()}
+						<IconRenderer  icon={Home} />
+					{/snippet}
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>
-			<IconRenderer slot="icon" icon={Person} />
+			{#snippet icon()}
+						<IconRenderer  icon={Person} />
+					{/snippet}
 			Application List
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>

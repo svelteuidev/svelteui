@@ -3,13 +3,15 @@
 	import { Burger } from './index';
 	import { Button } from '../Button';
 
-	let opened = false;
+	let opened = $state(false);
 </script>
 
 <Meta title="Components/Burger" component={Burger} />
 
-<Template let:args>
-	<Burger {opened} on:click={() => (opened = !opened)} {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Burger {opened} on:click={() => (opened = !opened)} {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Burger" id="burgerStory" />

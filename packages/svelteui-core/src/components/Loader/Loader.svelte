@@ -7,15 +7,28 @@
 	import { LOADER_SIZES, getCorrectShade } from './Loader.styles';
 	import type { LoaderProps as $$LoaderProps } from './Loader';
 
-	interface $$Props extends $$LoaderProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		size: $$Props['size'] = 'md',
-		color: $$Props['color'] = 'blue',
-		variant: $$Props['variant'] = 'circle';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		size?: $$Props['size'];
+		color?: $$Props['color'];
+		variant?: $$Props['variant'];
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		size = 'md',
+		color = 'blue',
+		variant = 'circle',
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -28,6 +41,8 @@
 	};
 
 	const defaultLoader = variant in LOADERS ? variant : 'circle';
+
+	const SvelteComponent = $derived(LOADERS[defaultLoader]);
 </script>
 
 <!--
@@ -40,12 +55,11 @@ The Loader component creates a loading icon. There are three different Loaders w
     <Loader color='green' size='lg' variant='bars' />
     ```
 -->
-<svelte:component
-	this={LOADERS[defaultLoader]}
+<SvelteComponent
 	bind:this={element}
 	use={[forwardEvents, [useActions, use]]}
 	color={color === 'white' ? 'white' : getCorrectShade(color)}
 	size={LOADER_SIZES[size] || size}
 	class={className}
-	{...$$restProps}
+	{...rest}
 />

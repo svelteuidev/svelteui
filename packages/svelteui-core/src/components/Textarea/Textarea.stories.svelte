@@ -5,8 +5,10 @@
 
 <Meta title="Components/Textarea" component={Textarea} />
 
-<Template let:args>
-	<Textarea {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Textarea {...args} />
+	{/snippet}
 </Template>
 
 <Story

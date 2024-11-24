@@ -5,8 +5,10 @@
 
 <Meta title="Components/Text" component={Text} />
 
-<Template let:args>
-	<Text {...args}>This is a nice text</Text>
+<Template >
+	{#snippet children({ args })}
+		<Text {...args}>This is a nice text</Text>
+	{/snippet}
 </Template>
 
 <Story name="Text" id="textStory" />

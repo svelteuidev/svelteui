@@ -4,21 +4,39 @@
 	import { sizes } from './ThemeIcon.styles';
 	import type { ThemeIconProps as $$ThemeIconProps } from './ThemeIcon';
 
-	interface $$Props extends $$ThemeIconProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		size: $$Props['size'] = 'md',
-		radius: $$Props['radius'] = 'sm',
-		color: $$Props['color'] = 'blue',
-		variant: $$Props['variant'] = 'filled',
-		gradient: $$Props['gradient'] = { from: 'blue', to: 'cyan', deg: 45 };
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		size?: $$Props['size'];
+		radius?: $$Props['radius'];
+		color?: $$Props['color'];
+		variant?: $$Props['variant'];
+		gradient?: $$Props['gradient'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: iconSize = typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md;
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		size = 'md',
+		radius = 'sm',
+		color = 'blue',
+		variant = 'filled',
+		gradient = { from: 'blue', to: 'cyan', deg: 45 },
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let iconSize = $derived(typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md);
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ color, gradient, iconSize, radius, variant },
 		{ name: 'ThemeIcon' }
 	));
@@ -46,7 +64,7 @@ Render icon inside element with theme colors
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override, variation: variant }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

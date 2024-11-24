@@ -5,28 +5,50 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { CloseButtonProps as $$CloseButtonProps } from './CloseButton';
 
-	interface $$Props extends $$CloseButtonProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		iconSize: $$Props['iconSize'] = 'md',
-		root: $$Props['root'] = 'button',
-		color: $$Props['color'] = 'gray',
-		variant: $$Props['variant'] = 'hover',
-		size: $$Props['size'] = 'md',
-		radius: $$Props['radius'] = 'sm',
-		loaderProps: $$Props['loaderProps'] = {
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		iconSize?: $$Props['iconSize'];
+		root?: $$Props['root'];
+		color?: $$Props['color'];
+		variant?: $$Props['variant'];
+		size?: $$Props['size'];
+		radius?: $$Props['radius'];
+		loaderProps?: $$Props['loaderProps'];
+		loading?: $$Props['loading'];
+		disabled?: $$Props['disabled'];
+		href?: $$Props['href'];
+		external?: $$Props['external'];
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		iconSize = 'md',
+		root = 'button',
+		color = 'gray',
+		variant = 'hover',
+		size = 'md',
+		radius = 'sm',
+		loaderProps = {
 			size: 'xs',
 			color: 'gray',
 			variant: 'circle'
 		},
-		loading: $$Props['loading'] = false,
-		disabled: $$Props['disabled'] = false,
-		href: $$Props['href'] = '',
-		external: $$Props['external'] = false;
-	export { className as class };
+		loading = false,
+		disabled = false,
+		href = '',
+		external = false,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -67,7 +89,7 @@ CloseButton is a premade ActionIcon with close icon
 	{disabled}
 	{href}
 	{external}
-	{...$$restProps}
+	{...rest}
 >
 	<CloseIcon width={iconSizes[iconSize]} height={iconSizes[iconSize]} />
 </ActionIcon>

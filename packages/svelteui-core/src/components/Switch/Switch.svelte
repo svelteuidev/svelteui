@@ -5,29 +5,49 @@
 	import useStyles from './Switch.styles';
 	import type { SwitchProps as $$SwitchProps } from './Switch';
 
-	interface $$Props extends $$SwitchProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		size: $$Props['size'] = 'sm',
-		radius: $$Props['radius'] = 'xl',
-		insideLabelSize: $$Props['insideLabelSize'] = undefined,
-		transitionFunction: $$Props['transitionFunction'] = 'linear',
-		id: $$Props['id'] = randomID(),
-		label: $$Props['label'] = '',
-		onLabel: $$Props['onLabel'] = '',
-		offLabel: $$Props['offLabel'] = '',
-		disabled: $$Props['disabled'] = false,
-		checked: $$Props['checked'] = false;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		size?: $$Props['size'];
+		radius?: $$Props['radius'];
+		insideLabelSize?: $$Props['insideLabelSize'];
+		transitionFunction?: $$Props['transitionFunction'];
+		id?: $$Props['id'];
+		label?: $$Props['label'];
+		onLabel?: $$Props['onLabel'];
+		offLabel?: $$Props['offLabel'];
+		disabled?: $$Props['disabled'];
+		checked?: $$Props['checked'];
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		size = 'sm',
+		radius = 'xl',
+		insideLabelSize = undefined,
+		transitionFunction = 'linear',
+		id = randomID(),
+		label = '',
+		onLabel = '',
+		offLabel = '',
+		disabled = false,
+		checked = $bindable(false)
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			color,
 			offLabel,

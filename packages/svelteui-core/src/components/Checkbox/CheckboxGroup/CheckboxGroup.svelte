@@ -8,25 +8,45 @@
 		CheckboxGroupEvents as $$CheckboxGroupEvents
 	} from './CheckboxGroup';
 
-	interface $$Props extends $$CheckboxGroupProps {}
+	
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$CheckboxGroupEvents {}
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'gray',
-		items: $$Props['items'] = [],
-		value: $$Props['value'] = [],
-		label: $$Props['label'] = null,
-		size: $$Props['size'] = 'md',
-		radius: $$Props['radius'] = 'sm',
-		direction: $$Props['direction'] = 'row',
-		align: $$Props['align'] = 'flex-start',
-		spacing: $$Props['spacing'] = 'md';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		items?: $$Props['items'];
+		value?: $$Props['value'];
+		label?: $$Props['label'];
+		size?: $$Props['size'];
+		radius?: $$Props['radius'];
+		direction?: $$Props['direction'];
+		align?: $$Props['align'];
+		spacing?: $$Props['spacing'];
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = 'gray',
+		items = [],
+		value = $bindable([]),
+		label = null,
+		size = 'md',
+		radius = 'sm',
+		direction = 'row',
+		align = 'flex-start',
+		spacing = 'md',
+		...rest
+	}: Props = $props();
+	
 
 	const dispatch = createEventDispatcher();
 
@@ -52,7 +72,7 @@ the items passed.
     ```
 -->
 
-<InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
+<InputWrapper bind:element class={className} {label} {override} {size} {...rest}>
 	<Group {direction} {spacing} {align}>
 		{#each items as item}
 			<Checkbox

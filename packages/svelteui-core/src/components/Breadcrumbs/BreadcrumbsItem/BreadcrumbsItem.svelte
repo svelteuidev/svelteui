@@ -6,15 +6,30 @@
 	import type { BreadcrumbItemProps as $$BreadcrumbItemProps } from './BreadcrumbsItem';
 	import useStyles from './BreadcrumbsItem.styles';
 
-	interface $$Props extends $$BreadcrumbItemProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		href: $$Props['href'] = undefined,
-		active: $$Props['active'] = false;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		href?: $$Props['href'];
+		active?: $$Props['active'];
+		icon?: import('svelte').Snippet<[any]>;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		href = undefined,
+		active = false,
+		icon,
+		children
+	}: Props = $props();
+	
 
 	// retrieves the reactive context so that TimelineItem has access
 	// to the Timeline parameters
@@ -24,16 +39,16 @@
 	let size = $state.size;
 	let color = $state.color;
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'BreadcrumbsItem' }));
+	let { cx, classes, getStyles } = $derived(useStyles({ color, size }, { name: 'BreadcrumbsItem' }));
 </script>
 
 <Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	{#if href}
 		<div class={cx(classes.wrapper, { active: active })}>
 			<a {href}>
-				<slot name="icon" class={cx(classes.icon)} />
+				{@render icon?.({ class: cx(classes.icon), })}
 				<span class={cx(classes.innerText)}>
-					<slot />
+					{@render children?.()}
 				</span>
 			</a>
 			{#if !active}
@@ -42,9 +57,9 @@
 		</div>
 	{:else}
 		<div class={cx(classes.wrapper, { active: active })}>
-			<slot name="icon" class={cx(classes.icon)} />
+			{@render icon?.({ class: cx(classes.icon), })}
 			<span class={cx(classes.innerText)}>
-				<slot />
+				{@render children?.()}
 			</span>
 			{#if !active}
 				<span class={cx(classes.separator)}>{separator}</span>

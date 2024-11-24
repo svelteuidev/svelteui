@@ -51,12 +51,16 @@
 
 <Story name="Button" id="iconRendererButtonStory">
 	<Button>
-		<IconRenderer slot="leftIcon" icon={InfoCircled} />
+		{#snippet leftIcon()}
+				<IconRenderer  icon={InfoCircled} />
+			{/snippet}
 		Button with Svelte component icon
 	</Button>
 	<br />
 	<Button>
-		<IconRenderer slot="leftIcon" icon={iconSvg} />
+		{#snippet leftIcon()}
+				<IconRenderer  icon={iconSvg} />
+			{/snippet}
 		Button with SVG icon
 	</Button>
 </Story>
@@ -69,7 +73,9 @@
 
 <Story name="MenuItem" id="iconRendererMenuItemStory">
 	<Menu>
-		<div slot="control">Click Me</div>
+		{#snippet control()}
+				<div >Click Me</div>
+			{/snippet}
 		<MenuItem icon={InfoCircled}>Svelte component</MenuItem>
 		<MenuItem icon={iconSvg}>SVG Element</MenuItem>
 	</Menu>

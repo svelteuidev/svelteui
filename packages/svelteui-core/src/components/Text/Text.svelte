@@ -7,34 +7,61 @@
 	import { TextErrors } from './Text.errors';
 	import type { TextProps as $$TextProps } from './Text';
 
-	interface $$Props extends $$TextProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		align: $$Props['align'] = 'left',
-		color: $$Props['color'] = 'dark',
-		root: $$Props['root'] = undefined,
-		transform: $$Props['transform'] = 'none',
-		variant: $$Props['variant'] = 'text',
-		size: $$Props['size'] = 'md',
-		weight: $$Props['weight'] = 'normal',
-		gradient: $$Props['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		inline: $$Props['inline'] = true,
-		lineClamp: $$Props['lineClamp'] = undefined,
-		underline: $$Props['underline'] = false,
-		inherit: $$Props['inherit'] = false,
-		href: $$Props['href'] = '',
-		tracking: $$Props['tracking'] = 'normal';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		align?: $$Props['align'];
+		color?: $$Props['color'];
+		root?: $$Props['root'];
+		transform?: $$Props['transform'];
+		variant?: $$Props['variant'];
+		size?: $$Props['size'];
+		weight?: $$Props['weight'];
+		gradient?: $$Props['gradient'];
+		inline?: $$Props['inline'];
+		lineClamp?: $$Props['lineClamp'];
+		underline?: $$Props['underline'];
+		inherit?: $$Props['inherit'];
+		href?: $$Props['href'];
+		tracking?: $$Props['tracking'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		align = 'left',
+		color = 'dark',
+		root = undefined,
+		transform = 'none',
+		variant = 'text',
+		size = 'md',
+		weight = 'normal',
+		gradient = { from: 'indigo', to: 'cyan', deg: 45 },
+		inline = true,
+		lineClamp = undefined,
+		underline = false,
+		inherit = false,
+		href = '',
+		tracking = 'normal',
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
 	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
+	let observable: boolean = $state(false);
+	let err = $state();
 
 	if (
 		gradient.from === 'indigo' &&
@@ -47,7 +74,7 @@
 	}
 	// --------------End Error Handling-------------------
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			lineClamp,
 			underline,
@@ -89,7 +116,7 @@ Display text and links with theme styles.
 	use={[forwardEvents, [useActions, use]]}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	href={href ?? undefined}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

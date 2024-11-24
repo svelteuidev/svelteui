@@ -4,19 +4,34 @@
 	import useStyles from './MediaQuery.styles';
 	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery';
 
-	interface $$Props extends $$MediaQueryProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		smallerThan: $$Props['smallerThan'] = undefined,
-		largerThan: $$Props['largerThan'] = undefined,
-		styles: $$Props['styles'] = undefined,
-		query: $$Props['query'] = undefined;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		smallerThan?: $$Props['smallerThan'];
+		largerThan?: $$Props['largerThan'];
+		styles?: $$Props['styles'];
+		query?: $$Props['query'];
+		children?: import('svelte').Snippet;
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		smallerThan = undefined,
+		largerThan = undefined,
+		styles = undefined,
+		query = undefined,
+		children
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ query, styles, largerThan, smallerThan },
 		{ name: 'MediaQuery' }
 	));
@@ -29,5 +44,5 @@
 </script>
 
 <Box {use} bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
-	<slot />
+	{@render children?.()}
 </Box>

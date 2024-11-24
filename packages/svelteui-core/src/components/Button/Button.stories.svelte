@@ -11,20 +11,24 @@
 
 <Meta title="Components/Button" component={Button} />
 
-<Template let:args>
-	<Button {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Button {...args} />
+	{/snippet}
 </Template>
 
-<Template id="variants" let:args>
-	<Group mt="xl">
-		<Button {...args} variant="filled">Filled button</Button>
-		<Button {...args} variant="light">Light button</Button>
-		<Button {...args} variant="outline">Outline button</Button>
-		<Button {...args} variant="default">Default button</Button>
-		<Button {...args} variant="white">White button</Button>
-		<Button {...args} variant="gradient">Gradient button</Button>
-		<Button {...args} variant="subtle">Subtle button</Button>
-	</Group>
+<Template id="variants" >
+	{#snippet children({ args })}
+		<Group mt="xl">
+			<Button {...args} variant="filled">Filled button</Button>
+			<Button {...args} variant="light">Light button</Button>
+			<Button {...args} variant="outline">Outline button</Button>
+			<Button {...args} variant="default">Default button</Button>
+			<Button {...args} variant="white">White button</Button>
+			<Button {...args} variant="gradient">Gradient button</Button>
+			<Button {...args} variant="subtle">Subtle button</Button>
+		</Group>
+	{/snippet}
 </Template>
 
 <Story name="Button" id="buttonStory" />
@@ -44,7 +48,9 @@
 
 <Story name="With icon" id="buttonIconStory">
 	<Button>
-		<LockClosed slot="leftIcon" />
+		{#snippet leftIcon()}
+				<LockClosed  />
+			{/snippet}
 		Sign Up
 	</Button>
 </Story>

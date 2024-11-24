@@ -5,26 +5,50 @@
 	import Chip from '../Chip.svelte';
 	import type { ChipGroupProps as $$ChipGroupProps } from './ChipGroup';
 
-	interface $$Props extends $$ChipGroupProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = undefined,
-		multiple: $$Props['multiple'] = false,
-		items: $$Props['items'] = [],
-		value: $$Props['value'] = multiple ? [] : undefined,
-		label: $$Props['label'] = null,
-		disabled: $$Props['disabled'] = false,
-		variant: $$Props['variant'] = 'outline',
-		size: $$Props['size'] = undefined,
-		radius: $$Props['radius'] = undefined,
-		direction: $$Props['direction'] = 'row',
-		align: $$Props['align'] = 'flex-start',
-		position: $$Props['position'] = 'left',
-		spacing: $$Props['spacing'] = 'md';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		multiple?: $$Props['multiple'];
+		items?: $$Props['items'];
+		value?: $$Props['value'];
+		label?: $$Props['label'];
+		disabled?: $$Props['disabled'];
+		variant?: $$Props['variant'];
+		size?: $$Props['size'];
+		radius?: $$Props['radius'];
+		direction?: $$Props['direction'];
+		align?: $$Props['align'];
+		position?: $$Props['position'];
+		spacing?: $$Props['spacing'];
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = undefined,
+		multiple = false,
+		items = [],
+		value = $bindable(multiple ? [] : undefined),
+		label = null,
+		disabled = false,
+		variant = 'outline',
+		size = undefined,
+		radius = undefined,
+		direction = 'row',
+		align = 'flex-start',
+		position = 'left',
+		spacing = 'md',
+		...rest
+	}: Props = $props();
+	
 
 	const dispatch = createEventDispatcher();
 
@@ -54,7 +78,7 @@ A chip group component is a container for Chips.
     ```
 -->
 
-<InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
+<InputWrapper bind:element class={className} {label} {override} {size} {...rest}>
 	<Group {direction} {spacing} {align} {position}>
 		{#each items as item}
 			<Chip

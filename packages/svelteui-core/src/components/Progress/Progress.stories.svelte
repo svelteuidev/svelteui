@@ -5,8 +5,10 @@
 
 <Meta title="Components/Progress" component={Progress} />
 
-<Template let:args>
-	<Progress {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Progress {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Menu" id="progressStory" args={{ value: 40 }} />

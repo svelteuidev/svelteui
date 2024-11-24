@@ -3,17 +3,32 @@
 	import useStyles from './TypographyProvider.styles';
 	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider';
 
-	interface $$Props extends $$TypographyProviderProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		primaryColor: $$Props['primaryColor'] = 'blue',
-		underline: $$Props['underline'] = true;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		primaryColor?: $$Props['primaryColor'];
+		underline?: $$Props['underline'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		primaryColor = 'blue',
+		underline = true,
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ primaryColor, underline },
 		{ name: 'TypographyProvider' }
 	));
@@ -23,7 +38,7 @@
 	bind:element
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

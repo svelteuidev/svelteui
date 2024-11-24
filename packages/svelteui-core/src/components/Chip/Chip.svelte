@@ -6,28 +6,51 @@
 	import Box from '../Box/Box.svelte';
 	import type { ChipProps as $$ChipProps } from './Chip';
 
-	interface $$Props extends $$ChipProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		id: $$Props['id'] = randomID(),
-		disabled: $$Props['disabled'] = false,
-		value: $$Props['value'] = undefined,
-		checked: $$Props['checked'] = false,
-		label: $$Props['label'] = '',
-		radius: $$Props['radius'] = 'xl',
-		size: $$Props['size'] = 'sm',
-		variant: $$Props['variant'] = 'outline',
-		transitionDuration: $$Props['transitionDuration'] = 100;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		id?: $$Props['id'];
+		disabled?: $$Props['disabled'];
+		value?: $$Props['value'];
+		checked?: $$Props['checked'];
+		label?: $$Props['label'];
+		radius?: $$Props['radius'];
+		size?: $$Props['size'];
+		variant?: $$Props['variant'];
+		transitionDuration?: $$Props['transitionDuration'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		id = randomID(),
+		disabled = false,
+		value = undefined,
+		checked = $bindable(false),
+		label = '',
+		radius = 'xl',
+		size = 'sm',
+		variant = 'outline',
+		transitionDuration = 100,
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ color, radius, size, transitionDuration },
 		{ name: 'Chip' }
 	));
@@ -51,7 +74,7 @@ A picker for one or more options.
 <Box
 	bind:element
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
 	<div class={classes.inputContainer}>
 		<input
@@ -85,6 +108,6 @@ A picker for one or more options.
 				</svg>
 			</div>
 		{/if}
-		<slot>{label}</slot>
+		{#if children}{@render children()}{:else}{label}{/if}
 	</label>
 </Box>

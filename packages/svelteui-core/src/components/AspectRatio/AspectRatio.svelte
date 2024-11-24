@@ -3,16 +3,30 @@
 	import Box from '../Box/Box.svelte';
 	import type { AspectRatioProps as $$AspectRatioProps } from './AspectRatio';
 
-	interface $$Props extends $$AspectRatioProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		ratio: $$Props['ratio'] = 1;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		ratio?: $$Props['ratio'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		ratio = 1,
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			ratio
 		},
@@ -41,7 +55,7 @@ Enforce desired width/height ratio.
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

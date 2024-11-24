@@ -10,19 +10,23 @@
 
 <Meta title="Components/ActionIcon" component={ActionIcon} />
 
-<Template let:args>
-	<ActionIcon {...args} />
+<Template >
+	{#snippet children({ args })}
+		<ActionIcon {...args} />
+	{/snippet}
 </Template>
 
-<Template id="variants" let:args>
-	<Group mt="xl">
-		<ActionIcon {...args} variant="hover" />
-		<ActionIcon {...args} variant="filled" />
-		<ActionIcon {...args} variant="outline" />
-		<ActionIcon {...args} variant="light" />
-		<ActionIcon {...args} variant="default" />
-		<ActionIcon {...args} variant="transparent" />
-	</Group>
+<Template id="variants" >
+	{#snippet children({ args })}
+		<Group mt="xl">
+			<ActionIcon {...args} variant="hover" />
+			<ActionIcon {...args} variant="filled" />
+			<ActionIcon {...args} variant="outline" />
+			<ActionIcon {...args} variant="light" />
+			<ActionIcon {...args} variant="default" />
+			<ActionIcon {...args} variant="transparent" />
+		</Group>
+	{/snippet}
 </Template>
 
 <Story name="ActionIcon" id="actionIconStory" />

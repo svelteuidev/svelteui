@@ -5,14 +5,16 @@
 
 <Meta title="Components/NativeSelect" component={NativeSelect} />
 
-<Template let:args>
-	<NativeSelect
-		data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
-		placeholder="Pick one"
-		label="Select your favorite framework/library"
-		description="This is anonymous"
-		{...args}
-	/>
+<Template >
+	{#snippet children({ args })}
+		<NativeSelect
+			data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
+			placeholder="Pick one"
+			label="Select your favorite framework/library"
+			description="This is anonymous"
+			{...args}
+		/>
+	{/snippet}
 </Template>
 
 <Story name="NativeSelect" id="nativeSelectStory" />
@@ -47,6 +49,8 @@
 		label="Select your favorite framework/library"
 		description="This is anonymous"
 	>
-		<svelte:fragment slot="rightSection">+</svelte:fragment>
+		{#snippet rightSection()}
+				+
+			{/snippet}
 	</NativeSelect>
 </Story>

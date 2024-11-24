@@ -1,14 +1,19 @@
 <script lang="ts">
 	import { Portal } from '../../Portal';
 
-	export let withinPortal: boolean = false;
-	export let target: string = 'body';
+	interface Props {
+		withinPortal?: boolean;
+		target?: string;
+		children?: import('svelte').Snippet<[any]>;
+	}
+
+	let { withinPortal = false, target = 'body', children }: Props = $props();
 </script>
 
 {#if withinPortal}
 	<Portal {target}>
-		<slot ref={target} />
+		{@render children?.({ ref: target, })}
 	</Portal>
 {:else}
-	<slot />
+	{@render children?.()}
 {/if}

@@ -3,19 +3,36 @@
 	import { Box } from '../Box';
 	import type { PaperProps as $$PaperProps } from './Paper';
 
-	interface $$Props extends $$PaperProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		shadow: $$Props['shadow'] = 'xs',
-		radius: $$Props['radius'] = 'sm',
-		withBorder: $$Props['withBorder'] = false,
-		padding: $$Props['padding'] = 'md';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		shadow?: $$Props['shadow'];
+		radius?: $$Props['radius'];
+		withBorder?: $$Props['withBorder'];
+		padding?: $$Props['padding'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		shadow = 'xs',
+		radius = 'sm',
+		withBorder = false,
+		padding = 'md',
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ radius, shadow, withBorder, padding },
 		{ name: 'Paper' }
 	));
@@ -30,7 +47,7 @@
 		getStyles({ css: override })
 	)}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

@@ -9,16 +9,18 @@
 	import { TextInput } from '../TextInput';
 	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
-	let menuEvents = [];
-	let element: MenuComponent;
+	let menuEvents = $state([]);
+	let element: MenuComponent = $state();
 </script>
 
 <Meta title="Components/Menu" component={Menu} />
 
-<Template let:args>
-	<Menu {...args}>
-		<Menu.Item>Basic Menu</Menu.Item>
-	</Menu>
+<Template >
+	{#snippet children({ args })}
+		<Menu {...args}>
+			<Menu.Item>Basic Menu</Menu.Item>
+		</Menu>
+	{/snippet}
 </Template>
 
 <Story name="Menu" id="menuStory" />
@@ -30,7 +32,9 @@
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
 		<Menu.Item icon={MagnifyingGlass}>
-			<Kbd slot="rightSection">⌘K</Kbd>
+			{#snippet rightSection()}
+						<Kbd >⌘K</Kbd>
+					{/snippet}
 			Search
 		</Menu.Item>
 
@@ -44,7 +48,9 @@
 
 <Story name="Custom Control" id="menuCustomControlStory">
 	<Menu>
-		<Button slot="control">Toggle Menu</Button>
+		{#snippet control()}
+				<Button >Toggle Menu</Button>
+			{/snippet}
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>
@@ -74,21 +80,27 @@
 		<Center>
 			Start:
 			<Menu placement="start" opened>
-				<Button slot="control">Custom control</Button>
+				{#snippet control()}
+								<Button >Custom control</Button>
+							{/snippet}
 				<Menu.Item icon={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			Center:
 			<Menu placement="center" opened>
-				<Button slot="control">Custom control</Button>
+				{#snippet control()}
+								<Button >Custom control</Button>
+							{/snippet}
 				<Menu.Item icon={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			End:
 			<Menu placement="end" opened>
-				<Button slot="control">Custom control</Button>
+				{#snippet control()}
+								<Button >Custom control</Button>
+							{/snippet}
 				<Menu.Item icon={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
@@ -101,7 +113,9 @@
 		on:open={() => (menuEvents = [...menuEvents, 'opened'])}
 		on:close={() => (menuEvents = [...menuEvents, 'closed'])}
 	>
-		<Button slot="control">Toggle menu</Button>
+		{#snippet control()}
+				<Button >Toggle menu</Button>
+			{/snippet}
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 	</Menu>
 	<ol>
@@ -113,7 +127,9 @@
 
 <Story name="Menu with Input" id="menuWithInputStory">
 	<Menu>
-		<Button slot="control">Toggle Menu</Button>
+		{#snippet control()}
+				<Button >Toggle Menu</Button>
+			{/snippet}
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>

@@ -1,26 +1,46 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Grid';
 </script>
 
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import useStyles from './Grid.styles';
 	import { Box } from '../Box';
 	import type { GridProps as $$GridProps, GridContext } from './Grid';
 
-	interface $$Props extends $$GridProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		align: $$Props['align'] = 'stretch',
-		cols: $$Props['cols'] = 12,
-		grow: $$Props['grow'] = false,
-		spacing: $$Props['spacing'] = 'md',
-		justify: $$Props['justify'] = 'flex-start';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		align?: $$Props['align'];
+		cols?: $$Props['cols'];
+		grow?: $$Props['grow'];
+		spacing?: $$Props['spacing'];
+		justify?: $$Props['justify'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		align = 'stretch',
+		cols = 12,
+		grow = false,
+		spacing = 'md',
+		justify = 'flex-start',
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
@@ -28,8 +48,10 @@
 	const contextStore: GridContext = writable({ cols, grow, spacing });
 	setContext(ctx, contextStore);
 
-	$: $contextStore = { cols, grow, spacing };
-	$: ({ cx, classes } = useStyles({ align, spacing, justify }, { override, name: 'Grid' }));
+	run(() => {
+		$contextStore = { cols, grow, spacing };
+	});
+	let { cx, classes } = $derived(useStyles({ align, spacing, justify }, { override, name: 'Grid' }));
 </script>
 
 <!--
@@ -47,6 +69,6 @@ Flexbox grid with variable amount of columns
     </Grid>
     ```
 -->
-<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
-	<slot />
+<Box bind:element {use} class={cx(className, classes.root)} {...rest}>
+	{@render children?.()}
 </Box>

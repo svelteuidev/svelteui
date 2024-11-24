@@ -2,11 +2,20 @@
 	import { useActions } from '$lib/internal';
 	import type { LoaderProps } from '../Loader';
 
-	export let use: LoaderProps['use'] = [];
-	export let size: LoaderProps['size'] = 25;
-	export let color: LoaderProps['color'] = 'blue';
-	export let className: LoaderProps['className'] = '';
-	export { className as class };
+	interface Props {
+		use?: LoaderProps['use'];
+		size?: LoaderProps['size'];
+		color?: LoaderProps['color'];
+		class?: LoaderProps['className'];
+	}
+
+	let {
+		use = [],
+		size = 25,
+		color = 'blue',
+		class: className = ''
+	}: Props = $props();
+	
 </script>
 
 <svg

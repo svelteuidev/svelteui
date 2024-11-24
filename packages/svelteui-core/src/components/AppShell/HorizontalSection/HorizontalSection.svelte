@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { Selectors } from '$lib/styles';
 	export type HorizontalSectionStylesNames = Selectors<typeof useStyles>;
 </script>
@@ -13,21 +13,42 @@
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
 	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection';
 
-	interface $$Props extends $$HorizontalSectionProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		width: $$Props['width'] = undefined,
-		height: $$Props['height'] = undefined,
-		fixed: $$Props['fixed'] = false,
-		position: $$Props['position'] = {},
-		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
-		hidden: $$Props['hidden'] = false,
-		zIndex: $$Props['zIndex'] = 100,
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		width?: $$Props['width'];
+		height?: $$Props['height'];
+		fixed?: $$Props['fixed'];
+		position?: $$Props['position'];
+		hiddenBreakpoint?: $$Props['hiddenBreakpoint'];
+		hidden?: $$Props['hidden'];
+		zIndex?: $$Props['zIndex'];
 		section: $$Props['section'];
-	export { className as class };
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		width = undefined,
+		height = undefined,
+		fixed = false,
+		position = {},
+		hiddenBreakpoint = 'md',
+		hidden = false,
+		zIndex = 100,
+		section,
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	const breakpoints = getSortedBreakpoints(width, appShellTheme).reduce(
 		(acc, [breakpoint, breakpointSize]) => {
@@ -40,7 +61,7 @@
 		{}
 	);
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			fixed,
 			height,
@@ -68,7 +89,7 @@
 	bind:element
 	root={section === 'navbar' ? 'nav' : 'aside'}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

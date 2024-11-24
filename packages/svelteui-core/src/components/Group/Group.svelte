@@ -1,32 +1,55 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import useStyles from './Group.styles';
 	import { onMount } from 'svelte';
 	import Box from '../Box/Box.svelte';
 	import type { GroupProps as $$GroupProps } from './Group';
 
-	interface $$Props extends $$GroupProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		position: $$Props['position'] = 'left',
-		noWrap: $$Props['noWrap'] = false,
-		grow: $$Props['grow'] = false,
-		spacing: $$Props['spacing'] = 'md',
-		direction: $$Props['direction'] = 'row',
-		align: $$Props['align'] = 'center';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		position?: $$Props['position'];
+		noWrap?: $$Props['noWrap'];
+		grow?: $$Props['grow'];
+		spacing?: $$Props['spacing'];
+		direction?: $$Props['direction'];
+		align?: $$Props['align'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		position = 'left',
+		noWrap = false,
+		grow = false,
+		spacing = 'md',
+		direction = 'row',
+		align = 'center',
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** The children being rendered */
-	let children: $$Props['children'];
+	let children: $$Props['children'] = $state();
 
 	/** can only get access to children at runtime */
-	$: onMount(() => {
-		children = element.childElementCount;
+	run(() => {
+		onMount(() => {
+			children = element.childElementCount;
+		});
 	});
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			align,
 			children,
@@ -60,7 +83,7 @@ Compose elements and components in a vertical flex container.
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

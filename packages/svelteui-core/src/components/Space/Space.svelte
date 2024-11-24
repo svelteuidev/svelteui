@@ -3,17 +3,32 @@
 	import useStyles from './Space.styles';
 	import type { SpaceProps as $$SpaceProps } from './Space';
 
-	interface $$Props extends $$SpaceProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		w: $$Props['w'] = 0,
-		h: $$Props['h'] = 0;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		w?: $$Props['w'];
+		h?: $$Props['h'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles({ h, w }, { name: 'Space' }));
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		w = 0,
+		h = 0,
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles({ h, w }, { name: 'Space' }));
 </script>
 
 <!--
@@ -33,7 +48,7 @@ Add horizontal or vertical spacing from theme.
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

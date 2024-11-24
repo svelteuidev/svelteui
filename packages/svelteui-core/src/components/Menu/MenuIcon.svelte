@@ -4,26 +4,34 @@
 	import { ActionIcon } from '../ActionIcon';
 	import type { ActionIconProps } from '../ActionIcon';
 
-	interface $$Props extends Omit<ActionIconProps, 'className' | 'use'> {
+	
+
+	interface Props {
 		size?: number;
 		className?: string;
 		role?: string;
 		title?: string;
+		element?: $$Props['element'];
+		class?: string;
+		[key: string]: any
 	}
 
-	export let element: $$Props['element'] = undefined;
-	export let size: $$Props['size'] = 15;
-	export let className: string = '';
-	export { className as class };
+	let {
+		size = 15,
+		element = $bindable(undefined),
+		class: className = '',
+		...rest
+	}: Props = $props();
+	
 
 	const forwardEvents = createEventForwarder(get_current_component());
 </script>
 
 <ActionIcon
 	bind:element
-	use={[forwardEvents, [useActions, $$restProps?.use]]}
+	use={[forwardEvents, [useActions, rest?.use]]}
 	class={className}
-	{...$$restProps}
+	{...rest}
 >
 	<svg
 		width={size}

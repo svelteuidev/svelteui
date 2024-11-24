@@ -5,8 +5,10 @@
 
 <Meta title="Components/Switch" component={Switch} />
 
-<Template let:args>
-	<Switch {...args} />
+<Template >
+	{#snippet children({ args })}
+		<Switch {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Switch" id="switchStory" />

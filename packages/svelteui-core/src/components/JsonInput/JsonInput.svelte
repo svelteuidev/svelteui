@@ -3,20 +3,38 @@
 	import Textarea from '../Textarea/Textarea.svelte';
 	import { validateJson } from './validate-json/validate-json';
 
-	interface $$Props extends $$JsonInputProps {}
+	
 
-	export let formatOnBlur: $$Props['formatOnBlur'] = false,
-		error: $$Props['error'] = null,
-		validationError: $$Props['validationError'] = null,
-		onBlur: $$Props['on:blur'] = undefined,
-		readOnly: $$Props['readonly'] = undefined,
-		value: $$Props['value'] = undefined,
-		rows: $$Props['rows'] = 4,
-		serialize: $$Props['serialize'] = JSON.stringify,
-		deserialize: $$Props['deserialize'] = JSON.parse;
+	interface Props {
+		formatOnBlur?: $$Props['formatOnBlur'];
+		error?: $$Props['error'];
+		validationError?: $$Props['validationError'];
+		onBlur?: $$Props['on:blur'];
+		readOnly?: $$Props['readonly'];
+		value?: $$Props['value'];
+		rows?: $$Props['rows'];
+		serialize?: $$Props['serialize'];
+		deserialize?: $$Props['deserialize'];
+		rightSection?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	let _value = value;
-	let valid = validateJson(_value, deserialize);
+	let {
+		formatOnBlur = false,
+		error = null,
+		validationError = null,
+		onBlur = undefined,
+		readOnly = undefined,
+		value = undefined,
+		rows = 4,
+		serialize = JSON.stringify,
+		deserialize = JSON.parse,
+		rightSection,
+		...rest
+	}: Props = $props();
+
+	let _value = $state(value);
+	let valid = $state(validateJson(_value, deserialize));
 
 	const handleBlur = (event) => {
 		onBlur?.(event);
@@ -25,6 +43,8 @@
 			_value = serialize(deserialize(event.currentTarget.value), null, 2);
 		}
 	};
+
+	const rightSection_render = $derived(rightSection);
 </script>
 
 <!--
@@ -49,7 +69,9 @@ Textarea specially made for JSON input.
 	invalid={!valid}
 	error={!valid ? validationError : error}
 	{rows}
-	{...$$restProps}
+	{...rest}
 >
-	<slot slot="rightSection" name="rightSection" />
+	{#snippet rightSection()}
+		{@render rightSection_render?.()}
+	{/snippet}
 </Textarea>

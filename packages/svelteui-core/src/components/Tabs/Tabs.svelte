@@ -1,8 +1,10 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Tabs';
 </script>
 
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { createEventDispatcher, getContext, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
@@ -11,24 +13,45 @@
 	import useStyles from './Tabs.styles';
 	import type { TabsProps as $$TabsProps, TabsEvents as $$TabEvents, TabsContext } from './Tabs';
 
-	interface $$Props extends $$TabsProps {}
+	
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	interface $$Events extends $$TabEvents {}
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		active: $$Props['active'] = -1,
-		color: $$Props['color'] = 'blue',
-		grow: $$Props['grow'] = false,
-		initialTab: $$Props['initialTab'] = 0,
-		orientation: $$Props['orientation'] = 'horizontal',
-		position: $$Props['position'] = 'left',
-		tabPadding: $$Props['tabPadding'] = 'xs',
-		variant: $$Props['variant'] = 'default';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		active?: $$Props['active'];
+		color?: $$Props['color'];
+		grow?: $$Props['grow'];
+		initialTab?: $$Props['initialTab'];
+		orientation?: $$Props['orientation'];
+		position?: $$Props['position'];
+		tabPadding?: $$Props['tabPadding'];
+		variant?: $$Props['variant'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		active = -1,
+		color = 'blue',
+		grow = false,
+		initialTab = 0,
+		orientation = 'horizontal',
+		position = 'left',
+		tabPadding = 'xs',
+		variant = 'default',
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	const tabsId = randomID();
 	let tabNodes: Element[];
@@ -46,7 +69,7 @@
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
 	// components can react to changes made in props
-	let contextStore: TabsContext = getContext(ctx);
+	let contextStore: TabsContext = $state(getContext(ctx));
 	if (!contextStore) {
 		contextStore = writable({
 			[tabsId]: {
@@ -58,12 +81,6 @@
 		});
 		setContext(ctx, contextStore);
 	}
-	$: $contextStore[tabsId] = {
-		active: _active,
-		color: color,
-		variant: variant,
-		orientation: orientation
-	};
 
 	/**
 	 * Retrieves all tabs that the component has as children
@@ -143,13 +160,26 @@
 		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
 	}
 
-	// check if item is still checked when the context store updates
-	$: _active = active === -1 ? initialTab : active;
-	$: nextTabCode = orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown';
-	$: previousTabCode = orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp';
-	$: $contextStore, _active, calculateActive();
 
-	$: ({ cx, classes } = useStyles({ orientation, tabPadding }, { override, name: 'Tabs' }));
+	// check if item is still checked when the context store updates
+	let _active;
+	run(() => {
+		_active = active === -1 ? initialTab : active;
+	});
+	run(() => {
+		$contextStore[tabsId] = {
+			active: _active,
+			color: color,
+			variant: variant,
+			orientation: orientation
+		};
+	});
+	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
+	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
+	run(() => {
+		$contextStore, _active, calculateActive();
+	});
+	let { cx, classes } = $derived(useStyles({ orientation, tabPadding }, { override, name: 'Tabs' }));
 </script>
 
 <!--
@@ -172,7 +202,7 @@ Display list of events in chronological order
     </Tabs>
     ```
 -->
-<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
+<Box bind:element {use} class={cx(className, classes.root)} {...rest}>
 	<div class={cx(classes.wrapper, classes[variant])}>
 		<Group
 			class={classes.tabs}
@@ -184,8 +214,8 @@ Display list of events in chronological order
 			{position}
 			{grow}
 		>
-			<slot />
+			{@render children?.()}
 		</Group>
 	</div>
-	<div role="tabpanel" class={cx('tabs-content', classes.content)} />
+	<div role="tabpanel" class={cx('tabs-content', classes.content)}></div>
 </Box>

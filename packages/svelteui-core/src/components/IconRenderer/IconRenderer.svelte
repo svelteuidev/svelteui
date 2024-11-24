@@ -1,27 +1,41 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import useStyles from './IconRenderer.styles';
 	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer';
 
-	interface $$Props extends $$IconRendererProps {}
+	
 
-	export let className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		icon: $$Props['icon'] = undefined,
-		iconSize: $$Props['iconSize'] = 16,
-		iconProps: $$Props['iconProps'] = {};
+	interface Props {
+		className?: $$Props['className'];
+		override?: $$Props['override'];
+		icon?: $$Props['icon'];
+		iconSize?: $$Props['iconSize'];
+		iconProps?: $$Props['iconProps'];
+	}
+
+	let {
+		className = '',
+		override = {},
+		icon = undefined,
+		iconSize = 16,
+		iconProps = {}
+	}: Props = $props();
 
 	// Verifies if CSR only elements are defined, or else it won't use them
 	const requiresShim = typeof HTMLElement === 'undefined' && typeof SVGElement === 'undefined';
 
-	$: ({ cx, getStyles, classes } = useStyles({ iconSize }, { name: 'IconRenderer' }));
-	$: if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
-		icon.classList.add(...classes.icon.split(' '));
-	}
+	let { cx, getStyles, classes } = $derived(useStyles({ iconSize }, { name: 'IconRenderer' }));
+	run(() => {
+		if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
+			icon.classList.add(...classes.icon.split(' '));
+		}
+	});
 </script>
 
 {#if typeof icon === 'function'}
-	<svelte:component
-		this={icon}
+	{@const SvelteComponent = icon}
+	<SvelteComponent
 		class={cx(className, classes.root, getStyles({ css: override }))}
 		{...iconProps}
 	/>

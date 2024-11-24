@@ -4,22 +4,37 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { BackgroundImageProps as $$BackgroundImageProps } from './BackgroundImage';
 
-	interface $$Props extends $$BackgroundImageProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		radius: $$Props['radius'] = 0,
-		src: $$Props['src'] = '',
-		width: $$Props['width'] = undefined,
-		height: $$Props['height'] = undefined;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		radius?: $$Props['radius'];
+		src?: $$Props['src'];
+		width?: $$Props['width'];
+		height?: $$Props['height'];
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		radius = 0,
+		src = '',
+		width = undefined,
+		height = undefined,
+		children
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ height, radius, src, width },
 		{ name: 'BackgroundImage' }
 	));
@@ -51,5 +66,5 @@ BackgroundImage component can be used to add any content on image. It is useful 
 	use:useActions={use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 >
-	<slot>Text</slot>
+	{#if children}{@render children()}{:else}Text{/if}
 </div>

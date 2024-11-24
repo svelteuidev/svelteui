@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Breadcrumbs';
 </script>
 
@@ -9,16 +9,30 @@
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
-	interface $$Props extends $$BreadcrumbProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		size: $$Props['size'] = 'md',
-		separator: $$Props['separator'] = '/';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		size?: $$Props['size'];
+		separator?: $$Props['separator'];
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		size = 'md',
+		separator = '/',
+		children
+	}: Props = $props();
+	
 
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
@@ -30,9 +44,9 @@
 	});
 	setContext(ctx, contextStore);
 
-	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Breadcrumbs' }));
+	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'Breadcrumbs' }));
 </script>
 
 <Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
-	<slot />
+	{@render children?.()}
 </Box>

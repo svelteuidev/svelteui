@@ -6,8 +6,10 @@
 
 <Meta title="Components/TextInput" component={TextInput} />
 
-<Template let:args>
-	<TextInput {...args} />
+<Template >
+	{#snippet children({ args })}
+		<TextInput {...args} />
+	{/snippet}
 </Template>
 
 <Story
@@ -50,8 +52,10 @@
 
 <Story name="With icon (slot)" id="textInputIconSlotStory">
 	<TextInput label="Email" placeholder="Your email">
-		<svelte:fragment slot="icon">
-			<EnvelopeClosed />
-		</svelte:fragment>
+		{#snippet icon()}
+			
+				<EnvelopeClosed />
+			
+			{/snippet}
 	</TextInput>
 </Story>

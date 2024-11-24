@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { Selectors } from '$lib/styles';
 	export type AppShellStylesNames = Selectors<typeof useStyles>;
 </script>
@@ -9,20 +9,44 @@
 	import AppShellProvider from './AppShellProvider.svelte';
 	import type { AppShellProps as $$AppShellProps } from './AppShell';
 
-	interface $$Props extends $$AppShellProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		zIndex: $$Props['zIndex'] = 100,
-		fixed: $$Props['fixed'] = true,
-		padding: $$Props['padding'] = 'md',
-		navbarOffsetBreakpoint: $$Props['navbarOffsetBreakpoint'] = undefined,
-		asideOffsetBreakpoint: $$Props['asideOffsetBreakpoint'] = undefined;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		zIndex?: $$Props['zIndex'];
+		fixed?: $$Props['fixed'];
+		padding?: $$Props['padding'];
+		navbarOffsetBreakpoint?: $$Props['navbarOffsetBreakpoint'];
+		asideOffsetBreakpoint?: $$Props['asideOffsetBreakpoint'];
+		header?: import('svelte').Snippet;
+		navbar?: import('svelte').Snippet;
+		children?: import('svelte').Snippet;
+		aside?: import('svelte').Snippet;
+		footer?: import('svelte').Snippet;
+	}
 
-	$: ({ cx, classes } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		zIndex = 100,
+		fixed = true,
+		padding = 'md',
+		navbarOffsetBreakpoint = undefined,
+		asideOffsetBreakpoint = undefined,
+		header,
+		navbar,
+		children,
+		aside,
+		footer
+	}: Props = $props();
+	
+
+	let { cx, classes } = $derived(useStyles(
 		{
 			padding,
 			fixed,
@@ -36,22 +60,22 @@
 <!-- @TODO: Remove the AppShellProvider, since it's not being used for anything (react pattern) -->
 <AppShellProvider {use} bind:element value={{ fixed, zIndex }} class={cx(className, classes.root)}>
 	<Box>
-		{#if $$slots.header}
-			<slot name="header" />
+		{#if header}
+			{@render header?.()}
 		{/if}
 		<div class={classes.body}>
-			{#if $$slots.navbar}
-				<slot name="navbar" />
+			{#if navbar}
+				{@render navbar?.()}
 			{/if}
 			<main class={classes.main}>
-				<slot />
+				{@render children?.()}
 			</main>
-			{#if $$slots.aside}
-				<slot name="aside" />
+			{#if aside}
+				{@render aside?.()}
 			{/if}
 		</div>
-		{#if $$slots.footer}
-			<slot name="footer" />
+		{#if footer}
+			{@render footer?.()}
 		{/if}
 	</Box>
 </AppShellProvider>

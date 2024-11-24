@@ -10,7 +10,7 @@
 		console.log(files);
 	}
 
-	let files = [];
+	let files = $state([]);
 
 	function preview(file) {
 		return URL.createObjectURL(file);
@@ -23,10 +23,12 @@
 
 <Meta title="Components/FileUpload" component={FileUpload} />
 
-<Template let:args>
-	<div style="width: 500px;">
-		<FileUpload {...args} icon={Upload} fileIcon={File} removeIcon={Trash} resetIcon={Reset} />
-	</div>
+<Template >
+	{#snippet children({ args })}
+		<div style="width: 500px;">
+			<FileUpload {...args} icon={Upload} fileIcon={File} removeIcon={Trash} resetIcon={Reset} />
+		</div>
+	{/snippet}
 </Template>
 
 <Story name="FileUpload" id="fileUploadStory" />

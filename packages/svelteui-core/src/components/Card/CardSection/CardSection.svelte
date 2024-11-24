@@ -3,16 +3,30 @@
 	import { Box } from '../../Box';
 	import type { CardSectionProps as $$CardSectionProps } from './CardSection';
 
-	interface $$Props extends $$CardSectionProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		padding: $$Props['padding'] = 'md';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		padding?: $$Props['padding'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles({ padding }));
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		padding = 'md',
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles({ padding }));
 </script>
 
 <Box
@@ -20,7 +34,7 @@
 	bind:element
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

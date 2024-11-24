@@ -5,19 +5,33 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton';
 
-	interface $$Props extends $$UnstyledButtonProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		root: $$Props['root'] = 'button';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		root?: $$Props['root'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		root = 'button',
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'UnstyledButton' }));
+	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'UnstyledButton' }));
 </script>
 
 <Box
@@ -25,7 +39,7 @@
 	use={[forwardEvents, [useActions, use]]}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{root}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

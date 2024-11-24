@@ -4,18 +4,31 @@
 	import { titleSizes } from './Title.styles';
 	import type { TitleProps as $$TitleProps, HTMLHeadingElements } from './Title';
 
-	interface $$Props extends $$TitleProps {}
+	
 
-	export let element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		order: $$Props['order'] = 1;
-	export { className as class };
+	interface Props {
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		order?: $$Props['order'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	let node: HTMLHeadingElements;
+	let {
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		order = 1,
+		children,
+		...rest
+	}: Props = $props();
+	
 
-	$: node = `h${order}` as HTMLHeadingElements;
-	$: ({ cx, classes } = useStyles(null, { override, name: 'Title' }));
+	let node: HTMLHeadingElements = $derived(`h${order}` as HTMLHeadingElements);
+
+	
+	let { cx, classes } = $derived(useStyles(null, { override, name: 'Title' }));
 </script>
 
 <!--
@@ -37,7 +50,7 @@ Display text that uses title styling and title HTML tags.
 	class={cx(className, classes.root)}
 	root={node}
 	size={titleSizes[order].fontSize}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Text>

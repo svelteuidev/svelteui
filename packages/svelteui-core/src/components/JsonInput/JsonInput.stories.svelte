@@ -8,8 +8,10 @@
 
 <Meta title="Components/JsonInput" component={JsonInput} />
 
-<Template let:args>
-	<JsonInput {...args} />
+<Template >
+	{#snippet children({ args })}
+		<JsonInput {...args} />
+	{/snippet}
 </Template>
 
 <Story

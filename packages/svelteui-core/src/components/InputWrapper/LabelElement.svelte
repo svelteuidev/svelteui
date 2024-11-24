@@ -3,16 +3,26 @@
 	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper';
 	import useStyles from './InputWrapper.styles';
 
-	interface $$Props extends $$InputWrapperProps {}
+	
 
-	export let className: $$Props['className'] = 'label';
-	export { className as class };
-	export let label: $$Props['label'] = 'label';
-	export let labelElement: $$Props['labelElement'] = 'label';
-	export let required: $$Props['required'] = false;
-	export let id: $$Props['id'] = undefined;
+	
+	interface Props {
+		class?: $$Props['className'];
+		label?: $$Props['label'];
+		labelElement?: $$Props['labelElement'];
+		required?: $$Props['required'];
+		id?: $$Props['id'];
+	}
 
-	$: ({ classes } = useStyles({ size: 'md' }, { name: 'InputWrapper' }));
+	let {
+		class: className = 'label',
+		label = 'label',
+		labelElement = 'label',
+		required = false,
+		id = undefined
+	}: Props = $props();
+
+	let { classes } = $derived(useStyles({ size: 'md' }, { name: 'InputWrapper' }));
 </script>
 
 <Box for={id} root={labelElement} class={className}>

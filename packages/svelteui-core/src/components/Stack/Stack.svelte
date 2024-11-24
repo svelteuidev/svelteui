@@ -3,18 +3,34 @@
 	import useStyles from './Stack.styles';
 	import type { StackProps as $$StackProps } from './Stack';
 
-	interface $$Props extends $$StackProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		spacing: $$Props['spacing'] = 'md',
-		align: $$Props['align'] = 'stretch',
-		justify: $$Props['justify'] = 'center';
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		spacing?: $$Props['spacing'];
+		align?: $$Props['align'];
+		justify?: $$Props['justify'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles({ align, justify, spacing }, { name: 'Stack' }));
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		spacing = 'md',
+		align = 'stretch',
+		justify = 'center',
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles({ align, justify, spacing }, { name: 'Stack' }));
 </script>
 
 <!--
@@ -37,7 +53,7 @@ Compose elements and components in a vertical flex container.
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

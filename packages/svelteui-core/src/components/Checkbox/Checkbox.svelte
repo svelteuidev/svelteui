@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import useStyles from './Checkbox.styles';
 	import { randomID } from '$lib/styles';
 	import { get_current_component } from 'svelte/internal';
@@ -8,31 +10,58 @@
 	import CheckboxIcon from './CheckboxIcon.svelte';
 	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
 
-	interface $$Props extends $$CheckboxProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		id: $$Props['id'] = randomID(),
-		disabled: $$Props['disabled'] = false,
-		value: $$Props['value'] = null,
-		checked: $$Props['checked'] = false,
-		indeterminate: $$Props['indeterminate'] = false,
-		label: $$Props['label'] = null,
-		radius: $$Props['radius'] = 'sm',
-		size: $$Props['size'] = 'md',
-		name: $$Props['name'] = '',
-		required: $$Props['required'] = false,
-		transitionDuration: $$Props['transitionDuration'] = 100;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		color?: $$Props['color'];
+		id?: $$Props['id'];
+		disabled?: $$Props['disabled'];
+		value?: $$Props['value'];
+		checked?: $$Props['checked'];
+		indeterminate?: $$Props['indeterminate'];
+		label?: $$Props['label'];
+		radius?: $$Props['radius'];
+		size?: $$Props['size'];
+		name?: $$Props['name'];
+		required?: $$Props['required'];
+		transitionDuration?: $$Props['transitionDuration'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		id = randomID(),
+		disabled = false,
+		value = null,
+		checked = $bindable(false),
+		indeterminate = false,
+		label = null,
+		radius = 'sm',
+		size = 'md',
+		name = '',
+		required = false,
+		transitionDuration = 100,
+		children,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
 
-	$: checked = indeterminate || checked;
-	$: ({ cx, classes, getStyles } = useStyles(
+	run(() => {
+		checked = indeterminate || checked;
+	});
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{ color, radius, size, transitionDuration },
 		{ name: 'Checkbox' }
 	));
@@ -56,7 +85,7 @@ A checkbox input component using the theme styles with support for a label and i
 <Box
 	bind:element
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
 	<div class={classes.inner}>
 		<input
@@ -73,9 +102,9 @@ A checkbox input component using the theme styles with support for a label and i
 			{name}
 		/>
 		<ThemeIcon class={classes.iconWrapper} variant={null} {size}>
-			<slot>
+			{#if children}{@render children()}{:else}
 				<CheckboxIcon class={classes.icon} {indeterminate} />
-			</slot>
+			{/if}
 		</ThemeIcon>
 	</div>
 	{#if label}

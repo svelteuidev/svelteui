@@ -6,13 +6,15 @@
 	const spacings: SvelteUINumberSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 	const directions: ('column' | 'row')[] = ['column', 'row'];
 
-	let bindValue;
+	let bindValue = $state();
 </script>
 
 <Meta title="Components/Chip/ChipGroup" component={ChipGroup} />
 
-<Template let:args>
-	<ChipGroup {...args} />
+<Template >
+	{#snippet children({ args })}
+		<ChipGroup {...args} />
+	{/snippet}
 </Template>
 
 <Story

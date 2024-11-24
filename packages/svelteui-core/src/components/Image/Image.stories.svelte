@@ -17,15 +17,17 @@
 		}
 	}));
 
-	$: ({ getStyles } = useStyles());
+	let { getStyles } = $derived(useStyles());
 </script>
 
 <Meta title="Components/Image" component={Image} />
 
-<Template let:args>
-	<Center>
-		<Image radius="md" src={url} alt="Random unsplash image" {...args} />
-	</Center>
+<Template >
+	{#snippet children({ args })}
+		<Center>
+			<Image radius="md" src={url} alt="Random unsplash image" {...args} />
+		</Center>
+	{/snippet}
 </Template>
 
 <Story name="Default" id="imageStory" />

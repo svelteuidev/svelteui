@@ -3,22 +3,42 @@
 	import Box from '../Box/Box.svelte';
 	import type { FlexProps as $$FlexProps } from './Flex';
 
-	interface $$Props extends $$FlexProps {}
+	
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		gap: $$Props['gap'] = undefined,
-		rowGap: $$Props['rowGap'] = undefined,
-		columnGap: $$Props['columnGap'] = undefined,
-		align: $$Props['align'] = undefined,
-		justify: $$Props['justify'] = undefined,
-		wrap: $$Props['wrap'] = undefined,
-		direction: $$Props['direction'] = undefined;
-	export { className as class };
+	interface Props {
+		use?: $$Props['use'];
+		element?: $$Props['element'];
+		class?: $$Props['className'];
+		override?: $$Props['override'];
+		gap?: $$Props['gap'];
+		rowGap?: $$Props['rowGap'];
+		columnGap?: $$Props['columnGap'];
+		align?: $$Props['align'];
+		justify?: $$Props['justify'];
+		wrap?: $$Props['wrap'];
+		direction?: $$Props['direction'];
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles(
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		gap = undefined,
+		rowGap = undefined,
+		columnGap = undefined,
+		align = undefined,
+		justify = undefined,
+		wrap = undefined,
+		direction = undefined,
+		children,
+		...rest
+	}: Props = $props();
+	
+
+	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			gap,
 			rowGap,
@@ -52,7 +72,7 @@ CSS flexbox component.
 	bind:element
 	{use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

@@ -1,5 +1,9 @@
 <script lang="ts">
-	export let style: { width?: number; height?: number } = {};
+	interface Props {
+		style?: { width?: number; height?: number };
+	}
+
+	let { style = {} }: Props = $props();
 </script>
 
 <svg
