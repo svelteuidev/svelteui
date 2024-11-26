@@ -1,21 +1,7 @@
 <script lang="ts">
 	import { Box } from '../Box';
 	import { Portal } from '../Portal';
-	import type { AffixProps as $$AffixProps } from './Affix';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		target?: $$Props['target'];
-		position?: $$Props['position'];
-		zIndex?: $$Props['zIndex'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { AffixProps } from './Affix';
 
 	let {
 		use = [],
@@ -27,8 +13,7 @@
 		zIndex = 200,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: AffixProps = $props();
 </script>
 
 <Portal {zIndex} {target}>
@@ -39,6 +24,6 @@
 		{use}
 		{...rest}
 	>
-		{@render children?.()}
+		{@render children()}
 	</Box>
 </Portal>

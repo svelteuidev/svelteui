@@ -1,4 +1,5 @@
-import { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { DefaultProps } from '$lib/styles';
 
 export interface AffixProps extends DefaultProps, HTMLAttributes<HTMLElement> {
@@ -10,4 +11,6 @@ export interface AffixProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 		bottom?: string | number;
 		right?: string | number;
 	};
+	children: Snippet;
+	[key: string]: any;
 }
