@@ -1,54 +1,42 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
 <script lang="ts">
 	import useStyles from './Blockquote.styles';
-	import type { BlockquoteProps as $$BlockquoteProps } from './Blockquote';
+	import type { BlockquoteProps } from './Blockquote';
 	import { Box } from '../Box';
 	import QuoteIcon from './QuoteIcon.svelte';
 	import { IconRenderer } from '../IconRenderer';
 
-	interface $$Props extends $$BlockquoteProps {}
+	let {
+		element = undefined,
+		className = '',
+		override = {},
+		root = 'blockquote',
+		color = 'gray',
+		iconComponent = QuoteIcon,
+		iconSize = 20,
+		icon = undefined,
+		citeContent = undefined,
+		children,
+		...rest
+	}: BlockquoteProps = $props();
 
-	export let element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		root: $$Props['root'] = 'blockquote',
-		color: $$Props['color'] = 'gray',
-		icon: $$Props['icon'] = QuoteIcon,
-		iconSize: $$Props['iconSize'] = 20;
-	export { className as class };
-
-	$: ({ cx, classes } = useStyles({ color }, { override, name: 'Blockquote' }));
+	let { cx, classes } = $derived(useStyles({ color }, { override, name: 'Blockquote' }));
 </script>
 
-<!--
-@component
-
-Blockquote with icon and citation
-
-@see https://svelteui.dev/core/blockquote
-@example
-    ```tsx
-    <Blockquote>
-      Some very wise words.
-      <svelte:fragment slot="cite">- A very wise person</svelte:fragment>
-    </Blockquote>
-    ```
--->
-
-<Box bind:element class={cx(className, classes.root)} {root} {...$$restProps}>
+<Box bind:element class={cx(className, classes.root)} {root} {...rest}>
 	<div class={classes.inner}>
-		<slot name="icon">
-			{#if icon}
-				<div class={classes.icon}>
-					<IconRenderer {icon} {iconSize} />
-				</div>
-			{/if}
-		</slot>
+		{#if icon}
+			{@render icon()}
+		{/if}
+		{#if icon}
+			<div class={classes.icon}>
+				<IconRenderer {icon} {iconSize} />
+			</div>
+		{/if}
 		<div class={classes.body}>
-			<slot />
-			{#if $$slots.cite}
+			{@render children()}
+			{#if citeContent}
 				<cite class={classes.cite}>
-					<slot name="cite" />
+					{@render citeContent()}
 				</cite>
 			{/if}
 		</div>

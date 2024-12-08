@@ -1,13 +1,17 @@
-import { HTMLAttributes, HTMLBlockquoteAttributes, SVGAttributes } from 'svelte/elements';
-import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import { TextProps } from '../Text/Text';
+import type { Component, Snippet } from 'svelte';
+import type { HTMLBlockquoteAttributes } from 'svelte/elements';
+
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { TextProps } from '../Text/Text';
 
 type BaseProps = TextProps<HTMLElement> & HTMLBlockquoteAttributes;
 
 export interface BlockquoteProps extends BaseProps {
-	icon?: Component | HTMLOrSVGElement;
+	iconComponent?: Component | HTMLOrSVGElement;
 	iconSize?: SvelteUINumberSize;
 	color?: SvelteUIColor;
+	icon?: Snippet;
+	citeContent?: Snippet;
+	children?: Snippet;
+	[key: string]: any
 }
-
-export interface QuoteIconProps extends HTMLAttributes<SVGAttributes> {}
