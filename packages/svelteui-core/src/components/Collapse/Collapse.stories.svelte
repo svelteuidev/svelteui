@@ -10,7 +10,7 @@
 
 <Meta title="Components/Collapse" component={Collapse} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Button
 			on:click={() => {
