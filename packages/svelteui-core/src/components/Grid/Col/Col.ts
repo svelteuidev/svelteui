@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { DefaultProps } from '$lib/styles';
 
 export interface ColProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	span?: number;
@@ -14,4 +15,6 @@ export interface ColProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	md?: number;
 	lg?: number;
 	xl?: number;
+	children?: Snippet;
+	[key: string]: any
 }
