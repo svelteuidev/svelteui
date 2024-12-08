@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export interface SimpleGridBreakpoint {
 	maxWidth?: SvelteUINumberSize;
@@ -12,4 +13,6 @@ export interface SimpleGridProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	breakpoints?: SimpleGridBreakpoint[];
 	cols?: number;
 	spacing?: SvelteUINumberSize;
+	children?: Snippet;
+	[key: string]: any
 }
