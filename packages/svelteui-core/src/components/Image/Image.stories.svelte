@@ -22,7 +22,7 @@
 
 <Meta title="Components/Image" component={Image} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Center>
 			<Image radius="md" src={url} alt="Random unsplash image" {...args} />

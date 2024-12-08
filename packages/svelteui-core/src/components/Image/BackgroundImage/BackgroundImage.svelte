@@ -1,22 +1,7 @@
 <script lang="ts">
+	import { useActions } from '$lib/internal';
 	import useStyles from './BackgroundImage.styles';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
-	import type { BackgroundImageProps as $$BackgroundImageProps } from './BackgroundImage';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		radius?: $$Props['radius'];
-		src?: $$Props['src'];
-		width?: $$Props['width'];
-		height?: $$Props['height'];
-		children?: import('svelte').Snippet;
-	}
+	import type { BackgroundImageProps } from './BackgroundImage';
 
 	let {
 		use = [],
@@ -27,44 +12,20 @@
 		src = '',
 		width = undefined,
 		height = undefined,
-		children
-	}: Props = $props();
-	
+		children,
+		...rest
+	}: BackgroundImageProps = $props();
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{ height, radius, src, width },
-		{ name: 'BackgroundImage' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ height, radius, src, width }, { name: 'BackgroundImage' })
+	);
 </script>
-
-<!--
-@component
-
-BackgroundImage component can be used to add any content on image. It is useful for hero headers and other similar sections
-
-@see https://svelteui.dev/core/image
-@example
-    ```svelte
-		<script>
-			const src = 'https://images.unsplash.com/photo-1649014048485-590f93c42936?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
-		</script>
-
-		<BackgroundImage radius="sm" {src}>
-			This content will be shown over the image
-		</BackgroundImage>
-    ```
-
-	It is suggested to wrap your component in a container element
--->
 
 <div
 	bind:this={element}
-	use:forwardEvents
 	use:useActions={use}
 	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...rest}
 >
-	{#if children}{@render children()}{:else}Text{/if}
+	{@render children()}
 </div>
