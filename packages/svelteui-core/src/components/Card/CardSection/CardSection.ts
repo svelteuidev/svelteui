@@ -1,3 +1,3 @@
-import { CardProps } from '../Card';
+import type { CardProps } from '../Card';
 
 export interface CardSectionProps extends CardProps {}

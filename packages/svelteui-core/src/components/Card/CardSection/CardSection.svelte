@@ -1,19 +1,7 @@
 <script lang="ts">
 	import useStyles from './CardSection.styles';
 	import { Box } from '../../Box';
-	import type { CardSectionProps as $$CardSectionProps } from './CardSection';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		padding?: $$Props['padding'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { CardSectionProps } from './CardSection';
 
 	let {
 		use = [],
@@ -23,8 +11,7 @@
 		padding = 'md',
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: CardSectionProps = $props();
 
 	let { cx, classes, getStyles } = $derived(useStyles({ padding }));
 </script>

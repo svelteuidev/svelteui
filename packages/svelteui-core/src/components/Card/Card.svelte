@@ -2,19 +2,7 @@
 	import useStyles from './Card.styles';
 	import { Paper } from '../Paper';
 	import { onMount } from 'svelte';
-	import type { CardProps as $$CardProps } from './Card';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		padding?: $$Props['padding'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { CardProps } from './Card';
 
 	let {
 		use = [],
@@ -24,8 +12,7 @@
 		padding = 'md',
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: CardProps = $props();
 
 	/** can only get access to children at runtime */
 	onMount(() => {

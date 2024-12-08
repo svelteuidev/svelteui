@@ -6,12 +6,12 @@
 	import { Text } from '../Text';
 	import { Menu } from '../Menu';
 	import { Card } from './index';
-	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
+	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 </script>
 
 <Meta title="Components/Card" component={Card} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Card shadow="sm" padding="lg" {...args}>
 			<Card.Section padding="lg">
