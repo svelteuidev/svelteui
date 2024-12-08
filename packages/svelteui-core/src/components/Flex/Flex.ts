@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { CSS, DefaultProps } from '$lib/styles';
 
 export interface FlexProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	gap?: CSS['gap'];
@@ -9,4 +10,6 @@ export interface FlexProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	justify?: CSS['justifyContent'];
 	wrap?: CSS['flexWrap'];
 	direction?: CSS['flexDirection'];
+	children?: Snippet;
+	[key: string]: any
 }
