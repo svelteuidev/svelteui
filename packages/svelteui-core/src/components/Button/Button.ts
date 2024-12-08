@@ -1,6 +1,7 @@
 import { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
 import { LoaderProps } from '../Loader/Loader';
+import type { Snippet } from 'svelte';
 
 export type ButtonVariant =
 	| 'filled'
@@ -27,6 +28,10 @@ interface ButtonPropsInternal extends DefaultProps<HTMLButtonElement | HTMLAncho
 	uppercase?: boolean;
 	fullSize?: boolean;
 	ripple?: boolean;
+	leftIcon?: Snippet;
+	children?: Snippet;
+	rightIcon?: Snippet;
+	[key: string]: any
 }
 
 export type ButtonProps = ButtonPropsInternal & HTMLButtonAttributes & HTMLAnchorAttributes;

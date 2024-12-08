@@ -2,20 +2,7 @@
 	import useStyles from './UnstyledButton.styles';
 	import { Box } from '../../Box';
 	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
-	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		root?: $$Props['root'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { UnstyledButtonProps } from './UnstyledButton';
 
 	let {
 		use = [],
@@ -25,11 +12,7 @@
 		root = 'button',
 		children,
 		...rest
-	}: Props = $props();
-	
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	}: UnstyledButtonProps = $props();
 
 	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'UnstyledButton' }));
 </script>

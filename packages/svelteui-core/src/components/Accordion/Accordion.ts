@@ -1,8 +1,6 @@
 import type { Snippet } from 'svelte';
-import type { Writable } from 'svelte/store';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { Component } from '$lib/internal';
 import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export type AccordionVariant = 'default' | 'contained' | 'filled' | 'separated';
@@ -14,7 +12,7 @@ export type AccordionContext<Multiple extends boolean = false> = {
 	variant?: AccordionVariant;
 	order?: 2 | 3 | 4 | 5 | 6;
 	radius?: SvelteUINumberSize | number;
-	chevron?: Component | HTMLOrSVGElement;
+	chevron?: Snippet;
 	chevronPosition?: 'left' | 'right';
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
@@ -27,7 +25,7 @@ export type AccordionContext<Multiple extends boolean = false> = {
 
 export interface AccordionProps<Multiple extends boolean = false>
 	extends DefaultProps,
-		HTMLAttributes<HTMLElement> {
+		Omit<HTMLAttributes<HTMLElement>, 'onchange'> {
 	variant?: AccordionVariant;
 	value?: AccordionValue<Multiple>;
 	defaultValue?: AccordionValue<Multiple>;
@@ -36,13 +34,13 @@ export interface AccordionProps<Multiple extends boolean = false>
 	multiple?: Multiple;
 	loop?: boolean;
 	id?: string;
-	chevron?: Component | HTMLOrSVGElement;
+	chevron?: Snippet;
 	chevronPosition?: 'left' | 'right';
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
 	transitionDuration?: number;
-	onchange: (value: AccordionValue<Multiple>) => void;
-	children: Snippet<[AccordionContext<Multiple>]>;
+	onchange?: (value: AccordionValue<Multiple>) => void;
+	children: Snippet;
 	[key: string]: any;
 }
 

@@ -1,8 +1,4 @@
-<!-- @migration-task Error while migrating Svelte code: can't migrate `let _value: AccordionValue<Multiple>;` to `$state` because there's a variable named state.
-     Rename the variable and try again or migrate by hand. -->
 <script lang="ts" generics="Multiple extends boolean = false">
-	// Temporary eslint disable while svelte-eslint-parser does not support generics in file -->
-	/* eslint-disable no-undef */
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
@@ -11,6 +7,7 @@
 	import Chevron from './Chevron/Chevron.svelte';
 	import useStyles from './Accordion.styles';
 	import type { AccordionContext, AccordionProps, AccordionValue } from './Accordion';
+	import { useEffect } from 'react';
 
 	let {
 		use = [],
@@ -24,7 +21,7 @@
 		order = undefined,
 		multiple = false as Multiple,
 		id = randomID(),
-		chevron = Chevron, // @TODO: this should be a snippet?
+		chevron = undefined,
 		chevronPosition = 'right',
 		chevronSize = 24,
 		disableChevronRotation = false,
@@ -50,6 +47,8 @@
 		getControlsId,
 		getRegionId
 	});
+
+	setContext(key, () => context)
 
 	function updateActive(itemValue: string) {
 		if (!multiple) {
@@ -85,5 +84,5 @@
 </script>
 
 <Box bind:element class={cx(className, classes.root, getStyles({ css: override }))} {use} {...rest}>
-	{@render children(context)}
+	{@render children()}
 </Box>

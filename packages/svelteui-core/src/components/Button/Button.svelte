@@ -1,42 +1,10 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { useActions } from '$lib/internal';
 
-	import useStyles from './Button.styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { ButtonErrors } from './Button.errors';
-	import Error from '$lib/internal/errors/Error.svelte';
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonProps as $$ButtonProps } from './Button';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		variant?: $$Props['variant'];
-		color?: $$Props['color'];
-		size?: $$Props['size'];
-		radius?: $$Props['radius'];
-		gradient?: $$Props['gradient'];
-		loaderPosition?: $$Props['loaderPosition'];
-		loaderProps?: $$Props['loaderProps'];
-		href?: $$Props['href'];
-		external?: $$Props['external'];
-		disabled?: $$Props['disabled'];
-		compact?: $$Props['compact'];
-		loading?: $$Props['loading'];
-		uppercase?: $$Props['uppercase'];
-		fullSize?: $$Props['fullSize'];
-		ripple?: $$Props['ripple'];
-		leftIcon?: import('svelte').Snippet;
-		children?: import('svelte').Snippet;
-		rightIcon?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import useStyles from './Button.styles';
+	import type { ButtonProps } from './Button';
 
 	let {
 		use = [],
@@ -66,27 +34,8 @@
 		children,
 		rightIcon,
 		...rest
-	}: Props = $props();
+	}: ButtonProps = $props();
 	
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	// --------------Error Handling-------------------
-	let observable: boolean = $state(false);
-	let err = $state();
-	if (disabled && loading) {
-		observable = true;
-		err = ButtonErrors[0];
-	}
-	if ((external && typeof href !== 'string') || href?.length < 1) {
-		observable = true;
-		err = ButtonErrors[1];
-	}
-	run(() => {
-		if (observable) override = { display: 'none' };
-	});
-	// --------------Error Handling-------------------
 	let { cx, classes, getStyles } = $derived(useStyles(
 		{
 			color,
@@ -100,8 +49,6 @@
 		{ name: 'Button' }
 	));
 </script>
-
-<Error {observable} component="Button" code={err} />
 
 <!--
 @component
@@ -120,7 +67,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		{href}
 		bind:this={element}
 		use:useActions={use}
-		use:forwardEvents
 		class:compact
 		class:uppercase
 		class={cx(className, classes.root, getStyles({ css: override, variation: variant, disabled }), {
@@ -160,7 +106,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	<button
 		bind:this={element}
 		use:useActions={use}
-		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
 			[classes.disabled]: disabled,
 			[classes.loading]: loading
