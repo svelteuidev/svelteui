@@ -1,7 +1,8 @@
-import { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
-import { LoaderProps } from '../Loader/Loader';
 import type { Snippet } from 'svelte';
+import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import type { LoaderProps } from '../Loader/Loader';
 
 export type ButtonVariant =
 	| 'filled'
