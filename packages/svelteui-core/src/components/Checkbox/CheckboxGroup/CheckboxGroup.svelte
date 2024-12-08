@@ -18,7 +18,7 @@
 		direction = 'row',
 		align = 'flex-start',
 		spacing = 'md',
-		onchange,
+		onchange = () => {},
 		...rest
 	}: CheckboxGroupProps = $props();
 

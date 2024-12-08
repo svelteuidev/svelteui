@@ -11,7 +11,7 @@
 
 <Meta title="Components/Chip" component={Chip} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Chip {...args} />
 	{/snippet}

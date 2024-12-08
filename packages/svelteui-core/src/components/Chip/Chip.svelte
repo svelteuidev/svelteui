@@ -1,31 +1,9 @@
 <script lang="ts">
 	import useStyles from './Chip.styles.js';
 	import { randomID } from '$lib/styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
-	import type { ChipProps as $$ChipProps } from './Chip';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		color?: $$Props['color'];
-		id?: $$Props['id'];
-		disabled?: $$Props['disabled'];
-		value?: $$Props['value'];
-		checked?: $$Props['checked'];
-		label?: $$Props['label'];
-		radius?: $$Props['radius'];
-		size?: $$Props['size'];
-		variant?: $$Props['variant'];
-		transitionDuration?: $$Props['transitionDuration'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { ChipProps } from './Chip';
 
 	let {
 		use = [],
@@ -44,42 +22,17 @@
 		transitionDuration = 100,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: ChipProps = $props();
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{ color, radius, size, transitionDuration },
-		{ name: 'Chip' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ color, radius, size, transitionDuration }, { name: 'Chip' })
+	);
 </script>
 
-<!--
-@component
-
-A picker for one or more options.
-
-@see https://svelteui.dev/core/chip
-@example
-    ```svelte
-    <Chip>Chips</Chip>
-    <Chip size={'lg'}>Big Chip</Chip>
-    <Chip>Another one</Chip>
-    <Chip checked disabled>Disabled</Chip>
-    ```
--->
-
-<Box
-	bind:element
-	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...rest}
->
+<Box bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
 	<div class={classes.inputContainer}>
 		<input
 			use:useActions={use}
-			use:forwardEvents
 			bind:checked
 			class={classes.input}
 			class:disabled
@@ -87,6 +40,7 @@ A picker for one or more options.
 			{disabled}
 			{value}
 			{id}
+			{...rest}
 		/>
 	</div>
 
@@ -108,6 +62,10 @@ A picker for one or more options.
 				</svg>
 			</div>
 		{/if}
-		{#if children}{@render children()}{:else}{label}{/if}
+		{#if children}
+			{@render children()}
+		{:else}
+			{label}
+		{/if}
 	</label>
 </Box>
