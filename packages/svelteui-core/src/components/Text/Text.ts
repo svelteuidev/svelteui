@@ -1,6 +1,7 @@
-import { HTMLAnchorAttributes } from 'svelte/elements';
-import { Component, LiteralUnion } from '$lib/internal';
-import {
+import type { Snippet } from 'svelte';
+import type { HTMLAnchorAttributes } from 'svelte/elements';
+import type { Component, LiteralUnion } from '$lib/internal';
+import type {
 	DefaultProps,
 	SvelteUIGradient,
 	SvelteUIColor,
@@ -35,4 +36,6 @@ export interface TextProps<
 	underline?: boolean;
 	inherit?: boolean;
 	tracking?: Tracking;
+	children?: Snippet;
+	[key: string]: any
 }

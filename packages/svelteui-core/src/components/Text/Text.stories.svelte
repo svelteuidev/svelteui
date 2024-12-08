@@ -5,7 +5,7 @@
 
 <Meta title="Components/Text" component={Text} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Text {...args}>This is a nice text</Text>
 	{/snippet}
