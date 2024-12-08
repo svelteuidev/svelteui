@@ -9,7 +9,7 @@
 
 <Meta title="Components/Checkbox" component={Checkbox} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Checkbox {...args} />
 	{/snippet}
