@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { CSS, DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export type GroupPosition = 'right' | 'center' | 'left' | 'apart';
 
@@ -10,5 +11,6 @@ export interface GroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	spacing?: SvelteUINumberSize;
 	direction?: 'row' | 'column';
 	align?: CSS['alignItems'];
-	children?: number;
+	children?: Snippet;
+	[key: string]: any
 }
