@@ -1,4 +1,5 @@
-import { HTMLButtonAttributes } from 'svelte/elements';
+import type { HTMLButtonAttributes } from 'svelte/elements';
+
 import type { Component, LiteralUnion } from '$lib/internal/types';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { LoaderProps } from '../Loader/Loader';
