@@ -1,6 +1,7 @@
-import { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
-import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUISize, SvelteUINumberSize, CSS } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
+import type { Component } from '$lib/internal';
+import type { DefaultProps, SvelteUISize, SvelteUINumberSize, CSS } from '$lib/styles';
 
 export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 
@@ -11,7 +12,7 @@ type InputElementType =
 	| HTMLDataListElement;
 
 export interface InputBaseProps<T = string> extends DefaultProps<InputElementType> {
-	icon?: Component | HTMLOrSVGElement;
+	iconComponent?: Component | HTMLOrSVGElement;
 	iconWidth?: number;
 	iconProps?: { size: number; color: 'currentColor' | string };
 	showRightSection?: boolean;
@@ -29,15 +30,19 @@ export interface InputBaseProps<T = string> extends DefaultProps<InputElementTyp
 	noPointerEventsRightSection?: boolean;
 	root?: Component | keyof HTMLElementTagNameMap;
 	value?: T;
+	icon?: Snippet;
+	rightSection?: Snippet;
+	children?: Snippet;
+	[key: string]: any
 }
 
-interface InputPropsInternal extends InputBaseProps {
+interface InputPropsInternal<T = string> extends InputBaseProps<T> {
 	invalid?: boolean;
 	multiline?: boolean;
 	autocomplete?: string;
 }
 
-export type InputProps = InputPropsInternal &
+export type InputProps<T = string> = InputPropsInternal<T> &
 	Omit<HTMLInputAttributes, 'size'> &
 	Omit<HTMLSelectAttributes, 'size'> &
 	HTMLTextareaAttributes;

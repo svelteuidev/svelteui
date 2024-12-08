@@ -10,7 +10,7 @@
 
 <Meta title="Components/Input" component={Input} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Input bind:value {...args} />
 	{/snippet}
@@ -37,19 +37,15 @@
 <Story name="With icon (slot)" id="inputIconSlotStory">
 	<Input bind:value>
 		{#snippet icon()}
-			
-				<EnvelopeClosed />
-			
-			{/snippet}
+			<EnvelopeClosed />
+		{/snippet}
 	</Input>
 </Story>
 
 <Story name="With right section" id="inputRightSectionStory">
 	<Input bind:value>
 		{#snippet rightSection()}
-			
-				<Button on:click={() => console.log('heelo')} />
-			
-			{/snippet}
+			<Button on:click={() => console.log('heelo')} />
+		{/snippet}
 	</Input>
 </Story>
