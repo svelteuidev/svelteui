@@ -1,7 +1,7 @@
 <script lang="ts">
-	import useStyles from './UnstyledButton.styles';
+	import { useActions } from '$lib/internal';
 	import { Box } from '../../Box';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import useStyles from './UnstyledButton.styles';
 	import type { UnstyledButtonProps } from './UnstyledButton';
 
 	let {
@@ -19,7 +19,7 @@
 
 <Box
 	bind:element
-	use={[forwardEvents, [useActions, use]]}
+	use={[[useActions, use]]}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{root}
 	{...rest}
