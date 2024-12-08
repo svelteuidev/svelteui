@@ -1,18 +1,8 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { onMount } from 'svelte';
 
 	import useStyles from './IconRenderer.styles';
-	import type { IconRendererProps as $$IconRendererProps } from './IconRenderer';
-
-	
-
-	interface Props {
-		className?: $$Props['className'];
-		override?: $$Props['override'];
-		icon?: $$Props['icon'];
-		iconSize?: $$Props['iconSize'];
-		iconProps?: $$Props['iconProps'];
-	}
+	import type { IconRendererProps } from './IconRenderer';
 
 	let {
 		className = '',
@@ -20,13 +10,13 @@
 		icon = undefined,
 		iconSize = 16,
 		iconProps = {}
-	}: Props = $props();
+	}: IconRendererProps = $props();
 
 	// Verifies if CSR only elements are defined, or else it won't use them
 	const requiresShim = typeof HTMLElement === 'undefined' && typeof SVGElement === 'undefined';
 
 	let { cx, getStyles, classes } = $derived(useStyles({ iconSize }, { name: 'IconRenderer' }));
-	run(() => {
+	onMount(() => {
 		if (!requiresShim && (icon instanceof HTMLElement || icon instanceof SVGElement)) {
 			icon.classList.add(...classes.icon.split(' '));
 		}

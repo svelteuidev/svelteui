@@ -35,7 +35,7 @@
 	}}
 />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<span>Svelte component</span>
 		<IconRenderer {...args} icon={InfoCircled} />

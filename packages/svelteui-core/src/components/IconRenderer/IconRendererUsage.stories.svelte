@@ -42,25 +42,27 @@
 />
 
 <Story name="Alert" id="iconRendererAlertStory">
-	<Alert icon={InfoCircled} title="Example 1">
+	<Alert iconComponent={InfoCircled} title="Example 1">
 		This alert uses a Svelte component for it's icon
 	</Alert>
 	<br />
-	<Alert icon={iconSvg} title="Example 2">This alert uses an SVG element for it's icon</Alert>
+	<Alert iconComponent={iconSvg} title="Example 2"
+		>This alert uses an SVG element for it's icon</Alert
+	>
 </Story>
 
 <Story name="Button" id="iconRendererButtonStory">
 	<Button>
 		{#snippet leftIcon()}
-				<IconRenderer  icon={InfoCircled} />
-			{/snippet}
+			<IconRenderer icon={InfoCircled} />
+		{/snippet}
 		Button with Svelte component icon
 	</Button>
 	<br />
 	<Button>
 		{#snippet leftIcon()}
-				<IconRenderer  icon={iconSvg} />
-			{/snippet}
+			<IconRenderer icon={iconSvg} />
+		{/snippet}
 		Button with SVG icon
 	</Button>
 </Story>
@@ -74,8 +76,8 @@
 <Story name="MenuItem" id="iconRendererMenuItemStory">
 	<Menu>
 		{#snippet control()}
-				<div >Click Me</div>
-			{/snippet}
+			<div>Click Me</div>
+		{/snippet}
 		<MenuItem icon={InfoCircled}>Svelte component</MenuItem>
 		<MenuItem icon={iconSvg}>SVG Element</MenuItem>
 	</Menu>
