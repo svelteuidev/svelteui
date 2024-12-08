@@ -1,36 +1,18 @@
 <script lang="ts" module>
 	import { setContext } from 'svelte';
-	import { beforeUpdate, get_current_component } from 'svelte/internal';
+	import { useActions } from '$lib/internal';
+
+	import { createStyles, dark, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
 	import { mergeTheme } from '../';
+	import type { SvelteUITheme } from '../types';
 	import { useSvelteUITheme } from './default-theme';
 	import { colorScheme } from './svelteui.stores';
 	import { key, useSvelteUIThemeContext } from './svelteui.provider';
-	import { createStyles, dark, NormalizeCSS, SvelteUIGlobalCSS } from '../../index';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { SvelteUITheme } from '../types';
-	import type { SvelteUIProviderProps as $$SvelteUIProviderProps } from './svelteui.provider';
+	import type { SvelteUIProviderProps } from './svelteui.provider';
 	import type { SvelteUIProviderContextType } from './svelteui.provider';
 </script>
 
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	interface Props {
-		use?: $$SvelteUIProviderProps['use'];
-		class?: $$SvelteUIProviderProps['className'];
-		element?: $$SvelteUIProviderProps['element'];
-		theme?: $$SvelteUIProviderProps['theme'];
-		styles?: $$SvelteUIProviderProps['styles'];
-		defaultProps?: $$SvelteUIProviderProps['defaultProps'];
-		themeObserver?: $$SvelteUIProviderProps['themeObserver'];
-		withNormalizeCSS?: $$SvelteUIProviderProps['withNormalizeCSS'];
-		withGlobalStyles?: $$SvelteUIProviderProps['withGlobalStyles'];
-		override?: $$SvelteUIProviderProps['override'];
-		inherit?: $$SvelteUIProviderProps['inherit'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
-
 	let {
 		use = [],
 		class: className = '',
@@ -45,10 +27,9 @@
 		inherit = false,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: SvelteUIProviderProps = $props();
 
-	beforeUpdate(() => {
+	$effect.pre(() => {
 		const htmlClassList: DOMTokenList = document.documentElement.classList;
 		if ($colorScheme === 'dark') htmlClassList.add(dark.className);
 		if ($colorScheme === 'light') htmlClassList.remove(dark.className);
@@ -56,21 +37,20 @@
 
 	const ctx = useSvelteUIThemeContext();
 	const useStyles = createStyles(() => ({ root: {} }));
-	const forwardEvents = createEventForwarder(get_current_component());
 	const DEFAULT_THEME = useSvelteUITheme();
 
 	let currentTheme: string | null = $state(null);
-	run(() => {
+	$effect(() => {
 		if (themeObserver !== null) {
 			currentTheme =
 				themeObserver === 'light' ? (mergedTheme as unknown as string) : (dark as string);
 		}
 	});
 
-	run(() => {
+	$effect(() => {
 		if (withGlobalStyles) SvelteUIGlobalCSS();
 	});
-	run(() => {
+	$effect(() => {
 		if (withNormalizeCSS) NormalizeCSS();
 	});
 	let overrides = $derived({
@@ -78,14 +58,14 @@
 		styles: inherit ? { ...ctx.styles, ...styles } : styles,
 		defaultProps: inherit ? { ...ctx.styles, ...defaultProps } : defaultProps
 	});
-	run(() => {
+	$effect(() => {
 		setContext<SvelteUIProviderContextType>(key, {
 			theme: overrides.themeOverride as SvelteUITheme,
 			styles: {},
 			defaultProps: {}
 		});
 	});
-	run(() => {
+	$effect(() => {
 		colorScheme.set(themeObserver);
 	});
 	let mergedTheme = $derived(mergeTheme(DEFAULT_THEME, overrides.themeOverride));
@@ -96,7 +76,6 @@
 	id="SVELTEUI_PROVIDER"
 	bind:this={element}
 	use:useActions={use}
-	use:forwardEvents
 	class={cx(className, classes.root, currentTheme)}
 	{...rest}
 >

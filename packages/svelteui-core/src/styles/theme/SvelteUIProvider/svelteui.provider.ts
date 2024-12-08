@@ -1,4 +1,4 @@
-import { getContext } from 'svelte';
+import { getContext, type Snippet } from 'svelte';
 import type { CSS, ColorScheme, DefaultProps, DeepPartial, SvelteUITheme } from '../types';
 
 export type ProviderStyles = Record<
@@ -22,6 +22,8 @@ export interface SvelteUIProviderProps extends DefaultProps<HTMLDivElement> {
 	withNormalizeCSS?: boolean;
 	withGlobalStyles?: boolean;
 	inherit?: boolean;
+	children?: Snippet;
+	[key: string]: any;
 }
 
 /** --------------------- */
