@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUISize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type  { HTMLAttributes } from 'svelte/elements';
+import type { DefaultProps, SvelteUISize } from '$lib/styles';
 
 export interface InputWrapperBaseProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	label?: string;
@@ -9,6 +10,8 @@ export interface InputWrapperBaseProps extends DefaultProps, HTMLAttributes<HTML
 	labelProps?: Record<string, unknown>;
 	descriptionProps?: Record<string, unknown>;
 	errorProps?: Record<string, unknown>;
+	children?: Snippet;
+	[key: string]: any
 }
 
 export interface InputWrapperProps extends InputWrapperBaseProps {

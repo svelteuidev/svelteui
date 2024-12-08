@@ -3,28 +3,7 @@
 	import Box from '../Box/Box.svelte';
 	import Text from '../Text/Text.svelte';
 	import LabelElement from './LabelElement.svelte';
-	import type { InputWrapperProps as $$InputWrapperProps } from './InputWrapper';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		label?: $$Props['label'];
-		description?: $$Props['description'];
-		error?: $$Props['error'];
-		required?: $$Props['required'];
-		labelProps?: $$Props['labelProps'];
-		descriptionProps?: $$Props['descriptionProps'];
-		errorProps?: $$Props['errorProps'];
-		id?: $$Props['id'];
-		labelElement?: $$Props['labelElement'];
-		size?: $$Props['size'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { InputWrapperProps } from './InputWrapper';
 
 	let {
 		use = [],
@@ -43,18 +22,12 @@
 		size = 'sm',
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: InputWrapperProps = $props();
 
 	let { cx, classes, getStyles } = $derived(useStyles({ size }, { name: 'InputWrapper' }));
 </script>
 
-<Box
-	bind:element
-	{use}
-	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...rest}
->
+<Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))} {...rest}>
 	{#if label}
 		<LabelElement class={classes.label} {...labelProps} {label} {id} {labelElement} {required} />
 	{/if}
