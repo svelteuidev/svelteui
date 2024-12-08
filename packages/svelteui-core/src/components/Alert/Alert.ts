@@ -12,7 +12,7 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	radius?: SvelteUINumberSize;
 	variant?: AlertVariant;
 	icon?: Snippet;
-	iconComponent?: Component;
+	iconComponent?: Component | HTMLOrSVGElement;
 	iconSize?: SvelteUINumberSize;
 	iconProps?: Record<string, unknown>;
 	withCloseButton?: boolean;
