@@ -2,22 +2,8 @@
 	import useStyles from './Burger.styles';
 	import { UnstyledButton } from '../Button';
 	import { colorScheme } from '$lib/styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import type { BurgerProps as $$BurgerProps } from './Burger';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		opened?: $$Props['opened'];
-		color?: $$Props['color'];
-		size?: $$Props['size'];
-		[key: string]: any
-	}
+	import { useActions } from '$lib/internal';
+	import type { BurgerProps } from './Burger';
 
 	let {
 		use = [],
@@ -28,19 +14,17 @@
 		color = undefined,
 		size = 'md',
 		...rest
-	}: Props = $props();
-	
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	}: BurgerProps = $props();
 
 	let _color = $derived(color ? color : $colorScheme === 'dark' ? 'white' : 'black');
-	let { classes, getStyles, cx } = $derived(useStyles({ color: _color, size, opened }, { name: 'Burger' }));
+	let { classes, getStyles, cx } = $derived(
+		useStyles({ color: _color, size, opened }, { name: 'Burger' })
+	);
 </script>
 
 <UnstyledButton
 	bind:element
-	use={[forwardEvents, [useActions, use]]}
+	use={[[useActions, use]]}
 	override={{ padding: 5 }}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{...rest}

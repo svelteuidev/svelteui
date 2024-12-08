@@ -8,7 +8,7 @@
 
 <Meta title="Components/Burger" component={Burger} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Burger {opened} on:click={() => (opened = !opened)} {...args} />
 	{/snippet}
