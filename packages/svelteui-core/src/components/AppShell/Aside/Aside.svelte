@@ -1,24 +1,6 @@
 <script lang="ts">
 	import { HorizontalSection } from '../HorizontalSection';
-	import type { HorizontalSectionSharedProps as $$HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		width?: $$Props['width'];
-		height?: $$Props['height'];
-		fixed?: $$Props['fixed'];
-		position?: $$Props['position'];
-		hiddenBreakpoint?: $$Props['hiddenBreakpoint'];
-		hidden?: $$Props['hidden'];
-		zIndex?: $$Props['zIndex'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { HorizontalSectionSharedProps } from '../HorizontalSection/HorizontalSection';
 
 	let {
 		use = [],
@@ -34,8 +16,7 @@
 		zIndex = 100,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: HorizontalSectionSharedProps = $props();
 </script>
 
 <HorizontalSection

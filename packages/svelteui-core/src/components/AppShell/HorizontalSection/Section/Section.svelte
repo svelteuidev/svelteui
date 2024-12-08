@@ -1,18 +1,6 @@
 <script lang="ts">
 	import { Box } from '../../../Box';
-	import type { SectionProps as $$SectionProps } from './Section.styles';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		className?: $$Props['className'];
-		override?: $$Props['override'];
-		grow?: $$Props['grow'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { SectionProps } from './Section.styles';
 
 	let {
 		use = [],
@@ -22,7 +10,7 @@
 		grow = false,
 		children,
 		...rest
-	}: Props = $props();
+	}: SectionProps = $props();
 </script>
 
 <Box

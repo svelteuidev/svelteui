@@ -2,23 +2,7 @@
 	import useStyles from './VerticalSection.styles';
 	import { Box } from '../../Box';
 	import { globalCss } from '$lib/styles';
-	import type { VerticalSectionProps as $$VerticalSectionProps } from './VerticalSection';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		height?: $$Props['height'];
-		fixed?: $$Props['fixed'];
-		position?: $$Props['position'];
-		zIndex?: $$Props['zIndex'];
-		section: $$Props['section'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { VerticalSectionProps } from './VerticalSection';
 
 	let {
 		use = [],
@@ -32,19 +16,20 @@
 		section,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: VerticalSectionProps = $props();
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{
-			borderPosition: section === 'header' ? 'bottom' : 'top',
-			fixed,
-			height,
-			position,
-			zIndex
-		},
-		{ name: 'VerticalSection' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				borderPosition: section === 'header' ? 'bottom' : 'top',
+				fixed,
+				height,
+				position,
+				zIndex
+			},
+			{ name: 'VerticalSection' }
+		)
+	);
 
 	const injectStyles = globalCss({
 		':root': {

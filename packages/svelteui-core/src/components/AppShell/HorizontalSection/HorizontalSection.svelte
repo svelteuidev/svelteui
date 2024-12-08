@@ -11,26 +11,7 @@
 		getSortedBreakpoints,
 		theme as appShellTheme
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
-	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		width?: $$Props['width'];
-		height?: $$Props['height'];
-		fixed?: $$Props['fixed'];
-		position?: $$Props['position'];
-		hiddenBreakpoint?: $$Props['hiddenBreakpoint'];
-		hidden?: $$Props['hidden'];
-		zIndex?: $$Props['zIndex'];
-		section: $$Props['section'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { HorizontalSectionProps } from './HorizontalSection';
 
 	let {
 		use = [],
@@ -47,8 +28,7 @@
 		section,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: HorizontalSectionProps = $props();
 
 	const breakpoints = getSortedBreakpoints(width, appShellTheme).reduce(
 		(acc, [breakpoint, breakpointSize]) => {
@@ -61,19 +41,21 @@
 		{}
 	);
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{
-			fixed,
-			height,
-			hiddenBreakpoint,
-			position,
-			width,
-			zIndex,
-			section,
-			hidden
-		},
-		{ name: 'HorizontalSection' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				fixed,
+				height,
+				hiddenBreakpoint,
+				position,
+				width,
+				zIndex,
+				section,
+				hidden
+			},
+			{ name: 'HorizontalSection' }
+		)
+	);
 
 	const injectRoot = globalCss({
 		':root': {

@@ -7,26 +7,7 @@
 	import { Box } from '../Box';
 	import useStyles from './AppShell.styles';
 	import AppShellProvider from './AppShellProvider.svelte';
-	import type { AppShellProps as $$AppShellProps } from './AppShell';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		zIndex?: $$Props['zIndex'];
-		fixed?: $$Props['fixed'];
-		padding?: $$Props['padding'];
-		navbarOffsetBreakpoint?: $$Props['navbarOffsetBreakpoint'];
-		asideOffsetBreakpoint?: $$Props['asideOffsetBreakpoint'];
-		header?: import('svelte').Snippet;
-		navbar?: import('svelte').Snippet;
-		children?: import('svelte').Snippet;
-		aside?: import('svelte').Snippet;
-		footer?: import('svelte').Snippet;
-	}
+	import type { AppShellProps } from './AppShell';
 
 	let {
 		use = [],
@@ -43,9 +24,8 @@
 		children,
 		aside,
 		footer
-	}: Props = $props();
+	}: AppShellProps = $props();
 	
-
 	let { cx, classes } = $derived(useStyles(
 		{
 			padding,

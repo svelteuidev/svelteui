@@ -1,5 +1,7 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
 
 export type HorizontalSectionWidth = Partial<Record<string, string | number>>;
 
@@ -18,6 +20,8 @@ export interface HorizontalSectionSharedProps extends DefaultProps, HTMLAttribut
 	hiddenBreakpoint?: SvelteUINumberSize;
 	hidden?: boolean;
 	zIndex?: number;
+	children?: Snippet
+	[key: string]: any
 }
 
 export interface HorizontalSectionProps extends HorizontalSectionSharedProps {

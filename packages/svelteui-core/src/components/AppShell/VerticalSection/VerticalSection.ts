@@ -1,5 +1,6 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { DefaultProps } from '$lib/styles';
 
 export interface VerticalSectionPosition {
 	top?: number;
@@ -13,6 +14,8 @@ export interface VerticalSectionSharedProps extends DefaultProps, HTMLAttributes
 	fixed?: boolean;
 	position?: VerticalSectionPosition;
 	zIndex?: number;
+	children?: Snippet
+	[key: string]: any
 }
 
 export interface VerticalSectionProps extends VerticalSectionSharedProps {

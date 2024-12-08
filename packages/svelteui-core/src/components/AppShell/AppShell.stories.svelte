@@ -12,7 +12,7 @@
 <Template>
 	<AppShell>
 		{#snippet navbar()}
-				<Navbar  fixed width={{ sm: 200, lg: 300 }}>
+			<Navbar fixed width={{ sm: 200, lg: 300 }}>
 				<ShellSection grow>
 					<Stack>
 						<Text align="center">Navbar</Text>
@@ -21,12 +21,12 @@
 					</Stack>
 				</ShellSection>
 			</Navbar>
-			{/snippet}
+		{/snippet}
 		{#snippet header()}
-				<Header  height={60}>
+			<Header height={60}>
 				<Title>Header</Title>
 			</Header>
-			{/snippet}
+		{/snippet}
 		<div style="display: flex;">This is the main content</div>
 	</AppShell>
 </Template>

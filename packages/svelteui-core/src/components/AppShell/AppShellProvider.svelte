@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { Box } from '../Box';
+	import type { Snippet } from 'svelte';
+	
 	import type { DefaultProps } from '$lib/styles';
+	import { Box } from '../Box';
 
 	interface AppShellProviderProps extends DefaultProps {
 		value?: { fixed: boolean; zIndex: number };
@@ -12,7 +14,7 @@
 		class?: AppShellProviderProps['className'];
 		override?: AppShellProviderProps['override'];
 		value: AppShellProviderProps['value'];
-		children?: import('svelte').Snippet;
+		children?: Snippet;
 		[key: string]: any
 	}
 
@@ -25,10 +27,6 @@
 		children,
 		...rest
 	}: Props = $props();
-	
-
-	const noop = () => value;
-	noop();
 </script>
 
 <Box bind:element class={className} css={{ ...override }} {use} {...rest}>

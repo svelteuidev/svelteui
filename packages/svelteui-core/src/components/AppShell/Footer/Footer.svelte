@@ -1,21 +1,6 @@
 <script lang="ts">
 	import { VerticalSection } from '../VerticalSection';
-	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		height?: $$Props['height'];
-		fixed?: $$Props['fixed'];
-		position?: $$Props['position'];
-		zIndex?: $$Props['zIndex'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { VerticalSectionSharedProps } from '../VerticalSection/VerticalSection';
 
 	let {
 		use = [],
@@ -28,8 +13,7 @@
 		zIndex = 100,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: VerticalSectionSharedProps = $props();
 </script>
 
 <VerticalSection
