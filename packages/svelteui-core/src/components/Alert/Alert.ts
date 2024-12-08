@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import { Component } from '$lib/internal';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Component } from '$lib/internal';
 
 export type AlertVariant = 'filled' | 'outline' | 'light';
 
@@ -9,7 +11,8 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	color?: SvelteUIColor;
 	radius?: SvelteUINumberSize;
 	variant?: AlertVariant;
-	icon?: Component | HTMLOrSVGElement;
+	icon?: Snippet;
+	iconComponent?: Component;
 	iconSize?: SvelteUINumberSize;
 	iconProps?: Record<string, unknown>;
 	withCloseButton?: boolean;
