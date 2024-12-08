@@ -1,23 +1,11 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
+
 	import { Box } from '../../Box';
 	import type { BreadcrumbContext } from '../Breadcrumbs';
 	import { ctx } from '../Breadcrumbs.svelte';
-	import type { BreadcrumbItemProps as $$BreadcrumbItemProps } from './BreadcrumbsItem';
+	import type { BreadcrumbItemProps } from './BreadcrumbsItem';
 	import useStyles from './BreadcrumbsItem.styles';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		href?: $$Props['href'];
-		active?: $$Props['active'];
-		icon?: import('svelte').Snippet<[any]>;
-		children?: import('svelte').Snippet;
-	}
 
 	let {
 		use = [],
@@ -28,8 +16,7 @@
 		active = false,
 		icon,
 		children
-	}: Props = $props();
-	
+	}: BreadcrumbItemProps = $props();
 
 	// retrieves the reactive context so that TimelineItem has access
 	// to the Timeline parameters
@@ -39,14 +26,16 @@
 	let size = $state.size;
 	let color = $state.color;
 
-	let { cx, classes, getStyles } = $derived(useStyles({ color, size }, { name: 'BreadcrumbsItem' }));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ color, size }, { name: 'BreadcrumbsItem' })
+	);
 </script>
 
 <Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
 	{#if href}
 		<div class={cx(classes.wrapper, { active: active })}>
 			<a {href}>
-				{@render icon?.({ class: cx(classes.icon), })}
+				{@render icon?.({ class: cx(classes.icon) })}
 				<span class={cx(classes.innerText)}>
 					{@render children?.()}
 				</span>
@@ -57,7 +46,7 @@
 		</div>
 	{:else}
 		<div class={cx(classes.wrapper, { active: active })}>
-			{@render icon?.({ class: cx(classes.icon), })}
+			{@render icon?.({ class: cx(classes.icon) })}
 			<span class={cx(classes.innerText)}>
 				{@render children?.()}
 			</span>

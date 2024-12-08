@@ -7,7 +7,7 @@
 
 <Meta title="Components/Breadcrumbs" component={Breadcrumbs} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Breadcrumbs {...args} size="md">
 			<Breadcrumbs.Item href="https://svelteui.dev">Home</Breadcrumbs.Item>
@@ -22,13 +22,13 @@
 	<Breadcrumbs size="md">
 		<Breadcrumbs.Item href="https://svelteui.dev">
 			{#snippet icon()}
-						<IconRenderer  icon={Home} />
-					{/snippet}
+				<IconRenderer icon={Home} />
+			{/snippet}
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>
 			{#snippet icon()}
-						<IconRenderer  icon={Person} />
-					{/snippet}
+				<IconRenderer icon={Person} />
+			{/snippet}
 			Application List
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>
@@ -39,13 +39,13 @@
 	<Breadcrumbs size="md" separator="→">
 		<Breadcrumbs.Item href="https://svelteui.dev">
 			{#snippet icon()}
-						<IconRenderer  icon={Home} />
-					{/snippet}
+				<IconRenderer icon={Home} />
+			{/snippet}
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item>
 			{#snippet icon()}
-						<IconRenderer  icon={Person} />
-					{/snippet}
+				<IconRenderer icon={Person} />
+			{/snippet}
 			Application List
 		</Breadcrumbs.Item>
 		<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>

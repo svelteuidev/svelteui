@@ -5,22 +5,9 @@
 <script lang="ts">
 	import useStyles from './Breadcrumbs.styles';
 	import { Box } from '../Box';
-	import type { BreadcrumbContext, BreadcrumbProps as $$BreadcrumbProps } from './Breadcrumbs';
+	import type { BreadcrumbContext, BreadcrumbProps } from './Breadcrumbs';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		color?: $$Props['color'];
-		size?: $$Props['size'];
-		separator?: $$Props['separator'];
-		children?: import('svelte').Snippet;
-	}
 
 	let {
 		use = [],
@@ -31,8 +18,7 @@
 		size = 'md',
 		separator = '/',
 		children
-	}: Props = $props();
-	
+	}: BreadcrumbProps = $props();
 
 	// initialize a 'reactive context' which is basically
 	// a store inside the context, so that all children
