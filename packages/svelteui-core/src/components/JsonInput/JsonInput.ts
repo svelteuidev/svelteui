@@ -1,4 +1,4 @@
-import { TextareaProps } from '../Textarea/Textarea';
+import type { TextareaProps } from '../Textarea/Textarea';
 
 export interface JsonInputProps extends TextareaProps {
 	validationError?: string;
