@@ -5,7 +5,7 @@
 
 <Meta title="Components/Textarea" component={Textarea} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Textarea {...args} />
 	{/snippet}
