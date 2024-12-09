@@ -1,18 +1,7 @@
 <script lang="ts">
 	import useStyles from './Kbd.styles';
 	import { Box } from '../Box';
-	import type { KbdProps as $$KbdProps } from './Kbd';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { KbdProps } from './Kbd';
 
 	let {
 		use = [],
@@ -21,8 +10,7 @@
 		override = {},
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: KbdProps = $props();
 
 	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'Kbd' }));
 </script>
