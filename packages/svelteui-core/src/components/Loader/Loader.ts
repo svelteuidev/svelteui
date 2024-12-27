@@ -1,11 +1,12 @@
-import { SVGAttributes } from 'svelte/elements';
-import { Component } from '$lib/internal/types';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles';
+import type { SVGAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, LoaderType } from '$lib/styles';
 
 export interface LoaderProps
-	extends DefaultProps<Omit<Component, 'prototype'>>,
-		Omit<SVGAttributes<HTMLElement>, 'className'> {
+	extends DefaultProps<SVGSVGElement>,
+		Omit<SVGAttributes<SVGSVGElement>, 'className'> {
 	size?: SvelteUINumberSize;
 	color?: SvelteUIColor | 'white';
 	variant?: LoaderType;
+	[key: string]: any;
 }

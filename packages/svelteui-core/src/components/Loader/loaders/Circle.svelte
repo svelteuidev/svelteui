@@ -2,30 +2,26 @@
 	import { useActions } from '$lib/internal';
 	import type { LoaderProps } from '../Loader';
 
-	interface Props {
-		use?: LoaderProps['use'];
-		size?: LoaderProps['size'];
-		color?: LoaderProps['color'];
-		class?: LoaderProps['className'];
-	}
-
 	let {
 		use = [],
+		element = $bindable(undefined),
+		class: className = '',
 		size = 25,
 		color = 'blue',
-		class: className = ''
-	}: Props = $props();
-	
+		...rest
+	}: LoaderProps = $props();
 </script>
 
 <svg
+	bind:this={element}
+	use:useActions={use}
 	width={`${size}px`}
 	height={`${size}px`}
 	viewBox="0 0 38 38"
 	xmlns="http://www.w3.org/2000/svg"
 	stroke={color}
 	class={className}
-	use:useActions={use}
+	{...rest}
 >
 	<g fill="none" fill-rule="evenodd">
 		<g transform="translate(2.5 2.5)" stroke-width="5">

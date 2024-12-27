@@ -5,7 +5,7 @@
 
 <Meta title="Components/Loader" component={Loader} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Loader {...args} />
 	{/snippet}
