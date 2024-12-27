@@ -1,22 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+
 	import { Box } from '../Box';
 	import useStyles from './MediaQuery.styles';
-	import type { MediaQueryProps as $$MediaQueryProps } from './MediaQuery';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		smallerThan?: $$Props['smallerThan'];
-		largerThan?: $$Props['largerThan'];
-		styles?: $$Props['styles'];
-		query?: $$Props['query'];
-		children?: import('svelte').Snippet;
-	}
+	import type { MediaQueryProps } from './MediaQuery';
 
 	let {
 		use = [],
@@ -28,13 +15,11 @@
 		styles = undefined,
 		query = undefined,
 		children
-	}: Props = $props();
-	
+	}: MediaQueryProps = $props();
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{ query, styles, largerThan, smallerThan },
-		{ name: 'MediaQuery' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ query, styles, largerThan, smallerThan }, { name: 'MediaQuery' })
+	);
 
 	function styleChildElement() {
 		element.children[0].classList.add(getStyles().selector);
