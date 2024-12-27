@@ -1,13 +1,13 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Component, TransitionName, TransitionOptions } from '$lib/internal';
-import { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
-import { PopperProps } from '../Popper/Popper';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { Component, TransitionName, TransitionOptions } from '$lib/internal';
+import type { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
+import type { PopperProps } from '../Popper/Popper';
+import type { Snippet } from 'svelte';
 
 export interface MenuProps
 	extends DefaultProps,
 		HTMLAttributes<HTMLElement>,
 		Pick<PopperProps, 'withArrow' | 'gutter' | 'placement' | 'position'> {
-	control?: Component | HTMLOrSVGElement;
 	closeOnItemClick?: boolean;
 	controlRefProp?: string;
 	clickOutsideEvents?: string[];
@@ -25,10 +25,9 @@ export interface MenuProps
 	zIndex?: number;
 	transition?: TransitionName;
 	transitionOptions?: TransitionOptions;
-}
-
-export interface MenuEvents {
-	open: CustomEvent;
-	close: CustomEvent;
-	[evt: string]: CustomEvent<any>;
+	onopen?: () => void
+	onclose?: () => void
+	control?: Snippet;
+	children?: Snippet;
+	[key: string]: any;
 }

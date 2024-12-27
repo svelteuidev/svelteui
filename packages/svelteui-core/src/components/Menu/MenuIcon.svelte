@@ -1,38 +1,17 @@
 <script lang="ts">
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
+	import { useActions } from '$lib/internal';
 	import { ActionIcon } from '../ActionIcon';
 	import type { ActionIconProps } from '../ActionIcon';
-
-	
-
-	interface Props {
-		size?: number;
-		className?: string;
-		role?: string;
-		title?: string;
-		element?: $$Props['element'];
-		class?: string;
-		[key: string]: any
-	}
 
 	let {
 		size = 15,
 		element = $bindable(undefined),
 		class: className = '',
 		...rest
-	}: Props = $props();
-	
-
-	const forwardEvents = createEventForwarder(get_current_component());
+	}: ActionIconProps = $props();
 </script>
 
-<ActionIcon
-	bind:element
-	use={[forwardEvents, [useActions, rest?.use]]}
-	class={className}
-	{...rest}
->
+<ActionIcon bind:element use={[[useActions, rest?.use]]} class={className} {...rest}>
 	<svg
 		width={size}
 		height={size}

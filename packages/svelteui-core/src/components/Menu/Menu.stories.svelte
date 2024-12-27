@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 	import { Menu, type MenuComponent } from './index';
 	import { Button } from '../Button';
@@ -7,7 +8,6 @@
 	import { Center } from '../Center';
 	import { SimpleGrid } from '../SimpleGrid';
 	import { TextInput } from '../TextInput';
-	import { Camera, ChatBubble, Gear, MagnifyingGlass, Trash, Width } from 'radix-icons-svelte';
 
 	let menuEvents = $state([]);
 	let element: MenuComponent = $state();
@@ -15,7 +15,7 @@
 
 <Meta title="Components/Menu" component={Menu} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Menu {...args}>
 			<Menu.Item>Basic Menu</Menu.Item>
@@ -28,32 +28,32 @@
 <Story name="With Content" id="menuContentStory">
 	<Menu>
 		<Menu.Label>Application</Menu.Label>
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
-		<Menu.Item icon={MagnifyingGlass}>
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
+		<Menu.Item iconComponent={MagnifyingGlass}>
 			{#snippet rightSection()}
-						<Kbd >⌘K</Kbd>
-					{/snippet}
+				<Kbd>⌘K</Kbd>
+			{/snippet}
 			Search
 		</Menu.Item>
 
 		<Divider />
 
 		<Menu.Label>Danger zone</Menu.Label>
-		<Menu.Item icon={Width}>Transfer my data</Menu.Item>
-		<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
+		<Menu.Item iconComponent={Width}>Transfer my data</Menu.Item>
+		<Menu.Item color="red" iconComponent={Trash}>Delete my account</Menu.Item>
 	</Menu>
 </Story>
 
 <Story name="Custom Control" id="menuCustomControlStory">
 	<Menu>
 		{#snippet control()}
-				<Button >Toggle Menu</Button>
-			{/snippet}
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+			<Button>Toggle Menu</Button>
+		{/snippet}
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Story>
 
@@ -62,46 +62,46 @@
 		<Center>
 			Start:
 			<Menu placement="start" opened>
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			Center:
 			<Menu placement="center" opened>
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			End:
 			<Menu placement="end" opened>
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			Start:
 			<Menu placement="start" opened>
 				{#snippet control()}
-								<Button >Custom control</Button>
-							{/snippet}
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+					<Button>Custom control</Button>
+				{/snippet}
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			Center:
 			<Menu placement="center" opened>
 				{#snippet control()}
-								<Button >Custom control</Button>
-							{/snippet}
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+					<Button>Custom control</Button>
+				{/snippet}
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 		<Center>
 			End:
 			<Menu placement="end" opened>
 				{#snippet control()}
-								<Button >Custom control</Button>
-							{/snippet}
-				<Menu.Item icon={Gear}>Settings</Menu.Item>
+					<Button>Custom control</Button>
+				{/snippet}
+				<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 			</Menu>
 		</Center>
 	</SimpleGrid>
@@ -114,9 +114,9 @@
 		on:close={() => (menuEvents = [...menuEvents, 'closed'])}
 	>
 		{#snippet control()}
-				<Button >Toggle menu</Button>
-			{/snippet}
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
+			<Button>Toggle menu</Button>
+		{/snippet}
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
 	</Menu>
 	<ol>
 		{#each menuEvents as event}
@@ -128,11 +128,11 @@
 <Story name="Menu with Input" id="menuWithInputStory">
 	<Menu>
 		{#snippet control()}
-				<Button >Toggle Menu</Button>
-			{/snippet}
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+			<Button>Toggle Menu</Button>
+		{/snippet}
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 		<Menu.Label><TextInput placeholder="Search" /></Menu.Label>
 	</Menu>
 </Story>
@@ -141,16 +141,16 @@
 	<Button on:click={() => element.toggle()}>Toggle Menu</Button>
 
 	<Menu bind:this={element}>
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Story>
 
 <Story name="Close on Item Click (false)" id="menuCloseOnItemClickStory">
 	<Menu closeOnItemClick={false}>
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Story>

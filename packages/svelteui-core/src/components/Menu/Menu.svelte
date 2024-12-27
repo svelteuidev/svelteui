@@ -1,55 +1,57 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Menu';
 </script>
 
 <script lang="ts">
-	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
-	import { createEventDispatcher, onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
+	import { onMount, setContext } from 'svelte';
+
+	import { clickoutside, useHash } from '@svelteuidev/composables';
+	import { useActions } from '$lib/internal';
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
 	import { PopperContainer } from '../Popper/PopperContainer';
 	import { Paper } from '../Paper';
 	import { MenuIcon } from './index';
-	import { clickoutside, useHash } from '@svelteuidev/composables';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
-	import type { Writable } from 'svelte/store';
-	import type { MenuContextValue } from './Menu.context';
-	import type { MenuProps as $$MenuProps, MenuEvents as $$MenuEvents } from './Menu';
+	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
+	import type { MenuProps } from './Menu';
 
-	interface $$Props extends $$MenuProps {}
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		closeOnItemClick = true,
+		closeOnScroll = false,
+		delay = 100,
+		menuButtonLabel = undefined,
+		menuId = undefined,
+		radius = 'sm',
+		opened = $bindable(false),
+		shadow = 'md',
+		size = 'md',
+		trigger = 'click',
+		trapFocus = true,
+		withinPortal = true,
+		zIndex = 300,
+		withArrow = false,
+		gutter = 5,
+		placement = 'start',
+		position = 'bottom',
+		transition = 'fade',
+		transitionOptions = { duration: 100 },
+		onopen = () => {},
+		onclose = () => {},
+		control,
+		children,
+		...rest
+	}: MenuProps = $props();
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$MenuEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		closeOnItemClick: $$Props['closeOnItemClick'] = true,
-		closeOnScroll: $$Props['closeOnScroll'] = false,
-		delay: $$Props['delay'] = 100,
-		menuButtonLabel: $$Props['menuButtonLabel'] = undefined,
-		menuId: $$Props['menuId'] = undefined,
-		radius: $$Props['radius'] = 'sm',
-		opened: $$Props['opened'] = false,
-		shadow: $$Props['shadow'] = 'md',
-		size: $$Props['size'] = 'md',
-		trigger: $$Props['trigger'] = 'click',
-		trapFocus: $$Props['trapFocus'] = true,
-		withinPortal: $$Props['withinPortal'] = true,
-		zIndex: $$Props['zIndex'] = 300,
-		withArrow: $$Props['withArrow'] = false,
-		gutter: $$Props['gutter'] = 5,
-		placement: $$Props['placement'] = 'start',
-		position: $$Props['position'] = 'bottom',
-		transition: $$Props['transition'] = 'fade',
-		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
+	let external = false;
+	let delayTimeout: number;
+	let referenceElement: HTMLButtonElement = $state(undefined);
+	let dropdownElement: HTMLDivElement = $state(undefined);
+	let controlElement: HTMLElement = $state(undefined);
+	let hovered: number = $state(-1);
 
 	/** Function that allows changing the state of the menu from outside the component */
 	export function open() {
@@ -75,58 +77,52 @@
 		window.setTimeout(() => (external = false), 0);
 	}
 
-	let external = false;
-	let delayTimeout: number;
-	let referenceElement: HTMLButtonElement;
-	let dropdownElement: HTMLDivElement;
-	let control: HTMLElement;
-	let hovered: number = -1;
-
 	const clickOutsideParams: { enabled: boolean; callback: (any) => unknown } = {
 		enabled: true,
-		callback: () => _opened && !external && handleClose()
+		callback: () => opened && !external && handleClose()
 	};
 	const uuid: string = useHash(menuId);
-	const forwardEvents = createEventForwarder(get_current_component(), ['open', 'close']);
-	const castKeyboardEvent = <T = KeyboardEvent>(event): T => event;
+	const castKeyboardEvent = <T = KeyboardEvent,>(event): T => event;
 
 	// can be turned into an action
 	const focusReference = () => window.setTimeout(() => referenceElement?.focus(), 0);
 
 	onMount(() => {
-		if (!$$slots.control) return;
+		if (!control) return;
 
-		control = element.children[0] as HTMLElement;
-		control.setAttribute('role', 'button');
-		control.setAttribute('aria-haspopup', 'menu');
-		control.setAttribute('aria-expanded', String(_opened));
-		control.setAttribute('aria-controls', uuid);
-		if (menuButtonLabel) control.setAttribute('aria-label', menuButtonLabel);
+		controlElement = element.children[0] as HTMLElement;
+		controlElement.setAttribute('role', 'button');
+		controlElement.setAttribute('aria-haspopup', 'menu');
+		controlElement.setAttribute('aria-expanded', String(opened));
+		controlElement.setAttribute('aria-controls', uuid);
+		if (menuButtonLabel) controlElement.setAttribute('aria-label', menuButtonLabel);
 
-		control.addEventListener('click', (event) => {
+		controlElement.addEventListener('click', (event) => {
 			event.stopPropagation();
 			toggleMenu();
 		});
-		control.addEventListener('mouseenter', () => (trigger === 'hover' ? handleOpen() : null));
-		control.addEventListener('keydown', (event) => handleKeyDown(castKeyboardEvent(event)));
+		controlElement.addEventListener('mouseenter', () =>
+			trigger === 'hover' ? handleOpen() : null
+		);
+		controlElement.addEventListener('keydown', (event) => handleKeyDown(castKeyboardEvent(event)));
 	});
 
 	const handleClose = () => {
-		if (_opened) {
-			_opened = false;
+		if (opened) {
 			opened = false;
-			dispatch('close');
+			opened = false;
+			onclose();
 		}
 	};
 
 	const handleOpen = () => {
-		_opened = true;
 		opened = true;
-		dispatch('open');
+		opened = true;
+		onopen();
 	};
 
 	const toggleMenu = () => {
-		_opened ? handleClose() : handleOpen();
+		opened ? handleClose() : handleOpen();
 	};
 
 	const handleMouseLeave = () => {
@@ -144,7 +140,7 @@
 	};
 
 	const handleKeyDown = (event: KeyboardEvent) => {
-		if (_opened) {
+		if (opened) {
 			const elements = Array.from(
 				dropdownElement.querySelectorAll<HTMLButtonElement>('.svelteui-MenuItem-root')
 			);
@@ -184,43 +180,44 @@
 		trigger === 'click' && focusReference();
 	};
 
-	const contextStore: Writable<MenuContextValue> = writable({
+	const context = $derived({
 		hovered,
 		radius,
 		onItemHover: (hover) => (hovered = hover),
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
+	});
+	// @TODO: is this reactive?
+	setContext(ctx, () => context);
+
+	$effect(() => {
+		if (control && controlElement) controlElement.setAttribute('aria-expanded', String(opened));
 	});
 
-	$: _opened = opened;
-	$: if ($$slots.control && control) control.setAttribute('aria-expanded', String(_opened));
-	$: contextStore.set({
-		hovered,
-		radius,
-		onItemHover: (hover) => (hovered = hover),
-		onItemKeyDown: handleKeyDown,
-		onItemClick: handleItemClick
-	});
-	$: ({ cx, classes } = useStyles({ size }, { override, name: 'Menu' }));
-	setContext<Writable<MenuContextValue>>(ctx, contextStore);
+	let { cx, classes } = $derived(useStyles({ size }, { override, name: 'Menu' }));
 </script>
 
 <svelte:window on:scroll={() => closeOnScroll && handleClose()} />
 
 <Box
 	bind:element
-	use={[forwardEvents, [useActions, use], [clickoutside, clickOutsideParams]]}
+	use={[
+		[useActions, use],
+		[clickoutside, clickOutsideParams]
+	]}
 	class={cx(classes.root, className)}
 	on:mouseleave={handleMouseLeave}
 	on:mouseenter={handleMouseEnter}
-	{...$$restProps}
+	{...rest}
 >
-	<slot name="control">
+	{#if control}
+		{@render control()}
+	{:else}
 		<MenuIcon
 			bind:element={referenceElement}
 			role="button"
 			aria-haspopup="menu"
-			aria-expanded={_opened}
+			aria-expanded={opened}
 			aria-controls={uuid}
 			aria-label={menuButtonLabel}
 			title={menuButtonLabel}
@@ -228,11 +225,11 @@
 			on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
 			on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 		/>
-	</slot>
+	{/if}
 	<PopperContainer {withinPortal}>
 		<Popper
-			reference={control ?? referenceElement}
-			mounted={_opened}
+			reference={referenceElement}
+			mounted={opened}
 			arrowSize={3}
 			arrowClassName={classes.arrow}
 			{transition}
@@ -254,7 +251,7 @@
 				on:mouseleave={() => (hovered = -1)}
 				{shadow}
 			>
-				<slot />
+				{@render children?.()}
 			</Paper>
 		</Popper>
 	</PopperContainer>
