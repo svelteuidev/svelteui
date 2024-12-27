@@ -68,9 +68,9 @@
 </Story>
 
 <Story name="Input" id="iconRendererInputStory">
-	<Input icon={InfoCircled} placeholder="Search" />
+	<Input iconComponent={InfoCircled} placeholder="Search" />
 	<br />
-	<Input icon={iconSvg} placeholder="Search" />
+	<Input iconComponent={iconSvg} placeholder="Search" />
 </Story>
 
 <Story name="MenuItem" id="iconRendererMenuItemStory">
@@ -78,8 +78,8 @@
 		{#snippet control()}
 			<div>Click Me</div>
 		{/snippet}
-		<MenuItem icon={InfoCircled}>Svelte component</MenuItem>
-		<MenuItem icon={iconSvg}>SVG Element</MenuItem>
+		<MenuItem iconComponent={InfoCircled}>Svelte component</MenuItem>
+		<MenuItem iconComponent={iconSvg}>SVG Element</MenuItem>
 	</Menu>
 </Story>
 
