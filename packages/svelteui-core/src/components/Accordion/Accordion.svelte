@@ -48,7 +48,8 @@
 		getRegionId
 	});
 
-	setContext(key, () => context)
+	// @TODO: is this reactive?
+	setContext(key, () => context);
 
 	function updateActive(itemValue: string) {
 		if (!multiple) {

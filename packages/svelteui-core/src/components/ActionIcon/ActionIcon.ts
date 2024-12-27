@@ -23,4 +23,5 @@ export interface ActionIconProps extends DefaultProps, HTMLButtonAttributes {
 	disabled?: boolean;
 	href?: string;
 	external?: boolean;
+	[key: string]: any;
 }

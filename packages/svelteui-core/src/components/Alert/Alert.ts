@@ -17,9 +17,5 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	iconProps?: Record<string, unknown>;
 	withCloseButton?: boolean;
 	closeButtonLabel?: string;
-}
-
-export interface AlertEvents {
-	close: CustomEvent;
-	[evt: string]: CustomEvent<any>;
+	onclose?: () => void
 }
