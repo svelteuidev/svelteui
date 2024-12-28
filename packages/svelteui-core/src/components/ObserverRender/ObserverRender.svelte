@@ -1,19 +1,7 @@
 <script lang="ts">
 	import { io } from '@svelteuidev/composables';
 	import { Box } from '../Box';
-	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		options?: $$Props['options'];
-		children?: import('svelte').Snippet<[any]>;
-		[key: string]: any
-	}
+	import type { ObserverRenderProps } from './ObserverRender';
 
 	let {
 		use = [],
@@ -23,8 +11,7 @@
 		options = {},
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: ObserverRenderProps = $props();
 
 	let visible: boolean = $state(null);
 	let entry: IntersectionObserverEntry = $state(null);
@@ -39,7 +26,22 @@
 	class={className}
 	css={{ ...override }}
 	{...rest}
-	on:change={(event) => {
+	onchange={(event) => {
+		const {
+			inView,
+			entry: _entry,
+			scrollDirection: _scrollDirection,
+			observer: _observer,
+			node: _node
+			// @ts-ignore
+		} = event.detail;
+		visible = inView;
+		entry = _entry;
+		scrollDirection = _scrollDirection;
+		observer = _observer;
+		node = _node;
+	}}
+	onenter={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -53,21 +55,7 @@
 		observer = _observer;
 		node = _node;
 	}}
-	on:enter={(event) => {
-		const {
-			inView,
-			entry: _entry,
-			scrollDirection: _scrollDirection,
-			observer: _observer,
-			node: _node
-		} = event.detail;
-		visible = inView;
-		entry = _entry;
-		scrollDirection = _scrollDirection;
-		observer = _observer;
-		node = _node;
-	}}
-	on:leave={(event) => {
+	onleave={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -87,5 +75,5 @@
 		node = _node;
 	}}
 >
-	{@render children?.({ visible, entry, scrollDirection, observer, node, })}
+	{@render children?.({ visible, entry, scrollDirection, observer, node })}
 </Box>

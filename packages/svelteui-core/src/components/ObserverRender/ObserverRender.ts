@@ -1,5 +1,5 @@
 import { IoConfig } from '@svelteuidev/composables';
-import { TextInputProps } from '../TextInput/TextInput';
+import type { TextInputProps } from '../TextInput/TextInput';
 
 export type Formatter = (value: string | undefined) => string;
 export type Parser = (value: string | undefined) => string | undefined;
