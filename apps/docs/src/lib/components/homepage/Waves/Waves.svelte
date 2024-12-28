@@ -1,15 +1,25 @@
-<script>
+<script lang="ts">
 	import useStyles from './Waves.styles';
 
-	export let height,
+	interface Props {
+		height: any;
+		width: any;
+		flip?: boolean;
+		alt?: boolean;
+		class?: string;
+	}
+
+	let {
+		height,
 		width,
 		flip = false,
 		alt = false,
-		className = '';
-	export { className as class };
+		class: className = ''
+	}: Props = $props();
+	
 
 	// @ts-ignore
-	$: ({ classes, cx, getStyles } = useStyles({ height, width, alt, flip }));
+	let { classes, cx, getStyles } = $derived(useStyles({ height, width, alt, flip }));
 </script>
 
 <div class={cx(className, getStyles())} style="overflow: hidden;">

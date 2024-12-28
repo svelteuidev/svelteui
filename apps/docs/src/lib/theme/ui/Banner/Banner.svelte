@@ -1,7 +1,11 @@
 <script lang="ts">
 	import useStyles from './Banner.styles';
 
-	export let message = 'Banner Message';
+	interface Props {
+		message?: string;
+	}
+
+	let { message = 'Banner Message' }: Props = $props();
 </script>
 
 <div class="z-50 container mx-auto py-2 flex items-center justify-between">

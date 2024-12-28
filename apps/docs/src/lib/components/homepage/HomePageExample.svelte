@@ -21,11 +21,21 @@
 	import { slide } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import { Prism } from '@svelteuidev/prism';
-	export let title = 'Examples',
+	interface Props {
+		title?: string;
+		author?: string;
+		code?: any;
+		language?: string;
+		center?: boolean;
+	}
+
+	let {
+		title = 'Examples',
 		author = 'brisklemonade',
 		code = `<script>const hello = 'world'<\/script>`,
 		language = 'svelte',
-		center = false;
+		center = false
+	}: Props = $props();
 	let previewState = 'preview';
 
 	const BREAKPOINT = '@media (max-width: 755px)';
@@ -119,7 +129,7 @@
 
 	/** Prism patch until next version */
 	const override = { pre: { px: '$lgPX' } };
-	$: ({ cx, classes, getStyles } = useStyles());
+	let { cx, classes, getStyles } = $derived(useStyles());
 </script>
 
 <div class={getStyles()}>

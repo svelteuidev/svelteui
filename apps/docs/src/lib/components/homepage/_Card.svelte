@@ -3,7 +3,7 @@
 	import { useViewportSize } from '@svelteuidev/composables';
 
 	const viewport = useViewportSize();
-	$: ({ width, height } = $viewport);
+	let { width, height } = $derived($viewport);
 
 	const { themeColor } = fns;
 	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);

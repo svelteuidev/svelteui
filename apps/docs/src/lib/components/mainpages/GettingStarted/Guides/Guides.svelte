@@ -1,16 +1,26 @@
-<script>
+<script lang="ts">
 	import { UnstyledButton } from '@svelteuidev/core';
 	import useStyles from './Guides.styles';
 
-	export let title = 'title';
-	export let icon = undefined;
-	export let className = '';
-	export let active = false;
+	interface Props {
+		title?: string;
+		icon?: any;
+		className?: string;
+		active?: boolean;
+	}
 
-	$: ({ cx, classes, getStyles } = useStyles());
+	let {
+		title = 'title',
+		icon = undefined,
+		className = '',
+		active = false
+	}: Props = $props();
+
+	let { cx, classes, getStyles } = $derived(useStyles());
 </script>
 
 <UnstyledButton on:click class={`${cx(className, getStyles(), { active })} guides`}>
-	<svelte:component this={icon || null} />
+	{@const SvelteComponent = icon || null}
+	<SvelteComponent />
 	<p class={classes.title}>{title}</p>
 </UnstyledButton>

@@ -1,7 +1,11 @@
-<script>
+<script lang="ts">
 	import { ChevronRight, ChevronDown } from 'radix-icons-svelte';
 
-	export let open = false;
+	interface Props {
+		open?: boolean;
+	}
+
+	let { open = false }: Props = $props();
 </script>
 
 {#if open}

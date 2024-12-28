@@ -7,23 +7,28 @@
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 
-	let show_sidebar: boolean = false;
+	let show_sidebar: boolean = $state(false);
 
-	$: nosidebar = $page.url.pathname === '/';
+	let nosidebar = $derived($page.url.pathname === '/');
 
 	onMount(() => {
 		const colorSchemeValue = localStorage.getItem('colorScheme');
 		if (colorSchemeValue) $colorScheme = colorSchemeValue;
 	});
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+		children?: import('svelte').Snippet;
+	}
+
+	let { data, children }: Props = $props();
 </script>
 
 <div style="overflow: hidden">
 	<PageTransition refresh={data.pathname}>
 		<div class="main" class:nosidebar>
 			<article class="article" class:homepage={$page.url.pathname === '/'}>
-				<slot />
+				{@render children?.()}
 			</article>
 		</div>
 	</PageTransition>

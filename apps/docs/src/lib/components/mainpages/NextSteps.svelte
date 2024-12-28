@@ -26,7 +26,7 @@
 		<Anchor root="a" href={item.link} override={styles} underline={false} class="next_steps">
 			<Group>
 				<ThemeIcon size={34} override={{ backgroundColor: `${item.color} !important` }}>
-					<svelte:component this={item.icon} size={20} />
+					<item.icon size={20} />
 				</ThemeIcon>
 
 				<Text weight={500} size="lg">

@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	import { writable, derived } from 'svelte/store';
 
 	/**
@@ -42,7 +42,7 @@
 </script>
 
 <svelte:window
-	on:mousemove={(e) => mouseMove(e)}
+	onmousemove={(e) => mouseMove(e)}
 	bind:innerHeight={$screenH}
 	bind:innerWidth={$screenW}
 	bind:scrollY={$scrollY}

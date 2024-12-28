@@ -17,7 +17,8 @@
 				<Stack>
 					<Center override={{ jc: 'start', gap: '$10' }} inline>
 						<ThemeIcon variant="gradient" size="xl">
-							<svelte:component this={icon} size={25} />
+							{@const SvelteComponent = icon}
+							<SvelteComponent size={25} />
 						</ThemeIcon>
 						<Title order={3} weight="extrabold">{title}</Title>
 					</Center>

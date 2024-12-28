@@ -1,21 +1,30 @@
-<script>
+<script lang="ts">
 	import useStyles from './Sibling.styles';
 	import { Anchor, Text } from '@svelteuidev/core';
 	import { ArrowLeft, ArrowRight } from 'radix-icons-svelte';
 	import { upperFirst } from '@svelteuidev/composables';
 	import { base } from '$app/paths';
 
-	export let data = {
+	interface Props {
+		data?: any;
+		override?: any;
+		type?: string;
+		class?: string;
+	}
+
+	let {
+		data = {
 			slug: '/',
 			title: 'Title Here',
 			package: 'Package Here'
 		},
 		override = {},
 		type = 'next',
-		className = '';
-	export { className as class };
+		class: className = ''
+	}: Props = $props();
+	
 
-	$: ({ cx, classes, getStyles } = useStyles({ type }));
+	let { cx, classes, getStyles } = $derived(useStyles({ type }));
 </script>
 
 <Anchor

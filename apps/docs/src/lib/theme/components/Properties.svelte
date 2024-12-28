@@ -1,6 +1,8 @@
 <script lang="ts">
 	/* eslint-disable svelte/no-at-html-tags */
-	/* (!) Restart bandler if this file was edited
+	
+	interface Props {
+		/* (!) Restart bandler if this file was edited
 	 *
 	 *   Properties data structure:
 	 *   data = [
@@ -15,7 +17,10 @@
 	 *       ...
 	 *   ]
 	 */
-	export let data: any[];
+		data: any[];
+	}
+
+	let { data }: Props = $props();
 
 	function getTypes(types: any) {
 		if (!types) return '';

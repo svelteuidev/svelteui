@@ -1,6 +1,10 @@
-<script>
-	export let size = 25;
-	export let color = 'currentColor';
+<script lang="ts">
+	interface Props {
+		size?: number;
+		color?: string;
+	}
+
+	let { size = 25, color = 'currentColor' }: Props = $props();
 </script>
 
 <svg fill="none" height={size} viewBox="0 0 27 26" width={size} xmlns="http://www.w3.org/2000/svg"

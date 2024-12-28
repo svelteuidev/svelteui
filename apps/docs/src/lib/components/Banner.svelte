@@ -1,22 +1,39 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	// @ts-nocheck
 	import { createStyles, Paper, Text } from '@svelteuidev/core';
 	import { onMount } from 'svelte';
 	import { ArrowRight } from 'radix-icons-svelte';
 
-	export let href = undefined;
-	export let color = 'white';
-	export let align = 'center';
-	export let icon = ArrowRight;
-	export let iconProps = {};
-	export let themeColors = true;
+	interface Props {
+		href?: any;
+		color?: string;
+		align?: string;
+		icon?: any;
+		iconProps?: any;
+		themeColors?: boolean;
+		children?: import('svelte').Snippet;
+	}
 
-	let element;
+	let {
+		href = undefined,
+		color = 'white',
+		align = 'center',
+		icon = ArrowRight,
+		iconProps = {},
+		themeColors = true,
+		children
+	}: Props = $props();
+
+	let element = $state();
 	const override = { bc: '$dark700' };
 
-	$: onMount(() => {
-		const container = document.querySelector('.container .title');
-		container.style.paddingTop = '4rem';
+	run(() => {
+		onMount(() => {
+			const container = document.querySelector('.container .title');
+			container.style.paddingTop = '4rem';
+		});
 	});
 
 	const useStyles = createStyles((_, { align, themeColors }) => ({
@@ -44,27 +61,29 @@
 		}
 	}));
 
-	$: ({ classes } = useStyles({ align, themeColors }));
+	let { classes } = $derived(useStyles({ align, themeColors }));
 </script>
 
 {#if href}
 	<a {href}>
 		<Paper bind:element class={classes.root} {override} radius="xs">
+			{@const SvelteComponent = icon}
 			<div class={classes.wrapper}>
 				<Text class={classes.title} weight="bold" tracking="tight" size="lg">
-					<slot />
+					{@render children?.()}
 				</Text>
-				<svelte:component this={icon} class={classes.icon} {...iconProps} />
+				<SvelteComponent class={classes.icon} {...iconProps} />
 			</div>
 		</Paper>
 	</a>
 {:else}
 	<Paper bind:element class={classes.root} {override} radius="xs">
+		{@const SvelteComponent_1 = icon}
 		<div class={classes.wrapper}>
 			<Text class={classes.title} weight="bold" tracking="tight" size="lg">
-				<slot />
+				{@render children?.()}
 			</Text>
-			<svelte:component this={icon} class={classes.icon} {...iconProps} />
+			<SvelteComponent_1 class={classes.icon} {...iconProps} />
 		</div>
 	</Paper>
 {/if}

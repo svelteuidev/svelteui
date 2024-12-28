@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import { STARTGUIDE_DATA } from './data.js';
 	import Guides from './Guides.svelte';
 
-	export let setId;
+	let { setId } = $props();
 
 	/** Variable for switching cards stitches variant*/
-	$: selected = 'kit';
-	$: setId(selected);
+	let selected = $state('kit');
+	
+	run(() => {
+		setId(selected);
+	});
 </script>
 
 <Box css={{ mb: 50 }}>

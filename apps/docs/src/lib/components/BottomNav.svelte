@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { Sibling } from '@ui';
 	import { Group, Divider, Stack } from '@svelteuidev/core';
 	import { useViewportSize } from '@svelteuidev/composables';
@@ -8,23 +10,35 @@
 		next: string;
 	};
 
-	export let slug: DataType,
-		title: DataType,
-		group: DataType,
+	interface Props {
+		slug: DataType;
+		title: DataType;
+		group: DataType;
+		both?: boolean;
+		type?: string;
+	}
+
+	let {
+		slug,
+		title,
+		group,
 		both = false,
-		type = 'next';
+		type = 'next'
+	}: Props = $props();
 
 	const data = { slug, title, package: group };
 	const viewport = useViewportSize();
-	let dataLeft, dataRight;
+	let dataLeft = $state(), dataRight = $state();
 
-	$: isObj = typeof slug === 'object' && typeof title === 'object' && typeof group === 'object';
+	let isObj = $derived(typeof slug === 'object' && typeof title === 'object' && typeof group === 'object');
 
-	$: if (isObj && both) {
-		dataLeft = { slug: slug.prev, title: title.prev, package: group.prev };
-		dataRight = { slug: slug.next, title: title.next, package: group.next };
-	}
-	$: ({ width } = $viewport);
+	run(() => {
+		if (isObj && both) {
+			dataLeft = { slug: slug.prev, title: title.prev, package: group.prev };
+			dataRight = { slug: slug.next, title: title.next, package: group.next };
+		}
+	});
+	let { width } = $derived($viewport);
 </script>
 
 <Divider size="lg" override={{ mt: '$20 !important' }} />

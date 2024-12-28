@@ -1,8 +1,17 @@
+<script lang="ts">
+	interface Props {
+		result?: import('svelte').Snippet;
+		code?: import('svelte').Snippet;
+	}
+
+	let { result, code }: Props = $props();
+</script>
+
 <div class="example">
 	<div class="result">
-		<slot name="result" />
+		{@render result?.()}
 	</div>
 	<div class="code">
-		<slot name="code" />
+		{@render code?.()}
 	</div>
 </div>

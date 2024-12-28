@@ -1,8 +1,19 @@
 <script lang="ts">
 	import { Text, ThemeIcon, theme } from '@svelteuidev/core';
 
-	export let color: string;
-	export let href = '';
+	interface Props {
+		color: string;
+		href?: string;
+		icon?: import('svelte').Snippet;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		color,
+		href = '',
+		icon,
+		children
+	}: Props = $props();
 
 	const styles = {
 		focusRing: 'auto',
@@ -43,7 +54,7 @@
 		override={{ bc: `$${color}600 !important`, color: 'white', borderRadius: '6px' }}
 		radius="lg"
 	>
-		<slot name="icon" />
+		{@render icon?.()}
 	</ThemeIcon>
-	<div class="body"><slot /></div>
+	<div class="body">{@render children?.()}</div>
 </Text>

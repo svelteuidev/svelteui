@@ -1,18 +1,20 @@
-<script>
+<script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import CheckboxCard from './Card.svelte';
 	import { PACKAGE_DATA } from './data.js';
 
-	export let setDeps;
+	let { setDeps } = $props();
 
-	let values = {
+	let values = $state({
 		'@svelteuidev/core': true,
 		'@svelteuidev/composables': true,
 		'@svelteuidev/motion': false,
 		'@svelteuidev/prism': false
-	};
+	});
 
-	$: dependencies = Array.from(
+	let dependencies = $derived(Array.from(
 		new Set(
 			PACKAGE_DATA.reduce((acc, item) => {
 				if (values[item.package]) {
@@ -24,9 +26,11 @@
 		)
 	)
 		.sort()
-		.reverse();
+		.reverse());
 
-	$: setDeps(dependencies.join(' '));
+	run(() => {
+		setDeps(dependencies.join(' '));
+	});
 </script>
 
 <Box css={{ mb: 50 }}>

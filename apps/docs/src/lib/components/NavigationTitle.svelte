@@ -1,5 +1,10 @@
-<script>
+<script lang="ts">
 	import { UnstyledButton, createStyles } from '@svelteuidev/core';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	const useStyles = createStyles(() => ({
 		root: {
@@ -14,11 +19,11 @@
 		}
 	}));
 
-	$: ({ classes } = useStyles());
+	let { classes } = $derived(useStyles());
 </script>
 
 <UnstyledButton class={classes.root} on:click>
 	<span class={classes.title}>
-		<slot>Title Here</slot>
+		{#if children}{@render children()}{:else}Title Here{/if}
 	</span>
 </UnstyledButton>

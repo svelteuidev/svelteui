@@ -14,12 +14,16 @@
 		link: string;
 		section?: string;
 	};
-	export let search: SearchType;
+	interface Props {
+		search: SearchType;
+	}
+
+	let { search }: Props = $props();
 </script>
 
 <button
 	class="searchTerm"
-	on:click={() => {
+	onclick={() => {
 		addSearchLink();
 		goto(search.link.toString());
 	}}

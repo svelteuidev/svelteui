@@ -1,8 +1,17 @@
 <script lang="ts">
-	export let outerColor = '#FF3E00';
-	export let innerColor = 'white';
-	export let width = 200;
-	export let height = 100;
+	interface Props {
+		outerColor?: string;
+		innerColor?: string;
+		width?: number;
+		height?: number;
+	}
+
+	let {
+		outerColor = '#FF3E00',
+		innerColor = 'white',
+		width = 200,
+		height = 100
+	}: Props = $props();
 </script>
 
 <svg {width} {height} viewBox="0 0 209 88" fill="none" xmlns="http://www.w3.org/2000/svg">

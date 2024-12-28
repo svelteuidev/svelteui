@@ -48,12 +48,12 @@
 		Calendar
 	} from 'radix-icons-svelte';
 
-	let value = 0,
-		modalOpened = false,
-		reference: HTMLElement,
-		popperMounted = false,
-		monthValue = new Date(),
-		windowWidth = 0;
+	let value = $state(0),
+		modalOpened = $state(false),
+		reference: HTMLElement = $state(),
+		popperMounted = $state(false),
+		monthValue = $state(new Date()),
+		windowWidth = $state(0);
 
 	const toggleMount = () => {
 		popperMounted = !popperMounted;
@@ -143,8 +143,8 @@
 			borderRadius: theme.radii.sm.value
 		}
 	}));
-	$: ({ classes: minifiedClasses } = minifiedStyles());
-	$: ({ classes } = useStyles());
+	let { classes: minifiedClasses } = $derived(minifiedStyles());
+	let { classes } = $derived(useStyles());
 	const variants = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
 </script>
 
@@ -374,9 +374,11 @@
 						<Menu.Item icon={Gear}>Settings</Menu.Item>
 						<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 						<Menu.Item icon={MagnifyingGlass}>
-							<svelte:fragment slot="rightSection">
-								<Text size="xs" color="dimmed">⌘K</Text>
-							</svelte:fragment>
+							{#snippet rightSection()}
+													
+									<Text size="xs" color="dimmed">⌘K</Text>
+								
+													{/snippet}
 							Search
 						</Menu.Item>
 						<Divider />

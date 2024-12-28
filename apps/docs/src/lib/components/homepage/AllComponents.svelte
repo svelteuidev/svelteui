@@ -4,6 +4,11 @@
 	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon, Tooltip, Container } from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
 	import { components } from '$lib/data';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 	// import type { CSS } from '@svelteuidev/core'
 
 	const styles = {
@@ -34,7 +39,7 @@
 				<Group children={2} position="apart">
 					<Group children={2}>
 						<ThemeIcon size={34} override={{ backgroundColor: item.color }}>
-							<svelte:component this={item.icon} size={20} />
+							<item.icon size={20} />
 						</ThemeIcon>
 
 						<Text weight="extrabold" override={{ letterSpacing: '$tight' }} size="xl">
@@ -51,11 +56,11 @@
 				</Group>
 				<Container>
 					{#if item?.content}
-						<svelte:component this={item.component}>
-							<slot>{item.content.valueOf()}</slot>
-						</svelte:component>
+						<item.component>
+							{#if children}{@render children()}{:else}{item.content.valueOf()}{/if}
+						</item.component>
 					{:else}
-						<svelte:component this={item.component} />
+						<item.component />
 					{/if}
 				</Container>
 			</Stack>
