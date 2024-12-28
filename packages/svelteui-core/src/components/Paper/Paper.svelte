@@ -1,22 +1,7 @@
 <script lang="ts">
 	import useStyles from './Paper.styles';
 	import { Box } from '../Box';
-	import type { PaperProps as $$PaperProps } from './Paper';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		shadow?: $$Props['shadow'];
-		radius?: $$Props['radius'];
-		withBorder?: $$Props['withBorder'];
-		padding?: $$Props['padding'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { PaperProps } from './Paper';
 
 	let {
 		use = [],
@@ -29,13 +14,11 @@
 		padding = 'md',
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: PaperProps = $props();
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{ radius, shadow, withBorder, padding },
-		{ name: 'Paper' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ radius, shadow, withBorder, padding }, { name: 'Paper' })
+	);
 </script>
 
 <Box
