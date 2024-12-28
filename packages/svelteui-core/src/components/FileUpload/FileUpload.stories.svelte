@@ -23,10 +23,23 @@
 
 <Meta title="Components/FileUpload" component={FileUpload} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<div style="width: 500px;">
-			<FileUpload {...args} icon={Upload} fileIcon={File} removeIcon={Trash} resetIcon={Reset} />
+			<FileUpload {...args}>
+				{#snippet icon()}
+					<Upload />
+				{/snippet}
+				{#snippet fileIcon()}
+					<File />
+				{/snippet}
+				{#snippet removeIcon()}
+					<Trash />
+				{/snippet}
+				{#snippet resetIcon()}
+					<Reset />
+				{/snippet}
+			</FileUpload>
 		</div>
 	{/snippet}
 </Template>
@@ -35,16 +48,19 @@
 
 <Story name="Drop" id="fileUploadDropStory">
 	<div style="width: 500px;">
-		<FileUpload
-			type="drag"
-			multiple={true}
-			size={'md'}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-			on:selected={handleSelected}
-		>
+		<FileUpload type="drag" multiple={true} size={'md'} on:selected={handleSelected}>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
 			<IconRenderer iconSize={48} icon={Download} />
 			<Text align="center" weight={'semibold'}>Click or drag file to this area to FileUpload</Text>
 			<Text align="center" size="sm" color="dimmed">
@@ -57,55 +73,84 @@
 
 <Story name="Size" id="fileUploadSizeStory">
 	<div style="width: 500px;">
-		<FileUpload
-			size="lg"
-			reset={true}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		<FileUpload size="lg" reset={true}>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 		<br />
-		<FileUpload
-			size="md"
-			reset={true}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		<FileUpload size="md" reset={true}>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 		<br />
-		<FileUpload
-			size="sm"
-			reset={true}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		<FileUpload size="sm" reset={true}>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 		<br />
-		<FileUpload
-			size="xs"
-			reset={true}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		<FileUpload size="xs" reset={true}>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 	</div>
 </Story>
 
 <Story name="Accept" id="fileUploadAcceptStory">
 	<div style="width: 500px;">
-		<FileUpload
-			size="md"
-			reset={true}
-			accept="image/png,image/jpeg"
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		<FileUpload size="md" reset={true} accept="image/png,image/jpeg">
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 	</div>
 </Story>
 
@@ -118,11 +163,20 @@
 			bind:files
 			reset={true}
 			preview={false}
-			icon={Upload}
-			fileIcon={File}
-			removeIcon={Trash}
-			resetIcon={Reset}
-		/>
+		>
+			{#snippet icon()}
+				<Upload />
+			{/snippet}
+			{#snippet fileIcon()}
+				<File />
+			{/snippet}
+			{#snippet removeIcon()}
+				<Trash />
+			{/snippet}
+			{#snippet resetIcon()}
+				<Reset />
+			{/snippet}
+		</FileUpload>
 
 		<ul style="list-style: none;padding: 0;">
 			{#each files as { file }, i}

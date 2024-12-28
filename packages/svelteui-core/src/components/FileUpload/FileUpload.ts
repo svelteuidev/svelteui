@@ -1,5 +1,7 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Component, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface FileItem {
 	name?: string;
@@ -21,14 +23,19 @@ export interface FileUploadProps<T = 'drag'>
 	size?: SvelteUINumberSize;
 	disabled?: boolean;
 	id?: string;
-	icon?: Component | HTMLOrSVGElement;
-	fileIcon?: Component | HTMLOrSVGElement;
-	removeIcon?: Component | HTMLOrSVGElement;
 	reset?: boolean;
 	resetLabel?: string;
 	resetColor?: SvelteUIColor;
-	resetIcon?: Component | HTMLOrSVGElement;
 	preview?: boolean;
+	onselected?: (files: FileItem[]) => void;
+	onremoved?: (removed: { file: FileItem, index: number }) => void;
+	onreset?: () => void;
+	icon?: Snippet;
+	fileIcon?: Snippet;
+	resetIcon?: Snippet;
+	removeIcon?: Snippet;
+	children?: Snippet;
+	[key: string]: any
 }
 
 export interface FileUploadEvents {
