@@ -1,16 +1,20 @@
 <script lang="ts">
 	import { clipboard } from '$clib/actions/use-clipboard/use-clipboard';
 
-	export let text: string | (() => string) = 'This text will be copied';
-	export let callback;
-	export let callbackError;
+	interface Props {
+		text?: string | (() => string);
+		callback: any;
+		callbackError: any;
+	}
+
+	let { text = 'This text will be copied', callback, callbackError }: Props = $props();
 </script>
 
 <button
 	id="clipboard"
 	use:clipboard={text}
-	on:useclipboard={(event) => callback(event.detail)}
-	on:useclipboard-error={(event) => callbackError(event.detail)}
+	onuseclipboard={(event) => callback(event.detail)}
+	onuseclipboard-error={(event) => callbackError(event.detail)}
 >
 	Copy Me
 </button>
