@@ -5,7 +5,7 @@
 
 <Meta title="Components/Progress" component={Progress} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Progress {...args} />
 	{/snippet}

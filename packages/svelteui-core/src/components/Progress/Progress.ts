@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { EasingFunction } from 'svelte/transition';
-import { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { EasingFunction } from 'svelte/transition';
+
+import type { ColorShades, DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export interface Sections {
 	value: number;
@@ -21,4 +23,6 @@ export interface ProgressProps extends DefaultProps<HTMLDivElement>, HTMLAttribu
 	tween?: boolean;
 	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
 	sections?: Sections[];
+	children?: Snippet;
+	[key: string]: any
 }
