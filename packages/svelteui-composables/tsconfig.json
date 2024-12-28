@@ -9,11 +9,10 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
 		"target": "es2020",
-		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"baseUrl": ".",
 		"paths": {
