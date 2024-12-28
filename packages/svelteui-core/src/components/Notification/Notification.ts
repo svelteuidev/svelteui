@@ -1,7 +1,9 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import { CloseButtonProps } from '../ActionIcon/CloseButton/CloseButton';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { Component } from '$lib/internal';
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { CloseButtonProps } from '../ActionIcon/CloseButton/CloseButton';
 
 export interface NotificationProps
 	extends DefaultProps<HTMLInputElement>,
@@ -10,12 +12,16 @@ export interface NotificationProps
 	color?: SvelteUIColor;
 	radius?: SvelteUINumberSize;
 	loading?: boolean;
-	icon?: Component | HTMLOrSVGElement;
+	iconComponent?: Component | HTMLOrSVGElement;
 	iconSize?: number;
 	iconProps?: Record<string, unknown>;
 	withCloseButton?: boolean;
 	closeButtonLabel?: string;
 	closeButtonProps?: CloseButtonProps;
+	onclose?: () => void;
+	icon?: Snippet;
+	children?: Snippet;
+	[key: string]: any
 }
 
 export interface NotificationEvents {
