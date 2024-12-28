@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	/* eslint-disable @typescript-eslint/ban-ts-comment */
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
@@ -39,13 +39,18 @@
 	};
 </script>
 
-<script>
+<script lang="ts">
 	import { fns, AppShell, Navbar, Header, ShellSection } from '@svelteuidev/core';
 	// @ts-ignore
 	import HeadContent from './_HeadContent.svelte';
 	import NavContent from './_NavContent.svelte';
-	let isDark = false;
-	let opened = false;
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
+	let isDark = $state(false);
+	let opened = $state(false);
 	function toggleTheme() {
 		isDark = !isDark;
 	}
@@ -64,25 +69,29 @@
 		}
 	}}
 >
-	<Navbar
-		slot="navbar"
-		hidden={!opened}
-		hiddenBreakpoint="sm"
-		width={{ base: '100%', sm: 300 }}
-		height={500}
-		fixed={false}
-		override={{ p: '$xsPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
-	>
-		<ShellSection grow>
-			<NavContent {isDark} />
-		</ShellSection>
-	</Navbar>
-	<Header
-		slot="header"
-		height={60}
-		override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
-	>
-		<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
-	</Header>
-	<slot>This is the main content</slot>
+	{#snippet navbar()}
+		<Navbar
+			
+			hidden={!opened}
+			hiddenBreakpoint="sm"
+			width={{ base: '100%', sm: 300 }}
+			height={500}
+			fixed={false}
+			override={{ p: '$xsPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
+		>
+			<ShellSection grow>
+				<NavContent {isDark} />
+			</ShellSection>
+		</Navbar>
+	{/snippet}
+	{#snippet header()}
+		<Header
+			
+			height={60}
+			override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
+		>
+			<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
+		</Header>
+	{/snippet}
+	{#if children}{@render children()}{:else}This is the main content{/if}
 </AppShell>

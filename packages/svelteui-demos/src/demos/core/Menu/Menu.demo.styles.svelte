@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -65,9 +65,11 @@
 		<Menu.Item icon={ChatBubble} class={classes.root}>Messages</Menu.Item>
 		<Menu.Item icon={Camera} class={classes.root}>Gallery</Menu.Item>
 		<Menu.Item icon={MagnifyingGlass} class={classes.root}>
-			<svelte:fragment slot="rightSection">
-				<Text size="xs" color="dimmed">⌘K</Text>
-			</svelte:fragment>
+			{#snippet rightSection()}
+					
+					<Text size="xs" color="dimmed">⌘K</Text>
+				
+					{/snippet}
 			Search
 		</Menu.Item>
 

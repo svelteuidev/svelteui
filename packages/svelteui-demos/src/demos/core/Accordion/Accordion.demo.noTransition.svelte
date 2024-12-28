@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -33,17 +33,23 @@
 
 <Accordion transitionDuration={0}>
 	<Accordion.Item value="typescript">
-		<div slot="control">Typescript Based</div>
+		{#snippet control()}
+				<div >Typescript Based</div>
+			{/snippet}
 		Build type safe applications. All SvelteUI packages are built with TypeScript and support it by default.
 		All components and functions export types, are documented, and give developers autocomplete features!
 	</Accordion.Item>
 	<Accordion.Item value="packed">
-		<div slot="control">Feature packed</div>
+		{#snippet control()}
+				<div >Feature packed</div>
+			{/snippet}
 		SvelteUI contains more than just components. With Actions, Transitions, and Utilities available to
 		you, development will be fun and easy!
 	</Accordion.Item>
 	<Accordion.Item value="accessible">
-		<div slot="control">Accessible and usable</div>
+		{#snippet control()}
+				<div >Accessible and usable</div>
+			{/snippet}
 		All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 		ring. It will appear only when user navigates with keyboard.
 	</Accordion.Item>

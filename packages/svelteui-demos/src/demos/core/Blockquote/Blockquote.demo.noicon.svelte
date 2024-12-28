@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -30,6 +30,8 @@
 <Center>
 	<Blockquote icon={null}>
 		{text}
-		<svelte:fragment slot="cite">- A very wise sage</svelte:fragment>
+		{#snippet cite()}
+				- A very wise sage
+			{/snippet}
 	</Blockquote>
 </Center>

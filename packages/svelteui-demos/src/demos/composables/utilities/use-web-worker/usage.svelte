@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -63,9 +63,9 @@
 	import { useWebWorker, useRafFn } from '@svelteuidev/composables';
 	import { tick } from 'svelte';
 
-	let data;
-	let runner = '';
-	let count = 0;
+	let data = $state();
+	let runner = $state('');
+	let count = $state(0);
 
 	const controls = useRafFn(() => count++);
 	const { workerFn, workerStatus, workerTerminate } = useWebWorker(heavyTask);
@@ -82,7 +82,7 @@
 		data = await workerFn();
 		runner = 'Worker';
 	};
-	$: running = workerStatus === 'RUNNING';
+	let running = $derived(workerStatus === 'RUNNING');
 	controls.resume();
 </script>
 

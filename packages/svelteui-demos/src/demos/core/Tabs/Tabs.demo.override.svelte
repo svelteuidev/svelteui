@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -67,7 +67,7 @@
 			}
 		}
 	}));
-	$: ({ classes } = useStyles());
+	let { classes } = $derived(useStyles());
 </script>
 
 <Tabs variant="unstyled">

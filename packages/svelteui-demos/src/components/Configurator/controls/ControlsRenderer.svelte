@@ -5,11 +5,15 @@
 	import type { DemoControl } from '$lib/types';
 	import { upperFirst, isEnabled } from '../../../utils';
 
-	export let value: Record<string, any> = {};
-	export let controls: DemoControl[];
+	interface Props {
+		value?: Record<string, any>;
+		controls: DemoControl[];
+	}
+
+	let { value = {}, controls }: Props = $props();
 
 	// Contain data for all possible controls even for conditional, we want to keep track of all data
-	let data: Record<string, any> = controls.reduce(dataReducer, {});
+	let data: Record<string, any> = $state(controls.reduce(dataReducer, {}));
 
 	const dispatch = createEventDispatcher();
 
@@ -21,7 +25,12 @@
 		return acc;
 	}
 
-	$: controlsData = controls.map((control) => {
+
+	function changeData(name: string, value: any) {
+		data = { ...data, [name]: value };
+		dispatch('change', data);
+	}
+	let controlsData = $derived(controls.map((control) => {
 		const { type, label, name, ...props } = control;
 
 		return {
@@ -35,18 +44,14 @@
 			props,
 			hidden: !isEnabled(control, data)
 		};
-	});
-
-	function changeData(name: string, value: any) {
-		data = { ...data, [name]: value };
-		dispatch('change', data);
-	}
+	}));
 </script>
 
 {#each controlsData as { component, label, value, props, onChange, hidden }, i}
 	{#if component}
+		{@const SvelteComponent = component}
 		<div class="control" style={hidden ? 'display: none;' : ''}>
-			<svelte:component this={component} {label} {value} {...props} on:change={onChange} />
+			<SvelteComponent {label} {value} {...props} on:change={onChange} />
 		</div>
 	{/if}
 {/each}

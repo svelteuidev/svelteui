@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type {
 		ConfiguratorDemoType,
@@ -11,29 +13,38 @@
 	import { css, dark, Box } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 
-	export let component: ConfiguratorDemoType['default'];
-	export let previewBackground: ConfiguratorDemoType['previewBackground'];
-	export let previewMaxWidth: ConfiguratorDemoType['previewMaxWidth'];
-	export let codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'];
-	export let configurator: ConfiguratorDemoConfiguration['configurator'];
-	export let multiline: ConfiguratorDemoConfiguration['multiline'] = false;
-	export let multilineEndNewLine: ConfiguratorDemoConfiguration['multilineEndNewLine'] = true;
-	export let center: ConfiguratorDemoConfiguration['center'] = true;
-	export let hideCode: ConfiguratorDemoConfiguration['hideCode'] = false;
+	interface Props {
+		component: ConfiguratorDemoType['default'];
+		previewBackground: ConfiguratorDemoType['previewBackground'];
+		previewMaxWidth: ConfiguratorDemoType['previewMaxWidth'];
+		codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'];
+		configurator: ConfiguratorDemoConfiguration['configurator'];
+		multiline?: ConfiguratorDemoConfiguration['multiline'];
+		multilineEndNewLine?: ConfiguratorDemoConfiguration['multilineEndNewLine'];
+		center?: ConfiguratorDemoConfiguration['center'];
+		hideCode?: ConfiguratorDemoConfiguration['hideCode'];
+	}
+
+	let {
+		component,
+		previewBackground,
+		previewMaxWidth,
+		codeTemplate,
+		configurator,
+		multiline = false,
+		multilineEndNewLine = true,
+		center = true,
+		hideCode = false
+	}: Props = $props();
 
 	const BREAKPOINT = 885;
 
-	let demoControls: DemoControl[] = [];
-	let data: Record<string, any> = {};
-	let conditionalData: Record<string, any> = {};
-	let children, componentProps;
+	let demoControls: DemoControl[] = $state([]);
+	let data: Record<string, any> = $state({});
+	let conditionalData: Record<string, any> = $state({});
+	let children = $state(), componentProps = $state();
 
-	// Filter out control type which we use only for making typescript work as we wanted
-	$: demoControls = configurator.filter(isDemoControl);
-	$: data = demoControls.reduce(dataReducer, {});
 
-	// Contain data which match conditions
-	$: conditionalData = getConditionalData(demoControls, data);
 
 	function getConditionalData(
 		demoControls: DemoControl[],
@@ -56,15 +67,7 @@
 		return demoControls.reduce(conditionalDataReducer, {});
 	}
 
-	$: ({ children, ...componentProps } = conditionalData);
-	$: propsCode = propsToString({
-		props: demoControls,
-		values: conditionalData,
-		multiline,
-		multilineEndNewLine
-	});
 
-	$: code = generateCode(codeTemplate, propsCode, children).trim();
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
 		return control && control.type !== '_DO_NOT_USE_';
@@ -203,13 +206,36 @@
 			}
 		}
 	});
+	// Filter out control type which we use only for making typescript work as we wanted
+	run(() => {
+		demoControls = configurator.filter(isDemoControl);
+	});
+	run(() => {
+		data = demoControls.reduce(dataReducer, {});
+	});
+	// Contain data which match conditions
+	run(() => {
+		conditionalData = getConditionalData(demoControls, data);
+	});
+	run(() => {
+		({ children, ...componentProps } = conditionalData);
+	});
+	let propsCode = $derived(propsToString({
+		props: demoControls,
+		values: conditionalData,
+		multiline,
+		multilineEndNewLine
+	}));
+	let code = $derived(generateCode(codeTemplate, propsCode, children).trim());
+
+	const SvelteComponent = $derived(component);
 </script>
 
 <div class={styles()}>
 	<div class="preview">
 		<div class="component">
 			<div class="wrapper">
-				<svelte:component this={component} props={componentProps}>{children}</svelte:component>
+				<SvelteComponent props={componentProps}>{children}</SvelteComponent>
 			</div>
 		</div>
 		<div class="controls">

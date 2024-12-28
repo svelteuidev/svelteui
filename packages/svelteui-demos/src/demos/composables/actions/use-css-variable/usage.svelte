@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -39,10 +39,10 @@
 	import { Button, Stack } from '@svelteuidev/core';
 	import { cssvariable } from '@svelteuidev/composables';
 
-	let isRed = true;
-	$: styleVars = {
+	let isRed = $state(true);
+	let styleVars = $derived({
 		titleColor: isRed ? 'red' : 'blue'
-	};
+	});
 </script>
 
 <Stack align="center">

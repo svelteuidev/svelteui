@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -29,7 +29,7 @@
 	import { Button, Center, Group, Paper, useSvelteUITheme } from '@svelteuidev/core';
 	import { clickoutside } from '@svelteuidev/composables';
 
-	let open = false;
+	let open = $state(false);
 	let theme = useSvelteUITheme();
 </script>
 

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -26,7 +26,7 @@
 	import { Group } from '@svelteuidev/core';
 	import { Month } from '@svelteuidev/dates';
 
-	let value = new Date();
+	let value = $state(new Date());
 </script>
 
 <Group position="center">

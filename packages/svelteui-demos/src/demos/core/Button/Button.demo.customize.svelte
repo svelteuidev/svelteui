@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -49,6 +49,8 @@
 		>Click Me</Button
 	>
 	<Button override={newStyles}>
-		<GithubLogo slot="leftIcon" size={16} /> I love open source!
+		{#snippet leftIcon()}
+				<GithubLogo  size={16} />
+			{/snippet} I love open source!
 	</Button>
 </Group>

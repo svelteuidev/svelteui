@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -24,7 +24,7 @@
 <script lang="ts">
 	import { NativeSelect, Text } from '@svelteuidev/core';
 
-	let value = 'Svelte';
+	let value = $state('Svelte');
 </script>
 
 <NativeSelect

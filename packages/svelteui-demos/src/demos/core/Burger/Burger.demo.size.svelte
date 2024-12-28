@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -22,7 +22,7 @@
 <script lang="ts">
 	import { Burger, Center, SimpleGrid } from '@svelteuidev/core';
 
-	let opened = [];
+	let opened = $state([]);
 </script>
 
 <Center>

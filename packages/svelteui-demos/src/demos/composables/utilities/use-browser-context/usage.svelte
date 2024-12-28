@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -51,7 +51,7 @@
 	import { useBrowserContext } from '@svelteuidev/composables';
 	const location = useBrowserContext();
 
-	$: ({
+	let {
 		trigger,
 		hash,
 		host,
@@ -64,7 +64,7 @@
 		protocol,
 		search,
 		state
-	} = $location);
+	} = $derived($location);
 </script>
 
 <Group direction="column" position="center">

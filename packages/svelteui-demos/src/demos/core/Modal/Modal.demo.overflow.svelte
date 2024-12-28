@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 // (default) - overflow is handled by modal wrapper
@@ -22,8 +22,8 @@
 <script>
 	import { Modal, Group, Button } from '@svelteuidev/core';
 
-	let insideOpened = false;
-	let outsideOpened = false;
+	let insideOpened = $state(false);
+	let outsideOpened = $state(false);
 
 	const closeInside = () => (insideOpened = false);
 	const closeOutside = () => (outsideOpened = false);

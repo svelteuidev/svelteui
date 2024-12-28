@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -46,7 +46,9 @@
 			sRGBHex: <Text inherit override={{ color: `${$sRGBHex} !important` }}>{$sRGBHex}</Text>
 		</Text>
 		<Button variant="outline" on:click={() => open()}>
-			<EyeOpen slot="leftIcon" />
+			{#snippet leftIcon()}
+						<EyeOpen  />
+					{/snippet}
 			Open Eye Dropper
 		</Button>
 	</Stack>

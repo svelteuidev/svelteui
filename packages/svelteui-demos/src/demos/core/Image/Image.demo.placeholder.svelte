@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -28,8 +28,10 @@
 	<Image width={200} height={120} src={null} alt="Without placeholder" />
 	<Image width={200} height={120} src={null} alt="With default placeholder" usePlaceholder />
 	<Image width={200} height={120} src={null} alt="With default placeholder" usePlaceholder>
-		<svelte:fragment slot="placeholder">
-			<Text align="center">This image would have changed your life</Text>
-		</svelte:fragment>
+		{#snippet placeholder()}
+			
+				<Text align="center">This image would have changed your life</Text>
+			
+			{/snippet}
 	</Image>
 </Group>

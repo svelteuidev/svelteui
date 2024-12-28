@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -29,7 +29,7 @@
 	import { Button, Center, Menu, type MenuComponent } from '@svelteuidev/core';
 	import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 
-	let element: MenuComponent;
+	let element: MenuComponent = $state();
 </script>
 
 <Center>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -21,7 +21,8 @@
 	import { Center } from '@svelteuidev/core';
 	import { pageleave } from '@svelteuidev/composables';
 
-	$: count = 0;
+	let count = $state(0);
+	
 </script>
 
 <Center>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -40,8 +40,8 @@
 <script lang="ts">
 	import { Button, Collapse, Paper, Stack } from '@svelteuidev/core';
 
-	let open = false;
-	let openInside = false;
+	let open = $state(false);
+	let openInside = $state(false);
 </script>
 
 <Stack align="center">

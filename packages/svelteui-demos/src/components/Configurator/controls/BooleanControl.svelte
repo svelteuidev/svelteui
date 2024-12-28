@@ -3,8 +3,12 @@
 	import { Switch } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
-	export let value: boolean;
-	export let label: DemoControlBoolean['label'];
+	interface Props {
+		value: boolean;
+		label: DemoControlBoolean['label'];
+	}
+
+	let { value, label }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 

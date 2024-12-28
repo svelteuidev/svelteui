@@ -13,22 +13,24 @@
 	import { fly } from 'svelte/transition';
 	import { quintInOut } from 'svelte/easing';
 
-	interface $$Props extends Partial<ModalProps> {
+	
+
+	interface Props {
 		withOpenButton?: boolean;
 		closeModal?: (...args: any[]) => boolean;
+		opened?: boolean;
+		[key: string]: any
 	}
 
-	export let opened = false;
-	export let withOpenButton = true;
-	export let closeModal = () => (opened = false);
+	let { withOpenButton = true, closeModal = () => (opened = false), opened = $bindable(false), ...rest }: Props = $props();
 
-	let notificationOpened = false;
+	let notificationOpened = $state(false);
 
 	const firstName = 'First Name';
 	const lastName = 'Last Name';
 
-	let firstNameValue;
-	let lastNameValue;
+	let firstNameValue = $state();
+	let lastNameValue = $state();
 
 	function submitForm() {
 		opened = false;
@@ -37,7 +39,7 @@
 	}
 </script>
 
-<Modal {opened} on:close={closeModal} title="Introduce yourself!" {...$$restProps}>
+<Modal {opened} on:close={closeModal} title="Introduce yourself!" {...rest}>
 	<Stack>
 		<TextInput bind:value={firstNameValue} placeholder={firstName} label={firstName} />
 		<TextInput bind:value={lastNameValue} placeholder={lastName} label={lastName} />

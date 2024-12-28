@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -22,7 +22,7 @@
 	import { Center, Text, Stack, Paper } from '@svelteuidev/core';
 	import { Month } from '@svelteuidev/dates';
 
-	let value = new Date();
+	let value = $state(new Date());
 	const mx = 'margin-left:auto;margin-right:auto;';
 </script>
 

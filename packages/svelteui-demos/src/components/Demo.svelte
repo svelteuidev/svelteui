@@ -3,7 +3,12 @@
 	import CodeDemo from './CodeDemo/CodeDemo.svelte';
 	import Configurator from './Configurator/Configurator.svelte';
 
-	export let demo: DemoType;
+	interface Props {
+		demo: DemoType;
+		[key: string]: any
+	}
+
+	let { demo, ...rest }: Props = $props();
 
 	function isCodeDemo(demo: DemoType): demo is CodeDemoType {
 		return demo && demo.type === 'demo';
@@ -11,7 +16,7 @@
 </script>
 
 {#if isCodeDemo(demo)}
-	<CodeDemo component={demo.default} {...demo.configuration} {...$$restProps} />
+	<CodeDemo component={demo.default} {...demo.configuration} {...rest} />
 {:else}
-	<Configurator component={demo.default} {...demo.configuration} {...$$restProps} />
+	<Configurator component={demo.default} {...demo.configuration} {...rest} />
 {/if}

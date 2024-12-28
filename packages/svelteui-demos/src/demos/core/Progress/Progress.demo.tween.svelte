@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <Progress tween bind:value />
@@ -14,7 +14,7 @@
 <script>
 	import { Progress, Space, Group, Button } from '@svelteuidev/core';
 
-	let value = 10;
+	let value = $state(10);
 </script>
 
 <Progress tween bind:value size="lg" />

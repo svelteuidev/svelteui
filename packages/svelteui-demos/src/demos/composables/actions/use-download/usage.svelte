@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -33,7 +33,7 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { download } from '@svelteuidev/composables';
 
-	let file;
+	let file = $state();
 	onMount(() => {
 		file = new Blob([JSON.stringify({ hello: 'world' })], { type: 'application/json' });
 	});

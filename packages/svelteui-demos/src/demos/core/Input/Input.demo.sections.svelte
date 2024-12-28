@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -35,5 +35,7 @@
 	rightSectionWidth={70}
 	styles={{ rightSection: { pointerEvents: 'none' } }}
 >
-	<Badge slot="rightSection" color="blue" variant="filled">new</Badge>
+	{#snippet rightSection()}
+		<Badge  color="blue" variant="filled">new</Badge>
+	{/snippet}
 </Input>

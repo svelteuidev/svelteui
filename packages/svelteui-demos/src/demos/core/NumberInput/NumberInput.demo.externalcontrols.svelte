@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -40,7 +40,7 @@
 <script lang="ts">
 	import { ActionIcon, Group, NumberInput, Center } from '@svelteuidev/core';
 
-	let input;
+	let input = $state();
 </script>
 
 <Group position="center">

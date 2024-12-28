@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -32,12 +32,12 @@
 	import { useMousePosition } from '@svelteuidev/composables';
 
 	const [position, ref] = useMousePosition();
-	$: ({ x, y } = $position);
+	let { x, y } = $derived($position);
 </script>
 
 <div>
 	<Group position="center">
-		<div use:ref style="width: 300px; height: 100px; background-color: #f1f3f5;" />
+		<div use:ref style="width: 300px; height: 100px; background-color: #f1f3f5;"></div>
 	</Group>
 	<Text align="center">
 		Mouse coordinates <Code>{`{ x: ${x}, y: ${y} }`}</Code>

@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { Box, Text, colorScheme, useSvelteUITheme } from '@svelteuidev/core';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	const { themeColor } = useSvelteUITheme().fn;
 </script>
@@ -14,6 +19,6 @@
 	}}
 >
 	<Text color={$colorScheme === 'dark' ? 'gray' : 'blue'} size="xl" weight={700} align="center">
-		<slot />
+		{@render children?.()}
 	</Text>
 </Box>

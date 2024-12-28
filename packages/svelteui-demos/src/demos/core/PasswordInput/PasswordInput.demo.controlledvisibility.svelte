@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -26,7 +26,7 @@
 <script lang="ts">
 	import { Center, PasswordInput } from '@svelteuidev/core';
 
-	let show = false;
+	let show = $state(false);
 
 	const onVisibilityChange = (visible) => {
 		show = visible;

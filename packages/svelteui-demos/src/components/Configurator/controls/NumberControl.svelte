@@ -3,11 +3,21 @@
 	import { createEventDispatcher } from 'svelte';
 	import { NumberInput } from '@svelteuidev/core';
 
-	export let value: number;
-	export let label: DemoControlNumber['label'];
-	export let min: DemoControlNumber['min'];
-	export let max: DemoControlNumber['max'];
-	export let step: DemoControlNumber['step'];
+	interface Props {
+		value: number;
+		label: DemoControlNumber['label'];
+		min: DemoControlNumber['min'];
+		max: DemoControlNumber['max'];
+		step: DemoControlNumber['step'];
+	}
+
+	let {
+		value,
+		label,
+		min,
+		max,
+		step
+	}: Props = $props();
 
 	const dispatch = createEventDispatcher();
 

@@ -5,12 +5,16 @@
 	import { createEventDispatcher } from 'svelte';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';
 
-	export let label: DemoControlComposite['label'];
-	export let controls: DemoControlComposite['controls'];
+	interface Props {
+		label: DemoControlComposite['label'];
+		controls: DemoControlComposite['controls'];
+	}
+
+	let { label, controls }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 
-	let data: Record<string, any> = {};
+	let data: Record<string, any> = $state({});
 
 	function onChange(newData) {
 		data = newData.detail;

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -28,7 +28,7 @@
 <script>
 	import { Box, Button, Group, Overlay, Text } from '@svelteuidev/core';
 
-	let visible = false;
+	let visible = $state(false);
 </script>
 
 <Box css={{ height: 50, position: 'relative' }}>

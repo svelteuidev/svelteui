@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -37,8 +37,8 @@
 	import { Button, Text, Stack } from '@svelteuidev/core';
 	import { useDebounce } from '@svelteuidev/composables';
 
-	let updated = 0;
-	let clicked = 0;
+	let updated = $state(0);
+	let clicked = $state(0);
 	const debouncedFn = useDebounce(() => {
 		updated += 1;
 	}, 1000);

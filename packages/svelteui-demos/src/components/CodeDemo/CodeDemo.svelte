@@ -1,19 +1,34 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { slide } from 'svelte/transition';
 	import { expoIn, expoOut } from 'svelte/easing';
 	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
-	export let component: CodeDemoType['default'];
-	export let previewBackground: CodeDemoConfiguration['previewBackground'];
-	export let previewMaxWidth: CodeDemoConfiguration['previewMaxWidth'];
-	export let code: CodeDemoConfiguration['code'];
-	export let spacing: CodeDemoConfiguration['spacing'] = true;
-	export let toggle: CodeDemoConfiguration['toggle'] = false;
-	let codeVisible: boolean;
+	interface Props {
+		component: CodeDemoType['default'];
+		previewBackground: CodeDemoConfiguration['previewBackground'];
+		previewMaxWidth: CodeDemoConfiguration['previewMaxWidth'];
+		code: CodeDemoConfiguration['code'];
+		spacing?: CodeDemoConfiguration['spacing'];
+		toggle?: CodeDemoConfiguration['toggle'];
+	}
 
-	$: codeVisible = !toggle;
+	let {
+		component,
+		previewBackground,
+		previewMaxWidth,
+		code,
+		spacing = true,
+		toggle = false
+	}: Props = $props();
+	let codeVisible: boolean = $state();
+
+	run(() => {
+		codeVisible = !toggle;
+	});
 
 	function toggleCodeVisibility() {
 		codeVisible = !codeVisible;
@@ -64,12 +79,14 @@
 			}
 		}
 	});
+
+	const SvelteComponent = $derived(component);
 </script>
 
 <div class={styles()}>
 	<div class="preview">
 		<div class="wrapper">
-			<svelte:component this={component} />
+			<SvelteComponent />
 		</div>
 		{#if !!code && toggle}
 			<div class="toggle">

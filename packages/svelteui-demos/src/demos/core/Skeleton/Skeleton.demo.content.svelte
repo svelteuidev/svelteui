@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -26,7 +26,7 @@
 <script lang="ts">
 	import { Button, Skeleton, Stack } from '@svelteuidev/core';
 
-	let loading = true;
+	let loading = $state(true);
 </script>
 
 <Stack align="center">

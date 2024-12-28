@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -30,12 +30,15 @@
 	import { Button, Group } from '@svelteuidev/core';
 	import { LockClosed, LockOpen2 } from 'radix-icons-svelte';
 
-	let scrollLocked = false;
+	let scrollLocked = $state(false);
 </script>
 
 <Group position="center" use={[[lockscroll, scrollLocked]]}>
 	<Button on:click={() => (scrollLocked = !scrollLocked)} variant="outline">
-		<svelte:component this={scrollLocked ? LockClosed : LockOpen2} slot="leftIcon" />
+		{#snippet leftIcon()}
+				{@const SvelteComponent = scrollLocked ? LockClosed : LockOpen2}
+		<SvelteComponent  />
+			{/snippet}
 		{scrollLocked ? 'Unlock scroll' : 'Lock scroll'}
 	</Button>
 </Group>

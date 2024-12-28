@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -25,7 +25,7 @@
 	import { useViewportSize } from '@svelteuidev/composables';
 
 	const viewport = useViewportSize();
-	$: ({ width, height } = $viewport);
+	let { width, height } = $derived($viewport);
 </script>
 
 <Text align="center">Width: {width}, Height: {height}</Text>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -44,10 +44,12 @@
 <Divider label="Label on the right" labelPosition="right" />
 
 <Divider labelPosition="center">
-	<div slot="label">
-		<MagnifyingGlass />
-		<span style="vertical-align: middle;">Search results</span>
-	</div>
+	{#snippet label()}
+    <div >
+  		<MagnifyingGlass />
+  		<span style="vertical-align: middle;">Search results</span>
+  	</div>
+  {/snippet}
 </Divider>
 
 <Divider

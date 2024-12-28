@@ -16,10 +16,14 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let value: string;
-	export let label: DemoControlSize['label'];
+	interface Props {
+		value: string;
+		label: DemoControlSize['label'];
+	}
 
-	$: _value = MARKS.find((mark) => mark.label === value).label;
+	let { value, label }: Props = $props();
+
+	let _value = $derived(MARKS.find((mark) => mark.label === value).label);
 
 	function onChange(e) {
 		dispatch('change', e.currentTarget.value);

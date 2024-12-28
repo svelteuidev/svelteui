@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -29,12 +29,12 @@
 <script lang="ts">
 	import { Checkbox, Stack } from '@svelteuidev/core';
 
-	let items = [
+	let items = $state([
 		{ label: 'Receive email notifications', value: false },
 		{ label: 'Receive sms notifications', value: false },
 		{ label: 'Receive push notifications', value: false }
-	];
-	$: globalValue = items.every((i) => i.value);
+	]);
+	let globalValue = $derived(items.every((i) => i.value));
 </script>
 
 <Stack position="center">

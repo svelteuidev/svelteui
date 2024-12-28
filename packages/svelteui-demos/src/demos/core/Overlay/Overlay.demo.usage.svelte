@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -32,8 +32,8 @@
 <script>
 	import { Box, Button, Group, Overlay, Text } from '@svelteuidev/core';
 
-	let visible = false;
-	let count = 0;
+	let visible = $state(false);
+	let count = $state(0);
 </script>
 
 <Box

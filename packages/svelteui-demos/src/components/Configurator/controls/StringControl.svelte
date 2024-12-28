@@ -3,8 +3,12 @@
 	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '@svelteuidev/core';
 
-	export let value: string;
-	export let label: DemoControlString['label'];
+	interface Props {
+		value: string;
+		label: DemoControlString['label'];
+	}
+
+	let { value, label }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 

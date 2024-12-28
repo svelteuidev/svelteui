@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -12,12 +12,12 @@
 	import { Button, Group } from '@svelteuidev/core';
 	import ModalForm from './ModalForm.svelte';
 
-	let size;
-	let opened;
+	let size = $state();
+	let opened = $state();
 
 	const SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'full', 322, '70%'];
 
-	$: _size = size;
+	let _size = $derived(size);
 </script>
 
 <Group position="center">

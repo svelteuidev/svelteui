@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -46,7 +46,7 @@
 <script lang="ts">
 	import { ActionIcon, Button, Center, Text, Tooltip } from '@svelteuidev/core';
 
-	let opened = true;
+	let opened = $state(true);
 </script>
 
 <Center>
@@ -59,13 +59,15 @@
 		width={220}
 		gutter={5}
 	>
-		<div slot="label" style="display: flex;">
-			<Text size="xs" color="white">
-				Use this button to save this information in your profile, after that you will be able to
-				access it any time and share it via email.
-			</Text>
-			<ActionIcon size="xs" color="white" on:click={() => (opened = false)}>x</ActionIcon>
-		</div>
+		{#snippet label()}
+				<div  style="display: flex;">
+				<Text size="xs" color="white">
+					Use this button to save this information in your profile, after that you will be able to
+					access it any time and share it via email.
+				</Text>
+				<ActionIcon size="xs" color="white" on:click={() => (opened = false)}>x</ActionIcon>
+			</div>
+			{/snippet}
 		<Button on:click={() => (opened = false)}>Save to profile</Button>
 	</Tooltip>
 

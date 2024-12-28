@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -56,15 +56,19 @@
 			<Text color="dimmed" size="sm">Item with bullet as icon</Text>
 		</Timeline.Item>
 		<Timeline.Item title="Icon">
-			<svelte:fragment slot="bullet">
-				<ThemeIcon radius="xl" color="orange"><Sun /></ThemeIcon>
-			</svelte:fragment>
+			{#snippet bullet()}
+					
+					<ThemeIcon radius="xl" color="orange"><Sun /></ThemeIcon>
+				
+					{/snippet}
 			<Text color="dimmed" size="sm">Item with bullet as icon</Text>
 		</Timeline.Item>
 		<Timeline.Item title="Image">
-			<svelte:fragment slot="bullet">
-				<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
-			</svelte:fragment>
+			{#snippet bullet()}
+					
+					<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
+				
+					{/snippet}
 			<Text color="dimmed" size="sm">Item with bullet as image</Text>
 		</Timeline.Item>
 	</Timeline>

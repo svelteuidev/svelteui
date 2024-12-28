@@ -3,10 +3,19 @@
 	import { NativeSelect } from '@svelteuidev/core';
 	import { upperFirst } from '$lib/utils';
 
-	export let value: string;
-	export let label: DemoControlSelect['label'];
-	export let data: DemoControlSelect['data'];
-	export let capitalize: DemoControlSelect['capitalize'] = true;
+	interface Props {
+		value: string;
+		label: DemoControlSelect['label'];
+		data: DemoControlSelect['data'];
+		capitalize?: DemoControlSelect['capitalize'];
+	}
+
+	let {
+		value,
+		label,
+		data,
+		capitalize = true
+	}: Props = $props();
 </script>
 
 <NativeSelect

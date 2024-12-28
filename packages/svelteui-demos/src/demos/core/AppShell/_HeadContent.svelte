@@ -7,10 +7,19 @@
 	const os = useOs();
 	const mod = os === 'macos' ? '⌘' : 'ctrl';
 
-	export let isDark: boolean;
-	export let opened: boolean;
-	export let toggle: () => void;
-	export let toggleOpen: () => void;
+	interface Props {
+		isDark: boolean;
+		opened: boolean;
+		toggle: () => void;
+		toggleOpen: () => void;
+	}
+
+	let {
+		isDark,
+		opened,
+		toggle,
+		toggleOpen
+	}: Props = $props();
 </script>
 
 <Group override={{ height: '100%', px: 20 }} position="apart">

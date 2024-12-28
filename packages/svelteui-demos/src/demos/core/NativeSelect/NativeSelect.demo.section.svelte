@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -30,5 +30,7 @@
 	data={['Svelte', 'Vue', 'Angular', 'React']}
 	label="Select your favorite framework/library"
 >
-	<svelte:component this={ChevronDown} slot="rightSection" />
+	{#snippet rightSection()}
+		<ChevronDown  />
+	{/snippet}
 </NativeSelect>

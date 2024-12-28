@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -27,11 +27,11 @@
 	import { Stack } from '@svelteuidev/core';
 	import { persistenttab } from '@svelteuidev/composables';
 
-	let isNotClosable = false;
+	let isNotClosable = $state(false);
 </script>
 
 <Stack align="center">
-	<button on:click={() => (isNotClosable = !isNotClosable)}>
+	<button onclick={() => (isNotClosable = !isNotClosable)}>
 		{isNotClosable ? "Can't close tab" : 'Can close tab'}
 	</button>
 

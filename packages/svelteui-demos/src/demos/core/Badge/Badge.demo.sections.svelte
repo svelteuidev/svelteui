@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -34,15 +34,19 @@
 <Group position="center">
 	<Badge>
 		Badge with right section
-		<svelte:fragment slot="rightSection">
-			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-		</svelte:fragment>
+		{#snippet rightSection()}
+			
+				<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+			
+			{/snippet}
 	</Badge>
 
 	<Badge>
 		Badge with left section
-		<svelte:fragment slot="leftSection">
-			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-		</svelte:fragment>
+		{#snippet leftSection()}
+			
+				<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+			
+			{/snippet}
 	</Badge>
 </Group>

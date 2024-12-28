@@ -3,10 +3,19 @@
 	import { NativeSelect } from '@svelteuidev/core';
 	import { upperFirst } from '$lib/utils';
 
-	export let value: string;
-	export let label: DemoControlSegmented['label'];
-	export let data: DemoControlSegmented['data'];
-	export let capitalize: DemoControlSegmented['capitalize'] = true;
+	interface Props {
+		value: string;
+		label: DemoControlSegmented['label'];
+		data: DemoControlSegmented['data'];
+		capitalize?: DemoControlSegmented['capitalize'];
+	}
+
+	let {
+		value,
+		label,
+		data,
+		capitalize = true
+	}: Props = $props();
 </script>
 
 <!-- TODO: change NativeSelect to Segmented when it will be implemented -->

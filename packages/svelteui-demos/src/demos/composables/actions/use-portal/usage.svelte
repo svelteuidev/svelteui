@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -35,7 +35,7 @@
 	import { Box, Button, Stack } from '@svelteuidev/core';
 	import { portal } from '@svelteuidev/composables';
 
-	let magic = false;
+	let magic = $state(false);
 </script>
 
 <Stack align="center">

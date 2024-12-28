@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -38,8 +38,8 @@
 	import { Button, Stack } from '@svelteuidev/core';
 	import { longpress } from '@svelteuidev/composables';
 
-	let pressed = false;
-	let duration = 2000;
+	let pressed = $state(false);
+	let duration = $state(2000);
 </script>
 
 <Stack align="center">

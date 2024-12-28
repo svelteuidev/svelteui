@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -28,7 +28,9 @@
 
 <Center>
 	<Menu>
-		<Button slot="control">Toggle Menu</Button>
+		{#snippet control()}
+				<Button >Toggle Menu</Button>
+			{/snippet}
 		<Menu.Item icon={Gear}>Settings</Menu.Item>
 		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
 		<Menu.Item icon={Camera}>Gallery</Menu.Item>

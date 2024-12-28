@@ -5,8 +5,12 @@
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
 	import { createEventDispatcher } from 'svelte';
 
-	export let value: string;
-	export let label: DemoControlColor['label'];
+	interface Props {
+		value: string;
+		label: DemoControlColor['label'];
+	}
+
+	let { value = $bindable(), label }: Props = $props();
 
 	const dispatch = createEventDispatcher();
 	const listOfColors = [
@@ -86,7 +90,7 @@
 	<Group spacing={2}>
 		{#each listOfColors as color}
 			<button
-				on:click={() => changeValue(color)}
+				onclick={() => changeValue(color)}
 				class:active={value === color}
 				class={colorStyles({ color })}
 			>

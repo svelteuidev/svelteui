@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -36,7 +36,7 @@
 	import { clipboard } from '@svelteuidev/composables';
 
 	let textToCopy = 'This message was copied';
-	let copied = false;
+	let copied = $state(false);
 	let onCopy = () => {
 		copied = true;
 		setTimeout(function () {

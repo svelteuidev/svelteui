@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -37,9 +37,11 @@
 	rightSectionWidth={90}
 	override={{ '&. rightSection': { pointerEvents: 'none' } }}
 >
-	<svelte:fragment slot="rightSection">
-		<Kbd>Ctrl</Kbd>
-		<Box root="span" css={{ m: '0 5px' }}>+</Box>
-		<Kbd>K</Kbd>
-	</svelte:fragment>
+	{#snippet rightSection()}
+	
+			<Kbd>Ctrl</Kbd>
+			<Box root="span" css={{ m: '0 5px' }}>+</Box>
+			<Kbd>K</Kbd>
+		
+	{/snippet}
 </TextInput>
