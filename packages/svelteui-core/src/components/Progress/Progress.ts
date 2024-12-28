@@ -17,12 +17,12 @@ export interface ProgressProps extends DefaultProps<HTMLDivElement>, HTMLAttribu
 	radius?: SvelteUINumberSize;
 	striped?: boolean;
 	animate?: boolean;
-	label?: string;
+	labelText?: string;
 	ariaLabel?: string;
 	shade?: ColorShades;
 	tween?: boolean;
 	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
 	sections?: Sections[];
-	children?: Snippet;
+	label?: Snippet;
 	[key: string]: any
 }
