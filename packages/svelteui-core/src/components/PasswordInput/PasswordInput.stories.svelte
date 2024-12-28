@@ -5,7 +5,7 @@
 
 <Meta title="Components/PasswordInput" component={PasswordInput} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<PasswordInput {...args} />
 	{/snippet}

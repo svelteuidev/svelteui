@@ -1,6 +1,8 @@
-import { DefaultProps } from '$lib/styles';
-import { InputProps } from '../Input/Input';
-import { InputWrapperProps } from '../InputWrapper/InputWrapper';
+import type { Snippet } from 'svelte';
+
+import type { DefaultProps } from '$lib/styles';
+import type { InputProps } from '../Input/Input';
+import type { InputWrapperProps } from '../InputWrapper/InputWrapper';
 
 type BaseProps = Omit<InputProps, 'rightSection' | 'type' | 'showRightSection'> &
 	InputWrapperProps &
@@ -12,4 +14,5 @@ export interface PasswordInputProps extends BaseProps {
 	visible?: boolean;
 	defaultVisible?: boolean;
 	onVisibilityChange?(visible: boolean): void;
+	visibilityToggleIcon?: Snippet<[boolean]>
 }
