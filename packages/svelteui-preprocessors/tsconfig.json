@@ -3,11 +3,10 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
 		"target": "ES2022",
-		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
