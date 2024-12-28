@@ -1,7 +1,8 @@
-import { HTMLSelectAttributes } from 'svelte/elements';
-import { DefaultProps, Override, SvelteUISize } from '$lib/styles';
-import { InputBaseProps } from '../Input/Input';
-import { InputWrapperBaseProps } from '../InputWrapper/InputWrapper';
+import type { HTMLSelectAttributes } from 'svelte/elements';
+
+import type { DefaultProps, Override, SvelteUISize } from '$lib/styles';
+import type { InputBaseProps } from '../Input/Input';
+import type { InputWrapperBaseProps } from '../InputWrapper/InputWrapper';
 
 export interface SelectItem {
 	value: string;

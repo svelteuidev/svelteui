@@ -187,7 +187,7 @@
 	{/if}
 	{#if icon}
 		<div class={cx(classes.iconWrapper)}>
-			{@render icon?.()}
+			{@render icon()}
 		</div>
 	{/if}
 	{#if iconComponent}

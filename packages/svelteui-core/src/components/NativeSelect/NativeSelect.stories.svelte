@@ -5,7 +5,7 @@
 
 <Meta title="Components/NativeSelect" component={NativeSelect} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<NativeSelect
 			data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
@@ -50,7 +50,7 @@
 		description="This is anonymous"
 	>
 		{#snippet rightSection()}
-				+
-			{/snippet}
+			+
+		{/snippet}
 	</NativeSelect>
 </Story>
