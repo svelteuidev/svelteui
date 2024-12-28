@@ -11,37 +11,70 @@
 	import { get_current_component } from 'svelte/internal';
 	import type { MonthProps as $$MonthProps } from './Month.styles';
 
-	export let use: $$MonthProps['use'] = [],
-		element: $$MonthProps['element'] = undefined,
-		className: $$MonthProps['className'] = '',
-		override: $$MonthProps['override'] = {},
-		// daysRefs: $$MonthProps['daysRefs'] = undefined,
-		disableOutsideEvents: $$MonthProps['disableOutsideEvents'] = false,
-		month: $$MonthProps['month'],
-		locale: $$MonthProps['locale'] = 'en',
-		value: $$MonthProps['value'] = undefined,
-		range: $$MonthProps['range'] = undefined,
-		weekdayLabelFormat: $$MonthProps['weekdayLabelFormat'] = undefined,
-		minDate: $$MonthProps['minDate'] = undefined,
-		maxDate: $$MonthProps['maxDate'] = undefined,
-		hideWeekdays: $$MonthProps['hideWeekdays'] = false,
-		size: $$MonthProps['size'] = 'sm',
-		fullWidth: $$MonthProps['fullWidth'] = false,
-		preventFocus: $$MonthProps['preventFocus'] = false,
-		focusable: $$MonthProps['focusable'] = true,
-		firstDayOfWeek: $$MonthProps['firstDayOfWeek'] = 'monday',
-		hideOutsideDates: $$MonthProps['hideOutsideDates'] = false,
-		onChange: $$MonthProps['onChange'] = (value) => undefined,
-		onDayMouseEnter: $$MonthProps['onDayMouseEnter'] = undefined,
-		onDayKeyDown: $$MonthProps['onDayKeyDown'] = undefined,
-		renderDay: $$MonthProps['renderDay'] = undefined,
-		// dayStyle: $$MonthProps['dayStyle'] = undefined,
-		dayClassName: $$MonthProps['dayClassName'] = undefined,
-		excludeDate: $$MonthProps['excludeDate'] = undefined,
-		isDateInRange: $$MonthProps['isDateInRange'] = no,
-		isDateFirstInRange: $$MonthProps['isDateFirstInRange'] = no,
-		isDateLastInRange: $$MonthProps['isDateLastInRange'] = no;
-	export { className as class };
+	interface Props {
+		use?: $$MonthProps['use'];
+		element?: $$MonthProps['element'];
+		class?: $$MonthProps['className'];
+		override?: $$MonthProps['override'];
+		disableOutsideEvents?: $$MonthProps['disableOutsideEvents'];
+		month: $$MonthProps['month'];
+		locale?: $$MonthProps['locale'];
+		value?: $$MonthProps['value'];
+		range?: $$MonthProps['range'];
+		weekdayLabelFormat?: $$MonthProps['weekdayLabelFormat'];
+		minDate?: $$MonthProps['minDate'];
+		maxDate?: $$MonthProps['maxDate'];
+		hideWeekdays?: $$MonthProps['hideWeekdays'];
+		size?: $$MonthProps['size'];
+		fullWidth?: $$MonthProps['fullWidth'];
+		preventFocus?: $$MonthProps['preventFocus'];
+		focusable?: $$MonthProps['focusable'];
+		firstDayOfWeek?: $$MonthProps['firstDayOfWeek'];
+		hideOutsideDates?: $$MonthProps['hideOutsideDates'];
+		onChange?: $$MonthProps['onChange'];
+		onDayMouseEnter?: $$MonthProps['onDayMouseEnter'];
+		onDayKeyDown?: $$MonthProps['onDayKeyDown'];
+		renderDay?: $$MonthProps['renderDay'];
+		dayClassName?: $$MonthProps['dayClassName'];
+		excludeDate?: $$MonthProps['excludeDate'];
+		isDateInRange?: $$MonthProps['isDateInRange'];
+		isDateFirstInRange?: $$MonthProps['isDateFirstInRange'];
+		isDateLastInRange?: $$MonthProps['isDateLastInRange'];
+		[key: string]: any
+	}
+
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		disableOutsideEvents = false,
+		month,
+		locale = 'en',
+		value = undefined,
+		range = undefined,
+		weekdayLabelFormat = undefined,
+		minDate = undefined,
+		maxDate = undefined,
+		hideWeekdays = false,
+		size = 'sm',
+		fullWidth = false,
+		preventFocus = false,
+		focusable = true,
+		firstDayOfWeek = 'monday',
+		hideOutsideDates = false,
+		onChange = (value) => undefined,
+		onDayMouseEnter = undefined,
+		onDayKeyDown = undefined,
+		renderDay = undefined,
+		dayClassName = undefined,
+		excludeDate = undefined,
+		isDateInRange = no,
+		isDateFirstInRange = no,
+		isDateLastInRange = no,
+		...rest
+	}: Props = $props();
+	
 
 	/** An action that forwards inner dom node events from parent component */
 	const forwardEvents = createEventForwarder(get_current_component());
@@ -55,7 +88,7 @@
 		dayjs(value).isAfter(dayjs(month).startOf('month')) &&
 		dayjs(value).isBefore(dayjs(month).endOf('month'));
 
-	$: ({ cx, classes } = useStyles({ fullWidth }, { override }));
+	let { cx, classes } = $derived(useStyles({ fullWidth }, { override }));
 </script>
 
 <Box
@@ -63,7 +96,7 @@
 	use={[forwardEvents, [useActions, use]]}
 	root="table"
 	class={cx(className, classes.root)}
-	{...$$restProps}
+	{...rest}
 >
 	{#if !hideWeekdays}
 		<thead>

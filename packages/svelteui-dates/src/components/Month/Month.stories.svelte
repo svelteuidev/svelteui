@@ -5,8 +5,10 @@
 
 <Meta title="Dates/Month" component={Month} />
 
-<Template let:args>
-	<Month {...args} month={new Date()} />
+<Template >
+	{#snippet children({ args })}
+		<Month {...args} month={new Date()} />
+	{/snippet}
 </Template>
 
 <Story name="Month" id="monthStory" />
