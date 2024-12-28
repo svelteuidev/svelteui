@@ -5,7 +5,7 @@
 
 <Meta title="Components/Title" component={Title} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Title {...args}>Title Storybook</Title>
 	{/snippet}

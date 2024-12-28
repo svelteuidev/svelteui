@@ -1,4 +1,4 @@
-import { TextProps } from '../Text/Text';
+import type { TextProps } from '../Text/Text';
 
 export type TitleOrder = 1 | 2 | 3 | 4 | 5 | 6;
 
