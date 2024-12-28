@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
-import { GroupPosition } from '../../Group/Group';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { GroupPosition } from '../../Group/Group';
 
 export interface RadioGroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	items: { label: string; value: string }[];
@@ -17,9 +19,8 @@ export interface RadioGroupProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	align?: CSS['alignItems'];
 	spacing?: SvelteUINumberSize;
 	name?: string;
+	onChange?: (value: string) => void
+	children?: Snippet;
+	[key: string]: any
 }
 
-export interface RadioGroupEvents {
-	change: CustomEvent<string>;
-	[evt: string]: CustomEvent<any>;
-}

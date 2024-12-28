@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { Component } from '$lib/internal';
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
 
 export interface RadioProps
 	extends DefaultProps<HTMLInputElement>,
@@ -18,4 +20,6 @@ export interface RadioProps
 	error?: boolean;
 	group?: string;
 	isGrouped?: boolean;
+	children?: Snippet;
+	[key: string]: any
 }

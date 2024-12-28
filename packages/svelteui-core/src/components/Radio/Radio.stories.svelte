@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Meta, Story, Template } from '@storybook/addon-svelte-csf';
-	import type { SvelteUINumberSize } from '$lib/styles';
+	import type { SvelteUISize } from '$lib/styles';
 	import RadioGroup from './RadioGroup/RadioGroup.svelte';
 	import { Radio } from './index';
 
-	const spacings: SvelteUINumberSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+	const spacings: SvelteUISize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 	const directions: ('column' | 'row')[] = ['column', 'row'];
 
 	let bindValue = $state('three');
@@ -13,7 +13,7 @@
 
 <Meta title="Components/Radio" component={Radio} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Radio {...args} checked />
 		<Radio {...args} />
