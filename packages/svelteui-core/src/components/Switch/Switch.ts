@@ -1,5 +1,5 @@
-import { HTMLInputAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { HTMLInputAttributes } from 'svelte/elements';
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export type SwitchTimingFunction =
 	| 'linear'
@@ -25,4 +25,5 @@ export interface SwitchProps
 	offLabel?: string;
 	disabled?: boolean;
 	checked?: boolean;
+	[key: string]: any
 }
