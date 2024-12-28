@@ -1,32 +1,51 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import type { TextAnimations, EasingOptions, Iterations, Gradient } from '../types';
 
-	export let animation: TextAnimations = 'hue';
-	export let duration: number | string = 20;
-	export let easing: EasingOptions = 'linear';
-	export let iterations: Iterations = 'infinite';
-	export let optimalSettings: boolean = true;
-	export let gradient: Gradient = { from: '#f35626', to: '#feab3a', deg: 92 };
-
-	$: duration = `${duration}s`;
-	$: if (optimalSettings) {
-		if (animation === 'hue') {
-			duration = 20;
-			easing = 'linear';
-			iterations = 'infinite';
-		} else if (animation === 'flow') {
-			duration = 4;
-			easing = 'ease-in-out';
-			iterations = 'infinite';
-		}
+	interface Props {
+		animation?: TextAnimations;
+		duration?: number | string;
+		easing?: EasingOptions;
+		iterations?: Iterations;
+		optimalSettings?: boolean;
+		gradient?: Gradient;
+		children?: import('svelte').Snippet;
 	}
+
+	let {
+		animation = 'hue',
+		duration = $bindable(20),
+		easing = $bindable('linear'),
+		iterations = $bindable('infinite'),
+		optimalSettings = true,
+		gradient = { from: '#f35626', to: '#feab3a', deg: 92 },
+		children
+	}: Props = $props();
+
+	run(() => {
+		duration = `${duration}s`;
+	});
+	run(() => {
+		if (optimalSettings) {
+			if (animation === 'hue') {
+				duration = 20;
+				easing = 'linear';
+				iterations = 'infinite';
+			} else if (animation === 'flow') {
+				duration = 4;
+				easing = 'ease-in-out';
+				iterations = 'infinite';
+			}
+		}
+	});
 </script>
 
 <div
 	class={`animation-${animation}`}
 	style={`--duration: ${duration}s; --easing: ${easing}; --iterations: ${iterations}; --from: ${gradient.from}; --to: ${gradient.to}; --deg: ${gradient.deg}deg;`}
 >
-	<slot />
+	{@render children?.()}
 </div>
 
 <style>
