@@ -20,7 +20,7 @@
 
 <Meta title="Components/Modal" component={Modal} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Button on:click={toggleOpen}>Click Me</Button>
 		<Modal {opened} on:close={handleClose} {...args}>

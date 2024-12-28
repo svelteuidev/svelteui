@@ -1,10 +1,12 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { LiteralUnion, Transition, TransitionOptions } from '$lib/internal';
-import { DefaultProps, SvelteUINumberSize, SvelteUIShadow, SvelteUISize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
 
-export interface ModalProps extends DefaultProps, HTMLAttributes<HTMLElement> {
+import type { LiteralUnion, Transition, TransitionOptions } from '$lib/internal';
+import type { DefaultProps, SvelteUINumberSize, SvelteUIShadow, SvelteUISize } from '$lib/styles';
+
+export interface ModalProps extends DefaultProps, Omit<HTMLAttributes<HTMLElement>, 'title'> {
 	opened: boolean;
-	title?: any;
+	titleText?: any;
 	zIndex?: number;
 	overflow?: 'outside' | 'inside';
 	withCloseButton?: boolean;
@@ -27,9 +29,8 @@ export interface ModalProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	centered?: boolean;
 	target?: HTMLElement | string;
 	withinPortal?: boolean;
-}
-
-export interface ModalEvents {
-	close: CustomEvent;
-	[evt: string]: CustomEvent<any>;
+	onclose?: () => void;
+	title?: Snippet;
+	children?: Snippet;
+	[key: string]: any;
 }
