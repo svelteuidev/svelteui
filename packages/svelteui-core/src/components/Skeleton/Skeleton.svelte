@@ -1,24 +1,7 @@
 <script lang="ts">
 	import { Box } from '../Box';
 	import useStyles from './Skeleton.styles';
-	import type { SkeletonProps as $$SkeletonProps } from './Skeleton';
-
-	
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		visible?: $$Props['visible'];
-		height?: $$Props['height'];
-		width?: $$Props['width'];
-		circle?: $$Props['circle'];
-		radius?: $$Props['radius'];
-		animate?: $$Props['animate'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { SkeletonProps } from './Skeleton';
 
 	let {
 		use = [],
@@ -33,13 +16,11 @@
 		animate = true,
 		children,
 		...rest
-	}: Props = $props();
-	
+	}: SkeletonProps = $props();
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{ animate, circle, height, radius, width },
-		{ name: 'Skeleton' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ animate, circle, height, radius, width }, { name: 'Skeleton' })
+	);
 </script>
 
 <Box
