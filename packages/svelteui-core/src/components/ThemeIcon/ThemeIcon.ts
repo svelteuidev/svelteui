@@ -1,5 +1,7 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps, SvelteUIColor, SvelteUIGradient, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUIGradient, SvelteUINumberSize } from '$lib/styles';
 
 export type ThemeIconVariant =
 	| 'filled'
@@ -16,4 +18,6 @@ export interface ThemeIconProps extends DefaultProps, HTMLAttributes<HTMLElement
 	color?: SvelteUIColor;
 	variant?: ThemeIconVariant;
 	gradient?: SvelteUIGradient;
+	children?: Snippet;
+	[key: string]: any
 }
