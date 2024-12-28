@@ -1,8 +1,9 @@
-import { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
-import { PopperProps } from '../Popper/Popper';
+import type { Component, Snippet } from 'svelte';
+import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { PopperProps } from '../Popper/Popper';
 
 export interface TooltipProps extends PopperProps {
-	label: any;
+	labelComponent: Component | string | number;
 	opened?: boolean;
 	openDelay?: number;
 	closeDelay?: number;
@@ -15,4 +16,5 @@ export interface TooltipProps extends PopperProps {
 	allowPointerEvents?: boolean;
 	tooltipRef?: HTMLElement | any;
 	tooltipId?: string;
+	label?: Snippet;
 }
