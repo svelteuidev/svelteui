@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { Component, TransitionName, TransitionOptions } from '$lib/internal';
+import type { TransitionName, TransitionOptions } from '$lib/internal';
 import type { DefaultProps, SvelteUINumberSize, SvelteUIShadow } from '$lib/styles';
 import type { PopperProps } from '../Popper/Popper';
 import type { Snippet } from 'svelte';
