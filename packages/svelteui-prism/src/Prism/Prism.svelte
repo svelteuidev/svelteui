@@ -1,4 +1,6 @@
 <script lang="ts" data-manual>
+	import { run } from 'svelte/legacy';
+
 	/* eslint-disable svelte/no-at-html-tags */
 	// option 'data-manual' needed to use Prism with no automatic highlight on import
 	import Prism from 'prismjs';
@@ -14,18 +16,34 @@
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 	import type { PrismStyles as $$PrismStyles } from './Prism.styles.js';
 
-	export let className: $$PrismStyles['className'] = '',
-		override: $$PrismStyles['override'] = {},
-		size: $$PrismStyles['size'] = 'md',
-		code: $$PrismStyles['code'] = '',
-		language: $$PrismStyles['language'] = 'javascript',
-		lineNumbers: $$PrismStyles['lineNumbers'] = false,
-		highlightLines: $$PrismStyles['highlightLines'] = null,
-		normalizeWhiteSpace: $$PrismStyles['normalizeWhiteSpace'] = true,
-		normalizeWhiteSpaceConfig: $$PrismStyles['normalizeWhiteSpaceConfig'] = config,
-		copy: $$PrismStyles['copy'] = true,
-		copyTimeout: $$PrismStyles['copyTimeout'] = 3000;
-	export { className as class };
+	interface Props {
+		class?: $$PrismStyles['className'];
+		override?: $$PrismStyles['override'];
+		size?: $$PrismStyles['size'];
+		code?: $$PrismStyles['code'];
+		language?: $$PrismStyles['language'];
+		lineNumbers?: $$PrismStyles['lineNumbers'];
+		highlightLines?: $$PrismStyles['highlightLines'];
+		normalizeWhiteSpace?: $$PrismStyles['normalizeWhiteSpace'];
+		normalizeWhiteSpaceConfig?: $$PrismStyles['normalizeWhiteSpaceConfig'];
+		copy?: $$PrismStyles['copy'];
+		copyTimeout?: $$PrismStyles['copyTimeout'];
+	}
+
+	let {
+		class: className = '',
+		override = $bindable({}),
+		size = 'md',
+		code = '',
+		language = 'javascript',
+		lineNumbers = false,
+		highlightLines = null,
+		normalizeWhiteSpace = true,
+		normalizeWhiteSpaceConfig = config,
+		copy = true,
+		copyTimeout = 3000
+	}: Props = $props();
+	
 
 	onMount(() => {
 		/**
@@ -44,18 +62,18 @@
 		}
 	});
 
-	let copied = false;
+	let copied = $state(false);
 	function onClipboard() {
 		copied = true;
 		setTimeout(() => (copied = false), copyTimeout);
 	}
 
-	$: prettyCode = Prism.highlight(code, Prism.languages[language], language);
-	$: prismClasses = `language-${language} ${
+	let prettyCode = $derived(Prism.highlight(code, Prism.languages[language], language));
+	let prismClasses = $derived(`language-${language} ${
 		normalizeWhiteSpace ? '' : 'no-whitespace-normalization'
-	}`;
+	}`);
 
-	$: PrismCss = css({
+	let PrismCss = $derived(css({
 		color: '$gray900',
 		backgroundColor: '$gray50',
 		fontSize: `$${size}`,
@@ -254,17 +272,19 @@
 				color: '$dark400'
 			}
 		}
-	});
+	}));
 
 	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
+	let observable: boolean = $state(false);
+	let err = $state();
 
 	if (!Prism.languages[language]) {
 		observable = true;
 		err = PrismErrors[0];
 	}
-	$: if (observable) override = { display: 'none' };
+	run(() => {
+		if (observable) override = { display: 'none' };
+	});
 	// --------------Error Handling-------------------
 </script>
 
