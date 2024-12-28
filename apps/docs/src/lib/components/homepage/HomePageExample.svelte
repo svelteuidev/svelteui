@@ -190,7 +190,7 @@
 					</Group>
 				</Box>
 			{:else}
-				<div transition:slide={{ duration: 350, easing: sineInOut }}>
+				<div transition:slide|global={{ duration: 350, easing: sineInOut }}>
 					<Prism {override} {language} {code} />
 				</div>
 			{/if}

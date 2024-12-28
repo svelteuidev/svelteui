@@ -31,7 +31,7 @@
 	<SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
 		{#if !nosidebar}
 			<div
-				transition:fly={{ x: -100, duration: 300 }}
+				transition:fly|global={{ x: -100, duration: 300 }}
 				class="sidebar"
 				class:active-sidebar={show_sidebar}
 			>
