@@ -1,62 +1,62 @@
-<!-- @migration-task Error while migrating Svelte code: can't migrate `$: _active = active;` to `$state` because there's a variable named state.
-     Rename the variable and try again or migrate by hand. -->
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
+
 	import { Box } from '../../Box';
 	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
 	import { ctx } from '../Tabs.svelte';
 	import type { TabsContext } from '../Tabs';
 	import useStyles from './Tab.styles';
-	import type { TabProps as $$TabProps } from './Tab';
+	import type { TabProps } from './Tab';
 
-	interface $$Props extends $$TabProps {}
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		active = undefined,
+		iconComponent = undefined,
+		iconProps = undefined,
+		labelText = undefined,
+		color = undefined,
+		variant = undefined,
+		orientation = undefined,
+		tabKey = undefined,
+		disabled = false,
+		title = undefined,
+		label,
+		icon,
+		children,
+		...rest
+	}: TabProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		active: $$Props['active'] = undefined,
-		icon: $$Props['icon'] = undefined,
-		iconProps: $$Props['iconProps'] = undefined,
-		label: $$Props['label'] = undefined,
-		color: $$Props['color'] = undefined,
-		variant: $$Props['variant'] = undefined,
-		orientation: $$Props['orientation'] = undefined,
-		tabKey: $$Props['tabKey'] = undefined,
-		disabled: $$Props['disabled'] = false,
-		title: $$Props['title'] = undefined;
-	export { className as class };
+	let _active = $state(active);
+	let _color = $state(color !== undefined ? color : undefined);
+	let _orientation = $state(orientation !== undefined ? orientation : undefined);
+	let _variant = $state(variant !== undefined ? variant : undefined);
 
 	// retrieves the reactive context so that Tab has access
 	// to the Tabs parameters
-	const state: TabsContext = getContext(ctx);
+	const context: TabsContext = getContext(ctx);
 
-	function calculateActive() {
+	function calculateActive(currentContext: TabsContext) {
 		if (!element) return;
 		const children = element.parentNode.children;
 		const tabsId = element.parentElement.getAttribute('data-tabsid');
 		const index = Array.prototype.indexOf.call(children, element);
 
-		_active = active !== undefined ? active : $state[tabsId].active === index;
-		_color = color !== undefined ? color : $state[tabsId].color;
-		_orientation = orientation !== undefined ? orientation : $state[tabsId].orientation;
-		_variant = variant !== undefined ? variant : $state[tabsId].variant;
+		_active = active !== undefined ? active : currentContext[tabsId].active === index;
+		_color = color !== undefined ? color : currentContext[tabsId].color;
+		_orientation = orientation !== undefined ? orientation : currentContext[tabsId].orientation;
+		_variant = variant !== undefined ? variant : currentContext[tabsId].variant;
 	}
 
-	onMount(() => calculateActive());
+	onMount(() => calculateActive(context));
 
-	$: _active = active;
-	$: _color = color !== undefined ? color : _color;
-	$: _orientation = orientation !== undefined ? orientation : _orientation;
-	$: _variant = variant !== undefined ? variant : _variant;
+	$effect.pre(() => calculateActive(context));
 
-	// check if item is still checked when the context store updates
-	$: $state, calculateActive();
-
-	$: ({ cx, classes } = useStyles(
-		{ color: _color, orientation: _orientation },
-		{ override, name: 'Tab' }
-	));
+	let { cx, classes } = $derived(
+		useStyles({ color: _color, orientation: _orientation }, { override, name: 'Tab' })
+	);
 </script>
 
 <Box
@@ -72,21 +72,22 @@
 	data-key={tabKey}
 	{disabled}
 	{title}
-	{...$$restProps}
+	{...rest}
 >
 	<div class={classes.inner}>
-		<slot name="icon" {color} {...iconProps}>
-			{#if icon}
-				<IconRenderer {icon} {iconProps} className={classes.icon} />
-			{/if}
-		</slot>
-		<slot name="label">
-			{#if label}
-				<div class={classes.label}>{label}</div>
-			{/if}
-		</slot>
+		{#if icon}
+			{@render icon()}
+		{/if}
+		{#if iconComponent}
+			<IconRenderer className={classes.icon} icon={iconComponent} {iconProps} />
+		{/if}
+		{#if labelText}
+			<div class={classes.label}>{labelText}</div>
+		{:else if label}
+			{@render label()}
+		{/if}
 		<div class={cx('svelteui-Tab-content', classes.tabContent, { active: _active })}>
-			<slot />
+			{@render children?.()}
 		</div>
 	</div>
 </Box>

@@ -1,16 +1,22 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Component } from '$lib/internal';
-import { DefaultProps, SvelteUIColor } from '$lib/styles';
-import { TabsVariant } from '../Tabs';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { Component } from '$lib/internal';
+import type { DefaultProps, SvelteUIColor } from '$lib/styles';
+import type { TabsVariant } from '../Tabs';
 
 export interface TabProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	active?: boolean;
-	icon?: Component | HTMLOrSVGElement;
+	iconComponent?: Component | HTMLOrSVGElement;
 	iconProps?: Record<string, unknown>;
-	label?: Component | string;
+	labelText?: Component | string;
 	color?: SvelteUIColor;
 	variant?: TabsVariant;
 	orientation?: 'horizontal' | 'vertical';
 	tabKey?: string;
 	disabled?: boolean;
+	label?: Snippet;
+	icon?: Snippet;
+	children?: Snippet;
+	[key: string]: any
 }

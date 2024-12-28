@@ -3,37 +3,13 @@
 </script>
 
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	import { createEventDispatcher, getContext, onMount, setContext } from 'svelte';
+	import { getContext, onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
 	import useStyles from './Tabs.styles';
-	import type { TabsProps as $$TabsProps, TabsEvents as $$TabEvents, TabsContext } from './Tabs';
-
-	
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$TabEvents {}
-
-	interface Props {
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		override?: $$Props['override'];
-		active?: $$Props['active'];
-		color?: $$Props['color'];
-		grow?: $$Props['grow'];
-		initialTab?: $$Props['initialTab'];
-		orientation?: $$Props['orientation'];
-		position?: $$Props['position'];
-		tabPadding?: $$Props['tabPadding'];
-		variant?: $$Props['variant'];
-		children?: import('svelte').Snippet;
-		[key: string]: any
-	}
+	import type { TabsProps, TabsContext } from './Tabs';
 
 	let {
 		use = [],
@@ -49,13 +25,12 @@
 		tabPadding = 'xs',
 		variant = 'default',
 		children,
+		onChange = () => {},
 		...rest
-	}: Props = $props();
-	
+	}: TabsProps = $props();
 
 	const tabsId = randomID();
 	let tabNodes: Element[];
-	const dispatch = createEventDispatcher();
 
 	onMount(() => {
 		const children = element.querySelectorAll(
@@ -63,7 +38,7 @@
 		);
 		tabNodes = Array.from(children);
 		setupTabs();
-		calculateActive();
+		calculateActive(active === -1 ? initialTab : active);
 	});
 
 	// initialize a 'reactive context' which is basically
@@ -79,7 +54,7 @@
 				orientation: orientation
 			}
 		});
-		setContext(ctx, contextStore);
+		setContext(ctx, () => contextStore);
 	}
 
 	/**
@@ -103,13 +78,13 @@
 	 * Calculates the active tab and switches the content
 	 * of the tabs so that it can be shown.
 	 */
-	function calculateActive() {
+	function calculateActive(activeTabIndex: number) {
 		if (!element) return;
 
 		const content = element.querySelector(':scope > .tabs-content');
 		if (!content) return;
 
-		const activeTab = Array.from(tabNodes)[_active];
+		const activeTab = Array.from(tabNodes)[activeTabIndex];
 		if (!activeTab) return;
 
 		if (content.children.length > 0) {
@@ -120,7 +95,7 @@
 	}
 
 	function onTabClick(index: number, key: string) {
-		dispatch('change', { index: index, key: key });
+		onChange(index, key);
 		_active = index;
 		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 	}
@@ -131,7 +106,7 @@
 		// Set current tab as the active one if the enter was pressed, allowing
 		// selecting the tab when doing tab cycling
 		if (event.code === 'Enter') {
-			dispatch('change', { index, key });
+			onChange(index, key);
 			_active = index;
 			contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 			return;
@@ -155,18 +130,17 @@
 		const selectedTab = Array.from(tabs)[_index];
 		const selectedKey = selectedTab.getAttribute('data-key');
 
-		dispatch('change', { index: _index, key: selectedKey });
+		onChange(_index, selectedKey);
 		_active = _index;
 		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
 	}
 
-
 	// check if item is still checked when the context store updates
-	let _active;
-	run(() => {
-		_active = active === -1 ? initialTab : active;
-	});
-	run(() => {
+	let _active = $derived(active === -1 ? initialTab : active);
+	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
+	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
+
+	$effect(() => {
 		$contextStore[tabsId] = {
 			active: _active,
 			color: color,
@@ -174,34 +148,15 @@
 			orientation: orientation
 		};
 	});
-	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
-	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
-	run(() => {
-		$contextStore, _active, calculateActive();
+	$effect.pre(() => {
+		calculateActive(_active);
 	});
-	let { cx, classes } = $derived(useStyles({ orientation, tabPadding }, { override, name: 'Tabs' }));
+
+	let { cx, classes } = $derived(
+		useStyles({ orientation, tabPadding }, { override, name: 'Tabs' })
+	);
 </script>
 
-<!--
-@component
-**UNSTABLE:** new API, yet to be vetted.
-
-Display list of events in chronological order
-
-@see https://svelteui.dev/core/timeline
-@example
-    ```svelte
-    <Tabs>
-      <Tabs.Tab>
-		...
-	  </Tabs.Tab>
-      <Tabs.Tab>
-		...
-	  </Tabs.Tab>
-	  ...
-    </Tabs>
-    ```
--->
 <Box bind:element {use} class={cx(className, classes.root)} {...rest}>
 	<div class={cx(classes.wrapper, classes[variant])}>
 		<Group

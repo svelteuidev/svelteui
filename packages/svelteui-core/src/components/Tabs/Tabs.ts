@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { Writable } from 'svelte/store';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Snippet } from 'svelte';
+import type { Writable } from 'svelte/store';
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export type TabsVariant = 'default' | 'outline' | 'pills' | 'unstyled';
 
@@ -22,6 +24,9 @@ export interface TabsProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	position?: 'right' | 'center' | 'left' | 'apart';
 	tabPadding?: SvelteUINumberSize;
 	variant?: TabsVariant;
+	onChange?: (index: number, key: string) => void;
+	children?: Snippet;
+	[key: string]: any
 }
 
 export interface TabsEvents {
