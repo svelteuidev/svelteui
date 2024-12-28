@@ -1,39 +1,39 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
+	import { onDestroy } from 'svelte';
+	import { arrow, autoUpdate, computePosition, offset, flip, shift } from '@floating-ui/dom';
+	import type { Placement } from '@floating-ui/dom';
+
+	import { getTransition, useActions } from '$lib/internal';
 	import useStyles from './Popper.styles';
 	import { calculateArrowPlacement } from './Popper.styles';
-	import { arrow, autoUpdate, computePosition, offset, flip, shift } from '@floating-ui/dom';
-	import { get_current_component, onDestroy } from 'svelte/internal';
-	import { createEventForwarder, getTransition, useActions } from '$lib/internal';
-	import type { Placement } from '@floating-ui/dom';
-	import type { PopperProps as $$PopperProps } from './Popper';
+	import type { PopperProps } from './Popper';
 
-	interface $$Props extends $$PopperProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		position: $$Props['position'] = 'top',
-		placement: $$Props['placement'] = 'center',
-		gutter: $$Props['gutter'] = 5,
-		arrowSize: $$Props['arrowSize'] = 3,
-		arrowDistance: $$Props['arrowDistance'] = 3,
-		arrowClassName: $$Props['arrowClassName'] = 'arrow',
-		withArrow: $$Props['withArrow'] = false,
-		zIndex: $$Props['zIndex'] = 1,
-		transition: $$Props['transition'] = 'fade',
-		transitionOptions: $$Props['transitionOptions'] = { duration: 100 },
-		exitTransition: $$Props['exitTransition'] = transition,
-		exitTransitionOptions: $$Props['exitTransitionOptions'] = transitionOptions,
-		mounted: $$Props['mounted'] = false,
-		reference: $$Props['reference'] = null;
-	export { className as class };
+	let { element = $bindable(undefined), ...restProps }: PopperProps = $props();
+	let {
+		use = [],
+		className = '',
+		override = {},
+		position = 'top',
+		placement = 'center',
+		gutter = 5,
+		arrowSize = 3,
+		arrowDistance = 3,
+		arrowClassName = 'arrow',
+		withArrow = false,
+		zIndex = 1,
+		transition = 'fade',
+		transitionOptions = { duration: 100 },
+		exitTransition = transition,
+		exitTransitionOptions = transitionOptions,
+		mounted = false,
+		reference = null,
+		children,
+		...rest
+	} = restProps;
 
 	let cleanup = () => {};
-	let arrowElement;
-
-	const forwardEvents = createEventForwarder(get_current_component());
+	let arrowElement: HTMLElement = $state(undefined);
 
 	onDestroy(() => {
 		cleanup();
@@ -85,67 +85,39 @@
 		});
 	}
 
-	$: {
+	$effect.pre(() => {
 		// setup the auto update once the element and reference are mounted
 		// so that udpates to the popper are made when the parent elements
 		// are resized, scroll, etc
 		if (element && reference) {
 			cleanup = autoUpdate(reference, element, () => {
-				updatePopper({ ...$$props });
+				updatePopper(restProps);
 			});
 		}
-	}
+	});
 
-	$: _mounted = mounted;
-	$: _transition = getTransition(transition) as any;
-	$: _exitTransition = getTransition(exitTransition) as any;
-	$: updatePopper({ ...$$props });
-	$: ({ cx, classes, getStyles } = useStyles({ arrowSize, zIndex }, { name: 'Popper' }));
+	$effect.pre(() => updatePopper(restProps));
+
+	let _transition = $derived(getTransition(transition) as any);
+	let _exitTransition = $derived(getTransition(exitTransition) as any);
+	let { cx, classes, getStyles } = $derived(useStyles({ arrowSize, zIndex }, { name: 'Popper' }));
 </script>
 
-<!--
-@component
-**UNSTABLE**: new API, yet to be vetted.
-
-Shows content that is positioned based on the reference element provided as well as the psitioning
-and placement options.
-
-@see https://svelteui.dev/core/overlay
-@example
-    ```svelte
-	<Button bind:element={ref} on:click={() => mounted = !mounted }>Click here</Button>
-	<Popper
-		reference={ref}
-		placement="center"
-		position="bottom"
-		{mounted}
-		withArrow={true}
-		override={{ '& .arrow': { backgroundColor: '$gray100' } }}
-	>
-		<Box css={{ backgroundColor: '$gray100', borderRadius: 5, padding: '30px' }}>
-			<Center css={{ width: 100 }}>
-				<Text>This is a very long text</Text>
-			</Center>
-		</Box>
-	</Popper>
-    ```
--->
-
-{#if _mounted}
+{#if mounted}
 	<div
 		bind:this={element}
 		use:useActions={use}
-		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override }))}
 		in:_transition|global={transitionOptions}
 		out:_exitTransition|global={exitTransitionOptions}
+		{...rest}
 	>
 		{#if withArrow}
 			<div
 				class={cx(arrowClassName, { arrowClassName: true }, classes.arrowStyles)}
 				bind:this={arrowElement}
-			/>
+			></div>
 		{/if}
-		<slot />
+		{@render children?.()}
 	</div>
 {/if}

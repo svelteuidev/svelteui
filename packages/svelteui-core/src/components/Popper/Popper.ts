@@ -1,6 +1,7 @@
-import { HTMLAttributes } from 'svelte/elements';
-import { DefaultProps } from '$lib/styles';
-import { Transition, TransitionOptions } from '$lib/internal';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { DefaultProps } from '$lib/styles';
+import type { Transition, TransitionOptions } from '$lib/internal';
 
 export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes<HTMLElement> {
 	position?: 'top' | 'left' | 'bottom' | 'right';
@@ -18,4 +19,6 @@ export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttribute
 	mounted?: boolean;
 	reference?: HTMLElement;
 	withinPortal?: boolean;
+	children?: Snippet;
+	[key: string]: any
 }

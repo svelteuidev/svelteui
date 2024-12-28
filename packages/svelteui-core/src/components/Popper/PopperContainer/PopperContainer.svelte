@@ -1,10 +1,11 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { Portal } from '../../Portal';
 
 	interface Props {
 		withinPortal?: boolean;
 		target?: string;
-		children?: import('svelte').Snippet<[any]>;
+		children?: Snippet<[{ ref?: string }]>;
 	}
 
 	let { withinPortal = false, target = 'body', children }: Props = $props();
@@ -12,8 +13,8 @@
 
 {#if withinPortal}
 	<Portal {target}>
-		{@render children?.({ ref: target, })}
+		{@render children?.({ ref: target })}
 	</Portal>
 {:else}
-	{@render children?.()}
+	{@render children?.({})}
 {/if}
