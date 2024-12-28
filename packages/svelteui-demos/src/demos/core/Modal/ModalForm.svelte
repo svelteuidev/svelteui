@@ -57,7 +57,7 @@
 
 {#if notificationOpened}
 	<Affix position={{ bottom: 20, right: 20 }}>
-		<div transition:fly={{ x: 100, duration: 400, easing: quintInOut }}>
+		<div transition:fly|global={{ x: 100, duration: 400, easing: quintInOut }}>
 			<Notification
 				title="Form Submitted Successfully"
 				on:close={() => (notificationOpened = false)}

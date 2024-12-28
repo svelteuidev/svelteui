@@ -10,7 +10,7 @@
   import { flipboard } from '@svelteuidev/motion';
 <\/script>
 
-<p in:flipboard={{${strToObj(props)}}}>Now the transition is playing</p>
+<p in:flipboard|global={{${strToObj(props)}}}>Now the transition is playing</p>
 `;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
@@ -51,7 +51,7 @@
 <Group direction="column">
 	<div>
 		{#if visible}
-			<p out:flipboard={{ duration: 200 }} in:flipboard={props}>Now the transition is playing</p>
+			<p out:flipboard|global={{ duration: 200 }} in:flipboard|global={props}>Now the transition is playing</p>
 		{/if}
 	</div>
 	<Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>

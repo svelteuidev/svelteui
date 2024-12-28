@@ -94,8 +94,8 @@
 	{#if code && codeVisible}
 		<div
 			class="code"
-			in:slide={{ duration: 300, easing: expoIn }}
-			out:slide={{ duration: 200, easing: expoOut }}
+			in:slide|global={{ duration: 300, easing: expoIn }}
+			out:slide|global={{ duration: 200, easing: expoOut }}
 		>
 			<Box>
 				<Prism

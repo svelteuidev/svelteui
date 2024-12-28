@@ -99,13 +99,13 @@ export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 }
 
 export interface CodeDemoType {
-	default: typeof SvelteComponent;
+	default: typeof SvelteComponent<any>;
 	type: 'demo';
 	configuration: CodeDemoConfiguration;
 }
 
 export interface ConfiguratorDemoType {
-	default: typeof SvelteComponent;
+	default: typeof SvelteComponent<any>;
 	type: 'configurator';
 	configuration: ConfiguratorDemoConfiguration;
 	previewMaxWidth?: number;

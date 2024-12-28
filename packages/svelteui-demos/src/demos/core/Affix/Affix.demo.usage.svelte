@@ -15,7 +15,7 @@
 <Text align="center">Affix is located at the bottom of the screen, scroll to see it</Text>
 <Affix position={{ bottom: 20, right: 20 }}>
     {#if scrollY > 0}
-        <div transition:fly={{ y: 20, duration: 250 }}>
+        <div transition:fly|global={{ y: 20, duration: 250 }}>
             <Button on:click={() => window.scrollTo(0, 0)}>
                 <svelte:fragment slot='leftIcon'>
                     <ArrowUp />
@@ -46,7 +46,7 @@
 <Text align="center">Affix is located at the bottom of the screen, scroll to see it</Text>
 <Affix position={{ bottom: 20, right: 20 }}>
 	{#if scrollY > 0}
-		<div transition:fly={{ y: 20, duration: 250 }}>
+		<div transition:fly|global={{ y: 20, duration: 250 }}>
 			<Button on:click={() => window.scrollTo(0, 0)}>
 				<svelte:fragment slot="leftIcon">
 					<ArrowUp />
