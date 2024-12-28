@@ -1,5 +1,5 @@
-import { Override } from '$lib/styles';
-import { TextInputProps } from '../TextInput/TextInput';
+import type { Override } from '$lib/styles';
+import type { TextInputProps } from '../TextInput/TextInput';
 
 export type Formatter = (value: string | undefined) => string;
 export type Parser = (value: string | undefined) => string | undefined;
@@ -18,11 +18,8 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	overrideControls?: Override['props'];
 	precision?: number;
 	noClampOnBlur?: boolean;
+	onchange?: (value: number) => void;
 	formatter?: Formatter;
 	parser?: Parser;
 }
 
-export interface NumberInputEvents {
-	change: CustomEvent<number>;
-	[evt: string]: CustomEvent<any>;
-}

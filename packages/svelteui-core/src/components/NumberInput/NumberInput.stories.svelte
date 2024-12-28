@@ -6,7 +6,7 @@
 
 <Meta title="Components/NumberInput" component={NumberInput} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<NumberInput {...args} />
 	{/snippet}
@@ -29,9 +29,7 @@
 <Story name="With icon (slot)" id="numbertInputIconSlotStory">
 	<NumberInput label="Price" placeholder="Your price">
 		{#snippet icon()}
-			
-				<EnvelopeClosed />
-			
-			{/snippet}
+			<EnvelopeClosed />
+		{/snippet}
 	</NumberInput>
 </Story>
