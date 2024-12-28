@@ -1,6 +1,8 @@
-import { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { Writable } from 'svelte/store';
-import { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+
+import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 
 export type TimelineContext = Writable<{
 	active: number;
@@ -20,4 +22,6 @@ export interface TimelineProps extends DefaultProps, HTMLAttributes<HTMLElement>
 	color?: SvelteUIColor;
 	lineWidth?: number;
 	reverseActive?: boolean;
+	children?: Snippet;
+	[key: string]: any
 }

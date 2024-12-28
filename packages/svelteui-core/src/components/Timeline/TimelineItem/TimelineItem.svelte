@@ -1,77 +1,82 @@
-<!-- @migration-task Error while migrating Svelte code: can't migrate `$: _active = active;` to `$state` because there's a variable named state.
-     Rename the variable and try again or migrate by hand. -->
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
-	import Box from '../../Box/Box.svelte';
+
+	import { Box } from '../../Box';
 	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
 	import Text from '../../Text/Text.svelte';
 	import { ctx } from '../Timeline.svelte';
 	import type { TimelineContext } from '../Timeline';
 	import useStyles from './TimelineItem.styles';
-	import type { TimelineItemProps as $$TimelineItemProps } from './TimelineItem';
+	import type { TimelineItemProps } from './TimelineItem';
 
-	export let use: $$TimelineItemProps['use'] = [],
-		element: $$TimelineItemProps['element'] = undefined,
-		className: $$TimelineItemProps['className'] = '',
-		override: $$TimelineItemProps['override'] = {},
-		active: $$TimelineItemProps['active'] = undefined,
-		align: $$TimelineItemProps['align'] = undefined,
-		bullet: $$TimelineItemProps['bullet'] = undefined,
-		bulletSize: $$TimelineItemProps['bulletSize'] = undefined,
-		radius: $$TimelineItemProps['radius'] = undefined,
-		color: $$TimelineItemProps['color'] = undefined,
-		lineActive: $$TimelineItemProps['lineActive'] = undefined,
-		lineVariant: $$TimelineItemProps['lineVariant'] = 'solid',
-		lineWidth: $$TimelineItemProps['lineWidth'] = undefined,
-		title: $$TimelineItemProps['title'] = undefined;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(undefined),
+		class: className = '',
+		override = {},
+		active = undefined,
+		align = undefined,
+		bulletComponent = undefined,
+		bulletSize = undefined,
+		radius = undefined,
+		color = undefined,
+		lineActive = undefined,
+		lineVariant = 'solid',
+		lineWidth = undefined,
+		title = undefined,
+		bullet,
+		children,
+		...rest
+	}: TimelineItemProps = $props();
 
 	// retrieves the reactive context so that TimelineItem has access
 	// to the Timeline parameters
-	const state: TimelineContext = getContext(ctx);
+	const context: TimelineContext = getContext(ctx);
 
-	function calculateActive() {
+	let _active = $state(active);
+	let _lineActive = $state(lineActive);
+	let _align = $derived(align !== undefined ? align : $context.align);
+	let _color = $derived(color !== undefined ? color : $context.color);
+	let _radius = $derived(radius !== undefined ? radius : $context.radius);
+	let _bulletSize = $derived(bulletSize !== undefined ? bulletSize : $context.bulletSize);
+	let _lineWidth = $derived(lineWidth !== undefined ? lineWidth : $context.lineWidth);
+
+	function calculateActive(currentActive: number, reverseActive: boolean) {
 		if (!element) return;
 		const children = element.parentNode.children;
 		const index = Array.prototype.indexOf.call(children, element);
 		_active =
 			active !== undefined
 				? active
-				: $state.reverseActive
-				? $state.active >= children.length - index - 1
-				: $state.active >= index;
+				: reverseActive
+					? currentActive >= children.length - index - 1
+					: currentActive >= index;
 		_lineActive =
 			lineActive !== undefined
 				? lineActive
-				: $state.reverseActive
-				? $state.active >= children.length - index - 1
-				: $state.active - 1 >= index;
+				: reverseActive
+					? currentActive >= children.length - index - 1
+					: currentActive - 1 >= index;
 	}
 
-	onMount(() => calculateActive());
-
-	$: _active = active;
-	$: _lineActive = lineActive;
-	$: _align = align !== undefined ? align : $state.align;
-	$: _color = color !== undefined ? color : $state.color;
-	$: _radius = radius !== undefined ? radius : $state.radius;
-	$: _bulletSize = bulletSize !== undefined ? bulletSize : $state.bulletSize;
-	$: _lineWidth = lineWidth !== undefined ? lineWidth : $state.lineWidth;
+	onMount(() => calculateActive($context.active, $context.reverseActive));
 
 	// check if item is still checked when the context store updates
-	$: $state, calculateActive();
+	$effect.pre(() => calculateActive($context.active, $context.reverseActive));
 
-	$: ({ cx, classes } = useStyles(
-		{
-			align: _align,
-			bulletSize: _bulletSize,
-			radius: _radius,
-			color: _color,
-			lineVariant,
-			lineWidth: _lineWidth
-		},
-		{ override, name: 'TimelineItem' }
-	));
+	let { cx, classes } = $derived(
+		useStyles(
+			{
+				align: _align,
+				bulletSize: _bulletSize,
+				radius: _radius,
+				color: _color,
+				lineVariant,
+				lineWidth: _lineWidth
+			},
+			{ override, name: 'TimelineItem' }
+		)
+	);
 </script>
 
 <Box
@@ -81,21 +86,27 @@
 		lineActive: _lineActive,
 		active: _active
 	})}
-	{...$$restProps}
+	{...rest}
 >
 	<div class={cx(classes.bulletContainer, bullet && classes.bulletContainerWithChild)}>
-		<slot name="bullet">
-			{#if bullet}
-				<IconRenderer icon={bullet} className={classes.bullet} iconSize={bulletSize} {color} />
-			{/if}
-		</slot>
+		{#if bullet}
+			{@render bullet()}
+		{/if}
+		{#if bulletComponent}
+			<IconRenderer
+				icon={bulletComponent}
+				className={classes.bullet}
+				iconSize={bulletSize}
+				{color}
+			/>
+		{/if}
 	</div>
 	<div class={classes.container}>
 		{#if title}
 			<Text class={classes.title}>{title}</Text>
 		{/if}
 		<div class={classes.content}>
-			<slot />
+			{@render children?.()}
 		</div>
 	</div>
 </Box>
