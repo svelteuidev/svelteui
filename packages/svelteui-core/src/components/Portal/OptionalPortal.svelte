@@ -1,17 +1,6 @@
 <script lang="ts">
 	import Portal from './Portal.svelte';
-	import type { OptionalPortalProps as $$OptionalPortalProps } from './OptionalPortal';
-
-	
-
-	interface Props {
-		withinPortal?: $$Props['withinPortal'];
-		use?: $$Props['use'];
-		element?: $$Props['element'];
-		class?: $$Props['className'];
-		target?: $$Props['target'];
-		children?: import('svelte').Snippet;
-	}
+	import type { OptionalPortalProps } from './OptionalPortal';
 
 	let {
 		withinPortal = true,
@@ -19,13 +8,13 @@
 		element = $bindable(undefined),
 		class: className = '',
 		target = 'body',
-		children
-	}: Props = $props();
-	
+		children,
+		...rest
+	}: OptionalPortalProps = $props();
 </script>
 
 {#if withinPortal}
-	<Portal bind:element class={className} {use} {target}>
+	<Portal bind:element class={className} {use} {target} {...rest}>
 		{@render children?.()}
 	</Portal>
 {:else}
