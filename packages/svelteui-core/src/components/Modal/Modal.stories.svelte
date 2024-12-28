@@ -22,8 +22,8 @@
 
 <Template>
 	{#snippet children({ args })}
-		<Button on:click={toggleOpen}>Click Me</Button>
-		<Modal {opened} on:close={handleClose} {...args}>
+		<Button onclick={toggleOpen}>Click Me</Button>
+		<Modal {opened} onclose={handleClose} {...args}>
 			<Stack>
 				<TextInput autofocus placeholder="Your name" label="Full name" />
 				<NativeSelect
@@ -40,8 +40,8 @@
 <Story name="Modal" id="modalStory" />
 
 <Story name="With Overflow" id="modalOverflowStory">
-	<Button on:click={toggleOpen}>Click Me</Button>
-	<Modal {opened} on:close={handleClose} overflow="inside">
+	<Button onclick={toggleOpen}>Click Me</Button>
+	<Modal {opened} onclose={handleClose} overflow="inside">
 		{#each content as _}
 			<p>{_}</p>
 		{/each}
