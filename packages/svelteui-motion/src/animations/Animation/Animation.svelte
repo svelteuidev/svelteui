@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import type { Animations, EasingOptions } from '../types';
 
 	interface Props {
@@ -19,7 +17,7 @@
 		children
 	}: Props = $props();
 
-	run(() => {
+	$effect.pre(() => {
 		duration = `${duration}s`;
 	});
 </script>

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import type { TextAnimations, EasingOptions, Iterations, Gradient } from '../types';
 
 	interface Props {
@@ -23,10 +21,10 @@
 		children
 	}: Props = $props();
 
-	run(() => {
+	$effect.pre(() => {
 		duration = `${duration}s`;
 	});
-	run(() => {
+	$effect.pre(() => {
 		if (optimalSettings) {
 			if (animation === 'hue') {
 				duration = 20;

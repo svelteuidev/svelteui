@@ -1,4 +1,4 @@
-import type { EasingFunction } from 'svelte/types/runtime/transition';
+import type { EasingFunction } from "svelte/transition";
 
 export interface FlipboardParams {
 	delay?: number;
