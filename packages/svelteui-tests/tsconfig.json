@@ -1,5 +1,4 @@
 {
-	"$schema": "https://json.schemastore.org/tsconfig",
 	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
@@ -7,7 +6,7 @@
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
 		"target": "es2020",
-		"importsNotUsedAsValues": "error",
+		"verbatimModuleSyntax": true,
 		"isolatedModules": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
@@ -17,10 +16,13 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
+		"composite": true,
+		"noEmit": false,
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"]
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
+	"exclude": ["./dist/**/*"]
 }

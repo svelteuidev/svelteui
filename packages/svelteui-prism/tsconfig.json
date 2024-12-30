@@ -26,5 +26,6 @@
 		{ "path": "../svelteui-composables" },
 		{ "path": "../svelteui-tests" }
 	],
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "static/prism.js"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "static/prism.js"],
+	"exclude": ["./dist/**/*"]
 }

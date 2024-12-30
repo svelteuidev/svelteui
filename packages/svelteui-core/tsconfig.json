@@ -16,15 +16,19 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
+		"composite": true,
+		"noEmit": false,
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"]
-		}
+		},
+		"outDir": "./dist"
 	},
 	"references": [
 		{ "path": "../svelteui-composables" },
 		{ "path": "../svelteui-motion" },
 		{ "path": "../svelteui-tests" }
 	],
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+	"exclude": ["./dist/**/*"]
 }
