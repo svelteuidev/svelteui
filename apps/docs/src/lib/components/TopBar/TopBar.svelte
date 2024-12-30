@@ -1,5 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Identifier 'SearchItem' has already been declared
-https://svelte.dev/e/js_parse_error -->
 <script lang="ts">
 	import {
 		ActionIcon,
@@ -21,10 +19,10 @@ https://svelte.dev/e/js_parse_error -->
 	import { browser } from '$app/environment';
 	import SearchItem, { type SearchType } from '$lib/components/SearchItem.svelte';
 
-	let recentSearches: SearchType[],
-		searchTerm = '',
-		matchingSearches: SearchType[] = [],
-		modalOpened = false;
+	let recentSearches: SearchType[] = $state(),
+		searchTerm = $state(''),
+		matchingSearches: SearchType[] = $state([]),
+		modalOpened = $state(false);
 
 	onMount(() => {
 		recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
@@ -89,7 +87,7 @@ https://svelte.dev/e/js_parse_error -->
 			}
 		}
 	}));
-	$: ({ getStyles } = useStyles());
+	let { getStyles } = $derived(useStyles());
 </script>
 
 <div class="mobile_topbar">
@@ -145,7 +143,8 @@ https://svelte.dev/e/js_parse_error -->
 			<li>
 				<Tooltip withArrow label={title}>
 					<ActionIcon root="a" {...props} radius="md" size="lg">
-						<svelte:component this={icon} size={20} />
+						{@const SvelteComponent = icon}
+						<SvelteComponent size={20} />
 					</ActionIcon>
 				</Tooltip>
 			</li>
@@ -179,9 +178,9 @@ https://svelte.dev/e/js_parse_error -->
 		autocomplete="off"
 		autofocus
 	>
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<MagnifyingGlass color="#228be6" size={20} />
-		</svelte:fragment>
+		{/snippet}
 	</TextInput>
 	{#if searchTerm.length === 0}
 		{#if recentSearches.length > 0}
