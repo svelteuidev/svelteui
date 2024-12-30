@@ -69,15 +69,15 @@
 		"@storybook/addon-svelte-csf": "3.0.2",
 		"@storybook/svelte-vite": "7.0.11",
 		"@storybook/sveltekit": "7.0.11",
-		"@sveltejs/vite-plugin-svelte": "2.2.0",
+		"@sveltejs/vite-plugin-svelte": "5.0.3",
 		"c8": "7.13.0",
 		"cz-customizable": "6.3.0",
 		"gh-pages": "5.0.0",
 		"husky": "7.0.4",
 		"lint-staged": "13.2.2",
 		"patch-package": "6.5.1",
-		"prettier": "2.8.8",
-		"prettier-plugin-svelte": "2.10.0",
+		"prettier": "3.4.2",
+		"prettier-plugin-svelte": "3.3.2",
 		"radix-icons-svelte": "1.2.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
@@ -86,6 +86,6 @@
 		"storybook-dark-mode": "3.0.0",
 		"syncpack": "8.2.4",
 		"turbo": "latest",
-		"vitest": "0.31.0"
+		"vitest": "2.1.8"
 	}
 }
