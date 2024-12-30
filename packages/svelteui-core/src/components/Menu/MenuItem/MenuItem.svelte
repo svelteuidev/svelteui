@@ -1,11 +1,10 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot making the component unusable -->
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	import { useActions } from '$lib/internal';
 	import { Box } from '../../Box';
-	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
+	import { IconRenderer } from '../../IconRenderer';
 	import { ctx } from '../Menu.svelte';
 	import type { MenuContextValue } from '../Menu.context';
 	import useStyles, { getContextItemIndex } from './MenuItem.styles';
