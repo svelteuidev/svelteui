@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
+	/* eslint-disable @typescript-eslint/no-explicit-any */
 	import type {
 		ConfiguratorDemoType,
 		ConfiguratorDemoConfiguration,
@@ -15,9 +13,9 @@
 
 	interface Props {
 		component: ConfiguratorDemoType['default'];
-		previewBackground: ConfiguratorDemoType['previewBackground'];
-		previewMaxWidth: ConfiguratorDemoType['previewMaxWidth'];
-		codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'];
+		previewBackground?: ConfiguratorDemoType['previewBackground'];
+		previewMaxWidth?: ConfiguratorDemoType['previewMaxWidth'];
+		codeTemplate?: ConfiguratorDemoConfiguration['codeTemplate'];
 		configurator: ConfiguratorDemoConfiguration['configurator'];
 		multiline?: ConfiguratorDemoConfiguration['multiline'];
 		multilineEndNewLine?: ConfiguratorDemoConfiguration['multilineEndNewLine'];
@@ -39,12 +37,12 @@
 
 	const BREAKPOINT = 885;
 
-	let demoControls: DemoControl[] = $state([]);
+	// Filter out control type which we use only for making typescript work as we wanted
+	let demoControls: DemoControl[] = $derived(configurator.filter(isDemoControl));
 	let data: Record<string, any> = $state({});
-	let conditionalData: Record<string, any> = $state({});
-	let children = $state(), componentProps = $state();
-
-
+	let { children, ...componentProps }: Record<string, any> = $derived(
+		getConditionalData(demoControls, data)
+	);
 
 	function getConditionalData(
 		demoControls: DemoControl[],
@@ -66,8 +64,6 @@
 
 		return demoControls.reduce(conditionalDataReducer, {});
 	}
-
-
 
 	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
 		return control && control.type !== '_DO_NOT_USE_';
@@ -206,26 +202,19 @@
 			}
 		}
 	});
-	// Filter out control type which we use only for making typescript work as we wanted
-	run(() => {
-		demoControls = configurator.filter(isDemoControl);
-	});
-	run(() => {
+
+	$effect.pre(() => {
 		data = demoControls.reduce(dataReducer, {});
 	});
-	// Contain data which match conditions
-	run(() => {
-		conditionalData = getConditionalData(demoControls, data);
-	});
-	run(() => {
-		({ children, ...componentProps } = conditionalData);
-	});
-	let propsCode = $derived(propsToString({
-		props: demoControls,
-		values: conditionalData,
-		multiline,
-		multilineEndNewLine
-	}));
+
+	let propsCode = $derived(
+		propsToString({
+			props: demoControls,
+			values: { children, ...componentProps },
+			multiline,
+			multilineEndNewLine
+		})
+	);
 	let code = $derived(generateCode(codeTemplate, propsCode, children).trim());
 
 	const SvelteComponent = $derived(component);

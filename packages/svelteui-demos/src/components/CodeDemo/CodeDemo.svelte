@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { slide } from 'svelte/transition';
 	import { expoIn, expoOut } from 'svelte/easing';
 	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
@@ -9,9 +7,9 @@
 
 	interface Props {
 		component: CodeDemoType['default'];
-		previewBackground: CodeDemoConfiguration['previewBackground'];
-		previewMaxWidth: CodeDemoConfiguration['previewMaxWidth'];
-		code: CodeDemoConfiguration['code'];
+		previewBackground?: CodeDemoConfiguration['previewBackground'];
+		previewMaxWidth?: CodeDemoConfiguration['previewMaxWidth'];
+		code?: CodeDemoConfiguration['code'];
 		spacing?: CodeDemoConfiguration['spacing'];
 		toggle?: CodeDemoConfiguration['toggle'];
 	}
@@ -26,7 +24,7 @@
 	}: Props = $props();
 	let codeVisible: boolean = $state();
 
-	run(() => {
+	$effect.pre(() => {
 		codeVisible = !toggle;
 	});
 
