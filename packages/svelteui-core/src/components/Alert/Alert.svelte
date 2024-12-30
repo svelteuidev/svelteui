@@ -25,7 +25,9 @@
 		...rest
 	}: AlertProps = $props();
 
-	let { cx, classes } = $derived(useStyles({ color, radius, variant }, { name: 'Alert', override }));
+	let { cx, classes } = $derived(
+		useStyles({ color, radius, variant }, { name: 'Alert', override })
+	);
 </script>
 
 <Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...rest}>
@@ -54,7 +56,7 @@
 				</div>
 			{/if}
 			<div class={classes.message}>
-				{@render children()}
+				{@render children?.()}
 			</div>
 		</div>
 	</div>

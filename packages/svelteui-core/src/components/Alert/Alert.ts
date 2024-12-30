@@ -18,4 +18,6 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	withCloseButton?: boolean;
 	closeButtonLabel?: string;
 	onclose?: () => void
+	children?: Snippet
+	[key: string]: any
 }
