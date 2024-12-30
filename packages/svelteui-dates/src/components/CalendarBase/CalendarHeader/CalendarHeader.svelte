@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ActionIcon, UnstyledButton } from '@svelteuidev/core';
+	import { ActionIcon, UnstyledButton, useActions } from '@svelteuidev/core';
 	import useStyles from './CalendarHeader.styles';
 	import SelectChevronIcon from './SelectChevronIcon.svelte';
 	import ArrowIcon from './ArrowIcon.svelte';
@@ -42,20 +42,12 @@
 		onPrevious = null,
 		onNextLevel = null
 	}: Props = $props();
-	
 
-	const iconSizes = {
-		xs: 12,
-		sm: 14,
-		md: 18,
-		lg: 22,
-		xl: 28
-	};
 	let { cx, classes, theme } = $derived(useStyles({ size }, { override }));
 	let iconSize = $derived(theme);
 </script>
 
-<div use:use bind:this={element} class={cx(classes.root, className)}>
+<div use:useActions={use} bind:this={element} class={cx(classes.root, className)}>
 	<ActionIcon
 		class={classes.calendarHeaderControl}
 		disabled={!hasPrevious}

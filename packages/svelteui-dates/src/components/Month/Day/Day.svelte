@@ -1,34 +1,10 @@
 <script lang="ts">
+	import { useActions } from '@svelteuidev/core';
+
 	import useStyles from './Day.styles';
 	import { getDayTabIndex } from './get-day-tab-index/get-day-tab-index';
 	import { getDayAutofocus } from './get-day-autofocus/get-day-autofocus';
-	import { createEventForwarder, useActions } from '@svelteuidev/core';
-	import { get_current_component } from 'svelte/internal';
-	import type { DayProps as $$DayProps } from './Day.styles';
-
-	interface Props {
-		use?: $$DayProps['use'];
-		element?: $$DayProps['element'];
-		class?: $$DayProps['className'];
-		override?: $$DayProps['override'];
-		value?: $$DayProps['value'];
-		selected?: $$DayProps['selected'];
-		weekend?: $$DayProps['weekend'];
-		outside?: $$DayProps['outside'];
-		disabled?: $$DayProps['disabled'];
-		hasValue?: $$DayProps['hasValue'];
-		inRange?: $$DayProps['inRange'];
-		firstInRange?: $$DayProps['firstInRange'];
-		lastInRange?: $$DayProps['lastInRange'];
-		size?: $$DayProps['size'];
-		fullWidth?: $$DayProps['fullWidth'];
-		firstInMonth?: $$DayProps['firstInMonth'];
-		focusable?: $$DayProps['focusable'];
-		hideOutsideDates?: $$DayProps['hideOutsideDates'];
-		primaryColor?: $$DayProps['primaryColor'];
-		onMouseEnter?: $$DayProps['onMouseEnter'];
-		renderDay?: $$DayProps['renderDay'];
-	}
+	import type { DayProps } from './Day.styles';
 
 	let {
 		use = [],
@@ -51,24 +27,19 @@
 		hideOutsideDates = null,
 		primaryColor = 'blue',
 		onMouseEnter = (date: Date, event: MouseEvent) => null,
-		renderDay = undefined
-	}: Props = $props();
-	
+		renderDay = undefined,
+		...rest
+	}: DayProps = $props();
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	let { cx, classes } = $derived(useStyles(
-		{ size, fullWidth, primaryColor, hideOutsideDates },
-		{ override }
-	));
+	let { cx, classes } = $derived(
+		useStyles({ size, fullWidth, primaryColor, hideOutsideDates }, { override })
+	);
 </script>
 
 <button
 	type="button"
 	bind:this={element}
 	use:useActions={use}
-	use:forwardEvents
 	onmouseenter={(event) => onMouseEnter(value, event)}
 	tabindex={getDayTabIndex({ focusable, hasValue, selected, firstInMonth })}
 	data-autofocus={getDayAutofocus({ hasValue, selected, firstInMonth })}
@@ -87,6 +58,7 @@
 		className
 	)}
 	{disabled}
+	{...rest}
 >
 	{typeof renderDay === 'function' ? renderDay(value) : value.getDate()}
 </button>

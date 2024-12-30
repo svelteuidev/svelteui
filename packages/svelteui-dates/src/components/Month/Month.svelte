@@ -1,47 +1,14 @@
 <script lang="ts">
 	/* eslint-disable no-undef */
 	import dayjs from 'dayjs';
-	import useStyles, { no } from './Month.styles';
-	import { Day } from './Day';
-	import { Box, Text } from '@svelteuidev/core';
-	import { getDayProps } from './get-day-props/get-day-props';
+	import { Box, Text, useActions } from '@svelteuidev/core';
 	import { upperFirst } from '@svelteuidev/composables';
-	import { getMonthDays, getWeekdaysNames, isSameDate } from '../../utils';
-	import { createEventForwarder, useActions } from '@svelteuidev/core';
-	import { get_current_component } from 'svelte/internal';
-	import type { MonthProps as $$MonthProps } from './Month.styles';
 
-	interface Props {
-		use?: $$MonthProps['use'];
-		element?: $$MonthProps['element'];
-		class?: $$MonthProps['className'];
-		override?: $$MonthProps['override'];
-		disableOutsideEvents?: $$MonthProps['disableOutsideEvents'];
-		month: $$MonthProps['month'];
-		locale?: $$MonthProps['locale'];
-		value?: $$MonthProps['value'];
-		range?: $$MonthProps['range'];
-		weekdayLabelFormat?: $$MonthProps['weekdayLabelFormat'];
-		minDate?: $$MonthProps['minDate'];
-		maxDate?: $$MonthProps['maxDate'];
-		hideWeekdays?: $$MonthProps['hideWeekdays'];
-		size?: $$MonthProps['size'];
-		fullWidth?: $$MonthProps['fullWidth'];
-		preventFocus?: $$MonthProps['preventFocus'];
-		focusable?: $$MonthProps['focusable'];
-		firstDayOfWeek?: $$MonthProps['firstDayOfWeek'];
-		hideOutsideDates?: $$MonthProps['hideOutsideDates'];
-		onChange?: $$MonthProps['onChange'];
-		onDayMouseEnter?: $$MonthProps['onDayMouseEnter'];
-		onDayKeyDown?: $$MonthProps['onDayKeyDown'];
-		renderDay?: $$MonthProps['renderDay'];
-		dayClassName?: $$MonthProps['dayClassName'];
-		excludeDate?: $$MonthProps['excludeDate'];
-		isDateInRange?: $$MonthProps['isDateInRange'];
-		isDateFirstInRange?: $$MonthProps['isDateFirstInRange'];
-		isDateLastInRange?: $$MonthProps['isDateLastInRange'];
-		[key: string]: any
-	}
+	import { getMonthDays, getWeekdaysNames, isSameDate } from '../../utils';
+	import { getDayProps } from './get-day-props/get-day-props';
+	import useStyles, { no } from './Month.styles';
+	import type { MonthProps } from './Month.styles';
+	import { Day } from './Day';
 
 	let {
 		use = [],
@@ -51,7 +18,7 @@
 		disableOutsideEvents = false,
 		month,
 		locale = 'en',
-		value = undefined,
+		value = $bindable(undefined),
 		range = undefined,
 		weekdayLabelFormat = undefined,
 		minDate = undefined,
@@ -73,12 +40,10 @@
 		isDateFirstInRange = no,
 		isDateLastInRange = no,
 		...rest
-	}: Props = $props();
-	
+	}: MonthProps = $props();
 
 	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-	const castType = <T>(value: unknown) => value as T;
+	const castType = <T,>(value: unknown) => value as T;
 	const days = getMonthDays(month, firstDayOfWeek);
 	const hasValue = Array.isArray(value)
 		? value.every((item) => item instanceof Date)
@@ -93,7 +58,7 @@
 
 <Box
 	bind:element
-	use={[forwardEvents, [useActions, use]]}
+	use={[[useActions, use]]}
 	root="table"
 	class={cx(className, classes.root)}
 	{...rest}
@@ -129,11 +94,11 @@
 					{@const onKeyDownPayload = { rowIndex, cellIndex, date }}
 					<td class={classes.cell}>
 						<Day
-							on:click={() => {
+							onclick={() => {
 								typeof onChange === 'function' && onChange(date);
 							}}
-							on:mousedown={(event) => preventFocus && event.preventDefault()}
-							on:keydown={(event) =>
+							onmousedown={(event) => preventFocus && event.preventDefault()}
+							onkeydown={(event) =>
 								typeof onDayKeyDown === 'function' &&
 								onDayKeyDown(onKeyDownPayload, castType(event))}
 							value={date}

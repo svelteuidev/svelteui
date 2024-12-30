@@ -16,9 +16,10 @@ export interface DayProps extends DefaultProps {
 	firstInMonth: boolean;
 	focusable?: boolean;
 	hideOutsideDates?: boolean;
-	primaryColor: SvelteUIColor;
+	primaryColor?: SvelteUIColor;
 	onMouseEnter(date: Date, event: MouseEvent): void;
 	renderDay?(date: Date): unknown;
+	[key: string]: any	
 }
 
 interface DayStyleParams {
