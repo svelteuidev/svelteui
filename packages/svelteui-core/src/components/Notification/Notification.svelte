@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import { IconRenderer } from '../IconRenderer';
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
 	import useStyles from './Notification.styles';

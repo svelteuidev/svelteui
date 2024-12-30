@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import { TextInput } from '../TextInput';
 	import useStyles from './NumberInput.styles';
 	import { defaultFormatter, defaultParser } from './utils';
@@ -13,7 +13,6 @@
 		overrideControls = {},
 		root = 'input',
 		placeholder = undefined,
-		icon = null,
 		iconWidth = 36,
 		iconProps = { size: 20, color: 'currentColor' },
 		wrapperProps = {},
@@ -36,6 +35,7 @@
 		formatter = defaultFormatter,
 		parser = defaultParser,
 		onchange = () => {},
+		icon,
 		...rest
 	}: NumberInputProps = $props();
 
@@ -174,6 +174,7 @@
 
 <!-- @TODO: The error in bind is because the eslint plugin is not yet updated
  for the getter and setter in bind. See https://github.com/sveltejs/svelte/pull/14307  -->
+<!-- eslint-disable -->
 <TextInput
 	{root}
 	{icon}
@@ -188,17 +189,8 @@
 	{placeholder}
 	class={cx(className, classes.root)}
 	override={{ '& .rightSection': { width: 'auto' }, ...override }}
-	bind:value={() => formatNumber(value),
-	(updatedValue) => {
-		if (updatedValue === '' || updatedValue === '-') {
-			value = undefined;
-		} else {
-			const parsedNumber = parseNumber(updatedValue);
-			if (parsedNumber === undefined || Number.isNaN(parseNumber)) return;
-			value = parseFloat(parsedNumber);
-		}
-		onchange(value);
-	}}
+	value={formatNumber(value)}
+	onchange={onInput}
 	showRightSection={showControls}
 	use={[[useActions, use]]}
 	bind:element
@@ -208,32 +200,33 @@
 	onblur={onBlur}
 	{...rest}
 >
-	<slot slot="icon" name="icon" />
-	<div
-		slot="rightSection"
-		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
-	>
-		{#if showControls}
-			<button
-				class={cx(classes.control, classes.controlUp)}
-				type="button"
-				tabIndex={-1}
-				aria-hidden
-				disabled={value >= max}
-				on:mousedown={() => onStep(true)}
-				on:mouseup={onStepDone}
-				on:mouseleave={onStepDone}
-			/>
-			<button
-				class={cx(classes.control, classes.controlDown)}
-				type="button"
-				tabIndex={-1}
-				aria-hidden
-				disabled={value <= min}
-				on:mousedown={() => onStep(false)}
-				on:mouseup={onStepDone}
-				on:mouseleave={onStepDone}
-			/>
-		{/if}
-	</div>
+	{@render icon?.()}
+	{#snippet rightSection()}
+		<div class={cx(className, classes.controls, getStyles({ css: overrideControls }))}>
+			{#if showControls}
+				<button
+					class={cx(classes.control, classes.controlUp)}
+					type="button"
+					tabIndex={-1}
+					aria-hidden={true}
+					aria-label="step-up"
+					disabled={value >= max}
+					onmousedown={() => onStep(true)}
+					onmouseup={onStepDone}
+					onmouseleave={onStepDone}
+				></button>
+				<button
+					class={cx(classes.control, classes.controlDown)}
+					type="button"
+					tabIndex={-1}
+					aria-hidden={true}
+					aria-label="step-down"
+					disabled={value <= min}
+					onmousedown={() => onStep(false)}
+					onmouseup={onStepDone}
+					onmouseleave={onStepDone}
+				></button>
+			{/if}
+		</div>
+	{/snippet}
 </TextInput>
