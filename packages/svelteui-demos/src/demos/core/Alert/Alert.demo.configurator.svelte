@@ -1,6 +1,4 @@
-<!-- @migration-task Error while migrating Svelte code: migrating this component would require adding a `$props` rune but there's already a variable named props.
-     Rename the variable and try again or migrate by hand. -->
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
@@ -60,11 +58,13 @@
 	import { Alert, Center } from '@svelteuidev/core';
 	import { InfoCircled } from 'radix-icons-svelte';
 
-	export let props: AlertProps = {};
+	let { children, ...rest }: AlertProps = $props();
 </script>
 
 <Center>
-	<Alert icon={InfoCircled} {...props}>
-		<slot />
+	<Alert iconComponent={InfoCircled} {...rest}>
+		{#snippet children()}
+			{@render children?.()}
+		{/snippet}
 	</Alert>
 </Center>
