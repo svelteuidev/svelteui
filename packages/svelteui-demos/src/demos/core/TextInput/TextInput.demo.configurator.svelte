@@ -1,6 +1,4 @@
-<!-- @migration-task Error while migrating Svelte code: migrating this component would require adding a `$props` rune but there's already a variable named props.
-     Rename the variable and try again or migrate by hand. -->
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -46,7 +44,7 @@
 	import type { TextInputProps } from '@svelteuidev/core';
 	import { TextInput } from '@svelteuidev/core';
 
-	export let props: Partial<TextInputProps> = {};
+	let props: Partial<TextInputProps> = $props();
 </script>
 
 <TextInput {...props} />

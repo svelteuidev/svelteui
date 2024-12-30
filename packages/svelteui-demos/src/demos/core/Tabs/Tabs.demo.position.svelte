@@ -1,6 +1,4 @@
-<!-- @migration-task Error while migrating Svelte code: migrating this component would require adding a `$props` rune but there's already a variable named props.
-     Rename the variable and try again or migrate by hand. -->
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
@@ -56,11 +54,11 @@
 	import type { TabsProps } from '@svelteuidev/core';
 	import { Tabs } from '@svelteuidev/core';
 
-	export let props: TabsProps = {};
+	let props: TabsProps = $props();
 </script>
 
 <Tabs {...props}>
-	<Tabs.Tab label="First">First tab content</Tabs.Tab>
-	<Tabs.Tab label="Second">Second tab content</Tabs.Tab>
-	<Tabs.Tab label="Third">Third tab content</Tabs.Tab>
+	<Tabs.Tab labelText="First">First tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Second">Second tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Third">Third tab content</Tabs.Tab>
 </Tabs>
