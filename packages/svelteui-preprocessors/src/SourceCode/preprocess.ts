@@ -1,9 +1,12 @@
 import MagicString from 'magic-string';
 import jsStringEscape from 'js-string-escape';
-import { parse, walk } from 'svelte/compiler';
+import { parse } from 'svelte/compiler';
+import { walk } from 'estree-walker'
 import type { Node, Ast } from '$lib/types';
 import type { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 import type { ParsedPair, ParsedPairs, PreprocessOptions } from './types';
+
+// @TODO: !!!IMPORTANT: this has bee commented out since svelte 5, since it requires a big migration 
 
 function getSourceIdAttribute(node: Node) {
 	return node?.attributes?.find(({ name }) => name === 'sourceId')?.value?.[0]?.data;
@@ -64,7 +67,9 @@ const scriptRegex = /<script(\s[^]*?)?>([^]*?)<\/script>/gi;
 export default function preprocessSvelteViewSource(opts?: PreprocessOptions): PreprocessorGroup {
 	const SOURCE_NODE_NAME = opts?.sourceTagName ?? 'SourceCode';
 	const DISPLAY_NODE_NAME = opts?.displayTagName ?? 'DisplaySourceCode';
-
+	
+	return {}
+	/*
 	return {
 		markup({ content, filename }) {
 			const stylesMatches = [...content.matchAll(styleRegex)].map((matchArr) => matchArr?.[0]);
@@ -141,4 +146,5 @@ export default function preprocessSvelteViewSource(opts?: PreprocessOptions): Pr
 			};
 		}
 	};
+	*/
 }

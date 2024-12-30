@@ -5,7 +5,7 @@
 	"compilerOptions": {
 		"moduleResolution": "bundler",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": ["es2021", "DOM"],
 		"target": "ES2022",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
@@ -16,6 +16,8 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
+		"composite": true,
+		"noEmit": false,
 		"paths": {
 			"$lib": ["src"],
 			"$lib/*": ["src/*"]
