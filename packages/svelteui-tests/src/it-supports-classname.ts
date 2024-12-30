@@ -1,9 +1,9 @@
+import type { Component } from 'svelte';
 import { expect, it } from 'vitest';
 import { render } from '@testing-library/svelte';
-import type { SvelteComponent } from 'svelte';
 
 export function itSupportsClassName<P>(
-	Component: typeof SvelteComponent,
+	Component: Component,
 	props?: P,
 	isChild: boolean = false
 ) {
