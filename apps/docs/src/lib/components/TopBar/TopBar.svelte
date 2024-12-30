@@ -19,17 +19,11 @@ https://svelte.dev/e/js_parse_error -->
 	import { onMount } from 'svelte';
 	import { hotkey } from '@svelteuidev/composables';
 	import { browser } from '$app/environment';
-	import SearchItem from '$lib/components/SearchItem.svelte';
+	import SearchItem, { type SearchType } from '$lib/components/SearchItem.svelte';
 
-	type SearchItem = {
-		title: string;
-		link: string;
-		section?: string;
-	};
-
-	let recentSearches: SearchItem[],
+	let recentSearches: SearchType[],
 		searchTerm = '',
-		matchingSearches: SearchItem[] = [],
+		matchingSearches: SearchType[] = [],
 		modalOpened = false;
 
 	onMount(() => {
@@ -56,11 +50,11 @@ https://svelte.dev/e/js_parse_error -->
 		);
 	}
 
-	function addSearch(matchingSearch: SearchItem) {
+	function addSearch(matchingSearch: SearchType) {
 		changeModalState();
 		const existingSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
 		const elementExists = existingSearches.some(
-			(item: SearchItem) => item.title === matchingSearch.title
+			(item: SearchType) => item.title === matchingSearch.title
 		);
 		if (!elementExists) existingSearches.unshift(matchingSearch);
 		if (existingSearches.length > 6) existingSearches.pop();
