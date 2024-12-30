@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { DemoControlNumber } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { NumberInput } from '@svelteuidev/core';
 
 	interface Props {
@@ -9,20 +8,13 @@
 		min: DemoControlNumber['min'];
 		max: DemoControlNumber['max'];
 		step: DemoControlNumber['step'];
+		onchange: (value: number) => void;
 	}
 
-	let {
-		value,
-		label,
-		min,
-		max,
-		step
-	}: Props = $props();
-
-	const dispatch = createEventDispatcher();
+	let { value, label, min, max, step, onchange }: Props = $props();
 
 	function onChange(e) {
-		dispatch('change', e.detail);
+		onchange(e.detail);
 	}
 </script>
 

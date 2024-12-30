@@ -228,7 +228,7 @@
 			</div>
 		</div>
 		<div class="controls">
-			<ControlsRenderer value={data} controls={demoControls} on:change={onChange} />
+			<ControlsRenderer value={data} controls={demoControls} onchange={onChange} />
 			<!--			<button {data}> test </button>-->
 			<!--			<button {data} />-->
 			<!--			<button />-->

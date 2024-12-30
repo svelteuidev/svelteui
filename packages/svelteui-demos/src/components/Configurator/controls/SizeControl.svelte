@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { DemoControlSize } from '$lib/types';
 	import { NativeSelect } from '@svelteuidev/core';
-	import { createEventDispatcher } from 'svelte';
 
 	// Made this way to use it for slider component in future
 	const MARKS = [
@@ -14,19 +13,18 @@
 
 	const values = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-	const dispatch = createEventDispatcher();
-
 	interface Props {
 		value: string;
 		label: DemoControlSize['label'];
+		onchange: (value: string) => void;
 	}
 
-	let { value, label }: Props = $props();
+	let { value, label, onchange }: Props = $props();
 
 	let _value = $derived(MARKS.find((mark) => mark.label === value).label);
 
 	function onChange(e) {
-		dispatch('change', e.currentTarget.value);
+		onchange(e.currentTarget.value);
 	}
 </script>
 

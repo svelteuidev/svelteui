@@ -3,16 +3,15 @@
 	import type * as Stitches from '@stitches/core';
 	import type { DemoControlColor } from '$lib/types';
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
-	import { createEventDispatcher } from 'svelte';
 
 	interface Props {
 		value: string;
 		label: DemoControlColor['label'];
+		onchange: (value: string) => void;
 	}
 
-	let { value = $bindable(), label }: Props = $props();
+	let { value = $bindable(), label, onchange }: Props = $props();
 
-	const dispatch = createEventDispatcher();
 	const listOfColors = [
 		'dark',
 		'gray',
@@ -82,7 +81,7 @@
 
 	function changeValue(newValue: string) {
 		value = newValue;
-		dispatch('change', newValue);
+		onchange(newValue);
 	}
 </script>
 
@@ -90,6 +89,7 @@
 	<Group spacing={2}>
 		{#each listOfColors as color}
 			<button
+				aria-label="color-control"
 				onclick={() => changeValue(color)}
 				class:active={value === color}
 				class={colorStyles({ color })}

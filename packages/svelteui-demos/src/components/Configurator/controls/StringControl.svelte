@@ -1,19 +1,17 @@
 <script lang="ts">
 	import type { DemoControlString } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '@svelteuidev/core';
 
 	interface Props {
 		value: string;
 		label: DemoControlString['label'];
+		onchange: (value: string) => void;
 	}
 
-	let { value, label }: Props = $props();
-
-	const dispatch = createEventDispatcher();
+	let { value, label, onchange }: Props = $props();
 
 	function onInput(e) {
-		dispatch('change', e.currentTarget.value);
+		onchange(e.currentTarget.value);
 	}
 </script>
 

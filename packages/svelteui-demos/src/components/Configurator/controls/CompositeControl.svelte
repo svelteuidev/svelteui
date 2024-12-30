@@ -2,23 +2,21 @@
 	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { ControlsRenderer } from './index';
 	import type { DemoControlComposite } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';
 
 	interface Props {
 		label: DemoControlComposite['label'];
 		controls: DemoControlComposite['controls'];
+		onchange: (value: any) => void;
 	}
 
-	let { label, controls }: Props = $props();
-
-	const dispatch = createEventDispatcher();
+	let { label, controls, onchange }: Props = $props();
 
 	let data: Record<string, any> = $state({});
 
 	function onChange(newData) {
 		data = newData.detail;
-		dispatch('change', data);
+		onchange(newData.detail);
 	}
 
 	const styles = css({
@@ -33,6 +31,6 @@
 
 <InputWrapper {label}>
 	<div class={styles()}>
-		<ControlsRenderer value={data} {controls} on:change={onChange} />
+		<ControlsRenderer value={data} {controls} onchange={onChange} />
 	</div>
 </InputWrapper>

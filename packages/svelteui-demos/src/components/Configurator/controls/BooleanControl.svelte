@@ -1,19 +1,18 @@
 <script lang="ts">
 	import type { DemoControlBoolean } from '$lib/types';
 	import { Switch } from '@svelteuidev/core';
-	import { createEventDispatcher } from 'svelte';
 
 	interface Props {
 		value: boolean;
 		label: DemoControlBoolean['label'];
+		onchange: (value: boolean) => void;
 	}
 
-	let { value, label }: Props = $props();
-
-	const dispatch = createEventDispatcher();
+	let { value = $bindable(), label, onchange }: Props = $props();
 
 	function onChange(e) {
-		dispatch('change', e.currentTarget.checked);
+		value = e.currentTarget.checked;
+		onchange(value);
 	}
 </script>
 

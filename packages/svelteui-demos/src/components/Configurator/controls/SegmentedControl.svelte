@@ -8,14 +8,10 @@
 		label: DemoControlSegmented['label'];
 		data: DemoControlSegmented['data'];
 		capitalize?: DemoControlSegmented['capitalize'];
+		onchange: (value: string) => void;
 	}
 
-	let {
-		value,
-		label,
-		data,
-		capitalize = true
-	}: Props = $props();
+	let { value, label, data, capitalize = true, onchange }: Props = $props();
 </script>
 
 <!-- TODO: change NativeSelect to Segmented when it will be implemented -->
@@ -26,5 +22,5 @@
 		value: item.value,
 		label: capitalize ? upperFirst(item.label) : item.label
 	}))}
-	on:change
+	{onchange}
 />

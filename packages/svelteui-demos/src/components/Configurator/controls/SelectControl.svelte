@@ -8,14 +8,10 @@
 		label: DemoControlSelect['label'];
 		data: DemoControlSelect['data'];
 		capitalize?: DemoControlSelect['capitalize'];
+		onchange: (value: string) => void;
 	}
 
-	let {
-		value,
-		label,
-		data,
-		capitalize = true
-	}: Props = $props();
+	let { value, label, data, capitalize = true, onchange }: Props = $props();
 </script>
 
 <NativeSelect
@@ -25,5 +21,5 @@
 		value: item.value,
 		label: capitalize ? upperFirst(item.label) : item.label
 	}))}
-	on:change
+	{onchange}
 />
