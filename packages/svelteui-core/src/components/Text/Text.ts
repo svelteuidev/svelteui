@@ -37,5 +37,5 @@ export interface TextProps<
 	inherit?: boolean;
 	tracking?: Tracking;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

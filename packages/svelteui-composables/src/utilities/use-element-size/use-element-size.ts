@@ -34,7 +34,7 @@ export function useElementSize(): ElementSize {
 							size.set(entry.contentRect);
 						});
 					}
-			  })
+				})
 			: null;
 
 		observer.observe(node);

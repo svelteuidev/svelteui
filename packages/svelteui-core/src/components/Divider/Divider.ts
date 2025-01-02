@@ -15,5 +15,5 @@ export interface DividerProps extends DefaultProps, HTMLAttributes<HTMLElement> 
 	variant?: DividerVariant;
 	label?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

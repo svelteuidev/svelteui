@@ -12,5 +12,5 @@ export interface OverlayProps extends DefaultProps, Omit<HTMLAttributes<HTMLElem
 	zIndex?: CSS['zIndex'];
 	radius?: SvelteUINumberSize;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

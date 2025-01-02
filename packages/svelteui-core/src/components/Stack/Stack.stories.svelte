@@ -6,7 +6,7 @@
 
 <Meta title="Components/Stack" component={Stack} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Stack {...args}>
 			<Button variant="outline">1</Button>

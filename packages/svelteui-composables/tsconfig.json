@@ -22,7 +22,7 @@
 			"$lib/*": ["src/*"],
 			"$clib": ["src"],
 			"$clib/*": ["src/*"]
-		},
+		}
 	},
 	"references": [{ "path": "../svelteui-tests" }],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],

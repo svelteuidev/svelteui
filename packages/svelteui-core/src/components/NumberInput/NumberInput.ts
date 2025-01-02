@@ -22,4 +22,3 @@ export interface NumberInputProps extends Omit<TextInputProps, 'value'> {
 	formatter?: Formatter;
 	parser?: Parser;
 }
-

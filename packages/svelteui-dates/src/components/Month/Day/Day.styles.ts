@@ -19,7 +19,7 @@ export interface DayProps extends DefaultProps {
 	primaryColor?: SvelteUIColor;
 	onMouseEnter(date: Date, event: MouseEvent): void;
 	renderDay?(date: Date): unknown;
-	[key: string]: any	
+	[key: string]: any;
 }
 
 interface DayStyleParams {

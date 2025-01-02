@@ -8,5 +8,5 @@ export interface PaperProps extends DefaultProps<HTMLDivElement>, HTMLAttributes
 	withBorder?: boolean;
 	padding?: SvelteUINumberSize;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

@@ -5,5 +5,5 @@ import type { DefaultProps } from '$lib/styles';
 export interface CenterProps extends DefaultProps<HTMLButtonElement>, HTMLAttributes<HTMLElement> {
 	inline?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

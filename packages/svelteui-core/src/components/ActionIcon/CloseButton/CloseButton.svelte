@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { useActions } from '$lib/internal';
-	
+
 	import ActionIcon from '../ActionIcon.svelte';
 	import CloseIcon from './CloseIcon.svelte';
 	import type { CloseButtonProps } from './CloseButton';
@@ -27,7 +27,7 @@
 		external = false,
 		...rest
 	}: CloseButtonProps = $props();
-	
+
 	const iconSizes = {
 		xs: 12,
 		sm: 14,

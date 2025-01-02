@@ -12,5 +12,5 @@ export interface GroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	direction?: 'row' | 'column';
 	align?: CSS['alignItems'];
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

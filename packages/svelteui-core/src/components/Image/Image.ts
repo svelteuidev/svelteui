@@ -4,7 +4,9 @@ import type { DefaultProps, Override, SvelteUINumberSize } from '$lib/styles';
 
 export type ImageFit = 'cover' | 'contain' | undefined;
 
-export interface ImageProps<T = HTMLImageElement> extends DefaultProps<T>, Omit<HTMLImgAttributes, 'placeholder'> {
+export interface ImageProps<T = HTMLImageElement>
+	extends DefaultProps<T>,
+		Omit<HTMLImgAttributes, 'placeholder'> {
 	src?: string;
 	overridePlaceholder?: Override['props'];
 	radius?: SvelteUINumberSize;
@@ -15,5 +17,5 @@ export interface ImageProps<T = HTMLImageElement> extends DefaultProps<T>, Omit<
 	usePlaceholder?: boolean;
 	loader?: boolean;
 	placeholder?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

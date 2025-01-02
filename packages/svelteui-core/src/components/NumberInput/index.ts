@@ -1,4 +1,3 @@
-
 import type NumberInputComponent from './NumberInput.svelte';
 export type { NumberInputComponent };
 

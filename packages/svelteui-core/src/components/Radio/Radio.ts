@@ -21,5 +21,5 @@ export interface RadioProps
 	group?: string;
 	isGrouped?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

@@ -9,7 +9,7 @@ interface ControlCondition {
 }
 
 interface DemoControlBase<Type, T = any> {
-	type: Type
+	type: Type;
 	name: string;
 	label?: string;
 	initialValue?: T;
@@ -41,7 +41,11 @@ export interface DemoControlSegmented extends DemoControlBase<'segmented', strin
 	capitalize?: boolean;
 }
 
-export interface DemoControlComposite extends Exclude<DemoControlBase<'composite', Record<string, any>>, 'initialValue' | 'defaultValue'> {
+export interface DemoControlComposite
+	extends Exclude<
+		DemoControlBase<'composite', Record<string, any>>,
+		'initialValue' | 'defaultValue'
+	> {
 	controls: DemoControl[];
 }
 

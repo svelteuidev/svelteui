@@ -18,5 +18,5 @@ export interface TabProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	label?: Snippet;
 	icon?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

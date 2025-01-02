@@ -26,7 +26,7 @@ export interface TabsProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	variant?: TabsVariant;
 	onChange?: (index: number, key: string) => void;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
 
 export interface TabsEvents {

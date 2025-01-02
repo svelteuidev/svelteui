@@ -6,7 +6,7 @@
 
 <Meta title="Components/Flex" component={Flex} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Flex {...args}>
 			<Button>Button 1</Button>

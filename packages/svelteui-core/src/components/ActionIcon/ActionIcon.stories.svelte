@@ -10,13 +10,13 @@
 
 <Meta title="Components/ActionIcon" component={ActionIcon} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<ActionIcon {...args} />
 	{/snippet}
 </Template>
 
-<Template id="variants" >
+<Template id="variants">
 	{#snippet children({ args })}
 		<Group mt="xl">
 			<ActionIcon {...args} variant="hover" />

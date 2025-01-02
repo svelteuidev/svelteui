@@ -1,5 +1,10 @@
-
-import type { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type {
+	CSS,
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUISize
+} from '$lib/styles';
 
 export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
 	color?: SvelteUIColor;
@@ -13,6 +18,5 @@ export interface CheckboxGroupProps extends DefaultProps<HTMLInputElement> {
 	spacing?: SvelteUINumberSize;
 	wrapperProps?: Record<string, any>;
 	onchange?: (value: string[]) => void;
-	[key: string]: any
+	[key: string]: any;
 }
-

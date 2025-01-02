@@ -23,5 +23,5 @@ export interface TimelineProps extends DefaultProps, HTMLAttributes<HTMLElement>
 	lineWidth?: number;
 	reverseActive?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

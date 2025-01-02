@@ -17,7 +17,7 @@ export interface AlertProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	iconProps?: Record<string, unknown>;
 	withCloseButton?: boolean;
 	closeButtonLabel?: string;
-	onclose?: () => void
-	children?: Snippet
-	[key: string]: any
+	onclose?: () => void;
+	children?: Snippet;
+	[key: string]: any;
 }

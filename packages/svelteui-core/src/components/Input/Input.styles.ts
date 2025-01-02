@@ -58,8 +58,8 @@ export default createStyles(
 							height: multiline
 								? 'auto'
 								: typeof size === 'number'
-								? `${size}px`
-								: sizes[size] ?? sizes.md,
+									? `${size}px`
+									: (sizes[size] ?? sizes.md),
 							WebkitTapHighlightColor: 'transparent',
 							lineHeight: multiline ? '$md' : `${sizes[size] - 2}px`,
 							appearance: 'none',
@@ -72,10 +72,10 @@ export default createStyles(
 							display: 'block',
 							textAlign: 'left',
 							minHeight:
-								variant === 'default' || variant === 'filled' ? sizes[size] ?? sizes.md : null,
+								variant === 'default' || variant === 'filled' ? (sizes[size] ?? sizes.md) : null,
 							paddingLeft:
 								(variant === 'default' && icon) || (variant === 'filled' && icon)
-									? sizes[size] ?? sizes.md / 3
+									? (sizes[size] ?? sizes.md / 3)
 									: 12,
 							paddingRight:
 								variant === 'default' || variant === 'filled'
@@ -114,7 +114,7 @@ export default createStyles(
 							darkMode: {
 								color: theme.fn.themeColor('dark', 0)
 							}
-					  }
+						}
 					: {},
 			defaultVariant: {
 				border: `1px solid ${theme.fn.themeColor('gray', 4)}`,
@@ -175,7 +175,7 @@ export default createStyles(
 				}
 			},
 			withIcon: {
-				paddingLeft: typeof iconWidth === 'number' ? `${iconWidth}px` : sizes[size] ?? sizes.md
+				paddingLeft: typeof iconWidth === 'number' ? `${iconWidth}px` : (sizes[size] ?? sizes.md)
 			},
 			iconWrapper: {
 				pointerEvents: 'none',
@@ -187,7 +187,7 @@ export default createStyles(
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				width: iconWidth ? `${iconWidth}px` : sizes[size] ?? sizes.md
+				width: iconWidth ? `${iconWidth}px` : (sizes[size] ?? sizes.md)
 			},
 			disabled: {
 				backgroundColor: theme.fn.themeColor('gray', 1),

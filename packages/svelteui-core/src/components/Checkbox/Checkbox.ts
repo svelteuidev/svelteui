@@ -18,5 +18,5 @@ export interface CheckboxProps
 	transitionDuration?: number;
 	wrapperProps?: { [key: string]: any };
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

@@ -7,5 +7,5 @@ export interface TypographyProviderProps extends DefaultProps, HTMLAttributes<HT
 	underline?: boolean;
 	primaryColor?: SvelteUIColor;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

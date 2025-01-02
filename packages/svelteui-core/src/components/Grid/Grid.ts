@@ -12,5 +12,5 @@ export interface GridProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	spacing?: SvelteUINumberSize;
 	justify?: CSS['justifyContent'];
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

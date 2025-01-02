@@ -9,5 +9,5 @@ export interface CollapseProps extends DefaultProps, HTMLAttributes<HTMLElement>
 	transitionDuration?: number;
 	slideTransitionOptions?: SlideParams;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

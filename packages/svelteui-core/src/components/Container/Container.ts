@@ -7,5 +7,5 @@ export interface ContainerProps extends DefaultProps, HTMLAttributes<HTMLElement
 	fluid?: boolean;
 	sizes?: Record<SvelteUISize, number>;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

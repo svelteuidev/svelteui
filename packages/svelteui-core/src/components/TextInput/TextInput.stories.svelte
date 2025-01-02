@@ -6,7 +6,7 @@
 
 <Meta title="Components/TextInput" component={TextInput} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<TextInput {...args} />
 	{/snippet}
@@ -53,9 +53,7 @@
 <Story name="With icon (slot)" id="textInputIconSlotStory">
 	<TextInput label="Email" placeholder="Your email">
 		{#snippet icon()}
-			
-				<EnvelopeClosed />
-			
-			{/snippet}
+			<EnvelopeClosed />
+		{/snippet}
 	</TextInput>
 </Story>

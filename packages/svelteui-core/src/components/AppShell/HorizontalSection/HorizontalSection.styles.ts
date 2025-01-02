@@ -40,7 +40,7 @@ export default createStyles(
 						};
 
 						return acc;
-				  }, {})
+					}, {})
 				: null;
 
 		return {
@@ -76,7 +76,7 @@ export default createStyles(
 				})}px)`]: hidden
 					? {
 							display: 'none'
-					  }
+						}
 					: {}
 			}
 		};

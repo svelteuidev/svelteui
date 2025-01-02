@@ -25,8 +25,8 @@ export interface MenuProps
 	zIndex?: number;
 	transition?: TransitionName;
 	transitionOptions?: TransitionOptions;
-	onopen?: () => void
-	onclose?: () => void
+	onopen?: () => void;
+	onclose?: () => void;
 	control?: Snippet;
 	children?: Snippet;
 	[key: string]: any;

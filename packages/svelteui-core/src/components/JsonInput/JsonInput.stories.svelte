@@ -8,7 +8,7 @@
 
 <Meta title="Components/JsonInput" component={JsonInput} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<JsonInput {...args} />
 	{/snippet}

@@ -25,5 +25,5 @@ export interface SwitchProps
 	offLabel?: string;
 	disabled?: boolean;
 	checked?: boolean;
-	[key: string]: any
+	[key: string]: any;
 }

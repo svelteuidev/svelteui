@@ -27,9 +27,11 @@
 		external = false,
 		children,
 		...rest
-	}: ActionIconProps = $props()
-	
-	let { cx, classes, getStyles } = $derived(useStyles({ color, radius, size }, { name: 'ActionIcon' }));
+	}: ActionIconProps = $props();
+
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ color, radius, size }, { name: 'ActionIcon' })
+	);
 </script>
 
 <Box

@@ -8,5 +8,5 @@ export interface PortalProps extends DefaultProps<HTMLDivElement>, HTMLAttribute
 	position?: string;
 	zIndex?: number;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

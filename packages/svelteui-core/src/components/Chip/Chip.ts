@@ -16,5 +16,5 @@ export interface ChipProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	variant?: 'outline' | 'filled';
 	transitionDuration?: number;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

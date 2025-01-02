@@ -14,5 +14,5 @@ export interface PasswordInputProps extends BaseProps {
 	visible?: boolean;
 	defaultVisible?: boolean;
 	onVisibilityChange?(visible: boolean): void;
-	visibilityToggleIcon?: Snippet<[boolean]>
+	visibilityToggleIcon?: Snippet<[boolean]>;
 }

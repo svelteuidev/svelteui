@@ -20,5 +20,5 @@ export interface PopperProps extends DefaultProps<HTMLDivElement>, HTMLAttribute
 	reference?: HTMLElement;
 	withinPortal?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

@@ -14,5 +14,5 @@ export interface BlockquoteProps extends BaseProps {
 	icon?: Snippet;
 	citeContent?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

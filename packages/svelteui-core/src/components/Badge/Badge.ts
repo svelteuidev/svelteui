@@ -20,5 +20,5 @@ export interface BadgeProps extends DefaultProps<HTMLDivElement>, HTMLAttributes
 	children?: Snippet;
 	leftSection?: Snippet;
 	rightSection?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

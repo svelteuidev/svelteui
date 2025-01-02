@@ -28,14 +28,14 @@ export interface FileUploadProps<T = 'drag'>
 	resetColor?: SvelteUIColor;
 	preview?: boolean;
 	onselected?: (files: FileItem[]) => void;
-	onremoved?: (removed: { file: FileItem, index: number }) => void;
+	onremoved?: (removed: { file: FileItem; index: number }) => void;
 	onreset?: () => void;
 	icon?: Snippet;
 	fileIcon?: Snippet;
 	resetIcon?: Snippet;
 	removeIcon?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
 
 export interface FileUploadEvents {

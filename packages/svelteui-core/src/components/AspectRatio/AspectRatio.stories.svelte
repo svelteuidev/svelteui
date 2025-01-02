@@ -6,7 +6,7 @@
 
 <Meta title="Components/AspectRatio" component={AspectRatio} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<AspectRatio {...args} />
 	{/snippet}

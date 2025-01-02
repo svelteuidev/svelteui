@@ -35,19 +35,21 @@
 		rightIcon,
 		...rest
 	}: ButtonProps = $props();
-	
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{
-			color,
-			compact,
-			fullSize,
-			gradient,
-			radius,
-			size,
-			variant
-		},
-		{ name: 'Button' }
-	));
+
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				color,
+				compact,
+				fullSize,
+				gradient,
+				radius,
+				size,
+				variant
+			},
+			{ name: 'Button' }
+		)
+	);
 </script>
 
 <!--

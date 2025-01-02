@@ -6,7 +6,7 @@
 
 <Meta title="Components/Badge" component={Badge} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Badge {...args}>Hello</Badge>
 	{/snippet}

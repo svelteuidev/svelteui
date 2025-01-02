@@ -7,5 +7,5 @@ export interface StackProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	align?: CSS['alignItems'];
 	justify?: CSS['justifyContent'];
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

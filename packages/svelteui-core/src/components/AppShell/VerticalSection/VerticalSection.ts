@@ -14,8 +14,8 @@ export interface VerticalSectionSharedProps extends DefaultProps, HTMLAttributes
 	fixed?: boolean;
 	position?: VerticalSectionPosition;
 	zIndex?: number;
-	children?: Snippet
-	[key: string]: any
+	children?: Snippet;
+	[key: string]: any;
 }
 
 export interface VerticalSectionProps extends VerticalSectionSharedProps {

@@ -1,11 +1,11 @@
 import { createStyles } from '@svelteuidev/core';
 
 type WavesStyleParams = {
-	width: number
-	height: number
-	flip: boolean
-	alt: boolean
-}
+	width: number;
+	height: number;
+	flip: boolean;
+	alt: boolean;
+};
 
 export default createStyles((theme, { width, height, flip, alt }: WavesStyleParams) => ({
 	root: {

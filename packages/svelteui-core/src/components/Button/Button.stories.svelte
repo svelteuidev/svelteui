@@ -11,13 +11,13 @@
 
 <Meta title="Components/Button" component={Button} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Button {...args} />
 	{/snippet}
 </Template>
 
-<Template id="variants" >
+<Template id="variants">
 	{#snippet children({ args })}
 		<Group mt="xl">
 			<Button {...args} variant="filled">Filled button</Button>
@@ -49,8 +49,8 @@
 <Story name="With icon" id="buttonIconStory">
 	<Button>
 		{#snippet leftIcon()}
-				<LockClosed  />
-			{/snippet}
+			<LockClosed />
+		{/snippet}
 		Sign Up
 	</Button>
 </Story>

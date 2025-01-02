@@ -9,7 +9,7 @@ const config = {
 				fs: {
 					allow: ['./package']
 				}
-		  },
+			},
 	resolve: {
 		alias: {
 			$clib: './src'

@@ -12,15 +12,15 @@
 
 <Meta title="Components/Blockquote" component={Blockquote} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Center>
 			<div style="max-width: 600px;">
 				<Blockquote {...args}>
 					{text}
 					{#snippet cite()}
-								- Corey Riffin
-							{/snippet}
+						- Corey Riffin
+					{/snippet}
 				</Blockquote>
 			</div>
 		</Center>

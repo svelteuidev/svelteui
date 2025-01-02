@@ -11,5 +11,5 @@ export interface FlexProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	wrap?: CSS['flexWrap'];
 	direction?: CSS['flexDirection'];
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

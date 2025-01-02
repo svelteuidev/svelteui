@@ -21,7 +21,7 @@ export interface NotificationProps
 	onclose?: () => void;
 	icon?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
 
 export interface NotificationEvents {

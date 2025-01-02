@@ -1,5 +1,9 @@
 import type { Snippet } from 'svelte';
-import type { HTMLInputAttributes, HTMLSelectAttributes, HTMLTextareaAttributes } from 'svelte/elements';
+import type {
+	HTMLInputAttributes,
+	HTMLSelectAttributes,
+	HTMLTextareaAttributes
+} from 'svelte/elements';
 import type { Component } from '$lib/internal';
 import type { DefaultProps, SvelteUISize, SvelteUINumberSize, CSS } from '$lib/styles';
 
@@ -33,7 +37,7 @@ export interface InputBaseProps<T = string> extends DefaultProps<InputElementTyp
 	icon?: Snippet;
 	rightSection?: Snippet;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
 
 interface InputPropsInternal<T = string> extends InputBaseProps<T> {

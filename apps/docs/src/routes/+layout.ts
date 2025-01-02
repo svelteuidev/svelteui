@@ -6,8 +6,8 @@ export const prerender = true;
 // when building for production.
 export const ssr = false;
 
-export const load: LayoutLoad = (async ({ url: { pathname } }) => {
+export const load: LayoutLoad = async ({ url: { pathname } }) => {
 	return {
 		pathname
 	};
-});
+};

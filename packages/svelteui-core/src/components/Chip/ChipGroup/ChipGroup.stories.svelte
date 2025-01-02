@@ -11,7 +11,7 @@
 
 <Meta title="Components/Chip/ChipGroup" component={ChipGroup} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<ChipGroup {...args} />
 	{/snippet}

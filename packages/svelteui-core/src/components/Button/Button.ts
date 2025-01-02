@@ -1,7 +1,12 @@
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes, HTMLAnchorAttributes } from 'svelte/elements';
 
-import type { DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUIGradient } from '$lib/styles';
+import type {
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUIGradient
+} from '$lib/styles';
 import type { LoaderProps } from '../Loader/Loader';
 
 export type ButtonVariant =
@@ -32,7 +37,7 @@ interface ButtonPropsInternal extends DefaultProps<HTMLButtonElement | HTMLAncho
 	leftIcon?: Snippet;
 	children?: Snippet;
 	rightIcon?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
 
 export type ButtonProps = ButtonPropsInternal & HTMLButtonAttributes & HTMLAnchorAttributes;

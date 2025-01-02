@@ -8,5 +8,5 @@ export interface MediaQueryProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	largerThan?: SvelteUINumberSize;
 	styles?: CSS;
 	query?: string;
-	children?: Snippet
+	children?: Snippet;
 }

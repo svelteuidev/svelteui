@@ -5,5 +5,5 @@ export interface BurgerProps extends UnstyledButtonProps {
 	opened?: boolean;
 	color?: SvelteUIColor;
 	size?: SvelteUINumberSize;
-	[key: string]: any
+	[key: string]: any;
 }

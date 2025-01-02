@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	
+
 	import type { DefaultProps } from '$lib/styles';
 	import { Box } from '../Box';
 
@@ -15,7 +15,7 @@
 		override?: AppShellProviderProps['override'];
 		value: AppShellProviderProps['value'];
 		children?: Snippet;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let {

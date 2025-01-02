@@ -16,5 +16,5 @@ export interface ColProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 	lg?: number;
 	xl?: number;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

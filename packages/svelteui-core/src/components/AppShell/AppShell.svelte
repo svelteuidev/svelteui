@@ -25,16 +25,18 @@
 		aside,
 		footer
 	}: AppShellProps = $props();
-	
-	let { cx, classes } = $derived(useStyles(
-		{
-			padding,
-			fixed,
-			navbarOffsetBreakpoint,
-			asideOffsetBreakpoint
-		},
-		{ override, name: 'AppShell' }
-	));
+
+	let { cx, classes } = $derived(
+		useStyles(
+			{
+				padding,
+				fixed,
+				navbarOffsetBreakpoint,
+				asideOffsetBreakpoint
+			},
+			{ override, name: 'AppShell' }
+		)
+	);
 </script>
 
 <!-- @TODO: Remove the AppShellProvider, since it's not being used for anything (react pattern) -->

@@ -5,7 +5,7 @@
 
 <Meta title="Components/Switch" component={Switch} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Switch {...args} />
 	{/snippet}

@@ -20,8 +20,8 @@ export interface HorizontalSectionSharedProps extends DefaultProps, HTMLAttribut
 	hiddenBreakpoint?: SvelteUINumberSize;
 	hidden?: boolean;
 	zIndex?: number;
-	children?: Snippet
-	[key: string]: any
+	children?: Snippet;
+	[key: string]: any;
 }
 
 export interface HorizontalSectionProps extends HorizontalSectionSharedProps {

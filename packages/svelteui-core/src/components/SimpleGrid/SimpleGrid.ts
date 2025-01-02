@@ -14,5 +14,5 @@ export interface SimpleGridProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	cols?: number;
 	spacing?: SvelteUINumberSize;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

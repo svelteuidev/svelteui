@@ -24,5 +24,5 @@ export interface ProgressProps extends DefaultProps<HTMLDivElement>, HTMLAttribu
 	tweenOptions?: { delay?: number; duration?: number; easing?: EasingFunction };
 	sections?: Sections[];
 	label?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

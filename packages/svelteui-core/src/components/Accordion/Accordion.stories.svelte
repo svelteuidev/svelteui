@@ -7,28 +7,28 @@
 
 <Meta title="Components/Accordion" component={Accordion} />
 
-<Template >
+<Template>
 	{#snippet children({ args })}
 		<Accordion {...args} defaultValue="typescript">
 			<Accordion.Item value="typescript">
 				{#snippet control()}
-						<div >Typescript Based</div>
-					{/snippet}
-				Build type safe applications. All SvelteUI packages are built with TypeScript and support it by
-				default. All components and functions export types, are documented, and give developers autocomplete
+					<div>Typescript Based</div>
+				{/snippet}
+				Build type safe applications. All SvelteUI packages are built with TypeScript and support it
+				by default. All components and functions export types, are documented, and give developers autocomplete
 				features!
 			</Accordion.Item>
 			<Accordion.Item value="packed">
 				{#snippet control()}
-						<div >Feature packed</div>
-					{/snippet}
+					<div>Feature packed</div>
+				{/snippet}
 				SvelteUI contains more than just components. With Actions, Transitions, and Utilities available
 				to you, development will be fun and easy!
 			</Accordion.Item>
 			<Accordion.Item value="accessible">
 				{#snippet control()}
-						<div >Accessible and usable</div>
-					{/snippet}
+					<div>Accessible and usable</div>
+				{/snippet}
 				All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 				ring. It will appear only when user navigates with keyboard.
 			</Accordion.Item>
@@ -44,23 +44,23 @@
 	<Accordion defaultValue="typescript">
 		<Accordion.Item value="typescript">
 			{#snippet control()}
-						<div >Typescript Based</div>
-					{/snippet}
+				<div>Typescript Based</div>
+			{/snippet}
 			Build type safe applications. All SvelteUI packages are built with TypeScript and support it by
 			default. All components and functions export types, are documented, and give developers autocomplete
 			features!
 		</Accordion.Item>
 		<Accordion.Item value="packed" disabled>
 			{#snippet control()}
-						<div >Feature packed</div>
-					{/snippet}
+				<div>Feature packed</div>
+			{/snippet}
 			SvelteUI contains more than just components. With Actions, Transitions, and Utilities available
 			to you, development will be fun and easy!
 		</Accordion.Item>
 		<Accordion.Item value="accessible">
 			{#snippet control()}
-						<div >Accessible and usable</div>
-					{/snippet}
+				<div>Accessible and usable</div>
+			{/snippet}
 			All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 			ring. It will appear only when user navigates with keyboard.
 		</Accordion.Item>
@@ -71,23 +71,23 @@
 	<Accordion multiple={true} defaultValue={['packed', 'accessible']}>
 		<Accordion.Item value="typescript">
 			{#snippet control()}
-						<div >Typescript Based</div>
-					{/snippet}
+				<div>Typescript Based</div>
+			{/snippet}
 			Build type safe applications. All SvelteUI packages are built with TypeScript and support it by
 			default. All components and functions export types, are documented, and give developers autocomplete
 			features!
 		</Accordion.Item>
 		<Accordion.Item value="packed">
 			{#snippet control()}
-						<div >Feature packed</div>
-					{/snippet}
+				<div>Feature packed</div>
+			{/snippet}
 			SvelteUI contains more than just components. With Actions, Transitions, and Utilities available
 			to you, development will be fun and easy!
 		</Accordion.Item>
 		<Accordion.Item value="accessible">
 			{#snippet control()}
-						<div >Accessible and usable</div>
-					{/snippet}
+				<div>Accessible and usable</div>
+			{/snippet}
 			All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 			ring. It will appear only when user navigates with keyboard.
 		</Accordion.Item>
@@ -105,23 +105,23 @@
 	<Accordion {value}>
 		<Accordion.Item value="typescript">
 			{#snippet control()}
-						<div >Typescript Based</div>
-					{/snippet}
+				<div>Typescript Based</div>
+			{/snippet}
 			Build type safe applications. All SvelteUI packages are built with TypeScript and support it by
 			default. All components and functions export types, are documented, and give developers autocomplete
 			features!
 		</Accordion.Item>
 		<Accordion.Item value="packed">
 			{#snippet control()}
-						<div >Feature packed</div>
-					{/snippet}
+				<div>Feature packed</div>
+			{/snippet}
 			SvelteUI contains more than just components. With Actions, Transitions, and Utilities available
 			to you, development will be fun and easy!
 		</Accordion.Item>
 		<Accordion.Item value="accessible">
 			{#snippet control()}
-						<div >Accessible and usable</div>
-					{/snippet}
+				<div>Accessible and usable</div>
+			{/snippet}
 			All components are accessible according to WAI-ARIA standards. On top of that, no annoying focus
 			ring. It will appear only when user navigates with keyboard.
 		</Accordion.Item>

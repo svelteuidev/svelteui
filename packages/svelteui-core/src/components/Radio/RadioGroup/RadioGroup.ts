@@ -1,7 +1,13 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { CSS, DefaultProps, SvelteUIColor, SvelteUINumberSize, SvelteUISize } from '$lib/styles';
+import type {
+	CSS,
+	DefaultProps,
+	SvelteUIColor,
+	SvelteUINumberSize,
+	SvelteUISize
+} from '$lib/styles';
 import type { GroupPosition } from '../../Group/Group';
 
 export interface RadioGroupProps extends DefaultProps, HTMLAttributes<HTMLElement> {
@@ -19,8 +25,7 @@ export interface RadioGroupProps extends DefaultProps, HTMLAttributes<HTMLElemen
 	align?: CSS['alignItems'];
 	spacing?: SvelteUINumberSize;
 	name?: string;
-	onChange?: (value: string) => void
+	onChange?: (value: string) => void;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
-

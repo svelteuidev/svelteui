@@ -12,5 +12,5 @@ export interface CodeProps
 	message?: string;
 	noMono?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }

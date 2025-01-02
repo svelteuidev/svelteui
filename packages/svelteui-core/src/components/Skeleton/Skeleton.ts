@@ -11,5 +11,5 @@ export interface SkeletonProps extends DefaultProps, HTMLAttributes<HTMLElement>
 	radius?: SvelteUINumberSize;
 	animate?: boolean;
 	children?: Snippet;
-	[key: string]: any
+	[key: string]: any;
 }
