@@ -32,8 +32,12 @@
 
 <Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...rest}>
 	<div class={classes.wrapper}>
-		{@render icon?.()}
 		{#if icon}
+			<div class={classes.icon}>
+				{@render icon()}
+			</div>
+		{/if}
+		{#if iconComponent}
 			<IconRenderer icon={iconComponent} className={classes.icon} {iconSize} {iconProps} />
 		{/if}
 

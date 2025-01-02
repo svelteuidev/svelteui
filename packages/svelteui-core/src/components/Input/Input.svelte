@@ -36,6 +36,7 @@
 		rightSection,
 		children,
 		showRightSection = !!rightSection,
+		oninput,
 		...rest
 	}: InputProps<T> = $props();
 
@@ -71,6 +72,7 @@
 		} else {
 			value = event.target.value;
 		}
+		oninput(event);
 	}
 
 	let isHTMLElement = $derived(root && typeof root === 'string');
@@ -152,9 +154,9 @@
 				classes[`${variant}Variant`] ?? {}
 			)}
 			onchange={onChange}
-			oninput={onInput}
 			use:useActions={use}
 			{...rest}
+			oninput={onInput}
 		>
 			{@render children?.()}
 		</svelte:element>

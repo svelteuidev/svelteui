@@ -63,16 +63,16 @@
 		showRightSection={_showRightSection}
 		{...rest}
 	>
-		{#snippet rightSection()}
-			{#if rightSection}
+		{#if rightSection}
+			{#snippet rightSection()}
 				{@render rightSection()}
-			{/if}
-		{/snippet}
+			{/snippet}
+		{/if}
 
-		{#snippet icon()}
-			{#if icon}
+		{#if icon}
+			{#snippet icon()}
 				{@render icon()}
-			{/if}
-		{/snippet}
+			{/snippet}
+		{/if}
 	</Input>
 </InputWrapper>

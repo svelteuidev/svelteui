@@ -17,7 +17,7 @@
 		inputStyle = {},
 		wrapperProps = {},
 		size = 'sm',
-		iconComponent = null,
+		iconComponent = undefined,
 		iconWidth = 36,
 		iconProps = { size: 20, color: 'currentColor' },
 		rightSectionWidth = 36,
@@ -102,10 +102,12 @@
 		{:else}
 			<option value="" disabled hidden>Add Some Options</option>
 		{/each}
-		{#if rightSection}
-			{@render rightSection()}
-		{:else}
-			<ChevronUpDown size={iconProps.size} color={iconProps.color} />
-		{/if}
+		{#snippet rightSection()}
+			{#if rightSection}
+				{@render rightSection()}
+			{:else}
+				<ChevronUpDown size={iconProps.size} color={iconProps.color} />
+			{/if}
+		{/snippet}
 	</Input>
 </InputWrapper>

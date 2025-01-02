@@ -19,8 +19,8 @@
 		override = {},
 		value = $bindable(undefined),
 		disabled = false,
-		chevronComponent = undefined,
-		chevron = undefined,
+		chevronComponent = Chevron,
+		chevron,
 		control,
 		children,
 		...rest
@@ -38,7 +38,7 @@
 		isItemActive,
 		getControlsId,
 		getRegionId,
-		chevron: contextChevron = chevron
+		chevron: contextChevron
 	}: AccordionContext = $derived.by(getContext(key));
 
 	function onClick() {
@@ -76,12 +76,10 @@
 		onclick={onClick}
 	>
 		<span class={classes.chevron} data-rotate={!disableChevronRotation && isItemActive(value)}>
-			{#if contextChevron}
-				{@render contextChevron()}
-			{:else if contextChevronComponent}
+			{#if contextChevronComponent}
 				<IconRenderer icon={contextChevronComponent} />
-			{:else}
-				<Chevron />
+			{:else if chevron || contextChevron}
+				{@render (chevron || contextChevron)()}
 			{/if}
 		</span>
 		<span class={classes.controlContent}>

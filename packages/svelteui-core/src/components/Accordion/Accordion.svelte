@@ -20,7 +20,7 @@
 		order = undefined,
 		multiple = false as Multiple,
 		id = randomID(),
-		chevronComponent = undefined,
+		chevronComponent = Chevron,
 		chevronPosition = 'right',
 		chevronSize = 24,
 		disableChevronRotation = false,
