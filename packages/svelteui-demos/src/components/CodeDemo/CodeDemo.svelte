@@ -11,7 +11,7 @@
 		previewMaxWidth?: CodeDemoConfiguration['previewMaxWidth'];
 		code?: CodeDemoConfiguration['code'];
 		spacing?: CodeDemoConfiguration['spacing'];
-		codeVisible?: CodeDemoConfiguration['codeVisible'];
+		canShowCode?: CodeDemoConfiguration['canShowCode'];
 	}
 
 	let {
@@ -20,11 +20,13 @@
 		previewMaxWidth,
 		code,
 		spacing = true,
-		codeVisible = $bindable(false)
+		canShowCode = $bindable(false)
 	}: Props = $props();
 
+	let isCodeVisible = $state(false);
+
 	function toggleCodeVisibility() {
-		codeVisible = !codeVisible;
+		isCodeVisible = !isCodeVisible;
 	}
 
 	const styles = css({
@@ -81,7 +83,7 @@
 		<div class="wrapper">
 			<SvelteComponent />
 		</div>
-		{#if !!code && codeVisible}
+		{#if !!code && canShowCode}
 			<div class="toggle">
 				<ActionIcon on:click={toggleCodeVisibility}>
 					<svg
@@ -101,7 +103,7 @@
 			</div>
 		{/if}
 	</div>
-	{#if code && codeVisible}
+	{#if code && isCodeVisible}
 		<div
 			class="code"
 			in:slide|global={{ duration: 300, easing: expoIn }}

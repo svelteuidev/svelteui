@@ -79,7 +79,7 @@ interface DemoBaseConfiguration {
 export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 	code?: string;
 	spacing?: boolean;
-	codeVisible?: boolean;
+	canShowCode?: boolean;
 }
 
 export type CodeTemplateFunction = (props: string, children?: string) => string;

@@ -43,7 +43,7 @@ date: 'May 13th, 2022'
 
 ### _New SvelteUI Dates Package:_
 
-<Demo demo={MonthDemos.usage} codeVisible={true} />
+<Demo demo={MonthDemos.usage} canShowCode={true} />
 
 ### _New SvelteUI Preprocessors Package:_
 
@@ -61,7 +61,7 @@ date: 'May 13th, 2022'
 
 ## [MediaQuery]({base}/core/media-query) Component:
 
-<Demo demo={MediaQueryDemos.usage} codeVisible={true} />
+<Demo demo={MediaQueryDemos.usage} canShowCode={true} />
 
 ## [Progress]({base}/core/progress) Component:
 
@@ -94,27 +94,27 @@ date: 'May 13th, 2022'
 
 ## [Notification]({base}/core/notification) Component:
 
-<Demo demo={NotificationDemos.usage} codeVisible={true} />
+<Demo demo={NotificationDemos.usage} canShowCode={true} />
 
 ## [Tabs]({base}/core/tabs) Component:
 
-<Demo demo={TabsDemos.usage} codeVisible={true} />
+<Demo demo={TabsDemos.usage} canShowCode={true} />
 
 ## [Modal]({base}/core/modal) Component:
 
-<Demo demo={ModalDemos.usage} codeVisible={true} />
+<Demo demo={ModalDemos.usage} canShowCode={true} />
 
 ## [Grid]({base}/core/grid) Component:
 
-<Demo demo={GridDemos.usage} codeVisible={true} />
+<Demo demo={GridDemos.usage} canShowCode={true} />
 
 ## [Timeline]({base}/core/timeline) Component:
 
-<Demo demo={TimelineDemos.usage} codeVisible={true} />
+<Demo demo={TimelineDemos.usage} canShowCode={true} />
 
 ## [Menu]({base}/core/menu) Component:
 
-<Demo demo={MenuDemos.usage} codeVisible={true} />
+<Demo demo={MenuDemos.usage} canShowCode={true} />
 
 ### _Composables:_
 
@@ -122,31 +122,31 @@ date: 'May 13th, 2022'
 
 Run expensive functions without blocking the UI through a web worker
 
-<Demo demo={ComposableDemos.useWebWorkerDemo.usage} codeVisible={true} />
+<Demo demo={ComposableDemos.useWebWorkerDemo.usage} canShowCode={true} />
 
 ## [use-throttle]({base}/composables/use-throttle)
 
 Function that let's you throttle the execution of a function
 
-<Demo demo={ComposableDemos.useThrottleDemo.usage} codeVisible={true} />
+<Demo demo={ComposableDemos.useThrottleDemo.usage} canShowCode={true} />
 
 ## [use-debounce]({base}/composables/use-debounce)
 
 Function that let's you debounce the execution of a function
 
-<Demo demo={ComposableDemos.useDebounceDemo.usage} codeVisible={true} />
+<Demo demo={ComposableDemos.useDebounceDemo.usage} canShowCode={true} />
 
 ## [use-element-size]({base}/composables/use-element-size)
 
 Get element width and height and subscribe to changes
 
-<Demo demo={ComposableDemos.useElementSizeDemo.usage} codeVisible={true} />
+<Demo demo={ComposableDemos.useElementSizeDemo.usage} canShowCode={true} />
 
 ## [use-id]({base}/composables/use-id)
 
 Generate a random id
 
-<Demo demo={ComposableDemos.useIdDemo.usage} codeVisible={true} />
+<Demo demo={ComposableDemos.useIdDemo.usage} canShowCode={true} />
 
 ## Bug fixes and improvements
 

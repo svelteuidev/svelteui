@@ -29,7 +29,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		codeVisible: true
+		canShowCode: true
 	};
 </script>
 

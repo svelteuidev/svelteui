@@ -47,7 +47,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		codeVisible: true
+		canShowCode: true
 	};
 
 	const heavyTask = () => {

@@ -10,7 +10,7 @@
 	interface Props {
 		isDark: boolean;
 		opened: boolean;
-		codeVisible: () => void;
+		canShowCode: () => void;
 		toggleOpen: () => void;
 	}
 
