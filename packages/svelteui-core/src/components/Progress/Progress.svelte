@@ -13,7 +13,7 @@
 		element = $bindable(undefined),
 		class: className = '',
 		override = {},
-		value = undefined,
+		value = $bindable(undefined),
 		color = undefined,
 		size = 'md',
 		radius = 'sm',

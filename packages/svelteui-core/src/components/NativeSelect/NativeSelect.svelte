@@ -26,7 +26,7 @@
 		radius = 'sm',
 		variant = 'default',
 		disabled = false,
-		value = '',
+		value = $bindable(''),
 		label = '',
 		description = '',
 		error = '',

@@ -3,7 +3,7 @@ import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { PopperProps } from '../Popper/Popper';
 
 export interface TooltipProps extends PopperProps {
-	labelComponent: Component | string | number;
+	labelComponent?: Component | string | number;
 	opened?: boolean;
 	openDelay?: number;
 	closeDelay?: number;

@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { DefaultProps, SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
+import type { Component } from '$lib/internal';
 
 export interface BreadcrumbItemProps
 	extends DefaultProps<HTMLDivElement>,
@@ -11,6 +12,7 @@ export interface BreadcrumbItemProps
 	label?: string;
 	active?: boolean;
 	href?: string;
+	iconComponent?: Component | HTMLOrSVGElement;
 	icon?: Snippet<[any]>;
 	children?: Snippet;
 }

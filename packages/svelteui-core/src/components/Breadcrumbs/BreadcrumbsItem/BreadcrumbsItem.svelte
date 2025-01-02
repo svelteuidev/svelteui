@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 
+	import { IconRenderer } from '../../IconRenderer';
 	import { Box } from '../../Box';
 	import type { BreadcrumbContext } from '../Breadcrumbs';
 	import { ctx } from '../Breadcrumbs.svelte';
@@ -14,6 +15,7 @@
 		override = {},
 		href = undefined,
 		active = false,
+		iconComponent = undefined,
 		icon,
 		children
 	}: BreadcrumbItemProps = $props();
@@ -35,7 +37,12 @@
 	{#if href}
 		<div class={cx(classes.wrapper, { active: active })}>
 			<a {href}>
-				{@render icon?.({ class: cx(classes.icon) })}
+				{#if iconComponent}
+					<IconRenderer className={classes.icon} icon={iconComponent} />
+				{/if}
+				{#if icon}
+					{@render icon({ class: cx(classes.icon) })}
+				{/if}
 				<span class={cx(classes.innerText)}>
 					{@render children?.()}
 				</span>
@@ -46,7 +53,12 @@
 		</div>
 	{:else}
 		<div class={cx(classes.wrapper, { active: active })}>
-			{@render icon?.({ class: cx(classes.icon) })}
+			{#if iconComponent}
+				<IconRenderer className={classes.icon} icon={iconComponent} />
+			{/if}
+			{#if icon}
+				{@render icon({ class: cx(classes.icon) })}
+			{/if}
 			<span class={cx(classes.innerText)}>
 				{@render children?.()}
 			</span>
