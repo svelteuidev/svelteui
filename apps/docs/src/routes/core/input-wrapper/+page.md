@@ -27,7 +27,7 @@ docs: 'core/input-wrapper'
 
 ## Disclaimer
 
-<Alert icon={InfoCircled} title="Important" color="blue" >
+<Alert iconComponent={InfoCircled} title="Important" color="blue" >
    Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs.
 </Alert>
 

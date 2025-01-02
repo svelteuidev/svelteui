@@ -27,7 +27,7 @@ docs: 'core/input'
 
 ## Disclaimer
 
-<Alert icon={InfoCircled} title="Important" color="blue" >
+<Alert iconComponent={InfoCircled} title="Important" color="blue" >
    In most cases, you should not use Input component in your application. The Input component is a base for other inputs and was not designed to be used directly.
 </Alert>
 

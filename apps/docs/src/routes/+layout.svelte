@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
+
 	import { colorScheme, Burger, SvelteUIProvider, type ColorScheme } from '@svelteuidev/core';
 	import { page } from '$app/stores';
 	import { Device, Logo, PageTransition, TopBar, Sidebar } from '$lib/components';
 	import '$lib/theme/style.css';
 	import type { PageData } from './$types';
-	import { stopPropagation } from 'svelte/legacy';
 
 	let show_sidebar: boolean = $state(false);
 

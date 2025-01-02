@@ -22,7 +22,7 @@ source: 'svelteui-dates'
 
 <Heading {title} {group} {packageGroup} {slug} {description} {source} />
 
-<Alert icon={ExclamationTriangle} title="WARNING" color="red" variant='filled' override={{ marginTop: "1.1875rem" }}>
+<Alert iconComponent={ExclamationTriangle} title="WARNING" color="red" variant='filled' override={{ marginTop: "1.1875rem" }}>
 Docs styling and Date component styles are conflicting due to a bug. The normal styles will look better
 </Alert>
 

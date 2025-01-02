@@ -87,7 +87,7 @@ date: 'May 13th, 2022'
 ## [Alert]({base}/core/alert) Component:
 
 <Paper>
-  <Alert icon={ExclamationTriangle} title="Bummer!" color="red">
+  <Alert iconComponent={ExclamationTriangle} title="Bummer!" color="red">
       Something terrible happened! You made a mistake and there is no going back, your data was lost forever!
   </Alert>
 </Paper>
