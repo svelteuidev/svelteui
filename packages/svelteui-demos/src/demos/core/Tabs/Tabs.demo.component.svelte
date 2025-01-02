@@ -6,13 +6,13 @@
 <\/script>
 
 <Tabs>
-    <Tabs.Tab label="First" title="Reveal hidden truth on long mouse over">
+    <Tabs.Tab labelText="First" title="Reveal hidden truth on long mouse over">
         First tab content
     </Tabs.Tab>
-    <Tabs.Tab label="Not allowed" disabled>
+    <Tabs.Tab labelText="Not allowed" disabled>
         https://youtu.be/dQw4w9WgXcQ
     </Tabs.Tab>
-    <Tabs.Tab label="Delete this?" color="red" override={{ fontWeight: 500 }}>
+    <Tabs.Tab labelText="Delete this?" color="red" override={{ fontWeight: 500 }}>
         Yes, delete this
     </Tabs.Tab>
 </Tabs>`;
@@ -29,11 +29,11 @@
 </script>
 
 <Tabs>
-	<Tabs.Tab label="First" title="Reveal hidden truth on long mouse over">
+	<Tabs.Tab labelText="First" title="Reveal hidden truth on long mouse over">
 		First tab content
 	</Tabs.Tab>
-	<Tabs.Tab label="Not allowed" disabled>https://youtu.be/dQw4w9WgXcQ</Tabs.Tab>
-	<Tabs.Tab label="Delete this?" color="red" override={{ backgroundColor: 'red' }}>
+	<Tabs.Tab labelText="Not allowed" disabled>https://youtu.be/dQw4w9WgXcQ</Tabs.Tab>
+	<Tabs.Tab labelText="Delete this?" color="red" override={{ backgroundColor: 'red' }}>
 		Yes, delete this
 	</Tabs.Tab>
 </Tabs>

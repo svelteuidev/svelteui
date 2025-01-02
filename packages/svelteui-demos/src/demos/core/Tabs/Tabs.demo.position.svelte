@@ -7,9 +7,9 @@
 <\/script>
 
 <Tabs${props}>
-    <Tabs.Tab label="First">First tab content</Tabs.Tab>
-    <Tabs.Tab label="Second">Second tab content</Tabs.Tab>
-    <Tabs.Tab label="Third">Third tab content</Tabs.Tab>
+    <Tabs.Tab labelText="First">First tab content</Tabs.Tab>
+    <Tabs.Tab labelText="Second">Second tab content</Tabs.Tab>
+    <Tabs.Tab labelText="Third">Third tab content</Tabs.Tab>
 </Tabs>`;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';

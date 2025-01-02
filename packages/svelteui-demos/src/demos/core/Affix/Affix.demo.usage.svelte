@@ -3,11 +3,11 @@
 
 	const code = `
 <script>
-  import { fly } from 'svelte/transition';
+ 	import { fly } from 'svelte/transition';
 	import { Affix, Button, Text } from '@svelteuidev/core';
 	import { ArrowUp } from 'radix-icons-svelte';
 
-  let scrollY = 0;
+	let scrollY = $state(0);
 <\/script>
 
 <svelte:window on:scroll={() => scrollY = window.scrollY } />
@@ -16,12 +16,12 @@
 <Affix position={{ bottom: 20, right: 20 }}>
     {#if scrollY > 0}
         <div transition:fly|global={{ y: 20, duration: 250 }}>
-            <Button on:click={() => window.scrollTo(0, 0)}>
-                <svelte:fragment slot='leftIcon'>
-                    <ArrowUp />
-                </svelte:fragment>
-                Scroll to top
-            </Button>
+            <Button onclick={() => window.scrollTo(0, 0)}>
+				{#snippet leftIcon()}
+					<ArrowUp />
+				{/snippet}
+				Scroll to top
+			</Button>
         </div>
     {/if}
 </Affix>`;
@@ -47,12 +47,10 @@
 <Affix position={{ bottom: 20, right: 20 }}>
 	{#if scrollY > 0}
 		<div transition:fly|global={{ y: 20, duration: 250 }}>
-			<Button on:click={() => window.scrollTo(0, 0)}>
+			<Button onclick={() => window.scrollTo(0, 0)}>
 				{#snippet leftIcon()}
-							
-						<ArrowUp />
-					
-							{/snippet}
+					<ArrowUp />
+				{/snippet}
 				Scroll to top
 			</Button>
 		</div>

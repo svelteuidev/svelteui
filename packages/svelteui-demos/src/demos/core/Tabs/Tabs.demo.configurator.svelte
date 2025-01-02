@@ -8,9 +8,9 @@
 <\/script>
 
 <Tabs${props}>
-    <Tabs.Tab label='Gallery' icon={Camera}>Gallery tab content</Tabs.Tab>
-    <Tabs.Tab label='Messages' icon={EnvelopeClosed}>Messages tab content</Tabs.Tab>
-    <Tabs.Tab label='Settings' icon={Gear}>Settings tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Gallery' iconComponent={Camera}>Gallery tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Messages' iconComponent={EnvelopeClosed}>Messages tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Settings' iconComponent={Gear}>Settings tab content</Tabs.Tab>
 </Tabs>`;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';

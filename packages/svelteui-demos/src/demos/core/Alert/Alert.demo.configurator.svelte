@@ -7,7 +7,7 @@
   import { InfoCircled } from 'radix-icons-svelte';
 <\/script>
 
-<Alert icon={InfoCircled} ${props}>
+<Alert iconComponent={InfoCircled} ${props}>
     ${children}
 </Alert>`;
 

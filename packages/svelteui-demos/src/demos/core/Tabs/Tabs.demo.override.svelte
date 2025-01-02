@@ -17,9 +17,9 @@
 <\/script>
 
 <Tabs variant='unstyled'>
-    <Tabs.Tab label='Gallery' class={classes.root} icon={Camera} />
-    <Tabs.Tab label='Messages' class={classes.root} icon={EnvelopeClosed} />
-    <Tabs.Tab label='Settings' class={classes.root} icon={Gear} />
+    <Tabs.Tab labelText='Gallery' class={classes.root} iconComponent={Camera} />
+    <Tabs.Tab labelText='Messages' class={classes.root} iconComponent={EnvelopeClosed} />
+    <Tabs.Tab labelText='Settings' class={classes.root} iconComponent={Gear} />
 </Tabs>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -71,7 +71,7 @@
 </script>
 
 <Tabs variant="unstyled">
-	<Tabs.Tab label="Gallery" class={classes.root} icon={Camera} />
-	<Tabs.Tab label="Messages" class={classes.root} icon={EnvelopeClosed} />
-	<Tabs.Tab label="Settings" class={classes.root} icon={Gear} />
+	<Tabs.Tab labelText="Gallery" class={classes.root} iconComponent={Camera} />
+	<Tabs.Tab labelText="Messages" class={classes.root} iconComponent={EnvelopeClosed} />
+	<Tabs.Tab labelText="Settings" class={classes.root} iconComponent={Gear} />
 </Tabs>

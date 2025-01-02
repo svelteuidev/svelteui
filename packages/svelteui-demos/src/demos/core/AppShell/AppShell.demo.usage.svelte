@@ -8,8 +8,10 @@
 	import HeadContent from './HeadContent.svelte';
 	import NavContent from './NavContent.svelte';
 
-	let isDark = false;
-	let opened = false;
+	let { children } = $props();
+
+	let isDark = $state(false);
+	let opened = $state(false);
 
 	function toggleTheme() {
 		isDark = !isDark;
@@ -20,14 +22,23 @@
 <\/script>
 
 <AppShell>
-	<Navbar slot="navbar" hidden={!opened}>
-		<NavContent />
-	</Navbar>
-	<Header slot="header">
-		<HeadContent />
-	</Header>
+	{#snippet navbar()}
+		<Navbar hidden={!opened}>
+			<NavContent />
+		</Navbar>
+	{/snippet}
 
-	<slot>This is the main content</slot>
+	{#snippet header()}
+		<Header>
+			<HeadContent />
+		</Header>
+	{/snippet}
+
+	{#if children}
+		{@render children()}
+	{:else}
+		This is the main content
+	{/if}
 </AppShell>
 `;
 
@@ -41,9 +52,9 @@
 
 <script lang="ts">
 	import { fns, AppShell, Navbar, Header, ShellSection } from '@svelteuidev/core';
-	// @ts-ignore
 	import HeadContent from './_HeadContent.svelte';
 	import NavContent from './_NavContent.svelte';
+
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -51,6 +62,7 @@
 	let { children }: Props = $props();
 	let isDark = $state(false);
 	let opened = $state(false);
+
 	function toggleTheme() {
 		isDark = !isDark;
 	}
@@ -71,7 +83,6 @@
 >
 	{#snippet navbar()}
 		<Navbar
-			
 			hidden={!opened}
 			hiddenBreakpoint="sm"
 			width={{ base: '100%', sm: 300 }}
@@ -85,13 +96,13 @@
 		</Navbar>
 	{/snippet}
 	{#snippet header()}
-		<Header
-			
-			height={60}
-			override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
-		>
+		<Header height={60} override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}>
 			<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
 		</Header>
 	{/snippet}
-	{#if children}{@render children()}{:else}This is the main content{/if}
+	{#if children}
+		{@render children()}
+	{:else}
+		This is the main content
+	{/if}
 </AppShell>

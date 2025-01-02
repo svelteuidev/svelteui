@@ -8,15 +8,21 @@
 
 <Accordion${props}>
   <Accordion.Item value="typescript">
-    <div slot="control">Typescript Based</div>
+  	{#snippet control()}
+		<div>Typescript Based</div>
+	{/snippet}
     Build type safe applications...
   </Accordion.Item>
   <Accordion.Item value="packed">
-    <div slot="control">Feature packed</div>
+    {#snippet control()}
+		<div>Feature packed</div>
+	{/snippet}
     SvelteUI contains more than just components...
   </Accordion.Item>
   <Accordion.Item value="accessible">
-    <div slot="control">Accessible and usable</div>
+    {#snippet control()}
+		<div>Accessible and usable</div>
+	{/snippet}
     All components are accessible according to WAI-ARIA standards....
   </Accordion.Item>
 </Accordion>`;

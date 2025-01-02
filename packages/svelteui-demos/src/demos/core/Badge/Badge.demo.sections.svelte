@@ -7,16 +7,16 @@
 
 <Badge>
     Badge with right section
-    <svelte:fragment slot='rightSection'>
+    {#snippet rightSection()
         <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-    </svelte:fragment>
+    {/snippet}
 </Badge>
 
 <Badge>
     Badge with left section
-    <svelte:fragment slot='leftSection'>
+	{#snippet leftSection()}
         <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-    </svelte:fragment>
+    {/snippet}
 </Badge>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -35,18 +35,14 @@
 	<Badge>
 		Badge with right section
 		{#snippet rightSection()}
-			
-				<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-			
-			{/snippet}
+			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+		{/snippet}
 	</Badge>
 
 	<Badge>
 		Badge with left section
 		{#snippet leftSection()}
-			
-				<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-			
-			{/snippet}
+			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
+		{/snippet}
 	</Badge>
 </Group>
