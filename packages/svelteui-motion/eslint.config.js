@@ -1,3 +1,3 @@
-import svelteuiConfig from '../../configuration/eslint-preset-svelteui/index.js'
+import svelteuiConfig from '../../configuration/eslint-preset-svelteui/index.js';
 
-export default svelteuiConfig
+export default svelteuiConfig;
