@@ -20,7 +20,8 @@
 		"noEmit": false,
 		"paths": {
 			"$lib": ["src"],
-			"$lib/*": ["src/*"]
+			"$lib/*": ["src/*"],
+			"@stitches/core/*": ["../../node_modules/@stitches/core/*"]
 		},
 		"outDir": "./dist"
 	},
