@@ -4,6 +4,8 @@
 	import type { DefaultProps } from '$lib/styles';
 	import { Box } from '../Box';
 
+	// @TODO: Find out why we are not using value anywhere
+	/* eslint-disable @typescript-eslint/no-unused-vars */
 	interface AppShellProviderProps extends DefaultProps {
 		value?: { fixed: boolean; zIndex: number };
 	}

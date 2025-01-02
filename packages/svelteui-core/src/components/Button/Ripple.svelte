@@ -82,7 +82,7 @@
 				wave.classList.add('animation-out');
 				opacity(wave, 0);
 				setTimeout(() => {
-					wave && container.removeChild(wave);
+					if (wave) container.removeChild(wave);
 					if (container.children.length === 0) {
 						delete container.dataset.event;
 					}

@@ -1,6 +1,7 @@
 <script lang="ts" generics="Multiple extends boolean = false">
-	import { onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
+	// Note: Limitation of the svelte eslint plugin
+	/* eslint-disable no-undef */
+	import { setContext } from 'svelte';
 	import { randomID } from '$lib/styles';
 	import { Box } from '../Box';
 	import { key } from './key';
@@ -32,7 +33,7 @@
 	}: AccordionProps<Multiple> = $props();
 
 	let context: AccordionContext<Multiple> = $derived({
-		currentValue: value,
+		currentValue: value || defaultValue,
 		variant,
 		order,
 		radius,

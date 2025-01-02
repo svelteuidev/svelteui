@@ -27,9 +27,9 @@
 		{#if icon}
 			{@render icon()}
 		{/if}
-		{#if icon}
+		{#if iconComponent}
 			<div class={classes.icon}>
-				<IconRenderer {icon} {iconSize} />
+				<IconRenderer icon={iconComponent} {iconSize} />
 			</div>
 		{/if}
 		<div class={classes.body}>
