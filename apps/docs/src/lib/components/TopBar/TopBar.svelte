@@ -19,7 +19,7 @@
 	import { browser } from '$app/environment';
 	import SearchItem, { type SearchType } from '$lib/components/SearchItem.svelte';
 
-	let recentSearches: SearchType[] = $state(),
+	let recentSearches: SearchType[] = $state([]),
 		searchTerm = $state(''),
 		matchingSearches: SearchType[] = $state([]),
 		modalOpened = $state(false);
@@ -141,7 +141,7 @@
 		</li>
 		{#each config.buttons as { title, props, icon }}
 			<li>
-				<Tooltip withArrow label={title}>
+				<Tooltip withArrow labelComponent={title}>
 					<ActionIcon root="a" {...props} radius="md" size="lg">
 						{@const SvelteComponent = icon}
 						<SvelteComponent size={20} />
@@ -150,7 +150,7 @@
 			</li>
 		{/each}
 		<li>
-			<Tooltip withArrow label="Toggle Theme">
+			<Tooltip withArrow labelComponent="Toggle Theme">
 				<ActionIcon size="lg" variant="outline" on:click={toggleTheme} radius="md">
 					{#if $colorScheme === 'light'}
 						<Moon size={20} />
@@ -187,7 +187,7 @@
 			<h3 class="recentSearchesTitle">Recent searches:</h3>
 			<div class="searchWrapper">
 				{#each recentSearches as recentSearch}
-					<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
+					<SearchItem search={recentSearch} onAddSearch={() => addSearch(recentSearch)} />
 				{/each}
 			</div>
 		{:else}
@@ -196,7 +196,7 @@
 	{:else if matchingSearches.length > 0}
 		<div class="searchWrapper">
 			{#each matchingSearches as matchingSearch}
-				<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
+				<SearchItem search={matchingSearch} onAddSearch={() => addSearch(matchingSearch)} />
 			{/each}
 		</div>
 	{:else}
@@ -206,10 +206,10 @@
 	<div class="searchWrapper">
 		{#each searchLinks as searchLink}
 			{#if validateSearchLink(searchLink.section)}
-				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+				<SearchItem search={searchLink} onAddSearch={() => addSearch(searchLink)} />
 			{:else}
 				<h2>{changePreviousSection(searchLink.section)}</h2>
-				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+				<SearchItem search={searchLink} onAddSearch={() => addSearch(searchLink)} />
 			{/if}
 		{/each}
 	</div>

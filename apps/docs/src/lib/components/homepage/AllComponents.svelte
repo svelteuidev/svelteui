@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-nocheck
 	// prettier-ignore
 	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon, Tooltip, Container } from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
@@ -9,7 +8,6 @@
 	}
 
 	let { children }: Props = $props();
-	// import type { CSS } from '@svelteuidev/core'
 
 	const styles = {
 		focusRing: 'auto',
@@ -34,10 +32,12 @@
 	spacing="lg"
 >
 	{#each components as item}
-		<Box href={item.link} css={styles}>
+		{@const { link, component, content, title, color, ...rest } = item}
+		{@const Component = component}
+		<Box href={link} css={styles}>
 			<Stack>
-				<Group children={2} position="apart">
-					<Group children={2}>
+				<Group position="apart">
+					<Group>
 						<ThemeIcon size={34} override={{ backgroundColor: item.color }}>
 							<item.icon size={20} />
 						</ThemeIcon>
@@ -46,7 +46,7 @@
 							{item.title}
 						</Text>
 					</Group>
-					<Tooltip label={`Go to ${item.title} docs`}>
+					<Tooltip labelComponent={`Go to ${item.title} docs`}>
 						<a href={item.link}>
 							<ActionIcon variant="light" size="lg">
 								<ArrowRight color="black" />
@@ -55,12 +55,16 @@
 					</Tooltip>
 				</Group>
 				<Container>
-					{#if item?.content}
-						<item.component>
-							{#if children}{@render children()}{:else}{item.content.valueOf()}{/if}
-						</item.component>
+					{#if content}
+						<Component {...item}>
+							{#if children}
+								{@render children()}
+							{:else}
+								{item.content.valueOf()}
+							{/if}
+						</Component>
 					{:else}
-						<item.component />
+						<Component />
 					{/if}
 				</Container>
 			</Stack>

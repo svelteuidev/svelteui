@@ -2,7 +2,7 @@
 	import { run } from 'svelte/legacy';
 
 	// @ts-nocheck
-	import { createStyles, Paper, Text } from '@svelteuidev/core';
+	import { createStyles, Paper, Text, type SvelteUITheme } from '@svelteuidev/core';
 	import { onMount } from 'svelte';
 	import { ArrowRight } from 'radix-icons-svelte';
 
@@ -26,17 +26,16 @@
 		children
 	}: Props = $props();
 
-	let element = $state();
+	let element: HTMLDivElement | undefined = $state(undefined);
 	const override = { bc: '$dark700' };
 
-	run(() => {
-		onMount(() => {
-			const container = document.querySelector('.container .title');
-			container.style.paddingTop = '4rem';
-		});
+	onMount(() => {
+		const container = document.querySelector('.container .title') as HTMLElement;
+		if (!container) return;
+		container.style.paddingTop = '4rem';
 	});
 
-	const useStyles = createStyles((_, { align, themeColors }) => ({
+	const useStyles = createStyles((_theme: SvelteUITheme, { align, themeColors }) => ({
 		root: {
 			position: 'absolute',
 			top: 60,

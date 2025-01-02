@@ -1,7 +1,6 @@
 <script>
 	import { features } from '$lib/data';
 	import { Title, Text, SimpleGrid, ThemeIcon, Center, Stack, Paper } from '@svelteuidev/core';
-	import { fly } from 'svelte/transition';
 </script>
 
 <div id="wrapper">
