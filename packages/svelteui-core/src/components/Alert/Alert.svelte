@@ -14,13 +14,13 @@
 		color = 'red',
 		radius = 'sm',
 		variant = 'light',
-		icon = undefined,
 		iconComponent = undefined,
 		iconSize = 16,
 		iconProps = {},
 		withCloseButton = false,
 		closeButtonLabel = undefined,
 		onclose = () => {},
+		icon,
 		children,
 		...rest
 	}: AlertProps = $props();
