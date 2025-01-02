@@ -19,7 +19,8 @@
 		onLabel = '',
 		offLabel = '',
 		disabled = false,
-		checked = $bindable(false)
+		checked = $bindable(false),
+		...rest
 	}: SwitchProps = $props();
 
 	let { cx, classes, getStyles } = $derived(
@@ -48,6 +49,7 @@
 		type="checkbox"
 		class={cx(className, classes.input, getStyles({ css: override }))}
 		class:disabled
+		{...rest}
 	/>
 	{#if label}
 		<label for={id} class={classes.label}>
