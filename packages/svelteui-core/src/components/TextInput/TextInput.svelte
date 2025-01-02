@@ -24,8 +24,8 @@
 		showRightSection = undefined,
 		value = $bindable(''),
 		placeholder = '',
-		rightSection,
 		icon,
+		rightSection,
 		...rest
 	}: TextInputProps = $props();
 
@@ -64,10 +64,15 @@
 		{...rest}
 	>
 		{#snippet rightSection()}
-			{@render rightSection()}
+			{#if rightSection}
+				{@render rightSection()}
+			{/if}
 		{/snippet}
+
 		{#snippet icon()}
-			{@render icon()}
+			{#if icon}
+				{@render icon()}
+			{/if}
 		{/snippet}
 	</Input>
 </InputWrapper>

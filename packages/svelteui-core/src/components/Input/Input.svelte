@@ -116,7 +116,7 @@
 				{
 					[classes.disabled]: disabled,
 					[classes.invalid]: invalid,
-					[classes.withIcon]: icon || isIconSlotUsed
+					[classes.withIcon]: icon || iconComponent || isIconSlotUsed
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}
@@ -170,7 +170,7 @@
 				{
 					[classes.disabled]: disabled,
 					[classes.invalid]: invalid,
-					[classes.withIcon]: icon || isIconSlotUsed
+					[classes.withIcon]: icon || iconComponent || isIconSlotUsed
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}
