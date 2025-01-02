@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
+	import { onMount } from 'svelte';
 
 	import { MainLink, NavigationTitle } from '$lib/components';
 	import { Space, Accordion, createStyles } from '@svelteuidev/core';
@@ -31,7 +31,7 @@
 	let { pathname }: Props = $props();
 
 	let accordionEl: HTMLElement | undefined = $state();
-	run(() => {
+	onMount(() => {
 		// Sets the active link in the Sidebar when the page changes
 		accordionEl?.querySelectorAll('a').forEach((a) => {
 			if (a.getAttribute('href') === pathname) {

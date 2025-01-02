@@ -56,8 +56,8 @@ index: true
 					color={$colorScheme === 'dark' ? 'gray' : 'dark'}
 				>
 					{#snippet leftIcon()}
-										<GithubLogo size={25}  />
-									{/snippet}
+						<GithubLogo size={25} />
+					{/snippet}
 					<Text weight="bold" color="white">Source Code</Text>
 				</Button>
 			</a>
