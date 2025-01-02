@@ -61,6 +61,7 @@
 		"*.{js,ts,svelte}": "eslint --fix"
 	},
 	"devDependencies": {
+		"@eslint/compat": "^1.2.3",
 		"@rollup/plugin-replace": "5.0.2",
 		"@storybook/addon-actions": "7.0.11",
 		"@storybook/addon-essentials": "7.0.11",
