@@ -1,35 +1,33 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import CheckboxCard from './Card.svelte';
 	import { PACKAGE_DATA } from './data.js';
 
 	let { setDeps } = $props();
 
-	let values = $state({
+	let values: { [key: string]: boolean } = $state({
 		'@svelteuidev/core': true,
 		'@svelteuidev/composables': true,
 		'@svelteuidev/motion': false,
 		'@svelteuidev/prism': false
 	});
 
-	let dependencies = $derived(Array.from(
-		new Set(
-			PACKAGE_DATA.reduce((acc, item) => {
-				if (values[item.package]) {
-					acc.push(...item.dependencies);
-				}
+	$effect(() => {
+		const dependencies = Array.from(
+			new Set(
+				PACKAGE_DATA.reduce((acc, item) => {
+					if (values[item.package]) {
+						acc.push(...item.dependencies);
+					}
 
-				return acc;
-			}, [])
+					return acc;
+				}, [] as string[])
+			)
 		)
-	)
-		.sort()
-		.reverse());
-
-	run(() => {
-		setDeps(dependencies.join(' '));
+			.sort()
+			.reverse()
+			.join(' ');
+		setDeps(dependencies);
 	});
 </script>
 

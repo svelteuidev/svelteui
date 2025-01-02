@@ -1,7 +1,9 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	interface Props {
-		result?: import('svelte').Snippet;
-		code?: import('svelte').Snippet;
+		result?: Snippet;
+		code?: Snippet;
 	}
 
 	let { result, code }: Props = $props();

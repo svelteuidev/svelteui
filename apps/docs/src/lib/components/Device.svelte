@@ -36,7 +36,7 @@
 	 */
 	export const mouse = writable({ x: 0, y: 0 });
 
-	const mouseMove = (e) => {
+	const mouseMove = (e: MouseEvent) => {
 		mouse.update(() => ({ x: e.clientX, y: e.clientY }));
 	};
 </script>

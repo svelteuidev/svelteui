@@ -6,12 +6,7 @@
 		height?: number;
 	}
 
-	let {
-		outerColor = '#FF3E00',
-		innerColor = 'white',
-		width = 67,
-		height = 80
-	}: Props = $props();
+	let { outerColor = '#FF3E00', innerColor = 'white', width = 67, height = 80 }: Props = $props();
 </script>
 
 <svg {width} {height} viewBox="0 0 67 80" fill="none" xmlns="http://www.w3.org/2000/svg">

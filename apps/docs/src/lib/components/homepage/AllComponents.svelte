@@ -1,6 +1,16 @@
 <script lang="ts">
-	// prettier-ignore
-	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon, Tooltip, Container } from '@svelteuidev/core';
+	import type { Component } from 'svelte';
+	import {
+		Group,
+		ThemeIcon,
+		Text,
+		SimpleGrid,
+		Box,
+		Stack,
+		ActionIcon,
+		Tooltip,
+		Container
+	} from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
 	import { components } from '$lib/data';
 	interface Props {
@@ -10,7 +20,7 @@
 	let { children }: Props = $props();
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		display: 'block',
 		padding: '$xlPX',
 		borderRadius: '$md',
@@ -32,9 +42,8 @@
 	spacing="lg"
 >
 	{#each components as item}
-		{@const { link, component, content, title, color, ...rest } = item}
-		{@const Component = component}
-		<Box href={link} css={styles}>
+		<Box href={item.link} css={styles}>
+			{@const ComponentEntry = item.component as Component}
 			<Stack>
 				<Group position="apart">
 					<Group>
@@ -55,16 +64,16 @@
 					</Tooltip>
 				</Group>
 				<Container>
-					{#if content}
-						<Component {...item}>
+					{#if item.content}
+						<ComponentEntry>
 							{#if children}
 								{@render children()}
 							{:else}
 								{item.content.valueOf()}
 							{/if}
-						</Component>
+						</ComponentEntry>
 					{:else}
-						<Component />
+						<ComponentEntry />
 					{/if}
 				</Container>
 			</Stack>

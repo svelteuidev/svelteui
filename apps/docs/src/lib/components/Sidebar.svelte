@@ -30,7 +30,7 @@
 
 	let { pathname }: Props = $props();
 
-	let accordionEl: HTMLElement = $state();
+	let accordionEl: HTMLElement | undefined = $state();
 	run(() => {
 		// Sets the active link in the Sidebar when the page changes
 		accordionEl?.querySelectorAll('a').forEach((a) => {
@@ -67,40 +67,45 @@
 
 <ul>
 	<li>
-		<MainLink color="blue" href="{base}/introduction"
-			>{#snippet icon()}
-						<Cube  size={20} />
-					{/snippet}Introduction</MainLink
-		>
+		<MainLink color="blue" href="{base}/introduction">
+			{#snippet icon()}
+				<Cube size={20} />
+			{/snippet}
+			Introduction
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="red" href="{base}/installation"
-			>{#snippet icon()}
-						<Download  size={20} />
-					{/snippet}Installation</MainLink
-		>
+		<MainLink color="red" href="{base}/installation">
+			{#snippet icon()}
+				<Download size={20} />
+			{/snippet}
+			Installation
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="green" href="{base}/basics"
-			>{#snippet icon()}
-						<StarFilled  size={20} />
-					{/snippet}Learn The Basics</MainLink
-		>
+		<MainLink color="green" href="{base}/basics">
+			{#snippet icon()}
+				<StarFilled size={20} />
+			{/snippet}
+			Learn The Basics
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="dark" href="{base}/contributing"
-			>{#snippet icon()}
-						<GithubLogo  size={20} />
-					{/snippet}Contributing</MainLink
-		>
+		<MainLink color="dark" href="{base}/contributing">
+			{#snippet icon()}
+				<GithubLogo size={20} />
+			{/snippet}
+			Contributing
+		</MainLink>
 	</li>
 	<!-- - <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink> -->
 	<li>
-		<MainLink color="indigo" href="{base}/faq"
-			>{#snippet icon()}
-						<QuestionMarkCircled  size={20} />
-					{/snippet}FAQ</MainLink
-		>
+		<MainLink color="indigo" href="{base}/faq">
+			{#snippet icon()}
+				<QuestionMarkCircled size={20} />
+			{/snippet}
+			FAQ
+		</MainLink>
 	</li>
 </ul>
 
@@ -115,8 +120,8 @@
 >
 	<Accordion.Item value="changelog">
 		{#snippet control()}
-				<div ><NavigationTitle>Changelog</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>Changelog</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li><a href={`${base}/changelog/v0-15-0`}>Version 0.15.0</a></li>
 			<li><a href={`${base}/changelog/v0-14-0`}>Version 0.14.0</a></li>
@@ -133,8 +138,8 @@
 	</Accordion.Item>
 	<Accordion.Item value="theming">
 		{#snippet control()}
-				<div ><NavigationTitle>Theming</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>Theming</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li><a href={`${base}/theming/svelteui-provider`}>SvelteUIProvider</a></li>
 			<li><a href={`${base}/theming/create-styles`}>Creating styles</a></li>
@@ -147,8 +152,8 @@
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_core">
 		{#snippet control()}
-				<div ><NavigationTitle>SvelteUI Core (Components)</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>SvelteUI Core (Components)</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong><Layout /><Space w="md" />Layout</strong>
@@ -255,10 +260,10 @@
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_composables">
 		{#snippet control()}
-				<div >
+			<div>
 				<NavigationTitle>SvelteUI Composables (Svelte Actions)</NavigationTitle>
 			</div>
-			{/snippet}
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong><LightningBolt /><Space w="md" />Actions</strong>
@@ -304,8 +309,8 @@
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_dates">
 		{#snippet control()}
-				<div ><NavigationTitle>SvelteUI Dates</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>SvelteUI Dates</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li><a href={`${base}/dates/getting-started`}>Getting Started</a></li>
 			<li><a href={`${base}/dates/month`}>Month</a></li>
@@ -313,8 +318,8 @@
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_preprocessors">
 		{#snippet control()}
-				<div ><NavigationTitle>SvelteUI Preprocessors</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>SvelteUI Preprocessors</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li><a href={`${base}/preprocessors/getting-started`}>Getting Started</a></li>
 			<li><a href={`${base}/preprocessors/view-source`}>view-source</a></li>
@@ -322,8 +327,8 @@
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_motion">
 		{#snippet control()}
-				<div ><NavigationTitle>SvelteUI Motion</NavigationTitle></div>
-			{/snippet}
+			<div><NavigationTitle>SvelteUI Motion</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong>Transitions</strong>
@@ -336,10 +341,10 @@
 	</Accordion.Item>
 	<Accordion.Item value="other_packages">
 		{#snippet control()}
-				<div >
+			<div>
 				<NavigationTitle>Other Packages</NavigationTitle>
 			</div>
-			{/snippet}
+		{/snippet}
 		<ul class="list">
 			<li><a href={`${base}/others/prism`}>Prism</a></li>
 		</ul>

@@ -9,16 +9,8 @@
 		class?: string;
 	}
 
-	let {
-		height,
-		width,
-		flip = false,
-		alt = false,
-		class: className = ''
-	}: Props = $props();
-	
+	let { height, width, flip = false, alt = false, class: className = '' }: Props = $props();
 
-	// @ts-ignore
 	let { classes, cx, getStyles } = $derived(useStyles({ height, width, alt, flip }));
 </script>
 

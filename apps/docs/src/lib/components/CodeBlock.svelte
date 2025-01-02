@@ -21,7 +21,13 @@
 </script>
 
 <Box css={{ position: 'relative', mx: 0, my: '25px' }} root="pre">
-	<code>{#if children}{@render children()}{:else}Code{/if}</code>
+	<code>
+		{#if children}
+			{@render children()}
+		{:else}
+			Code
+		{/if}
+	</code>
 	{#if copy}
 		<Button
 			variant="default"

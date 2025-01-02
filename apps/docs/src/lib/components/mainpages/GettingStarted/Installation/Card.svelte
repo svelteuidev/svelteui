@@ -8,7 +8,7 @@
 		title?: string;
 		description?: string;
 		onChange: any;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let {
@@ -19,7 +19,6 @@
 		onChange,
 		...rest
 	}: Props = $props();
-	
 
 	let { cx, getStyles } = $derived(useStyles());
 </script>
@@ -33,7 +32,7 @@
 	override={{ minH: 90 }}
 	{...rest}
 >
-	<Checkbox {checked} tabindex="-1" size="md" override={{ mr: '$xlPX' }} on:change={onChange} />
+	<Checkbox {checked} tabindex={-1} size="md" override={{ mr: '$xlPX' }} on:change={onChange} />
 	<div>
 		<Text weight="medium" override={{ mb: 7, lineHeight: 1 }}>
 			{title}

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
+	import { onMount } from 'svelte';
 	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import { STARTGUIDE_DATA } from './data.js';
 	import Guides from './Guides.svelte';
@@ -9,10 +8,8 @@
 
 	/** Variable for switching cards stitches variant*/
 	let selected = $state('kit');
-	
-	run(() => {
-		setId(selected);
-	});
+
+	onMount(() => setId(selected));
 </script>
 
 <Box css={{ mb: 50 }}>
@@ -24,7 +21,15 @@
 		]}
 	>
 		{#each STARTGUIDE_DATA as { title, id, icon } (id)}
-			<Guides on:click={() => (selected = id)} {title} {icon} active={selected === id} />
+			<Guides
+				onclick={() => {
+					selected = id;
+					setId(selected);
+				}}
+				{title}
+				{icon}
+				active={selected === id}
+			/>
 		{/each}
 	</SimpleGrid>
 </Box>

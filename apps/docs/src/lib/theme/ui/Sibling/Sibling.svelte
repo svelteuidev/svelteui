@@ -22,7 +22,6 @@
 		type = 'next',
 		class: className = ''
 	}: Props = $props();
-	
 
 	let { cx, classes, getStyles } = $derived(useStyles({ type }));
 </script>

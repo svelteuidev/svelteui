@@ -1,6 +1,4 @@
 <script lang="ts">
-	import useStyles from './Banner.styles';
-
 	interface Props {
 		message?: string;
 	}

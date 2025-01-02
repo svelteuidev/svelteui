@@ -66,7 +66,7 @@
 				closeDelay={200}
 				withArrow
 				position={$screenW < 500 ? 'top' : 'right'}
-				label={copied ? 'Copied' : 'Copy'}
+				labelComponent={copied ? 'Copied' : 'Copy'}
 				color={copied ? 'green' : 'gray'}
 			>
 				<Box css={importStyles}>

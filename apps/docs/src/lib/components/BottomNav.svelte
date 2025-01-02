@@ -18,19 +18,16 @@
 		type?: string;
 	}
 
-	let {
-		slug,
-		title,
-		group,
-		both = false,
-		type = 'next'
-	}: Props = $props();
+	let { slug, title, group, both = false, type = 'next' }: Props = $props();
 
 	const data = { slug, title, package: group };
 	const viewport = useViewportSize();
-	let dataLeft = $state(), dataRight = $state();
+	let dataLeft = $state(),
+		dataRight = $state();
 
-	let isObj = $derived(typeof slug === 'object' && typeof title === 'object' && typeof group === 'object');
+	let isObj = $derived(
+		typeof slug === 'object' && typeof title === 'object' && typeof group === 'object'
+	);
 
 	run(() => {
 		if (isObj && both) {

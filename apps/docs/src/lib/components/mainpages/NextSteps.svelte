@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
 	import { Group, ThemeIcon, Text, SimpleGrid, Anchor } from '@svelteuidev/core';
 	import { NEXT_STEPS_DATA } from '$lib/data';
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		display: 'block',
 		padding: '$xlPX',
 		borderRadius: '$md',

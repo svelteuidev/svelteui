@@ -3,7 +3,7 @@
 	import { useViewportSize } from '@svelteuidev/composables';
 
 	const viewport = useViewportSize();
-	let { width, height } = $derived($viewport);
+	let { width } = $derived($viewport);
 
 	const { themeColor } = fns;
 	const secondaryColor = $colorScheme === 'dark' ? themeColor('dark', 1) : themeColor('dark', 7);
@@ -25,9 +25,9 @@
 				>Portugal Porto Adventures</Text
 			>
 		{:else}
-			<Text size="lg" weight={500} tracking="tight" override={{ mb: '$mdPX' }}
-				>Portugal Porto Adventures</Text
-			>
+			<Text size="lg" weight={500} tracking="tight" override={{ mb: '$mdPX' }}>
+				Portugal Porto Adventures
+			</Text>
 			<Badge color="pink" variant="light">On Sale</Badge>
 		{/if}
 	</Group>

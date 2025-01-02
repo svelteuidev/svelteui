@@ -11,9 +11,7 @@
 		Checkbox,
 		Box,
 		Card,
-		ActionIcon,
-		Text,
-		NativeSelect
+		Text
 	} from '@svelteuidev/core';
 	import { Animation } from '@svelteuidev/motion';
 	import CardDemo from './_Card.svelte';
@@ -190,7 +188,7 @@
 							<CardDemo />
 						</Animation>
 						<Animation duration={13} animation="float">
-							<Tooltip label="I am a tooltip" withArrow>
+							<Tooltip labelComponent="I am a tooltip" withArrow>
 								<Badge variant="light">Hover Me</Badge>
 							</Tooltip>
 						</Animation>

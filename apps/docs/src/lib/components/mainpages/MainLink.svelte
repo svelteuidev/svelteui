@@ -1,22 +1,18 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { Text, ThemeIcon, theme } from '@svelteuidev/core';
 
 	interface Props {
 		color: string;
 		href?: string;
-		icon?: import('svelte').Snippet;
-		children?: import('svelte').Snippet;
+		icon?: Snippet;
+		children?: Snippet;
 	}
 
-	let {
-		color,
-		href = '',
-		icon,
-		children
-	}: Props = $props();
+	let { color, href = '', icon, children }: Props = $props();
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		WebkitTapHighlightColor: 'transparent',
 		display: 'flex !important',
 		alignItems: 'center',

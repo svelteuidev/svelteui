@@ -1,6 +1,6 @@
 import { createStyles } from '@svelteuidev/core';
 
-export default createStyles((theme, _params, getRef) => {
+export default createStyles((theme, _params: { type: string }, getRef) => {
 	return {
 		root: {
 			darkMode: {

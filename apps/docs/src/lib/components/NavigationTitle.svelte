@@ -24,6 +24,10 @@
 
 <UnstyledButton class={classes.root} on:click>
 	<span class={classes.title}>
-		{#if children}{@render children()}{:else}Title Here{/if}
+		{#if children}
+			{@render children()}
+		{:else}
+			Title Here
+		{/if}
 	</span>
 </UnstyledButton>
