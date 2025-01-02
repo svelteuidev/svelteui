@@ -13,13 +13,13 @@
     {#if visible}
         <Overlay opacity={0.6} color="#000" zIndex={5} />
     {/if}
-    <Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
+    <Button onclick={() => count++} color={visible ? 'red' : 'teal'}>
         {!visible ? 'Click as much as you like' : "Won't click, haha"}
     </Button>
 </Box>
-<Group children={2} direction='column' position="center">
+<Group direction='column' position="center">
     <Text>Count: {count}</Text>
-    <Button on:click={() => visible = !visible}>Toggle overlay</Button>
+    <Button onclick={() => visible = !visible}>Toggle overlay</Button>
 </Group>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -48,11 +48,11 @@
 	{#if visible}
 		<Overlay opacity={0.6} color="#000" zIndex={5} />
 	{/if}
-	<Button on:click={() => count++} color={visible ? 'red' : 'teal'}>
+	<Button onclick={() => count++} color={visible ? 'red' : 'teal'}>
 		{!visible ? 'Click as much as you like' : "Won't click, haha"}
 	</Button>
 </Box>
-<Group children={2} direction="column" position="center">
+<Group direction="column" position="center">
 	<Text>Count: {count}</Text>
-	<Button on:click={() => (visible = !visible)}>Toggle overlay</Button>
+	<Button onclick={() => (visible = !visible)}>Toggle overlay</Button>
 </Group>

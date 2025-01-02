@@ -6,7 +6,7 @@
 	import dayjs from 'dayjs';
 
 	const initialDate = dayjs(new Date()).startOf('month').add(10, 'days').toDate();
-	let value = initialDate;
+	let value = $state(initialDate);
 <\/script>
 
 <Month

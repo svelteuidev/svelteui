@@ -5,15 +5,15 @@
 <script>
 	import { Box, Button, Popper } from '@svelteuidev/core';
 
-	let reference;
-	let mounted = false;
+	let reference: HTMLButtonElement = $state();
+	let mounted = $state(false);
 
 	const toggleMount = () => {
 		mounted = !mounted;
 	};
 <\/script>
 
-<Button bind:element={reference} on:click={toggleMount}>Reference element</Button>
+<Button bind:element={reference} onclick={toggleMount}>Reference element</Button>
 <Popper {mounted} {reference} ${props}>
 	<Box>
 		<Center>Popper content</Center>
@@ -77,7 +77,7 @@
 
 	let props: PopperProps = $props();
 
-	let reference;
+	let reference: HTMLButtonElement = $state();
 	let mounted = $state(false);
 
 	const toggleMount = () => {

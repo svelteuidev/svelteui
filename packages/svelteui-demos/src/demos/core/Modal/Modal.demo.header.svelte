@@ -20,13 +20,13 @@
 <script>
 	import { Modal, Group, Button } from '@svelteuidev/core';
 
-	let opened = $state();
+	let opened = $state(false);
 </script>
 
-<Modal {opened} on:close={() => (opened = false)} withCloseButton={false}>
+<Modal {opened} onclose={() => (opened = false)} withCloseButton={false}>
 	Modal without header, press escape or click on overlay to close
 </Modal>
 
 <Group position="center">
-	<Button on:click={() => (opened = true)}>Open Modal</Button>
+	<Button onclick={() => (opened = true)}>Open Modal</Button>
 </Group>

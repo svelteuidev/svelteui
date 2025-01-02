@@ -9,10 +9,14 @@
 
 <Breadcrumbs size="md">
   <Breadcrumbs.Item href="https://svelteui.dev">
-    <IconRenderer slot="icon" icon={Home} />
+    {#snippet icon()}
+		<IconRenderer icon={Home} />
+	{/snippet}
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>
-    <IconRenderer slot="icon" icon={Person} />
+    {#snippet icon()}
+		<IconRenderer icon={Person} />
+	{/snippet}
     Application List
   </Breadcrumbs.Item>
   <Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>
@@ -39,13 +43,13 @@
 <Breadcrumbs>
 	<Breadcrumbs.Item href="https://svelteui.dev">
 		{#snippet icon()}
-				<IconRenderer  icon={Home} />
-			{/snippet}
+			<IconRenderer icon={Home} />
+		{/snippet}
 	</Breadcrumbs.Item>
 	<Breadcrumbs.Item>
 		{#snippet icon()}
-				<IconRenderer  icon={Person} />
-			{/snippet}
+			<IconRenderer icon={Person} />
+		{/snippet}
 		Application List
 	</Breadcrumbs.Item>
 	<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>

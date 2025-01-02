@@ -14,8 +14,8 @@
     Overlay with a blur
 </Box>
 
-<Group children={1} position="center">
-    <Button on:click={() => visible = !visible}>Toggle overlay</Button>
+<Group position="center">
+    <Button onclick={() => visible = !visible}>Toggle overlay</Button>
 </Group>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -38,6 +38,6 @@
 	<Text align="center">Overlay with a blur</Text>
 </Box>
 
-<Group children={1} position="center">
-	<Button on:click={() => (visible = !visible)}>Toggle overlay</Button>
+<Group position="center">
+	<Button onclick={() => (visible = !visible)}>Toggle overlay</Button>
 </Group>

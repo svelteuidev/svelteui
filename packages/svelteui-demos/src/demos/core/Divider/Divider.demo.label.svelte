@@ -7,19 +7,21 @@
     import { MagnifyingGlass } from 'radix-icons-svelte';
   <\/script>
 
-  <Divider label='Label on the left' labelPosition='left' \/>
-  <Divider label='Label in the center' labelPosition='center' \/>
-  <Divider label='Label on the right' labelPosition='right' \/>
+  <Divider labelText='Label on the left' labelPosition='left' \/>
+  <Divider labelText='Label in the center' labelPosition='center' \/>
+  <Divider labelText='Label on the right' labelPosition='right' \/>
   <Divider labelPosition='center'>
-    <div slot='label'>
-      <MagnifyingGlass \/>
-      <span>Search results<\/span>
-    <\/div>
+    {#snippet label()}
+      <div>
+        <MagnifyingGlass \/>
+        <span style="vertical-align: middle;">Search results<\/span>
+      <\/div>
+    {/snippet}
   <\/Divider>
   <Divider
     size='md'
     variant='dashed'
-    label='Click here'
+    labelText='Click here'
     labelPosition='left'
     labelProps={{ variant: 'link', href: 'https://svelteui.dev', root: 'a' }}
   \/>
@@ -37,25 +39,25 @@
 	import { MagnifyingGlass } from 'radix-icons-svelte';
 </script>
 
-<Divider label="Label on the left" labelPosition="left" />
+<Divider labelText="Label on the left" labelPosition="left" />
 
-<Divider label="Label in the center" labelPosition="center" />
+<Divider labelText="Label in the center" labelPosition="center" />
 
-<Divider label="Label on the right" labelPosition="right" />
+<Divider labelText="Label on the right" labelPosition="right" />
 
 <Divider labelPosition="center">
 	{#snippet label()}
-    <div >
-  		<MagnifyingGlass />
-  		<span style="vertical-align: middle;">Search results</span>
-  	</div>
-  {/snippet}
+		<div>
+			<MagnifyingGlass />
+			<span style="vertical-align: middle;">Search results</span>
+		</div>
+	{/snippet}
 </Divider>
 
 <Divider
 	size="md"
 	variant="dashed"
-	label="Click here"
+	labelText="Click here"
 	labelPosition="left"
 	labelProps={{ variant: 'link', href: 'https://svelteui.dev', root: 'a' }}
 />

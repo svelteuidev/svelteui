@@ -5,11 +5,11 @@
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
 
-  let opened = false;
+  let opened = $state(false);
 <\/script>
 
-<Tooltip {opened} label='Hello'>
-    <Button on:click={() => (opened = !opened)}>Click here</Button>
+<Tooltip {opened} labelComponent='Hello'>
+    <Button onclick={() => (opened = !opened)}>Click here</Button>
 </Tooltip>
 `;
 
@@ -26,7 +26,7 @@
 </script>
 
 <Center>
-	<Tooltip {opened} label="Hello">
-		<Button on:click={() => (opened = !opened)}>Click here</Button>
+	<Tooltip {opened} labelComponent="Hello">
+		<Button onclick={() => (opened = !opened)}>Click here</Button>
 	</Tooltip>
 </Center>

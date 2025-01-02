@@ -4,12 +4,12 @@
 	const code = `<script>
     import { Checkbox, Stack } from '@svelteuidev/core';
 
-    let items = [
-        { label: 'Receive email notifications', value: false },
-        { label: 'Receive sms notifications', value: false },
-        { label: 'Receive push notifications', value: false }
-    ]
-    $: globalValue = items.every(i => i.value);
+    let items = $state([
+		{ label: 'Receive email notifications', value: false },
+		{ label: 'Receive sms notifications', value: false },
+		{ label: 'Receive push notifications', value: false }
+	]);
+	let globalValue = $derived(items.every((i) => i.value));
 <\/script>
 
 <Checkbox label='Receive all notifications' indeterminate={!globalValue} checked={globalValue} />

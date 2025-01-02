@@ -5,7 +5,7 @@
 <script>
     import { Month } from '@svelteuidev/dates';
 
-    let value = new Date();
+	let value = $state(new Date());
 <\/script>
 
 <Month bind:value month={value} onChange={(val) => (value = val)} />
@@ -19,7 +19,7 @@
 </script>
 
 <script>
-	import { Center, Text, Stack, Paper } from '@svelteuidev/core';
+	import { Center, Text, Stack } from '@svelteuidev/core';
 	import { Month } from '@svelteuidev/dates';
 
 	let value = $state(new Date());

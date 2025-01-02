@@ -11,7 +11,7 @@
     width={220}
     withArrow
     transitionDuration={200}
-    label='Use this button to see the tooltip multiline behavior so that we can convince you to use this library.'
+    labelComponent='Use this button to see the tooltip multiline behavior so that we can convince you to use this library.'
 >
     <Button>Multiline tooltip</Button>
 </Tooltip>
@@ -33,7 +33,7 @@
 		width={220}
 		withArrow
 		transitionDuration={200}
-		label="Use this button to see the tooltip multiline behavior so that we can convince you to use this library."
+		labelComponent="Use this button to see the tooltip multiline behavior so that we can convince you to use this library."
 	>
 		<Button>Multiline tooltip</Button>
 	</Tooltip>

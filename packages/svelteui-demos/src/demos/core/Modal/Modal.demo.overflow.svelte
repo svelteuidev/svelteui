@@ -33,8 +33,8 @@
 
 <Modal
 	opened={outsideOpened}
-	on:close={closeOutside}
-	title="Please consider this"
+	onclose={closeOutside}
+	titleText="Please consider this"
 	overflow="outside"
 >
 	{#each content as _}
@@ -42,13 +42,18 @@
 	{/each}
 </Modal>
 
-<Modal opened={insideOpened} on:close={closeInside} title="Please consider this" overflow="inside">
+<Modal
+	opened={insideOpened}
+	onclose={closeInside}
+	titleText="Please consider this"
+	overflow="inside"
+>
 	{#each content as _}
 		<p>{_}</p>
 	{/each}
 </Modal>
 
 <Group position="center">
-	<Button on:click={openOutside} color="pink">Outside overflow</Button>
-	<Button on:click={openInside} color="cyan">Inside overflow</Button>
+	<Button onclick={openOutside} color="pink">Outside overflow</Button>
+	<Button onclick={openInside} color="cyan">Inside overflow</Button>
 </Group>

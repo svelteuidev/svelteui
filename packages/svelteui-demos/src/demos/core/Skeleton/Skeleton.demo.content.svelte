@@ -5,13 +5,13 @@
 <script>
   import { Button, Skeleton } from '@svelteuidev/core';
 
-  let loading = false;
+	let loading = $state(true);
 <\/script>
 
 <Skeleton visible={loading}>
     Lorem ipsum dolor sit amet...
 </Skeleton>
-<Button on:click={() => (loading = !loading)}>
+<Button onclick={() => (loading = !loading)}>
     Toggle Skeleton
 </Button>
 `;
@@ -37,5 +37,5 @@
 		commodi tempora debitis dolores vero cumque magni cum, deserunt, ad tempore consectetur libero
 		molestias similique nemo eum! Dolore maxime voluptate inventore atque.
 	</Skeleton>
-	<Button on:click={() => (loading = !loading)}>Toggle Skeleton</Button>
+	<Button onclick={() => (loading = !loading)}>Toggle Skeleton</Button>
 </Stack>

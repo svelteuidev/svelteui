@@ -5,7 +5,7 @@
     <script>
 	import { createStyles } from '@svelteuidev/core';
 
-	let active = 0;
+	let active = $state(0);
 
 	const useStyles = createStyles((theme) => ({
 		root: {
@@ -32,14 +32,14 @@
 
 <button
     class={cx(getStyles(), { active: active === 0 })}
-    on:click={() => (active = 0)}
+    onclick={() => (active = 0)}
     type="button"
 >
     First
 </button>
 <button
     class={cx(getStyles(), { active: active === 1 })}
-    on:click={() => (active = 1)}
+    onclick={() => (active = 1)}
     type="button"
 >
     Second

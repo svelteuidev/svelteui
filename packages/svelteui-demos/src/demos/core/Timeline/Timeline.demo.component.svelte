@@ -12,23 +12,23 @@
 			Default bullet with default styling
 		</Text>
 	</Timeline.Item>
-	<Timeline.Item bullet={LightningBolt} title='Icon'>
+	<Timeline.Item bulletComponent={LightningBolt} title='Icon'>
 		<Text color='dimmed' size='sm'>
 			Item with bullet as icon
 		</Text>
 	</Timeline.Item>
 	<Timeline.Item title='Icon'>
-		<svelte:fragment slot='bullet'>
-			<ThemeIcon radius='xl' color='orange'><Sun /></ThemeIcon>
-		</svelte:fragment>
+		{#snippet bullet()}
+			<ThemeIcon radius="xl" color="orange"><Sun /></ThemeIcon>
+		{/snippet}
 		<Text color='dimmed' size='sm'>
 			Item with bullet as icon
 		</Text>
 	</Timeline.Item>
 	<Timeline.Item title='Image'>
-		<svelte:fragment slot='bullet'>
+		{#snippet bullet()}
 			<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
-		</svelte:fragment>
+		{/snippet}
 		<Text color='dimmed' size='sm'>
 			Item with bullet as image
 		</Text>
@@ -52,23 +52,19 @@
 		<Timeline.Item title="Default bullet">
 			<Text color="dimmed" size="sm">Default bullet with default styling</Text>
 		</Timeline.Item>
-		<Timeline.Item bullet={LightningBolt} title="Icon">
+		<Timeline.Item bulletComponent={LightningBolt} title="Icon">
 			<Text color="dimmed" size="sm">Item with bullet as icon</Text>
 		</Timeline.Item>
 		<Timeline.Item title="Icon">
 			{#snippet bullet()}
-					
-					<ThemeIcon radius="xl" color="orange"><Sun /></ThemeIcon>
-				
-					{/snippet}
+				<ThemeIcon radius="xl" color="orange"><Sun /></ThemeIcon>
+			{/snippet}
 			<Text color="dimmed" size="sm">Item with bullet as icon</Text>
 		</Timeline.Item>
 		<Timeline.Item title="Image">
 			{#snippet bullet()}
-					
-					<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
-				
-					{/snippet}
+				<Image src="https://avatars.githubusercontent.com/u/1024025?v=4" />
+			{/snippet}
 			<Text color="dimmed" size="sm">Item with bullet as image</Text>
 		</Timeline.Item>
 	</Timeline>

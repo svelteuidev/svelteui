@@ -10,7 +10,7 @@
 <TextInput
     label='Your email'
     placeholder='Your email'
-    icon={EnvelopeClosed}
+    iconComponent={EnvelopeClosed}
 \/>
 `;
 
@@ -27,5 +27,5 @@
 </script>
 
 <Center>
-	<TextInput label="Your email" placeholder="Your email" icon={EnvelopeClosed} />
+	<TextInput label="Your email" placeholder="Your email" iconComponent={EnvelopeClosed} />
 </Center>

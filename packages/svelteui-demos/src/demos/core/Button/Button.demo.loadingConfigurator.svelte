@@ -8,7 +8,9 @@
 <\/script>
 
 <Button${props}>
-    <LockClosed slot="leftIcon" />
+    {#snippet leftIcon()}
+		<LockClosed />
+	{/snippet}
     Sign Up
 <\/Button>
 `;

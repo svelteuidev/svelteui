@@ -27,5 +27,5 @@
 </script>
 
 <Center>
-	<PasswordInput label="Password" placeholder="Enter password" icon={LockClosed} />
+	<PasswordInput label="Password" placeholder="Enter password" iconComponent={LockClosed} />
 </Center>

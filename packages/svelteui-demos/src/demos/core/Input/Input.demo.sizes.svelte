@@ -6,9 +6,11 @@
 </script>
 
 <script lang="ts">
-	import { Input } from '@svelteuidev/core';
+	import { Input, type SvelteUISize } from '@svelteuidev/core';
+
+	const sizes: SvelteUISize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 </script>
 
-{#each ['xs', 'sm', 'md', 'lg', 'xl'] as size}
+{#each sizes as size}
 	<Input {size} placeholder={`${size} input size`} />
 {/each}

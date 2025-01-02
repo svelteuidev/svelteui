@@ -9,36 +9,28 @@
   <Timeline active={1}${props}>
     <Timeline.Item title='New branch'>
       <Text color='dimmed' size='sm'>
-        You&apos;ve created new branch<Text variant='link' root='span' href='#' inherit
-          >fix-notifications</Text
-        > from master</Text
-      >
+        You&apos;ve created new branch<Text variant='link' root='span' href='#' inherit>
+			fix-notifications</Text> from master</Text>
       <Text size='xs'>2 hours ago</Text>
     </Timeline.Item>
 
     <Timeline.Item title='Commits'>
-      <Text color='dimmed' size='sm'
-        >You&apos;ve pushed 23 commits to<Text variant='link' root='span' href='#' inherit
-          >fix-notifications branch</Text
-        ></Text
-      >
+      <Text color='dimmed' size='sm'>You&apos;ve pushed 23 commits to<Text variant='link' root='span' href='#' inherit>
+	  	fix-notifications branch</Text></Text>
       <Text size='xs'>52 minutes ago</Text>
     </Timeline.Item>
 
     <Timeline.Item title='Pull request' lineVariant='dashed'>
-      <Text color='dimmed' size='sm'
-        >You&apos;ve submitted a pull request<Text variant='link' root='span' href='#' inherit
-          >Fix incorrect notification message (#187)</Text
-        ></Text
-      >
+      <Text color='dimmed' size='sm'>You&apos;ve submitted a pull request<Text variant='link' root='span' href='#' inherit>
+	  	Fix incorrect notification message (#187)</Text></Text>
       <Text size='xs'>34 minutes ago</Text>
     </Timeline.Item>
 
     <Timeline.Item title='Code review'>
-      <Text color='dimmed' size='sm'
-        ><Text variant='link' root='span' href='#' inherit>Robert Gluesticker</Text> left a code review on
-        your pull request</Text
-      >
+      <Text color='dimmed' size='sm'>
+	  	<Text variant='link' root='span' href='#' inherit>Robert Gluesticker</Text> left a code review on
+        your pull request
+		</Text>
       <Text size='xs'>12 minutes ago</Text>
     </Timeline.Item>
   </Timeline>

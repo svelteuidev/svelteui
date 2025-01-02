@@ -18,7 +18,10 @@
 
 <Button override={{ bc: 'red', '&:hover': { bc: '$indigo400' } }} variant='outline'>Click Me</Button>
 <Button override={newStyles}>
-    <GithubLogo slot='leftIcon' size={16} /> I love open source!
+    {#snippet leftIcon()}
+		<GithubLogo size={16} />
+	{/snippet}
+	I love open source!
 </Button>
 `;
 
@@ -50,7 +53,8 @@
 	>
 	<Button override={newStyles}>
 		{#snippet leftIcon()}
-				<GithubLogo  size={16} />
-			{/snippet} I love open source!
+			<GithubLogo size={16} />
+		{/snippet}
+		I love open source!
 	</Button>
 </Group>

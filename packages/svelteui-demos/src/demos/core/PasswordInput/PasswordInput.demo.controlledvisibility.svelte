@@ -6,7 +6,7 @@
   import { Center, PasswordInput } from '@svelteuidev/core';
 	import { EnvelopeClosed, EnvelopeOpen } from 'radix-icons-svelte';
 
-	let show = false;
+	let show = $state(false);
 
 	const onVisibilityChange = (visible) => {
 		show = visible;

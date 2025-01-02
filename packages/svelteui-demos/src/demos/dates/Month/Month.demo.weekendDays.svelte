@@ -4,7 +4,7 @@
 <script>
 	import { Month } from '@svelteuidev/dates';
 
-    let value = new Date()
+	let value = $state(new Date());
 <\/script>
 
 <Month

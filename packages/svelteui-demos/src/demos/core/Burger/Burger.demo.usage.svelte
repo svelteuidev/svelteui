@@ -27,5 +27,5 @@
 </script>
 
 <Center>
-	<Burger {opened} on:click={() => (opened = !opened)} />
+	<Burger {opened} onclick={() => (opened = !opened)} />
 </Center>

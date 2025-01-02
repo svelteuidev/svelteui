@@ -39,14 +39,15 @@
 
 <script lang="ts">
 	import { ActionIcon, Group, NumberInput, Center } from '@svelteuidev/core';
+	import type { NumberInputComponent } from '@svelteuidev/core';
 
-	let input = $state();
+	let input: NumberInputComponent = $state();
 </script>
 
 <Group position="center">
-	<ActionIcon variant="default" on:click={() => input.decrement()}>-</ActionIcon>
+	<ActionIcon variant="default" onclick={() => input.decrement()}>-</ActionIcon>
 	<Center inline override={{ width: '50px' }}>
 		<NumberInput bind:this={input} hideControls defaultValue={0} max={10} min={0} step={2} />
 	</Center>
-	<ActionIcon variant="default" on:click={() => input.increment()}>+</ActionIcon>
+	<ActionIcon variant="default" onclick={() => input.increment()}>+</ActionIcon>
 </Group>

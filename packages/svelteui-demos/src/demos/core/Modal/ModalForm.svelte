@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+	import { quintInOut } from 'svelte/easing';
 	import {
 		Modal,
 		Group,
@@ -10,27 +12,18 @@
 		Affix
 	} from '@svelteuidev/core';
 	import type { ModalProps } from '@svelteuidev/core';
-	import { fly } from 'svelte/transition';
-	import { quintInOut } from 'svelte/easing';
 
-	
-
-	interface Props {
-		withOpenButton?: boolean;
-		closeModal?: (...args: any[]) => boolean;
-		opened?: boolean;
-		[key: string]: any
-	}
-
-	let { withOpenButton = true, closeModal = () => (opened = false), opened = $bindable(false), ...rest }: Props = $props();
+	let {
+		withOpenButton = true,
+		closeModal = () => (opened = false),
+		opened = $bindable(false),
+		...rest
+	}: ModalProps = $props();
 
 	let notificationOpened = $state(false);
 
-	const firstName = 'First Name';
-	const lastName = 'Last Name';
-
-	let firstNameValue = $state();
-	let lastNameValue = $state();
+	let firstNameValue: string = $state();
+	let lastNameValue: string = $state();
 
 	function submitForm() {
 		opened = false;
@@ -39,21 +32,21 @@
 	}
 </script>
 
-<Modal {opened} on:close={closeModal} title="Introduce yourself!" {...rest}>
+<Modal {opened} onclose={closeModal} titleText="Introduce yourself!" {...rest}>
 	<Stack>
-		<TextInput bind:value={firstNameValue} placeholder={firstName} label={firstName} />
-		<TextInput bind:value={lastNameValue} placeholder={lastName} label={lastName} />
+		<TextInput bind:value={firstNameValue} placeholder={'First Name'} label={'First Name'} />
+		<TextInput bind:value={lastNameValue} placeholder={'Last Name'} label={'Last Name'} />
 	</Stack>
 	<Space h="lg" />
 	<Group position="right">
-		<Button on:click={closeModal} variant="outline">Cancel</Button>
-		<Button on:click={submitForm}>Submit</Button>
+		<Button onclick={closeModal} variant="outline">Cancel</Button>
+		<Button onclick={submitForm}>Submit</Button>
 	</Group>
 </Modal>
 
 {#if withOpenButton}
 	<Group position="center">
-		<Button on:click={() => (opened = true)}>Open Modal</Button>
+		<Button onclick={() => (opened = true)}>Open Modal</Button>
 	</Group>
 {/if}
 
@@ -62,7 +55,7 @@
 		<div transition:fly|global={{ x: 100, duration: 400, easing: quintInOut }}>
 			<Notification
 				title="Form Submitted Successfully"
-				on:close={() => (notificationOpened = false)}
+				onclose={() => (notificationOpened = false)}
 			>
 				Your form was subbmitted successfully! No need to think about it any longer.
 			</Notification>

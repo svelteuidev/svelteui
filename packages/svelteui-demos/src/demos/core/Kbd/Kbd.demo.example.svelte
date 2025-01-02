@@ -9,14 +9,14 @@
 
 <TextInput
   placeholder="Search"
-  icon={MagnifyingGlass}
+  iconComponent={MagnifyingGlass}
   rightSectionWidth={90}
 >
-  <svelte:fragment slot='rightSection'>
-    <Kbd>Ctrl</Kbd>
-    <Box root='span'>+</Box>
-    <Kbd>K</Kbd>
-  </svelte:fragment>
+  	{#snippet rightSection()}
+		<Kbd>Ctrl</Kbd>
+		<Box root="span" css={{ m: '0 5px' }}>+</Box>
+		<Kbd>K</Kbd>
+	{/snippet}
 </TextInput>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -33,15 +33,13 @@
 
 <TextInput
 	placeholder="Search"
-	icon={MagnifyingGlass}
+	iconComponent={MagnifyingGlass}
 	rightSectionWidth={90}
 	override={{ '&. rightSection': { pointerEvents: 'none' } }}
 >
 	{#snippet rightSection()}
-	
-			<Kbd>Ctrl</Kbd>
-			<Box root="span" css={{ m: '0 5px' }}>+</Box>
-			<Kbd>K</Kbd>
-		
+		<Kbd>Ctrl</Kbd>
+		<Box root="span" css={{ m: '0 5px' }}>+</Box>
+		<Kbd>K</Kbd>
 	{/snippet}
 </TextInput>

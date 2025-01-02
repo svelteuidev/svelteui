@@ -7,9 +7,9 @@
 <\/script>
 
 <Textarea label="Your story" placeholder="Once upon a time">
-  <svelte:fragment slot="rightSection">
-    <Loader color="blue" size="xs" />
-  </svelte:fragment>
+  	{#snippet rightSection()}
+		<Loader color="blue" size="xs" />
+	{/snippet}
 </Textarea>
 `;
 
@@ -27,9 +27,7 @@
 <Center>
 	<Textarea label="Your story" placeholder="Once upon a time">
 		{#snippet rightSection()}
-			
-				<Loader color="blue" size="xs" />
-			
-			{/snippet}
+			<Loader color="blue" size="xs" />
+		{/snippet}
 	</Textarea>
 </Center>

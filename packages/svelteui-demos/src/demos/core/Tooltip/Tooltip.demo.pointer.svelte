@@ -18,20 +18,20 @@
   width={220}
   gutter={5}
 >
-  <div slot='label'>
-    <Text size='xs'>
-      Use this button to save this information in your profile, after that you will be able to access
-      it any time and share it via email.
-    </Text>
-    <ActionIcon size='xs' on:click={() => (opened = false)}>
-      x
-    </ActionIcon>
-  </div>
-  <Button on:click={() => (opened = false)}>Save to profile</Button>
+  	{#snippet label()}
+		<div style="display: flex;">
+			<Text size="xs" color="white">
+				Use this button to save this information in your profile, after that you will be able to
+				access it any time and share it via email.
+			</Text>
+			<ActionIcon size="xs" color="white" onclick={() => (opened = false)}>x</ActionIcon>
+		</div>
+	{/snippet}
+  <Button onclick={() => (opened = false)}>Save to profile</Button>
 </Tooltip>
 
 {#if !opened}
-  <Button variant="light" color="gray" on:click={() => (opened = true)}>
+  <Button variant="light" color="gray" onclick={() => (opened = true)}>
     Reopen tooltip
   </Button>
 {/if}
@@ -60,19 +60,19 @@
 		gutter={5}
 	>
 		{#snippet label()}
-				<div  style="display: flex;">
+			<div style="display: flex;">
 				<Text size="xs" color="white">
 					Use this button to save this information in your profile, after that you will be able to
 					access it any time and share it via email.
 				</Text>
-				<ActionIcon size="xs" color="white" on:click={() => (opened = false)}>x</ActionIcon>
+				<ActionIcon size="xs" color="white" onclick={() => (opened = false)}>x</ActionIcon>
 			</div>
-			{/snippet}
-		<Button on:click={() => (opened = false)}>Save to profile</Button>
+		{/snippet}
+		<Button onclick={() => (opened = false)}>Save to profile</Button>
 	</Tooltip>
 
 	{#if !opened}
-		<Button variant="default" override={{ marginLeft: '10px' }} on:click={() => (opened = true)}>
+		<Button variant="default" override={{ marginLeft: '10px' }} onclick={() => (opened = true)}>
 			Reopen tooltip
 		</Button>
 	{/if}

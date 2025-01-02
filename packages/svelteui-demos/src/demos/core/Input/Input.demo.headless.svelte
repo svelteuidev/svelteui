@@ -7,11 +7,13 @@
 <\/script>
 
 <Input
-    icon={MagnifyingGlass}
+    iconComponent={MagnifyingGlass}
     variant="headless"
     placeholder="Add your own styles with styles API"
 >
-    <p slot="rightSection">$</p>
+    {#snippet rightSection()}
+		<p>$</p>
+	{/snippet}
 </Input>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -28,11 +30,11 @@
 
 <Input
 	override={{ input: { width: '100%', boxSizing: 'border-box' } }}
-	icon={MagnifyingGlass}
+	iconComponent={MagnifyingGlass}
 	variant="headless"
 	placeholder="Add your own styles with styles API"
 >
 	{#snippet rightSection()}
-		<p >$</p>
+		<p>$</p>
 	{/snippet}
 </Input>

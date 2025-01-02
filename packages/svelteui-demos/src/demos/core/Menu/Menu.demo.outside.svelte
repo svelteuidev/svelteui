@@ -5,16 +5,15 @@
   import { Button, Menu, type MenuComponent } from '@svelteuidev/core';
   import { Camera, ChatBubble, Gear } from 'radix-icons-svelte';
 
-  let element;
+  let element: MenuComponent = $state();
 <\/script>
 
-<Button on:click={() => element.toggle()}>Toggle Menu</Button>
+<Button onclick={() => element.toggle()}>Toggle Menu</Button>
 
 <Menu bind:this={element}>
-  <div slot="control"></div>
-  <Menu.Item icon={Gear}>Settings</Menu.Item>
-  <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-  <Menu.Item icon={Camera}>Gallery</Menu.Item>
+  <Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+  <Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+  <Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 </Menu>
 `;
 
@@ -33,11 +32,11 @@
 </script>
 
 <Center>
-	<Button on:click={() => element.toggle()}>Toggle Menu</Button>
+	<Button onclick={() => element.toggle()}>Toggle Menu</Button>
 
 	<Menu bind:this={element}>
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Center>

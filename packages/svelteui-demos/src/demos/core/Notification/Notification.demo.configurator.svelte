@@ -10,7 +10,7 @@
 <Notification ${props}>
     ${children}
 </Notification>
-<Notification icon={Check} ${props}>
+<Notification iconComponent={Check} ${props}>
     ${children}
 </Notification>`;
 

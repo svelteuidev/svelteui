@@ -6,14 +6,16 @@
 	import { ObserverRender } from '@svelteuidev/core';
 <\/script>
 
-<ObserverRender let:entry let:node let:observer let:scrollDirection let:visible>
-	<div>
-		entry: {entry}
-		node: {node}
-		observer: {observer}
-		scrollDirection: {scrollDirection}
-		visible: {visible}
-	</div>
+<ObserverRender>
+	{#snippet children({ entry, node, observer, scrollDirection, visible })}
+		<Stack>
+			<div>entry: {JSON.stringify(entry)}</div>
+			<div>node: {JSON.stringify(node)}</div>
+			<div>observer: {JSON.stringify(observer)}</div>
+			<div>scrollDirection: {JSON.stringify(scrollDirection)}</div>
+			<div>visible: {visible}</div>
+		</Stack>
+	{/snippet}
 </ObserverRender>
 `;
 
@@ -28,7 +30,7 @@
 	import { ObserverRender, Stack } from '@svelteuidev/core';
 </script>
 
-<ObserverRender     >
+<ObserverRender>
 	{#snippet children({ entry, node, observer, scrollDirection, visible })}
 		<Stack>
 			<div>entry: {JSON.stringify(entry)}</div>

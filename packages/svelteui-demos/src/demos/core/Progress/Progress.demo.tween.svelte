@@ -20,6 +20,6 @@
 <Progress tween bind:value size="lg" />
 <Space h="lg" />
 <Group>
-	<Button on:click={() => (value += 10)}>Increment</Button>
-	<Button on:click={() => (value -= 10)}>Decrement</Button>
+	<Button onclick={() => (value += 10)}>Increment</Button>
+	<Button onclick={() => (value -= 10)}>Decrement</Button>
 </Group>

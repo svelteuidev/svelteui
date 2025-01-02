@@ -10,9 +10,9 @@
     label='Your email'
     placeholder='Your email'
 >
-    <svelte:fragment slot='rightSection'>
-        <Loader color='blue' size='xs' />
-    </svelte:fragment>
+    {#snippet rightSection()}
+		<Loader color="blue" size="xs" />
+	{/snippet}
 </TextInput>
 `;
 
@@ -30,9 +30,7 @@
 <Center>
 	<TextInput label="Your email" placeholder="Your email">
 		{#snippet rightSection()}
-			
-				<Loader color="blue" size="xs" />
-			
-			{/snippet}
+			<Loader color="blue" size="xs" />
+		{/snippet}
 	</TextInput>
 </Center>

@@ -7,10 +7,12 @@
 <\/script>
 
 <Menu>
-    <Button slot="control">Toggle Menu</Button>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-    <Menu.Item icon={Camera}>Gallery</Menu.Item>
+    {#snippet control()}
+		<Button>Toggle Menu</Button>
+	{/snippet}
+    <Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+    <Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+    <Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 </Menu>
 `;
 
@@ -29,10 +31,10 @@
 <Center>
 	<Menu>
 		{#snippet control()}
-				<Button >Toggle Menu</Button>
-			{/snippet}
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
+			<Button>Toggle Menu</Button>
+		{/snippet}
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
 	</Menu>
 </Center>

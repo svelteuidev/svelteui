@@ -3,18 +3,18 @@
 
 	const code = `
 <script>
-  import { Center, PasswordInput } from '@svelteuidev/core';
+  	import { Center, PasswordInput } from '@svelteuidev/core';
 	import { EnvelopeClosed, EnvelopeOpen } from 'radix-icons-svelte';
 <\/script>
 
 <PasswordInput label="Your password">
-  <svelte:fragment slot="visibilityToggleIcon" let:visible>
-    {#if visible}
-      <EnvelopeOpen />
-    {:else}
-      <EnvelopeClosed />
-    {/if}
-  </svelte:fragment>
+  	{#snippet visibilityToggleIcon(visible)}
+		{#if visible}
+			<EnvelopeOpen />
+		{:else}
+			<EnvelopeClosed />
+		{/if}
+	{/snippet}
 </PasswordInput>
 `;
 
@@ -32,14 +32,12 @@
 
 <Center>
 	<PasswordInput label="Your password">
-		{#snippet visibilityToggleIcon({ visible })}
-			
-				{#if visible}
-					<EnvelopeOpen />
-				{:else}
-					<EnvelopeClosed />
-				{/if}
-			
-			{/snippet}
+		{#snippet visibilityToggleIcon(visible)}
+			{#if visible}
+				<EnvelopeOpen />
+			{:else}
+				<EnvelopeClosed />
+			{/if}
+		{/snippet}
 	</PasswordInput>
 </Center>

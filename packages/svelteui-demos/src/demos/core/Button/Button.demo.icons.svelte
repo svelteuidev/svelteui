@@ -8,12 +8,16 @@
 <\/script>
 
 <Button>
-	<GithubLogo slot="leftIcon" />
+	{#snippet leftIcon()}
+		<GithubLogo />
+	{/snippet}
 	Icon on left
 </Button>
 <Button>
 	Icon on right
-	<GithubLogo slot="rightIcon" />
+	{#snippet rightIcon()}
+		<GithubLogo />
+	{/snippet}
 </Button>
 `;
 
@@ -32,14 +36,14 @@
 <Group position="center">
 	<Button>
 		{#snippet leftIcon()}
-				<GithubLogo  />
-			{/snippet}
+			<GithubLogo />
+		{/snippet}
 		Icon on left
 	</Button>
 	<Button>
 		Icon on right
 		{#snippet rightIcon()}
-				<GithubLogo  />
-			{/snippet}
+			<GithubLogo />
+		{/snippet}
 	</Button>
 </Group>

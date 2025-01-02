@@ -21,4 +21,4 @@
 	import ModalForm from './ModalForm.svelte';
 </script>
 
-<ModalForm centered />
+<ModalForm centered opened />

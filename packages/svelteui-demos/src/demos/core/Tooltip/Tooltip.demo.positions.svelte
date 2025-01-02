@@ -11,40 +11,40 @@
 
 <Center>
 	<SimpleGrid cols={3}>
-		<Tooltip position="top" placement="start" label="top-start" withArrow>
+		<Tooltip position="top" placement="start" labelComponent="top-start" withArrow>
 			<Badge>top-start</Badge>
 		</Tooltip>
-		<Tooltip position="top" placement="center" label="top-center" withArrow>
+		<Tooltip position="top" placement="center" labelComponent="top-center" withArrow>
 			<Badge>top-center</Badge>
 		</Tooltip>
-		<Tooltip position="top" placement="end" label="top-end" withArrow>
+		<Tooltip position="top" placement="end" labelComponent="top-end" withArrow>
 			<Badge>top-end</Badge>
 		</Tooltip>
-		<Tooltip position="right" placement="start" label="right-start" withArrow>
+		<Tooltip position="right" placement="start" labelComponent="right-start" withArrow>
 			<Badge>right-start</Badge>
 		</Tooltip>
-		<Tooltip position="right" placement="center" label="right-center" withArrow>
+		<Tooltip position="right" placement="center" labelComponent="right-center" withArrow>
 			<Badge>right-center</Badge>
 		</Tooltip>
-		<Tooltip position="right" placement="end" label="right-end" withArrow>
+		<Tooltip position="right" placement="end" labelComponent="right-end" withArrow>
 			<Badge>right-end</Badge>
 		</Tooltip>
-		<Tooltip position="bottom" placement="start" label="bottom-start" withArrow>
+		<Tooltip position="bottom" placement="start" labelComponent="bottom-start" withArrow>
 			<Badge>bottom-start</Badge>
 		</Tooltip>
-		<Tooltip position="bottom" placement="center" label="bottom-center" withArrow>
+		<Tooltip position="bottom" placement="center" labelComponent="bottom-center" withArrow>
 			<Badge>bottom-center</Badge>
 		</Tooltip>
-		<Tooltip position="bottom" placement="end" label="bottom-end" withArrow>
+		<Tooltip position="bottom" placement="end" labelComponent="bottom-end" withArrow>
 			<Badge>bottom-end</Badge>
 		</Tooltip>
-		<Tooltip position="left" placement="start" label="left-start" withArrow>
+		<Tooltip position="left" placement="start" labelComponent="left-start" withArrow>
 			<Badge>left-start</Badge>
 		</Tooltip>
-		<Tooltip position="left" placement="center" label="left-center" withArrow>
+		<Tooltip position="left" placement="center" labelComponent="left-center" withArrow>
 			<Badge>left-center</Badge>
 		</Tooltip>
-		<Tooltip position="left" placement="end" label="left-end" withArrow>
+		<Tooltip position="left" placement="end" labelComponent="left-end" withArrow>
 			<Badge>left-end</Badge>
 		</Tooltip>
 	</SimpleGrid>

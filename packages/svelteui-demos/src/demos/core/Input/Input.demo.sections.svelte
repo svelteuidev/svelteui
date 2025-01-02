@@ -7,14 +7,14 @@
 <\/script>
 
 <Input
-    icon={MagnifyingGlass}
+    iconComponent={MagnifyingGlass}
     placeholder='Search'
     rightSectionWidth={70}
     styles={{ rightSection: { pointerEvents: 'none' } }}
 >
-    <Badge slot='rightSection' color='blue' variant='filled'>
-        new
-    </Badge>
+    {#snippet rightSection()}
+		<Badge color="blue" variant="filled">new</Badge>
+	{/snippet}
 </Input>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -30,12 +30,12 @@
 </script>
 
 <Input
-	icon={MagnifyingGlass}
+	iconComponent={MagnifyingGlass}
 	placeholder="Search"
 	rightSectionWidth={70}
 	styles={{ rightSection: { pointerEvents: 'none' } }}
 >
 	{#snippet rightSection()}
-		<Badge  color="blue" variant="filled">new</Badge>
+		<Badge color="blue" variant="filled">new</Badge>
 	{/snippet}
 </Input>

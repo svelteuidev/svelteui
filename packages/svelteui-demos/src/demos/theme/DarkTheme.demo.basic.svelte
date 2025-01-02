@@ -13,7 +13,7 @@
 <SvelteUIProvider withGlobalStyles themeObserver={$colorScheme}>
     <Stack align='center'>
         <Text>Press to change the theme</Text>
-        <Switch on:change={toggleTheme} />
+        <Switch onchange={toggleTheme} />
     </Stack>
 </SvelteUIProvider>
 `;
@@ -35,5 +35,5 @@
 
 <Stack align="center">
 	<Text>Press to change the theme</Text>
-	<Switch on:change={toggleTheme} />
+	<Switch onchange={toggleTheme} />
 </Stack>
