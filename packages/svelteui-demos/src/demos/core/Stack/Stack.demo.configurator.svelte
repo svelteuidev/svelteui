@@ -21,7 +21,7 @@
 				name: 'align',
 				type: 'select',
 				data: [
-					{ label: 'strech', value: 'strech' },
+					{ label: 'stretch', value: 'stretch' },
 					{ label: 'center', value: 'center' },
 					{ label: 'flex-start', value: 'flex-start' },
 					{ label: 'flex-end', value: 'flex-end' }
