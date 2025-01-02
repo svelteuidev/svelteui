@@ -26,19 +26,32 @@
 		...rest
 	}: AccordionItemProps = $props();
 
-	const ctx: AccordionContext = getContext(key);
+	const {
+		variant,
+		radius,
+		chevronComponent: contextChevronComponent = chevronComponent,
+		chevronPosition,
+		chevronSize,
+		disableChevronRotation,
+		transitionDuration,
+		updateActive,
+		isItemActive,
+		getControlsId,
+		getRegionId,
+		chevron: contextChevron = chevron
+	}: AccordionContext = $derived.by(getContext(key));
 
 	function onClick() {
-		ctx.updateActive(value);
+		updateActive(value);
 	}
 
 	let { cx, classes, getStyles } = $derived(
 		useStyles(
 			{
-				radius: ctx.radius,
-				transitionDuration: ctx.transitionDuration,
-				chevronPosition: ctx.chevronPosition,
-				chevronSize: ctx.chevronSize
+				radius: radius,
+				transitionDuration: transitionDuration,
+				chevronPosition: chevronPosition,
+				chevronSize: chevronSize
 			},
 			{ name: 'AccordionItem' }
 		)
@@ -46,10 +59,10 @@
 </script>
 
 <Box
-	class={cx(className, classes.root, getStyles({ css: override, variation: ctx.variant }), {
-		[classes.active]: ctx.isItemActive(value)
+	class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
+		[classes.active]: isItemActive(value)
 	})}
-	data-active={ctx.isItemActive(value)}
+	data-active={isItemActive(value)}
 	{use}
 	{...rest}
 >
@@ -57,19 +70,16 @@
 		class={classes.control}
 		bind:element
 		{disabled}
-		id={ctx.getRegionId(value)}
-		aria-expanded={ctx.isItemActive(value)}
-		aria-controls={ctx.getControlsId(value)}
+		id={getRegionId(value)}
+		aria-expanded={isItemActive(value)}
+		aria-controls={getControlsId(value)}
 		onclick={onClick}
 	>
-		<span
-			class={classes.chevron}
-			data-rotate={!ctx.disableChevronRotation && ctx.isItemActive(value)}
-		>
-			{#if ctx.chevron || chevron}
-				{@render (ctx.chevron || chevron)()}
-			{:else if ctx.chevronComponent || chevronComponent}
-				<IconRenderer icon={ctx.chevronComponent || chevronComponent} />
+		<span class={classes.chevron} data-rotate={!disableChevronRotation && isItemActive(value)}>
+			{#if contextChevron}
+				{@render contextChevron()}
+			{:else if contextChevronComponent}
+				<IconRenderer icon={contextChevronComponent} />
 			{:else}
 				<Chevron />
 			{/if}
@@ -80,10 +90,10 @@
 	</UnstyledButton>
 	<Collapse
 		role="region"
-		id={ctx.getControlsId(value)}
-		aria-labelledby={ctx.getRegionId(value)}
-		open={ctx.isItemActive(value)}
-		transitionDuration={ctx.transitionDuration}
+		id={getControlsId(value)}
+		aria-labelledby={getRegionId(value)}
+		open={isItemActive(value)}
+		{transitionDuration}
 	>
 		<div class={classes.panel}>
 			{@render children()}

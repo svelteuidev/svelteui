@@ -1,5 +1,5 @@
 <script lang="ts" generics="Multiple extends boolean = false">
-	import { setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
 	import { Box } from '../Box';
@@ -7,7 +7,6 @@
 	import Chevron from './Chevron/Chevron.svelte';
 	import useStyles from './Accordion.styles';
 	import type { AccordionContext, AccordionProps, AccordionValue } from './Accordion';
-	import { useEffect } from 'react';
 
 	let {
 		use = [],
@@ -32,8 +31,7 @@
 		...rest
 	}: AccordionProps<Multiple> = $props();
 
-	let _value: AccordionValue<Multiple>;
-	let context = $derived({
+	let context: AccordionContext<Multiple> = $derived({
 		currentValue: value,
 		variant,
 		order,
@@ -49,30 +47,28 @@
 		getRegionId,
 		chevron
 	});
-
-	// @TODO: is this reactive?
 	setContext(key, () => context);
 
 	function updateActive(itemValue: string) {
 		if (!multiple) {
-			_value = (_value === itemValue ? undefined : itemValue) as AccordionValue<Multiple>;
+			value = (value === itemValue ? undefined : itemValue) as AccordionValue<Multiple>;
 
-			onchange(_value);
+			onchange(value);
 			return;
 		}
 
-		let values = (_value || []) as string[];
+		let values = (value || []) as string[];
 		if (values.includes(itemValue)) {
 			values = values.filter((v) => v !== itemValue);
 		} else {
 			values.push(itemValue);
 		}
-		_value = values as AccordionValue<Multiple>;
-		onchange(_value);
+		value = values as AccordionValue<Multiple>;
+		onchange(value);
 	}
 
 	function isItemActive(itemValue: string) {
-		return multiple ? _value.includes(itemValue) : _value === itemValue;
+		return multiple ? value?.includes(itemValue) : value === itemValue;
 	}
 
 	function getControlsId(itemValue: string) {
