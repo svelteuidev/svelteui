@@ -1,16 +1,10 @@
 <script lang="ts">
 	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type * as Stitches from '@stitches/core';
-	import type { DemoControlColor } from '$lib/types';
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	interface Props {
-		value: string;
-		label: DemoControlColor['label'];
-		onchange: (value: string) => void;
-	}
-
-	let { value = $bindable(), label, onchange }: Props = $props();
+	let { value = $bindable(), label, onchange }: ControlProps = $props();
 
 	const listOfColors = [
 		'dark',

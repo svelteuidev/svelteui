@@ -1,14 +1,8 @@
 <script lang="ts">
-	import type { DemoControlBoolean } from '$lib/types';
 	import { Switch } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	interface Props {
-		value: boolean;
-		label: DemoControlBoolean['label'];
-		onchange: (value: boolean) => void;
-	}
-
-	let { value = $bindable(), label, onchange }: Props = $props();
+	let { value = $bindable(), label, onchange }: ControlProps<boolean> = $props();
 
 	function onChange(e) {
 		value = e.currentTarget.checked;
@@ -16,4 +10,4 @@
 	}
 </script>
 
-<Switch size="sm" checked={value} {label} on:change={onChange} />
+<Switch size="sm" checked={value} {label} onchange={onChange} />

@@ -1,21 +1,15 @@
 <script lang="ts">
 	import type { DemoControlNumber } from '$lib/types';
 	import { NumberInput } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	interface Props {
-		value: number;
-		label: DemoControlNumber['label'];
+	interface Props extends ControlProps<number> {
 		min: DemoControlNumber['min'];
 		max: DemoControlNumber['max'];
 		step: DemoControlNumber['step'];
-		onchange: (value: number) => void;
 	}
 
 	let { value, label, min, max, step, onchange }: Props = $props();
-
-	function onChange(e) {
-		onchange(e.detail);
-	}
 </script>
 
-<NumberInput {label} {min} {max} {value} {step} on:change={onChange} />
+<NumberInput {label} {min} {max} {value} {step} {onchange} />

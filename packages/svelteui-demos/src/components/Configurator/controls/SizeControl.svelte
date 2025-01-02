@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { DemoControlSize } from '$lib/types';
 	import { NativeSelect } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
 	// Made this way to use it for slider component in future
 	const MARKS = [
@@ -13,13 +13,7 @@
 
 	const values = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-	interface Props {
-		value: string;
-		label: DemoControlSize['label'];
-		onchange: (value: string) => void;
-	}
-
-	let { value, label, onchange }: Props = $props();
+	let { value, label, onchange }: ControlProps = $props();
 
 	let _value = $derived(MARKS.find((mark) => mark.label === value).label);
 
@@ -28,7 +22,7 @@
 	}
 </script>
 
-<NativeSelect value={_value} {label} data={values} on:change={onChange} />
+<NativeSelect value={_value} {label} data={values} onchange={onChange} />
 
 <!--
   TODO: this is how we probably will use Slider component here when it will be implemented

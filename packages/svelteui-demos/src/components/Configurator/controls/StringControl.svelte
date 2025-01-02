@@ -1,18 +1,12 @@
 <script lang="ts">
-	import type { DemoControlString } from '$lib/types';
 	import { TextInput } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	interface Props {
-		value: string;
-		label: DemoControlString['label'];
-		onchange: (value: string) => void;
-	}
-
-	let { value, label, onchange }: Props = $props();
+	let { value, label, onchange }: ControlProps = $props();
 
 	function onInput(e) {
 		onchange(e.currentTarget.value);
 	}
 </script>
 
-<TextInput {label} {value} on:input={onInput} />
+<TextInput {label} {value} oninput={onInput} />

@@ -3,16 +3,7 @@
 	import { expoIn, expoOut } from 'svelte/easing';
 	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
-	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
-
-	interface Props {
-		component: CodeDemoType['default'];
-		previewBackground?: CodeDemoConfiguration['previewBackground'];
-		previewMaxWidth?: CodeDemoConfiguration['previewMaxWidth'];
-		code?: CodeDemoConfiguration['code'];
-		spacing?: CodeDemoConfiguration['spacing'];
-		canShowCode?: CodeDemoConfiguration['canShowCode'];
-	}
+	import type { CodeDemoProps } from './CodeDemo';
 
 	let {
 		component,
@@ -21,7 +12,7 @@
 		code,
 		spacing = true,
 		canShowCode = $bindable(false)
-	}: Props = $props();
+	}: CodeDemoProps = $props();
 
 	let isCodeVisible = $state(false);
 
@@ -75,17 +66,17 @@
 		}
 	});
 
-	const SvelteComponent = $derived(component);
+	const DemoComponent = $derived(component);
 </script>
 
 <div class={styles()}>
 	<div class="preview">
 		<div class="wrapper">
-			<SvelteComponent />
+			<DemoComponent />
 		</div>
 		{#if !!code && canShowCode}
 			<div class="toggle">
-				<ActionIcon on:click={toggleCodeVisibility}>
+				<ActionIcon onclick={toggleCodeVisibility}>
 					<svg
 						width="20"
 						height="20"

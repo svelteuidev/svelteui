@@ -1,27 +1,11 @@
 <script lang="ts">
 	/* eslint-disable @typescript-eslint/no-explicit-any */
-	import type {
-		ConfiguratorDemoType,
-		ConfiguratorDemoConfiguration,
-		DemoControl,
-		ConfiguratorDemoControl
-	} from '$lib/types';
+	import type { ConfiguratorDemoConfiguration, DemoControl } from '$lib/types';
 	import { ControlsRenderer } from './controls';
 	import { propsToString, isEnabled } from '../../utils';
 	import { css, dark, Box } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
-
-	interface Props {
-		component: ConfiguratorDemoType['default'];
-		previewBackground?: ConfiguratorDemoType['previewBackground'];
-		previewMaxWidth?: ConfiguratorDemoType['previewMaxWidth'];
-		codeTemplate?: ConfiguratorDemoConfiguration['codeTemplate'];
-		configurator: ConfiguratorDemoConfiguration['configurator'];
-		multiline?: ConfiguratorDemoConfiguration['multiline'];
-		multilineEndNewLine?: ConfiguratorDemoConfiguration['multilineEndNewLine'];
-		center?: ConfiguratorDemoConfiguration['center'];
-		hideCode?: ConfiguratorDemoConfiguration['hideCode'];
-	}
+	import type { ConfiguratorProps } from './Configurator';
 
 	let {
 		component,
@@ -33,15 +17,13 @@
 		multilineEndNewLine = true,
 		center = true,
 		hideCode = false
-	}: Props = $props();
+	}: ConfiguratorProps = $props();
 
 	const BREAKPOINT = 885;
 
-	// Filter out control type which we use only for making typescript work as we wanted
-	let demoControls: DemoControl[] = $derived(configurator.filter(isDemoControl));
 	let data: Record<string, any> = $state({});
 	let { children, ...componentProps }: Record<string, any> = $derived(
-		getConditionalData(demoControls, data)
+		getConditionalData(configurator, data)
 	);
 
 	function getConditionalData(
@@ -50,13 +32,13 @@
 		isControlEnabled?: boolean
 	): Record<string, any> {
 		function conditionalDataReducer(acc, control: DemoControl) {
-			const { name, defaultValue, type, controls } = control;
+			const { name, defaultValue, type } = control;
 			const enabled = isControlEnabled !== undefined ? isControlEnabled : isEnabled(control, data);
 
 			if (type !== 'composite') {
 				acc[name] = enabled ? data[name] : defaultValue;
 			} else {
-				acc[name] = getConditionalData(controls, data[name] ?? {}, enabled);
+				acc[name] = getConditionalData(control.controls, data[name] ?? {}, enabled);
 			}
 
 			return acc;
@@ -65,17 +47,13 @@
 		return demoControls.reduce(conditionalDataReducer, {});
 	}
 
-	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
-		return control && control.type !== '_DO_NOT_USE_';
-	}
-
 	function dataReducer(acc, { name, initialValue, type, controls }) {
 		acc[name] = type !== 'composite' ? initialValue : controls.reduce(dataReducer, {});
 		return acc;
 	}
 
-	function onChange(event) {
-		data = event.detail;
+	function onChange(value) {
+		data = value;
 	}
 
 	function generateCode(
@@ -133,7 +111,6 @@
 	}
 
 	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
-
 	const styles = css({
 		border: '1px solid $gray200',
 		borderRadius: '$sm',
@@ -204,12 +181,12 @@
 	});
 
 	$effect.pre(() => {
-		data = demoControls.reduce(dataReducer, {});
+		data = configurator.reduce(dataReducer, {});
 	});
 
 	let propsCode = $derived(
 		propsToString({
-			props: demoControls,
+			props: configurator,
 			values: { children, ...componentProps },
 			multiline,
 			multilineEndNewLine
@@ -224,14 +201,11 @@
 	<div class="preview">
 		<div class="component">
 			<div class="wrapper">
-				<SvelteComponent props={componentProps}>{children}</SvelteComponent>
+				<SvelteComponent {...componentProps}>{children}</SvelteComponent>
 			</div>
 		</div>
 		<div class="controls">
-			<ControlsRenderer value={data} controls={demoControls} onchange={onChange} />
-			<!--			<button {data}> test </button>-->
-			<!--			<button {data} />-->
-			<!--			<button />-->
+			<ControlsRenderer value={data} controls={configurator} onchange={onChange} />
 		</div>
 	</div>
 	{#if code && !hideCode}

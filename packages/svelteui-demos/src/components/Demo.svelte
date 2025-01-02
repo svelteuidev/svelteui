@@ -5,10 +5,9 @@
 
 	interface Props {
 		demo: DemoType;
-		[key: string]: any;
 	}
 
-	let { demo, ...rest }: Props = $props();
+	let { demo }: Props = $props();
 
 	function isCodeDemo(demo: DemoType): demo is CodeDemoType {
 		return demo && demo.type === 'demo';
@@ -16,7 +15,7 @@
 </script>
 
 {#if isCodeDemo(demo)}
-	<CodeDemo component={demo.default} {...demo.configuration} {...rest} />
+	<CodeDemo component={demo.default} {...demo.configuration} />
 {:else}
-	<Configurator component={demo.default} {...demo.configuration} {...rest} />
+	<Configurator component={demo.default} {...demo.configuration} />
 {/if}

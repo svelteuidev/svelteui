@@ -3,11 +3,10 @@
 	import { ControlsRenderer } from './index';
 	import type { DemoControlComposite } from '$lib/types';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	interface Props {
-		label: DemoControlComposite['label'];
+	interface Props extends ControlProps<any> {
 		controls: DemoControlComposite['controls'];
-		onchange: (value: any) => void;
 	}
 
 	let { label, controls, onchange }: Props = $props();
@@ -15,8 +14,8 @@
 	let data: Record<string, any> = $state({});
 
 	function onChange(newData) {
-		data = newData.detail;
-		onchange(newData.detail);
+		data = newData;
+		onchange(newData);
 	}
 
 	const styles = css({

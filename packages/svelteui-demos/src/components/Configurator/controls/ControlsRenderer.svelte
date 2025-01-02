@@ -1,8 +1,11 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
+	import type { Component } from 'svelte';
+
+	/* eslint-disable @typescript-eslint/no-explicit-any */
 	import type { DemoControl } from '$lib/types';
 	import { controls as controlsComponents } from './index';
 	import { upperFirst, isEnabled } from '../../../utils';
+	import type { ControlProps } from './Control';
 
 	interface Props {
 		value?: Record<string, any>;
@@ -27,6 +30,7 @@
 		data = { ...data, [name]: value };
 		onchange(data);
 	}
+
 	let controlsData = $derived(
 		controls.map((control) => {
 			const { type, label, name, ...props } = control;
@@ -35,8 +39,7 @@
 				component: controlsComponents[type],
 				label: upperFirst(label || name),
 				value: data[name],
-				onChange: (e) => {
-					const value = e.currentTarget ? e.currentTarget.value : e.detail;
+				onChange: (value) => {
 					changeData(name, value);
 				},
 				props,
@@ -46,11 +49,16 @@
 	);
 </script>
 
-{#each controlsData as { component, label, value, props, onChange, hidden }, i}
-	{#if component}
-		{@const SvelteComponent = component}
-		<div class="control" style={hidden ? 'display: none;' : ''}>
-			<SvelteComponent {label} {value} {...props} on:change={onChange} />
+{#each controlsData as control}
+	{#if control.component}
+		{@const SvelteComponent = control.component as Component<ControlProps>}
+		<div class="control" style={control.hidden ? 'display: none;' : ''}>
+			<SvelteComponent
+				label={control.label}
+				value={control.value}
+				{...control.props}
+				onchange={control.onChange}
+			/>
 		</div>
 	{/if}
 {/each}
