@@ -21,12 +21,13 @@
 		order = undefined,
 		multiple = false as Multiple,
 		id = randomID(),
-		chevron = undefined,
+		chevronComponent = undefined,
 		chevronPosition = 'right',
 		chevronSize = 24,
 		disableChevronRotation = false,
 		transitionDuration = 200,
 		onchange = () => {},
+		chevron,
 		children,
 		...rest
 	}: AccordionProps<Multiple> = $props();
@@ -37,7 +38,7 @@
 		variant,
 		order,
 		radius,
-		chevron,
+		chevronComponent,
 		chevronPosition,
 		chevronSize,
 		disableChevronRotation,
@@ -45,7 +46,8 @@
 		updateActive,
 		isItemActive,
 		getControlsId,
-		getRegionId
+		getRegionId,
+		chevron
 	});
 
 	// @TODO: is this reactive?

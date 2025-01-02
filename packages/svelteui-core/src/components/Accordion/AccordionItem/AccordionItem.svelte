@@ -4,12 +4,13 @@
 	import { Box } from '../../Box';
 	import { UnstyledButton } from '../../Button';
 	import { Collapse } from '../../Collapse';
-	
+
 	import type { AccordionContext } from '../Accordion';
 	import Chevron from '../Chevron/Chevron.svelte';
 	import { key } from '../key';
 	import useStyles from './AccordionItem.styles';
 	import type { AccordionItemProps } from './AccordionItem';
+	import { IconRenderer } from '$lib/components/IconRenderer';
 
 	let {
 		use = [],
@@ -18,6 +19,7 @@
 		override = {},
 		value = $bindable(undefined),
 		disabled = false,
+		chevronComponent = undefined,
 		chevron = undefined,
 		control,
 		children,
@@ -30,15 +32,17 @@
 		ctx.updateActive(value);
 	}
 
-	let { cx, classes, getStyles } = $derived(useStyles(
-		{
-			radius: ctx.radius,
-			transitionDuration: ctx.transitionDuration,
-			chevronPosition: ctx.chevronPosition,
-			chevronSize: ctx.chevronSize
-		},
-		{ name: 'AccordionItem' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				radius: ctx.radius,
+				transitionDuration: ctx.transitionDuration,
+				chevronPosition: ctx.chevronPosition,
+				chevronSize: ctx.chevronSize
+			},
+			{ name: 'AccordionItem' }
+		)
+	);
 </script>
 
 <Box
@@ -62,11 +66,13 @@
 			class={classes.chevron}
 			data-rotate={!ctx.disableChevronRotation && ctx.isItemActive(value)}
 		>
-		{#if ctx.chevron}
-			{@render ctx.chevron()}
-		{:else}
-			<Chevron />
-		{/if}
+			{#if ctx.chevron || chevron}
+				{@render (ctx.chevron || chevron)()}
+			{:else if ctx.chevronComponent || chevronComponent}
+				<IconRenderer icon={ctx.chevronComponent || chevronComponent} />
+			{:else}
+				<Chevron />
+			{/if}
 		</span>
 		<span class={classes.controlContent}>
 			{@render control(disabled)}

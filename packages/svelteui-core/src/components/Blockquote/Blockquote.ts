@@ -1,6 +1,7 @@
-import type { Component, Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 import type { HTMLBlockquoteAttributes } from 'svelte/elements';
 
+import type { Component } from '$lib/internal';
 import type { SvelteUIColor, SvelteUINumberSize } from '$lib/styles';
 import type { TextProps } from '../Text/Text';
 

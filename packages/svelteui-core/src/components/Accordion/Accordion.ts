@@ -2,6 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
 import type { DefaultProps, SvelteUINumberSize } from '$lib/styles';
+import type { Component } from '$lib/internal';
 
 export type AccordionVariant = 'default' | 'contained' | 'filled' | 'separated';
 
@@ -12,7 +13,7 @@ export type AccordionContext<Multiple extends boolean = false> = {
 	variant?: AccordionVariant;
 	order?: 2 | 3 | 4 | 5 | 6;
 	radius?: SvelteUINumberSize | number;
-	chevron?: Snippet;
+	chevronComponent?: Component | HTMLOrSVGElement;
 	chevronPosition?: 'left' | 'right';
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
@@ -21,6 +22,7 @@ export type AccordionContext<Multiple extends boolean = false> = {
 	isItemActive: (value: string) => boolean;
 	getControlsId: (value: string) => string;
 	getRegionId: (value: string) => string;
+	chevron?: Snippet;
 };
 
 export interface AccordionProps<Multiple extends boolean = false>
@@ -34,17 +36,13 @@ export interface AccordionProps<Multiple extends boolean = false>
 	multiple?: Multiple;
 	loop?: boolean;
 	id?: string;
-	chevron?: Snippet;
+	chevronComponent?: Component | HTMLOrSVGElement;
 	chevronPosition?: 'left' | 'right';
 	chevronSize?: string | number;
 	disableChevronRotation?: boolean;
 	transitionDuration?: number;
 	onchange?: (value: AccordionValue<Multiple>) => void;
+	chevron?: Snippet;
 	children: Snippet;
 	[key: string]: any;
-}
-
-export interface AccordionEvents<Multiple extends boolean = false> {
-	change: CustomEvent<AccordionValue<Multiple>>;
-	[evt: string]: CustomEvent<any>;
 }
