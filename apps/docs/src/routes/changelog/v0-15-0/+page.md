@@ -27,7 +27,7 @@ date: 'August 20th, 2023'
 
 ## [Blockquote]({base}/core/blockquote)
 
-<Demo demo={BlockquoteDemos.usage} toggle={true} />
+<Demo demo={BlockquoteDemos.usage} codeVisible={true} />
 
 ## [PasswordInput]({base}/core/password-input)
 
@@ -35,7 +35,7 @@ date: 'August 20th, 2023'
 
 ## [Mark]({base}/core/mark)
 
-<Demo demo={MarkDemos.usage} toggle={true} />
+<Demo demo={MarkDemos.usage} codeVisible={true} />
 
 - Contributing and Code of conduct now available in Korean
 - Add slots for icons in all components that have them

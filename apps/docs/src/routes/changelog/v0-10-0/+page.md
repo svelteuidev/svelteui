@@ -24,11 +24,11 @@ date: 'February 16th, 2023'
 
 ## [Breadcrumbs]({base}/core/breadcrumbs) Component:
 
-<Demo demo={BreadcrumbsDemos.usage} toggle={true} />
+<Demo demo={BreadcrumbsDemos.usage} codeVisible={true} />
 
 ## [Radio]({base}/core/radio) Component:
 
-<Demo demo={RadioDemos.configurator} toggle={true} />
+<Demo demo={RadioDemos.configurator} codeVisible={true} />
 
 ## Bug fixes and improvements
 

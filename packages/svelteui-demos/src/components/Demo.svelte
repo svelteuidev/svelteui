@@ -5,7 +5,7 @@
 
 	interface Props {
 		demo: DemoType;
-		[key: string]: any
+		[key: string]: any;
 	}
 
 	let { demo, ...rest }: Props = $props();

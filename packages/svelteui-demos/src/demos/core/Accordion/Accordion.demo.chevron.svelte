@@ -34,7 +34,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: true
+		codeVisible: true
 	};
 </script>
 

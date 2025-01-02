@@ -18,7 +18,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: true
+		codeVisible: true
 	};
 
 	let variants: ButtonProps['variant'][] = ['filled', 'light', 'outline', 'default', 'subtle'];

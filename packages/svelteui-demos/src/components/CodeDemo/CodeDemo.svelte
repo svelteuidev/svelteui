@@ -11,7 +11,7 @@
 		previewMaxWidth?: CodeDemoConfiguration['previewMaxWidth'];
 		code?: CodeDemoConfiguration['code'];
 		spacing?: CodeDemoConfiguration['spacing'];
-		toggle?: CodeDemoConfiguration['toggle'];
+		codeVisible?: CodeDemoConfiguration['codeVisible'];
 	}
 
 	let {
@@ -20,13 +20,8 @@
 		previewMaxWidth,
 		code,
 		spacing = true,
-		toggle = false
+		codeVisible = $bindable(false)
 	}: Props = $props();
-	let codeVisible: boolean = $state();
-
-	$effect.pre(() => {
-		codeVisible = !toggle;
-	});
 
 	function toggleCodeVisibility() {
 		codeVisible = !codeVisible;
@@ -86,7 +81,7 @@
 		<div class="wrapper">
 			<SvelteComponent />
 		</div>
-		{#if !!code && toggle}
+		{#if !!code && codeVisible}
 			<div class="toggle">
 				<ActionIcon on:click={toggleCodeVisibility}>
 					<svg

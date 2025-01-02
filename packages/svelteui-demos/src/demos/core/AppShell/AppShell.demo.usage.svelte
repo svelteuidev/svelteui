@@ -97,7 +97,7 @@
 	{/snippet}
 	{#snippet header()}
 		<Header height={60} override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}>
-			<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
+			<HeadContent {isDark} {opened} codeVisible={toggleTheme} toggleOpen={toggleOpened} />
 		</Header>
 	{/snippet}
 	{#if children}
