@@ -45,7 +45,7 @@
 		/**
 		 * forces manual usage of Prism
 		 *
-		 * this is because prism trys to highlight code automatically
+		 * this is because prism tries to highlight code automatically
 		 *
 		 * that behavior interferes with the DOM manipulation of Svelte and we don't want that
 		 */
@@ -273,6 +273,8 @@
 	);
 </script>
 
+// svelte-ignore script_unknown_attribute /* svelte-ignore script_unknown_attribute */ //
+svelte-ignore script_unknown_attribute
 <div class="{className} {PrismCss({ css: override })}">
 	{#if copy}
 		<ActionIcon class="copy" use={[[clipboard, code]]} on:useclipboard={onClipboard}>
