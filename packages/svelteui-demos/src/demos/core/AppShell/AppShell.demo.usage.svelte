@@ -1,5 +1,4 @@
 <script lang="ts" module>
-	/* eslint-disable @typescript-eslint/ban-ts-comment */
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `

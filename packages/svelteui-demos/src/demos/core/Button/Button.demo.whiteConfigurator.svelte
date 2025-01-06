@@ -35,7 +35,7 @@
 	import type { ButtonProps } from '@svelteuidev/core';
 	import { Button, Center } from '@svelteuidev/core';
 
-	let { children, ...rest }: ButtonProps = $props();
+	let { children: _children, ...rest }: ButtonProps = $props();
 </script>
 
 <Center>

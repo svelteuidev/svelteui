@@ -63,8 +63,6 @@
 
 <Center>
 	<Alert iconComponent={InfoCircled} {...rest}>
-		{#snippet children()}
-			{@render children?.()}
-		{/snippet}
+		{@render children?.()}
 	</Alert>
 </Center>

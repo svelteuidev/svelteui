@@ -1,7 +1,5 @@
 import type { Component, SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
 interface ControlCondition {
 	control: string;
 	comparator: '===' | '!==';
@@ -17,18 +15,18 @@ interface DemoControlBase<Type, T = any> {
 	when?: ControlCondition;
 }
 
-export interface DemoControlBoolean extends DemoControlBase<'boolean', boolean> {}
+export type DemoControlBoolean = DemoControlBase<'boolean', boolean>;
 
-export interface DemoControlColor extends DemoControlBase<'color', SvelteUIColor> {}
+export type DemoControlColor = DemoControlBase<'color', SvelteUIColor>;
 
 export interface DemoControlSelect extends DemoControlBase<'select', string> {
 	data: { label: string; value: string }[];
 	capitalize?: boolean;
 }
 
-export interface DemoControlString extends DemoControlBase<'string', string> {}
+export type DemoControlString = DemoControlBase<'string', string>;
 
-export interface DemoControlSize extends DemoControlBase<'size', SvelteUISize> {}
+export type DemoControlSize = DemoControlBase<'size', SvelteUISize>;
 
 export interface DemoControlNumber extends DemoControlBase<'number', number> {
 	min?: number;

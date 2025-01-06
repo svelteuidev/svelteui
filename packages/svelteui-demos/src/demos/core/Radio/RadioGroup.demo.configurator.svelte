@@ -1,12 +1,12 @@
 <script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { Radio } from '@svelteuidev/core';
 <\/script>
 
-<RadioGroup {...props} value={...} items={[...]} />
+<RadioGroup ${props} value={...} items={[...]} />
 `;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';

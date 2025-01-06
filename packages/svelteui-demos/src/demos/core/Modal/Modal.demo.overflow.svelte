@@ -16,7 +16,7 @@
 
 	const content = Array(100)
 		.fill(0)
-		.map((_, index) => 'Svelte is a complier');
+		.map(() => 'Svelte is a complier');
 </script>
 
 <script>

@@ -41,7 +41,7 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { LockClosed } from 'radix-icons-svelte';
 
-	let { children, ...rest }: ButtonProps = $props();
+	let { children: _children, ...rest }: ButtonProps = $props();
 </script>
 
 <Center>
