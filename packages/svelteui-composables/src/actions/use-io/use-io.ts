@@ -2,7 +2,7 @@
  * This file is taken from maciekgrzybek/svelte-inview
  * It has slight modifications therefore it is not a 1:1 copy */
 
-import type { Action } from '../../shared/actions/types';
+import type { ActionReturn } from 'svelte/action';
 import type {
 	Event,
 	Options,
@@ -11,6 +11,13 @@ import type {
 	Position,
 	ScrollDirection
 } from './use-io.config';
+
+interface Attributes {
+	onioinit: (e: CustomEvent<ObserverEventDetails>) => void;
+	oniochange: (e: CustomEvent<ObserverEventDetails>) => void;
+	onioenter: (e: CustomEvent<ObserverEventDetails>) => void;
+	onioleave: (e: CustomEvent<ObserverEventDetails>) => void;
+}
 
 const createEvent = <T = ObserverEventDetails>(name: Event, detail: T): CustomEvent<T> =>
 	new CustomEvent(name, { detail });
@@ -22,7 +29,7 @@ const defaultOptions: Options = {
 	unobserveOnEnter: false
 };
 
-export function io(node: HTMLElement, options: Options = {}): ReturnType<Action> {
+export function io(node: HTMLElement, options: Options = {}): ActionReturn<null, Attributes> {
 	const { root, rootMargin, threshold, unobserveOnEnter } = { ...defaultOptions, ...options };
 
 	let prevPosition: Position = {
@@ -39,13 +46,13 @@ export function io(node: HTMLElement, options: Options = {}): ReturnType<Action>
 		const observer = new IntersectionObserver(
 			(entries, _observer) => {
 				entries.forEach((singleEntry) => {
-					if (prevPosition.y > singleEntry.boundingClientRect.y) {
+					if (prevPosition.y && prevPosition.y > singleEntry.boundingClientRect.y) {
 						scrollDirection.vertical = 'up';
 					} else {
 						scrollDirection.vertical = 'down';
 					}
 
-					if (prevPosition.x > singleEntry.boundingClientRect.x) {
+					if (prevPosition.x && prevPosition.x > singleEntry.boundingClientRect.x) {
 						scrollDirection.horizontal = 'left';
 					} else {
 						scrollDirection.horizontal = 'right';
@@ -64,14 +71,14 @@ export function io(node: HTMLElement, options: Options = {}): ReturnType<Action>
 						observer: _observer
 					};
 
-					node.dispatchEvent(createEvent('change', detail));
+					node.dispatchEvent(createEvent('iochange', detail));
 
 					if (singleEntry.isIntersecting) {
-						node.dispatchEvent(createEvent('enter', detail));
+						node.dispatchEvent(createEvent('ioenter', detail));
 
-						unobserveOnEnter && _observer.unobserve(node);
+						if (unobserveOnEnter) _observer.unobserve(node);
 					} else {
-						node.dispatchEvent(createEvent('leave', detail));
+						node.dispatchEvent(createEvent('ioleave', detail));
 					}
 				});
 			},
@@ -86,7 +93,7 @@ export function io(node: HTMLElement, options: Options = {}): ReturnType<Action>
 		// Not sure why is it happening, maybe a callstack has to pass between the listeners?
 		// Definitely something to investigate to understand better.
 		setTimeout(() => {
-			node.dispatchEvent(createEvent<LifecycleEventDetails>('init', { observer, node }));
+			node.dispatchEvent(createEvent<LifecycleEventDetails>('ioinit', { observer, node }));
 		}, 0);
 
 		observer.observe(node);
@@ -96,4 +103,6 @@ export function io(node: HTMLElement, options: Options = {}): ReturnType<Action>
 			}
 		};
 	}
+
+	return {};
 }

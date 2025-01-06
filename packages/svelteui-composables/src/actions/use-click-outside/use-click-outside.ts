@@ -1,4 +1,4 @@
-import type { Action } from '../../shared/actions/types';
+import type { ActionReturn } from 'svelte/action';
 
 /**
  * With the `use-click-outside` action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
@@ -12,7 +12,7 @@ import type { Action } from '../../shared/actions/types';
  *
  * <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
  *
- *     <Button on:click={() => open = true}>Open Modal</Button>
+ *     <Button onclick={() => open = true}>Open Modal</Button>
  *
  *     {#if open}
  *         <div>
@@ -30,8 +30,8 @@ import type { Action } from '../../shared/actions/types';
  */
 export function clickoutside(
 	node: HTMLElement,
-	params: { enabled: boolean; callback: (any) => unknown }
-): ReturnType<Action> {
+	params: { enabled: boolean; callback: (any: unknown) => unknown }
+): ActionReturn<{ enabled: boolean }> {
 	const { enabled: initialEnabled, callback } = params;
 
 	const handleOutsideClick = ({ target }: MouseEvent) => {
@@ -45,7 +45,9 @@ export function clickoutside(
 			window.removeEventListener('click', handleOutsideClick);
 		}
 	}
+
 	update({ enabled: initialEnabled });
+
 	return {
 		update,
 		destroy() {

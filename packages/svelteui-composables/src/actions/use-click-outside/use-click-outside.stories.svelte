@@ -8,10 +8,10 @@
 
 <Meta title="Composables/use-click-outside" />
 
-<Template >
-	{#snippet children({ args })}
+<Template>
+	{#snippet children()}
 		<div use:clickoutside={{ enabled: open, callback: () => (open = false) }}>
-			<Button on:click={() => (open = true)}>Open Modal</Button>
+			<Button onclick={() => (open = true)}>Open Modal</Button>
 			{#if open}
 				<Paper shadow="sm">This is a modal, click anywhere to close</Paper>
 			{/if}

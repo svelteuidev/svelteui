@@ -1,7 +1,7 @@
 /** Type guards to define whether a value is of a specific type */
 
 const toString = Object.prototype.toString;
-export const isClient = typeof window !== undefined;
+export const isClient = window !== undefined;
 export const isBoolean = (val: unknown): val is boolean => typeof val === 'boolean';
 export const isFunction = <T extends (arg0: unknown) => unknown>(val: unknown): val is T =>
 	typeof val === 'function';

@@ -1,6 +1,7 @@
-import type { Action, Fn } from '../../shared/actions/types';
+import type { ActionReturn } from 'svelte/action';
+import type { Fn } from '../../shared/actions/types';
 
-export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Action> {
+export function tableave(node: HTMLElement, callback: Fn<void>): ActionReturn {
 	document.addEventListener('visibilitychange', callback);
 
 	return {

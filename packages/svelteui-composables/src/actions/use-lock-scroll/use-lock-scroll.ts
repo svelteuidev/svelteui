@@ -1,19 +1,14 @@
+import type { ActionReturn } from 'svelte/action';
+
 import { createStyleTag } from './utils/create-style-tag.js';
 import { getLockStyles } from './utils/get-lock-styles.js';
 import { injectStyles } from './utils/inject-style-tag.js';
 import { insertStyleTag } from './utils/insert-style-tag.js';
 import { ENVIRONMENT, defaultWindow } from '../../shared/actions/utils/environment.js';
-import type { Action } from '../../shared/actions/types';
 
 interface LockScrollOptions {
 	disableBodyPadding: boolean;
 }
-
-/**
- *
-
- * @returns
- */
 
 /**
  * use-lock-scroll locks scroll at current position by setting document.body overflow to hidden.
@@ -30,19 +25,19 @@ export function lockscroll(
 	node: HTMLElement,
 	lock?: boolean,
 	options: LockScrollOptions = { disableBodyPadding: false }
-): ReturnType<Action> {
+): ActionReturn<boolean> {
 	const { browser } = ENVIRONMENT;
-	let window: Window;
+	let window: Window | undefined;
 
 	if (browser) {
 		window = defaultWindow;
 	}
 
-	let scrollLocked = lock ?? false;
+	let scrollLocked: boolean = !!lock;
 
 	const { disableBodyPadding } = options;
 
-	let stylesheet;
+	let stylesheet: HTMLStyleElement | null;
 
 	const lockScroll = () => {
 		const styles = getLockStyles({ disableBodyPadding });
@@ -68,11 +63,11 @@ export function lockscroll(
 	}
 
 	if (lock !== undefined) {
-		scrollLocked = lock;
+		scrollLocked = !!lock;
 	}
 
-	if (lock === undefined && typeof window !== 'undefined') {
-		window.document.body.style.overflow === 'hidden' && (scrollLocked = lock);
+	if (lock === undefined && window !== undefined) {
+		if (window.document.body.style.overflow === 'hidden') scrollLocked = !!lock;
 	}
 
 	return {
@@ -80,7 +75,7 @@ export function lockscroll(
 			if (locked) {
 				lockScroll();
 			} else {
-				window.document.body.style.overflow === 'visible' && (scrollLocked = lock);
+				if (window?.document.body.style.overflow === 'visible') scrollLocked = !!lock;
 				unlockScroll();
 			}
 		},

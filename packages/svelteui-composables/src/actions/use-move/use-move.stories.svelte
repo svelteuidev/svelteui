@@ -18,13 +18,13 @@
 
 <Meta title="Composables/use-move" />
 
-<Template >
-	{#snippet children({ args })}
+<Template>
+	{#snippet children()}
 		<div
 			use:move
-			onmove:start={handleMoveStart}
+			onmovestart={handleMoveStart}
 			onmove={handleMove}
-			onmove:stop={handleMoveStop}
+			onmovestop={handleMoveStop}
 			style="position: relative; width: 90%; height: 80vh; background-color: lightgrey; margin: 40px;"
 		>
 			<div

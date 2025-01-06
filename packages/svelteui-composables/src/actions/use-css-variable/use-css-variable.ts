@@ -1,4 +1,5 @@
-import type { Action, UnknownKeyString } from '../../shared/actions/types';
+import type { ActionReturn } from 'svelte/action';
+import type { UnknownKeyString } from '../../shared/actions/types';
 
 /**
  * With the `use-css-variable` action, an object of properties will be treated as css custom variables. By defining this object inside of a $: {} reactive block, `use-css-variable` can update those css properties on the fly whenever some of its values change.
@@ -7,11 +8,11 @@ import type { Action, UnknownKeyString } from '../../shared/actions/types';
  *   <script>
  *       import {cssvariable} from '@svelteuidev/composables'
  *
- *       let isRed = true;
+ *       let isRed = $state(true);
  *
- *       $: styleVars = {
+ *       let styleVars = $derived({
  *           titleColor: isRed ? 'red' : 'blue',
- *       };
+ *       });
  *   </script>
  *
  *   <div use:cssvariable="{styleVars}">
@@ -19,7 +20,7 @@ import type { Action, UnknownKeyString } from '../../shared/actions/types';
  *       <p>This text is normal</p>
  *       <p class='example'>This text is using the variable</p>
  *   </div>
- *   <Button on:click={() => isRed = !isRed}>Click to switch colors</Button>
+ *   <Button onclick={() => isRed = !isRed}>Click to switch colors</Button>
  *
  *   <style>
  *       .example {
@@ -33,7 +34,7 @@ import type { Action, UnknownKeyString } from '../../shared/actions/types';
 export function cssvariable(
 	node: HTMLElement,
 	props: UnknownKeyString<string>
-): ReturnType<Action> {
+): ActionReturn<UnknownKeyString<string>> {
 	Object.entries(props).forEach(([key, value]) => {
 		node.style.setProperty(`--${key}`, `${value}`);
 	});

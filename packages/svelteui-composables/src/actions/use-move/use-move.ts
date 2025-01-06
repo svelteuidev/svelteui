@@ -1,19 +1,24 @@
+import type { ActionReturn } from 'svelte/action';
 import { clamp } from '../../shared';
-import type { Action } from '../../shared/actions/types';
+
+interface Attributes {
+	onmovestart: (e: CustomEvent) => void;
+	onmove: (e: CustomEvent) => void;
+	onmovestop: (e: CustomEvent) => void;
+}
 
 /**
  * Handles the movement of any element inside a node, following the mouse or touch events.
  *
  * ```svelte
- *  <div use:move on:move={(event: { detail: { x: number; y: number } }) => { position = event.detail }}}>
+ *  <div use:move onmove={(event: { detail: { x: number; y: number } }) => { position = event.detail }}}>
  *     <div style="left: {position.x * 100}%; top: {position.y * 100}%;" />
  *  </div>
  * ```
  * @see https://svelteui.dev/actions/use-move
  */
-export function move(node: HTMLElement): ReturnType<Action> {
+export function move(node: HTMLElement): ActionReturn<undefined, Attributes> {
 	let moving: boolean = false;
-	let active: boolean = false;
 	let frame: number = 0;
 
 	function bindListeners() {
@@ -34,8 +39,7 @@ export function move(node: HTMLElement): ReturnType<Action> {
 		if (moving) return;
 
 		moving = true;
-		active = true;
-		node.dispatchEvent(new CustomEvent('move:start'));
+		node.dispatchEvent(new CustomEvent('movestart'));
 		bindListeners();
 	}
 
@@ -61,9 +65,8 @@ export function move(node: HTMLElement): ReturnType<Action> {
 		if (!moving) return;
 
 		moving = false;
-		active = false;
 		unbindListeners();
-		node.dispatchEvent(new CustomEvent('move:stop'));
+		node.dispatchEvent(new CustomEvent('movestop'));
 	}
 
 	function onMouseDown(event: MouseEvent) {

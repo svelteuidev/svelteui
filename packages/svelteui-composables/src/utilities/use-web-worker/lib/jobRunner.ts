@@ -11,8 +11,7 @@
  * @returns {Function} returns a function that accepts the parameters
  * to be passed to the "userFunc" function
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
-const jobRunner = (userFunc: Function) => (e: MessageEvent) => {
+const jobRunner = (userFunc: () => void) => (e: MessageEvent) => {
 	const userFuncArgs = e.data[0];
 
 	// eslint-disable-next-line prefer-spread

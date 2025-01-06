@@ -1,4 +1,4 @@
-import type { Action } from '../../shared/actions/types';
+import type { ActionReturn } from 'svelte/action';
 
 /**
  * With the `use-persistenttab` action, prevent current tab from being closed by user.
@@ -9,7 +9,7 @@ import type { Action } from '../../shared/actions/types';
  * @param enabled - Determines whether the action should execute or not.
  * @see https://svelteui.dev/actions/use-persistenttab
  */
-export function persistenttab(node: HTMLElement, enabled: boolean): ReturnType<Action> {
+export function persistenttab(node: HTMLElement, enabled: boolean): ActionReturn<boolean> {
 	function handler(e: BeforeUnloadEvent) {
 		e.preventDefault();
 		e.returnValue = '';

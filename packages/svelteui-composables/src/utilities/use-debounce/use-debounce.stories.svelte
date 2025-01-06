@@ -16,8 +16,8 @@
 
 <Meta title="Composables/use-debounce" />
 
-<Template >
-	{#snippet children({ args })}
+<Template>
+	{#snippet children()}
 		<Stack align="center">
 			<Button on:click={clickedFn}>Smash me!</Button>
 			<Text root="note" size="sm">Delay is set to 1000ms for this demo.</Text>

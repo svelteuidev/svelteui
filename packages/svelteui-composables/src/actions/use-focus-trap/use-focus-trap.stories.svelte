@@ -8,9 +8,9 @@
 
 <Meta title="Composables/use-focus-trap" />
 
-<Template >
-	{#snippet children({ args })}
-		<Button on:click={() => (active = !active)}
+<Template>
+	{#snippet children()}
+		<Button onclick={() => (active = !active)}
 			>{active ? 'Deactivate Focus Trap' : 'Activate Focus Trap'}</Button
 		>
 		<div use:focustrap={active}>

@@ -27,11 +27,12 @@
 
 <Meta title="Composables/use-focus-return" />
 
-<Template >
-	{#snippet children({ args })}
+<Template>
+	{#snippet children()}
 		<Button on:click={() => (active = !active)}
 			>{active ? 'Deactivate Focus Trap' : 'Activate Focus Trap'}</Button
 		>
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div use:focustrap={active} onkeydown={handleKeyDown}>
 			<Paper override={{ width: '500px', mt: '20px' }}>
 				<Stack spacing="lg">

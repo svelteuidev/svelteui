@@ -1,6 +1,6 @@
 /** This file is taken from maciekgrzybek/svelte-inview */
 
-export type Event = 'change' | 'leave' | 'enter' | 'init';
+export type Event = 'iochange' | 'ioleave' | 'ioenter' | 'ioinit';
 
 export type Options = {
 	root?: HTMLElement | null;
