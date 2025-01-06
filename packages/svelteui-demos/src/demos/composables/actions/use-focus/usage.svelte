@@ -46,5 +46,5 @@
 			<Input use={[[focus]]} bind:value={name} />
 		</InputWrapper>
 	{/if}
-	<Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
+	<Button onclick={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
 </Stack>

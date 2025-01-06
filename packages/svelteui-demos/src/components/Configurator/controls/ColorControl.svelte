@@ -1,5 +1,4 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type * as Stitches from '@stitches/core';
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
 	import type { ControlProps } from './Control';

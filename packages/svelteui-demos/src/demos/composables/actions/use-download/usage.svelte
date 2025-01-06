@@ -13,10 +13,10 @@
     });
 <\/script>
 
-<Button 
+<Button
     variant='outline'
     use={[[download, { blob: file, filename: "test.txt" }]]}
-    on:usedownload={() => console.log('File Downloaded')}
+    onusedownload={() => console.log('File Downloaded')}
 >
     Download File
 </Button>`;
@@ -43,7 +43,7 @@
 	<Button
 		variant="outline"
 		use={[[download, { blob: file, filename: 'hello.txt' }]]}
-		on:usedownload={() => console.log('File Downloaded')}
+		onusedownload={() => console.log('File Downloaded')}
 	>
 		Download File
 	</Button>

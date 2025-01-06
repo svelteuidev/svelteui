@@ -1,5 +1,4 @@
 <script lang="ts">
-	/* eslint-disable @typescript-eslint/no-explicit-any */
 	import type { ConfiguratorDemoConfiguration, DemoControl } from '$lib/types';
 	import { ControlsRenderer } from './controls';
 	import { propsToString, isEnabled } from '../../utils';

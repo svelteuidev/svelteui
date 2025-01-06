@@ -12,7 +12,7 @@
 
 <Paper override={{ overflowY: 'scroll', h: 300 }}>
 	<div style="padding-top: 260px; padding-bottom: 280px;">
-		<div use:io={{ threshold: 1 }} on:change={handleChange}>
+		<div use:io={{ threshold: 1 }} oniochange={handleChange}>
 			<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} padding="xl">
 				<Text override={{ color: 'white' }} weight="extrabold">
 					{visible ? 'Fully visible' : 'Obscured'}
@@ -41,7 +41,7 @@
 
 <Paper override={{ overflowY: 'scroll', h: 300 }}>
 	<div style="padding-top: 260px; padding-bottom: 280px;">
-		<div use:io={{ threshold: 1 }} onchange={handleChange}>
+		<div use:io={{ threshold: 1 }} oniochange={handleChange}>
 			<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} padding="xl">
 				<Text override={{ color: 'white' }} weight="extrabold">
 					{visible ? 'Fully visible' : 'Obscured'}

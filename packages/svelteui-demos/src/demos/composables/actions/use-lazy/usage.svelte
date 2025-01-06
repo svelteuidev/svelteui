@@ -26,7 +26,7 @@
 </script>
 
 <Stack override={{ height: '300px', overflow: 'scroll', padding: '1rem' }}>
-	{#each [...Array(15).keys()] as i}
+	{#each [...Array(15).keys()] as _i}
 		<p>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur obcaecati ex totam
 			laboriosam, culpa ipsa quis nostrum odio dolore aut eos numquam ratione quam maiores

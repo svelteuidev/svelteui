@@ -13,10 +13,10 @@ import type {
 } from './use-io.config';
 
 interface Attributes {
-	onioinit: (e: CustomEvent<ObserverEventDetails>) => void;
-	oniochange: (e: CustomEvent<ObserverEventDetails>) => void;
-	onioenter: (e: CustomEvent<ObserverEventDetails>) => void;
-	onioleave: (e: CustomEvent<ObserverEventDetails>) => void;
+	onioinit?: (e: CustomEvent<ObserverEventDetails>) => void;
+	oniochange?: (e: CustomEvent<ObserverEventDetails>) => void;
+	onioenter?: (e: CustomEvent<ObserverEventDetails>) => void;
+	onioleave?: (e: CustomEvent<ObserverEventDetails>) => void;
 }
 
 const createEvent = <T = ObserverEventDetails>(name: Event, detail: T): CustomEvent<T> =>

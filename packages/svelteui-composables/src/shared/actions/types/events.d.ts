@@ -26,10 +26,10 @@ type LifecycleEventDetails = {
 
 declare namespace svelte.JSX {
 	interface HTMLProps<T> {
-		onchange?: (event: CustomEvent<ObserverEventDetails>) => void;
-		onenter?: (event: CustomEvent<ObserverEventDetails>) => void;
-		onleave?: (event: CustomEvent<ObserverEventDetails>) => void;
-		oninit?: (event: CustomEvent<LifecycleEventDetails>) => void;
+		oniochange?: (event: CustomEvent<ObserverEventDetails>) => void;
+		onioenter?: (event: CustomEvent<ObserverEventDetails>) => void;
+		onioleave?: (event: CustomEvent<ObserverEventDetails>) => void;
+		onioinit?: (event: CustomEvent<LifecycleEventDetails>) => void;
 		onuseclipboard?: (event: CustomEvent<string>) => void;
 		'onuseclipboard-error'?: (event: CustomEvent<Error>) => void;
 

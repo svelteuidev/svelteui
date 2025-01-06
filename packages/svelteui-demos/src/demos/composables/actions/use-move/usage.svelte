@@ -4,9 +4,9 @@
 	const code = `
 <div
 	use:move
-	on:move:start={handleMoveStart}
-	on:move={handleMove}
-	on:move:stop={handleMoveStop}
+	onmovestart={handleMoveStart}
+	onmove={handleMove}
+	onmovestop={handleMoveStop}
 	style="position: relative; width: 90%; height: 200px; background-color: lightgrey; margin: 20px;"
 >
 	<div
@@ -42,9 +42,9 @@
 
 <div
 	use:move
-	onmove:start={handleMoveStart}
+	onmovestart={handleMoveStart}
 	onmove={handleMove}
-	onmove:stop={handleMoveStop}
+	onmovestop={handleMoveStop}
 	style="position: relative; width: 90%; height: 200px; background-color: lightgrey; margin: 20px;"
 >
 	<div

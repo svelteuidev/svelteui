@@ -18,7 +18,7 @@
 
 <Button
     use={[[clipboard, textToCopy]]}
-    on:useclipboard={onCopy}
+    onuseclipboard={onCopy}
     color={copied ? 'green' : 'blue'}
 >
     {copied ? 'copied' : 'Click me to copy text'}
@@ -46,11 +46,7 @@
 </script>
 
 <Center>
-	<Button
-		use={[[clipboard, textToCopy]]}
-		on:useclipboard={onCopy}
-		color={copied ? 'green' : 'blue'}
-	>
+	<Button use={[[clipboard, textToCopy]]} onuseclipboard={onCopy} color={copied ? 'green' : 'blue'}>
 		{copied ? 'Copied' : 'Click me to copy text'}
 	</Button>
 </Center>

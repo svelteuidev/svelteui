@@ -1,5 +1,4 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { ControlsRenderer } from './index';
 	import type { DemoControlComposite } from '$lib/types';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';

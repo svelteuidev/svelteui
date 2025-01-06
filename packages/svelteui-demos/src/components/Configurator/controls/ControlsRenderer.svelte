@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 
-	/* eslint-disable @typescript-eslint/no-explicit-any */
 	import type { DemoControl } from '$lib/types';
 	import { controls as controlsComponents } from './index';
 	import { upperFirst, isEnabled } from '../../../utils';
