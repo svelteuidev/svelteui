@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 import { clamp } from '../../shared';
 
 interface Attributes {
@@ -17,7 +17,9 @@ interface Attributes {
  * ```
  * @see https://svelteui.dev/actions/use-move
  */
-export function move(node: HTMLElement): ActionReturn<undefined, Attributes> {
+export const move: Action<HTMLElement, undefined, ActionReturn<undefined, Attributes>> = (
+	node: HTMLElement
+) => {
 	let moving: boolean = false;
 	let frame: number = 0;
 
@@ -105,4 +107,4 @@ export function move(node: HTMLElement): ActionReturn<undefined, Attributes> {
 			node.removeEventListener('mousedown', onMouseDown);
 		}
 	};
-}
+};

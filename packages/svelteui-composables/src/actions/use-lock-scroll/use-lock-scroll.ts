@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 import { createStyleTag } from './utils/create-style-tag.js';
 import { getLockStyles } from './utils/get-lock-styles.js';
@@ -21,11 +21,11 @@ interface LockScrollOptions {
  * @param options - An object to specify offset width
  * @see https://svelteui.dev/actions/use-lock-scroll
  */
-export function lockscroll(
+export const lockscroll: Action<HTMLElement, boolean, ActionReturn<boolean>> = (
 	node: HTMLElement,
 	lock?: boolean,
 	options: LockScrollOptions = { disableBodyPadding: false }
-): ActionReturn<boolean> {
+) => {
 	const { browser } = ENVIRONMENT;
 	let window: Window | undefined;
 
@@ -84,4 +84,4 @@ export function lockscroll(
 			return;
 		}
 	};
-}
+};

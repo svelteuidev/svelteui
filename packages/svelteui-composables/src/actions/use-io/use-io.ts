@@ -2,7 +2,7 @@
  * This file is taken from maciekgrzybek/svelte-inview
  * It has slight modifications therefore it is not a 1:1 copy */
 
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 import type {
 	Event,
 	Options,
@@ -29,7 +29,10 @@ const defaultOptions: Options = {
 	unobserveOnEnter: false
 };
 
-export function io(node: HTMLElement, options: Options = {}): ActionReturn<null, Attributes> {
+export const io: Action<HTMLElement, Options, ActionReturn<null, Attributes>> = (
+	node: HTMLElement,
+	options: Options = {}
+) => {
 	const { root, rootMargin, threshold, unobserveOnEnter } = { ...defaultOptions, ...options };
 
 	let prevPosition: Position = {
@@ -105,4 +108,4 @@ export function io(node: HTMLElement, options: Options = {}): ActionReturn<null,
 	}
 
 	return {};
-}
+};

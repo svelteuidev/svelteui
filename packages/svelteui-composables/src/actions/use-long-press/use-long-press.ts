@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 interface Attributes {
 	onlongpress: (e: CustomEvent) => void;
@@ -15,7 +15,10 @@ interface Attributes {
  * @param duration - The duration until the longpress event is dispatched
  * @see https://svelteui.dev/actions/use-longpress
  */
-export function longpress(node: HTMLElement, duration: number): ActionReturn<number, Attributes> {
+export const longpress: Action<HTMLElement, number, ActionReturn<number, Attributes>> = (
+	node: HTMLElement,
+	duration: number
+) => {
 	let timer: number;
 
 	function handlePress() {
@@ -46,4 +49,4 @@ export function longpress(node: HTMLElement, duration: number): ActionReturn<num
 			node.removeEventListener('mousedown', handlePress);
 		}
 	};
-}
+};

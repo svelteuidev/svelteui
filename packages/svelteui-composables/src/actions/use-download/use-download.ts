@@ -1,5 +1,5 @@
 import { tick } from 'svelte';
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 interface Parameters {
 	blob: Blob;
@@ -20,10 +20,10 @@ interface Attributes {
  * @param params - Object that contains two properties {blob: Blob, filename: string}
  * @see https://svelteui.dev/actions/use-download
  */
-export function download(
+export const download: Action<HTMLElement, Parameters, ActionReturn<Parameters, Attributes>> = (
 	node: HTMLElement,
 	params: Parameters
-): ActionReturn<Parameters, Attributes> {
+) => {
 	const click = async () => {
 		const { blob, filename } = params;
 
@@ -55,4 +55,4 @@ export function download(
 		update: (_params: { blob: Blob; filename: string }) => (params = _params),
 		destroy: () => node.removeEventListener('click', click, true)
 	};
-}
+};

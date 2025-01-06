@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 import type { UnknownKeyString } from '../../shared/actions/types';
 
 /**
@@ -31,10 +31,11 @@ import type { UnknownKeyString } from '../../shared/actions/types';
  * @param props - A reactive object with properties that should be treated as css custom properties.
  * @see https://svelteui.dev/actions/use-css-variable
  */
-export function cssvariable(
-	node: HTMLElement,
-	props: UnknownKeyString<string>
-): ActionReturn<UnknownKeyString<string>> {
+export const cssvariable: Action<
+	HTMLElement,
+	UnknownKeyString<string>,
+	ActionReturn<UnknownKeyString<string>>
+> = (node: HTMLElement, props: UnknownKeyString<string>) => {
 	Object.entries(props).forEach(([key, value]) => {
 		node.style.setProperty(`--${key}`, `${value}`);
 	});
@@ -50,4 +51,4 @@ export function cssvariable(
 			props = _props;
 		}
 	};
-}
+};

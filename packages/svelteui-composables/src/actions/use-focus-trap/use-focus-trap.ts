@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 import { FOCUS_SELECTOR, focusable, tabbable } from './tabbable';
 import { scopeTab } from './scope-tab';
@@ -14,7 +14,10 @@ import { createAriaHider } from './create-aria-hider';
  * ```
  * @see https://svelteui.dev/actions/use-focus-trap
  */
-export function focustrap(node: HTMLElement, active = true): ActionReturn<boolean> {
+export const focustrap: Action<HTMLElement, boolean, ActionReturn<boolean>> = (
+	node: HTMLElement,
+	active = true
+): ActionReturn<boolean> => {
 	let restoreAria: (() => void) | null = null;
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -85,4 +88,4 @@ export function focustrap(node: HTMLElement, active = true): ActionReturn<boolea
 			}
 		}
 	};
-}
+};

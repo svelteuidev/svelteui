@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 import type { FocusableElement } from '../../shared/actions/types';
 
 /**
@@ -9,8 +9,8 @@ import type { FocusableElement } from '../../shared/actions/types';
  * ```
  * @see https://svelteui.dev/actions/use-focus
  */
-export function focus(node: FocusableElement): ActionReturn {
+export const focus: Action<FocusableElement, null, ActionReturn> = (node: FocusableElement) => {
 	node.focus();
 
 	return {};
-}
+};

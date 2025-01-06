@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 /**
  * With the `use-click-outside` action, a callback function will be fired whenever the user clicks outside of the dom node the action is applied to.
@@ -28,10 +28,11 @@ import type { ActionReturn } from 'svelte/action';
  * @param params - Object that contains two properties {enabled: boolean, callback: (any) => unknown}
  * @see https://svelteui.dev/actions/use-click-outside
  */
-export function clickoutside(
-	node: HTMLElement,
-	params: { enabled: boolean; callback: (any: unknown) => unknown }
-): ActionReturn<{ enabled: boolean }> {
+export const clickoutside: Action<
+	HTMLElement,
+	{ enabled: boolean; callback: (any: unknown) => unknown },
+	ActionReturn<{ enabled: boolean }>
+> = (node: HTMLElement, params: { enabled: boolean; callback: (any: unknown) => unknown }) => {
 	const { enabled: initialEnabled, callback } = params;
 
 	const handleOutsideClick = ({ target }: MouseEvent) => {
@@ -54,4 +55,4 @@ export function clickoutside(
 			window.removeEventListener('click', handleOutsideClick);
 		}
 	};
-}
+};

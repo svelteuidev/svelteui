@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 const nodeAttributesMap = new WeakMap<HTMLElement, object>();
 
@@ -29,7 +29,7 @@ function observer() {
  * @param attributes - an object whose properties are the attributes to be applied, and the values are the attr values
  * @see https://svelteui.dev/actions/use-lazy
  */
-export function lazy(node: HTMLElement, attributes: Record<string, number | string>): ActionReturn {
+export const lazy: Action<HTMLElement, Record<string, number | string>, ActionReturn> = (node: HTMLElement, attributes: Record<string, number | string>) => {
   nodeAttributesMap.set(node, attributes);
 
 	observer().observe(node);

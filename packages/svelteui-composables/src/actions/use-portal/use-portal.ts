@@ -1,6 +1,6 @@
 // adapted from romkor/svelte-portal
 import { tick } from 'svelte';
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 
 type Target = HTMLElement | string;
 
@@ -10,7 +10,10 @@ type Target = HTMLElement | string;
  * @param target- DOM element or CSS selector to be appended to
  * @see https://svelteui.dev/actions/use-portal
  */
-export function portal(node: HTMLElement, target: Target = 'body'): ActionReturn<Target> {
+export const portal: Action<HTMLElement, Target, ActionReturn<Target>> = (
+	node: HTMLElement,
+	target: Target = 'body'
+) => {
 	let targetNode;
 
 	async function update(newTarget: Target) {
@@ -49,4 +52,4 @@ export function portal(node: HTMLElement, target: Target = 'body'): ActionReturn
 		update,
 		destroy
 	};
-}
+};

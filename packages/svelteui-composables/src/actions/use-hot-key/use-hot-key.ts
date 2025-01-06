@@ -1,4 +1,4 @@
-import type { ActionReturn } from 'svelte/action';
+import type { Action, ActionReturn } from 'svelte/action';
 import { getHotkeyHandler, getHotkeyMatcher } from './parse-hotkey.js';
 export { getHotkeyHandler };
 
@@ -27,7 +27,10 @@ function shouldFireEvent(event: KeyboardEvent) {
  * @param hotkeys - an array of HotKeyItem's which are arrays of key combinations and callback functions
  * @see https://svelteui.dev/actions/use-hotkey
  */
-export function hotkey(node: HTMLElement, hotkeys: HotkeyItem[]): ActionReturn<HotkeyItem[]> {
+export const hotkey: Action<HTMLElement, HotkeyItem[], ActionReturn<HotkeyItem[]>> = (
+	node: HTMLElement,
+	hotkeys: HotkeyItem[]
+) => {
 	const keyDownListener = (event: KeyboardEvent) => {
 		hotkeys.forEach(([hotkey, handler]) => {
 			if (getHotkeyMatcher(hotkey)(event) && shouldFireEvent(event)) {
@@ -47,4 +50,4 @@ export function hotkey(node: HTMLElement, hotkeys: HotkeyItem[]): ActionReturn<H
 			document.documentElement.removeEventListener('keydown', keyDownListener);
 		}
 	};
-}
+};
