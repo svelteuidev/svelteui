@@ -43,7 +43,7 @@
 	<p>Name: {name}</p>
 	{#if editing}
 		<InputWrapper label="Name">
-			<Input use={[[focus]]} bind:value={name} />
+			<Input use={[focus]} bind:value={name} />
 		</InputWrapper>
 	{/if}
 	<Button onclick={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
