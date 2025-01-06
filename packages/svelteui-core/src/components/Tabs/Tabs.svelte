@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { getContext, onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
@@ -41,21 +40,15 @@
 		calculateActive(active === -1 ? initialTab : active);
 	});
 
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	let contextStore: TabsContext = $state(getContext(ctx));
-	if (!contextStore) {
-		contextStore = writable({
-			[tabsId]: {
-				active: active === -1 ? initialTab : active,
-				color: color,
-				variant: variant,
-				orientation: orientation
-			}
-		});
-		setContext(ctx, () => contextStore);
-	}
+	let contextStore: TabsContext = $derived({
+		[tabsId]: {
+			active: active === -1 ? initialTab : active,
+			color: color,
+			variant: variant,
+			orientation: orientation
+		}
+	});
+	setContext(ctx, () => contextStore);
 
 	/**
 	 * Retrieves all tabs that the component has as children
@@ -97,7 +90,6 @@
 	function onTabClick(index: number, key: string) {
 		onChange(index, key);
 		_active = index;
-		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 	}
 
 	function onTabKeyDown(event: KeyboardEvent, index: number, key: string) {
@@ -108,7 +100,6 @@
 		if (event.code === 'Enter') {
 			onChange(index, key);
 			_active = index;
-			contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
 			return;
 		}
 
@@ -132,7 +123,6 @@
 
 		onChange(_index, selectedKey);
 		_active = _index;
-		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
 	}
 
 	// check if item is still checked when the context store updates
@@ -140,14 +130,6 @@
 	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
 	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
 
-	$effect(() => {
-		$contextStore[tabsId] = {
-			active: _active,
-			color: color,
-			variant: variant,
-			orientation: orientation
-		};
-	});
 	$effect.pre(() => {
 		calculateActive(_active);
 	});

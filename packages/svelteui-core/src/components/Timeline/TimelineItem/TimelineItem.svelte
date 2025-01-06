@@ -31,15 +31,15 @@
 
 	// retrieves the reactive context so that TimelineItem has access
 	// to the Timeline parameters
-	const context: TimelineContext = getContext(ctx);
+	const context: TimelineContext = $derived.by(getContext(ctx));
 
 	let _active = $state(active);
 	let _lineActive = $state(lineActive);
-	let _align = $derived(align !== undefined ? align : $context.align);
-	let _color = $derived(color !== undefined ? color : $context.color);
-	let _radius = $derived(radius !== undefined ? radius : $context.radius);
-	let _bulletSize = $derived(bulletSize !== undefined ? bulletSize : $context.bulletSize);
-	let _lineWidth = $derived(lineWidth !== undefined ? lineWidth : $context.lineWidth);
+	let _align = $derived(align !== undefined ? align : context.align);
+	let _color = $derived(color !== undefined ? color : context.color);
+	let _radius = $derived(radius !== undefined ? radius : context.radius);
+	let _bulletSize = $derived(bulletSize !== undefined ? bulletSize : context.bulletSize);
+	let _lineWidth = $derived(lineWidth !== undefined ? lineWidth : context.lineWidth);
 
 	function calculateActive(currentActive: number, reverseActive: boolean) {
 		if (!element) return;
@@ -59,10 +59,10 @@
 					: currentActive - 1 >= index;
 	}
 
-	onMount(() => calculateActive($context.active, $context.reverseActive));
+	onMount(() => calculateActive(context.active, context.reverseActive));
 
 	// check if item is still checked when the context store updates
-	$effect.pre(() => calculateActive($context.active, $context.reverseActive));
+	$effect.pre(() => calculateActive(context.active, context.reverseActive));
 
 	let { cx, classes } = $derived(
 		useStyles(

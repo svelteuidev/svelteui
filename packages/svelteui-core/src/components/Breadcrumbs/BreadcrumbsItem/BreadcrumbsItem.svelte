@@ -20,13 +20,7 @@
 		children
 	}: BreadcrumbItemProps = $props();
 
-	// retrieves the reactive context so that TimelineItem has access
-	// to the Timeline parameters
-	const state: BreadcrumbContext = getContext(ctx);
-
-	let separator = $state.separator;
-	let size = $state.size;
-	let color = $state.color;
+	const { separator, size, color }: BreadcrumbContext = $derived.by(getContext(ctx));
 
 	let { cx, classes, getStyles } = $derived(
 		useStyles({ color, size }, { name: 'BreadcrumbsItem' })

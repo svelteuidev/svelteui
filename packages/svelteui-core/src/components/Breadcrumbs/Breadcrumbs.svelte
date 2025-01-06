@@ -7,7 +7,6 @@
 	import { Box } from '../Box';
 	import type { BreadcrumbContext, BreadcrumbProps } from './Breadcrumbs';
 	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
 
 	let {
 		use = [],
@@ -20,15 +19,12 @@
 		children
 	}: BreadcrumbProps = $props();
 
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	const contextStore: BreadcrumbContext = writable({
+	const contextStore: BreadcrumbContext = $derived({
 		separator: separator,
 		size: size,
 		color: color
 	});
-	setContext(ctx, contextStore);
+	setContext(ctx, () => contextStore);
 
 	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'Breadcrumbs' }));
 </script>

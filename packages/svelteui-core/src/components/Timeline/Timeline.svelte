@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
 
 	import Box from '../Box/Box.svelte';
 	import useStyles from './Timeline.styles';
@@ -26,10 +25,7 @@
 		...rest
 	}: TimelineProps = $props();
 
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	const contextStore: TimelineContext = writable({
+	const contextStore: TimelineContext = $derived({
 		active: active,
 		reverseActive: reverseActive,
 		align: align,
@@ -38,18 +34,7 @@
 		color: color,
 		lineWidth: lineWidth
 	});
-	setContext(ctx, contextStore);
-	$effect.pre(() => {
-		$contextStore = {
-			active: active,
-			reverseActive: reverseActive,
-			align: align,
-			bulletSize: bulletSize,
-			radius: radius,
-			color: color,
-			lineWidth: lineWidth
-		};
-	});
+	setContext(ctx, () => contextStore);
 
 	let { cx, classes } = $derived(
 		useStyles({ align, bulletSize, lineWidth }, { override, name: 'Timeline' })

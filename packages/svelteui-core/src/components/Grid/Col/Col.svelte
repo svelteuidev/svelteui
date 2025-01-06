@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Box } from '../../Box';
+	import { ctx } from '../Grid.svelte';
 	import type { GridContext } from '../Grid';
 	import useStyles from './Col.styles';
 	import type { ColProps } from './Col';
@@ -28,22 +29,22 @@
 
 	// retrieves the reactive context so that Col has access
 	// to the Grid cols, grow and spacing parameters
-	const state: GridContext = getContext('Grid');
+	const { cols, grow, spacing }: GridContext = $derived.by(getContext(ctx));
 
 	function isSpanValid(span: number) {
 		return typeof span === 'number' && span > 0 && span % 1 === 0;
 	}
 
-	let _span = $derived(span || $state.cols || 0);
-	let valid = $derived(isSpanValid(_span) && _span <= $state.cols);
+	let _span = $derived(span || cols || 0);
+	let valid = $derived(isSpanValid(_span) && _span <= cols);
 
 	let { cx, classes, getStyles } = $derived(
 		useStyles(
 			{
 				span: _span,
-				cols: $state.cols,
-				grow: $state.grow,
-				spacing: $state.spacing,
+				cols: cols,
+				grow: grow,
+				spacing: spacing,
 				offset,
 				offsetXs,
 				offsetSm,

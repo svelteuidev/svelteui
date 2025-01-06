@@ -14,6 +14,7 @@
 	import { MenuIcon } from './index';
 	import useStyles, { getNextItem, getPreviousItem } from './Menu.styles';
 	import type { MenuProps } from './Menu';
+	import type { MenuContextValue } from './Menu.context';
 
 	let {
 		use = [],
@@ -180,14 +181,13 @@
 		trigger === 'click' && focusReference();
 	};
 
-	const context = $derived({
+	const context: MenuContextValue = $derived({
 		hovered,
 		radius,
 		onItemHover: (hover) => (hovered = hover),
 		onItemKeyDown: handleKeyDown,
 		onItemClick: handleItemClick
 	});
-	// @TODO: is this reactive?
 	setContext(ctx, () => context);
 
 	$effect(() => {

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
 
 	import { useActions } from '$lib/internal';
 	import { Box } from '../../Box';
@@ -27,8 +26,8 @@
 		...rest
 	}: MenuItemProps = $props();
 
-	const state: Writable<MenuContextValue> = getContext(ctx);
-	const { hovered, radius, onItemClick, onItemHover, onItemKeyDown } = $state;
+	const { hovered, radius, onItemClick, onItemHover, onItemKeyDown }: MenuContextValue =
+		$derived.by(getContext(ctx));
 
 	const castKeyboardEvent = <T = KeyboardEvent,>(event): T => event;
 

@@ -34,9 +34,7 @@
 	let _orientation = $state(orientation !== undefined ? orientation : undefined);
 	let _variant = $state(variant !== undefined ? variant : undefined);
 
-	// retrieves the reactive context so that Tab has access
-	// to the Tabs parameters
-	const context: TabsContext = getContext(ctx);
+	const context: TabsContext = $derived.by(getContext(ctx));
 
 	function calculateActive(currentContext: TabsContext) {
 		if (!element) return;
