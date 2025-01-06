@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-unused-vars */
 import MagicString from 'magic-string';
 import jsStringEscape from 'js-string-escape';
 import { parse } from 'svelte/compiler';
@@ -7,7 +8,6 @@ import type { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 import type { ParsedPair, ParsedPairs, PreprocessOptions } from './types';
 
 // @TODO: !!!IMPORTANT: this has bee commented out since svelte 5, since it requires a big migration
-
 function getSourceIdAttribute(node: Node) {
 	return node?.attributes?.find(({ name }) => name === 'sourceId')?.value?.[0]?.data;
 }

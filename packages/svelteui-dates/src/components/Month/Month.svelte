@@ -1,5 +1,4 @@
 <script lang="ts">
-	/* eslint-disable no-undef */
 	import dayjs from 'dayjs';
 	import { Box, Text, useActions } from '@svelteuidev/core';
 	import { upperFirst } from '@svelteuidev/composables';
@@ -30,7 +29,7 @@
 		focusable = true,
 		firstDayOfWeek = 'monday',
 		hideOutsideDates = false,
-		onChange = (value) => undefined,
+		onChange = () => undefined,
 		onDayMouseEnter = undefined,
 		onDayKeyDown = undefined,
 		renderDay = undefined,
@@ -95,7 +94,7 @@
 					<td class={classes.cell}>
 						<Day
 							onclick={() => {
-								typeof onChange === 'function' && onChange(date);
+								if (typeof onChange === 'function') onChange(date);
 							}}
 							onmousedown={(event) => preventFocus && event.preventDefault()}
 							onkeydown={(event) =>

@@ -40,7 +40,10 @@ export default ts.config(
 			'no-useless-escape': 'off',
 			'no-extra-boolean-cast': 'off',
 			'no-inner-declarations': 'off',
-			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{ argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }
+			],
 			'@typescript-eslint/no-inferrable-types': 'off',
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-empty-function': 'off',

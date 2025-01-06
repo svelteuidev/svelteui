@@ -26,7 +26,7 @@
 		focusable = null,
 		hideOutsideDates = null,
 		primaryColor = 'blue',
-		onMouseEnter = (date: Date, event: MouseEvent) => null,
+		onMouseEnter = () => null,
 		renderDay = undefined,
 		...rest
 	}: DayProps = $props();
