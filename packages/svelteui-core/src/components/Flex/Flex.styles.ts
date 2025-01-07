@@ -1,7 +1,7 @@
 import { createStyles } from '$lib/styles';
 import type { FlexProps } from './Flex';
 
-export interface FlexStylesParams extends FlexProps {}
+export type FlexStylesParams = FlexProps;
 
 export default createStyles(
 	(theme, { gap, rowGap, columnGap, align, justify, wrap, direction }: FlexStylesParams) => {

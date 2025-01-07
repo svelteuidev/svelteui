@@ -16,8 +16,6 @@
 			}
 		}
 	}));
-
-	let { getStyles } = $derived(useStyles());
 </script>
 
 <Meta title="Components/Image" component={Image} />

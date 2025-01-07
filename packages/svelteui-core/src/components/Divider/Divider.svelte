@@ -17,7 +17,6 @@
 		labelProps = null,
 		variant = 'solid',
 		label,
-		children,
 		...rest
 	}: DividerProps = $props();
 
