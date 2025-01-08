@@ -19,10 +19,13 @@ describe('use-click-outside', () => {
 		});
 
 		const inside = document.getElementById('inside');
+		if (!inside) throw new Error('HTML inside element not found');
 		inside.click();
 		expect(component.$$.ctx[0]).eq(true);
 
 		const outside = document.getElementById('outside');
+		if (!outside) throw new Error('HTML inside element not found');
+
 		outside.click();
 		expect(component.$$.ctx[0]).eq(false);
 

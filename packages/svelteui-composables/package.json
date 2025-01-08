@@ -73,6 +73,7 @@
 		"@sveltejs/kit": "^2.5.27",
 		"@sveltejs/package": "^2.3.7",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@testing-library/svelte": "5.2.6",
 		"babel-loader": "9.1.2",
 		"eslint": "9.17.0",
 		"eslint-config-prettier": "^9.1.0",
