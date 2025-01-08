@@ -34,7 +34,7 @@
 		descriptionProps = {},
 		errorProps = {},
 		icon,
-		rightSection,
+		rightSection: rightSectionSnippet,
 		...rest
 	}: NativeSelectProps = $props();
 
@@ -103,8 +103,8 @@
 			<option value="" disabled hidden>Add Some Options</option>
 		{/each}
 		{#snippet rightSection()}
-			{#if rightSection}
-				{@render rightSection()}
+			{#if rightSectionSnippet}
+				{@render rightSectionSnippet()}
 			{:else}
 				<ChevronUpDown size={iconProps.size} color={iconProps.color} />
 			{/if}

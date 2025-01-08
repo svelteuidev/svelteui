@@ -8,7 +8,7 @@ export function validateJson(getValue: () => string, deserialize: typeof JSON.pa
 	try {
 		deserialize(value);
 		return true;
-	} catch (e) {
+	} catch (_e) {
 		return false;
 	}
 }

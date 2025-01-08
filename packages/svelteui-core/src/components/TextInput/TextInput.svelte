@@ -61,18 +61,8 @@
 		use={[[useActions, use]]}
 		invalid={_invalid}
 		showRightSection={_showRightSection}
+		{rightSection}
+		{icon}
 		{...rest}
-	>
-		{#if rightSection}
-			{#snippet rightSection()}
-				{@render rightSection()}
-			{/snippet}
-		{/if}
-
-		{#if icon}
-			{#snippet icon()}
-				{@render icon()}
-			{/snippet}
-		{/if}
-	</Input>
+	></Input>
 </InputWrapper>

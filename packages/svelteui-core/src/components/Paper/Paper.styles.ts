@@ -4,11 +4,10 @@ import type { SvelteUIShadow, SvelteUINumberSize } from '$lib/styles';
 export interface PaperStyleParams {
 	shadow: SvelteUIShadow;
 	radius: SvelteUINumberSize;
-	withBorder: boolean;
 	padding: SvelteUINumberSize;
 }
 
-export default createStyles((theme, { radius, shadow, withBorder, padding }: PaperStyleParams) => {
+export default createStyles((theme, { radius, shadow, padding }: PaperStyleParams) => {
 	return {
 		root: {
 			darkMode: {

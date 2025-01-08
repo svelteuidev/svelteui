@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css } from '../stitches.config';
 import { useSvelteUITheme, useSvelteUIThemeContext } from '../theme';
 import type { CSS } from '../theme';

@@ -40,7 +40,7 @@
 	let _opened = false;
 	let tooltipRefElement = $state(null);
 
-	const handleOpen = (event) => {
+	const handleOpen = () => {
 		window.clearTimeout(closeTimeoutRef);
 
 		if (openDelay !== 0) {
@@ -52,7 +52,7 @@
 		}
 	};
 
-	const handleClose = (event) => {
+	const handleClose = () => {
 		window.clearTimeout(openTimeoutRef);
 
 		if (closeDelay !== 0) {
@@ -77,8 +77,8 @@
 
 <Box
 	bind:element
-	onpointerenter={(event) => handleOpen(event)}
-	onpointerleave={(event) => handleClose(event)}
+	onpointerenter={handleOpen}
+	onpointerleave={handleClose}
 	onfocuscapture={handleOpen}
 	onblurcapture={handleClose}
 	class={cx(className, classes.root, getStyles({ css: override }))}

@@ -123,7 +123,8 @@
 	};
 
 	const toggleMenu = () => {
-		opened ? handleClose() : handleOpen();
+		if (opened) return handleClose();
+		return handleOpen();
 	};
 
 	const handleMouseLeave = () => {
@@ -178,7 +179,7 @@
 			return;
 		}
 		handleClose();
-		trigger === 'click' && focusReference();
+		if (trigger === 'click') focusReference();
 	};
 
 	const context: MenuContextValue = $derived({

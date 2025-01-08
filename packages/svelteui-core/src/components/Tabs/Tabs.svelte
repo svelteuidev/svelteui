@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { getContext, onMount, setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';

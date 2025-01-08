@@ -17,7 +17,7 @@
 	}: PaperProps = $props();
 
 	let { cx, classes, getStyles } = $derived(
-		useStyles({ radius, shadow, withBorder, padding }, { name: 'Paper' })
+		useStyles({ radius, shadow, padding }, { name: 'Paper' })
 	);
 </script>
 

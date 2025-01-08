@@ -26,22 +26,7 @@
 	class={className}
 	css={{ ...override }}
 	{...rest}
-	onchange={(event) => {
-		const {
-			inView,
-			entry: _entry,
-			scrollDirection: _scrollDirection,
-			observer: _observer,
-			node: _node
-			// @ts-ignore
-		} = event.detail;
-		visible = inView;
-		entry = _entry;
-		scrollDirection = _scrollDirection;
-		observer = _observer;
-		node = _node;
-	}}
-	onenter={(event) => {
+	oniochange={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -55,7 +40,7 @@
 		observer = _observer;
 		node = _node;
 	}}
-	onleave={(event) => {
+	onioenter={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -69,7 +54,21 @@
 		observer = _observer;
 		node = _node;
 	}}
-	on:init={(event) => {
+	onioleave={(event) => {
+		const {
+			inView,
+			entry: _entry,
+			scrollDirection: _scrollDirection,
+			observer: _observer,
+			node: _node
+		} = event.detail;
+		visible = inView;
+		entry = _entry;
+		scrollDirection = _scrollDirection;
+		observer = _observer;
+		node = _node;
+	}}
+	onioinit={(event) => {
 		const { observer: _observer, node: _node } = event.detail;
 		observer = _observer;
 		node = _node;

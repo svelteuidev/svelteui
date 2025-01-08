@@ -129,6 +129,7 @@
 		<!-- on:change needs to appear before use:forwardEvents so that the
    		ordering of the events is correct and the value is updated before propagation -->
 		<!-- prettier-ignore -->
+		<!-- svelte-ignore a11y_autofocus -->
 		<svelte:element
 			this={castRoot()}
 			bind:this={element}
@@ -161,6 +162,7 @@
 			{@render children?.()}
 		</svelte:element>
 	{:else if isComponent && typeof root !== 'string'}
+		<!-- svelte-ignore svelte_component_deprecated -->
 		<svelte:component
 			this={root}
 			bind:element

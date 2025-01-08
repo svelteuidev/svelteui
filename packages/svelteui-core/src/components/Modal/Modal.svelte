@@ -66,8 +66,8 @@
 	};
 
 	onMount(() => {
-		if (!trapFocus) {
-			typeof window !== 'undefined' ? window.addEventListener('keydown', closeOnEscapePress) : null;
+		if (!trapFocus && typeof window !== 'undefined') {
+			window.addEventListener('keydown', closeOnEscapePress);
 		}
 	});
 
@@ -107,7 +107,7 @@
 				onkeydowncapture={(event) => {
 					const shouldTrigger =
 						castAny(event.target)?.getAttribute('data-svelteui-stop-propagation') !== 'true';
-					shouldTrigger && event.code === 'Escape' && closeOnEscape && onclose();
+					if (shouldTrigger && event.code === 'Escape' && closeOnEscape) onclose();
 				}}
 			>
 				<div class={classes.transition} transition:_transition|global={transitionOptions}>

@@ -1,6 +1,4 @@
 <script lang="ts" generics="Multiple extends boolean = false">
-	// Note: Limitation of the svelte eslint plugin
-	/* eslint-disable no-undef */
 	import { setContext } from 'svelte';
 	import { randomID } from '$lib/styles';
 	import { Box } from '../Box';
