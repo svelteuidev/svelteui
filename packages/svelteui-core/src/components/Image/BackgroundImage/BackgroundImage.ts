@@ -13,6 +13,6 @@ export interface BackgroundImageProps extends DefaultProps<HTMLDivElement>, HTML
 	caption?: string;
 	usePlaceholder?: boolean;
 	loader?: boolean;
-	children: Snippet;
+	children?: Snippet;
 	[key: string]: any;
 }

@@ -1,3 +1,4 @@
+import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
 import type { Component, LiteralUnion } from '$lib/internal/types';
@@ -23,5 +24,6 @@ export interface ActionIconProps extends DefaultProps, HTMLButtonAttributes {
 	disabled?: boolean;
 	href?: string;
 	external?: boolean;
+	children?: Snippet;
 	[key: string]: any;
 }

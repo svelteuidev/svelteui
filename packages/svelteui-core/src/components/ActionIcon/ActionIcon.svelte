@@ -54,6 +54,6 @@
 	{#if loading}
 		<Loader size={loaderProps.size} color={loaderProps.color} variant={loaderProps.variant} />
 	{:else}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </Box>

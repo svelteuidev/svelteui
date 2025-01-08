@@ -43,6 +43,6 @@ export interface AccordionProps<Multiple extends boolean = false>
 	transitionDuration?: number;
 	onchange?: (value: AccordionValue<Multiple>) => void;
 	chevron?: Snippet;
-	children: Snippet;
+	children?: Snippet;
 	[key: string]: any;
 }

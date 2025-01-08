@@ -27,5 +27,5 @@
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{...rest}
 >
-	{@render children()}
+	{@render children?.()}
 </div>

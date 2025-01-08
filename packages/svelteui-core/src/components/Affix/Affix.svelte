@@ -24,6 +24,6 @@
 		{use}
 		{...rest}
 	>
-		{@render children()}
+		{@render children?.()}
 	</Box>
 </Portal>

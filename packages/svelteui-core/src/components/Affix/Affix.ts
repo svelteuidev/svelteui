@@ -11,6 +11,6 @@ export interface AffixProps extends DefaultProps, HTMLAttributes<HTMLElement> {
 		bottom?: string | number;
 		right?: string | number;
 	};
-	children: Snippet;
+	children?: Snippet;
 	[key: string]: any;
 }

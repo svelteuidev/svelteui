@@ -33,7 +33,7 @@
 			</div>
 		{/if}
 		<div class={classes.body}>
-			{@render children()}
+			{@render children?.()}
 			{#if citeContent}
 				<cite class={classes.cite}>
 					{@render citeContent()}

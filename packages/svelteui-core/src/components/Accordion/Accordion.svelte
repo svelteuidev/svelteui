@@ -82,5 +82,5 @@
 </script>
 
 <Box bind:element class={cx(className, classes.root, getStyles({ css: override }))} {use} {...rest}>
-	{@render children()}
+	{@render children?.()}
 </Box>
