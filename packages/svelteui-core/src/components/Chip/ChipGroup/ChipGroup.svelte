@@ -26,9 +26,15 @@
 		...rest
 	}: ChipGroupProps = $props();
 
+	$effect.pre(() => {
+		if (multiple && value && !Array.isArray(value)) {
+			value = [value];
+		}
+	});
+
 	function onChanged(item: string, el: EventTarget) {
 		const checked = (el as HTMLInputElement).checked;
-		if (Array.isArray(value)) {
+		if (Array.isArray(value) && multiple) {
 			value = checked ? [...value, item] : value.filter((val) => val !== item);
 		} else {
 			value = checked ? item : undefined;
@@ -50,7 +56,7 @@
 				{color}
 				{variant}
 				{disabled}
-				on:change={(e) => onChanged(item.value, e.target)}
+				onchange={(e) => onChanged(item.value, e.target)}
 			/>
 		{/each}
 	</Group>

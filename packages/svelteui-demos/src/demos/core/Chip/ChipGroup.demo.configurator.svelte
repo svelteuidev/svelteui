@@ -5,7 +5,7 @@
 <script>
   import { ChipGroup } from '@svelteuidev/core';
 
-  let values;
+  let values = $state([]);
 <\/script>
 
 <ChipGroup ${props}
