@@ -13,17 +13,8 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"allowJs": true,
-		"checkJs": true,
-		"composite": true,
-		"noEmit": false,
-		"paths": {
-			"$lib": ["src"],
-			"$lib/*": ["src/*"],
-			"$dlib": ["src"],
-			"$dlib/*": ["src/*"]
-		}
+		"checkJs": true
 	},
 	"references": [{ "path": "../svelteui-core" }, { "path": "../svelteui-composables" }],
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],

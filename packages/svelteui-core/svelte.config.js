@@ -1,3 +1,4 @@
+import path from 'path';
 import { sveltePreprocess } from 'svelte-preprocess';
 import fs from 'fs';
 export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
@@ -10,6 +11,9 @@ const config = {
 	kit: {
 		files: {
 			lib: 'src'
+		},
+		alias: {
+			'@stitches/core/*': path.resolve('../../node_modules/@stitches/core/*')
 		}
 	}
 };

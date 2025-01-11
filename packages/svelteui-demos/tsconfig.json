@@ -13,13 +13,8 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"allowJs": true,
-		"checkJs": true,
-		"paths": {
-			"$lib": ["src"],
-			"$lib/*": ["src/*"]
-		}
+		"checkJs": true
 	},
 	"references": [
 		{ "path": "../svelteui-core" },

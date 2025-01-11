@@ -13,15 +13,10 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
 		"composite": true,
-		"noEmit": false,
-		"paths": {
-			"$lib": ["src"],
-			"$lib/*": ["src/*"]
-		}
+		"noEmit": false
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts"],
 	"exclude": ["./dist/**/*"]
