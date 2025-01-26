@@ -58,8 +58,8 @@ The `RadioGroup` supports two props to bind the current active value: `value` an
 		{ label: 'Solid', value: 'solid' }
 	];
 
-	let value = 'svelte';
-	let group = 'svelte';
+	let value = $state('svelte');
+	let group = $state('svelte');
 </script>
 
 <RadioGroup {items} bind:value />
