@@ -30,23 +30,20 @@
 		placeholder = '',
 		toggleTabIndex = -1,
 		visibilityToggleLabel = undefined,
-		visible = undefined,
+		visible = $bindable(undefined),
 		onVisibilityChange = undefined,
 		defaultVisible = undefined,
 		visibilityToggleIcon,
 		...rest
 	}: PasswordInputProps = $props();
 
-	let uncontrolledVisible = $state(defaultVisible !== undefined ? defaultVisible : false);
+	let _visible = $derived(visible === undefined ? defaultVisible : visible);
 
 	let _invalid = $derived(invalid || !!error);
-	let _visible = $derived(visible === undefined ? uncontrolledVisible : visible);
 
 	const toggleVisibility = () => {
-		if (visible === undefined) {
-			uncontrolledVisible = !_visible;
-		}
-		onVisibilityChange?.(!_visible);
+		visible = !visible;
+		onVisibilityChange?.(visible);
 	};
 </script>
 
@@ -88,7 +85,7 @@
 					size={getButtonSize(size)}
 					aria-hidden={!visibilityToggleLabel}
 					aria-label={visibilityToggleLabel}
-					oncclick={toggleVisibility}
+					onclick={toggleVisibility}
 				>
 					{#if visibilityToggleIcon}
 						{@render visibilityToggleIcon(_visible)}

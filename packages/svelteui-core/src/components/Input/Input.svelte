@@ -72,7 +72,7 @@
 		} else {
 			value = event.target.value;
 		}
-		oninput(event);
+		oninput?.(event);
 	}
 
 	let isHTMLElement = $derived(root && typeof root === 'string');

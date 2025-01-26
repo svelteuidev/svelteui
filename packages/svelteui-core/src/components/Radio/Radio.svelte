@@ -19,7 +19,7 @@
 		disabled = false,
 		value = undefined,
 		checked = $bindable(false),
-		label = '',
+		label: labelText = '',
 		error = false,
 		labelDirection = 'left',
 		size = 'sm',
@@ -75,7 +75,7 @@
 			{#if children}
 				{@render children()}
 			{:else}
-				{label}
+				{labelText}
 			{/if}
 		</label>
 	</div>

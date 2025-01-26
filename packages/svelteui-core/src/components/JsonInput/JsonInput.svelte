@@ -30,7 +30,7 @@
 		}
 	};
 
-	const rightSection_render = $derived(rightSection);
+	const rightSectioRenderer = $derived(rightSection);
 </script>
 
 <Textarea
@@ -42,6 +42,6 @@
 	{...rest}
 >
 	{#snippet rightSection()}
-		{@render rightSection_render?.()}
+		{@render rightSectioRenderer?.()}
 	{/snippet}
 </Textarea>
