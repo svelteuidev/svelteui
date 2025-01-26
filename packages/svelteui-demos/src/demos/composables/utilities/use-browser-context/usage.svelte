@@ -7,7 +7,7 @@
 	import { useBrowserContext } from '@svelteuidev/composables';
 	const location = useBrowserContext();
 
-	$: ({
+	let {
 		trigger,
 		hash,
 		host,
@@ -20,7 +20,7 @@
 		protocol,
 		search,
 		state
-	} = $location);
+	} = $derived(location);
 <\/script>
 
 <Group direction="column" position="center">

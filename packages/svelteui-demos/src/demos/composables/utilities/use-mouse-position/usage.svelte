@@ -7,7 +7,7 @@
 	import { useMousePosition } from '@svelteuidev/composables';
 
 	const [position, ref] = useMousePosition();
-	$: ({ x, y } = $position);
+	let { x, y } = $derived(position);
 <\/script>
 
 <div>

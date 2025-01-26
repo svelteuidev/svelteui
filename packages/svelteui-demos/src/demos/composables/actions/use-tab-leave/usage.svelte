@@ -5,7 +5,7 @@
 <script>
     import { tableave } from '@svelteuidev/composables';
 
-    $: count = 0;
+    let count = $state(0);
 <\/script>
 
 <div use:tableave={() => count++}>Switch the tab to see the counter go up: {count}</div>`;

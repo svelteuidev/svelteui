@@ -18,7 +18,7 @@
 		<p>This text is normal</p>
 		<p class="example">This text is using the variable</p>
 	</div>
-	<Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
+	<Button onclick={() => (isRed = !isRed)}>Click to switch colors</Button>
 </Stack>
 
 <\style>
@@ -51,7 +51,7 @@
 		<p>This text is normal</p>
 		<p class="example">This text is using the variable</p>
 	</div>
-	<Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
+	<Button onclick={() => (isRed = !isRed)}>Click to switch colors</Button>
 </Stack>
 
 <style>

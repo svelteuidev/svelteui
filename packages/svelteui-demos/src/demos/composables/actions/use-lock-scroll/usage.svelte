@@ -34,11 +34,11 @@
 </script>
 
 <Group position="center" use={[[lockscroll, scrollLocked]]}>
-	<Button on:click={() => (scrollLocked = !scrollLocked)} variant="outline">
+	<Button onclick={() => (scrollLocked = !scrollLocked)} variant="outline">
 		{#snippet leftIcon()}
-				{@const SvelteComponent = scrollLocked ? LockClosed : LockOpen2}
-		<SvelteComponent  />
-			{/snippet}
+			{@const SvelteComponent = scrollLocked ? LockClosed : LockOpen2}
+			<SvelteComponent  />
+		{/snippet}
 		{scrollLocked ? 'Unlock scroll' : 'Lock scroll'}
 	</Button>
 </Group>

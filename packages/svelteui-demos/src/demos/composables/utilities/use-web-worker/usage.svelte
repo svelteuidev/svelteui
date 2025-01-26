@@ -7,9 +7,9 @@
 	import { useWebWorker, useRafFn } from '@svelteuidev/composables';
 	import { tick } from 'svelte';
 
-	let data;
-	let runner = '';
-	let count = 0;
+	let data = $state();
+	let runner = $state('');
+	let count = $state(0);
 
 	const controls = useRafFn(() => count++);
 	const { workerFn, workerStatus, workerTerminate } = useWebWorker(heavyTask);
@@ -26,18 +26,19 @@
 		data = await workerFn();
 		runner = 'Worker';
 	};
-	$: running = workerStatus === 'RUNNING';
+	
+	let running = $derived(workerStatus === 'RUNNING');
 	controls.resume();
 <\/script>
 
 <Stack align="center">
 	<Text>Current Count: <b>{count}</b></Text>
 	<Stack>
-		<Button on:click={baseSort}>Sort in Main Thread</Button>
+		<Button onclick={baseSort}>Sort in Main Thread</Button>
 		{#if !running}
-			<Button on:click={workerSort}>Sort in Worker</Button>
+			<Button onclick={workerSort}>Sort in Worker</Button>
 		{:else}
-			<Button color="orange" on:click={() => workerTerminate()}>Terminate Worker</Button>
+			<Button color="orange" onclick={() => workerTerminate()}>Terminate Worker</Button>
 		{/if}
 	</Stack>
 </Stack>
@@ -92,11 +93,11 @@
 	</Text>
 	<Text>Current Count: <b>{count}</b></Text>
 	<Stack>
-		<Button on:click={baseSort}>Sort in Main Thread</Button>
+		<Button onclick={baseSort}>Sort in Main Thread</Button>
 		{#if !running}
-			<Button on:click={workerSort}>Sort in Worker</Button>
+			<Button onclick={workerSort}>Sort in Worker</Button>
 		{:else}
-			<Button color="orange" on:click={() => workerTerminate()}>Terminate Worker</Button>
+			<Button color="orange" onclick={() => workerTerminate()}>Terminate Worker</Button>
 		{/if}
 	</Stack>
 	{#if data}

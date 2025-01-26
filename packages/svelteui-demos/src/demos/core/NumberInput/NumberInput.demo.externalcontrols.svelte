@@ -10,7 +10,7 @@
 
 <ActionIcon
     variant='default'
-    on:click={() => input.decrement()}
+    onclick={() => input.decrement()}
 >
     -
 <\/ActionIcon>
@@ -24,7 +24,7 @@
 \/>
 <ActionIcon
     variant='default'
-    on:click={() => input.increment()}
+    onclick={() => input.increment()}
 >
     +
 <\/ActionIcon>

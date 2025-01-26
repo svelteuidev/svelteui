@@ -7,13 +7,9 @@
 	import { EnvelopeClosed, EnvelopeOpen } from 'radix-icons-svelte';
 
 	let show = $state(false);
-
-	const onVisibilityChange = (visible) => {
-		show = visible;
-	};
 <\/script>
 
-<PasswordInput label="Your password" visible={show} {onVisibilityChange} />
+<PasswordInput label="Your password" bind:visible={show} />
 `;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -27,12 +23,8 @@
 	import { Center, PasswordInput } from '@svelteuidev/core';
 
 	let show = $state(false);
-
-	const onVisibilityChange = (visible) => {
-		show = visible;
-	};
 </script>
 
 <Center>
-	<PasswordInput label="Your password" visible={show} {onVisibilityChange} />
+	<PasswordInput label="Your password" bind:visible={show} />
 </Center>

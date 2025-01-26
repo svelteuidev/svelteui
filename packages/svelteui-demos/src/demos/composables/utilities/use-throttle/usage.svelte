@@ -6,8 +6,8 @@
 	import { Button, Text, Stack } from '@svelteuidev/core';
 	import { useThrottle } from '@svelteuidev/composables';
 
-	let updated = 0;
-	let clicked = 0;
+	let updated = $state(0);
+	let clicked = $state(0);
 
 	const throttledFn = useThrottle(() => {
 		updated += 1;
@@ -20,7 +20,7 @@
 <\/script>
 
 <Stack align="center">
-	<Button on:click={clickedFn}>Smash me!</Button>
+	<Button onclick={clickedFn}>Smash me!</Button>
 	<Text root="note" size="sm">Delay is set to 1000ms for this demo.</Text>
 
 	<Text>Button clicked: {clicked}</Text>
@@ -51,7 +51,7 @@
 </script>
 
 <Stack align="center">
-	<Button on:click={clickedFn}>Smash me!</Button>
+	<Button onclick={clickedFn}>Smash me!</Button>
 	<Text root="note" size="sm">Delay is set to 1000ms for this demo.</Text>
 
 	<Text>Button clicked: {clicked}</Text>

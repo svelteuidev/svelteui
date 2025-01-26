@@ -16,8 +16,10 @@
 		<Text>
 			sRGBHex: <Text inherit override={{ color: \`$\{$sRGBHex} !important\` }}>{$sRGBHex}</Text>
 		</Text>
-		<Button variant="outline" on:click={() => open()}>
-			<EyeOpen slot="leftIcon" />
+		<Button variant="outline" onclick={() => open()}>
+			{#snippet leftIcon()}
+				<EyeOpen />
+			{/snippet}
 			Open Eye Dropper
 		</Button>
 	</Stack>
@@ -45,10 +47,10 @@
 		<Text>
 			sRGBHex: <Text inherit override={{ color: `${$sRGBHex} !important` }}>{$sRGBHex}</Text>
 		</Text>
-		<Button variant="outline" on:click={() => open()}>
+		<Button variant="outline" onclick={() => open()}>
 			{#snippet leftIcon()}
-						<EyeOpen  />
-					{/snippet}
+				<EyeOpen  />
+			{/snippet}
 			Open Eye Dropper
 		</Button>
 	</Stack>

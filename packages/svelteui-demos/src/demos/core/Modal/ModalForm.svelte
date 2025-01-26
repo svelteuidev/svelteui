@@ -22,8 +22,8 @@
 
 	let notificationOpened = $state(false);
 
-	let firstNameValue: string = $state();
-	let lastNameValue: string = $state();
+	let firstNameValue: string = $state('');
+	let lastNameValue: string = $state('');
 
 	function submitForm() {
 		opened = false;

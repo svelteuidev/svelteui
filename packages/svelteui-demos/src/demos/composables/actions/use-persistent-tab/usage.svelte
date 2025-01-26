@@ -5,10 +5,10 @@
 <script>
     import { persistenttab } from '@svelteuidev/composables';
 
-    let isNotClosable = false;
+    let isNotClosable = $state(false);
 <\/script>
 
-<button on:click={() => isNotClosable = !isNotClosable}>
+<button onclick={() => isNotClosable = !isNotClosable}>
     {isNotClosable ? "Can't close tab" : 'Can close tab'}
 </button>
 

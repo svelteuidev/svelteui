@@ -7,7 +7,8 @@
 	import { clipboard } from '@svelteuidev/composables';
 
     let textToCopy = 'This message was copied';
-    let copied = false;
+    let copied = $state(false);
+
     let onCopy = () => {
         copied = true;
         setTimeout(function () {

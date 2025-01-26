@@ -6,7 +6,7 @@
 	import { TextInput } from '@svelteuidev/core';
 	import { getHotkeyHandler } from '@svelteuidev/composables';
 
-	let value = 'I am using a hotkey to submit';
+	let value = $state('I am using a hotkey to submit');
 
 	function onSubmit(val) {
 		alert(\`Your message says: $\{val\}\`);
@@ -17,7 +17,7 @@
 	placeholder="Your message"
 	label="Press ⌘+Enter or Ctrl+Enter when input has focus to send message"
 	bind:value
-	on:keydown={getHotkeyHandler([['mod+Enter', () => onSubmit(value)]])}
+	onkeydown={getHotkeyHandler([['mod+Enter', () => onSubmit(value)]])}
 />
 `;
 
@@ -43,5 +43,5 @@
 	placeholder="Your message"
 	label="Press ⌘+Enter or Ctrl+Enter when input has focus to send message"
 	bind:value
-	on:keydown={getHotkeyHandler([['mod+Enter', () => onSubmit(value)]])}
+	onkeydown={getHotkeyHandler([['mod+Enter', () => onSubmit(value)]])}
 />

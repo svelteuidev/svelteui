@@ -6,8 +6,8 @@
     import { Button } from '@svelteuidev/core';
     import { longpress } from '@svelteuidev/composables';
 
-    let pressed = false;
-	let duration = 2000;
+    let pressed = $state(false);
+	let duration = $state(2000);
 <\/script>
 
 <div>
@@ -50,8 +50,8 @@
 
 	<Button
 		use={[[longpress, duration]]}
-		on:longpress={() => (pressed = true)}
-		on:mouseenter={() => (pressed = false)}
+		onlongpress={() => (pressed = true)}
+		onmouseenter={() => (pressed = false)}
 	>
 		Press and hold
 	</Button>

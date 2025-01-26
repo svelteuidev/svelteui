@@ -7,7 +7,7 @@
 	import { useViewportSize } from '@svelteuidev/composables';
 
 	const viewport = useViewportSize();
-	$: ({ width, height } = $viewport);
+	let { width, height } = $derived(viewport);
 <\/script>
 
 <Text>Width: {width}, Height: {height}</Text>

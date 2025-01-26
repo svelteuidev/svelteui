@@ -7,7 +7,7 @@
 	import { useMousePosition } from '@svelteuidev/composables';
 
 	const [position, ref] = useMousePosition(true);
-	$: ({ x, y } = $position);
+	let { x, y } = $derived(position);
 <\/script>
 
 <Text use={[[ref]]} align="center">

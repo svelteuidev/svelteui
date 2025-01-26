@@ -6,7 +6,7 @@
 	import { Paper, Text } from '@svelteuidev/core';
 	import { io } from '@svelteuidev/composables';
 
-	let visible;
+	let visible = $state(false);
 	const handleChange = ({ detail }) => (visible = detail.inView);
 <\/script>
 
@@ -35,7 +35,7 @@
 	import { Paper, Text } from '@svelteuidev/core';
 	import { io } from '@svelteuidev/composables';
 
-	let visible = $state();
+	let visible = $state(false);
 	const handleChange = ({ detail }) => (visible = detail.inView);
 </script>
 

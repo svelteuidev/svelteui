@@ -6,11 +6,11 @@
     import { Button, Paper } from '@svelteuidev/core';
     import { clickoutside } from '@svelteuidev/composables';
 
-    let open = true;
+    let open = $state(true);
 <\/script>
 
 <div use:clickoutside={{ enabled: open, callback: () => open = false }}>
-    <Button on:click={() => open = true}>Open Modal</Button>
+    <Button onclick={() => open = true}>Open Modal</Button>
     {#if open}
         <Paper shadow='sm'>
             This is a modal, click anywhere to close
@@ -39,7 +39,7 @@
 		use:clickoutside={{ enabled: open, callback: () => (open = false) }}
 	>
 		<Group position="center">
-			<Button on:click={() => (open = true)}>Open Modal</Button>
+			<Button onclick={() => (open = true)}>Open Modal</Button>
 		</Group>
 		{#if open}
 			<Paper

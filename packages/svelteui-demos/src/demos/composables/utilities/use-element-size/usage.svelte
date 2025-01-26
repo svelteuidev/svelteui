@@ -7,7 +7,7 @@
 
 	const [elementSize, ref] = useElementSize();
 
-	$: ({ width, height } = $elementSize);
+	let { width, height } = $derived(elementSize);
 <\/script>
 
 <textarea use:ref style='width: 400px; height: 120;' />

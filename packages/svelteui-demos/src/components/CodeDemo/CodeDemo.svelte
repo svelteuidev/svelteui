@@ -14,7 +14,7 @@
 		canShowCode = $bindable(false)
 	}: CodeDemoProps = $props();
 
-	let isCodeVisible = $state(false);
+	let isCodeVisible = $state(true);
 
 	function toggleCodeVisibility() {
 		isCodeVisible = !isCodeVisible;

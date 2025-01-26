@@ -6,8 +6,8 @@
     import { Button, Input, InputWrapper } from '@svelteuidev/core';
     import { focus } from '@svelteuidev/composables';
 
-    let name = 'world';
-    let editing = false;
+    let name = $state('world');
+    let editing = $state(false);
     function toggleEdit() {
         editing = !editing;
     }
@@ -19,7 +19,7 @@
         <Input use={[[focus]]} bind:value={name} />
     </InputWrapper>
 {/if}
-<Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>`;
+<Button onclick={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 
