@@ -273,11 +273,9 @@
 	);
 </script>
 
-// svelte-ignore script_unknown_attribute /* svelte-ignore script_unknown_attribute */ //
-svelte-ignore script_unknown_attribute
 <div class="{className} {PrismCss({ css: override })}">
 	{#if copy}
-		<ActionIcon class="copy" use={[[clipboard, code]]} on:useclipboard={onClipboard}>
+		<ActionIcon class="copy" use={[[clipboard, code]]} onuseclipboard={onClipboard}>
 			<ThemeIcon variant="subtle">
 				<CopyIcon {copied} />
 			</ThemeIcon>
