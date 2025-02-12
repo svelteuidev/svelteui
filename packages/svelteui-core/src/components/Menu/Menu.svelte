@@ -51,7 +51,7 @@
 	let delayTimeout: number;
 	let referenceElement: HTMLButtonElement = $state(undefined);
 	let dropdownElement: HTMLDivElement = $state(undefined);
-	let controlElement: HTMLElement = $state(undefined);
+	let controlElement: HTMLButtonElement = $state(undefined);
 	let hovered: number = $state(-1);
 
 	/** Function that allows changing the state of the menu from outside the component */
@@ -91,7 +91,8 @@
 	onMount(() => {
 		if (!control) return;
 
-		controlElement = element.children[0] as HTMLElement;
+		controlElement = element.children[0] as HTMLButtonElement;
+		referenceElement = controlElement;
 		controlElement.setAttribute('role', 'button');
 		controlElement.setAttribute('aria-haspopup', 'menu');
 		controlElement.setAttribute('aria-expanded', String(opened));
@@ -99,8 +100,7 @@
 		if (menuButtonLabel) controlElement.setAttribute('aria-label', menuButtonLabel);
 
 		controlElement.addEventListener('click', (event) => {
-			event.stopPropagation();
-			toggleMenu();
+			toggleMenu(event);
 		});
 		controlElement.addEventListener('mouseenter', () =>
 			trigger === 'hover' ? handleOpen() : null
@@ -122,7 +122,9 @@
 		onopen();
 	};
 
-	const toggleMenu = () => {
+	const toggleMenu = (event?: Event) => {
+		event?.stopPropagation();
+
 		if (opened) return handleClose();
 		return handleOpen();
 	};
@@ -207,8 +209,8 @@
 		[clickoutside, clickOutsideParams]
 	]}
 	class={cx(classes.root, className)}
-	on:mouseleave={handleMouseLeave}
-	on:mouseenter={handleMouseEnter}
+	onmouseleave={handleMouseLeave}
+	onmouseenter={handleMouseEnter}
 	{...rest}
 >
 	{#if control}
@@ -222,9 +224,9 @@
 			aria-controls={uuid}
 			aria-label={menuButtonLabel}
 			title={menuButtonLabel}
-			on:click!stopPropagation={toggleMenu}
-			on:keydown={(event) => handleKeyDown(castKeyboardEvent(event))}
-			on:mouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
+			onclick={toggleMenu}
+			onkeydown={(event) => handleKeyDown(castKeyboardEvent(event))}
+			onmouseenter={() => (trigger === 'hover' ? handleOpen() : null)}
 		/>
 	{/if}
 	<PopperContainer {withinPortal}>
@@ -249,7 +251,7 @@
 				class={cx(classes.body)}
 				aria-orientation="vertical"
 				{radius}
-				on:mouseleave={() => (hovered = -1)}
+				onmouseleave={() => (hovered = -1)}
 				{shadow}
 			>
 				{@render children?.()}
