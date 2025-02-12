@@ -8,11 +8,12 @@
 	import { calculateArrowPlacement } from './Popper.styles';
 	import type { PopperProps } from './Popper';
 
-	let { element = $bindable(undefined), ...restProps }: PopperProps = $props();
 	let {
 		use = [],
 		className = '',
 		override = {},
+		element = $bindable(null),
+		mounted = false,
 		position = 'top',
 		placement = 'center',
 		gutter = 5,
@@ -25,11 +26,22 @@
 		transitionOptions = { duration: 100 },
 		exitTransition = transition,
 		exitTransitionOptions = transitionOptions,
-		mounted = false,
-		reference = null,
+		reference,
 		children,
 		...rest
-	} = restProps;
+	}: PopperProps = $props();
+
+	const popperProps = $derived({
+		reference,
+		position,
+		placement,
+		gutter,
+		arrowSize,
+		arrowDistance,
+		withArrow
+	});
+
+	let alreadyMounted = false;
 
 	let cleanup = () => {};
 	let arrowElement: HTMLElement = $state(undefined);
@@ -38,7 +50,7 @@
 		cleanup();
 	});
 
-	function updatePopper(_) {
+	function updatePopper() {
 		if (!element || !reference) return;
 
 		const _placement = placement;
@@ -84,17 +96,24 @@
 	}
 
 	$effect.pre(() => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		mounted;
+		if (!element || !reference || alreadyMounted) return;
+
 		// setup the auto update once the element and reference are mounted
-		// so that udpates to the popper are made when the parent elements
+		// so that updates to the popper are made when the parent elements
 		// are resized, scroll, etc
-		if (element && reference) {
-			cleanup = autoUpdate(reference, element, () => {
-				updatePopper(restProps);
-			});
-		}
+		cleanup = autoUpdate(reference, element, updatePopper);
+		alreadyMounted = true;
 	});
 
-	$effect.pre(() => updatePopper(restProps));
+	$effect.pre(() => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		element;
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		popperProps;
+		updatePopper();
+	});
 
 	let _transition = $derived(getTransition(transition) as any);
 	let _exitTransition = $derived(getTransition(exitTransition) as any);

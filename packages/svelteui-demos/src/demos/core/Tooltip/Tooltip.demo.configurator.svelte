@@ -16,7 +16,7 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-			{ name: 'labelComponent', type: 'string', initialValue: 'Label' },
+			{ name: 'labelComponent', label: 'Label', type: 'string', initialValue: 'Label' },
 			{
 				name: 'color',
 				type: 'color',

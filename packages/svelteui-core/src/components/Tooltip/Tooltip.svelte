@@ -8,7 +8,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		className = '',
 		override = {},
 		labelComponent = undefined,
@@ -37,12 +37,10 @@
 	}: TooltipProps = $props();
 
 	let openTimeoutRef: number, closeTimeoutRef: number;
-	let _opened = false;
+	let _opened = $state(false);
 	let tooltipRefElement = $state(null);
 
 	const handleOpen = () => {
-		window.clearTimeout(closeTimeoutRef);
-
 		if (openDelay !== 0) {
 			openTimeoutRef = window.setTimeout(() => {
 				_opened = true;
@@ -111,9 +109,9 @@
 			{#if LabelComponent !== undefined}
 				<LabelComponent />
 			{:else if typeof labelComponent === 'string'}
-				{label}
+				{labelComponent}
 			{:else if typeof labelComponent === 'number'}
-				{label}
+				{labelComponent}
 			{:else if label}
 				{@render label()}
 			{/if}
