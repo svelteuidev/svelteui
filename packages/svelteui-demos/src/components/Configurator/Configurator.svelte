@@ -200,7 +200,11 @@
 	<div class="preview">
 		<div class="component">
 			<div class="wrapper">
-				<SvelteComponent {...componentProps}>{children}</SvelteComponent>
+				{#if children}
+					<SvelteComponent {...componentProps}>{children}</SvelteComponent>
+				{:else}
+					<SvelteComponent {...componentProps} />
+				{/if}
 			</div>
 		</div>
 		<div class="controls">
