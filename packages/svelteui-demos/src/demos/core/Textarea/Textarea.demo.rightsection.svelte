@@ -8,8 +8,8 @@
 
 <Textarea label="Your story" placeholder="Once upon a time">
   	{#snippet rightSection()}
-		<Loader color="blue" size="xs" />
-	{/snippet}
+      <Loader color="blue" size="xs" />
+    {/snippet}
 </Textarea>
 `;
 
