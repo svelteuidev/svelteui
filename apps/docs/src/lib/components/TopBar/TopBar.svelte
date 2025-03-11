@@ -165,7 +165,7 @@
 
 <Modal
 	opened={modalOpened}
-	on:close={changeModalState}
+	onclose={changeModalState}
 	overflow="inside"
 	trapFocus
 	class={getStyles()}
@@ -174,7 +174,7 @@
 	<TextInput
 		placeholder="Search..."
 		bind:value={searchTerm}
-		on:input={onSearchValueInput}
+		oninput={onSearchValueInput}
 		autocomplete="off"
 		autofocus
 	>
