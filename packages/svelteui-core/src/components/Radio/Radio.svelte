@@ -11,7 +11,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		color = 'blue',
@@ -24,7 +24,7 @@
 		labelDirection = 'left',
 		size = 'sm',
 		name = '',
-		group = $bindable(undefined),
+		group = $bindable(null),
 		children,
 		...rest
 	}: RadioProps = $props();

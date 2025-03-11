@@ -12,13 +12,13 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
-		active = -1,
+		initialTab = 0,
+		active = $bindable(initialTab),
 		color = 'blue',
 		grow = false,
-		initialTab = 0,
 		orientation = 'horizontal',
 		position = 'left',
 		tabPadding = 'xs',
@@ -31,6 +31,10 @@
 	const tabsId = randomID();
 	let tabNodes: Element[];
 
+	// check if item is still checked when the context store updates
+	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
+	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
+
 	onMount(() => {
 		const children = element.querySelectorAll(
 			':scope > div > [role="tablist"] > .svelteui-Tab > div > .svelteui-Tab-content'
@@ -42,13 +46,15 @@
 
 	let contextStore: TabsContext = $derived({
 		[tabsId]: {
-			active: active === -1 ? initialTab : active,
+			active: active,
 			color: color,
 			variant: variant,
 			orientation: orientation
 		}
 	});
 	setContext(ctx, () => contextStore);
+
+	$effect(() => calculateActive(active));
 
 	/**
 	 * Retrieves all tabs that the component has as children
@@ -89,7 +95,7 @@
 
 	function onTabClick(index: number, key: string) {
 		onChange(index, key);
-		_active = index;
+		active = index;
 	}
 
 	function onTabKeyDown(event: KeyboardEvent, index: number, key: string) {
@@ -99,7 +105,7 @@
 		// selecting the tab when doing tab cycling
 		if (event.code === 'Enter') {
 			onChange(index, key);
-			_active = index;
+			active = index;
 			return;
 		}
 
@@ -108,7 +114,7 @@
 			return;
 		}
 
-		let _index = _active;
+		let _index = active;
 		if (event.code === nextTabCode) {
 			if (_index + 1 >= tabs.length) return;
 			_index += 1;
@@ -122,17 +128,8 @@
 		const selectedKey = selectedTab.getAttribute('data-key');
 
 		onChange(_index, selectedKey);
-		_active = _index;
+		active = _index;
 	}
-
-	// check if item is still checked when the context store updates
-	let _active = $derived(active === -1 ? initialTab : active);
-	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
-	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
-
-	$effect.pre(() => {
-		calculateActive(_active);
-	});
 
 	let { cx, classes } = $derived(
 		useStyles({ orientation, tabPadding }, { override, name: 'Tabs' })

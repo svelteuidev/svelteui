@@ -22,7 +22,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		value,

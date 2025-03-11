@@ -7,13 +7,13 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		items = [],
-		group = $bindable(undefined),
+		group = $bindable(null),
 		color = undefined,
-		value = $bindable(undefined),
+		value = $bindable(null),
 		label = undefined,
 		disabled = false,
 		size = undefined,

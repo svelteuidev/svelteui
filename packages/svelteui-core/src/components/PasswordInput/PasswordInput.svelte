@@ -10,7 +10,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		label = '',
@@ -30,7 +30,7 @@
 		placeholder = '',
 		toggleTabIndex = -1,
 		visibilityToggleLabel = undefined,
-		visible = $bindable(undefined),
+		visible = $bindable(null),
 		onVisibilityChange = undefined,
 		defaultVisible = undefined,
 		visibilityToggleIcon,

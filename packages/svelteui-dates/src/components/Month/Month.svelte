@@ -11,13 +11,13 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		disableOutsideEvents = false,
 		month,
 		locale = 'en',
-		value = $bindable(undefined),
+		value = $bindable(null),
 		range = undefined,
 		weekdayLabelFormat = undefined,
 		minDate = undefined,

@@ -8,7 +8,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		size = 'md',
 		color = 'blue',

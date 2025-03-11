@@ -5,7 +5,7 @@
 	let {
 		withinPortal = true,
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		target = 'body',
 		children,

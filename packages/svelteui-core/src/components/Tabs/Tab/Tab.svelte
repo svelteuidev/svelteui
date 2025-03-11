@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte';
+	import { getContext } from 'svelte';
 
 	import { Box } from '../../Box';
 	import IconRenderer from '../../IconRenderer/IconRenderer.svelte';
@@ -10,7 +10,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		active = undefined,
@@ -30,9 +30,9 @@
 	}: TabProps = $props();
 
 	let _active = $state(active);
-	let _color = $state(color !== undefined ? color : undefined);
-	let _orientation = $state(orientation !== undefined ? orientation : undefined);
-	let _variant = $state(variant !== undefined ? variant : undefined);
+	let _color = $state(color);
+	let _orientation = $state(orientation);
+	let _variant = $state(variant);
 
 	const context: TabsContext = $derived.by(getContext(ctx));
 
@@ -48,9 +48,7 @@
 		_variant = variant !== undefined ? variant : currentContext[tabsId].variant;
 	}
 
-	onMount(() => calculateActive(context));
-
-	$effect.pre(() => calculateActive(context));
+	$effect(() => calculateActive(context));
 
 	let { cx, classes } = $derived(
 		useStyles({ color: _color, orientation: _orientation }, { override, name: 'Tab' })

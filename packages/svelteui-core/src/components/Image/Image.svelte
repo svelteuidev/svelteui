@@ -9,7 +9,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		override = {},
 		radius = 0,
 		class: className = '',

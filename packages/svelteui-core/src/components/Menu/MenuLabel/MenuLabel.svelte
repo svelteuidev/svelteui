@@ -4,12 +4,7 @@
 	import { Text } from '../../Text';
 	import type { TextProps } from '../../Text/Text';
 
-	let {
-		element = $bindable(undefined),
-		class: className = '',
-		children,
-		...rest
-	}: TextProps = $props();
+	let { element = $bindable(null), class: className = '', children, ...rest }: TextProps = $props();
 
 	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 	const classes: CSS = {

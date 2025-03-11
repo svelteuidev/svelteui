@@ -4,7 +4,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		className = '',
 		override = {},
 		grow = false,

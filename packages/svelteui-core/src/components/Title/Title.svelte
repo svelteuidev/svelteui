@@ -5,7 +5,7 @@
 	import type { TitleProps, HTMLHeadingElements } from './Title';
 
 	let {
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		order = 1,

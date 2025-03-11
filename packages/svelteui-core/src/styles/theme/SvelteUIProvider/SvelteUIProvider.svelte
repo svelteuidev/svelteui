@@ -16,7 +16,7 @@
 	let {
 		use = [],
 		class: className = '',
-		element = $bindable(undefined),
+		element = $bindable(null),
 		theme = useSvelteUITheme(),
 		styles = {},
 		defaultProps = {},

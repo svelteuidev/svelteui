@@ -18,7 +18,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		closeOnItemClick = true,
@@ -49,9 +49,9 @@
 
 	let external = false;
 	let delayTimeout: number;
-	let referenceElement: HTMLButtonElement = $state(undefined);
-	let dropdownElement: HTMLDivElement = $state(undefined);
-	let controlElement: HTMLButtonElement = $state(undefined);
+	let referenceElement: HTMLButtonElement = $state(null);
+	let dropdownElement: HTMLDivElement = $state(null);
+	let controlElement: HTMLButtonElement = $state(null);
 	let hovered: number = $state(-1);
 
 	/** Function that allows changing the state of the menu from outside the component */

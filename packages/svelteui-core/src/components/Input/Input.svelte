@@ -7,7 +7,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		className = '',
 		override = {},
 		root = 'input',
@@ -23,7 +23,7 @@
 		variant = 'default',
 		disabled = false,
 		size = 'sm',
-		value = $bindable(undefined),
+		value = $bindable(null),
 		invalid = false,
 		multiline = false,
 		autocomplete = 'on',

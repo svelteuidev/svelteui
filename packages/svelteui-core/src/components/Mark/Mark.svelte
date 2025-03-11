@@ -4,7 +4,7 @@
 	import type { MarkProps } from './Mark';
 
 	let {
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		root = 'mark',

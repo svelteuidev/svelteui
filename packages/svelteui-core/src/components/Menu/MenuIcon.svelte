@@ -5,7 +5,7 @@
 
 	let {
 		size = 15,
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		...rest
 	}: ActionIconProps = $props();

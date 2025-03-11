@@ -9,11 +9,11 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		variant = 'default',
-		value = $bindable(undefined),
+		value = $bindable(null),
 		defaultValue = undefined,
 		radius = 'sm',
 		order = undefined,

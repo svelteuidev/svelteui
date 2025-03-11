@@ -7,7 +7,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		label = '',
@@ -21,7 +21,7 @@
 		id = randomID('textarea'),
 		labelElement = 'label',
 		showRightSection = undefined,
-		value = $bindable(undefined),
+		value = $bindable(null),
 		placeholder = '',
 		rightSection,
 		...rest

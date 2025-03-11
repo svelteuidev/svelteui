@@ -7,7 +7,7 @@
 
 	let {
 		use = [],
-		element = $bindable(undefined),
+		element = $bindable(null),
 		class: className = '',
 		override = {},
 		overrideControls = {},
@@ -21,7 +21,7 @@
 		variant = 'default',
 		disabled = false,
 		size = 'sm',
-		value = $bindable(undefined),
+		value = $bindable(null),
 		defaultValue = undefined,
 		decimalSeparator = '.',
 		min = -Infinity,
