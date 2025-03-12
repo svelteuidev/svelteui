@@ -61,6 +61,8 @@ Specify maximum amount of lines with `lineClamp` prop. This option uses [-webkit
 
 <Demo demo={TextDemos.clamp} />
 
+- `lineClamp={0}` will show all the associated text.
+
 ## Inherit Styles
 
 Text always applies font-size, font-family and line-height styles, but in some cases this is not a desired behavior. To force Text to inherit parent styles set `inherit` prop. For example, highlight part of [Title]({base}/core/title):
