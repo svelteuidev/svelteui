@@ -16,7 +16,7 @@
 		codeTemplate,
 		configurator: [
 			{ name: 'size', type: 'size', initialValue: 'md', defaultValue: 'md' },
-			{ name: 'lineClamp', label: 'Line clamp', type: 'number', initialValue: 4, min: 1, max: 5 }
+			{ name: 'lineClamp', label: 'Line clamp', type: 'number', initialValue: 4, min: 0, max: 5 }
 		]
 	};
 </script>
