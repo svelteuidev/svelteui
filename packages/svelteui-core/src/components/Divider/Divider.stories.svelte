@@ -7,9 +7,14 @@
 <Meta title="Components/Divider" component={Divider} />
 
 <Template>
-	<Divider label="Label on the left" labelPosition="left" />
-	<Divider label="Label in the center" labelPosition="center" />
-	<Divider label="Label on the right" labelPosition="right" />
+	<Divider labelText="Label on the left" labelPosition="left" />
+	<Divider labelText="Label in the center" labelPosition="center" />
+	<Divider labelText="Label on the right" labelPosition="right" />
+	<Divider labelPosition="right">
+		{#snippet label()}
+			<p>This is a label</p>
+		{/snippet}
+	</Divider>
 </Template>
 
 <Story name="Divider" id="dividerStory" />

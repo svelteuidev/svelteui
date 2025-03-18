@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
 	import { Group, ThemeIcon, Text, SimpleGrid, Anchor } from '@svelteuidev/core';
 	import { NEXT_STEPS_DATA } from '$lib/data';
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		display: 'block',
 		padding: '$xlPX',
 		borderRadius: '$md',
@@ -26,7 +25,7 @@
 		<Anchor root="a" href={item.link} override={styles} underline={false} class="next_steps">
 			<Group>
 				<ThemeIcon size={34} override={{ backgroundColor: `${item.color} !important` }}>
-					<svelte:component this={item.icon} size={20} />
+					<item.icon size={20} />
 				</ThemeIcon>
 
 				<Text weight={500} size="lg">

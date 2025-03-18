@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { Selectors } from '$lib/styles';
 	export type HorizontalSectionStylesNames = Selectors<typeof useStyles>;
 </script>
@@ -11,23 +11,24 @@
 		getSortedBreakpoints,
 		theme as appShellTheme
 	} from './get-sorted-breakpoints/get-sorted-breakpoints';
-	import type { HorizontalSectionProps as $$HorizontalSectionProps } from './HorizontalSection';
+	import type { HorizontalSectionProps } from './HorizontalSection';
 
-	interface $$Props extends $$HorizontalSectionProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		width: $$Props['width'] = undefined,
-		height: $$Props['height'] = undefined,
-		fixed: $$Props['fixed'] = false,
-		position: $$Props['position'] = {},
-		hiddenBreakpoint: $$Props['hiddenBreakpoint'] = 'md',
-		hidden: $$Props['hidden'] = false,
-		zIndex: $$Props['zIndex'] = 100,
-		section: $$Props['section'];
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		width = undefined,
+		height = undefined,
+		fixed = false,
+		position = {},
+		hiddenBreakpoint = 'md',
+		hidden = false,
+		zIndex = 100,
+		section,
+		children,
+		...rest
+	}: HorizontalSectionProps = $props();
 
 	const breakpoints = getSortedBreakpoints(width, appShellTheme).reduce(
 		(acc, [breakpoint, breakpointSize]) => {
@@ -40,19 +41,21 @@
 		{}
 	);
 
-	$: ({ cx, classes, getStyles } = useStyles(
-		{
-			fixed,
-			height,
-			hiddenBreakpoint,
-			position,
-			width,
-			zIndex,
-			section,
-			hidden
-		},
-		{ name: 'HorizontalSection' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				fixed,
+				height,
+				hiddenBreakpoint,
+				position,
+				width,
+				zIndex,
+				section,
+				hidden
+			},
+			{ name: 'HorizontalSection' }
+		)
+	);
 
 	const injectRoot = globalCss({
 		':root': {
@@ -68,7 +71,7 @@
 	bind:element
 	root={section === 'navbar' ? 'nav' : 'aside'}
 	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

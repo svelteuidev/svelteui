@@ -1,44 +1,44 @@
-<script lang="ts">
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import Box from '../Box/Box.svelte';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+<script lang="ts" generics="T">
+	import { useActions } from '$lib/internal';
+	import { Box } from '../Box';
+	import { IconRenderer } from '../IconRenderer';
 	import useStyles from './Input.styles';
-	import type { InputProps as $$InputProps } from './Input';
+	import type { InputProps } from './Input';
 
-	interface $$Props extends $$InputProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		root: $$Props['root'] = 'input',
-		icon: $$Props['icon'] = null,
-		iconWidth: $$Props['iconWidth'] = 36,
-		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
-		showRightSection: $$Props['showRightSection'] = $$slots.rightSection,
-		rightSectionWidth: $$Props['rightSectionWidth'] = 36,
-		rightSectionProps: $$Props['rightSectionProps'] = {},
-		wrapperProps: $$Props['wrapperProps'] = {},
-		id: $$Props['id'] = 'input-id',
-		required: $$Props['required'] = false,
-		radius: $$Props['radius'] = 'sm',
-		variant: $$Props['variant'] = 'default',
-		disabled: $$Props['disabled'] = false,
-		size: $$Props['size'] = 'sm',
-		value: $$Props['value'] = '',
-		invalid: $$Props['invalid'] = false,
-		multiline: $$Props['multiline'] = false,
-		autocomplete: $$Props['autocomplete'] = 'on',
-		type: $$Props['type'] = 'text',
-		placeholder: $$Props['placeholder'] = undefined,
-		autofocus: $$Props['autofocus'] = undefined,
-		resize: $$Props['resize'] = 'none',
-		noPointerEventsRightSection: $$Props['noPointerEventsRightSection'] = false;
-	export { className as class };
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	let {
+		use = [],
+		element = $bindable(null),
+		className = '',
+		override = {},
+		root = 'input',
+		iconComponent = null,
+		iconWidth = 36,
+		iconProps = { size: 20, color: 'currentColor' },
+		rightSectionWidth = 36,
+		rightSectionProps = {},
+		wrapperProps = {},
+		id = 'input-id',
+		required = false,
+		radius = 'sm',
+		variant = 'default',
+		disabled = false,
+		size = 'sm',
+		value = $bindable(null),
+		invalid = false,
+		multiline = false,
+		autocomplete = 'on',
+		type = 'text',
+		placeholder = undefined,
+		autofocus = undefined,
+		resize = 'none',
+		noPointerEventsRightSection = false,
+		icon,
+		rightSection,
+		children,
+		showRightSection = !!rightSection,
+		oninput,
+		...rest
+	}: InputProps<T> = $props();
 
 	/** workaround for root type errors, this should be replaced by a better type system */
 	type Input = 'input' | 'select' | 'textarea' | 'datalist';
@@ -48,8 +48,6 @@
 	function isInput(root: string): root is Input {
 		return ['input', 'select', 'textarea', 'datalist'].includes(root);
 	}
-	let isHTMLElement = true;
-	let isComponent = false;
 
 	// @TODO
 	// Slot forwarding and conditional slots will be reworked for Svelte 5. This is waiting
@@ -58,7 +56,7 @@
 	// Discussion here: https://github.com/sveltejs/svelte/pull/8304 and
 	// https://github.com/sveltejs/svelte/issues/8765
 	let iconElement: HTMLElement;
-	$: isIconSlotUsed = Boolean(iconElement?.innerHTML);
+	let isIconSlotUsed = Boolean(iconElement?.innerHTML);
 
 	function onChange() {
 		// the 'this' keyword in this case is the
@@ -74,60 +72,39 @@
 		} else {
 			value = event.target.value;
 		}
+		oninput?.(event);
 	}
 
-	$: {
-		isHTMLElement = root && typeof root === 'string';
-		isComponent = root && typeof root === 'function';
-	}
-	$: ({ cx, classes, getStyles } = useStyles(
-		{
-			icon,
-			iconWidth,
-			invalid,
-			multiline,
-			radius,
-			rightSectionWidth,
-			showRightSection,
-			size,
-			resize,
-			variant
-		},
-		{ name: 'Input' }
-	));
+	let isHTMLElement = $derived(root && typeof root === 'string');
+	let isComponent = $derived(root && typeof root === 'function');
+
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				icon: iconComponent,
+				iconWidth,
+				invalid,
+				multiline,
+				radius,
+				rightSectionWidth,
+				showRightSection,
+				size,
+				resize,
+				variant
+			},
+			{ name: 'Input' }
+		)
+	);
 </script>
 
-<!--
-@component
-**DISCLAIMER: In most cases, you should not use Input component in your application. Input component is a base for other inputs and was not designed to be used directly.**
-
-Base component to create custom inputs
-
-@see https://svelteui.dev/core/input
-@example
-    ```svelte
-    <Input
-      icon={Twitter}
-      placeholder="Your twitter"
-      rightSectionWidth={70}
-      override={{ '& .rightSection': { pointerEvents: 'none' } }}
-    >
-		<Badge slot='rightSection' color="blue" variant="filled">
-			new
-		</Badge>
-	<Input />
-    ```
--->
-
-<!-- svelte-ignore a11y-autofocus -->
-<Box {...wrapperProps} class={cx(classes.root, getStyles({ css: override }))} {...$$restProps}>
+<Box {...wrapperProps} class={cx(classes.root, getStyles({ css: override }))}>
 	{#if isHTMLElement && root === 'input'}
+		<!-- svelte-ignore a11y_autofocus -->
 		<input
 			{value}
 			{type}
 			bind:this={element}
 			use:useActions={use}
-			use:forwardEvents
 			{required}
 			{disabled}
 			{id}
@@ -141,17 +118,18 @@ Base component to create custom inputs
 				{
 					[classes.disabled]: disabled,
 					[classes.invalid]: invalid,
-					[classes.withIcon]: icon || isIconSlotUsed
+					[classes.withIcon]: icon || iconComponent || isIconSlotUsed
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}
-			{...$$restProps}
-			on:input={onInput}
+			{...rest}
+			oninput={onInput}
 		/>
 	{:else if isHTMLElement && isInput(String(root))}
 		<!-- on:change needs to appear before use:forwardEvents so that the
    		ordering of the events is correct and the value is updated before propagation -->
 		<!-- prettier-ignore -->
+		<!-- svelte-ignore a11y_autofocus -->
 		<svelte:element
 			this={castRoot()}
 			bind:this={element}
@@ -176,27 +154,27 @@ Base component to create custom inputs
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}
-			on:change={onChange}
-			on:input={onInput}
+			onchange={onChange}
 			use:useActions={use}
-			use:forwardEvents
-			{...$$restProps}
+			{...rest}
+			oninput={onInput}
 		>
-			<slot />
+			{@render children?.()}
 		</svelte:element>
 	{:else if isComponent && typeof root !== 'string'}
+		<!-- svelte-ignore svelte_component_deprecated -->
 		<svelte:component
 			this={root}
 			bind:element
 			bind:value
-			use={[forwardEvents, [useActions, use]]}
+			use={[[useActions, use]]}
 			aria-invalid={invalid}
 			class={cx(
 				className,
 				{
 					[classes.disabled]: disabled,
 					[classes.invalid]: invalid,
-					[classes.withIcon]: icon || isIconSlotUsed
+					[classes.withIcon]: icon || iconComponent || isIconSlotUsed
 				},
 				classes[`${variant}Variant`] ?? {}
 			)}
@@ -205,25 +183,19 @@ Base component to create custom inputs
 			{id}
 			{type}
 			{autofocus}
-			{...$$restProps}
+			{...rest}
 		>
-			<slot />
+			{@render children?.()}
 		</svelte:component>
 	{/if}
-	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
-	<span bind:this={iconElement} class={cx({ [classes.iconWrapper]: !!icon || isIconSlotUsed })}>
-		<slot name="icon">
-			{#if icon}
-				<div class={classes.icon}>
-					<IconRenderer {icon} {iconProps} iconSize={16} />
-				</div>
-			{/if}
-		</slot>
-	</span>
-	<!-- @TODO: This is a workaround for current limitations of slot forwarding, see comment above -->
-	{#if icon && $$slots.icon && !isIconSlotUsed}
+	{#if icon}
+		<div class={cx(classes.iconWrapper)}>
+			{@render icon()}
+		</div>
+	{/if}
+	{#if iconComponent}
 		<div class={cx(classes.icon, classes.iconWrapper)}>
-			<IconRenderer {icon} {iconProps} iconSize={16} />
+			<IconRenderer icon={iconComponent} {iconProps} iconSize={16} />
 		</div>
 	{/if}
 	{#if showRightSection}
@@ -231,7 +203,7 @@ Base component to create custom inputs
 			{...rightSectionProps}
 			class={cx(classes.rightSection, { [classes.noPointerEvents]: noPointerEventsRightSection })}
 		>
-			<slot name="rightSection" />
+			{@render rightSection?.()}
 		</div>
 	{/if}
 </Box>

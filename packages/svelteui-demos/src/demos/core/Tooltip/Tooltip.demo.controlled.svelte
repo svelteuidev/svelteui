@@ -1,15 +1,15 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
   import { Button, Tooltip } from '@svelteuidev/core';
 
-  let opened = false;
+  let opened = $state(false);
 <\/script>
 
-<Tooltip {opened} label='Hello'>
-    <Button on:click={() => (opened = !opened)}>Click here</Button>
+<Tooltip {opened} labelComponent='Hello'>
+    <Button onclick={() => (opened = !opened)}>Click here</Button>
 </Tooltip>
 `;
 
@@ -22,11 +22,11 @@
 <script lang="ts">
 	import { Button, Center, Tooltip } from '@svelteuidev/core';
 
-	let opened = false;
+	let opened = $state(false);
 </script>
 
 <Center>
-	<Tooltip {opened} label="Hello">
-		<Button on:click={() => (opened = !opened)}>Click here</Button>
+	<Tooltip {opened} labelComponent="Hello">
+		<Button onclick={() => (opened = !opened)}>Click here</Button>
 	</Tooltip>
 </Center>

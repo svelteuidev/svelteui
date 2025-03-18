@@ -1,58 +1,39 @@
 <script lang="ts">
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
 	import { Input } from '../Input';
 	import { InputWrapper } from '../InputWrapper';
-	import type { TextareaProps as $$TextareaProps } from './Textarea';
+	import type { TextareaProps } from './Textarea';
 
-	interface $$Props extends $$TextareaProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		label: $$Props['label'] = '',
-		description: $$Props['description'] = null,
-		error: $$Props['error'] = null,
-		required: $$Props['required'] = false,
-		labelProps: $$Props['labelProps'] = {},
-		descriptionProps: $$Props['descriptionProps'] = {},
-		errorProps: $$Props['errorProps'] = {},
-		invalid: $$Props['invalid'] = false,
-		id: $$Props['id'] = randomID('textarea'),
-		labelElement: $$Props['labelElement'] = 'label',
-		showRightSection: $$Props['showRightSection'] = undefined,
-		value: $$Props['value'] = '',
-		placeholder: $$Props['placeholder'] = '';
-	export { className as class };
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		label = '',
+		description = null,
+		error = null,
+		required = false,
+		labelProps = {},
+		descriptionProps = {},
+		errorProps = {},
+		invalid = false,
+		id = randomID('textarea'),
+		labelElement = 'label',
+		showRightSection = undefined,
+		value = $bindable(null),
+		placeholder = '',
+		rightSection,
+		...rest
+	}: TextareaProps = $props();
 
 	// Flag that enables the override of the right section slot
 	// of the Input component only if it was provided
-	const _showRightSection =
-		showRightSection === undefined ? !!$$slots.rightSection : showRightSection;
-	$: _invalid = invalid || !!error;
+	let _showRightSection = $derived(
+		showRightSection === undefined ? !!rightSection : showRightSection
+	);
+	let _invalid = $derived(invalid || !!error);
 </script>
-
-<!--
-@component
-
-Multiline text input.
-
-@see https://svelteui.dev/core/textarea
-@example
-    ```tsx
-    <Textarea
-      label='Comment'
-      description="Tell us what's on your mind"
-      placeholder='Blah blah blah'
-      required
-    />
-    ```
--->
 
 <InputWrapper
 	bind:element
@@ -73,13 +54,15 @@ Multiline text input.
 		{required}
 		{id}
 		{placeholder}
-		{...$$restProps}
-		use={[forwardEvents, [useActions, use]]}
+		use={[[useActions, use]]}
 		invalid={_invalid}
 		showRightSection={_showRightSection}
 		root="textarea"
 		multiline
+		{...rest}
 	>
-		<slot slot="rightSection" name="rightSection" />
+		{#snippet rightSection()}
+			{@render rightSection?.()}
+		{/snippet}
 	</Input>
 </InputWrapper>

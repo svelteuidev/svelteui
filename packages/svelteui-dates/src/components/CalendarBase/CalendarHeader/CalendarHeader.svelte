@@ -1,40 +1,53 @@
 <script lang="ts">
-	import { ActionIcon, UnstyledButton } from '@svelteuidev/core';
+	import { ActionIcon, UnstyledButton, useActions } from '@svelteuidev/core';
 	import useStyles from './CalendarHeader.styles';
 	import SelectChevronIcon from './SelectChevronIcon.svelte';
 	import ArrowIcon from './ArrowIcon.svelte';
 	import type { CalendarHeaderProps as $$CalendarHeaderProps } from './CalendarHeader.styles';
 
-	export let use: $$CalendarHeaderProps['use'] = [],
-		element: $$CalendarHeaderProps['element'] = undefined,
-		className: $$CalendarHeaderProps['className'] = '',
-		override: $$CalendarHeaderProps['override'] = {},
-		hasPrevious: $$CalendarHeaderProps['hasPrevious'] = null,
-		hasNext: $$CalendarHeaderProps['hasNext'] = null,
-		label: $$CalendarHeaderProps['label'] = null,
-		nextLevelDisabled: $$CalendarHeaderProps['nextLevelDisabled'] = null,
-		size: $$CalendarHeaderProps['size'] = null,
-		nextLabel: $$CalendarHeaderProps['nextLabel'] = null,
-		previousLabel: $$CalendarHeaderProps['previousLabel'] = null,
-		preventLevelFocus: $$CalendarHeaderProps['preventLevelFocus'] = null,
-		preventFocus: $$CalendarHeaderProps['preventFocus'] = null,
-		onNext: $$CalendarHeaderProps['onNext'] = null,
-		onPrevious: $$CalendarHeaderProps['onPrevious'] = null,
-		onNextLevel: $$CalendarHeaderProps['onNextLevel'] = null;
-	export { className as class };
+	interface Props {
+		use?: $$CalendarHeaderProps['use'];
+		element?: $$CalendarHeaderProps['element'];
+		class?: $$CalendarHeaderProps['className'];
+		override?: $$CalendarHeaderProps['override'];
+		hasPrevious?: $$CalendarHeaderProps['hasPrevious'];
+		hasNext?: $$CalendarHeaderProps['hasNext'];
+		label?: $$CalendarHeaderProps['label'];
+		nextLevelDisabled?: $$CalendarHeaderProps['nextLevelDisabled'];
+		size?: $$CalendarHeaderProps['size'];
+		nextLabel?: $$CalendarHeaderProps['nextLabel'];
+		previousLabel?: $$CalendarHeaderProps['previousLabel'];
+		preventLevelFocus?: $$CalendarHeaderProps['preventLevelFocus'];
+		preventFocus?: $$CalendarHeaderProps['preventFocus'];
+		onNext?: $$CalendarHeaderProps['onNext'];
+		onPrevious?: $$CalendarHeaderProps['onPrevious'];
+		onNextLevel?: $$CalendarHeaderProps['onNextLevel'];
+	}
 
-	const iconSizes = {
-		xs: 12,
-		sm: 14,
-		md: 18,
-		lg: 22,
-		xl: 28
-	};
-	$: ({ cx, classes, theme } = useStyles({ size }, { override }));
-	$: iconSize = theme;
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		hasPrevious = null,
+		hasNext = null,
+		label = null,
+		nextLevelDisabled = null,
+		size = null,
+		nextLabel = null,
+		previousLabel = null,
+		preventLevelFocus = null,
+		preventFocus = null,
+		onNext = null,
+		onPrevious = null,
+		onNextLevel = null
+	}: Props = $props();
+
+	let { cx, classes, theme } = $derived(useStyles({ size }, { override }));
+	let iconSize = $derived(theme);
 </script>
 
-<div use:use bind:this={element} class={cx(classes.root, className)}>
+<div use:useActions={use} bind:this={element} class={cx(classes.root, className)}>
 	<ActionIcon
 		class={classes.calendarHeaderControl}
 		disabled={!hasPrevious}

@@ -1,6 +1,10 @@
-import type { Action, Fn } from '../../shared/actions/types';
+import type { Action, ActionReturn } from 'svelte/action';
+import type { Fn } from '../../shared/actions/types';
 
-export function pageleave(node: HTMLElement, callback: Fn<void>): ReturnType<Action> {
+export const pageleave: Action<HTMLElement, Fn<void>, ActionReturn> = (
+	node: HTMLElement,
+	callback: Fn<void>
+) => {
 	document.documentElement.addEventListener('mouseleave', callback);
 
 	return {
@@ -8,4 +12,4 @@ export function pageleave(node: HTMLElement, callback: Fn<void>): ReturnType<Act
 			document.documentElement.removeEventListener('mouseleave', callback);
 		}
 	};
-}
+};

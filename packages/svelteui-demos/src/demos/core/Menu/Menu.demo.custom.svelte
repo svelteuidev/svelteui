@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -9,7 +9,7 @@
 <Menu>
     <Menu.Item root='a' href='https://svelteui.dev'>SvelteUI Website</Menu.Item>
     <Menu.Item
-        icon={ExternalLink}
+        iconComponent={ExternalLink}
         root='a'
         href='https://svelteui.dev'
         target='_blank'
@@ -34,7 +34,7 @@
 <Center>
 	<Menu>
 		<Menu.Item root="a" href="https://svelteui.dev">SvelteUI Website</Menu.Item>
-		<Menu.Item icon={ExternalLink} root="a" href="https://svelteui.dev" target="_blank">
+		<Menu.Item iconComponent={ExternalLink} root="a" href="https://svelteui.dev" target="_blank">
 			External Link
 		</Menu.Item>
 	</Menu>

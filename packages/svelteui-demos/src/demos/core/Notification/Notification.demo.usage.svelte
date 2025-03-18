@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -11,11 +11,11 @@
     This is the default notification with title and body
 </Notification>
 
-<Notification title='Teal notification' icon={Check} color='teal'>
+<Notification title='Teal notification' iconComponent={Check} color='teal'>
     This is the teal color notification with icon
 </Notification>
 
-<Notification icon={Cross2} color='red'>
+<Notification iconComponent={Cross2} color='red'>
     Oops, this notification has no title
 </Notification>
 
@@ -41,11 +41,13 @@
 			This is the default notification with title and body
 		</Notification>
 
-		<Notification title="Teal notification" icon={Check} color="teal">
+		<Notification title="Teal notification" iconComponent={Check} color="teal">
 			This is the teal color notification with icon
 		</Notification>
 
-		<Notification icon={Cross2} color="red">Oops, this notification has no title</Notification>
+		<Notification iconComponent={Cross2} color="red">
+			Oops, this notification has no title
+		</Notification>
 
 		<Notification title="Uploading data" loading withCloseButton={false}>
 			Please wait while your data is being uploaded, you can't close this notification

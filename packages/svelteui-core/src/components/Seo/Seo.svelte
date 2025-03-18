@@ -6,24 +6,43 @@
 <script lang="ts">
 	import type { SeoProps as $$SeoProps } from './Seo';
 
-	export let title: $$SeoProps['title'] = '';
-	export let titleTemplate: $$SeoProps['titleTemplate'] = '';
-	export let noindex: $$SeoProps['noindex'] = false;
-	export let nofollow: $$SeoProps['nofollow'] = false;
-	export let robotsProps: $$SeoProps['robotsProps'] = undefined;
-	export let description: $$SeoProps['description'] = undefined;
-	export let mobileAlternate: $$SeoProps['mobileAlternate'] = undefined;
-	export let languageAlternates: $$SeoProps['languageAlternates'] = undefined;
-	export let twitter: $$SeoProps['twitter'] = undefined;
-	export let facebook: $$SeoProps['facebook'] = undefined;
-	export let openGraph: $$SeoProps['openGraph'] = undefined;
-	export let canonical: $$SeoProps['canonical'] = undefined;
-	export let additionalMetaTags: $$SeoProps['additionalMetaTags'] = undefined;
-	export let additionalLinkTags: $$SeoProps['additionalLinkTags'] = undefined;
+	interface Props {
+		title?: $$SeoProps['title'];
+		titleTemplate?: $$SeoProps['titleTemplate'];
+		noindex?: $$SeoProps['noindex'];
+		nofollow?: $$SeoProps['nofollow'];
+		robotsProps?: $$SeoProps['robotsProps'];
+		description?: $$SeoProps['description'];
+		mobileAlternate?: $$SeoProps['mobileAlternate'];
+		languageAlternates?: $$SeoProps['languageAlternates'];
+		twitter?: $$SeoProps['twitter'];
+		facebook?: $$SeoProps['facebook'];
+		openGraph?: $$SeoProps['openGraph'];
+		canonical?: $$SeoProps['canonical'];
+		additionalMetaTags?: $$SeoProps['additionalMetaTags'];
+		additionalLinkTags?: $$SeoProps['additionalLinkTags'];
+	}
 
-	$: updatedTitle = titleTemplate ? titleTemplate.replace(/%t%/g, title) : title;
+	let {
+		title = '',
+		titleTemplate = '',
+		noindex = false,
+		nofollow = false,
+		robotsProps = undefined,
+		description = undefined,
+		mobileAlternate = undefined,
+		languageAlternates = undefined,
+		twitter = undefined,
+		facebook = undefined,
+		openGraph = undefined,
+		canonical = undefined,
+		additionalMetaTags = undefined,
+		additionalLinkTags = undefined
+	}: Props = $props();
 
-	let robotsParams: string = '';
+	let updatedTitle = $derived(titleTemplate ? titleTemplate.replace(/%t%/g, title) : title);
+
+	let robotsParams: string = $state('');
 	if (robotsProps) {
 		const {
 			nosnippet,

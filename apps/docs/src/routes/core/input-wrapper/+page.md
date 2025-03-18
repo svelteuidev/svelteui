@@ -12,7 +12,7 @@ docs: 'core/input-wrapper'
 
 <script>
 	import { Demo, InputWrapperDemos } from '@svelteuidev/demos';
-	import { Alert } from '@svelteuidev/core';
+	import { Alert, Space } from '@svelteuidev/core';
 	import { InfoCircled } from 'radix-icons-svelte';
 	import { Heading } from "$lib/components";
   	import { base } from '$app/paths';
@@ -27,9 +27,11 @@ docs: 'core/input-wrapper'
 
 ## Disclaimer
 
-<Alert icon={InfoCircled} title="Important" color="blue" >
+<Alert iconComponent={InfoCircled} title="Important" color="blue" >
    Do not use InputWrapper with SvelteUI inputs, it is already included in most inputs.
 </Alert>
+
+<Space h={20} />
 
 ```svelte
 // Incorrect usage, input is not accessible

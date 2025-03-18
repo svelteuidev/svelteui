@@ -1,12 +1,25 @@
 <script lang="ts">
 	import type { Animations, EasingOptions } from '../types';
 
-	export let animation: Animations = 'spin';
-	export let duration: number | string = 1;
-	export let easing: EasingOptions = 'linear';
-	export let iterations = '';
+	interface Props {
+		animation?: Animations;
+		duration?: number | string;
+		easing?: EasingOptions;
+		iterations?: string;
+		children?: import('svelte').Snippet;
+	}
 
-	$: duration = `${duration}s`;
+	let {
+		animation = 'spin',
+		duration = $bindable(1),
+		easing = 'linear',
+		iterations = '',
+		children
+	}: Props = $props();
+
+	$effect.pre(() => {
+		duration = `${duration}s`;
+	});
 </script>
 
 <div
@@ -14,7 +27,7 @@
 	style="--duration: {duration}; --easing: {easing}; --iterations: {iterations};"
 >
 	<span>
-		<slot />
+		{@render children?.()}
 	</span>
 </div>
 

@@ -6,8 +6,10 @@
 
 <Meta title="Components/AspectRatio" component={AspectRatio} />
 
-<Template let:args>
-	<AspectRatio {...args} />
+<Template>
+	{#snippet children({ args })}
+		<AspectRatio {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Div" id="aspectRatioDivStory">

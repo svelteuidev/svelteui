@@ -28,7 +28,7 @@
 		Popper,
 		Box
 	} from '@svelteuidev/core';
-	import type { SvelteUITheme } from '@svelteuidev/core';
+	import type { ActionIconVariant, SvelteUITheme } from '@svelteuidev/core';
 	import { Month } from '@svelteuidev/dates';
 
 	import {
@@ -48,12 +48,12 @@
 		Calendar
 	} from 'radix-icons-svelte';
 
-	let value = 0,
-		modalOpened = false,
-		reference: HTMLElement,
-		popperMounted = false,
-		monthValue = new Date(),
-		windowWidth = 0;
+	let value = $state(0),
+		modalOpened = $state(false),
+		reference: HTMLButtonElement | undefined = $state(),
+		popperMounted = $state(false),
+		monthValue = $state(new Date()),
+		windowWidth = $state(0);
 
 	const toggleMount = () => {
 		popperMounted = !popperMounted;
@@ -143,9 +143,16 @@
 			borderRadius: theme.radii.sm.value
 		}
 	}));
-	$: ({ classes: minifiedClasses } = minifiedStyles());
-	$: ({ classes } = useStyles());
-	const variants = ['hover', 'filled', 'outline', 'light', 'default', 'transparent'];
+	let { classes: minifiedClasses } = $derived(minifiedStyles());
+	let { classes } = $derived(useStyles());
+	const variants: ActionIconVariant[] = [
+		'hover',
+		'filled',
+		'outline',
+		'light',
+		'default',
+		'transparent'
+	];
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
@@ -157,9 +164,9 @@
 		position={windowWidth < 1075 ? 'center' : 'left'}
 	>
 		<Tabs.Tab
-			label="Inputs and Actions"
+			labelText="Inputs and Actions"
 			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
-			icon={Input}
+			iconComponent={Input}
 		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
@@ -212,9 +219,9 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab
-			label="Data Display"
+			labelText="Data Display"
 			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
-			icon={Dashboard}
+			iconComponent={Dashboard}
 		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
@@ -227,7 +234,7 @@
 					<Group override={{ marginBottom: '2rem' }}>
 						<Center>
 							<Timeline active={1} bulletSize={24} lineWidth={2}>
-								<Timeline.Item bullet={LightningBolt} title="New branch">
+								<Timeline.Item bulletComponent={LightningBolt} title="New branch">
 									<Text color="dimmed" size="sm">
 										Created new branch<Text variant="link" root="span" href="#" inherit
 											>fix-notifications</Text
@@ -235,7 +242,7 @@
 									>
 									<Text size="xs" override={{ marginTop: '4px' }}>2 hours ago</Text>
 								</Timeline.Item>
-								<Timeline.Item bullet={Commit} title="Commits">
+								<Timeline.Item bulletComponent={Commit} title="Commits">
 									<Text color="dimmed" size="sm"
 										>Pushed 23 commits to<Text variant="link" root="span" href="#" inherit
 											>fix-notifications branch</Text
@@ -243,7 +250,11 @@
 									>
 									<Text size="xs" override={{ marginTop: '4px' }}>52 minutes ago</Text>
 								</Timeline.Item>
-								<Timeline.Item title="Pull request" bullet={GithubLogo} lineVariant="dashed">
+								<Timeline.Item
+									title="Pull request"
+									bulletComponent={GithubLogo}
+									lineVariant="dashed"
+								>
 									<Text color="dimmed" size="sm"
 										>Submitted a pull request<Text variant="link" root="span" href="#" inherit
 											>Fix incorrect notification message (#187)</Text
@@ -251,7 +262,7 @@
 									>
 									<Text size="xs" override={{ marginTop: '4px' }}>34 minutes ago</Text>
 								</Timeline.Item>
-								<Timeline.Item title="Code review" bullet={EyeOpen}>
+								<Timeline.Item title="Code review" bulletComponent={EyeOpen}>
 									<Text color="dimmed" size="sm"
 										><Text variant="link" root="span" href="#" inherit>Robert Gluesticker</Text>
 										left a code review on your pull request</Text
@@ -274,7 +285,7 @@
 						</Card.Section>
 
 						<Group position="apart" override={{ marginBottom: '5px', marginTop: '$smPX' }}>
-							<Text size="lg" weight="500" tracking="tight" override={{ mb: '$mdPX' }}
+							<Text size="lg" weight={500} tracking="tight" override={{ mb: '$mdPX' }}
 								>Portugal Porto Adventures</Text
 							>
 						</Group>
@@ -292,14 +303,14 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab
-			label="Feedback"
+			labelText="Feedback"
 			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
-			icon={ExclamationTriangle}
+			iconComponent={ExclamationTriangle}
 		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
 					<h3>Alert component</h3>
-					<Alert icon={InfoCircled} title="Oopsie!" override={{ marginBottom: '2rem' }}>
+					<Alert iconComponent={InfoCircled} title="Oopsie!" override={{ marginBottom: '2rem' }}>
 						Seems like our servers (actually a single Raspberry pi) crashed. Please wait while our
 						underpaid worker tries to solder the CPU again.
 					</Alert>
@@ -330,9 +341,9 @@
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab
-			label="Overlays"
+			labelText="Overlays"
 			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
-			icon={Stack}
+			iconComponent={Stack}
 		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">
@@ -340,22 +351,22 @@
 					<Group override={{ marginBottom: '2rem' }}>
 						<Modal
 							opened={modalOpened}
-							on:close={() => (modalOpened = false)}
-							title="This is a modal!"
+							onclose={() => (modalOpened = false)}
+							titleText="This is a modal!"
 						>
 							<Group position="center">
 								<p>Hope you liked it!</p>
 							</Group>
 						</Modal>
 						<Group position="center">
-							<Button on:click={() => (modalOpened = true)}>Open Modal</Button>
+							<Button onclick={() => (modalOpened = true)}>Open Modal</Button>
 						</Group>
-						<Tooltip label="Label">
+						<Tooltip labelComponent="Label">
 							<Button>With tooltip</Button>
 						</Tooltip>
 					</Group>
 					<h3>Popper component</h3>
-					<Button bind:element={reference} on:click={toggleMount}>Show popper</Button>
+					<Button bind:element={reference} onclick={toggleMount}>Show popper</Button>
 					<Popper
 						override={{ '& .arrow': { backgroundColor: '$gray100' } }}
 						{reference}
@@ -371,25 +382,25 @@
 					<h3>Menu component</h3>
 					<Menu>
 						<Menu.Label>Application</Menu.Label>
-						<Menu.Item icon={Gear}>Settings</Menu.Item>
-						<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-						<Menu.Item icon={MagnifyingGlass}>
-							<svelte:fragment slot="rightSection">
+						<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+						<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+						<Menu.Item iconComponent={MagnifyingGlass}>
+							{#snippet rightSection()}
 								<Text size="xs" color="dimmed">⌘K</Text>
-							</svelte:fragment>
+							{/snippet}
 							Search
 						</Menu.Item>
 						<Divider />
 						<Menu.Label>Danger zone</Menu.Label>
-						<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
+						<Menu.Item color="red" iconComponent={Trash}>Delete my account</Menu.Item>
 					</Menu>
 				</div>
 			</div>
 		</Tabs.Tab>
 		<Tabs.Tab
-			label="Dates"
+			labelText="Dates"
 			class={windowWidth < 1075 ? minifiedClasses.root : classes.root}
-			icon={Calendar}
+			iconComponent={Calendar}
 		>
 			<div class="componentExamplesTabPanel">
 				<div class="componentExamplesSectionOne">

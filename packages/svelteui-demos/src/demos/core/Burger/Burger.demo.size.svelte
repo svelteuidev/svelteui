@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -22,15 +22,15 @@
 <script lang="ts">
 	import { Burger, Center, SimpleGrid } from '@svelteuidev/core';
 
-	let opened = [];
+	let opened = $state([]);
 </script>
 
 <Center>
 	<SimpleGrid cols={5} override={{ alignItems: 'center' }}>
-		<Burger size="xs" opened={opened[0]} on:click={() => (opened[0] = !opened[0])} />
-		<Burger size="sm" opened={opened[1]} on:click={() => (opened[1] = !opened[1])} />
-		<Burger size="md" opened={opened[2]} on:click={() => (opened[2] = !opened[2])} />
-		<Burger size="lg" opened={opened[3]} on:click={() => (opened[3] = !opened[3])} />
-		<Burger size="xl" opened={opened[4]} on:click={() => (opened[4] = !opened[4])} />
+		<Burger size="xs" opened={opened[0]} onclick={() => (opened[0] = !opened[0])} />
+		<Burger size="sm" opened={opened[1]} onclick={() => (opened[1] = !opened[1])} />
+		<Burger size="md" opened={opened[2]} onclick={() => (opened[2] = !opened[2])} />
+		<Burger size="lg" opened={opened[3]} onclick={() => (opened[3] = !opened[3])} />
+		<Burger size="xl" opened={opened[4]} onclick={() => (opened[4] = !opened[4])} />
 	</SimpleGrid>
 </Center>

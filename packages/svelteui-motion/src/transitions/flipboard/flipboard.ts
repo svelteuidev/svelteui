@@ -1,4 +1,4 @@
-import type { TransitionConfig } from 'svelte/types/runtime/transition';
+import type { TransitionConfig } from 'svelte/transition';
 import type { FlipboardParams } from './flipboard.config';
 
 /**

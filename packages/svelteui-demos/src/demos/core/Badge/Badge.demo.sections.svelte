@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -7,23 +7,23 @@
 
 <Badge>
     Badge with right section
-    <svelte:fragment slot='rightSection'>
+    {#snippet rightSection()
         <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-    </svelte:fragment>
+    {/snippet}
 </Badge>
 
 <Badge>
     Badge with left section
-    <svelte:fragment slot='leftSection'>
+	{#snippet leftSection()}
         <CloseButton size='xs' iconSize='xs' color='blue' variant='transparent' />
-    </svelte:fragment>
+    {/snippet}
 </Badge>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: true
+		canShowCode: true
 	};
 </script>
 
@@ -34,15 +34,15 @@
 <Group position="center">
 	<Badge>
 		Badge with right section
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-		</svelte:fragment>
+		{/snippet}
 	</Badge>
 
 	<Badge>
 		Badge with left section
-		<svelte:fragment slot="leftSection">
+		{#snippet leftSection()}
 			<CloseButton size="xs" iconSize="xs" color="blue" variant="transparent" />
-		</svelte:fragment>
+		{/snippet}
 	</Badge>
 </Group>

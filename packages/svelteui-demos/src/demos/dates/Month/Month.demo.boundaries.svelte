@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -6,7 +6,7 @@
 	import dayjs from 'dayjs';
 
 	const initialDate = dayjs(new Date()).startOf('month').add(10, 'days').toDate();
-	let value = initialDate;
+	let value = $state(initialDate);
 <\/script>
 
 <Month
@@ -31,7 +31,7 @@
 	import dayjs from 'dayjs';
 
 	const initialDate = dayjs(new Date()).startOf('month').add(10, 'days').toDate();
-	let value = initialDate;
+	let value = $state(initialDate);
 </script>
 
 <Group position="center">

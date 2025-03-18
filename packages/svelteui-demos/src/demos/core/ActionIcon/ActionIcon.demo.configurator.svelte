@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { ActionIcon } from '@svelteuidev/core';
   import { Rocket } from 'radix-icons-svelte';
@@ -49,7 +49,7 @@
 	import { ActionIcon, Center } from '@svelteuidev/core';
 	import { Rocket } from 'radix-icons-svelte';
 
-	export let props: ActionIconProps = {};
+	let props: ActionIconProps = $props();
 </script>
 
 <Center>

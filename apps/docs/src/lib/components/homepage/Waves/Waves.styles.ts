@@ -1,8 +1,13 @@
 import { createStyles } from '@svelteuidev/core';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export default createStyles((theme, { width, height, flip, alt }) => ({
+type WavesStyleParams = {
+	width: number;
+	height: number;
+	flip: boolean;
+	alt: boolean;
+};
+
+export default createStyles((theme, { width, height, flip, alt }: WavesStyleParams) => ({
 	root: {
 		[`${theme.dark} &`]: {
 			bc: theme.fn.themeColor('dark', alt ? 8 : 7)

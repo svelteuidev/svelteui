@@ -1,51 +1,63 @@
 <script lang="ts">
-	import useStyles, { getCumulativeSections } from './Progress.styles';
 	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
+	import { randomID } from '$lib/styles';
+
 	import { Box } from '../Box';
 	import { Text } from '../Text';
-	import { randomID } from '$lib/styles';
-	import { cubicOut } from 'svelte/easing';
-	import type { ProgressProps as $$ProgressProps } from './Progress';
+	import type { ProgressProps } from './Progress';
+	import useStyles, { getCumulativeSections } from './Progress.styles';
 
-	interface $$Props extends $$ProgressProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		value: $$Props['value'] = undefined,
-		color: $$Props['color'] = undefined,
-		size: $$Props['size'] = 'md',
-		radius: $$Props['radius'] = 'sm',
-		striped: $$Props['striped'] = false,
-		animate: $$Props['animate'] = false,
-		label: $$Props['label'] = '',
-		sections: $$Props['sections'] = undefined,
-		shade: $$Props['shade'] = 6,
-		ariaLabel: $$Props['ariaLabel'] = randomID(),
-		tween: $$Props['tween'] = false,
-		tweenOptions: $$Props['tweenOptions'] = {};
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		value = $bindable(null),
+		color = undefined,
+		size = 'md',
+		radius = 'sm',
+		striped = false,
+		animate = false,
+		labelText = '',
+		sections = undefined,
+		shade = 6,
+		ariaLabel = randomID(),
+		tween = false,
+		tweenOptions = {},
+		label,
+		...rest
+	}: ProgressProps = $props();
 
 	const defaultTweenOptions = { delay: 0, duration: 400, easing: cubicOut };
 	const progress = tweened(undefined, { ...defaultTweenOptions, ...tweenOptions });
 
-	$: segments = Array.isArray(sections);
-	$: progress.set(value);
-	$: ({ cx, classes, getStyles, theme } = useStyles(
-		{
-			animate,
-			color,
-			radius,
-			size,
-			shade,
-			striped: striped || animate
-		},
-		{ name: 'Progress' }
-	));
+	let segments = $derived(Array.isArray(sections));
+	$effect.pre(() => {
+		progress.set(value);
+	});
+
+	let { cx, classes, getStyles, theme } = $derived(
+		useStyles(
+			{
+				animate,
+				color,
+				radius,
+				size,
+				shade,
+				striped: striped || animate
+			},
+			{ name: 'Progress' }
+		)
+	);
 </script>
 
-<Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
+0<Box
+	bind:element
+	{use}
+	class={cx(className, classes.root, getStyles({ css: override }))}
+	{...rest}
+>
 	{#if segments}
 		{#each getCumulativeSections(sections) as section (section)}
 			<Box
@@ -71,10 +83,10 @@
 			aria-label={ariaLabel}
 			style={`width:${tween ? $progress : value}%`}
 		>
-			{#if $$slots.label}
-				<slot name="label" />
-			{:else if label}
-				<Text class={classes.label}>{label}</Text>
+			{#if label}
+				{@render label()}
+			{:else if labelText}
+				<Text class={classes.label}>{labelText}</Text>
 			{/if}
 		</div>
 	{/if}

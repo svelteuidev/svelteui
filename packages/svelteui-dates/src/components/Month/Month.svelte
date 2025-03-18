@@ -1,51 +1,48 @@
 <script lang="ts">
-	/* eslint-disable no-undef */
 	import dayjs from 'dayjs';
-	import useStyles, { no } from './Month.styles';
-	import { Day } from './Day';
-	import { Box, Text } from '@svelteuidev/core';
-	import { getDayProps } from './get-day-props/get-day-props';
+	import { Box, Text, useActions } from '@svelteuidev/core';
 	import { upperFirst } from '@svelteuidev/composables';
-	import { getMonthDays, getWeekdaysNames, isSameDate } from '../../utils';
-	import { createEventForwarder, useActions } from '@svelteuidev/core';
-	import { get_current_component } from 'svelte/internal';
-	import type { MonthProps as $$MonthProps } from './Month.styles';
 
-	export let use: $$MonthProps['use'] = [],
-		element: $$MonthProps['element'] = undefined,
-		className: $$MonthProps['className'] = '',
-		override: $$MonthProps['override'] = {},
-		// daysRefs: $$MonthProps['daysRefs'] = undefined,
-		disableOutsideEvents: $$MonthProps['disableOutsideEvents'] = false,
-		month: $$MonthProps['month'],
-		locale: $$MonthProps['locale'] = 'en',
-		value: $$MonthProps['value'] = undefined,
-		range: $$MonthProps['range'] = undefined,
-		weekdayLabelFormat: $$MonthProps['weekdayLabelFormat'] = undefined,
-		minDate: $$MonthProps['minDate'] = undefined,
-		maxDate: $$MonthProps['maxDate'] = undefined,
-		hideWeekdays: $$MonthProps['hideWeekdays'] = false,
-		size: $$MonthProps['size'] = 'sm',
-		fullWidth: $$MonthProps['fullWidth'] = false,
-		preventFocus: $$MonthProps['preventFocus'] = false,
-		focusable: $$MonthProps['focusable'] = true,
-		firstDayOfWeek: $$MonthProps['firstDayOfWeek'] = 'monday',
-		hideOutsideDates: $$MonthProps['hideOutsideDates'] = false,
-		onChange: $$MonthProps['onChange'] = (value) => undefined,
-		onDayMouseEnter: $$MonthProps['onDayMouseEnter'] = undefined,
-		onDayKeyDown: $$MonthProps['onDayKeyDown'] = undefined,
-		renderDay: $$MonthProps['renderDay'] = undefined,
-		// dayStyle: $$MonthProps['dayStyle'] = undefined,
-		dayClassName: $$MonthProps['dayClassName'] = undefined,
-		excludeDate: $$MonthProps['excludeDate'] = undefined,
-		isDateInRange: $$MonthProps['isDateInRange'] = no,
-		isDateFirstInRange: $$MonthProps['isDateFirstInRange'] = no,
-		isDateLastInRange: $$MonthProps['isDateLastInRange'] = no;
-	export { className as class };
+	import { getMonthDays, getWeekdaysNames, isSameDate } from '../../utils';
+	import { getDayProps } from './get-day-props/get-day-props';
+	import useStyles, { no } from './Month.styles';
+	import type { MonthProps } from './Month.styles';
+	import { Day } from './Day';
+
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		disableOutsideEvents = false,
+		month,
+		locale = 'en',
+		value = $bindable(null),
+		range = undefined,
+		weekdayLabelFormat = undefined,
+		minDate = undefined,
+		maxDate = undefined,
+		hideWeekdays = false,
+		size = 'sm',
+		fullWidth = false,
+		preventFocus = false,
+		focusable = true,
+		firstDayOfWeek = 'monday',
+		hideOutsideDates = false,
+		onChange = () => undefined,
+		onDayMouseEnter = undefined,
+		onDayKeyDown = undefined,
+		renderDay = undefined,
+		dayClassName = undefined,
+		excludeDate = undefined,
+		isDateInRange = no,
+		isDateFirstInRange = no,
+		isDateLastInRange = no,
+		...rest
+	}: MonthProps = $props();
 
 	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-	const castType = <T>(value: unknown) => value as T;
+	const castType = <T,>(value: unknown) => value as T;
 	const days = getMonthDays(month, firstDayOfWeek);
 	const hasValue = Array.isArray(value)
 		? value.every((item) => item instanceof Date)
@@ -55,15 +52,15 @@
 		dayjs(value).isAfter(dayjs(month).startOf('month')) &&
 		dayjs(value).isBefore(dayjs(month).endOf('month'));
 
-	$: ({ cx, classes } = useStyles({ fullWidth }, { override }));
+	let { cx, classes } = $derived(useStyles({ fullWidth }, { override }));
 </script>
 
 <Box
 	bind:element
-	use={[forwardEvents, [useActions, use]]}
+	use={[[useActions, use]]}
 	root="table"
 	class={cx(className, classes.root)}
-	{...$$restProps}
+	{...rest}
 >
 	{#if !hideWeekdays}
 		<thead>
@@ -96,11 +93,11 @@
 					{@const onKeyDownPayload = { rowIndex, cellIndex, date }}
 					<td class={classes.cell}>
 						<Day
-							on:click={() => {
-								typeof onChange === 'function' && onChange(date);
+							onclick={() => {
+								if (typeof onChange === 'function') onChange(date);
 							}}
-							on:mousedown={(event) => preventFocus && event.preventDefault()}
-							on:keydown={(event) =>
+							onmousedown={(event) => preventFocus && event.preventDefault()}
+							onkeydown={(event) =>
 								typeof onDayKeyDown === 'function' &&
 								onDayKeyDown(onKeyDownPayload, castType(event))}
 							value={date}

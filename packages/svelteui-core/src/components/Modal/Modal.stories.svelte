@@ -4,7 +4,7 @@
 	import { Modal } from './index';
 	import { Button } from '../Button';
 
-	let opened = false;
+	let opened = $state(false);
 
 	function toggleOpen() {
 		opened = !opened;
@@ -15,31 +15,33 @@
 
 	const content = Array(100)
 		.fill(0)
-		.map((_, index) => 'Svelte is a complier');
+		.map(() => 'Svelte is a complier');
 </script>
 
 <Meta title="Components/Modal" component={Modal} />
 
-<Template let:args>
-	<Button on:click={toggleOpen}>Click Me</Button>
-	<Modal {opened} on:close={handleClose} {...args}>
-		<Stack>
-			<TextInput autofocus placeholder="Your name" label="Full name" />
-			<NativeSelect
-				data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
-				placeholder="Pick one"
-				label="Select your favorite framework/library"
-				description="This is anonymous"
-			/>
-		</Stack>
-	</Modal>
+<Template>
+	{#snippet children({ args })}
+		<Button onclick={toggleOpen}>Click Me</Button>
+		<Modal {opened} onclose={handleClose} {...args}>
+			<Stack>
+				<TextInput autofocus placeholder="Your name" label="Full name" />
+				<NativeSelect
+					data={['Svelte', 'React', 'Vue', 'Angular', 'Solid']}
+					placeholder="Pick one"
+					label="Select your favorite framework/library"
+					description="This is anonymous"
+				/>
+			</Stack>
+		</Modal>
+	{/snippet}
 </Template>
 
 <Story name="Modal" id="modalStory" />
 
 <Story name="With Overflow" id="modalOverflowStory">
-	<Button on:click={toggleOpen}>Click Me</Button>
-	<Modal {opened} on:close={handleClose} overflow="inside">
+	<Button onclick={toggleOpen}>Click Me</Button>
+	<Modal {opened} onclose={handleClose} overflow="inside">
 		{#each content as _}
 			<p>{_}</p>
 		{/each}

@@ -1,44 +1,34 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import { CloseButton } from '../ActionIcon';
 	import { Box } from '../Box';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
+	import { IconRenderer } from '../IconRenderer';
 	import { Loader } from '../Loader';
 	import { Text } from '../Text';
 	import useStyles from './Notification.styles';
-	import type {
-		NotificationProps as $$NotificationProps,
-		NotificationEvents as $$NotificationEvents
-	} from './Notification';
+	import type { NotificationProps } from './Notification';
 
-	interface $$Props extends $$NotificationProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = 'blue',
+		override = {},
+		title = undefined,
+		color = 'blue',
+		radius = 'sm',
+		loading = false,
+		iconComponent = undefined,
+		iconSize = 16,
+		iconProps = {},
+		withCloseButton = true,
+		closeButtonLabel = undefined,
+		closeButtonProps = {},
+		onclose = () => {},
+		icon,
+		children,
+		...rest
+	}: NotificationProps = $props();
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$NotificationEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = 'blue',
-		override: $$Props['override'] = {},
-		title: $$Props['title'] = undefined,
-		color: $$Props['color'] = 'blue',
-		radius: $$Props['radius'] = 'sm',
-		loading: $$Props['loading'] = false,
-		icon: $$Props['icon'] = undefined,
-		iconSize: $$Props['iconSize'] = 16,
-		iconProps: $$Props['iconProps'] = {},
-		withCloseButton: $$Props['withCloseButton'] = true,
-		closeButtonLabel: $$Props['closeButtonLabel'] = undefined,
-		closeButtonProps: $$Props['closeButtonProps'] = {};
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
-
-	function onClose() {
-		dispatch('close');
-	}
-
-	$: ({ cx, classes } = useStyles({ color, radius }, { override, name: 'Notification' }));
+	let { cx, classes } = $derived(useStyles({ color, radius }, { override, name: 'Notification' }));
 </script>
 
 <Box
@@ -49,13 +39,14 @@
 		withIcon: icon,
 		withLoader: loading
 	})}
-	{...$$restProps}
+	{...rest}
 >
-	<slot name="icon">
-		{#if icon && !loading}
-			<IconRenderer {icon} className={classes.icon} {...iconProps} />
-		{/if}
-	</slot>
+	{#if icon && !loading}
+		{@render icon()}
+	{/if}
+	{#if iconComponent && !loading}
+		<IconRenderer className={classes.icon} icon={iconComponent} {iconProps} />
+	{/if}
 	{#if loading}
 		<Loader class={classes.loader} size={28} {color} />
 	{/if}
@@ -66,7 +57,7 @@
 			</Text>
 		{/if}
 		<Text class={classes.description} size="sm" color="dimmed">
-			<slot />
+			{@render children?.()}
 		</Text>
 	</div>
 	{#if withCloseButton}
@@ -77,7 +68,7 @@
 			size={28}
 			{iconSize}
 			{...closeButtonProps}
-			on:click={onClose}
+			onclick={onclose}
 		/>
 	{/if}
 </Box>

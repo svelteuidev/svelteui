@@ -19,7 +19,8 @@ const config = {
 			lib: 'src'
 		},
 		alias: {
-			$dlib: path.resolve('./src')
+			$dlib: path.resolve('./src'),
+			'@stitches/core/*': path.resolve('../../node_modules/@stitches/core/*')
 		}
 	}
 };

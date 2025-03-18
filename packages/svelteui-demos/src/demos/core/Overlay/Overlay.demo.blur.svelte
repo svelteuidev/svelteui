@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -14,8 +14,8 @@
     Overlay with a blur
 </Box>
 
-<Group children={1} position="center">
-    <Button on:click={() => visible = !visible}>Toggle overlay</Button>
+<Group position="center">
+    <Button onclick={() => visible = !visible}>Toggle overlay</Button>
 </Group>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -28,7 +28,7 @@
 <script>
 	import { Box, Button, Group, Overlay, Text } from '@svelteuidev/core';
 
-	let visible = false;
+	let visible = $state(false);
 </script>
 
 <Box css={{ height: 50, position: 'relative' }}>
@@ -38,6 +38,6 @@
 	<Text align="center">Overlay with a blur</Text>
 </Box>
 
-<Group children={1} position="center">
-	<Button on:click={() => (visible = !visible)}>Toggle overlay</Button>
+<Group position="center">
+	<Button onclick={() => (visible = !visible)}>Toggle overlay</Button>
 </Group>

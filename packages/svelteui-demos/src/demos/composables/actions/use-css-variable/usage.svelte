@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -18,7 +18,7 @@
 		<p>This text is normal</p>
 		<p class="example">This text is using the variable</p>
 	</div>
-	<Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
+	<Button onclick={() => (isRed = !isRed)}>Click to switch colors</Button>
 </Stack>
 
 <\style>
@@ -39,10 +39,10 @@
 	import { Button, Stack } from '@svelteuidev/core';
 	import { cssvariable } from '@svelteuidev/composables';
 
-	let isRed = true;
-	$: styleVars = {
+	let isRed = $state(true);
+	let styleVars = $derived({
 		titleColor: isRed ? 'red' : 'blue'
-	};
+	});
 </script>
 
 <Stack align="center">
@@ -51,7 +51,7 @@
 		<p>This text is normal</p>
 		<p class="example">This text is using the variable</p>
 	</div>
-	<Button on:click={() => (isRed = !isRed)}>Click to switch colors</Button>
+	<Button onclick={() => (isRed = !isRed)}>Click to switch colors</Button>
 </Stack>
 
 <style>

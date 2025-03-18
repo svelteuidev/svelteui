@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	import type { ButtonProps } from '@svelteuidev/core';
 
@@ -18,7 +18,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: true
+		canShowCode: true
 	};
 
 	let variants: ButtonProps['variant'][] = ['filled', 'light', 'outline', 'default', 'subtle'];

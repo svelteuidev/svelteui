@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -7,14 +7,14 @@
 <\/script>
 
 <Input
-    icon={MagnifyingGlass}
+    iconComponent={MagnifyingGlass}
     placeholder='Search'
     rightSectionWidth={70}
     styles={{ rightSection: { pointerEvents: 'none' } }}
 >
-    <Badge slot='rightSection' color='blue' variant='filled'>
-        new
-    </Badge>
+    {#snippet rightSection()}
+		<Badge color="blue" variant="filled">new</Badge>
+	{/snippet}
 </Input>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -30,10 +30,12 @@
 </script>
 
 <Input
-	icon={MagnifyingGlass}
+	iconComponent={MagnifyingGlass}
 	placeholder="Search"
 	rightSectionWidth={70}
 	styles={{ rightSection: { pointerEvents: 'none' } }}
 >
-	<Badge slot="rightSection" color="blue" variant="filled">new</Badge>
+	{#snippet rightSection()}
+		<Badge color="blue" variant="filled">new</Badge>
+	{/snippet}
 </Input>

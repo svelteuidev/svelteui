@@ -1,18 +1,19 @@
 <script lang="ts">
 	import useStyles from './CardSection.styles';
 	import { Box } from '../../Box';
-	import type { CardSectionProps as $$CardSectionProps } from './CardSection';
+	import type { CardSectionProps } from './CardSection';
 
-	interface $$Props extends $$CardSectionProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		padding = 'md',
+		children,
+		...rest
+	}: CardSectionProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		padding: $$Props['padding'] = 'md';
-	export { className as class };
-
-	$: ({ cx, classes, getStyles } = useStyles({ padding }));
+	let { cx, classes, getStyles } = $derived(useStyles({ padding }));
 </script>
 
 <Box
@@ -20,7 +21,7 @@
 	bind:element
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

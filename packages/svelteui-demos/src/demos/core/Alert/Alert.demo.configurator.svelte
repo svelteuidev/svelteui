@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
@@ -7,7 +7,7 @@
   import { InfoCircled } from 'radix-icons-svelte';
 <\/script>
 
-<Alert icon={InfoCircled} ${props}>
+<Alert iconComponent={InfoCircled} ${props}>
     ${children}
 </Alert>`;
 
@@ -58,11 +58,11 @@
 	import { Alert, Center } from '@svelteuidev/core';
 	import { InfoCircled } from 'radix-icons-svelte';
 
-	export let props: AlertProps = {};
+	let { children, ...rest }: AlertProps = $props();
 </script>
 
 <Center>
-	<Alert icon={InfoCircled} {...props}>
-		<slot />
+	<Alert iconComponent={InfoCircled} {...rest}>
+		{@render children?.()}
 	</Alert>
 </Center>

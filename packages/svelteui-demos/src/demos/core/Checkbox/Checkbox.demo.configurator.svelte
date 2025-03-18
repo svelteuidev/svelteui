@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { Checkbox } from '@svelteuidev/core';
 <\/script>
@@ -33,7 +33,7 @@
 	import type { CheckboxProps } from '@svelteuidev/core';
 	import { Checkbox, Center } from '@svelteuidev/core';
 
-	export let props: CheckboxProps = {};
+	let props: CheckboxProps = $props();
 </script>
 
 <Center>

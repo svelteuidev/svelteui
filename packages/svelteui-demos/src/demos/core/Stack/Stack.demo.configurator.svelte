@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { Button, Stack } from '@svelteuidev/core';
 <\/script>
@@ -21,7 +21,7 @@
 				name: 'align',
 				type: 'select',
 				data: [
-					{ label: 'strech', value: 'strech' },
+					{ label: 'stretch', value: 'stretch' },
 					{ label: 'center', value: 'center' },
 					{ label: 'flex-start', value: 'flex-start' },
 					{ label: 'flex-end', value: 'flex-end' }
@@ -51,7 +51,7 @@
 	import type { StackProps } from '@svelteuidev/core';
 	import { Button, Stack } from '@svelteuidev/core';
 
-	export let props: StackProps = {};
+	let props: StackProps = $props();
 </script>
 
 <Stack override={{ height: 300 }} {...props}>

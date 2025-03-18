@@ -27,11 +27,11 @@ date: 'July 2th, 2023'
 
 ## [AspectRatio]({base}/core/aspect-ratio)
 
-<Demo demo={AspectRatioDemos.usage} toggle={true} />
+<Demo demo={AspectRatioDemos.usage} canShowCode={true} />
 
 ## [Collapse]({base}/core/collapse)
 
-<Demo demo={CollapseDemos.usage} toggle={true} />
+<Demo demo={CollapseDemos.usage} canShowCode={true} />
 
 ## [Flex]({base}/core/flex)
 

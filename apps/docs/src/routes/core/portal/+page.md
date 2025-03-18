@@ -31,7 +31,7 @@ Use Portal to render a component or element at a different place (defaults to th
 <script>
 	import { Portal } from '@svelteuidev/core';
 
-	let opened = false;
+	let opened = $state(false);
 </script>
 
 <main style="position: relative; z-index: 1">
@@ -41,7 +41,7 @@ Use Portal to render a component or element at a different place (defaults to th
 		</Portal>
 	{/if}
 
-	<button on:click={() => (opened = !opened)} type="button"> Open modal </button>
+	<button onclick={() => (opened = !opened)} type="button"> Open modal </button>
 </main>
 ```
 

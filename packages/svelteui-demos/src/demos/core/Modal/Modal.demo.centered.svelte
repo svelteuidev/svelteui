@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -21,4 +21,4 @@
 	import ModalForm from './ModalForm.svelte';
 </script>
 
-<ModalForm centered />
+<ModalForm centered opened />

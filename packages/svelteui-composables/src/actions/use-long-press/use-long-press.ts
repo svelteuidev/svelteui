@@ -1,17 +1,24 @@
-import type { Action } from '../../shared/actions/types';
+import type { Action, ActionReturn } from 'svelte/action';
+
+interface Attributes {
+	onlongpress: (e: CustomEvent) => void;
+}
 
 /**
  * Creates `long press` event when mousedown or touchstart is above the `duration` milliseconds.
  *
  * ```tsx
- *  <button use:longpress={duration} on:uselongpress={() => alert("longpress")}>
+ *  <button use:longpress={duration} onlongpress={() => alert("longpress")}>
  *     press and hold
  *  </button>
  * ```
  * @param duration - The duration until the longpress event is dispatched
  * @see https://svelteui.dev/actions/use-longpress
  */
-export function longpress(node: HTMLElement, duration: number): ReturnType<Action> {
+export const longpress: Action<HTMLElement, number, ActionReturn<number, Attributes>> = (
+	node: HTMLElement,
+	duration: number
+) => {
 	let timer: number;
 
 	function handlePress() {
@@ -42,4 +49,4 @@ export function longpress(node: HTMLElement, duration: number): ReturnType<Actio
 			node.removeEventListener('mousedown', handlePress);
 		}
 	};
-}
+};

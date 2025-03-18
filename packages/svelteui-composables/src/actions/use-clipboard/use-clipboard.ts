@@ -1,4 +1,9 @@
-import type { Action } from '../../shared/actions/types';
+import type { Action, ActionReturn } from 'svelte/action';
+
+interface Attributes {
+	onuseclipboard: (e: CustomEvent<string>) => void;
+	'onuseclipboard-error': (e: CustomEvent<string>) => void;
+}
 
 /**
  * With the `use-clipboard` action, text passed into the text param will be copied to the users clipboard.
@@ -15,7 +20,11 @@ import type { Action } from '../../shared/actions/types';
  * @param text - The text that you want to be copied when the DOM element is clicked
  * @see https://svelteui.dev/actions/use-clipboard
  */
-export function clipboard(node: HTMLElement, text: string | (() => string)): ReturnType<Action> {
+export const clipboard: Action<
+	HTMLElement,
+	string | (() => string),
+	ActionReturn<string | (() => string), Attributes>
+> = (node: HTMLElement, text: string | (() => string)) => {
 	const click = async () => {
 		const detailText = typeof text === 'function' ? text() : text;
 		if (detailText)
@@ -34,4 +43,4 @@ export function clipboard(node: HTMLElement, text: string | (() => string)): Ret
 		update: (t: string | (() => string)) => (text = t),
 		destroy: () => node.removeEventListener('click', click, true)
 	};
-}
+};

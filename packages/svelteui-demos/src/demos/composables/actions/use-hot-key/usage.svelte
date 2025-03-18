@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -31,5 +31,5 @@
 
 <Center>
 	<Text>Press ⌘+Enter or Ctrl+Enter to trigger an alert</Text>
-	<div use:hotkey={[['mod+Enter', () => onSubmit()]]} />
+	<div use:hotkey={[['mod+Enter', () => onSubmit()]]}></div>
 </Center>

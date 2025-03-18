@@ -3,25 +3,22 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": ["es2021", "DOM"],
 		"target": "ES2022",
-		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
-		"paths": {
-			"$lib": ["src"],
-			"$lib/*": ["src/*"]
-		}
+		"composite": true,
+		"noEmit": false
 	},
 	"references": [{ "path": "../svelteui-tests" }],
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+	"exclude": ["./dist/**/*"]
 }

@@ -1,13 +1,15 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import { SimpleGrid, Box } from '@svelteuidev/core';
 	import { STARTGUIDE_DATA } from './data.js';
 	import Guides from './Guides.svelte';
 
-	export let setId;
+	let { setId } = $props();
 
 	/** Variable for switching cards stitches variant*/
-	$: selected = 'kit';
-	$: setId(selected);
+	let selected = $state('kit');
+
+	onMount(() => setId(selected));
 </script>
 
 <Box css={{ mb: 50 }}>
@@ -19,7 +21,15 @@
 		]}
 	>
 		{#each STARTGUIDE_DATA as { title, id, icon } (id)}
-			<Guides on:click={() => (selected = id)} {title} {icon} active={selected === id} />
+			<Guides
+				onclick={() => {
+					selected = id;
+					setId(selected);
+				}}
+				{title}
+				{icon}
+				active={selected === id}
+			/>
 		{/each}
 	</SimpleGrid>
 </Box>

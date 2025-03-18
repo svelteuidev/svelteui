@@ -1,7 +1,6 @@
 <script>
 	import { features } from '$lib/data';
 	import { Title, Text, SimpleGrid, ThemeIcon, Center, Stack, Paper } from '@svelteuidev/core';
-	import { fly } from 'svelte/transition';
 </script>
 
 <div id="wrapper">
@@ -17,7 +16,8 @@
 				<Stack>
 					<Center override={{ jc: 'start', gap: '$10' }} inline>
 						<ThemeIcon variant="gradient" size="xl">
-							<svelte:component this={icon} size={25} />
+							{@const SvelteComponent = icon}
+							<SvelteComponent size={25} />
 						</ThemeIcon>
 						<Title order={3} weight="extrabold">{title}</Title>
 					</Center>

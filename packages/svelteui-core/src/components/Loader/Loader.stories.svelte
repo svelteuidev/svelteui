@@ -5,8 +5,10 @@
 
 <Meta title="Components/Loader" component={Loader} />
 
-<Template let:args>
-	<Loader {...args} />
+<Template>
+	{#snippet children({ args })}
+		<Loader {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Default" id="loaderStory" />

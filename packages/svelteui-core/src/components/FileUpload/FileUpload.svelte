@@ -1,59 +1,46 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Upload';
 </script>
 
 <script lang="ts">
-	import useStyles, { fontSizes } from './FileUpload.styles';
+	import useStyles from './FileUpload.styles';
 	import { Box } from '../Box';
-	import type {
-		FileItem,
-		FileUploadProps as $$FileUploadProps,
-		FileUploadEvents as $$FileUploadEvents
-	} from './FileUpload';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { createEventDispatcher, get_current_component } from 'svelte/internal';
+	import type { FileItem, FileUploadProps } from './FileUpload';
+	import { useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
-	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import Button from '../Button/Button.svelte';
 
-	interface $$Props extends $$FileUploadProps {}
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$FileUploadEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		accept: $$Props['accept'] = undefined,
-		type: $$Props['type'] = undefined,
-		name: $$Props['name'] = undefined,
-		multiple: $$Props['multiple'] = false,
-		files: $$Props['files'] = [],
-		label: $$Props['label'] = 'Upload',
-		color: $$Props['color'] = 'blue',
-		size: $$Props['size'] = 'sm',
-		disabled: $$Props['disabled'] = false,
-		id: $$Props['id'] = randomID(),
-		icon: $$Props['icon'] = undefined,
-		fileIcon: $$Props['fileIcon'] = undefined,
-		removeIcon: $$Props['removeIcon'] = undefined,
-		reset: $$Props['reset'] = true,
-		resetLabel: $$Props['resetLabel'] = 'Reset',
-		resetColor: $$Props['resetColor'] = 'red',
-		resetIcon: $$Props['resetIcon'] = undefined,
-		preview: $$Props['preview'] = true;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		className = '',
+		override = {},
+		accept = undefined,
+		type = undefined,
+		name = undefined,
+		multiple = false,
+		files = $bindable([]),
+		label = 'Upload',
+		color = 'blue',
+		size = 'sm',
+		disabled = false,
+		id = randomID(),
+		reset = true,
+		resetLabel = 'Reset',
+		resetColor = 'red',
+		preview = true,
+		onselected = () => {},
+		onremoved = () => {},
+		onreset = () => {},
+		icon,
+		fileIcon,
+		resetIcon,
+		removeIcon,
+		children,
+		...rest
+	}: FileUploadProps = $props();
 
 	let fileUploadComponent = undefined;
-	const dispatch = createEventDispatcher();
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		'selected',
-		'removed',
-		'reset'
-	]);
 
 	function onFileSelected(e) {
 		let localFile: FileItem[] = [];
@@ -71,25 +58,25 @@
 		} else {
 			files = [...localFile];
 		}
-		dispatch('selected', files);
+		onselected(files);
 	}
 
 	function remove(index) {
 		fileUploadComponent.value = '';
-		dispatch('removed', { file: files[index], index });
+		onremoved({ file: files[index], index });
 		files = files.filter((e, i) => i !== index);
 	}
 
 	function resetFiles() {
 		fileUploadComponent.value = '';
 		files = [];
-		dispatch('reset');
+		onreset();
 	}
 
-	$: ({ cx, classes, getStyles } = useStyles({ color, size }, { name: 'FileUpload' }));
+	let { cx, classes, getStyles } = $derived(useStyles({ color, size }, { name: 'FileUpload' }));
 </script>
 
-<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
+<Box bind:element {use} class={cx(className, classes.root)} {...rest}>
 	<div class={classes.inputContainer}>
 		<input
 			bind:this={fileUploadComponent}
@@ -100,28 +87,28 @@
 			{disabled}
 			tabindex="-1"
 			{name}
-			on:change={({ target }) => {
+			onchange={({ target }) => {
 				onFileSelected(target);
 			}}
 			use:useActions={use}
-			use:forwardEvents
 		/>
 	</div>
 
 	{#if type && type == 'drag'}
 		<label
-			on:dragleave
-			on:dragover={(ev) => {
+			ondragover={(ev) => {
 				ev.preventDefault();
 			}}
-			on:drop|preventDefault|stopPropagation={({ dataTransfer }) => {
-				onFileSelected(dataTransfer);
+			ondrop={(event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				onFileSelected(event.dataTransfer);
 			}}
 			for={id}
 			class={cx(classes.drag, getStyles({ css: override }))}
 			class:disabled
 		>
-			<slot />
+			{@render children?.()}
 		</label>
 	{:else}
 		<div class={classes.buttonType}>
@@ -129,21 +116,16 @@
 				{size}
 				{disabled}
 				{color}
-				on:click={() => {
+				onclick={() => {
 					fileUploadComponent.click();
 				}}
 			>
-				<slot name="leftIcon">
-					<IconRenderer {icon} />
-				</slot>
-
+				{@render icon?.()}
 				{label}
 			</Button>
 			{#if reset}
 				<Button {size} color={resetColor} disabled={files.length == 0} on:click={resetFiles}>
-					<slot name="leftIcon">
-						<IconRenderer icon={resetIcon} />
-					</slot>
+					{@render resetIcon?.()}
 					{resetLabel}
 				</Button>
 			{/if}
@@ -154,9 +136,7 @@
 	{#each files as { file }, i}
 		<div class={classes.fileItemWrapper}>
 			<div class={classes.fileItemIcon}>
-				<slot name="fileIcon">
-					<IconRenderer iconSize={fontSizes[size] * 1.8} icon={fileIcon} />
-				</slot>
+				{@render fileIcon?.()}
 			</div>
 			<span class={classes.fileItemName}>
 				{file.name}
@@ -164,9 +144,7 @@
 			<span class={classes.fileItemAction}>
 				<span>
 					<Button variant="default" {size} on:click={() => remove(i)}>
-						<slot name="removeIcon">
-							<IconRenderer iconSize={fontSizes[size] * 1.5} icon={removeIcon} />
-						</slot>
+						{@render removeIcon?.()}
 					</Button>
 				</span>
 			</span>

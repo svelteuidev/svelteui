@@ -1,24 +1,24 @@
 <script lang="ts">
 	import useStyles from './Paper.styles';
 	import { Box } from '../Box';
-	import type { PaperProps as $$PaperProps } from './Paper';
+	import type { PaperProps } from './Paper';
 
-	interface $$Props extends $$PaperProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		shadow = 'xs',
+		radius = 'sm',
+		withBorder = false,
+		padding = 'md',
+		children,
+		...rest
+	}: PaperProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		shadow: $$Props['shadow'] = 'xs',
-		radius: $$Props['radius'] = 'sm',
-		withBorder: $$Props['withBorder'] = false,
-		padding: $$Props['padding'] = 'md';
-	export { className as class };
-
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ radius, shadow, withBorder, padding },
-		{ name: 'Paper' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ radius, shadow, padding }, { name: 'Paper' })
+	);
 </script>
 
 <Box
@@ -30,7 +30,7 @@
 		getStyles({ css: override })
 	)}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

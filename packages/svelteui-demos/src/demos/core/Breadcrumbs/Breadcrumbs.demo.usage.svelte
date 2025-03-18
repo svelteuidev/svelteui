@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -9,10 +9,14 @@
 
 <Breadcrumbs size="md">
   <Breadcrumbs.Item href="https://svelteui.dev">
-    <IconRenderer slot="icon" icon={Home} />
+    {#snippet icon()}
+		<IconRenderer icon={Home} />
+	{/snippet}
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>
-    <IconRenderer slot="icon" icon={Person} />
+    {#snippet icon()}
+		<IconRenderer icon={Person} />
+	{/snippet}
     Application List
   </Breadcrumbs.Item>
   <Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>
@@ -38,10 +42,14 @@
 
 <Breadcrumbs>
 	<Breadcrumbs.Item href="https://svelteui.dev">
-		<IconRenderer slot="icon" icon={Home} />
+		{#snippet icon()}
+			<IconRenderer icon={Home} />
+		{/snippet}
 	</Breadcrumbs.Item>
 	<Breadcrumbs.Item>
-		<IconRenderer slot="icon" icon={Person} />
+		{#snippet icon()}
+			<IconRenderer icon={Person} />
+		{/snippet}
 		Application List
 	</Breadcrumbs.Item>
 	<Breadcrumbs.Item active={true}>View</Breadcrumbs.Item>

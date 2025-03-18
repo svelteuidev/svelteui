@@ -1,10 +1,15 @@
 <script lang="ts">
-	export let sourceId: string;
-	export let source: string = '';
+	interface Props {
+		sourceId: string;
+		source?: string;
+		children?: import('svelte').Snippet<[any]>;
+	}
+
+	let { sourceId, source = '', children }: Props = $props();
 
 	if (!sourceId) {
 		throw new Error('sourceId is required');
 	}
 </script>
 
-<slot {source}><pre>{source}</pre></slot>
+{#if children}{@render children({ source, })}{:else}<pre>{source}</pre>{/if}

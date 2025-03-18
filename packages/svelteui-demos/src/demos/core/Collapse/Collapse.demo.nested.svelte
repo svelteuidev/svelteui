@@ -1,27 +1,31 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
 	import { Button, Collapse, Paper } from '@svelteuidev/core';
 
-  let open = false;
-  let openInside = false;
+  	let open = $state(false);
+	let openInside = $state(false);
 <\/script>
 
 <Button
-  on:click={() => {
+  onclick={() => {
     open = !open;
-  }}>Toggle collapse</Button
+  }}
 >
+  Toggle collapse
+</Button>
 <Collapse {open}>
   <Paper>
     Please click below to toggle a nested collapse!
     <Button
-      on:click={() => {
+      onclick={() => {
         openInside = !openInside;
-      }}>Toggle nested collapse</Button
-    >
+      }}
+	>
+	  Toggle nested collapse
+	</Button>
 
     <Collapse open={openInside}>
       <Paper>This is a very hidden text, sshhhh!</Paper>
@@ -40,25 +44,29 @@
 <script lang="ts">
 	import { Button, Collapse, Paper, Stack } from '@svelteuidev/core';
 
-	let open = false;
-	let openInside = false;
+	let open = $state(false);
+	let openInside = $state(false);
 </script>
 
 <Stack align="center">
 	<Button
-		on:click={() => {
+		onclick={() => {
 			open = !open;
-		}}>Toggle collapse</Button
+		}}
 	>
+		Toggle collapse
+	</Button>
 
 	<Collapse {open}>
 		<Paper>
 			Please click below to toggle a nested collapse!
 			<Button
-				on:click={() => {
+				onclick={() => {
 					openInside = !openInside;
-				}}>Toggle nested collapse</Button
+				}}
 			>
+				Toggle nested collapse
+			</Button>
 
 			<Collapse open={openInside}>
 				<Paper>This is a very hidden text, sshhhh!</Paper>

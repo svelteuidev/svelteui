@@ -1,39 +1,29 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
-	import type {
-		ConfiguratorDemoType,
-		ConfiguratorDemoConfiguration,
-		DemoControl,
-		ConfiguratorDemoControl
-	} from '$lib/types';
+	import type { ConfiguratorDemoConfiguration, DemoControl } from '$lib/types';
 	import { ControlsRenderer } from './controls';
 	import { propsToString, isEnabled } from '../../utils';
 	import { css, dark, Box } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
+	import type { ConfiguratorProps } from './Configurator';
 
-	export let component: ConfiguratorDemoType['default'];
-	export let previewBackground: ConfiguratorDemoType['previewBackground'];
-	export let previewMaxWidth: ConfiguratorDemoType['previewMaxWidth'];
-	export let codeTemplate: ConfiguratorDemoConfiguration['codeTemplate'];
-	export let configurator: ConfiguratorDemoConfiguration['configurator'];
-	export let multiline: ConfiguratorDemoConfiguration['multiline'] = false;
-	export let multilineEndNewLine: ConfiguratorDemoConfiguration['multilineEndNewLine'] = true;
-	export let center: ConfiguratorDemoConfiguration['center'] = true;
-	export let hideCode: ConfiguratorDemoConfiguration['hideCode'] = false;
+	let {
+		component,
+		previewBackground,
+		previewMaxWidth,
+		codeTemplate,
+		configurator,
+		multiline = false,
+		multilineEndNewLine = true,
+		center = true,
+		hideCode = false
+	}: ConfiguratorProps = $props();
 
 	const BREAKPOINT = 885;
 
-	let demoControls: DemoControl[] = [];
-	let data: Record<string, any> = {};
-	let conditionalData: Record<string, any> = {};
-	let children, componentProps;
-
-	// Filter out control type which we use only for making typescript work as we wanted
-	$: demoControls = configurator.filter(isDemoControl);
-	$: data = demoControls.reduce(dataReducer, {});
-
-	// Contain data which match conditions
-	$: conditionalData = getConditionalData(demoControls, data);
+	let data: Record<string, any> = $state({});
+	let { children, ...componentProps }: Record<string, any> = $derived(
+		getConditionalData(configurator, data)
+	);
 
 	function getConditionalData(
 		demoControls: DemoControl[],
@@ -41,13 +31,13 @@
 		isControlEnabled?: boolean
 	): Record<string, any> {
 		function conditionalDataReducer(acc, control: DemoControl) {
-			const { name, defaultValue, type, controls } = control;
+			const { name, defaultValue, type } = control;
 			const enabled = isControlEnabled !== undefined ? isControlEnabled : isEnabled(control, data);
 
 			if (type !== 'composite') {
 				acc[name] = enabled ? data[name] : defaultValue;
 			} else {
-				acc[name] = getConditionalData(controls, data[name] ?? {}, enabled);
+				acc[name] = getConditionalData(control.controls, data[name] ?? {}, enabled);
 			}
 
 			return acc;
@@ -56,27 +46,13 @@
 		return demoControls.reduce(conditionalDataReducer, {});
 	}
 
-	$: ({ children, ...componentProps } = conditionalData);
-	$: propsCode = propsToString({
-		props: demoControls,
-		values: conditionalData,
-		multiline,
-		multilineEndNewLine
-	});
-
-	$: code = generateCode(codeTemplate, propsCode, children).trim();
-
-	function isDemoControl(control: ConfiguratorDemoControl): control is DemoControl {
-		return control && control.type !== '_DO_NOT_USE_';
-	}
-
 	function dataReducer(acc, { name, initialValue, type, controls }) {
 		acc[name] = type !== 'composite' ? initialValue : controls.reduce(dataReducer, {});
 		return acc;
 	}
 
-	function onChange(event) {
-		data = event.detail;
+	function onChange(value) {
+		data = value;
 	}
 
 	function generateCode(
@@ -134,7 +110,6 @@
 	}
 
 	const mobileBreakpoint = `@media (max-width: ${BREAKPOINT}px)`;
-
 	const styles = css({
 		border: '1px solid $gray200',
 		borderRadius: '$sm',
@@ -203,20 +178,37 @@
 			}
 		}
 	});
+
+	$effect.pre(() => {
+		data = configurator.reduce(dataReducer, {});
+	});
+
+	let propsCode = $derived(
+		propsToString({
+			props: configurator,
+			values: { children, ...componentProps },
+			multiline,
+			multilineEndNewLine
+		})
+	);
+	let code = $derived(generateCode(codeTemplate, propsCode, children).trim());
+
+	const SvelteComponent = $derived(component);
 </script>
 
 <div class={styles()}>
 	<div class="preview">
 		<div class="component">
 			<div class="wrapper">
-				<svelte:component this={component} props={componentProps}>{children}</svelte:component>
+				{#if children}
+					<SvelteComponent {...componentProps}>{children}</SvelteComponent>
+				{:else}
+					<SvelteComponent {...componentProps} />
+				{/if}
 			</div>
 		</div>
 		<div class="controls">
-			<ControlsRenderer value={data} controls={demoControls} on:change={onChange} />
-			<!--			<button {data}> test </button>-->
-			<!--			<button {data} />-->
-			<!--			<button />-->
+			<ControlsRenderer value={data} controls={configurator} onchange={onChange} />
 		</div>
 	</div>
 	{#if code && !hideCode}

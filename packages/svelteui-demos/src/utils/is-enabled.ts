@@ -1,6 +1,5 @@
 import type { DemoControl } from '$lib/types';
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 export function isEnabled(control: DemoControl, data: Record<string, any>): boolean {
 	const { when } = control;
 

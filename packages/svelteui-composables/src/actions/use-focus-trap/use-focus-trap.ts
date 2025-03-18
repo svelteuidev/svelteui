@@ -1,4 +1,5 @@
-import type { Action } from '../../shared/actions/types';
+import type { Action, ActionReturn } from 'svelte/action';
+
 import { FOCUS_SELECTOR, focusable, tabbable } from './tabbable';
 import { scopeTab } from './scope-tab';
 import { createAriaHider } from './create-aria-hider';
@@ -13,7 +14,10 @@ import { createAriaHider } from './create-aria-hider';
  * ```
  * @see https://svelteui.dev/actions/use-focus-trap
  */
-export function focustrap(node: HTMLElement, active = true): ReturnType<Action> | undefined {
+export const focustrap: Action<HTMLElement, boolean, ActionReturn<boolean>> = (
+	node: HTMLElement,
+	active = true
+): ActionReturn<boolean> => {
 	let restoreAria: (() => void) | null = null;
 
 	const handleKeyDown = (event: KeyboardEvent) => {
@@ -54,7 +58,6 @@ export function focustrap(node: HTMLElement, active = true): ReturnType<Action> 
 			if (focusElement) {
 				focusElement.focus({ preventScroll: true });
 			} else if (process.env.NODE_ENV === 'development') {
-				// eslint-disable-next-line no-console
 				console.warn(
 					'[@svelteuidev/composables/use-focus-trap] Failed to find focusable element within provided node',
 					node
@@ -67,7 +70,6 @@ export function focustrap(node: HTMLElement, active = true): ReturnType<Action> 
 			if (node.getRootNode()) {
 				processNode();
 			} else if (process.env.NODE_ENV === 'development') {
-				// eslint-disable-next-line no-console
 				console.warn('[@svelteuidev/composables/use-focus-trap] node is not part of the dom', node);
 			}
 		});
@@ -86,4 +88,4 @@ export function focustrap(node: HTMLElement, active = true): ReturnType<Action> 
 			}
 		}
 	};
-}
+};

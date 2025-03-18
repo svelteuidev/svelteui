@@ -35,12 +35,14 @@
 	}}
 />
 
-<Template let:args>
-	<span>Svelte component</span>
-	<IconRenderer {...args} icon={InfoCircled} />
-	<br />
-	<span>SVG element</span>
-	<IconRenderer {...args} icon={iconSvg} />
+<Template>
+	{#snippet children({ args })}
+		<span>Svelte component</span>
+		<IconRenderer {...args} icon={InfoCircled} />
+		<br />
+		<span>SVG element</span>
+		<IconRenderer {...args} icon={iconSvg} />
+	{/snippet}
 </Template>
 
 <Story

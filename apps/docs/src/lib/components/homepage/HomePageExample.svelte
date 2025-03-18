@@ -11,9 +11,7 @@
 		Checkbox,
 		Box,
 		Card,
-		ActionIcon,
-		Text,
-		NativeSelect
+		Text
 	} from '@svelteuidev/core';
 	import { Animation } from '@svelteuidev/motion';
 	import CardDemo from './_Card.svelte';
@@ -21,11 +19,21 @@
 	import { slide } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import { Prism } from '@svelteuidev/prism';
-	export let title = 'Examples',
+	interface Props {
+		title?: string;
+		author?: string;
+		code?: any;
+		language?: string;
+		center?: boolean;
+	}
+
+	let {
+		title = 'Examples',
 		author = 'brisklemonade',
 		code = `<script>const hello = 'world'<\/script>`,
 		language = 'svelte',
-		center = false;
+		center = false
+	}: Props = $props();
 	let previewState = 'preview';
 
 	const BREAKPOINT = '@media (max-width: 755px)';
@@ -119,7 +127,7 @@
 
 	/** Prism patch until next version */
 	const override = { pre: { px: '$lgPX' } };
-	$: ({ cx, classes, getStyles } = useStyles());
+	let { cx, classes, getStyles } = $derived(useStyles());
 </script>
 
 <div class={getStyles()}>
@@ -180,7 +188,7 @@
 							<CardDemo />
 						</Animation>
 						<Animation duration={13} animation="float">
-							<Tooltip label="I am a tooltip" withArrow>
+							<Tooltip labelComponent="I am a tooltip" withArrow>
 								<Badge variant="light">Hover Me</Badge>
 							</Tooltip>
 						</Animation>
@@ -190,7 +198,7 @@
 					</Group>
 				</Box>
 			{:else}
-				<div transition:slide={{ duration: 350, easing: sineInOut }}>
+				<div transition:slide|global={{ duration: 350, easing: sineInOut }}>
 					<Prism {override} {language} {code} />
 				</div>
 			{/if}

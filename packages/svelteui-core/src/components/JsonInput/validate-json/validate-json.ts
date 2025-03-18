@@ -1,4 +1,6 @@
-export function validateJson(value: string, deserialize: typeof JSON.parse) {
+export function validateJson(getValue: () => string, deserialize: typeof JSON.parse) {
+	const value = getValue();
+
 	if (!value || (typeof value === 'string' && value.trim().length === 0)) {
 		return true;
 	}
@@ -6,7 +8,7 @@ export function validateJson(value: string, deserialize: typeof JSON.parse) {
 	try {
 		deserialize(value);
 		return true;
-	} catch (e) {
+	} catch (_e) {
 		return false;
 	}
 }

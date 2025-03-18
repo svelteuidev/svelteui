@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
 	import { writable, derived } from 'svelte/store';
 
 	/**
@@ -36,13 +36,13 @@
 	 */
 	export const mouse = writable({ x: 0, y: 0 });
 
-	const mouseMove = (e) => {
+	const mouseMove = (e: MouseEvent) => {
 		mouse.update(() => ({ x: e.clientX, y: e.clientY }));
 	};
 </script>
 
 <svelte:window
-	on:mousemove={(e) => mouseMove(e)}
+	onmousemove={(e) => mouseMove(e)}
 	bind:innerHeight={$screenH}
 	bind:innerWidth={$screenW}
 	bind:scrollY={$scrollY}

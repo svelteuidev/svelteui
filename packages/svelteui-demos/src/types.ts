@@ -1,7 +1,4 @@
-import type { SvelteComponent } from 'svelte';
-import type { SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
-
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+import type { Component, SvelteUIColor, SvelteUISize } from '@svelteuidev/core';
 
 interface ControlCondition {
 	control: string;
@@ -9,7 +6,8 @@ interface ControlCondition {
 	value: any;
 }
 
-interface DemoControlBase<T = any> {
+interface DemoControlBase<Type, T = any> {
+	type: Type;
 	name: string;
 	label?: string;
 	initialValue?: T;
@@ -17,44 +15,35 @@ interface DemoControlBase<T = any> {
 	when?: ControlCondition;
 }
 
-export interface DemoControlBoolean extends DemoControlBase<boolean> {
-	type: 'boolean';
-}
+export type DemoControlBoolean = DemoControlBase<'boolean', boolean>;
 
-export interface DemoControlColor extends DemoControlBase<SvelteUIColor> {
-	type: 'color';
-}
+export type DemoControlColor = DemoControlBase<'color', SvelteUIColor>;
 
-export interface DemoControlSelect extends DemoControlBase<string> {
-	type: 'select';
+export interface DemoControlSelect extends DemoControlBase<'select', string> {
 	data: { label: string; value: string }[];
 	capitalize?: boolean;
 }
 
-export interface DemoControlString extends DemoControlBase<string> {
-	type: 'string';
-}
+export type DemoControlString = DemoControlBase<'string', string>;
 
-export interface DemoControlSize extends DemoControlBase<SvelteUISize> {
-	type: 'size';
-}
+export type DemoControlSize = DemoControlBase<'size', SvelteUISize>;
 
-export interface DemoControlNumber extends DemoControlBase<number> {
-	type: 'number';
+export interface DemoControlNumber extends DemoControlBase<'number', number> {
 	min?: number;
 	max?: number;
 	step?: number;
 }
 
-export interface DemoControlSegmented extends DemoControlBase<string> {
-	type: 'segmented';
+export interface DemoControlSegmented extends DemoControlBase<'segmented', string> {
 	data: { label: string; value: string }[];
 	capitalize?: boolean;
 }
 
 export interface DemoControlComposite
-	extends Exclude<DemoControlBase<Record<string, any>>, 'initialValue' | 'defaultValue'> {
-	type: 'composite';
+	extends Exclude<
+		DemoControlBase<'composite', Record<string, any>>,
+		'initialValue' | 'defaultValue'
+	> {
 	controls: DemoControl[];
 }
 
@@ -69,7 +58,14 @@ export type DemoControl =
 	| DemoControlComposite;
 
 // _DO_NOT_USE_ needed for giving TS know that type is actually determine DemoControl object shape
-export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
+// export type ConfiguratorDemoControl = { type: '_DO_NOT_USE_' } | DemoControl;
+
+export type CodeTemplateFunction = (props: string, children?: string) => string;
+
+export interface CodeTemplateOptions {
+	component: string;
+	from: string;
+}
 
 interface DemoBaseConfiguration {
 	previewMaxWidth?: number;
@@ -79,18 +75,11 @@ interface DemoBaseConfiguration {
 export interface CodeDemoConfiguration extends DemoBaseConfiguration {
 	code?: string;
 	spacing?: boolean;
-	toggle?: boolean;
-}
-
-export type CodeTemplateFunction = (props: string, children?: string) => string;
-
-export interface CodeTemplateOptions {
-	component: string;
-	from: string;
+	canShowCode?: boolean;
 }
 
 export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
-	configurator: ConfiguratorDemoControl[];
+	configurator: DemoControl[];
 	codeTemplate?: CodeTemplateFunction | CodeTemplateOptions;
 	multiline?: boolean | number;
 	multilineEndNewLine?: boolean;
@@ -99,17 +88,15 @@ export interface ConfiguratorDemoConfiguration extends DemoBaseConfiguration {
 }
 
 export interface CodeDemoType {
-	default: typeof SvelteComponent;
+	default: Component;
 	type: 'demo';
 	configuration: CodeDemoConfiguration;
 }
 
 export interface ConfiguratorDemoType {
-	default: typeof SvelteComponent;
+	default: Component;
 	type: 'configurator';
 	configuration: ConfiguratorDemoConfiguration;
-	previewMaxWidth?: number;
-	previewBackground?: { light: string; dark: string };
 }
 
 export type DemoType = CodeDemoType | ConfiguratorDemoType;

@@ -1,19 +1,15 @@
 <script lang="ts">
 	import type { DemoControlNumber } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { NumberInput } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	export let value: number;
-	export let label: DemoControlNumber['label'];
-	export let min: DemoControlNumber['min'];
-	export let max: DemoControlNumber['max'];
-	export let step: DemoControlNumber['step'];
-
-	const dispatch = createEventDispatcher();
-
-	function onChange(e) {
-		dispatch('change', e.detail);
+	interface Props extends ControlProps<number> {
+		min: DemoControlNumber['min'];
+		max: DemoControlNumber['max'];
+		step: DemoControlNumber['step'];
 	}
+
+	let { value, label, min, max, step, onchange }: Props = $props();
 </script>
 
-<NumberInput {label} {min} {max} {value} {step} on:change={onChange} />
+<NumberInput {label} {min} {max} {value} {step} {onchange} />

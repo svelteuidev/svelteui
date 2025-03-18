@@ -5,8 +5,10 @@
 
 <Meta title="Components/PasswordInput" component={PasswordInput} />
 
-<Template let:args>
-	<PasswordInput {...args} />
+<Template>
+	{#snippet children({ args })}
+		<PasswordInput {...args} />
+	{/snippet}
 </Template>
 
 <Story

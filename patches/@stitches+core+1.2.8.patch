@@ -1,0 +1,38 @@
+diff --git a/node_modules/@stitches/core/types/css-util.d.ts b/node_modules/@stitches/core/types/css-util.d.ts
+index 1668fc2..bf38b9e 100644
+--- a/node_modules/@stitches/core/types/css-util.d.ts
++++ b/node_modules/@stitches/core/types/css-util.d.ts
+@@ -117,3 +117,10 @@ export type $$ScaleValue = typeof $$ScaleValue
+ export declare const $$ThemeValue: unique symbol
+ 
+ export type $$ThemeValue = typeof $$ThemeValue
++
++export type WithPropertyValue<T> = {
++	readonly [K in $$PropertyValue]: T
++}
++export type WithScaleValue<T> = {
++	readonly [K in $$ScaleValue]: T;
++}
+\ No newline at end of file
+diff --git a/node_modules/@stitches/core/types/index.d.ts b/node_modules/@stitches/core/types/index.d.ts
+index 2aea9cb..c74e533 100644
+--- a/node_modules/@stitches/core/types/index.d.ts
++++ b/node_modules/@stitches/core/types/index.d.ts
+@@ -35,7 +35,7 @@ export type ComponentProps<Component> = Component extends ((...args: any[]) => a
+ /** Returns a type that expects a value to be a kind of CSS property value. */
+ export type PropertyValue<Property extends keyof CSSUtil.CSSProperties, Config = null> = (
+ 	Config extends null
+-		? { readonly [K in CSSUtil.$$PropertyValue]: Property }
++		? CSSUtil.WithPropertyValue<Property>
+ 	: Config extends { [K: string]: any }
+ 		? CSSUtil.CSS<
+ 			Config['media'],
+@@ -49,7 +49,7 @@ export type PropertyValue<Property extends keyof CSSUtil.CSSProperties, Config =
+ /** Returns a type that expects a value to be a kind of theme scale value. */
+ export type ScaleValue<Scale, Config = null> = (
+ 	Config extends null
+-		? { readonly [K in CSSUtil.$$ScaleValue]: Scale }
++		? CSSUtil.WithScaleValue<Scale>
+ 	: Config extends { [K: string]: any }
+ 		? Scale extends keyof Config['theme']
+ 			? `$${string & keyof Config['theme'][Scale]}`

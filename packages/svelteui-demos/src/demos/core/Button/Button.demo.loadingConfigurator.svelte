@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -8,7 +8,9 @@
 <\/script>
 
 <Button${props}>
-    <LockClosed slot="leftIcon" />
+    {#snippet leftIcon()}
+		<LockClosed />
+	{/snippet}
     Sign Up
 <\/Button>
 `;
@@ -39,12 +41,14 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { LockClosed } from 'radix-icons-svelte';
 
-	export let props: ButtonProps = {};
+	let { children: _children, ...rest }: ButtonProps = $props();
 </script>
 
 <Center>
-	<Button {...props}>
-		<LockClosed slot="leftIcon" />
+	<Button {...rest}>
+		{#snippet leftIcon()}
+			<LockClosed />
+		{/snippet}
 		Sign Up
 	</Button>
 </Center>

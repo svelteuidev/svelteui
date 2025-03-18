@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { VerticalSection } from '../VerticalSection';
-	import type { VerticalSectionSharedProps as $$VerticalSectionSharedProps } from '../VerticalSection/VerticalSection';
+	import type { VerticalSectionSharedProps } from '../VerticalSection/VerticalSection';
 
-	interface $$Props extends $$VerticalSectionSharedProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		height: $$Props['height'] = undefined,
-		fixed: $$Props['fixed'] = false,
-		position: $$Props['position'] = { bottom: 0, left: 0, right: 0 },
-		zIndex: $$Props['zIndex'] = 100;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		height = undefined,
+		fixed = false,
+		position = { bottom: 0, left: 0, right: 0 },
+		zIndex = 100,
+		children,
+		...rest
+	}: VerticalSectionSharedProps = $props();
 </script>
 
 <VerticalSection
@@ -25,7 +26,7 @@
 	{fixed}
 	{position}
 	{zIndex}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </VerticalSection>

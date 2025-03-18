@@ -1,25 +1,28 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Group, Paper } from '@svelteuidev/core';
-	import { createEventDispatcher } from 'svelte';
 
-	const dispatch = createEventDispatcher();
-
-	function addSearchLink() {
-		dispatch('addSearch');
-	}
-
-	type SearchType = {
+	export type SearchType = {
 		title: string;
 		link: string;
 		section?: string;
 	};
-	export let search: SearchType;
+
+	interface Props {
+		search: SearchType;
+		onAddSearch: () => void;
+	}
+
+	let { search, onAddSearch }: Props = $props();
+
+	function addSearchLink() {
+		onAddSearch();
+	}
 </script>
 
 <button
 	class="searchTerm"
-	on:click={() => {
+	onclick={() => {
 		addSearchLink();
 		goto(search.link.toString());
 	}}

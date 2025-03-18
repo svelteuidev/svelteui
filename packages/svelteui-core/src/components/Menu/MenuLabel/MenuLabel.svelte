@@ -4,13 +4,7 @@
 	import { Text } from '../../Text';
 	import type { TextProps } from '../../Text/Text';
 
-	interface $$Props extends Omit<TextProps, 'className'> {
-		className?: string;
-	}
-
-	export let element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '';
-	export { className as class };
+	let { element = $bindable(null), class: className = '', children, ...rest }: TextProps = $props();
 
 	const theme = useSvelteUIThemeContext()?.theme || useSvelteUITheme();
 	const classes: CSS = {
@@ -25,6 +19,6 @@
 	};
 </script>
 
-<Text bind:element class={className} {...$$restProps} override={classes}>
-	<slot />
+<Text bind:element class={className} {...rest} override={classes}>
+	{@render children?.()}
 </Text>

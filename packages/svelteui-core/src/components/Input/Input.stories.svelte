@@ -4,14 +4,16 @@
 	import { EnvelopeClosed } from 'radix-icons-svelte';
 	import { Button } from '../Button';
 
-	let value = 'Hello';
-	let valueNumber = 0;
+	let value = $state('Hello');
+	let valueNumber = $state(0);
 </script>
 
 <Meta title="Components/Input" component={Input} />
 
-<Template let:args>
-	<Input bind:value {...args} />
+<Template>
+	{#snippet children({ args })}
+		<Input bind:value {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Input" id="inputStory" />
@@ -34,16 +36,16 @@
 
 <Story name="With icon (slot)" id="inputIconSlotStory">
 	<Input bind:value>
-		<svelte:fragment slot="icon">
+		{#snippet icon()}
 			<EnvelopeClosed />
-		</svelte:fragment>
+		{/snippet}
 	</Input>
 </Story>
 
 <Story name="With right section" id="inputRightSectionStory">
 	<Input bind:value>
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<Button on:click={() => console.log('heelo')} />
-		</svelte:fragment>
+		{/snippet}
 	</Input>
 </Story>

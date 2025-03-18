@@ -1,11 +1,11 @@
-import SelectControl from './SelectControl.svelte';
-import ColorControl from './ColorControl.svelte';
-import BooleanControl from './BooleanControl.svelte';
-import StringControl from './StringControl.svelte';
-import SizeControl from './SizeControl.svelte';
-import SegmentedControl from './SegmentedControl.svelte';
-import NumberControl from './NumberControl.svelte';
-import CompositeControl from './CompositeControl.svelte';
+import { default as SelectControl } from './SelectControl.svelte';
+import { default as ColorControl } from './ColorControl.svelte';
+import { default as BooleanControl } from './BooleanControl.svelte';
+import { default as StringControl } from './StringControl.svelte';
+import { default as SizeControl } from './SizeControl.svelte';
+import { default as SegmentedControl } from './SegmentedControl.svelte';
+import { default as NumberControl } from './NumberControl.svelte';
+import { default as CompositeControl } from './CompositeControl.svelte';
 
 export const controls = {
 	select: SelectControl,

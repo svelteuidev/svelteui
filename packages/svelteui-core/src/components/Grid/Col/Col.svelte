@@ -1,60 +1,65 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Box } from '../../Box';
+	import { ctx } from '../Grid.svelte';
 	import type { GridContext } from '../Grid';
 	import useStyles from './Col.styles';
-	import type { ColProps as $$ColProps } from './Col';
+	import type { ColProps } from './Col';
 
-	export let use: $$ColProps['use'] = [],
-		element: $$ColProps['element'] = undefined,
-		className: $$ColProps['className'] = '',
-		override: $$ColProps['override'] = {},
-		span: $$ColProps['span'] = undefined,
-		offset: $$ColProps['offset'] = 0,
-		offsetXs: $$ColProps['offsetXs'] = 0,
-		offsetSm: $$ColProps['offsetSm'] = 0,
-		offsetMd: $$ColProps['offsetMd'] = 0,
-		offsetLg: $$ColProps['offsetLg'] = 0,
-		offsetXl: $$ColProps['offsetXl'] = 0,
-		xs: $$ColProps['xs'] = undefined,
-		sm: $$ColProps['sm'] = undefined,
-		md: $$ColProps['md'] = undefined,
-		lg: $$ColProps['lg'] = undefined,
-		xl: $$ColProps['xl'] = undefined;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		span = undefined,
+		offset = 0,
+		offsetXs = 0,
+		offsetSm = 0,
+		offsetMd = 0,
+		offsetLg = 0,
+		offsetXl = 0,
+		xs = undefined,
+		sm = undefined,
+		md = undefined,
+		lg = undefined,
+		xl = undefined,
+		children,
+		...rest
+	}: ColProps = $props();
 
 	// retrieves the reactive context so that Col has access
 	// to the Grid cols, grow and spacing parameters
-	const state: GridContext = getContext('Grid');
-	$: ({ cols, grow, spacing } = $state);
+	const { cols, grow, spacing }: GridContext = $derived.by(getContext(ctx));
 
 	function isSpanValid(span: number) {
 		return typeof span === 'number' && span > 0 && span % 1 === 0;
 	}
 
-	$: _span = span || cols || 0;
-	$: valid = isSpanValid(_span) && _span <= cols;
+	let _span = $derived(span || cols || 0);
+	let valid = $derived(isSpanValid(_span) && _span <= cols);
 
-	$: ({ cx, classes, getStyles } = useStyles(
-		{
-			span: _span,
-			cols,
-			grow,
-			spacing,
-			offset,
-			offsetXs,
-			offsetSm,
-			offsetMd,
-			offsetLg,
-			offsetXl,
-			xs,
-			sm,
-			md,
-			lg,
-			xl
-		},
-		{ name: 'Col' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				span: _span,
+				cols: cols,
+				grow: grow,
+				spacing: spacing,
+				offset,
+				offsetXs,
+				offsetSm,
+				offsetMd,
+				offsetLg,
+				offsetXl,
+				xs,
+				sm,
+				md,
+				lg,
+				xl
+			},
+			{ name: 'Col' }
+		)
+	);
 </script>
 
 {#if valid}
@@ -62,8 +67,8 @@
 		bind:element
 		{use}
 		class={cx(className, classes.root, getStyles({ css: override }))}
-		{...$$restProps}
+		{...rest}
 	>
-		<slot />
+		{@render children?.()}
 	</Box>
 {/if}

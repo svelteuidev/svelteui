@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -17,7 +17,9 @@
 <\/script>
 
 <Button override={PrimaryButton}>
-	<GithubLogo slot="leftIcon" size={16} /> I love open source!
+	{#snippet leftIcon()}
+		<GithubLogo size={16} />
+	{/snippet} I love open source!
 </Button>
 `;
 
@@ -44,6 +46,8 @@
 
 <Center>
 	<Button override={PrimaryButton}>
-		<GithubLogo slot="leftIcon" size={16} /> I love open source!
+		{#snippet leftIcon()}
+			<GithubLogo size={16} />
+		{/snippet} I love open source!
 	</Button>
 </Center>

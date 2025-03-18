@@ -65,7 +65,7 @@ You can receive any amount of parameters as second argument of `createStyles` fu
 
 To merge class names use the `cx` function, it has the same API as classnames package.
 
-<Alert icon={InfoCircled} title="Tip">
+<Alert iconComponent={InfoCircled} title="Tip">
     Do not use external libraries like `classnames` or `clsx` with class names created with `createStyles` function as it will produce style collisions.
 </Alert>
 

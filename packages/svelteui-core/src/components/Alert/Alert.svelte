@@ -1,47 +1,45 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import useStyles from './Alert.styles';
 	import { Box } from '../Box';
 	import IconRenderer from '../IconRenderer/IconRenderer.svelte';
 	import { CloseButton } from '../ActionIcon';
-	import type { AlertProps as $$AlertProps, AlertEvents as $$AlertEvents } from './Alert';
+	import useStyles from './Alert.styles';
+	import type { AlertProps } from './Alert';
 
-	interface $$Props extends $$AlertProps {}
+	let {
+		use = [],
+		element = undefined,
+		className = 'blue',
+		override = {},
+		title = undefined,
+		color = 'red',
+		radius = 'sm',
+		variant = 'light',
+		iconComponent = undefined,
+		iconSize = 16,
+		iconProps = {},
+		withCloseButton = false,
+		closeButtonLabel = undefined,
+		onclose = () => {},
+		icon,
+		children,
+		...rest
+	}: AlertProps = $props();
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$AlertEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = 'blue',
-		override: $$Props['override'] = {},
-		title: $$Props['title'] = undefined,
-		color: $$Props['color'] = 'red',
-		radius: $$Props['radius'] = 'sm',
-		variant: $$Props['variant'] = 'light',
-		icon: $$Props['icon'] = undefined,
-		iconSize: $$Props['iconSize'] = 16,
-		iconProps: $$Props['iconProps'] = {},
-		withCloseButton: $$Props['withCloseButton'] = false,
-		closeButtonLabel: $$Props['closeButtonLabel'] = undefined;
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
-
-	function onClose() {
-		dispatch('close');
-	}
-
-	$: ({ cx, classes } = useStyles({ color, radius, variant }, { name: 'Alert', override }));
+	let { cx, classes } = $derived(
+		useStyles({ color, radius, variant }, { name: 'Alert', override })
+	);
 </script>
 
-<Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...$$restProps}>
+<Box {use} bind:element role="alert" class={cx(className, variant, classes.root)} {...rest}>
 	<div class={classes.wrapper}>
-		<slot name="icon">
-			{#if icon}
-				<IconRenderer {icon} className={classes.icon} {iconSize} {iconProps} />
-			{/if}
-		</slot>
+		{#if icon}
+			<div class={classes.icon}>
+				{@render icon()}
+			</div>
+		{/if}
+		{#if iconComponent}
+			<IconRenderer icon={iconComponent} className={classes.icon} {iconSize} {iconProps} />
+		{/if}
 
 		<div class={classes.content}>
 			{#if title}
@@ -56,13 +54,13 @@
 							variant="transparent"
 							size={iconSize}
 							{iconSize}
-							on:click={onClose}
+							onclick={onclose}
 						/>
 					{/if}
 				</div>
 			{/if}
 			<div class={classes.message}>
-				<slot />
+				{@render children?.()}
 			</div>
 		</div>
 	</div>

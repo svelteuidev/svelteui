@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { ChipGroup } from '@svelteuidev/core';
 
-  let values;
+  let values = $state([]);
 <\/script>
 
 <ChipGroup ${props}
@@ -74,7 +74,7 @@
 	import type { ChipGroupProps } from '@svelteuidev/core';
 	import { ChipGroup } from '@svelteuidev/core';
 
-	export let props: ChipGroupProps = {};
+	let props: ChipGroupProps = $props();
 </script>
 
 <ChipGroup

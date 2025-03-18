@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -30,4 +30,9 @@
 	const theme = useSvelteUITheme();
 </script>
 
-<ModalForm overlayColor={theme.colors.gray200.value} overlayOpacity={0.55} overlayBlur={3} />
+<ModalForm
+	opened
+	overlayColor={theme.colors['gray200'].value}
+	overlayOpacity={0.55}
+	overlayBlur={3}
+/>

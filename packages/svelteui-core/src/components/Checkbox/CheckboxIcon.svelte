@@ -1,11 +1,7 @@
 <script lang="ts">
-	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
+	import type { CheckboxProps } from './Checkbox';
 
-	interface $$Props extends $$CheckboxProps {}
-
-	export let className: $$Props['className'] = '';
-	export let indeterminate: $$Props['indeterminate'] = false;
-	export { className as class };
+	let { class: className = '', indeterminate = false }: CheckboxProps = $props();
 </script>
 
 {#if indeterminate}

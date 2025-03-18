@@ -1,4 +1,4 @@
-import type { PageLoad } from './$types';
+import type { LayoutLoad } from './$types';
 
 export const prerender = true;
 
@@ -6,8 +6,8 @@ export const prerender = true;
 // when building for production.
 export const ssr = false;
 
-export const load = (async ({ url: { pathname } }) => {
+export const load: LayoutLoad = async ({ url: { pathname } }) => {
 	return {
 		pathname
 	};
-}) satisfies PageLoad;
+};

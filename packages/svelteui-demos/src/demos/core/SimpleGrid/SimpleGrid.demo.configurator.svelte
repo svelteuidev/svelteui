@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { SimpleGrid } from '@svelteuidev/core';
 <\/script>
@@ -29,7 +29,7 @@
 	import type { SimpleGridProps } from '@svelteuidev/core';
 	import { Center, SimpleGrid } from '@svelteuidev/core';
 
-	export let props: SimpleGridProps = {};
+	let props: SimpleGridProps = $props();
 </script>
 
 <SimpleGrid {...props}>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -7,11 +7,13 @@
 <\/script>
 
 <Input
-    icon={MagnifyingGlass}
+    iconComponent={MagnifyingGlass}
     variant="headless"
     placeholder="Add your own styles with styles API"
 >
-    <p slot="rightSection">$</p>
+    {#snippet rightSection()}
+		<p>$</p>
+	{/snippet}
 </Input>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -28,9 +30,11 @@
 
 <Input
 	override={{ input: { width: '100%', boxSizing: 'border-box' } }}
-	icon={MagnifyingGlass}
+	iconComponent={MagnifyingGlass}
 	variant="headless"
 	placeholder="Add your own styles with styles API"
 >
-	<p slot="rightSection">$</p>
+	{#snippet rightSection()}
+		<p>$</p>
+	{/snippet}
 </Input>

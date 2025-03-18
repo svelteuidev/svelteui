@@ -1,55 +1,47 @@
 <script lang="ts">
-	import type { JsonInputProps as $$JsonInputProps } from './JsonInput';
+	import type { FocusEventHandler } from 'svelte/elements';
+
 	import Textarea from '../Textarea/Textarea.svelte';
 	import { validateJson } from './validate-json/validate-json';
+	import type { JsonInputProps } from './JsonInput';
 
-	interface $$Props extends $$JsonInputProps {}
+	let {
+		formatOnBlur = false,
+		error = null,
+		validationError = null,
+		onBlur = undefined,
+		readOnly = undefined,
+		value = undefined,
+		rows = 4,
+		serialize = JSON.stringify,
+		deserialize = JSON.parse,
+		rightSection,
+		...rest
+	}: JsonInputProps = $props();
 
-	export let formatOnBlur: $$Props['formatOnBlur'] = false,
-		error: $$Props['error'] = null,
-		validationError: $$Props['validationError'] = null,
-		onBlur: $$Props['on:blur'] = undefined,
-		readOnly: $$Props['readonly'] = undefined,
-		value: $$Props['value'] = undefined,
-		rows: $$Props['rows'] = 4,
-		serialize: $$Props['serialize'] = JSON.stringify,
-		deserialize: $$Props['deserialize'] = JSON.parse;
+	let _value = $state(value);
+	let valid = $state(validateJson(() => _value, deserialize));
 
-	let _value = value;
-	let valid = validateJson(_value, deserialize);
-
-	const handleBlur = (event) => {
+	const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
 		onBlur?.(event);
-		valid = validateJson(event.currentTarget.value, deserialize);
+		valid = validateJson(() => event.currentTarget.value, deserialize);
 		if (formatOnBlur && !readOnly && valid && event.currentTarget.value.trim() !== '') {
 			_value = serialize(deserialize(event.currentTarget.value), null, 2);
 		}
 	};
+
+	const rightSectioRenderer = $derived(rightSection);
 </script>
-
-<!--
-@component
-
-Textarea specially made for JSON input.
-
-@see https://svelteui.dev/core/json-input
-@example
-    ```tsx
-    <JsonInput
-      label='Data'
-      placeholder='Enter JSON data'
-      required
-    />
-    ```
--->
 
 <Textarea
 	bind:value={_value}
-	on:blur={handleBlur}
+	onblur={handleBlur}
 	invalid={!valid}
 	error={!valid ? validationError : error}
 	{rows}
-	{...$$restProps}
+	{...rest}
 >
-	<slot slot="rightSection" name="rightSection" />
+	{#snippet rightSection()}
+		{@render rightSectioRenderer?.()}
+	{/snippet}
 </Textarea>

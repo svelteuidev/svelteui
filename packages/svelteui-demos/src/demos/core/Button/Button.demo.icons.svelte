@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -8,12 +8,16 @@
 <\/script>
 
 <Button>
-	<GithubLogo slot="leftIcon" />
+	{#snippet leftIcon()}
+		<GithubLogo />
+	{/snippet}
 	Icon on left
 </Button>
 <Button>
 	Icon on right
-	<GithubLogo slot="rightIcon" />
+	{#snippet rightIcon()}
+		<GithubLogo />
+	{/snippet}
 </Button>
 `;
 
@@ -31,11 +35,15 @@
 
 <Group position="center">
 	<Button>
-		<GithubLogo slot="leftIcon" />
+		{#snippet leftIcon()}
+			<GithubLogo />
+		{/snippet}
 		Icon on left
 	</Button>
 	<Button>
 		Icon on right
-		<GithubLogo slot="rightIcon" />
+		{#snippet rightIcon()}
+			<GithubLogo />
+		{/snippet}
 	</Button>
 </Group>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -10,7 +10,7 @@
 <TextInput
     label='Your email'
     placeholder='Your email'
-    icon={EnvelopeClosed}
+    iconComponent={EnvelopeClosed}
 \/>
 `;
 
@@ -27,5 +27,5 @@
 </script>
 
 <Center>
-	<TextInput label="Your email" placeholder="Your email" icon={EnvelopeClosed} />
+	<TextInput label="Your email" placeholder="Your email" iconComponent={EnvelopeClosed} />
 </Center>

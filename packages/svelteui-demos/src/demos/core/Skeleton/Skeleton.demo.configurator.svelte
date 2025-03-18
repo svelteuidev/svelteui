@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -24,7 +24,7 @@
 	import type { SkeletonProps } from '@svelteuidev/core';
 	import { Skeleton } from '@svelteuidev/core';
 
-	export let props: SkeletonProps = {};
+	let props: SkeletonProps = $props();
 </script>
 
 <Skeleton height={50} circle mb="xl" override={{ marginBottom: '24px' }} {...props} />

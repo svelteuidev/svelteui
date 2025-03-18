@@ -1,60 +1,46 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import { randomID } from '$lib/styles';
 	import InputWrapper from '../../InputWrapper/InputWrapper.svelte';
 	import Group from '../../Group/Group.svelte';
 	import Radio from '../Radio.svelte';
-	import type { RadioGroupProps as $$RadioGroupProps } from './RadioGroup';
-	import { randomID } from '$lib/styles';
+	import type { RadioGroupProps } from './RadioGroup';
 
-	interface $$Props extends $$RadioGroupProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		items: $$Props['items'] = [],
-		group: $$Props['group'] = undefined,
-		color: $$Props['color'] = undefined,
-		value: $$Props['value'] = undefined,
-		label: $$Props['label'] = undefined,
-		disabled: $$Props['disabled'] = false,
-		size: $$Props['size'] = undefined,
-		radius: $$Props['radius'] = undefined,
-		position: $$Props['position'] = 'left',
-		direction: $$Props['direction'] = 'row',
-		labelDirection: $$Props['labelDirection'] = 'right',
-		align: $$Props['align'] = 'flex-start',
-		spacing: $$Props['spacing'] = 'md',
-		name: $$Props['name'] = randomID();
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		items = [],
+		group = $bindable(null),
+		color = undefined,
+		value = $bindable(null),
+		label = undefined,
+		disabled = false,
+		size = undefined,
+		radius = undefined,
+		position = 'left',
+		direction = 'row',
+		labelDirection = 'right',
+		align = 'flex-start',
+		spacing = 'md',
+		name = randomID(),
+		onChange = () => {},
+		children,
+		...rest
+	}: RadioGroupProps = $props();
 
 	function onChanged(val: string, el: EventTarget) {
 		const checked = (el as HTMLInputElement).checked;
 		value = checked ? val : undefined;
-		dispatch('change', val);
+		onChange(val);
 	}
 
-	$: group = group || value;
+	$effect.pre(() => {
+		group = group || value;
+	});
 </script>
 
-<!--
-@component
-
-A Radio group component is a container for Radios.
-
-@see https://svelteui.dev/core/Radio
-@example
-    ```svelte
-    <RadioGroup bind:value items={items} />
-    <RadioGroup label={"Choose your favorite framework"} description={"Choose carefuly"} bind:value={value} items={items} />
-    <RadioGroup bind:value={value} items={items} direction={'column'} itemDirection={'right'}/>
-    <RadioGroup bind:value items={[{label: 'One', value: 1}, {label: 'Two', value: 2}, {label: 'Three', value: 3}]} />
-    ```
--->
-
-<InputWrapper bind:element class={className} {label} {override} {size} {...$$restProps}>
+<InputWrapper bind:element class={className} {label} {override} {size} {...rest}>
 	<Group {direction} {align} {position} {spacing}>
 		{#if items && items.length > 0}
 			{#each items as item}
@@ -73,7 +59,7 @@ A Radio group component is a container for Radios.
 				/>
 			{/each}
 		{:else}
-			<slot />
+			{@render children?.()}
 		{/if}
 	</Group>
 </InputWrapper>

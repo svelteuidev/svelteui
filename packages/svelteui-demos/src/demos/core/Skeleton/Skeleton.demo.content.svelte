@@ -1,17 +1,17 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
   import { Button, Skeleton } from '@svelteuidev/core';
 
-  let loading = false;
+	let loading = $state(true);
 <\/script>
 
 <Skeleton visible={loading}>
     Lorem ipsum dolor sit amet...
 </Skeleton>
-<Button on:click={() => (loading = !loading)}>
+<Button onclick={() => (loading = !loading)}>
     Toggle Skeleton
 </Button>
 `;
@@ -26,7 +26,7 @@
 <script lang="ts">
 	import { Button, Skeleton, Stack } from '@svelteuidev/core';
 
-	let loading = true;
+	let loading = $state(true);
 </script>
 
 <Stack align="center">
@@ -37,5 +37,5 @@
 		commodi tempora debitis dolores vero cumque magni cum, deserunt, ad tempore consectetur libero
 		molestias similique nemo eum! Dolore maxime voluptate inventore atque.
 	</Skeleton>
-	<Button on:click={() => (loading = !loading)}>Toggle Skeleton</Button>
+	<Button onclick={() => (loading = !loading)}>Toggle Skeleton</Button>
 </Stack>

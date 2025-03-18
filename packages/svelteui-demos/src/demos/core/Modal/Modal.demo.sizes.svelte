@@ -1,30 +1,37 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	export const type: CodeDemoType['type'] = 'demo';
 
 	export const configuration: CodeDemoConfiguration = {
-		toggle: true
+		canShowCode: true
 	};
 </script>
 
 <script>
-	import { Button, Group } from '@svelteuidev/core';
+	import { Button, Group, type LiteralUnion, type SvelteUISize } from '@svelteuidev/core';
 	import ModalForm from './ModalForm.svelte';
 
-	let size;
-	let opened;
+	let size: LiteralUnion<SvelteUISize, number | string> = $state();
+	let opened = $state(false);
 
-	const SIZES = ['xs', 'sm', 'md', 'lg', 'xl', 'full', 322, '70%'];
-
-	$: _size = size;
+	const SIZES: LiteralUnion<SvelteUISize, number | string>[] = [
+		'xs',
+		'sm',
+		'md',
+		'lg',
+		'xl',
+		'full',
+		322,
+		'70%'
+	];
 </script>
 
 <Group position="center">
-	{#each SIZES as s (s)}
+	{#each SIZES as s}
 		<Button
 			variant="outline"
-			on:click={() => {
+			onclick={() => {
 				size = s;
 				opened = true;
 			}}
@@ -34,4 +41,4 @@
 	{/each}
 </Group>
 
-<ModalForm {opened} closeModal={() => (opened = false)} withOpenButton={false} size={_size} />
+<ModalForm {opened} closeModal={() => (opened = false)} withOpenButton={false} {size} />

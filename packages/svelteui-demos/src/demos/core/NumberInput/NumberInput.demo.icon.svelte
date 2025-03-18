@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -13,7 +13,7 @@
     precision={2}
     min={-1}
     max={1}
-    icon={Star}
+    iconComponent={Star}
 \/>
 `;
 
@@ -37,6 +37,6 @@
 		min={-1}
 		max={1}
 		step={0.05}
-		icon={Star}
+		iconComponent={Star}
 	/>
 </Group>

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { Box, Anchor, Text, Stack } from '@svelteuidev/core';
 
-	export let isDark: boolean;
+	interface Props {
+		isDark: boolean;
+	}
+
+	let { isDark }: Props = $props();
 </script>
 
 <Stack>

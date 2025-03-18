@@ -3,24 +3,18 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"display": "Svelte",
 	"compilerOptions": {
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"module": "es2020",
 		"lib": ["ESNext", "DOM"],
 		"target": "es2020",
-		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
 		"allowJs": true,
-		"checkJs": true,
-		"paths": {
-			"$lib": ["src"],
-			"$lib/*": ["src/*"]
-		}
+		"checkJs": true
 	},
 	"references": [
 		{ "path": "../svelteui-core" },

@@ -6,8 +6,10 @@
 
 <Meta title="Components/Badge" component={Badge} />
 
-<Template let:args>
-	<Badge {...args}>Hello</Badge>
+<Template>
+	{#snippet children({ args })}
+		<Badge {...args}>Hello</Badge>
+	{/snippet}
 </Template>
 
 <Story name="Badge" id="badgeStory" />

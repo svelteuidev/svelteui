@@ -14,6 +14,7 @@ export interface MonthProps extends DefaultProps, MonthSettings {
 	onDayMouseEnter?(date: Date, event: MouseEvent): void;
 	onDayKeyDown?(payload: DayKeydownPayload, event: KeyboardEvent): void;
 	renderDay?(date: Date): unknown;
+	[key: string]: any;
 }
 
 interface MonthStyleParams {

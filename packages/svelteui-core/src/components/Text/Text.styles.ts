@@ -71,10 +71,10 @@ export default createStyles(
 				lineHeight: inherit
 					? 'inherit'
 					: inline
-					? 1
-					: typeof size === 'string'
-					? `$${size}`
-					: `${size}px`,
+						? 1
+						: typeof size === 'string'
+							? `$${size}`
+							: `${size}px`,
 				textTransform: transform,
 				textDecoration: underline ? 'underline' : 'none',
 				textAlign: align,
@@ -93,13 +93,13 @@ export default createStyles(
 							display: '-webkit-box',
 							WebkitLineClamp: lineClamp,
 							WebkitBoxOrient: 'vertical'
-					  }
+						}
 					: {}),
 				'&:hover':
 					variant === 'link' && underline === true
 						? {
 								textDecoration: 'underline'
-						  }
+							}
 						: undefined
 			}
 		};

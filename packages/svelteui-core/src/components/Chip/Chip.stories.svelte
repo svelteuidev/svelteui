@@ -11,8 +11,10 @@
 
 <Meta title="Components/Chip" component={Chip} />
 
-<Template let:args>
-	<Chip {...args} />
+<Template>
+	{#snippet children({ args })}
+		<Chip {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Chip" args={{ label: 'Chip' }} id="chipStory" />

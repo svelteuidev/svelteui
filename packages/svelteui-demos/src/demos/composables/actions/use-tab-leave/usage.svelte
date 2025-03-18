@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
     import { tableave } from '@svelteuidev/composables';
 
-    $: count = 0;
+    let count = $state(0);
 <\/script>
 
 <div use:tableave={() => count++}>Switch the tab to see the counter go up: {count}</div>`;
@@ -21,7 +21,8 @@
 	import { Center } from '@svelteuidev/core';
 	import { tableave } from '@svelteuidev/composables';
 
-	$: count = 0;
+	let count = $state(0);
+	
 </script>
 
 <Center>
