@@ -1,62 +1,38 @@
 <script lang="ts">
 	import useStyles from './Chip.styles.js';
 	import { randomID } from '$lib/styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
-	import type { ChipProps as $$ChipProps } from './Chip';
+	import type { ChipProps } from './Chip';
 
-	interface $$Props extends $$ChipProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		id = randomID(),
+		disabled = false,
+		value = undefined,
+		checked = $bindable(false),
+		label = '',
+		radius = 'xl',
+		size = 'sm',
+		variant = 'outline',
+		transitionDuration = 100,
+		children,
+		...rest
+	}: ChipProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		id: $$Props['id'] = randomID(),
-		disabled: $$Props['disabled'] = false,
-		value: $$Props['value'] = undefined,
-		checked: $$Props['checked'] = false,
-		label: $$Props['label'] = '',
-		radius: $$Props['radius'] = 'xl',
-		size: $$Props['size'] = 'sm',
-		variant: $$Props['variant'] = 'outline',
-		transitionDuration: $$Props['transitionDuration'] = 100;
-	export { className as class };
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ color, radius, size, transitionDuration },
-		{ name: 'Chip' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ color, radius, size, transitionDuration }, { name: 'Chip' })
+	);
 </script>
 
-<!--
-@component
-
-A picker for one or more options.
-
-@see https://svelteui.dev/core/chip
-@example
-    ```svelte
-    <Chip>Chips</Chip>
-    <Chip size={'lg'}>Big Chip</Chip>
-    <Chip>Another one</Chip>
-    <Chip checked disabled>Disabled</Chip>
-    ```
--->
-
-<Box
-	bind:element
-	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
->
+<Box bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
 	<div class={classes.inputContainer}>
 		<input
 			use:useActions={use}
-			use:forwardEvents
 			bind:checked
 			class={classes.input}
 			class:disabled
@@ -64,6 +40,7 @@ A picker for one or more options.
 			{disabled}
 			{value}
 			{id}
+			{...rest}
 		/>
 	</div>
 
@@ -85,6 +62,10 @@ A picker for one or more options.
 				</svg>
 			</div>
 		{/if}
-		<slot>{label}</slot>
+		{#if children}
+			{@render children()}
+		{:else}
+			{label}
+		{/if}
 	</label>
 </Box>

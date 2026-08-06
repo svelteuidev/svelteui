@@ -8,9 +8,9 @@ describe('JsonInput', () => {
 	itSupportsClassName(JsonInput);
 
 	it('validates json correctly', async () => {
-		expect(validateJson('{a: b}', JSON.parse)).toBeFalsy();
-		expect(validateJson('{"a": b}', JSON.parse)).toBeFalsy();
-		expect(validateJson('{"a": true}', JSON.parse)).toBeTruthy();
-		expect(validateJson('{"a": "hello"}', JSON.parse)).toBeTruthy();
+		expect(validateJson(() => '{a: b}', JSON.parse)).toBeFalsy();
+		expect(validateJson(() => '{"a": b}', JSON.parse)).toBeFalsy();
+		expect(validateJson(() => '{"a": true}', JSON.parse)).toBeTruthy();
+		expect(validateJson(() => '{"a": "hello"}', JSON.parse)).toBeTruthy();
 	});
 });

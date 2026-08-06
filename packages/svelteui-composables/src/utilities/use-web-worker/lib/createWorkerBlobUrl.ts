@@ -15,8 +15,7 @@ import depsParser from './depsParser.js';
  * .then(postMessage(['SUCCESS', result]))
  * .catch(postMessage(['ERROR', error])"
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
-const createWorkerBlobUrl = (fn: Function, deps: string[]) => {
+const createWorkerBlobUrl = (fn: () => void, deps: string[]) => {
 	const blobCode = `${depsParser(deps)}; onmessage=(${jobRunner})(${fn})`;
 	const blob = new Blob([blobCode], { type: 'text/javascript' });
 	const url = URL.createObjectURL(blob);

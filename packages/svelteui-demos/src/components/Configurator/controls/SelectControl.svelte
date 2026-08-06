@@ -2,11 +2,18 @@
 	import type { DemoControlSelect } from '$lib/types';
 	import { NativeSelect } from '@svelteuidev/core';
 	import { upperFirst } from '$lib/utils';
+	import type { ControlProps } from './Control';
 
-	export let value: string;
-	export let label: DemoControlSelect['label'];
-	export let data: DemoControlSelect['data'];
-	export let capitalize: DemoControlSelect['capitalize'] = true;
+	interface Props extends ControlProps {
+		data: DemoControlSelect['data'];
+		capitalize?: DemoControlSelect['capitalize'];
+	}
+
+	let { value, label, data, capitalize = true, onchange }: Props = $props();
+
+	function onChange(e) {
+		onchange(e.currentTarget.value);
+	}
 </script>
 
 <NativeSelect
@@ -16,5 +23,5 @@
 		value: item.value,
 		label: capitalize ? upperFirst(item.label) : item.label
 	}))}
-	on:change
+	onchange={onChange}
 />

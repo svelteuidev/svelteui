@@ -1,22 +1,23 @@
 <script lang="ts">
 	import { io } from '@svelteuidev/composables';
 	import { Box } from '../Box';
-	import type { ObserverRenderProps as $$ObserverRenderProps } from './ObserverRender';
+	import type { ObserverRenderProps } from './ObserverRender';
 
-	interface $$Props extends $$ObserverRenderProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		options = {},
+		children,
+		...rest
+	}: ObserverRenderProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		options: $$Props['options'] = {};
-	export { className as class };
-
-	let visible: boolean = null;
-	let entry: IntersectionObserverEntry = null;
-	let scrollDirection = null;
-	let observer = null;
-	let node = null;
+	let visible: boolean = $state(null);
+	let entry: IntersectionObserverEntry = $state(null);
+	let scrollDirection = $state(null);
+	let observer = $state(null);
+	let node = $state(null);
 </script>
 
 <Box
@@ -24,8 +25,8 @@
 	use={[[io, options], ...use]}
 	class={className}
 	css={{ ...override }}
-	{...$$restProps}
-	on:change={(event) => {
+	{...rest}
+	oniochange={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -39,7 +40,7 @@
 		observer = _observer;
 		node = _node;
 	}}
-	on:enter={(event) => {
+	onioenter={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -53,7 +54,7 @@
 		observer = _observer;
 		node = _node;
 	}}
-	on:leave={(event) => {
+	onioleave={(event) => {
 		const {
 			inView,
 			entry: _entry,
@@ -67,11 +68,11 @@
 		observer = _observer;
 		node = _node;
 	}}
-	on:init={(event) => {
+	onioinit={(event) => {
 		const { observer: _observer, node: _node } = event.detail;
 		observer = _observer;
 		node = _node;
 	}}
 >
-	<slot {visible} {entry} {scrollDirection} {observer} {node} />
+	{@render children?.({ visible, entry, scrollDirection, observer, node })}
 </Box>

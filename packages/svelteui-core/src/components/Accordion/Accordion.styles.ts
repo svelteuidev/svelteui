@@ -7,7 +7,7 @@ export interface AccordionStylesParams {
 	variant: AccordionVariant;
 }
 
-export default createStyles((theme, { radius, variant }: AccordionStylesParams) => {
+export default createStyles((_, _params: AccordionStylesParams) => {
 	return {
 		root: {}
 	};

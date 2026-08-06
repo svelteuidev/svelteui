@@ -6,8 +6,10 @@
 
 <Meta title="Components/NumberInput" component={NumberInput} />
 
-<Template let:args>
-	<NumberInput {...args} />
+<Template>
+	{#snippet children({ args })}
+		<NumberInput {...args} />
+	{/snippet}
 </Template>
 
 <Story name="NumberInput" id="numberInputStory" />
@@ -26,8 +28,8 @@
 
 <Story name="With icon (slot)" id="numbertInputIconSlotStory">
 	<NumberInput label="Price" placeholder="Your price">
-		<svelte:fragment slot="icon">
+		{#snippet icon()}
 			<EnvelopeClosed />
-		</svelte:fragment>
+		{/snippet}
 	</NumberInput>
 </Story>

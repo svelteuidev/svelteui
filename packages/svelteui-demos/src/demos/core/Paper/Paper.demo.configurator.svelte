@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) => `
@@ -36,11 +36,11 @@
 	import type { PaperProps } from '@svelteuidev/core';
 	import { Paper, Center } from '@svelteuidev/core';
 
-	export let props: PaperProps = {};
+	let { children, ...rest }: PaperProps = $props();
 </script>
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>
-	<Paper {...props}>
-		<slot />
+	<Paper {...rest}>
+		{@render children?.()}
 	</Paper>
 </Center>

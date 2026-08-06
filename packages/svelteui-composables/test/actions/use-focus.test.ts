@@ -11,6 +11,6 @@ describe('use-focus', () => {
 		const { component } = render(UseFocus, { target: container });
 
 		expect(component).toBeTruthy();
-		expect(document.activeElement.id).eq('focus');
+		expect(document.activeElement?.id).eq('focus');
 	});
 });

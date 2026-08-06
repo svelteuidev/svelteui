@@ -1,67 +1,46 @@
 <script lang="ts">
 	import useStyles from './Checkbox.styles';
 	import { randomID } from '$lib/styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import Box from '../Box/Box.svelte';
 	import ThemeIcon from '../ThemeIcon/ThemeIcon.svelte';
 	import CheckboxIcon from './CheckboxIcon.svelte';
-	import type { CheckboxProps as $$CheckboxProps } from './Checkbox';
+	import type { CheckboxProps } from './Checkbox';
 
-	interface $$Props extends $$CheckboxProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		id = randomID(),
+		disabled = false,
+		value = null,
+		checked = $bindable(false),
+		indeterminate = false,
+		label = null,
+		radius = 'sm',
+		size = 'md',
+		name = '',
+		required = false,
+		transitionDuration = 100,
+		children,
+		...rest
+	}: CheckboxProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		id: $$Props['id'] = randomID(),
-		disabled: $$Props['disabled'] = false,
-		value: $$Props['value'] = null,
-		checked: $$Props['checked'] = false,
-		indeterminate: $$Props['indeterminate'] = false,
-		label: $$Props['label'] = null,
-		radius: $$Props['radius'] = 'sm',
-		size: $$Props['size'] = 'md',
-		name: $$Props['name'] = '',
-		required: $$Props['required'] = false,
-		transitionDuration: $$Props['transitionDuration'] = 100;
-	export { className as class };
+	$effect(() => {
+		checked = indeterminate || checked;
+	});
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	$: checked = indeterminate || checked;
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ color, radius, size, transitionDuration },
-		{ name: 'Checkbox' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ color, radius, size, transitionDuration }, { name: 'Checkbox' })
+	);
 </script>
 
-<!--
-@component
-
-A checkbox input component using the theme styles with support for a label and indeterminate state.
-
-@see https://svelteui.dev/core/checkbox
-@example
-    ```svelte
-    <Checkbox />
-    <Checkbox size={'lg'} label={'Please accept this'} />
-    <Checkbox undetermined />
-    <Checkbox checked disabled />
-    ```
--->
-
-<Box
-	bind:element
-	class={cx(className, classes.root, getStyles({ css: override }))}
-	{...$$restProps}
->
+<Box bind:element class={cx(className, classes.root, getStyles({ css: override }))}>
 	<div class={classes.inner}>
 		<input
 			use:useActions={use}
-			use:forwardEvents
 			bind:checked
 			class={classes.input}
 			class:disabled
@@ -71,11 +50,14 @@ A checkbox input component using the theme styles with support for a label and i
 			{value}
 			{id}
 			{name}
+			{...rest}
 		/>
 		<ThemeIcon class={classes.iconWrapper} variant={null} {size}>
-			<slot>
+			{#if children}
+				{@render children()}
+			{:else}
 				<CheckboxIcon class={classes.icon} {indeterminate} />
-			</slot>
+			{/if}
 		</ThemeIcon>
 	</div>
 	{#if label}

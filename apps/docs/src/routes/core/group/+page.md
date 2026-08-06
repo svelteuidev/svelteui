@@ -30,7 +30,7 @@ docs: 'core/group'
 
 ## Group children
 
-<Alert icon={InfoCircled}  title="Important" color="blue">
+<Alert iconComponent={InfoCircled} title="Important" color="blue">
    Group will work only with elements and components that render elements. Strings, numbers, fragments and other parts will not have correct styles.
 </Alert>
 

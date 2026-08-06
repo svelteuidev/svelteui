@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -36,12 +36,14 @@
 
 <Paper override={{ overflowY: 'scroll', h: 300 }}>
 	<div style="padding-top: 260px; padding-bottom: 280px;">
-		<ObserverRender let:visible options={{ threshold: 1 }}>
-			<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} padding="xl">
-				<Text override={{ color: 'white' }} weight="extrabold">
-					{visible ? 'Fully visible' : 'Obscured'}
-				</Text>
-			</Paper>
-		</ObserverRender>
+		<ObserverRender  options={{ threshold: 1 }}>
+			{#snippet children({ visible })}
+						<Paper override={{ bc: visible ? '$green900' : '$red900', minW: '50%' }} padding="xl">
+					<Text override={{ color: 'white' }} weight="extrabold">
+						{visible ? 'Fully visible' : 'Obscured'}
+					</Text>
+				</Paper>
+								{/snippet}
+				</ObserverRender>
 	</div>
 </Paper>

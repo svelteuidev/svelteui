@@ -1,50 +1,43 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import { TextInput } from '../TextInput';
 	import useStyles from './NumberInput.styles';
 	import { defaultFormatter, defaultParser } from './utils';
-	import type {
-		NumberInputProps as $$NumberInputProps,
-		NumberInputEvents as $$NumberInputEvents
-	} from './NumberInput';
+	import type { NumberInputProps } from './NumberInput';
 
-	interface $$Props extends $$NumberInputProps {}
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$NumberInputEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		overrideControls: $$Props['override'] = {},
-		root: $$Props['root'] = 'input',
-		placeholder: $$Props['placeholder'] = undefined,
-		icon: $$Props['icon'] = null,
-		iconWidth: $$Props['iconWidth'] = 36,
-		iconProps: $$Props['iconProps'] = { size: 20, color: 'currentColor' },
-		wrapperProps: $$Props['wrapperProps'] = {},
-		required: $$Props['required'] = false,
-		radius: $$Props['radius'] = 'sm',
-		variant: $$Props['variant'] = 'default',
-		disabled: $$Props['disabled'] = false,
-		size: $$Props['size'] = 'sm',
-		value: $$Props['value'] = undefined,
-		defaultValue: $$Props['defaultValue'] = undefined,
-		decimalSeparator: $$Props['decimalSeparator'] = '.',
-		min: $$Props['min'] = -Infinity,
-		max: $$Props['max'] = Infinity,
-		step: $$Props['step'] = 1,
-		stepHoldDelay: $$Props['stepHoldDelay'] = 250,
-		stepHoldInterval: $$Props['stepHoldInterval'] = 150,
-		hideControls: $$Props['hideControls'] = false,
-		precision: $$Props['precision'] = 0,
-		noClampOnBlur: $$Props['noClampOnBlur'] = false,
-		formatter: $$Props['formatter'] = defaultFormatter,
-		parser: $$Props['parser'] = defaultParser;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		overrideControls = {},
+		root = 'input',
+		placeholder = undefined,
+		iconWidth = 36,
+		iconProps = { size: 20, color: 'currentColor' },
+		wrapperProps = {},
+		required = false,
+		radius = 'sm',
+		variant = 'default',
+		disabled = false,
+		size = 'sm',
+		value = $bindable(null),
+		defaultValue = undefined,
+		decimalSeparator = '.',
+		min = -Infinity,
+		max = Infinity,
+		step = 1,
+		stepHoldDelay = 250,
+		stepHoldInterval = 150,
+		hideControls = false,
+		precision = 0,
+		noClampOnBlur = false,
+		formatter = defaultFormatter,
+		parser = defaultParser,
+		onchange = () => {},
+		icon,
+		...rest
+	}: NumberInputProps = $props();
 
 	/** Function that allows incrementing the value outside the component, useful for external controls */
 	export function increment() {
@@ -54,9 +47,6 @@
 	export function decrement() {
 		onStep(false, false);
 	}
-
-	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component(), ['change']);
 
 	let isKeyDown = false;
 	let stepCount = 0;
@@ -85,6 +75,8 @@
 		return parser(number);
 	}
 
+	// @TODO: see if all these on functions can be simplified by just using getters and
+	// setters in the value bind
 	function onInput() {
 		if (this.value === '' || this.value === '-') {
 			value = undefined;
@@ -93,7 +85,7 @@
 			if (parsedNumber === undefined || Number.isNaN(parseNumber)) return;
 			value = parseFloat(parsedNumber);
 		}
-		dispatch('change', value);
+		onchange(value);
 	}
 
 	function stepInterval(up) {
@@ -115,7 +107,7 @@
 
 		// dispatches change events so that listeners can get
 		// the original value, not formatted
-		dispatch('change', value);
+		onchange(value);
 
 		if (!hold) return;
 
@@ -153,7 +145,7 @@
 
 		const clamped = _clamp(value);
 		value = parseFloat(clamped.toFixed(precision));
-		dispatch('change', value);
+		onchange(value);
 
 		(element as HTMLInputElement).value = formatNumber(value);
 	}
@@ -172,29 +164,17 @@
 		return val;
 	}
 
-	$: value = _valueC(value);
-	$: showControls = !hideControls && variant !== 'unstyled' && !disabled;
+	// Sets value to the default one if the default is defined but value is not
+	value = _valueC(value);
 
-	$: ({ cx, classes, getStyles } = useStyles({ radius, size }, { name: 'NumberInput' }));
+	let showControls = $derived(!hideControls && variant !== 'unstyled' && !disabled);
+
+	const { cx, classes, getStyles } = $derived(useStyles({ radius, size }, { name: 'NumberInput' }));
 </script>
 
-<!--
-@component
-**UNSTABLE**: new API, yet to be vetted.
-
-Number input component that allows inputting numbers and incremeting/decrementing them, as well as set steps, minimum and maximum
-values and add custom parsers and formatters.
-
-@see https://svelteui.dev/core/number-input
-@example
-    ```svelte
-    <NumberInput defaultValue={2} />
-	<NumberInput max={10} min={0} step={0.5} precision={1} />
-	<NumberInput defaultValue={0} step={0.2} precision={2} decimalSeparator="," />
-	<NumberInput label='Your age' required defaultValue={0} />
-    ```
--->
-
+<!-- @TODO: The error in bind is because the eslint plugin is not yet updated
+ for the getter and setter in bind. See https://github.com/sveltejs/svelte/pull/14307  -->
+<!-- eslint-disable -->
 <TextInput
 	{root}
 	{icon}
@@ -210,41 +190,43 @@ values and add custom parsers and formatters.
 	class={cx(className, classes.root)}
 	override={{ '& .rightSection': { width: 'auto' }, ...override }}
 	value={formatNumber(value)}
+	onchange={onInput}
 	showRightSection={showControls}
-	{...$$restProps}
+	use={[[useActions, use]]}
 	bind:element
-	on:input={onInput}
-	on:keyup={onKeyUp}
-	on:keydown={onKeyDown}
-	on:blur={onBlur}
-	use={[forwardEvents, [useActions, use]]}
+	oninput={onInput}
+	onkeyup={onKeyUp}
+	onkeydown={onKeyDown}
+	onblur={onBlur}
+	{...rest}
 >
-	<slot slot="icon" name="icon" />
-	<div
-		slot="rightSection"
-		class={cx(className, classes.controls, getStyles({ css: overrideControls }))}
-	>
-		{#if showControls}
-			<button
-				class={cx(classes.control, classes.controlUp)}
-				type="button"
-				tabIndex={-1}
-				aria-hidden
-				disabled={value >= max}
-				on:mousedown={() => onStep(true)}
-				on:mouseup={onStepDone}
-				on:mouseleave={onStepDone}
-			/>
-			<button
-				class={cx(classes.control, classes.controlDown)}
-				type="button"
-				tabIndex={-1}
-				aria-hidden
-				disabled={value <= min}
-				on:mousedown={() => onStep(false)}
-				on:mouseup={onStepDone}
-				on:mouseleave={onStepDone}
-			/>
-		{/if}
-	</div>
+	{@render icon?.()}
+	{#snippet rightSection()}
+		<div class={cx(className, classes.controls, getStyles({ css: overrideControls }))}>
+			{#if showControls}
+				<button
+					class={cx(classes.control, classes.controlUp)}
+					type="button"
+					tabIndex={-1}
+					aria-hidden={true}
+					aria-label="step-up"
+					disabled={value >= max}
+					onmousedown={() => onStep(true)}
+					onmouseup={onStepDone}
+					onmouseleave={onStepDone}
+				></button>
+				<button
+					class={cx(classes.control, classes.controlDown)}
+					type="button"
+					tabIndex={-1}
+					aria-hidden={true}
+					aria-label="step-down"
+					disabled={value <= min}
+					onmousedown={() => onStep(false)}
+					onmouseup={onStepDone}
+					onmouseleave={onStepDone}
+				></button>
+			{/if}
+		</div>
+	{/snippet}
 </TextInput>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -26,6 +26,6 @@
 </script>
 
 <Stack align="center">
-	<Button on:click={() => window.location.reload()}>Click to refresh the page</Button>
+	<Button onclick={() => window.location.reload()}>Click to refresh the page</Button>
 	<p>Generated hash that won't change: <b>{id}</b></p>
 </Stack>

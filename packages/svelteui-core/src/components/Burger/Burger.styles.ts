@@ -74,7 +74,7 @@ export default createStyles((theme, { color, size, opened }: BurgerStyleParams) 
 						'&:after': {
 							transform: `translateY(-${sizeValue / 3}px) rotate(-45deg)`
 						}
-				  }
+					}
 				: {}
 		}
 	};

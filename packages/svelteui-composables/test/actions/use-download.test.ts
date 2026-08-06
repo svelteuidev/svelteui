@@ -28,6 +28,8 @@ describe('use-download', () => {
 		global.URL.revokeObjectURL = revokeObjectURLMock;
 
 		const btn = document.getElementById('download');
+		if (!btn) throw new Error('Button element not found');
+
 		btn.click();
 		await tick();
 		expect(createObjectURLMock).toHaveBeenCalledTimes(1);

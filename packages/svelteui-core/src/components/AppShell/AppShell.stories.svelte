@@ -11,18 +11,22 @@
 
 <Template>
 	<AppShell>
-		<Navbar slot="navbar" fixed width={{ sm: 200, lg: 300 }}>
-			<ShellSection grow>
-				<Stack>
-					<Text align="center">Navbar</Text>
-					<Anchor href="#">Home Page</Anchor>
-					<Anchor href="#">Test Page</Anchor>
-				</Stack>
-			</ShellSection>
-		</Navbar>
-		<Header slot="header" height={60}>
-			<Title>Header</Title>
-		</Header>
+		{#snippet navbar()}
+			<Navbar fixed width={{ sm: 200, lg: 300 }}>
+				<ShellSection grow>
+					<Stack>
+						<Text align="center">Navbar</Text>
+						<Anchor href="#">Home Page</Anchor>
+						<Anchor href="#">Test Page</Anchor>
+					</Stack>
+				</ShellSection>
+			</Navbar>
+		{/snippet}
+		{#snippet header()}
+			<Header height={60}>
+				<Title>Header</Title>
+			</Header>
+		{/snippet}
 		<div style="display: flex;">This is the main content</div>
 	</AppShell>
 </Template>

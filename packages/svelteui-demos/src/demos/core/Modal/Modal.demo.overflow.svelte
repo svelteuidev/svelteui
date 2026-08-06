@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 // (default) - overflow is handled by modal wrapper
@@ -16,14 +16,14 @@
 
 	const content = Array(100)
 		.fill(0)
-		.map((_, index) => 'Svelte is a complier');
+		.map(() => 'Svelte is a complier');
 </script>
 
 <script>
 	import { Modal, Group, Button } from '@svelteuidev/core';
 
-	let insideOpened = false;
-	let outsideOpened = false;
+	let insideOpened = $state(false);
+	let outsideOpened = $state(false);
 
 	const closeInside = () => (insideOpened = false);
 	const closeOutside = () => (outsideOpened = false);
@@ -33,8 +33,8 @@
 
 <Modal
 	opened={outsideOpened}
-	on:close={closeOutside}
-	title="Please consider this"
+	onclose={closeOutside}
+	titleText="Please consider this"
 	overflow="outside"
 >
 	{#each content as _}
@@ -42,13 +42,18 @@
 	{/each}
 </Modal>
 
-<Modal opened={insideOpened} on:close={closeInside} title="Please consider this" overflow="inside">
+<Modal
+	opened={insideOpened}
+	onclose={closeInside}
+	titleText="Please consider this"
+	overflow="inside"
+>
 	{#each content as _}
 		<p>{_}</p>
 	{/each}
 </Modal>
 
 <Group position="center">
-	<Button on:click={openOutside} color="pink">Outside overflow</Button>
-	<Button on:click={openInside} color="cyan">Inside overflow</Button>
+	<Button onclick={openOutside} color="pink">Outside overflow</Button>
+	<Button onclick={openInside} color="cyan">Inside overflow</Button>
 </Group>

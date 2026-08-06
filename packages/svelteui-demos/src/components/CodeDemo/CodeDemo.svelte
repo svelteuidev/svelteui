@@ -3,20 +3,21 @@
 	import { expoIn, expoOut } from 'svelte/easing';
 	import { ActionIcon, Box, css, dark } from '@svelteuidev/core';
 	import { Prism } from '@svelteuidev/prism';
-	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
+	import type { CodeDemoProps } from './CodeDemo';
 
-	export let component: CodeDemoType['default'];
-	export let previewBackground: CodeDemoConfiguration['previewBackground'];
-	export let previewMaxWidth: CodeDemoConfiguration['previewMaxWidth'];
-	export let code: CodeDemoConfiguration['code'];
-	export let spacing: CodeDemoConfiguration['spacing'] = true;
-	export let toggle: CodeDemoConfiguration['toggle'] = false;
-	let codeVisible: boolean;
+	let {
+		component,
+		previewBackground,
+		previewMaxWidth,
+		code,
+		spacing = true,
+		canShowCode = $bindable(false)
+	}: CodeDemoProps = $props();
 
-	$: codeVisible = !toggle;
+	let isCodeVisible = $state(true);
 
 	function toggleCodeVisibility() {
-		codeVisible = !codeVisible;
+		isCodeVisible = !isCodeVisible;
 	}
 
 	const styles = css({
@@ -64,16 +65,18 @@
 			}
 		}
 	});
+
+	const DemoComponent = $derived(component);
 </script>
 
 <div class={styles()}>
 	<div class="preview">
 		<div class="wrapper">
-			<svelte:component this={component} />
+			<DemoComponent />
 		</div>
-		{#if !!code && toggle}
+		{#if !!code && canShowCode}
 			<div class="toggle">
-				<ActionIcon on:click={toggleCodeVisibility}>
+				<ActionIcon onclick={toggleCodeVisibility}>
 					<svg
 						width="20"
 						height="20"
@@ -91,11 +94,11 @@
 			</div>
 		{/if}
 	</div>
-	{#if code && codeVisible}
+	{#if code && isCodeVisible}
 		<div
 			class="code"
-			in:slide={{ duration: 300, easing: expoIn }}
-			out:slide={{ duration: 200, easing: expoOut }}
+			in:slide|global={{ duration: 300, easing: expoIn }}
+			out:slide|global={{ duration: 200, easing: expoOut }}
 		>
 			<Box>
 				<Prism

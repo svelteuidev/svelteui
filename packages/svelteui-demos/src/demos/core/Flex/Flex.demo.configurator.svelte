@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `<script>
@@ -11,9 +11,9 @@
 	<Button>Button 3</Button>
 </Flex>`;
 
-export const type: ConfiguratorDemoType['type'] = 'configurator';
+	export const type: ConfiguratorDemoType['type'] = 'configurator';
 
-export const configuration: ConfiguratorDemoConfiguration = {
+	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
 			{
@@ -50,7 +50,7 @@ export const configuration: ConfiguratorDemoConfiguration = {
 				initialValue: 'wrap',
 				defaultValue: 'wrap'
 			},
-			{ name: 'gap', type: 'size', initialValue: 'sm', defaultValue: 'sm' },
+			{ name: 'gap', type: 'size', initialValue: 'sm', defaultValue: 'sm' }
 		]
 	};
 </script>
@@ -59,7 +59,7 @@ export const configuration: ConfiguratorDemoConfiguration = {
 	import { Button, Flex } from '@svelteuidev/core';
 	import type { FlexProps } from '@svelteuidev/core';
 
-	export let props: FlexProps = {};
+	let props: FlexProps = $props();
 </script>
 
 <Flex {...props}>

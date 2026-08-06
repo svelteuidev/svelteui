@@ -17,18 +17,12 @@
 	import { onMount } from 'svelte';
 	import { hotkey } from '@svelteuidev/composables';
 	import { browser } from '$app/environment';
-	import SearchItem from '$lib/components/SearchItem.svelte';
+	import SearchItem, { type SearchType } from '$lib/components/SearchItem.svelte';
 
-	type SearchItem = {
-		title: string;
-		link: string;
-		section?: string;
-	};
-
-	let recentSearches: SearchItem[],
-		searchTerm = '',
-		matchingSearches: SearchItem[] = [],
-		modalOpened = false;
+	let recentSearches: SearchType[] = $state([]),
+		searchTerm = $state(''),
+		matchingSearches: SearchType[] = $state([]),
+		modalOpened = $state(false);
 
 	onMount(() => {
 		recentSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
@@ -54,11 +48,11 @@
 		);
 	}
 
-	function addSearch(matchingSearch: SearchItem) {
+	function addSearch(matchingSearch: SearchType) {
 		changeModalState();
 		const existingSearches = JSON.parse(localStorage.getItem('recentSearches') ?? '[]') || [];
 		const elementExists = existingSearches.some(
-			(item: SearchItem) => item.title === matchingSearch.title
+			(item: SearchType) => item.title === matchingSearch.title
 		);
 		if (!elementExists) existingSearches.unshift(matchingSearch);
 		if (existingSearches.length > 6) existingSearches.pop();
@@ -93,7 +87,7 @@
 			}
 		}
 	}));
-	$: ({ getStyles } = useStyles());
+	let { getStyles } = $derived(useStyles());
 </script>
 
 <div class="mobile_topbar">
@@ -147,15 +141,16 @@
 		</li>
 		{#each config.buttons as { title, props, icon }}
 			<li>
-				<Tooltip withArrow label={title}>
+				<Tooltip withArrow labelComponent={title}>
 					<ActionIcon root="a" {...props} radius="md" size="lg">
-						<svelte:component this={icon} size={20} />
+						{@const SvelteComponent = icon}
+						<SvelteComponent size={20} />
 					</ActionIcon>
 				</Tooltip>
 			</li>
 		{/each}
 		<li>
-			<Tooltip withArrow label="Toggle Theme">
+			<Tooltip withArrow labelComponent="Toggle Theme">
 				<ActionIcon size="lg" variant="outline" on:click={toggleTheme} radius="md">
 					{#if $colorScheme === 'light'}
 						<Moon size={20} />
@@ -170,7 +165,7 @@
 
 <Modal
 	opened={modalOpened}
-	on:close={changeModalState}
+	onclose={changeModalState}
 	overflow="inside"
 	trapFocus
 	class={getStyles()}
@@ -179,20 +174,20 @@
 	<TextInput
 		placeholder="Search..."
 		bind:value={searchTerm}
-		on:input={onSearchValueInput}
+		oninput={onSearchValueInput}
 		autocomplete="off"
 		autofocus
 	>
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<MagnifyingGlass color="#228be6" size={20} />
-		</svelte:fragment>
+		{/snippet}
 	</TextInput>
 	{#if searchTerm.length === 0}
 		{#if recentSearches.length > 0}
 			<h3 class="recentSearchesTitle">Recent searches:</h3>
 			<div class="searchWrapper">
 				{#each recentSearches as recentSearch}
-					<SearchItem search={recentSearch} on:addSearch={() => addSearch(recentSearch)} />
+					<SearchItem search={recentSearch} onAddSearch={() => addSearch(recentSearch)} />
 				{/each}
 			</div>
 		{:else}
@@ -201,7 +196,7 @@
 	{:else if matchingSearches.length > 0}
 		<div class="searchWrapper">
 			{#each matchingSearches as matchingSearch}
-				<SearchItem search={matchingSearch} on:addSearch={() => addSearch(matchingSearch)} />
+				<SearchItem search={matchingSearch} onAddSearch={() => addSearch(matchingSearch)} />
 			{/each}
 		</div>
 	{:else}
@@ -211,10 +206,10 @@
 	<div class="searchWrapper">
 		{#each searchLinks as searchLink}
 			{#if validateSearchLink(searchLink.section)}
-				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+				<SearchItem search={searchLink} onAddSearch={() => addSearch(searchLink)} />
 			{:else}
 				<h2>{changePreviousSection(searchLink.section)}</h2>
-				<SearchItem search={searchLink} on:addSearch={() => addSearch(searchLink)} />
+				<SearchItem search={searchLink} onAddSearch={() => addSearch(searchLink)} />
 			{/if}
 		{/each}
 	</div>

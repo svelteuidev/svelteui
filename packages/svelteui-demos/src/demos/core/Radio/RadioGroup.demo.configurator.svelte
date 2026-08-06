@@ -1,12 +1,12 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) => `
+	const codeTemplate = (props: string) => `
 <script>
   import { Radio } from '@svelteuidev/core';
 <\/script>
 
-<RadioGroup {...props} value={...} items={[...]} />
+<RadioGroup ${props} value={...} items={[...]} />
 `;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
@@ -52,7 +52,7 @@
 	import type { RadioGroupProps } from '@svelteuidev/core';
 	import { RadioGroup, Center } from '@svelteuidev/core';
 
-	export let props: Partial<RadioGroupProps> = {};
+	let props: Partial<RadioGroupProps> = $props();
 </script>
 
 <Center>

@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
-	import { fade, scale } from 'svelte/transition';
+	import { onMount } from 'svelte';
 	import { sineInOut } from 'svelte/easing';
+
 	import { focustrap, lockscroll, useFocusReturn } from '@svelteuidev/composables';
+
 	import { getTransition } from '$lib/internal';
 	import { randomID, colorScheme, css } from '$lib/styles';
 	import { CloseButton } from '../ActionIcon';
@@ -12,89 +13,82 @@
 	import { OptionalPortal } from '../Portal';
 	import { Text } from '../Text';
 	import useStyles from './Modal.styles';
-	import type { ModalProps as $$ModalProps, ModalEvents as $$ModalEvents } from './Modal';
+	import type { ModalProps } from './Modal';
 
-	interface $$Props extends $$ModalProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		opened = false,
+		titleText = '',
+		zIndex = 200,
+		overflow = 'outside',
+		withCloseButton = true,
+		overlayOpacity = null,
+		overlayColor = null,
+		overlayBlur = 0,
+		radius = 'sm',
+		size = 'md',
+		transition = 'scale',
+		transitionOptions = { duration: 100, easing: sineInOut },
+		overlayTransition = 'fade',
+		overlayTransitionOptions = { duration: 200, easing: sineInOut },
+		closeButtonLabel = 'svelteui-close-button',
+		id = 'svelteui',
+		shadow = 'lg',
+		padding = 'lg',
+		closeOnClickOutside = true,
+		closeOnEscape = true,
+		trapFocus = true,
+		centered = null,
+		target = '#SVELTEUI_PROVIDER',
+		withinPortal = true,
+		onclose = () => {},
+		title,
+		children,
+		...rest
+	}: ModalProps = $props();
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$ModalEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		opened: $$Props['opened'] = false,
-		title: $$Props['title'] = '',
-		zIndex: $$Props['zIndex'] = 200,
-		overflow: $$Props['overflow'] = 'outside',
-		withCloseButton: $$Props['withCloseButton'] = true,
-		overlayOpacity: $$Props['overlayOpacity'] = null,
-		overlayColor: $$Props['overlayColor'] = null,
-		overlayBlur: $$Props['overlayBlur'] = 0,
-		radius: $$Props['radius'] = 'sm',
-		size: $$Props['size'] = 'md',
-		transition: $$Props['transition'] = 'scale',
-		transitionOptions: $$Props['transitionOptions'] = { duration: 100, easing: sineInOut },
-		overlayTransition: $$Props['transition'] = 'fade',
-		overlayTransitionOptions: $$Props['transitionOptions'] = { duration: 200, easing: sineInOut },
-		closeButtonLabel: $$Props['closeButtonLabel'] = 'svelteui-close-button',
-		id: $$Props['id'] = 'svelteui',
-		shadow: $$Props['shadow'] = 'lg',
-		padding: $$Props['padding'] = 'lg',
-		closeOnClickOutside: $$Props['closeOnClickOutside'] = true,
-		closeOnEscape: $$Props['closeOnEscape'] = true,
-		trapFocus: $$Props['trapFocus'] = true,
-		centered: $$Props['centered'] = null,
-		target: $$Props['target'] = '#SVELTEUI_PROVIDER',
-		withinPortal: $$Props['withinPortal'] = true;
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
 	const castAny = (self: unknown) => self as any;
 	const baseId = randomID(id);
 	const titleId = `${baseId}-title`;
 	const bodyId = `${baseId}-body`;
 	const _overlayOpacity =
 		typeof overlayOpacity === 'number' ? overlayOpacity : $colorScheme === 'dark' ? 0.85 : 0.75;
+
 	const { handleFocusReturn } = useFocusReturn();
 
 	const closeOnEscapePress = (event: KeyboardEvent) => {
 		if (!trapFocus && event.code === 'Escape' && closeOnEscape) {
-			onClose();
+			onclose();
 		}
 	};
 
-	function onClose() {
-		dispatch('close');
-	}
+	onMount(() => {
+		if (!trapFocus && typeof window !== 'undefined') {
+			window.addEventListener('keydown', closeOnEscapePress);
+		}
+	});
+
+	$effect(() => handleFocusReturn(opened));
+	$effect(() => {
+		if (opened && ((typeof target === 'string' && !document.querySelector(target)) || !target)) {
+			throw new Error(
+				'Wrap your app in the SvelteUIProvider, or provide a sufficent target throught the "target={\'\'}" prop '
+			);
+		}
+	});
+
+	const lockScroll = $derived(opened);
+	const _transition = $derived(getTransition(transition) as any);
+	const _overlayTransition = $derived(getTransition(overlayTransition) as any);
 
 	// Temporary, just add zIndex to Portal component
 	const zIndexStyles = css({ zIndex });
-
-	$: handleFocusReturn(opened);
-
-	$: {
-		onMount(() => {
-			if (!trapFocus) {
-				typeof window !== 'undefined'
-					? window.addEventListener('keydown', closeOnEscapePress)
-					: null;
-			}
-		});
-	}
-
-	$: if (opened && ((typeof target === 'string' && !document.querySelector(target)) || !target)) {
-		throw new Error(
-			'Wrap your app in the SvelteUIProvider, or provide a sufficent target throught the "target={\'\'}" prop '
-		);
-	}
-	$: lockScroll = opened;
-	$: _transition = getTransition(transition) as any;
-	$: _overlayTransition = getTransition(overlayTransition) as any;
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ centered, overflow, size, zIndex },
-		{ name: 'Modal' }
-	));
+	const { cx, classes, getStyles } = $derived(
+		useStyles({ centered, overflow, size, zIndex }, { name: 'Modal' })
+	);
 </script>
 
 {#if opened}
@@ -103,20 +97,20 @@
 			id={baseId}
 			bind:element
 			{use}
-			{...$$restProps}
 			class={cx(className, classes.root, getStyles({ css: override }))}
+			{...rest}
 		>
 			<div
 				role="presentation"
 				class={classes.inner}
 				use:lockscroll={lockScroll}
-				on:keydown|capture={(event) => {
+				onkeydowncapture={(event) => {
 					const shouldTrigger =
 						castAny(event.target)?.getAttribute('data-svelteui-stop-propagation') !== 'true';
-					shouldTrigger && event.code === 'Escape' && closeOnEscape && onClose();
+					if (shouldTrigger && event.code === 'Escape' && closeOnEscape) onclose();
 				}}
 			>
-				<div class={classes.transition} transition:_transition={transitionOptions}>
+				<div class={classes.transition} transition:_transition|global={transitionOptions}>
 					<Paper
 						class={classes.modal}
 						{shadow}
@@ -129,39 +123,40 @@
 						tabindex={-1}
 						use={[[focustrap, trapFocus]]}
 					>
-						{#if title || withCloseButton}
+						{#if titleText || title || withCloseButton}
 							<div class={classes.header}>
-								<slot name="title">
+								{#if title}
+									{@render title()}
+								{:else}
 									<Text id={titleId} class={classes.title}>
-										{title}
+										{titleText}
 									</Text>
-								</slot>
-
+								{/if}
 								{#if withCloseButton}
 									<CloseButton
 										iconSize={16}
-										on:click={onClose}
 										aria-label={closeButtonLabel}
 										class={classes.close}
+										onclick={onclose}
 									/>
 								{/if}
 							</div>
 						{/if}
 						<div id={bodyId} class={classes.body}>
-							<slot>Place some content</slot>
+							{@render children()}
 						</div>
 					</Paper>
 				</div>
 			</div>
-			<div transition:_overlayTransition={overlayTransitionOptions}>
+			<div transition:_overlayTransition|global={overlayTransitionOptions}>
 				<Overlay
 					class={classes.overlay}
 					override={{ position: 'fixed' }}
 					zIndex={0}
-					on:mousedown={() => closeOnClickOutside && onClose()}
 					blur={overlayBlur}
 					color={overlayColor || 'black'}
 					opacity={_overlayOpacity}
+					onmousedown={() => closeOnClickOutside && onclose()}
 				/>
 			</div>
 		</Box>

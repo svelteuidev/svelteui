@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -9,7 +9,8 @@
 <NativeSelect
     data={['Svelte', 'Vue', 'Angular', 'React']}
     label="Pick the best"
-    icon={StarFilled}
+    iconComponent={StarFilled}
+	override={{ '.withIcon': { pl: '40px !important' } }}
 />`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -27,6 +28,6 @@
 <NativeSelect
 	data={['Svelte', 'Vue', 'Angular', 'React']}
 	label="Pick the best"
-	icon={StarFilled}
+	iconComponent={StarFilled}
 	override={{ '.withIcon': { pl: '40px !important' } }}
 />

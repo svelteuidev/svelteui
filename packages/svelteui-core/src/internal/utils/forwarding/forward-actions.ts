@@ -1,22 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // This file taken from rgossiaux/svelte-headlessui
 // Copyright 2020-present Hunter Perrin
 
-export type SvelteActionReturnType<P> = {
-	update?: (newParams?: P) => void;
-	destroy?: () => void;
-} | void;
+import type { Action, ActionReturn } from 'svelte/action';
 
-export interface SvelteAction<E = HTMLElement, P = any> {
-	<N extends E>(node: N, params?: P): void | SvelteActionReturnType<P>;
-}
-
-export type ActionEntry<N = HTMLElement, P = any> = SvelteAction<N, P> | [SvelteAction<N, P>, P];
+export type ActionEntry<N = HTMLElement, P = any> =
+	| Action<N, P, ActionReturn<unknown>>
+	| [Action<N, P, ActionReturn<unknown>>, P];
 
 export type ActionArray = ActionEntry[];
 
 export function useActions(node: HTMLElement | SVGElement, actions: ActionArray) {
-	const actionReturns: SvelteActionReturnType<any>[] = [];
+	const actionReturns: (void | ActionReturn<unknown | undefined>)[] = [];
 
 	if (actions) {
 		for (let i = 0; i < actions.length; i++) {
@@ -44,7 +38,7 @@ export function useActions(node: HTMLElement | SVGElement, actions: ActionArray)
 						if (Array.isArray(actionEntry) && actionEntry.length > 1) {
 							returnEntry.update(actionEntry[1]);
 						} else {
-							returnEntry.update();
+							returnEntry.update(undefined);
 						}
 					}
 				}

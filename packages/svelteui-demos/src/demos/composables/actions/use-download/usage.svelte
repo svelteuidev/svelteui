@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -13,10 +13,10 @@
     });
 <\/script>
 
-<Button 
+<Button
     variant='outline'
     use={[[download, { blob: file, filename: "test.txt" }]]}
-    on:usedownload={() => console.log('File Downloaded')}
+    onusedownload={() => console.log('File Downloaded')}
 >
     Download File
 </Button>`;
@@ -33,7 +33,7 @@
 	import { Button, Center } from '@svelteuidev/core';
 	import { download } from '@svelteuidev/composables';
 
-	let file;
+	let file = $state();
 	onMount(() => {
 		file = new Blob([JSON.stringify({ hello: 'world' })], { type: 'application/json' });
 	});
@@ -43,7 +43,7 @@
 	<Button
 		variant="outline"
 		use={[[download, { blob: file, filename: 'hello.txt' }]]}
-		on:usedownload={() => console.log('File Downloaded')}
+		onusedownload={() => console.log('File Downloaded')}
 	>
 		Download File
 	</Button>

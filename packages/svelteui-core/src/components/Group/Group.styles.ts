@@ -31,10 +31,10 @@ export default createStyles(
 					(direction === 'row'
 						? 'center'
 						: grow
-						? 'stretch'
-						: position === 'apart'
-						? 'flex-start'
-						: POSITIONS[position]),
+							? 'stretch'
+							: position === 'apart'
+								? 'flex-start'
+								: POSITIONS[position]),
 				flexWrap: noWrap ? 'nowrap' : 'wrap',
 				justifyContent: direction === 'row' ? POSITIONS[position] : undefined,
 				gap: theme.fn.size({ size: spacing, sizes: theme.space }),
@@ -46,7 +46,7 @@ export default createStyles(
 							? `calc(${100 / children}% - ${
 									theme.fn.size({ size: spacing, sizes: theme.space }) -
 									theme.fn.size({ size: spacing, sizes: theme.space }) / children
-							  }px)`
+								}px)`
 							: undefined,
 					flexGrow: grow ? 1 : 0
 				}

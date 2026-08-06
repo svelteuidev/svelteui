@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -48,8 +48,8 @@
 	const theme = useSvelteUITheme();
 
 	const highlight = {
-		backgroundColor: theme.colors.blue50.value,
-		border: `1px solid ${theme.colors.blue300.value}`
+		backgroundColor: theme.colors['blue50'].value,
+		border: `1px solid ${theme.colors['blue300'].value}`
 	};
 
 	const boxStyles = {

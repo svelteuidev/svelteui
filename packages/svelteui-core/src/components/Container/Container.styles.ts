@@ -12,7 +12,7 @@ export default createStyles((theme, { fluid, size, sizes }: ContainerStyleParams
 		root: {
 			paddingLeft: theme.fn.size({ size, sizes: theme.space }),
 			paddingRight: theme.fn.size({ size, sizes: theme.space }),
-			maxWidth: fluid ? '100%' : typeof size === 'number' ? `${size}px` : sizes[size] ?? sizes.md,
+			maxWidth: fluid ? '100%' : typeof size === 'number' ? `${size}px` : (sizes[size] ?? sizes.md),
 			marginLeft: 'auto',
 			marginRight: 'auto'
 		}

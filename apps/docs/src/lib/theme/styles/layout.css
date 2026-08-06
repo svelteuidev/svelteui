@@ -24,7 +24,8 @@ body {
 
 .main.nosidebar {
 	margin-left: 0;
-	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),
+	background:
+		linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),
 		fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
 		fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
 }
@@ -34,11 +35,8 @@ body {
 }
 
 .dark-theme .main.nosidebar {
-	background: linear-gradient(
-			to bottom,
-			rgba(255, 255, 255, 0) 0%,
-			var(--svelteui-colors-dark600) 600px
-		),
+	background:
+		linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--svelteui-colors-dark600) 600px),
 		fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
 		fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
 }
@@ -251,9 +249,23 @@ body {
 .article th {
 	-webkit-text-size-adjust: 100%;
 	text-rendering: optimizeLegibility;
-	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
-		sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
-		Segoe UI Symbol, Noto Color Emoji;
+	font-family:
+		Inter,
+		system-ui,
+		-apple-system,
+		Segoe UI,
+		Roboto,
+		Ubuntu,
+		Cantarell,
+		Noto Sans,
+		sans-serif,
+		BlinkMacSystemFont,
+		Helvetica Neue,
+		Arial,
+		Apple Color Emoji,
+		Segoe UI Emoji,
+		Segoe UI Symbol,
+		Noto Color Emoji;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.625;
 	border: 0 solid #d2d6dc;
@@ -271,9 +283,23 @@ body {
 .article td {
 	-webkit-text-size-adjust: 100%;
 	text-rendering: optimizeLegibility;
-	font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
-		sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji,
-		Segoe UI Symbol, Noto Color Emoji;
+	font-family:
+		Inter,
+		system-ui,
+		-apple-system,
+		Segoe UI,
+		Roboto,
+		Ubuntu,
+		Cantarell,
+		Noto Sans,
+		sans-serif,
+		BlinkMacSystemFont,
+		Helvetica Neue,
+		Arial,
+		Apple Color Emoji,
+		Segoe UI Emoji,
+		Segoe UI Symbol,
+		Noto Color Emoji;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.625;
 	--text-opacity: 1;
@@ -485,7 +511,8 @@ body {
 	}
 
 	.main.nosidebar {
-		background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),
+		background:
+			linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 600px),
 			fixed 0 0 / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0),
 			fixed 10px 10px / 20px 20px radial-gradient(#d1d1d1 1px, transparent 0);
 	}

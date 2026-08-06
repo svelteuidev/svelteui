@@ -1,5 +1,4 @@
-<script lang="ts" context="module">
-	/* eslint-disable @typescript-eslint/ban-ts-comment */
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -8,8 +7,10 @@
 	import HeadContent from './HeadContent.svelte';
 	import NavContent from './NavContent.svelte';
 
-	let isDark = false;
-	let opened = false;
+	let { children } = $props();
+
+	let isDark = $state(false);
+	let opened = $state(false);
 
 	function toggleTheme() {
 		isDark = !isDark;
@@ -20,14 +21,23 @@
 <\/script>
 
 <AppShell>
-	<Navbar slot="navbar" hidden={!opened}>
-		<NavContent />
-	</Navbar>
-	<Header slot="header">
-		<HeadContent />
-	</Header>
+	{#snippet navbar()}
+		<Navbar hidden={!opened}>
+			<NavContent />
+		</Navbar>
+	{/snippet}
 
-	<slot>This is the main content</slot>
+	{#snippet header()}
+		<Header>
+			<HeadContent />
+		</Header>
+	{/snippet}
+
+	{#if children}
+		{@render children()}
+	{:else}
+		This is the main content
+	{/if}
 </AppShell>
 `;
 
@@ -39,13 +49,19 @@
 	};
 </script>
 
-<script>
+<script lang="ts">
 	import { fns, AppShell, Navbar, Header, ShellSection } from '@svelteuidev/core';
-	// @ts-ignore
 	import HeadContent from './_HeadContent.svelte';
 	import NavContent from './_NavContent.svelte';
-	let isDark = false;
-	let opened = false;
+
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
+	let isDark = $state(false);
+	let opened = $state(false);
+
 	function toggleTheme() {
 		isDark = !isDark;
 	}
@@ -64,25 +80,28 @@
 		}
 	}}
 >
-	<Navbar
-		slot="navbar"
-		hidden={!opened}
-		hiddenBreakpoint="sm"
-		width={{ base: '100%', sm: 300 }}
-		height={500}
-		fixed={false}
-		override={{ p: '$xsPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
-	>
-		<ShellSection grow>
-			<NavContent {isDark} />
-		</ShellSection>
-	</Navbar>
-	<Header
-		slot="header"
-		height={60}
-		override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
-	>
-		<HeadContent {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
-	</Header>
-	<slot>This is the main content</slot>
+	{#snippet navbar()}
+		<Navbar
+			hidden={!opened}
+			hiddenBreakpoint="sm"
+			width={{ base: '100%', sm: 300 }}
+			height={500}
+			fixed={false}
+			override={{ p: '$xsPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}
+		>
+			<ShellSection grow>
+				<NavContent {isDark} />
+			</ShellSection>
+		</Navbar>
+	{/snippet}
+	{#snippet header()}
+		<Header height={60} override={{ p: '$mdPX', bc: isDark ? fns.themeColor('dark', 7) : 'white' }}>
+			<HeadContent {isDark} {opened} canShowCode={toggleTheme} toggleOpen={toggleOpened} />
+		</Header>
+	{/snippet}
+	{#if children}
+		{@render children()}
+	{:else}
+		This is the main content
+	{/if}
 </AppShell>

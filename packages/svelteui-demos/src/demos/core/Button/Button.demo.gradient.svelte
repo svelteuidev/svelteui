@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -25,7 +25,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: false
+		canShowCode: false
 	};
 </script>
 

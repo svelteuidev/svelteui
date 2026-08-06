@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -7,9 +7,9 @@
 <\/script>
 
 <Textarea label="Your story" placeholder="Once upon a time">
-  <svelte:fragment slot="rightSection">
-    <Loader color="blue" size="xs" />
-  </svelte:fragment>
+  	{#snippet rightSection()}
+      <Loader color="blue" size="xs" />
+    {/snippet}
 </Textarea>
 `;
 
@@ -26,8 +26,8 @@
 
 <Center>
 	<Textarea label="Your story" placeholder="Once upon a time">
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<Loader color="blue" size="xs" />
-		</svelte:fragment>
+		{/snippet}
 	</Textarea>
 </Center>

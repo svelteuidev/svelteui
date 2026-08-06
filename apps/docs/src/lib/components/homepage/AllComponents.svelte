@@ -1,13 +1,26 @@
 <script lang="ts">
-	// @ts-nocheck
-	// prettier-ignore
-	import { Group, ThemeIcon, Text, SimpleGrid, Box, Stack, ActionIcon, Tooltip, Container } from '@svelteuidev/core';
+	import type { Component } from 'svelte';
+	import {
+		Group,
+		ThemeIcon,
+		Text,
+		SimpleGrid,
+		Box,
+		Stack,
+		ActionIcon,
+		Tooltip,
+		Container
+	} from '@svelteuidev/core';
 	import { ArrowRight } from 'radix-icons-svelte';
 	import { components } from '$lib/data';
-	// import type { CSS } from '@svelteuidev/core'
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		display: 'block',
 		padding: '$xlPX',
 		borderRadius: '$md',
@@ -30,18 +43,19 @@
 >
 	{#each components as item}
 		<Box href={item.link} css={styles}>
+			{@const ComponentEntry = item.component as Component}
 			<Stack>
-				<Group children={2} position="apart">
-					<Group children={2}>
+				<Group position="apart">
+					<Group>
 						<ThemeIcon size={34} override={{ backgroundColor: item.color }}>
-							<svelte:component this={item.icon} size={20} />
+							<item.icon size={20} />
 						</ThemeIcon>
 
 						<Text weight="extrabold" override={{ letterSpacing: '$tight' }} size="xl">
 							{item.title}
 						</Text>
 					</Group>
-					<Tooltip label={`Go to ${item.title} docs`}>
+					<Tooltip labelComponent={`Go to ${item.title} docs`}>
 						<a href={item.link}>
 							<ActionIcon variant="light" size="lg">
 								<ArrowRight color="black" />
@@ -50,12 +64,16 @@
 					</Tooltip>
 				</Group>
 				<Container>
-					{#if item?.content}
-						<svelte:component this={item.component}>
-							<slot>{item.content.valueOf()}</slot>
-						</svelte:component>
+					{#if item.content}
+						<ComponentEntry>
+							{#if children}
+								{@render children()}
+							{:else}
+								{item.content.valueOf()}
+							{/if}
+						</ComponentEntry>
 					{:else}
-						<svelte:component this={item.component} />
+						<ComponentEntry />
 					{/if}
 				</Container>
 			</Stack>

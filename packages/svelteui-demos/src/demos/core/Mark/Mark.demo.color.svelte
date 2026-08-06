@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) =>
@@ -21,7 +21,7 @@
 	import type { MarkProps } from '@svelteuidev/core';
 	import { Center, Text, Mark } from '@svelteuidev/core';
 
-	export let props: MarkProps = {};
+	let props: MarkProps = $props();
 </script>
 
 <Center>

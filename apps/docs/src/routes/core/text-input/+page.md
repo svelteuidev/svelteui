@@ -32,7 +32,7 @@ docs: 'core/text-input'
 <script>
 	import { TextInput } from '@svelteuidev/core';
 
-	let value = '';
+	let value = $state('');
 </script>
 
 <TextInput bind:value />

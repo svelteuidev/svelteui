@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -44,7 +44,7 @@
 	import type { TextInputProps } from '@svelteuidev/core';
 	import { TextInput } from '@svelteuidev/core';
 
-	export let props: Partial<TextInputProps> = {};
+	let props: Partial<TextInputProps> = $props();
 </script>
 
 <TextInput {...props} />

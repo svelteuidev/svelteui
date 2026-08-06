@@ -4,12 +4,23 @@
 	import { GithubLogo, Pencil1, Cube } from 'radix-icons-svelte';
 	import { screenW } from '$lib/components';
 
-	export let title: string,
+	interface Props {
+		title: string;
+		description?: boolean;
+		docs?: boolean;
+		importCode?: string;
+		source?: boolean;
+		packageGroup?: boolean;
+	}
+
+	let {
+		title,
 		description = false,
 		docs = false,
 		importCode = '',
 		source = false,
-		packageGroup = false;
+		packageGroup = false
+	}: Props = $props();
 	const links = {
 		github: 'https://github.com/svelteuidev/svelteui/blob/main/packages/',
 		docs: 'https://github.com/svelteuidev/svelteui/blob/main/apps/docs/src/routes/',
@@ -26,7 +37,7 @@
 		'@md': { code: { fontSize: '$md' } }
 	};
 
-	let copied = false;
+	let copied = $state(false);
 	function onCopy() {
 		copied = true;
 		setTimeout(() => (copied = false), 1000);
@@ -55,11 +66,11 @@
 				closeDelay={200}
 				withArrow
 				position={$screenW < 500 ? 'top' : 'right'}
-				label={copied ? 'Copied' : 'Copy'}
+				labelComponent={copied ? 'Copied' : 'Copy'}
 				color={copied ? 'green' : 'gray'}
 			>
 				<Box css={importStyles}>
-					<code use:clipboard={importCode} on:copy={onCopy}>
+					<code use:clipboard={importCode} oncopy={onCopy}>
 						{importCode}
 					</code>
 				</Box>

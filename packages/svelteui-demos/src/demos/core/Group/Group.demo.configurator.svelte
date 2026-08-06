@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { Button, Group } from '@svelteuidev/core';
 <\/script>
@@ -51,7 +51,7 @@
 	import type { GroupProps } from '@svelteuidev/core';
 	import { Button, Group } from '@svelteuidev/core';
 
-	export let props: GroupProps = {};
+	let props: GroupProps = $props();
 </script>
 
 <Group {...props}>

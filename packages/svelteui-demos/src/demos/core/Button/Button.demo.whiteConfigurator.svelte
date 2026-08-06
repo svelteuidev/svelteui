@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -35,9 +35,9 @@
 	import type { ButtonProps } from '@svelteuidev/core';
 	import { Button, Center } from '@svelteuidev/core';
 
-	export let props: ButtonProps = {};
+	let { children: _children, ...rest }: ButtonProps = $props();
 </script>
 
 <Center>
-	<Button variant="white" {...props}>Click me</Button>
+	<Button variant="white" {...rest}>Click me</Button>
 </Center>

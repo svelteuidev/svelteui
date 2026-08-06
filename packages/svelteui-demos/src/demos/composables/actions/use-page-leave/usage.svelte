@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
     import { pageleave } from '@svelteuidev/composables';
 
-    $: count = 0;
+    let count = $state(0);
 <\/script>
 
 <div use:pageleave={() => count++}>Move the mouse off the page to see the counter go up: {count}</div>`;
@@ -21,7 +21,8 @@
 	import { Center } from '@svelteuidev/core';
 	import { pageleave } from '@svelteuidev/composables';
 
-	$: count = 0;
+	let count = $state(0);
+	
 </script>
 
 <Center>

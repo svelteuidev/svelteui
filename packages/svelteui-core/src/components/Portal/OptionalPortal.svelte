@@ -1,21 +1,22 @@
 <script lang="ts">
 	import Portal from './Portal.svelte';
-	import type { OptionalPortalProps as $$OptionalPortalProps } from './OptionalPortal';
+	import type { OptionalPortalProps } from './OptionalPortal';
 
-	interface $$Props extends $$OptionalPortalProps {}
-
-	export let withinPortal: $$Props['withinPortal'] = true,
-		use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		target: $$Props['target'] = 'body';
-	export { className as class };
+	let {
+		withinPortal = true,
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		target = 'body',
+		children,
+		...rest
+	}: OptionalPortalProps = $props();
 </script>
 
 {#if withinPortal}
-	<Portal bind:element class={className} {use} {target}>
-		<slot />
+	<Portal bind:element class={className} {use} {target} {...rest}>
+		{@render children?.()}
 	</Portal>
 {:else}
-	<slot />
+	{@render children?.()}
 {/if}

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -7,7 +7,7 @@
 
 	const [elementSize, ref] = useElementSize();
 
-	$: ({ width, height } = $elementSize);
+	let { width, height } = $derived(elementSize);
 <\/script>
 
 <textarea use:ref style='width: 400px; height: 120;' />
@@ -27,7 +27,7 @@
 
 	const [elementSize, ref] = useElementSize();
 
-	$: ({ width, height } = $elementSize);
+	let { width, height } = $derived($elementSize);
 </script>
 
 <Text align="center" size="sm" mb="xs">Resize textarea by dragging its right bottom corner</Text>

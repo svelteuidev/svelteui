@@ -1,6 +1,5 @@
 <script>
-	export let color = 'currentColor';
-	export let size = 15;
+	let { color = 'currentColor', size = 15, ...rest } = $props();
 </script>
 
 <svg
@@ -9,7 +8,7 @@
 	viewBox="0 0 15 15"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
-	{...$$restProps}
+	{...rest}
 >
 	<path
 		fill-rule="evenodd"

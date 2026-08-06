@@ -85,8 +85,8 @@ export default createStyles((theme, { color, radius, variant }: AlertStylesParam
 					variant === 'filled'
 						? theme.colors.white.value
 						: variant === 'light'
-						? theme.colors.white.value
-						: theme.fn.themeColor('dark', 0)
+							? theme.colors.white.value
+							: theme.fn.themeColor('dark', 0)
 			},
 			lineHeight: theme.lineHeights.sm.value,
 			textOverflow: 'ellipsis',

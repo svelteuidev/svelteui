@@ -1,16 +1,12 @@
 <script lang="ts">
-	import type { DemoControlString } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { TextInput } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	export let value: string;
-	export let label: DemoControlString['label'];
-
-	const dispatch = createEventDispatcher();
+	let { value, label, onchange }: ControlProps = $props();
 
 	function onInput(e) {
-		dispatch('change', e.currentTarget.value);
+		onchange(e.currentTarget.value);
 	}
 </script>
 
-<TextInput {label} {value} on:input={onInput} />
+<TextInput {label} {value} oninput={onInput} />

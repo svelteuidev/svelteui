@@ -2,9 +2,13 @@
 	import { exception } from './index';
 	import type { CurrentComponents, ErrorCtx } from './types';
 
-	export let observable = false;
-	export let component: CurrentComponents;
-	export let code: ErrorCtx;
+	interface Props {
+		observable?: boolean;
+		component: CurrentComponents;
+		code: ErrorCtx;
+	}
+
+	let { observable = false, component, code }: Props = $props();
 </script>
 
 {#if observable}

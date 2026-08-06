@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -7,7 +7,7 @@
   import { EnvelopeClosed } from 'radix-icons-svelte';
 <\/script>
 
-<Textarea label="Message" placeholder="Dear John" icon={EnvelopeClosed} />
+<Textarea label="Message" placeholder="Dear John" iconComponent={EnvelopeClosed} />
 `;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -23,5 +23,5 @@
 </script>
 
 <Center>
-	<Textarea label="Message" placeholder="Dear John" icon={EnvelopeClosed} />
+	<Textarea label="Message" placeholder="Dear John" iconComponent={EnvelopeClosed} />
 </Center>

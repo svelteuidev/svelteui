@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	function isTouchEvent(e) {
 		return e.constructor.name === 'TouchEvent';
 	}
@@ -82,7 +82,7 @@
 				wave.classList.add('animation-out');
 				opacity(wave, 0);
 				setTimeout(() => {
-					wave && container.removeChild(wave);
+					if (wave) container.removeChild(wave);
 					if (container.children.length === 0) {
 						delete container.dataset.event;
 					}
@@ -109,12 +109,16 @@
 	};
 </script>
 
-<script>
-	export let center = false;
-	export let circle = false;
-	export let color = 'currentColor';
+<script lang="ts">
 	import { tick, onMount, onDestroy } from 'svelte';
-	let el;
+	interface Props {
+		center?: boolean;
+		circle?: boolean;
+		color?: string;
+	}
+
+	let { center = false, circle = false, color = 'currentColor' }: Props = $props();
+	let el: HTMLElement = $state();
 	let trigEl;
 	onMount(async () => {
 		await tick();
@@ -148,7 +152,7 @@
 	});
 </script>
 
-<div class="ripple" bind:this={el} />
+<div class="ripple" bind:this={el}></div>
 
 <style>
 	.ripple {
@@ -181,7 +185,8 @@
 	}
 	.ripple :global(.animation-in) {
 		transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-		transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+		transition:
+			transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
 			opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	.ripple :global(.animation-out) {

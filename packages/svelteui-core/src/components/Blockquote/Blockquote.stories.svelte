@@ -12,15 +12,19 @@
 
 <Meta title="Components/Blockquote" component={Blockquote} />
 
-<Template let:args>
-	<Center>
-		<div style="max-width: 600px;">
-			<Blockquote {...args}>
-				{text}
-				<svelte:fragment slot="cite">- Corey Riffin</svelte:fragment>
-			</Blockquote>
-		</div>
-	</Center>
+<Template>
+	{#snippet children({ args })}
+		<Center>
+			<div style="max-width: 600px;">
+				<Blockquote {...args}>
+					{text}
+					{#snippet cite()}
+						- Corey Riffin
+					{/snippet}
+				</Blockquote>
+			</div>
+		</Center>
+	{/snippet}
 </Template>
 
 <Story name="Default" id="blockquoteStory" args={{ iconSize: 20 }} />

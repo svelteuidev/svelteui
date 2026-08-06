@@ -32,15 +32,13 @@ docs: 'core/chip'
 <script>
 	import { Chip } from '@svelteuidev/core';
 
-	let checked = false;
+	let checked = $state(false);
 </script>
 
-<Chip
-	{checked}
-	on:change={() => {
-		checked = !checked;
-	}}>I'm a chip</Chip
->
+<Chip bind:checked={checked}>I'm a chip</Chip>
+
+<!-- OR -->
+<Chip {checked} onchange={() => checked = !checked}>I'm a chip</Chip>
 ```
 
 ## States

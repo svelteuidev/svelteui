@@ -1,32 +1,21 @@
 <script lang="ts">
 	import useStyles from './Mark.styles';
 	import { Text } from '../Text';
-	import type { MarkProps as $$MarkProps } from './Mark';
+	import type { MarkProps } from './Mark';
 
-	interface $$Props extends $$MarkProps {}
+	let {
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		root = 'mark',
+		color = 'yellow',
+		children,
+		...rest
+	}: MarkProps = $props();
 
-	export let element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		root: $$Props['root'] = 'mark',
-		color: $$Props['color'] = 'yellow';
-	export { className as class };
-
-	$: ({ cx, classes } = useStyles({ color }, { override, name: 'Mark' }));
+	let { cx, classes } = $derived(useStyles({ color }, { override, name: 'Mark' }));
 </script>
 
-<!--
-@component
-
-Highlight text within a larger body of text
-
-@see https://svelteui.dev/core/mark
-@example
-    ```tsx
-    <Text>This is a sentence with a <Mark>highlighted part</Mark> in it </Text>
-    ```
--->
-
-<Text bind:element class={cx(className, classes.root)} {root} {...$$restProps}>
-	<slot />
+<Text bind:element class={cx(className, classes.root)} {root} {...rest}>
+	{@render children?.()}
 </Text>

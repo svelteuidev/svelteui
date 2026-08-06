@@ -1,29 +1,24 @@
 <script lang="ts">
 	import { Box } from '../Box';
 	import useStyles from './TypographyProvider.styles';
-	import type { TypographyProviderProps as $$TypographyProviderProps } from './TypographyProvider';
+	import type { TypographyProviderProps } from './TypographyProvider';
 
-	interface $$Props extends $$TypographyProviderProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		primaryColor = 'blue',
+		underline = true,
+		children,
+		...rest
+	}: TypographyProviderProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		primaryColor: $$Props['primaryColor'] = 'blue',
-		underline: $$Props['underline'] = true;
-	export { className as class };
-
-	$: ({ cx, classes, getStyles } = useStyles(
-		{ primaryColor, underline },
-		{ name: 'TypographyProvider' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ primaryColor, underline }, { name: 'TypographyProvider' })
+	);
 </script>
 
-<Box
-	bind:element
-	class={cx(className, classes.root, getStyles({ css: override }))}
-	{use}
-	{...$$restProps}
->
-	<slot />
+<Box bind:element class={cx(className, classes.root, getStyles({ css: override }))} {use} {...rest}>
+	{@render children?.()}
 </Box>

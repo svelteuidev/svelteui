@@ -1,12 +1,12 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <div
 	use:move
-	on:move:start={handleMoveStart}
-	on:move={handleMove}
-	on:move:stop={handleMoveStop}
+	onmovestart={handleMoveStart}
+	onmove={handleMove}
+	onmovestop={handleMoveStop}
 	style="position: relative; width: 90%; height: 200px; background-color: lightgrey; margin: 20px;"
 >
 	<div
@@ -27,8 +27,8 @@
 <script lang="ts">
 	import { move } from '@svelteuidev/composables';
 
-	let moving = false;
-	let position = { x: 0, y: 0 };
+	let moving = $state(false);
+	let position = $state({ x: 0, y: 0 });
 	function handleMoveStart() {
 		moving = true;
 	}
@@ -42,9 +42,9 @@
 
 <div
 	use:move
-	on:move:start={handleMoveStart}
-	on:move={handleMove}
-	on:move:stop={handleMoveStop}
+	onmovestart={handleMoveStart}
+	onmove={handleMove}
+	onmovestop={handleMoveStop}
 	style="position: relative; width: 90%; height: 200px; background-color: lightgrey; margin: 20px;"
 >
 	<div
@@ -52,7 +52,7 @@
 			? 'green'
 			: 'red'}; width: 20px; height: 20px; left: calc({position.x *
 			100}% - 10px); top: calc({position.y * 100}% - 10px);"
-	/>
+	></div>
 </div>
 <div style="text-align: center; margin-top: 10px;">
 	X: {position.x * 100}% Y: {position.y * 100}%

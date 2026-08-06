@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -6,8 +6,8 @@
     import { Button, Input, InputWrapper } from '@svelteuidev/core';
     import { focus } from '@svelteuidev/composables';
 
-    let name = 'world';
-    let editing = false;
+    let name = $state('world');
+    let editing = $state(false);
     function toggleEdit() {
         editing = !editing;
     }
@@ -19,7 +19,7 @@
         <Input use={[[focus]]} bind:value={name} />
     </InputWrapper>
 {/if}
-<Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>`;
+<Button onclick={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
 
@@ -32,8 +32,8 @@
 	import { Button, Input, InputWrapper, Stack } from '@svelteuidev/core';
 	import { focus } from '@svelteuidev/composables';
 
-	let name = 'world';
-	let editing = false;
+	let name = $state('world');
+	let editing = $state(false);
 	function toggleEdit() {
 		editing = !editing;
 	}
@@ -43,8 +43,8 @@
 	<p>Name: {name}</p>
 	{#if editing}
 		<InputWrapper label="Name">
-			<Input use={[[focus]]} bind:value={name} />
+			<Input use={[focus]} bind:value={name} />
 		</InputWrapper>
 	{/if}
-	<Button on:click={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
+	<Button onclick={toggleEdit}>{editing ? 'Confirm' : 'Edit'}</Button>
 </Stack>

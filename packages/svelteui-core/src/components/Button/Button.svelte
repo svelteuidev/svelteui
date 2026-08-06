@@ -1,71 +1,56 @@
 <script lang="ts">
-	import useStyles from './Button.styles';
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { ButtonErrors } from './Button.errors';
-	import Error from '$lib/internal/errors/Error.svelte';
+	import { useActions } from '$lib/internal';
+
 	import Loader from '../Loader/Loader.svelte';
 	import Ripple from './Ripple.svelte';
-	import type { ButtonProps as $$ButtonProps } from './Button';
+	import useStyles from './Button.styles';
+	import type { ButtonProps } from './Button';
 
-	interface $$Props extends $$ButtonProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		variant: $$Props['variant'] = 'filled',
-		color: $$Props['color'] = 'blue',
-		size: $$Props['size'] = 'sm',
-		radius: $$Props['radius'] = 'sm',
-		gradient: $$Props['gradient'] = { from: 'indigo', to: 'cyan', deg: 45 },
-		loaderPosition: $$Props['loaderPosition'] = 'left',
-		loaderProps: $$Props['loaderProps'] = {
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = $bindable({}),
+		variant = 'filled',
+		color = 'blue',
+		size = 'sm',
+		radius = 'sm',
+		gradient = { from: 'indigo', to: 'cyan', deg: 45 },
+		loaderPosition = 'left',
+		loaderProps = {
 			size: 'xs',
 			color: 'white',
 			variant: 'circle'
 		},
-		href: $$Props['href'] = null,
-		external: $$Props['external'] = false,
-		disabled: $$Props['disabled'] = false,
-		compact: $$Props['compact'] = false,
-		loading: $$Props['loading'] = false,
-		uppercase: $$Props['uppercase'] = false,
-		fullSize: $$Props['fullSize'] = false,
-		ripple: $$Props['ripple'] = false;
-	export { className as class };
+		href = null,
+		external = false,
+		disabled = false,
+		compact = false,
+		loading = false,
+		uppercase = false,
+		fullSize = false,
+		ripple = false,
+		leftIcon,
+		children,
+		rightIcon,
+		...rest
+	}: ButtonProps = $props();
 
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	// --------------Error Handling-------------------
-	let observable: boolean = false;
-	let err;
-	if (disabled && loading) {
-		observable = true;
-		err = ButtonErrors[0];
-	}
-	if ((external && typeof href !== 'string') || href?.length < 1) {
-		observable = true;
-		err = ButtonErrors[1];
-	}
-	$: if (observable) override = { display: 'none' };
-	// --------------Error Handling-------------------
-	$: ({ cx, classes, getStyles } = useStyles(
-		{
-			color,
-			compact,
-			fullSize,
-			gradient,
-			radius,
-			size,
-			variant
-		},
-		{ name: 'Button' }
-	));
+	let { cx, classes, getStyles } = $derived(
+		useStyles(
+			{
+				color,
+				compact,
+				fullSize,
+				gradient,
+				radius,
+				size,
+				variant
+			},
+			{ name: 'Button' }
+		)
+	);
 </script>
-
-<Error {observable} component="Button" code={err} />
 
 <!--
 @component
@@ -84,7 +69,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		{href}
 		bind:this={element}
 		use:useActions={use}
-		use:forwardEvents
 		class:compact
 		class:uppercase
 		class={cx(className, classes.root, getStyles({ css: override, variation: variant, disabled }), {
@@ -94,19 +78,19 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		role="button"
 		rel="noreferrer noopener"
 		target={external ? '_blank' : ''}
-		{...$$restProps}
+		{...rest}
 		tabindex="0"
 	>
 		{#if loading && loaderPosition === 'left'}
 			<span class="left-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
-		{:else if $$slots.leftIcon}
+		{:else if leftIcon}
 			<span class="left-section">
-				<slot name="leftIcon">X</slot>
+				{#if leftIcon}{@render leftIcon()}{:else}X{/if}
 			</span>
 		{/if}
-		<slot>Button</slot>
+		{#if children}{@render children()}{:else}Button{/if}
 		{#if ripple}
 			<Ripple center={false} circle={false} />
 		{/if}
@@ -114,9 +98,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			<span class="right-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
-		{:else if $$slots.rightIcon}
+		{:else if rightIcon}
 			<span class="right-section">
-				<slot name="rightIcon">X</slot>
+				{#if rightIcon}{@render rightIcon()}{:else}X{/if}
 			</span>
 		{/if}
 	</a>
@@ -124,7 +108,6 @@ A user can perform an immediate action by pressing a button. It's frequently use
 	<button
 		bind:this={element}
 		use:useActions={use}
-		use:forwardEvents
 		class={cx(className, classes.root, getStyles({ css: override, variation: variant }), {
 			[classes.disabled]: disabled,
 			[classes.loading]: loading
@@ -132,19 +115,19 @@ A user can perform an immediate action by pressing a button. It's frequently use
 		class:compact
 		class:uppercase
 		{disabled}
-		{...$$restProps}
+		{...rest}
 		tabindex="0"
 	>
 		{#if loading && loaderPosition === 'left'}
 			<span class="left-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
-		{:else if $$slots.leftIcon}
+		{:else if leftIcon}
 			<span class="left-section">
-				<slot name="leftIcon">X</slot>
+				{#if leftIcon}{@render leftIcon()}{:else}X{/if}
 			</span>
 		{/if}
-		<slot>Button</slot>
+		{#if children}{@render children()}{:else}Button{/if}
 		{#if ripple}
 			<Ripple center={false} circle={false} />
 		{/if}
@@ -152,9 +135,9 @@ A user can perform an immediate action by pressing a button. It's frequently use
 			<span class="right-section">
 				<Loader variant={loaderProps.variant} size={loaderProps.size} color={loaderProps.color} />
 			</span>
-		{:else if $$slots.rightIcon}
+		{:else if rightIcon}
 			<span class="right-section">
-				<slot name="rightIcon">X</slot>
+				{#if rightIcon}{@render rightIcon()}{:else}X{/if}
 			</span>
 		{/if}
 	</button>

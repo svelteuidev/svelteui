@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -9,9 +9,11 @@
   const text = 'Some very wise words with deep meaning, that make you wonder.';
 <\/script>
 
-<Blockquote icon={EnvelopeClosed} iconSize={32}>
-  {text}
-  <svelte:fragment slot="cite">- Your cat</svelte:fragment>
+<Blockquote iconComponent={EnvelopeClosed} iconSize={32}>
+  	{text}
+  	{#snippet citeContent()}
+		- Your cat
+	{/snippet}
 </Blockquote>
 `;
 
@@ -30,8 +32,10 @@
 </script>
 
 <Center>
-	<Blockquote icon={EnvelopeClosed} iconSize={32}>
+	<Blockquote iconComponent={EnvelopeClosed} iconSize={32}>
 		{text}
-		<svelte:fragment slot="cite">- Your cat</svelte:fragment>
+		{#snippet citeContent()}
+			- Your cat
+		{/snippet}
 	</Blockquote>
 </Center>

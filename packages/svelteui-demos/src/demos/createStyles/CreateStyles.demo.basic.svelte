@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -113,7 +113,7 @@
 		};
 	});
 
-	$: ({ classes, getStyles } = useStyles());
+	let { classes, getStyles } = $derived(useStyles());
 </script>
 
 <div class={getStyles()}>

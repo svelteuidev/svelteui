@@ -1,14 +1,10 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import type * as Stitches from '@stitches/core';
-	import type { DemoControlColor } from '$lib/types';
 	import { InputWrapper, Group, css, dark } from '@svelteuidev/core';
-	import { createEventDispatcher } from 'svelte';
+	import type { ControlProps } from './Control';
 
-	export let value: string;
-	export let label: DemoControlColor['label'];
+	let { value = $bindable(), label, onchange }: ControlProps = $props();
 
-	const dispatch = createEventDispatcher();
 	const listOfColors = [
 		'dark',
 		'gray',
@@ -78,7 +74,7 @@
 
 	function changeValue(newValue: string) {
 		value = newValue;
-		dispatch('change', newValue);
+		onchange(newValue);
 	}
 </script>
 
@@ -86,7 +82,8 @@
 	<Group spacing={2}>
 		{#each listOfColors as color}
 			<button
-				on:click={() => changeValue(color)}
+				aria-label="color-control"
+				onclick={() => changeValue(color)}
 				class:active={value === color}
 				class={colorStyles({ color })}
 			>

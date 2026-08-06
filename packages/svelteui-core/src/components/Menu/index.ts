@@ -1,6 +1,6 @@
 export { Menu } from './combinator';
 export type { MenuStyleParams } from './Menu.styles';
-export type { MenuProps, MenuEvents } from './Menu';
+export type { MenuProps } from './Menu';
 
 import type MenuComponent from './Menu.svelte';
 export type { MenuComponent };

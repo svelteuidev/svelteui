@@ -56,6 +56,8 @@ docs: 'core/password-input'
 
 ## Controlled visibility state
 
+Instead of using `bind`, you can also use `onVisibilityChange(visible: boolean)` prop.
+
 <Demo demo={PasswordInputDemos.controlledvisibility} />
 
 ## Visibility toggle focus

@@ -2,11 +2,18 @@
 	import type { DemoControlSegmented } from '$lib/types';
 	import { NativeSelect } from '@svelteuidev/core';
 	import { upperFirst } from '$lib/utils';
+	import type { ControlProps } from './Control';
 
-	export let value: string;
-	export let label: DemoControlSegmented['label'];
-	export let data: DemoControlSegmented['data'];
-	export let capitalize: DemoControlSegmented['capitalize'] = true;
+	interface Props extends ControlProps {
+		data: DemoControlSegmented['data'];
+		capitalize?: DemoControlSegmented['capitalize'];
+	}
+
+	let { value, label, data, capitalize = true, onchange }: Props = $props();
+
+	function onChange(e) {
+		onchange(e.currentTarget.value);
+	}
 </script>
 
 <!-- TODO: change NativeSelect to Segmented when it will be implemented -->
@@ -17,5 +24,5 @@
 		value: item.value,
 		label: capitalize ? upperFirst(item.label) : item.label
 	}))}
-	on:change
+	onchange={onChange}
 />

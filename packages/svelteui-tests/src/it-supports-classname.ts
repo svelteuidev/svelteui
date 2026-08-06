@@ -1,22 +1,19 @@
+import type { Component } from 'svelte';
 import { expect, it } from 'vitest';
-import { render } from '@testing-library/svelte';
-import type { SvelteComponent } from 'svelte';
+import { render, screen } from '@testing-library/svelte';
 
-export function itSupportsClassName<P>(
-	Component: typeof SvelteComponent,
-	props?: P,
-	isChild: boolean = false
-) {
+export function itSupportsClassName<P>(Component: Component, props?: P, isChild: boolean = false) {
 	it('supports className prop', () => {
-		const { container } = render(Component, {
+		render(Component, {
 			target: document.body,
 			props: {
 				...props,
-				class: 'class-name-test'
+				class: 'class-name-test',
+				'data-testid': 'test'
 			}
 		});
 
-		let element = container.firstElementChild;
+		let element = screen.getByTestId('test') as Element;
 		if (isChild) element = element.firstElementChild;
 
 		const classes = element.className.split(' ');

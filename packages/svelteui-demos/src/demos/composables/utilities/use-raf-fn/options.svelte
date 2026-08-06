@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -6,13 +6,13 @@
 	import { Button } from '@svelteuidev/core';
 	import { useRafFn } from '@svelteuidev/composables';
 
-	let count = 0;
+	let count = $state(0);
 	const { pause, resume } = useRafFn(() => count++, {immediate: false});
 <\/script>
 
 <div>Count: {count}</div>
-<Button on:click={() => pause()}>Pause</Button>
-<Button on:click={() => resume()}>Resume</Button>
+<Button onclick={() => pause()}>Pause</Button>
+<Button onclick={() => resume()}>Resume</Button>
 `;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -26,12 +26,12 @@
 	import { Button, Group } from '@svelteuidev/core';
 	import { useRafFn } from '@svelteuidev/composables';
 
-	let count = 0;
+	let count = $state(0);
 	const { pause, resume } = useRafFn(() => count++, { immediate: false });
 </script>
 
 <Group position="center">
 	<div>Count: {count}</div>
-	<Button on:click={() => pause()}>Pause</Button>
-	<Button on:click={() => resume()}>Resume</Button>
+	<Button onclick={() => pause()}>Pause</Button>
+	<Button onclick={() => resume()}>Resume</Button>
 </Group>

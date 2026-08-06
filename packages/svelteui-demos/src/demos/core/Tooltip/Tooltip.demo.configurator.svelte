@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string) => `
@@ -16,7 +16,7 @@
 	export const configuration: ConfiguratorDemoConfiguration = {
 		codeTemplate,
 		configurator: [
-			{ name: 'label', type: 'string', initialValue: 'Label' },
+			{ name: 'labelComponent', label: 'Label', type: 'string', initialValue: 'Label' },
 			{
 				name: 'color',
 				type: 'color',
@@ -63,11 +63,11 @@
 	import type { TooltipProps } from '@svelteuidev/core';
 	import { Center, Button, Tooltip } from '@svelteuidev/core';
 
-	export let props: TooltipProps = { label: '' };
+	let { labelComponent = '', ...rest }: TooltipProps = $props();
 </script>
 
 <Center override={{ width: 400, height: 200, m: 'auto' }}>
-	<Tooltip opened {...props}>
+	<Tooltip opened {labelComponent} {...rest}>
 		<Button>With tooltip</Button>
 	</Tooltip>
 </Center>

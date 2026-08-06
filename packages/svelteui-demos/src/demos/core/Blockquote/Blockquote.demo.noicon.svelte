@@ -1,16 +1,18 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
 <script>
-  import { Blockquote } from '@svelteuidev/core';
+	import { Blockquote } from '@svelteuidev/core';
 
-  const text = 'If you walk in the rain, you will get wet.';
+	const text = 'If you walk in the rain, you will get wet.';
 <\/script>
 
 <Blockquote icon={null}>
-  {text}
-  <svelte:fragment slot="cite">- A very wise sage</svelte:fragment>
+    {text}
+	{#snippet citeContent()}
+		- A very wise sage
+	{/snippet}
 </Blockquote>
 `;
 
@@ -30,6 +32,8 @@
 <Center>
 	<Blockquote icon={null}>
 		{text}
-		<svelte:fragment slot="cite">- A very wise sage</svelte:fragment>
+		{#snippet citeContent()}
+			- A very wise sage
+		{/snippet}
 	</Blockquote>
 </Center>

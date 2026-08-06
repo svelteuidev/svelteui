@@ -7,14 +7,18 @@
 	const os = useOs();
 	const mod = os === 'macos' ? '⌘' : 'ctrl';
 
-	export let isDark: boolean;
-	export let opened: boolean;
-	export let toggle: () => void;
-	export let toggleOpen: () => void;
+	interface Props {
+		isDark: boolean;
+		opened: boolean;
+		canShowCode: () => void;
+		toggleOpen: () => void;
+	}
+
+	let { isDark, opened, toggle, toggleOpen }: Props = $props();
 </script>
 
 <Group override={{ height: '100%', px: 20 }} position="apart">
-	<Burger {opened} on:click={toggleOpen} override={{ d: 'block', '@sm': { d: 'none' } }} />
+	<Burger {opened} onclick={toggleOpen} override={{ d: 'block', '@sm': { d: 'none' } }} />
 	<Anchor
 		underline={false}
 		href="/"
@@ -27,8 +31,8 @@
 			</Text>
 		</Group>
 	</Anchor>
-	<Tooltip label={`${mod} + J`}>
-		<ActionIcon variant="default" on:click={toggle} size={30} use={[[hotkey, [['mod+J', toggle]]]]}>
+	<Tooltip labelComponent={`${mod} + J`}>
+		<ActionIcon variant="default" onclick={toggle} size={30} use={[[hotkey, [['mod+J', toggle]]]]}>
 			{#if isDark}
 				<Moon />
 			{:else}

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
@@ -8,21 +8,21 @@
 
 <Menu>
     <Menu.Label>Application</Menu.Label>
-    <Menu.Item icon={Gear}>Settings</Menu.Item>
-    <Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-    <Menu.Item icon={Camera}>Gallery</Menu.Item>
-    <Menu.Item icon={MagnifyingGlass} disabled>
-        <svelte:fragment slot='rightSection'>
-            <Text size="xs" color="dimmed">⌘K</Text>
-        </svelte:fragment>
+    <Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+    <Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+    <Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
+    <Menu.Item iconComponent={MagnifyingGlass} disabled>
+        {#snippet rightSection()}
+			<Text size="xs" color="dimmed">⌘K</Text>
+		{/snippet}
         Search
     </Menu.Item>
 
     <Divider />
 
     <Menu.Label>Danger zone</Menu.Label>
-    <Menu.Item icon={Width}>Transfer my data</Menu.Item>
-    <Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
+    <Menu.Item iconComponent={Width}>Transfer my data</Menu.Item>
+    <Menu.Item color="red" iconComponent={Trash}>Delete my account</Menu.Item>
 </Menu>
 `;
 
@@ -41,20 +41,20 @@
 <Center>
 	<Menu>
 		<Menu.Label>Application</Menu.Label>
-		<Menu.Item icon={Gear}>Settings</Menu.Item>
-		<Menu.Item icon={ChatBubble}>Messages</Menu.Item>
-		<Menu.Item icon={Camera}>Gallery</Menu.Item>
-		<Menu.Item icon={MagnifyingGlass} disabled>
-			<svelte:fragment slot="rightSection">
+		<Menu.Item iconComponent={Gear}>Settings</Menu.Item>
+		<Menu.Item iconComponent={ChatBubble}>Messages</Menu.Item>
+		<Menu.Item iconComponent={Camera}>Gallery</Menu.Item>
+		<Menu.Item iconComponent={MagnifyingGlass} disabled>
+			{#snippet rightSection()}
 				<Text size="xs" color="dimmed">⌘K</Text>
-			</svelte:fragment>
+			{/snippet}
 			Search
 		</Menu.Item>
 
 		<Divider />
 
 		<Menu.Label>Danger zone</Menu.Label>
-		<Menu.Item icon={Width}>Transfer my data</Menu.Item>
-		<Menu.Item color="red" icon={Trash}>Delete my account</Menu.Item>
+		<Menu.Item iconComponent={Width}>Transfer my data</Menu.Item>
+		<Menu.Item color="red" iconComponent={Trash}>Delete my account</Menu.Item>
 	</Menu>
 </Center>

@@ -1,17 +1,26 @@
 <script lang="ts">
 	import { download } from '$clib/actions/use-download/use-download';
 
-	export let blob = new Blob([]);
-	export let filename = '';
-	export let callback;
-	export let callbackError;
+	interface Props {
+		blob?: any;
+		filename?: string;
+		callback: any;
+		callbackError: any;
+	}
+
+	let {
+		blob = new Blob([]),
+		filename = '',
+		callback,
+		callbackError
+	}: Props = $props();
 </script>
 
 <button
 	id="download"
 	use:download={{ blob: blob, filename: filename }}
-	on:usedownload={(event) => callback(event.detail)}
-	on:usedownload-error={(event) => callbackError(event.detail)}
+	onusedownload={(event) => callback(event.detail)}
+	onusedownload-error={(event) => callbackError(event.detail)}
 >
 	Download
 </button>

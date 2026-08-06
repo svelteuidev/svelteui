@@ -1,4 +1,4 @@
-import { createStyles, dark } from '$lib/styles';
+import { createStyles } from '$lib/styles';
 import type { SvelteUINumberSize } from '$lib/styles';
 
 export interface AccordionItemStylesParams {

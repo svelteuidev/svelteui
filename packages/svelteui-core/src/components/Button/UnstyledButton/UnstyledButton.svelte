@@ -1,31 +1,28 @@
 <script lang="ts">
-	import useStyles from './UnstyledButton.styles';
+	import { useActions } from '$lib/internal';
 	import { Box } from '../../Box';
-	import { createEventForwarder, useActions } from '$lib/internal';
-	import { get_current_component } from 'svelte/internal';
-	import type { UnstyledButtonProps as $$UnstyledButtonProps } from './UnstyledButton';
+	import useStyles from './UnstyledButton.styles';
+	import type { UnstyledButtonProps } from './UnstyledButton';
 
-	interface $$Props extends $$UnstyledButtonProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		root = 'button',
+		children,
+		...rest
+	}: UnstyledButtonProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		root: $$Props['root'] = 'button';
-	export { className as class };
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'UnstyledButton' }));
+	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'UnstyledButton' }));
 </script>
 
 <Box
 	bind:element
-	use={[forwardEvents, [useActions, use]]}
+	use={[[useActions, use]]}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{root}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

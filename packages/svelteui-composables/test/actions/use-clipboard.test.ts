@@ -38,6 +38,8 @@ describe('use-clipboard', () => {
 		});
 
 		const btn = document.getElementById('clipboard');
+		if (!btn) throw new Error('Clipboard button is not defined');
+
 		btn.click();
 		await tick();
 		expect(writeTextMock).toHaveBeenCalledTimes(1);
@@ -57,7 +59,6 @@ describe('use-clipboard', () => {
 		expect(callbackErrorMock).toHaveBeenCalledTimes(1);
 
 		await component.$set({ text: '' });
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		writeTextMock.mockImplementation(() => {});
 		btn.click();
 		expect(writeTextMock).toHaveBeenCalledTimes(2);
@@ -83,7 +84,6 @@ describe('use-clipboard', () => {
 		expect(callbackErrorMock).toHaveBeenCalledTimes(1);
 
 		await component.$set({ text: () => '' });
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		writeTextMock.mockImplementation(() => {});
 		btn.click();
 		expect(writeTextMock).toHaveBeenCalledTimes(3);

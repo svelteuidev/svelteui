@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let size: string;
-	export let reveal: boolean;
+	interface Props {
+		size: string;
+		reveal: boolean;
+	}
+
+	let { size, reveal }: Props = $props();
 </script>
 
 <svg

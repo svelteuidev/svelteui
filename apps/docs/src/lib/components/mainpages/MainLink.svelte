@@ -1,11 +1,18 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import { Text, ThemeIcon, theme } from '@svelteuidev/core';
 
-	export let color: string;
-	export let href = '';
+	interface Props {
+		color: string;
+		href?: string;
+		icon?: Snippet;
+		children?: Snippet;
+	}
+
+	let { color, href = '', icon, children }: Props = $props();
 
 	const styles = {
-		focusRing: 'auto',
+		focusRing: 'auto' as 'auto',
 		WebkitTapHighlightColor: 'transparent',
 		display: 'flex !important',
 		alignItems: 'center',
@@ -43,7 +50,7 @@
 		override={{ bc: `$${color}600 !important`, color: 'white', borderRadius: '6px' }}
 		radius="lg"
 	>
-		<slot name="icon" />
+		{@render icon?.()}
 	</ThemeIcon>
-	<div class="body"><slot /></div>
+	<div class="body">{@render children?.()}</div>
 </Text>

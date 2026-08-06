@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -10,9 +10,9 @@
     label='Your email'
     placeholder='Your email'
 >
-    <svelte:fragment slot='rightSection'>
-        <Loader color='blue' size='xs' />
-    </svelte:fragment>
+    {#snippet rightSection()}
+		<Loader color="blue" size="xs" />
+	{/snippet}
 </TextInput>
 `;
 
@@ -29,8 +29,8 @@
 
 <Center>
 	<TextInput label="Your email" placeholder="Your email">
-		<svelte:fragment slot="rightSection">
+		{#snippet rightSection()}
 			<Loader color="blue" size="xs" />
-		</svelte:fragment>
+		{/snippet}
 	</TextInput>
 </Center>

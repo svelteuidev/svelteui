@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -11,26 +11,34 @@
 	navbarOffsetBreakpoint="sm"
 	asideOffsetBreakpoint="sm"
 >
-	<Navbar slot="navbar" hidden={!opened} fixed>
-		<NavbarContent />
-	</Navbar>
+	{#snippet navbar()}
+		<Navbar hidden={!opened} fixed>
+			<NavbarContent />
+		</Navbar>
+	{/snippet}
 
-	<Header fixed slot="header">
-		<HeaderContent />
-	</Header>
+	{#snippet header()}
+		<Header fixed>
+			<HeaderContent />
+		</Header>
+	{/snippet}
 
 	<!-- Main content uses the default slot, so no need to explicitly declare it -->
 	<ShellSection grow>
 		<MainContent />
 	</ShellSection>
 
-	<Aside slot="aside">
-		<AsideContent />
-	</Aside>
+	{#snippet aside()}
+		<Aside>
+			<AsideContent />
+		</Aside>
+	{/snippet}
 
-	<Footer slot="footer">
-		<FooterContent />
-	</Footer>
+	{#snippet footer()}
+		<Footer>
+			<FooterContent />
+		</Footer>
+	{/snippet}
 </AppShell>
 `;
 
@@ -38,7 +46,7 @@
 
 	export const configuration: CodeDemoConfiguration = {
 		code,
-		toggle: true
+		canShowCode: true
 	};
 </script>
 

@@ -1,22 +1,36 @@
 <script lang="ts">
-	import { Box } from '../Box';
-	import type { DefaultProps } from '$lib/styles';
+	import type { Snippet } from 'svelte';
 
+	import type { DefaultProps } from '$lib/styles';
+	import { Box } from '../Box';
+
+	// @TODO: Find out why we are not using value anywhere
+	/* eslint-disable @typescript-eslint/no-unused-vars */
 	interface AppShellProviderProps extends DefaultProps {
 		value?: { fixed: boolean; zIndex: number };
 	}
 
-	export let use: AppShellProviderProps['use'] = [],
-		element: AppShellProviderProps['element'] = undefined,
-		className: AppShellProviderProps['className'] = '',
-		override: AppShellProviderProps['override'] = {},
+	interface Props {
+		use?: AppShellProviderProps['use'];
+		element?: AppShellProviderProps['element'];
+		class?: AppShellProviderProps['className'];
+		override?: AppShellProviderProps['override'];
 		value: AppShellProviderProps['value'];
-	export { className as class };
+		children?: Snippet;
+		[key: string]: any;
+	}
 
-	const noop = () => value;
-	noop();
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		value,
+		children,
+		...rest
+	}: Props = $props();
 </script>
 
-<Box bind:element class={className} css={{ ...override }} {use} {...$$restProps}>
-	<slot />
+<Box bind:element class={className} css={{ ...override }} {use} {...rest}>
+	{@render children?.()}
 </Box>

@@ -1,55 +1,41 @@
 <script lang="ts">
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import { Box } from '../Box';
 	import { Skeleton } from '../Skeleton';
 	import { Text } from '../Text';
 	import useStyles from './Image.styles';
 	import ImageIcon from './ImageIcon.svelte';
-	import type { ImageProps as $$ImageProps } from './Image';
+	import type { ImageProps } from './Image';
 
-	interface $$Props extends $$ImageProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		override = {},
+		radius = 0,
+		class: className = '',
+		src = undefined,
+		alt = '',
+		fit = 'cover',
+		width = '100%',
+		height = 'auto',
+		caption = undefined,
+		usePlaceholder = false,
+		loader = false,
+		placeholder,
+		...rest
+	}: ImageProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		override: $$Props['override'] = {},
-		radius: $$Props['radius'] = 0,
-		className: $$Props['className'] = '',
-		src: $$Props['src'] = undefined,
-		alt: $$Props['alt'] = '',
-		fit: $$Props['fit'] = 'cover',
-		width: $$Props['width'] = '100%',
-		height: $$Props['height'] = 'auto',
-		caption: $$Props['caption'] = undefined,
-		usePlaceholder: $$Props['usePlaceholder'] = false,
-		loader: $$Props['loader'] = false;
-	export { className as class };
+	let loaded: boolean = $state(false);
+	let error: boolean = $state(false);
+	let showPlaceholder: boolean = $derived(usePlaceholder && (!loaded || error));
 
-	const forwardEvents = createEventForwarder(get_current_component());
-
-	let loaded: boolean = false;
-	let error: boolean = false;
-	let showPlaceholder: boolean = false;
 	const onLoad = () => (loaded = true);
 	const onError = () => (error = true);
 
-	$: showPlaceholder = usePlaceholder && (!loaded || error);
-	$: ({ cx, classes, getStyles } = useStyles({ radius, fit, height, width }, { name: 'Image' }));
+	let { cx, classes, getStyles } = $derived(
+		useStyles({ radius, fit, height, width }, { name: 'Image' })
+	);
 </script>
-
-<!--
-@component
-
-Dynamic Image component with optional placeholder for loading and error state
-
-@see https://svelteui.dev/core/image
-@example
-    ```tsx
-    <Image src="https://images.unsplash.com/photo-1561046259-7d5b6e929ba0"/> // standard image
-    <Image src="https://images.unsplash.com/photo-1561046259-7d5b6e929ba0" alt="Doggo" width={100} caption="Very cool doggo" /> // standard image with width and caption
-    <Image src="" alt="Doggo" usePlaceholder /> // standard image that shows placeholder when it fails to load
-    ```
--->
 
 <Box class={cx(className, classes.root, getStyles({ css: override }))}>
 	<figure class={classes.figure}>
@@ -58,20 +44,19 @@ Dynamic Image component with optional placeholder for loading and error state
 				<img
 					bind:this={element}
 					use:useActions={use}
-					use:forwardEvents
 					class={classes.image}
 					{src}
 					{alt}
-					on:load={onLoad}
-					on:error={onError}
-					{...$$restProps}
+					onload={onLoad}
+					onerror={onError}
+					{...rest}
 				/>
 			</Skeleton>
 			{#if showPlaceholder}
 				<div class={classes.placeholder} title={alt}>
-					<slot name="placeholder">
+					{#if placeholder}{@render placeholder()}{:else}
 						<ImageIcon style={{ width: 40, height: 40 }} />
-					</slot>
+					{/if}
 				</div>
 			{/if}
 		</div>

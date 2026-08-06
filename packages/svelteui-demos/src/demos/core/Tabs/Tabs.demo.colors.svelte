@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `<script>
@@ -6,9 +6,9 @@
 <\/script>
 
 <Tabs color='teal'>
-    <Tabs.Tab label='Teal tab'>Teal tab content</Tabs.Tab>
-    <Tabs.Tab label='Still teal tab'>Teal tab content #2</Tabs.Tab>
-    <Tabs.Tab label='Pink tab' color='pink'>Pink tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Teal tab'>Teal tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Still teal tab'>Teal tab content #2</Tabs.Tab>
+    <Tabs.Tab labelText='Pink tab' color='pink'>Pink tab content</Tabs.Tab>
 </Tabs>`;
 
 	export const type: CodeDemoType['type'] = 'demo';
@@ -23,7 +23,7 @@
 </script>
 
 <Tabs color="teal">
-	<Tabs.Tab label="Teal tab">Teal tab content</Tabs.Tab>
-	<Tabs.Tab label="Still teal tab">Teal tab content #2</Tabs.Tab>
-	<Tabs.Tab label="Pink tab" color="pink">Pink tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Teal tab">Teal tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Still teal tab">Teal tab content #2</Tabs.Tab>
+	<Tabs.Tab labelText="Pink tab" color="pink">Pink tab content</Tabs.Tab>
 </Tabs>

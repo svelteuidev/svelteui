@@ -1,38 +1,39 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Tabs';
 </script>
 
 <script lang="ts">
-	import { createEventDispatcher, getContext, onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
+	import { onMount, setContext } from 'svelte';
 	import { randomID } from '$lib/styles';
 	import Box from '../Box/Box.svelte';
 	import Group from '../Group/Group.svelte';
 	import useStyles from './Tabs.styles';
-	import type { TabsProps as $$TabsProps, TabsEvents as $$TabEvents, TabsContext } from './Tabs';
+	import type { TabsProps, TabsContext } from './Tabs';
 
-	interface $$Props extends $$TabsProps {}
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	interface $$Events extends $$TabEvents {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		active: $$Props['active'] = -1,
-		color: $$Props['color'] = 'blue',
-		grow: $$Props['grow'] = false,
-		initialTab: $$Props['initialTab'] = 0,
-		orientation: $$Props['orientation'] = 'horizontal',
-		position: $$Props['position'] = 'left',
-		tabPadding: $$Props['tabPadding'] = 'xs',
-		variant: $$Props['variant'] = 'default';
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		initialTab = 0,
+		active = $bindable(initialTab),
+		color = 'blue',
+		grow = false,
+		orientation = 'horizontal',
+		position = 'left',
+		tabPadding = 'xs',
+		variant = 'default',
+		children,
+		onChange = () => {},
+		...rest
+	}: TabsProps = $props();
 
 	const tabsId = randomID();
 	let tabNodes: Element[];
-	const dispatch = createEventDispatcher();
+
+	// check if item is still checked when the context store updates
+	let nextTabCode = $derived(orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown');
+	let previousTabCode = $derived(orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp');
 
 	onMount(() => {
 		const children = element.querySelectorAll(
@@ -40,30 +41,20 @@
 		);
 		tabNodes = Array.from(children);
 		setupTabs();
-		calculateActive();
+		calculateActive(active === -1 ? initialTab : active);
 	});
 
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	let contextStore: TabsContext = getContext(ctx);
-	if (!contextStore) {
-		contextStore = writable({
-			[tabsId]: {
-				active: active === -1 ? initialTab : active,
-				color: color,
-				variant: variant,
-				orientation: orientation
-			}
-		});
-		setContext(ctx, contextStore);
-	}
-	$: $contextStore[tabsId] = {
-		active: _active,
-		color: color,
-		variant: variant,
-		orientation: orientation
-	};
+	let contextStore: TabsContext = $derived({
+		[tabsId]: {
+			active: active,
+			color: color,
+			variant: variant,
+			orientation: orientation
+		}
+	});
+	setContext(ctx, () => contextStore);
+
+	$effect(() => calculateActive(active));
 
 	/**
 	 * Retrieves all tabs that the component has as children
@@ -86,13 +77,13 @@
 	 * Calculates the active tab and switches the content
 	 * of the tabs so that it can be shown.
 	 */
-	function calculateActive() {
+	function calculateActive(activeTabIndex: number) {
 		if (!element) return;
 
 		const content = element.querySelector(':scope > .tabs-content');
 		if (!content) return;
 
-		const activeTab = Array.from(tabNodes)[_active];
+		const activeTab = Array.from(tabNodes)[activeTabIndex];
 		if (!activeTab) return;
 
 		if (content.children.length > 0) {
@@ -103,9 +94,8 @@
 	}
 
 	function onTabClick(index: number, key: string) {
-		dispatch('change', { index: index, key: key });
-		_active = index;
-		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
+		onChange(index, key);
+		active = index;
 	}
 
 	function onTabKeyDown(event: KeyboardEvent, index: number, key: string) {
@@ -114,9 +104,8 @@
 		// Set current tab as the active one if the enter was pressed, allowing
 		// selecting the tab when doing tab cycling
 		if (event.code === 'Enter') {
-			dispatch('change', { index, key });
-			_active = index;
-			contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: index } });
+			onChange(index, key);
+			active = index;
 			return;
 		}
 
@@ -125,7 +114,7 @@
 			return;
 		}
 
-		let _index = _active;
+		let _index = active;
 		if (event.code === nextTabCode) {
 			if (_index + 1 >= tabs.length) return;
 			_index += 1;
@@ -138,41 +127,16 @@
 		const selectedTab = Array.from(tabs)[_index];
 		const selectedKey = selectedTab.getAttribute('data-key');
 
-		dispatch('change', { index: _index, key: selectedKey });
-		_active = _index;
-		contextStore.set({ ...$contextStore, [tabsId]: { ...$contextStore[tabsId], active: _index } });
+		onChange(_index, selectedKey);
+		active = _index;
 	}
 
-	// check if item is still checked when the context store updates
-	$: _active = active === -1 ? initialTab : active;
-	$: nextTabCode = orientation === 'horizontal' ? 'ArrowRight' : 'ArrowDown';
-	$: previousTabCode = orientation === 'horizontal' ? 'ArrowLeft' : 'ArrowUp';
-	$: $contextStore, _active, calculateActive();
-
-	$: ({ cx, classes } = useStyles({ orientation, tabPadding }, { override, name: 'Tabs' }));
+	let { cx, classes } = $derived(
+		useStyles({ orientation, tabPadding }, { override, name: 'Tabs' })
+	);
 </script>
 
-<!--
-@component
-**UNSTABLE:** new API, yet to be vetted.
-
-Display list of events in chronological order
-
-@see https://svelteui.dev/core/timeline
-@example
-    ```svelte
-    <Tabs>
-      <Tabs.Tab>
-		...
-	  </Tabs.Tab>
-      <Tabs.Tab>
-		...
-	  </Tabs.Tab>
-	  ...
-    </Tabs>
-    ```
--->
-<Box bind:element {use} class={cx(className, classes.root)} {...$$restProps}>
+<Box bind:element {use} class={cx(className, classes.root)} {...rest}>
 	<div class={cx(classes.wrapper, classes[variant])}>
 		<Group
 			class={classes.tabs}
@@ -184,8 +148,8 @@ Display list of events in chronological order
 			{position}
 			{grow}
 		>
-			<slot />
+			{@render children?.()}
 		</Group>
 	</div>
-	<div role="tabpanel" class={cx('tabs-content', classes.content)} />
+	<div role="tabpanel" class={cx('tabs-content', classes.content)}></div>
 </Box>

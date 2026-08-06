@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { clickoutside } from '$clib/actions/use-click-outside/use-click-outside';
 
-	export let open = true;
+	interface Props {
+		open?: boolean;
+	}
+
+	let { open = $bindable(true) }: Props = $props();
 </script>
 
 <div id="outside">
-	<div id="inside" use:clickoutside={{ enabled: open, callback: () => (open = false) }} />
+	<div id="inside" use:clickoutside={{ enabled: open, callback: () => (open = false) }}></div>
 </div>

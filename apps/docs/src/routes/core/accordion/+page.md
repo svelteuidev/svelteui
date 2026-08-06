@@ -39,7 +39,7 @@ Control can be fully customizable by setting any king of element inside the `con
 
 ## Controlled
 
-The accordion component can be controlled externally with the prop `value` (which can be binded) and with the `on:change` event.
+The accordion component can be controlled externally with the prop `value` (which can be binded) and with the `onchange` event.
 
 <Demo demo={AccordionDemos.controlled} />
 

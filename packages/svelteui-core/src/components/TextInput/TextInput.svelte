@@ -1,65 +1,41 @@
 <script lang="ts">
-	import { get_current_component } from 'svelte/internal';
-	import { createEventForwarder, useActions } from '$lib/internal';
+	import { useActions } from '$lib/internal';
 	import { randomID } from '$lib/styles';
 	import { Input } from '../Input';
 	import { InputWrapper } from '../InputWrapper';
-	import type { TextInputProps as $$TextInputProps } from './TextInput';
+	import type { TextInputProps } from './TextInput';
 
-	interface $$Props extends $$TextInputProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		label: $$Props['label'] = '',
-		description: $$Props['description'] = null,
-		error: $$Props['error'] = null,
-		required: $$Props['required'] = false,
-		labelProps: $$Props['labelProps'] = {},
-		descriptionProps: $$Props['descriptionProps'] = {},
-		errorProps: $$Props['errorProps'] = {},
-		invalid: $$Props['invalid'] = false,
-		id: $$Props['id'] = randomID('text-input'),
-		labelElement: $$Props['labelElement'] = 'label',
-		size: $$Props['size'] = 'sm',
-		showRightSection: $$Props['showRightSection'] = undefined,
-		value: $$Props['value'] = '',
-		placeholder: $$Props['placeholder'] = '';
-	export { className as class };
-
-	/** An action that forwards inner dom node events from parent component */
-	const forwardEvents = createEventForwarder(get_current_component());
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		label = '',
+		description = null,
+		error = null,
+		required = false,
+		labelProps = {},
+		descriptionProps = {},
+		errorProps = {},
+		invalid = false,
+		id = randomID('text-input'),
+		labelElement = 'label',
+		size = 'sm',
+		showRightSection = undefined,
+		value = $bindable(''),
+		placeholder = '',
+		icon,
+		rightSection,
+		...rest
+	}: TextInputProps = $props();
 
 	// Flag that enables the override of the right section slot
 	// of the Input component only if it was provided
-	const _showRightSection =
-		showRightSection === undefined ? !!$$slots.rightSection : showRightSection;
-	$: _invalid = invalid || !!error;
+	let _showRightSection = $derived(
+		showRightSection === undefined ? !!rightSection : showRightSection
+	);
+	let _invalid = $derived(invalid || !!error);
 </script>
-
-<!--
-@component
-
-Input for text that also uses labels for the input
-
-@see https://svelteui.dev/core/text-input
-@example
-    ```tsx
-    <TextInput
-        placeholder='Your name'
-        description="Don't forget to add your full name"
-        label='Full name'
-        required
-    />
-    <TextInput
-        placeholder='Your name'
-        label='Full name'
-        size='lg'
-        on:change={onChange}
-    />
-    ```
--->
 
 <InputWrapper
 	bind:element
@@ -82,12 +58,11 @@ Input for text that also uses labels for the input
 		{size}
 		{id}
 		{placeholder}
-		{...$$restProps}
-		use={[forwardEvents, [useActions, use]]}
+		use={[[useActions, use]]}
 		invalid={_invalid}
 		showRightSection={_showRightSection}
-	>
-		<slot slot="rightSection" name="rightSection" />
-		<slot slot="icon" name="icon" />
-	</Input>
+		{rightSection}
+		{icon}
+		{...rest}
+	></Input>
 </InputWrapper>

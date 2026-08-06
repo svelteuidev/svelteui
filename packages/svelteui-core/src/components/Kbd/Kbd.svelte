@@ -1,17 +1,18 @@
 <script lang="ts">
 	import useStyles from './Kbd.styles';
 	import { Box } from '../Box';
-	import type { KbdProps as $$KbdProps } from './Kbd';
+	import type { KbdProps } from './Kbd';
 
-	interface $$Props extends $$KbdProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		children,
+		...rest
+	}: KbdProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {};
-	export { className as class };
-
-	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Kbd' }));
+	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'Kbd' }));
 </script>
 
 <Box
@@ -19,7 +20,7 @@
 	root="kbd"
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </Box>

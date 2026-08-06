@@ -13,13 +13,11 @@ export const getVariantStyles = (
 ): VariantThemeFunction => {
 	return {
 		default: {
-			[orientation === 'horizontal'
-				? 'borderBottom'
-				: 'borderRight']: `2px solid ${theme.fn.themeColor('gray', 2)}`,
+			[orientation === 'horizontal' ? 'borderBottom' : 'borderRight']:
+				`2px solid ${theme.fn.themeColor('gray', 2)}`,
 			darkMode: {
-				[orientation === 'horizontal'
-					? 'borderBottom'
-					: 'borderRight']: `2px solid ${theme.fn.themeColor('dark', 4)}`
+				[orientation === 'horizontal' ? 'borderBottom' : 'borderRight']:
+					`2px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
 			[`& .${getRef('tabs')}`]: {
@@ -27,13 +25,11 @@ export const getVariantStyles = (
 			}
 		},
 		outline: {
-			[orientation === 'horizontal'
-				? 'borderBottom'
-				: 'borderRight']: `1px solid ${theme.fn.themeColor('gray', 2)}`,
+			[orientation === 'horizontal' ? 'borderBottom' : 'borderRight']:
+				`1px solid ${theme.fn.themeColor('gray', 2)}`,
 			darkMode: {
-				[orientation === 'horizontal'
-					? 'borderBottom'
-					: 'borderRight']: `1px solid ${theme.fn.themeColor('dark', 4)}`
+				[orientation === 'horizontal' ? 'borderBottom' : 'borderRight']:
+					`1px solid ${theme.fn.themeColor('dark', 4)}`
 			},
 
 			[`& .${getRef('tabs')}`]: {

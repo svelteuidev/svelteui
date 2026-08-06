@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	function strToObj(propStr: string) {
@@ -10,7 +10,7 @@
   import { typewriter } from '@svelteuidev/motion';
 <\/script>
 
-<p in:typewriter={{ ${strToObj(props)} }}>Now the transition is playing</p>
+<p in:typewriter|global={{ ${strToObj(props)} }}>Now the transition is playing</p>
 `;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
@@ -33,19 +33,21 @@
 	import { Button, Group } from '@svelteuidev/core';
 	import { typewriter } from '@svelteuidev/motion';
 
-	let visible = false;
+	let visible = $state(false);
 	const toggleVisible = () => {
 		visible = !visible;
 	};
 
-	export let props = {};
+	let props = $props();
 </script>
 
 <Group direction="column">
 	<div>
 		{#if visible}
-			<p out:typewriter={{ speed: 3 }} in:typewriter={props}>Now the transition is playing</p>
+			<p out:typewriter|global={{ speed: 3 }} in:typewriter|global={props}>
+				Now the transition is playing
+			</p>
 		{/if}
 	</div>
-	<Button on:click={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
+	<Button onclick={toggleVisible}>{!visible ? 'Play Transition' : 'Stop Transition'}</Button>
 </Group>

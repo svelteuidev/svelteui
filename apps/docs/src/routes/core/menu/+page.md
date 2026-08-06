@@ -33,13 +33,13 @@ docs: 'core/menu'
 <script lang="ts">
 	import { Menu } from '@svelteuidev/core';
 
-	let opened = false;
+	let opened = $state(false);
 
 	function onOpen() {}
 	function onClose() {}
 </script>
 
-<Menu {opened} on:open={onOpen} {onClose}>
+<Menu {opened} onopen={onOpen} onclose={onClose}>
 	<!-- ... -->
 </Menu>
 ```

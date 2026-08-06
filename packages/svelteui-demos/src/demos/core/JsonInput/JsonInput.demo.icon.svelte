@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -25,5 +25,5 @@
 </script>
 
 <Center>
-	<JsonInput label="Settings" placeholder="Enter JSON data" icon={Gear} />
+	<JsonInput label="Settings" placeholder="Enter JSON data" iconComponent={Gear} />
 </Center>

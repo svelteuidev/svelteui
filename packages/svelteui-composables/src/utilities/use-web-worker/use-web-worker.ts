@@ -88,16 +88,14 @@ export const useWebWorker = <T extends (...fnArgs: any[]) => any>(
 				resolve,
 				reject
 			};
-			worker && worker.postMessage([[...fnArgs]]);
+			if (worker) worker.postMessage([[...fnArgs]]);
 
 			workerStatus = 'RUNNING';
 		});
 
 	const workerFn = (...fnArgs: Parameters<T>) => {
 		if (workerStatus === 'RUNNING') {
-			/* eslint-disable-next-line no-console */
 			console.error('[useWebWorker] You can only run one instance of the worker at a time.');
-			/* eslint-disable-next-line prefer-promise-reject-errors */
 			return Promise.reject();
 		}
 

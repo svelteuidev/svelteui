@@ -1,6 +1,10 @@
-import type { Action, Fn } from '../../shared/actions/types';
+import type { Action, ActionReturn } from 'svelte/action';
+import type { Fn } from '../../shared/actions/types';
 
-export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Action> {
+export const tableave: Action<HTMLElement, Fn<void>, ActionReturn> = (
+	node: HTMLElement,
+	callback: Fn<void>
+) => {
 	document.addEventListener('visibilitychange', callback);
 
 	return {
@@ -8,4 +12,4 @@ export function tableave(node: HTMLElement, callback: Fn<void>): ReturnType<Acti
 			document.removeEventListener('visibilitychange', callback);
 		}
 	};
-}
+};

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
@@ -55,11 +55,11 @@
 	import type { BadgeProps } from '@svelteuidev/core';
 	import { Badge, Center } from '@svelteuidev/core';
 
-	export let props: BadgeProps = {};
+	let { children, ...rest }: BadgeProps = $props();
 </script>
 
 <Center>
-	<Badge {...props}>
-		<slot />
+	<Badge {...rest}>
+		{@render children?.()}
 	</Badge>
 </Center>

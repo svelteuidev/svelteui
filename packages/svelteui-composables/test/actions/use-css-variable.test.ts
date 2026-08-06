@@ -12,6 +12,8 @@ describe('use-css-variable', () => {
 		expect(component).toBeTruthy();
 
 		const div = document.getElementById('css-variable');
+		if (!div) throw new Error('HTML element not found');
+
 		expect(div.style.getPropertyValue('--display')).eq('block');
 		expect(div.style.getPropertyValue('--background-color')).eq('yellow');
 

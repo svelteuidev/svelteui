@@ -1,16 +1,16 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
     import { Tabs } from '@svelteuidev/core';
     import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
 <\/script>
 
 <Tabs${props}>
-    <Tabs.Tab label='Gallery' icon={Camera}>Gallery tab content</Tabs.Tab>
-    <Tabs.Tab label='Messages' icon={EnvelopeClosed}>Messages tab content</Tabs.Tab>
-    <Tabs.Tab label='Settings' icon={Gear}>Settings tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Gallery' iconComponent={Camera}>Gallery tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Messages' iconComponent={EnvelopeClosed}>Messages tab content</Tabs.Tab>
+    <Tabs.Tab labelText='Settings' iconComponent={Gear}>Settings tab content</Tabs.Tab>
 </Tabs>`;
 
 	export const type: ConfiguratorDemoType['type'] = 'configurator';
@@ -61,11 +61,11 @@
 	import { Tabs } from '@svelteuidev/core';
 	import { Camera, EnvelopeClosed, Gear } from 'radix-icons-svelte';
 
-	export let props: TabsProps = {};
+	let props: TabsProps = $props();
 </script>
 
 <Tabs {...props}>
-	<Tabs.Tab label="Gallery" icon={Camera}>Gallery tab content</Tabs.Tab>
-	<Tabs.Tab label="Messages" icon={EnvelopeClosed}>Messages tab content</Tabs.Tab>
-	<Tabs.Tab label="Settings" icon={Gear}>Settings tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Gallery" iconComponent={Camera}>Gallery tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Messages" iconComponent={EnvelopeClosed}>Messages tab content</Tabs.Tab>
+	<Tabs.Tab labelText="Settings" iconComponent={Gear}>Settings tab content</Tabs.Tab>
 </Tabs>

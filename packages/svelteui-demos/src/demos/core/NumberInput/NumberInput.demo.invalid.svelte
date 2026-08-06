@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -20,7 +20,7 @@
 <script lang="ts">
 	import { Center, Stack, NumberInput } from '@svelteuidev/core';
 
-	let value: number;
+	let value: number = $state();
 </script>
 
 <Center>

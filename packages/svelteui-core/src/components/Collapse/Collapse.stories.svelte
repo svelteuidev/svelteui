@@ -4,24 +4,26 @@
 	import { Paper } from '../Paper';
 	import { Collapse } from './index';
 
-	let open = false;
-	let openInside = false;
+	let open = $state(false);
+	let openInside = $state(false);
 </script>
 
 <Meta title="Components/Collapse" component={Collapse} />
 
-<Template let:args>
-	<Button
-		on:click={() => {
-			open = !open;
-		}}>Toggle collapse text</Button
-	>
+<Template>
+	{#snippet children({ args })}
+		<Button
+			on:click={() => {
+				open = !open;
+			}}>Toggle collapse text</Button
+		>
 
-	<Collapse {open} {...args}>
-		<Paper>This is a hidden text!</Paper>
-	</Collapse>
+		<Collapse {open} {...args}>
+			<Paper>This is a hidden text!</Paper>
+		</Collapse>
 
-	<div>This is a cool text!</div>
+		<div>This is a cool text!</div>
+	{/snippet}
 </Template>
 
 <Story name="Collapse" id="collapseStory" />

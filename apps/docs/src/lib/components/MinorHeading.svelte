@@ -1,8 +1,12 @@
 <script lang="ts">
-	export let title = 'Title';
-	export let date: string;
 	import { colorScheme, Stack, Text, Group, Center } from '@svelteuidev/core';
 	import { Calendar } from 'radix-icons-svelte';
+	interface Props {
+		title?: string;
+		date: string;
+	}
+
+	let { title = 'Title', date }: Props = $props();
 </script>
 
 <Stack

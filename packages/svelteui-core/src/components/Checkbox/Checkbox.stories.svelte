@@ -9,8 +9,10 @@
 
 <Meta title="Components/Checkbox" component={Checkbox} />
 
-<Template let:args>
-	<Checkbox {...args} />
+<Template>
+	{#snippet children({ args })}
+		<Checkbox {...args} />
+	{/snippet}
 </Template>
 
 <Story name="Checkbox" id="checkboxStory" />

@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { Grid } from '@svelteuidev/core';
 <\/script>
@@ -32,7 +32,7 @@
 
 	import { default as ColWrapper } from './ColWrapper.svelte';
 
-	export let props: GridProps = {};
+	let props: GridProps = $props();
 </script>
 
 <Grid {...props}>

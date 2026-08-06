@@ -32,7 +32,7 @@ docs: 'core/json-input'
 <script>
 	import { JsonInput } from '@svelteuidev/core';
 
-	let value = '';
+	let value = $state('');
 </script>
 
 <JsonInput bind:value />

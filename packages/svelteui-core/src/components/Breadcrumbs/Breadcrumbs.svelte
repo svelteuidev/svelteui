@@ -1,38 +1,34 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export const ctx = 'Breadcrumbs';
 </script>
 
 <script lang="ts">
 	import useStyles from './Breadcrumbs.styles';
 	import { Box } from '../Box';
-	import type { BreadcrumbContext, BreadcrumbProps as $$BreadcrumbProps } from './Breadcrumbs';
+	import type { BreadcrumbContext, BreadcrumbProps } from './Breadcrumbs';
 	import { setContext } from 'svelte';
-	import { writable } from 'svelte/store';
 
-	interface $$Props extends $$BreadcrumbProps {}
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		color = 'blue',
+		size = 'md',
+		separator = '/',
+		children
+	}: BreadcrumbProps = $props();
 
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		color: $$Props['color'] = 'blue',
-		size: $$Props['size'] = 'md',
-		separator: $$Props['separator'] = '/';
-	export { className as class };
-
-	// initialize a 'reactive context' which is basically
-	// a store inside the context, so that all children
-	// components can react to changes made in props
-	const contextStore: BreadcrumbContext = writable({
+	const contextStore: BreadcrumbContext = $derived({
 		separator: separator,
 		size: size,
 		color: color
 	});
-	setContext(ctx, contextStore);
+	setContext(ctx, () => contextStore);
 
-	$: ({ cx, classes, getStyles } = useStyles(null, { name: 'Breadcrumbs' }));
+	let { cx, classes, getStyles } = $derived(useStyles(null, { name: 'Breadcrumbs' }));
 </script>
 
 <Box bind:element {use} class={cx(className, classes.root, getStyles({ css: override }))}>
-	<slot />
+	{@render children?.()}
 </Box>

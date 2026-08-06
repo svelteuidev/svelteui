@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { Input, InputWrapper } from '@svelteuidev/core';
   import { EnvelopeClosed } from 'radix-icons-svelte';
@@ -41,7 +41,7 @@
 	import { Input } from '@svelteuidev/core';
 	import { EnvelopeClosed } from 'radix-icons-svelte';
 
-	export let props: InputProps = {};
+	let props: InputProps = $props();
 </script>
 
-<Input icon={EnvelopeClosed} {...props} />
+<Input iconComponent={EnvelopeClosed} {...props} />

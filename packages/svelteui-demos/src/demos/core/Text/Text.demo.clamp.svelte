@@ -1,7 +1,7 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
-	const codeTemplate = (props: string, children: string) =>
+	const codeTemplate = (props: string) =>
 		`<script>
   import { Text } from '@svelteuidev/core';
 <\/script>
@@ -25,7 +25,7 @@
 	import type { TextProps } from '@svelteuidev/core';
 	import { Center, Text } from '@svelteuidev/core';
 
-	export let props: TextProps = {};
+	let props: TextProps = $props();
 </script>
 
 <Center>

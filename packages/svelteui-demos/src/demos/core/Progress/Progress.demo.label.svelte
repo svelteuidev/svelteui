@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 	const code = `
 <script>
     import { Progress } from '@svelteuidev/core';
 <\/script>
 
-<Progress value={75} label="75%" size="xl" radius="xl" />
+<Progress value={75} labelText="75%" size="xl" radius="xl" />
 <Progress
     mt='md'
     size="xl"
@@ -29,7 +29,7 @@
 	import { Progress, Space } from '@svelteuidev/core';
 </script>
 
-<Progress value={75} label="75%" size="xl" radius="xl" />
+<Progress value={75} labelText="75%" size="xl" radius="xl" />
 <Space h="md" />
 <Progress
 	size="xl"

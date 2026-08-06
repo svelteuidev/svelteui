@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { CodeDemoType, CodeDemoConfiguration } from '$lib/types';
 
 	const code = `
@@ -64,7 +64,7 @@
 		}
 	}));
 
-	$: ({ getStyles } = useStyles({ color, radius }));
+	let { getStyles } = $derived(useStyles({ color, radius }));
 </script>
 
 <Group position="center">

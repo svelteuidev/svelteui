@@ -2,20 +2,25 @@
 	import { useActions } from '$lib/internal';
 	import type { LoaderProps } from '../Loader';
 
-	export let use: LoaderProps['use'] = [];
-	export let size: LoaderProps['size'] = 25;
-	export let color: LoaderProps['color'] = 'blue';
-	export let className: LoaderProps['className'] = '';
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		size = 25,
+		color = 'blue',
+		...rest
+	}: LoaderProps = $props();
 </script>
 
 <svg
+	bind:this={element}
+	use:useActions={use}
 	viewBox="0 0 135 140"
 	xmlns="http://www.w3.org/2000/svg"
 	fill={color}
 	width={`${size}px`}
 	class={className}
-	use:useActions={use}
+	{...rest}
 >
 	<rect y="10" width="15" height="120" rx="6">
 		<animate

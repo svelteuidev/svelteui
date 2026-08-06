@@ -1,20 +1,20 @@
 <script lang="ts">
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	import { ControlsRenderer } from './index';
 	import type { DemoControlComposite } from '$lib/types';
-	import { createEventDispatcher } from 'svelte';
 	import { css, dark, InputWrapper } from '@svelteuidev/core';
+	import type { ControlProps } from './Control';
 
-	export let label: DemoControlComposite['label'];
-	export let controls: DemoControlComposite['controls'];
+	interface Props extends ControlProps<any> {
+		controls: DemoControlComposite['controls'];
+	}
 
-	const dispatch = createEventDispatcher();
+	let { label, controls, onchange }: Props = $props();
 
-	let data: Record<string, any> = {};
+	let data: Record<string, any> = $state({});
 
 	function onChange(newData) {
-		data = newData.detail;
-		dispatch('change', data);
+		data = newData;
+		onchange(newData);
 	}
 
 	const styles = css({
@@ -29,6 +29,6 @@
 
 <InputWrapper {label}>
 	<div class={styles()}>
-		<ControlsRenderer value={data} {controls} on:change={onChange} />
+		<ControlsRenderer value={data} {controls} onchange={onChange} />
 	</div>
 </InputWrapper>

@@ -2,10 +2,15 @@
 	import { Box, Button } from '@svelteuidev/core';
 	import { clipboard } from '@svelteuidev/composables';
 
-	export let message = '';
-	export let copy = false;
+	interface Props {
+		message?: string;
+		copy?: boolean;
+		children?: import('svelte').Snippet;
+	}
 
-	let copied = false;
+	let { message = '', copy = false, children }: Props = $props();
+
+	let copied = $state(false);
 
 	function isCopied() {
 		copied = true;
@@ -16,7 +21,13 @@
 </script>
 
 <Box css={{ position: 'relative', mx: 0, my: '25px' }} root="pre">
-	<code><slot>Code</slot></code>
+	<code>
+		{#if children}
+			{@render children()}
+		{:else}
+			Code
+		{/if}
+	</code>
 	{#if copy}
 		<Button
 			variant="default"

@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { Box } from '../Box';
 	import { Portal } from '../Portal';
-	import type { AffixProps as $$AffixProps } from './Affix';
+	import type { AffixProps } from './Affix';
 
-	interface $$Props extends $$AffixProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		target: $$Props['target'] = 'body',
-		position: $$Props['position'] = { bottom: 0, right: 0 },
-		zIndex: $$Props['zIndex'] = 200;
-	export { className as class };
+	let {
+		use = [],
+		element = $bindable(null),
+		class: className = '',
+		override = {},
+		target = 'body',
+		position = { bottom: 0, right: 0 },
+		zIndex = 200,
+		children,
+		...rest
+	}: AffixProps = $props();
 </script>
 
 <Portal {zIndex} {target}>
@@ -21,8 +22,8 @@
 		class={className}
 		css={{ position: 'fixed', ...position, ...override }}
 		{use}
-		{...$$restProps}
+		{...rest}
 	>
-		<slot />
+		{@render children?.()}
 	</Box>
 </Portal>

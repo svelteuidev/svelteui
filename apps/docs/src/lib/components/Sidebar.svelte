@@ -21,20 +21,13 @@
 		Archive
 	} from 'radix-icons-svelte';
 	import { base } from '$app/paths';
+	import SidebarLink from './SidebarLink.svelte';
 
-	export let pathname: string;
-
-	let accordionEl: HTMLElement;
-	$: {
-		// Sets the active link in the Sidebar when the page changes
-		accordionEl?.querySelectorAll('a').forEach((a) => {
-			if (a.getAttribute('href') === pathname) {
-				a.classList.add('active');
-			} else {
-				a.classList.remove('active');
-			}
-		});
+	interface Props {
+		pathname: string;
 	}
+
+	let { pathname }: Props = $props();
 
 	const useStyles = createStyles(() => ({
 		'.svelteui-AccordionItem-panel': {
@@ -56,260 +49,451 @@
 			paddingBottom: '8px !important'
 		}
 	}));
-	$: ({ getStyles } = useStyles());
+	let { getStyles } = $derived(useStyles());
 </script>
 
 <ul>
 	<li>
-		<MainLink color="blue" href="{base}/introduction"
-			><Cube slot="icon" size={20} />Introduction</MainLink
-		>
+		<MainLink color="blue" href="{base}/introduction">
+			{#snippet icon()}
+				<Cube size={20} />
+			{/snippet}
+			Introduction
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="red" href="{base}/installation"
-			><Download slot="icon" size={20} />Installation</MainLink
-		>
+		<MainLink color="red" href="{base}/installation">
+			{#snippet icon()}
+				<Download size={20} />
+			{/snippet}
+			Installation
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="green" href="{base}/basics"
-			><StarFilled slot="icon" size={20} />Learn The Basics</MainLink
-		>
+		<MainLink color="green" href="{base}/basics">
+			{#snippet icon()}
+				<StarFilled size={20} />
+			{/snippet}
+			Learn The Basics
+		</MainLink>
 	</li>
 	<li>
-		<MainLink color="dark" href="{base}/contributing"
-			><GithubLogo slot="icon" size={20} />Contributing</MainLink
-		>
+		<MainLink color="dark" href="{base}/contributing">
+			{#snippet icon()}
+				<GithubLogo size={20} />
+			{/snippet}
+			Contributing
+		</MainLink>
 	</li>
 	<!-- - <MainLink color={null} href={suiCollections}><Logo slot='icon' size={30} />SvelteUI Collections</MainLink> -->
 	<li>
-		<MainLink color="indigo" href="{base}/faq"
-			><QuestionMarkCircled slot="icon" size={20} />FAQ</MainLink
-		>
+		<MainLink color="indigo" href="{base}/faq">
+			{#snippet icon()}
+				<QuestionMarkCircled size={20} />
+			{/snippet}
+			FAQ
+		</MainLink>
 	</li>
 </ul>
 
 <hr />
 
-<Accordion
-	bind:element={accordionEl}
-	variant="default"
-	chevronPosition="left"
-	multiple
-	class={getStyles()}
->
+<Accordion variant="default" chevronPosition="left" multiple class={getStyles()}>
 	<Accordion.Item value="changelog">
-		<div slot="control"><NavigationTitle>Changelog</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>Changelog</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
-			<li><a href={`${base}/changelog/v0-15-0`}>Version 0.15.0</a></li>
-			<li><a href={`${base}/changelog/v0-14-0`}>Version 0.14.0</a></li>
-			<li><a href={`${base}/changelog/v0-13-0`}>Version 0.13.0</a></li>
-			<li><a href={`${base}/changelog/v0-12-0`}>Version 0.12.0</a></li>
-			<li><a href={`${base}/changelog/v0-11-0`}>Version 0.11.0</a></li>
-			<li><a href={`${base}/changelog/v0-10-0`}>Version 0.10.0</a></li>
-			<li><a href={`${base}/changelog/v0-7-0`}>Version 0.7.0</a></li>
-			<li><a href={`${base}/changelog/v0-6-5`}>Version 0.6.5</a></li>
-			<li><a href={`${base}/changelog/v0-6-0`}>Version 0.6.0</a></li>
-			<li><a href={`${base}/changelog/v0-5-5`}>Version 0.5.5</a></li>
-			<li><a href={`${base}/changelog/v0-5-0`}>Version 0.5.0</a></li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-15-0`} {pathname}>Version 0.15.0</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-14-0`} {pathname}>Version 0.14.0</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-13-0`} {pathname}>Version 0.13.0</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-12-0`} {pathname}>Version 0.12.0</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-11-0`} {pathname}>Version 0.11.0</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/changelog/v0-10-0`} {pathname}>Version 0.10.0</SidebarLink>
+			</li>
+			<li><SidebarLink link={`${base}/changelog/v0-7-0`} {pathname}>Version 0.7.0</SidebarLink></li>
+			<li><SidebarLink link={`${base}/changelog/v0-6-5`} {pathname}>Version 0.6.5</SidebarLink></li>
+			<li><SidebarLink link={`${base}/changelog/v0-6-0`} {pathname}>Version 0.6.0</SidebarLink></li>
+			<li><SidebarLink link={`${base}/changelog/v0-5-5`} {pathname}>Version 0.5.5</SidebarLink></li>
+			<li><SidebarLink link={`${base}/changelog/v0-5-0`} {pathname}>Version 0.5.0</SidebarLink></li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="theming">
-		<div slot="control"><NavigationTitle>Theming</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>Theming</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
-			<li><a href={`${base}/theming/svelteui-provider`}>SvelteUIProvider</a></li>
-			<li><a href={`${base}/theming/create-styles`}>Creating styles</a></li>
-			<li><a href={`${base}/theming/default-theme`}>Default Theme</a></li>
-			<li><a href={`${base}/theming/dark-theme`}>Dark Theme</a></li>
-			<li><a href={`${base}/theming/override`}>Override styles</a></li>
-			<li><a href={`${base}/theming/ssr`}>Server side rendering</a></li>
-			<li><a href={`${base}/theming/stitches-utilities`}>Stitches utilities</a></li>
+			<li>
+				<SidebarLink link={`${base}/theming/svelteui-provider`} {pathname}>
+					SvelteUIProvider
+				</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/theming/create-styles`} {pathname}>Creating styles</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/theming/default-theme`} {pathname}>Default Theme</SidebarLink>
+			</li>
+			<li><SidebarLink link={`${base}/theming/dark-theme`} {pathname}>Dark Theme</SidebarLink></li>
+			<li>
+				<SidebarLink link={`${base}/theming/override`} {pathname}>Override styles</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/theming/ssr`} {pathname}>Server side rendering</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/theming/stitches-utilities`} {pathname}>
+					Stitches utilities
+				</SidebarLink>
+			</li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_core">
-		<div slot="control"><NavigationTitle>SvelteUI Core (Components)</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>SvelteUI Core (Components)</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong><Layout /><Space w="md" />Layout</strong>
 				<ul>
-					<li><a href={`${base}/core/app-shell`}>AppShell</a></li>
-					<li><a href={`${base}/core/aspect-ratio`}>AspectRatio</a></li>
-					<li><a href={`${base}/core/container`}>Container</a></li>
-					<li><a href={`${base}/core/center`}>Center</a></li>
-					<li><a href={`${base}/core/flex`}>Flex</a></li>
-					<li><a href={`${base}/core/grid`}>Grid</a></li>
-					<li><a href={`${base}/core/group`}>Group</a></li>
-					<li><a href={`${base}/core/media-query`}>MediaQuery</a></li>
-					<li><a href={`${base}/core/simple-grid`}>SimpleGrid</a></li>
-					<li><a href={`${base}/core/space`}>Space</a></li>
-					<li><a href={`${base}/core/stack`}>Stack</a></li>
+					<li><SidebarLink link={`${base}/core/app-shell`} {pathname}>AppShell</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/aspect-ratio`} {pathname}>AspectRatio</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/container`} {pathname}>Container</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/center`} {pathname}>Center</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/flex`} {pathname}>Flex</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/grid`} {pathname}>Grid</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/group`} {pathname}>Group</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/media-query`} {pathname}>MediaQuery</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/core/simple-grid`} {pathname}>SimpleGrid</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/space`} {pathname}>Space</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/stack`} {pathname}>Stack</SidebarLink></li>
 				</ul>
 			</li>
 			<li>
 				<strong><Input /><Space w="md" />Inputs & Actions</strong>
 				<ul>
-					<li><a href={`${base}/core/action-icon`}>ActionIcon</a></li>
-					<li><a href={`${base}/core/button`}>Button</a></li>
-					<li><a href={`${base}/core/checkbox`}>Checkbox</a></li>
-					<li><a href={`${base}/core/chip`}>Chip</a></li>
-					<li><a href={`${base}/core/input`}>Input</a></li>
-					<li><a href={`${base}/core/input-wrapper`}>InputWrapper</a></li>
-					<li><a href={`${base}/core/json-input`}>JsonInput</a></li>
-					<li><a href={`${base}/core/native-select`}>NativeSelect</a></li>
-					<li><a href={`${base}/core/number-input`}>NumberInput</a></li>
-					<li><a href={`${base}/core/password-input`}>PasswordInput</a></li>
-					<li><a href={`${base}/core/radio`}>Radio</a></li>
-					<li><a href={`${base}/core/switch`}>Switch</a></li>
-					<li><a href={`${base}/core/textarea`}>Textarea</a></li>
-					<li><a href={`${base}/core/text-input`}>TextInput</a></li>
-					<li><a href={`${base}/core/unstyled-button`}>UnstyledButton</a></li>
+					<li>
+						<SidebarLink link={`${base}/core/action-icon`} {pathname}>ActionIcon</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/button`} {pathname}>Button</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/checkbox`} {pathname}>Checkbox</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/chip`} {pathname}>Chip</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/input`} {pathname}>Input</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/input-wrapper`} {pathname}>InputWrapper</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/json-input`} {pathname}>JsonInput</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/native-select`} {pathname}>NativeSelect</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/core/number-input`} {pathname}>NumberInput</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/core/password-input`} {pathname}>PasswordInput</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/radio`} {pathname}>Radio</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/switch`} {pathname}>Switch</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/textarea`} {pathname}>Textarea</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/text-input`} {pathname}>TextInput</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/unstyled-button`} {pathname}
+							>UnstyledButton</SidebarLink
+						>
+					</li>
 				</ul>
 			</li>
 			<li>
 				<strong><HamburgerMenu /><Space w="md" />Navigation</strong>
 				<ul>
-					<li><a href={`${base}/core/anchor`}>Anchor</a></li>
-					<li><a href={`${base}/core/breadcrumbs`}>Breadcrumbs</a></li>
-					<li><a href={`${base}/core/burger`}>Burger</a></li>
-					<li><a href={`${base}/core/seo`}>Seo</a></li>
-					<li><a href={`${base}/core/tabs`}>Tabs</a></li>
+					<li><SidebarLink link={`${base}/core/anchor`} {pathname}>Anchor</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/breadcrumbs`} {pathname}>Breadcrumbs</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/burger`} {pathname}>Burger</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/seo`} {pathname}>Seo</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/tabs`} {pathname}>Tabs</SidebarLink></li>
 				</ul>
 			</li>
 			<li>
 				<strong><Dashboard /><Space w="md" />Data Display</strong>
 				<ul>
-					<li><a href={`${base}/core/accordion`}>Accordion</a></li>
-					<li><a href={`${base}/core/badge`}>Badge</a></li>
-					<li><a href={`${base}/core/card`}>Card</a></li>
-					<li><a href={`${base}/core/image`}>Image</a></li>
-					<li><a href={`${base}/core/kbd`}>Kbd</a></li>
-					<li><a href={`${base}/core/theme-icon`}>ThemeIcon</a></li>
-					<li><a href={`${base}/core/timeline`}>Timeline</a></li>
+					<li><SidebarLink link={`${base}/core/accordion`} {pathname}>Accordion</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/badge`} {pathname}>Badge</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/card`} {pathname}>Card</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/image`} {pathname}>Image</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/kbd`} {pathname}>Kbd</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/theme-icon`} {pathname}>ThemeIcon</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/timeline`} {pathname}>Timeline</SidebarLink></li>
 				</ul>
 			</li>
 			<li>
 				<strong><ExclamationTriangle /><Space w="md" />Feedback</strong>
 				<ul>
-					<li><a href={`${base}/core/alert`}>Alert</a></li>
-					<li><a href={`${base}/core/loader`}>Loader</a></li>
-					<li><a href={`${base}/core/notification`}>Notification</a></li>
-					<li><a href={`${base}/core/progress`}>Progress</a></li>
-					<li><a href={`${base}/core/skeleton`}>Skeleton</a></li>
+					<li><SidebarLink link={`${base}/core/alert`} {pathname}>Alert</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/loader`} {pathname}>Loader</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/notification`} {pathname}>Notification</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/core/progress`} {pathname}>Progress</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/skeleton`} {pathname}>Skeleton</SidebarLink></li>
 				</ul>
 			</li>
 			<li>
 				<strong><Stack /><Space w="md" />Overlay</strong>
 				<ul>
-					<li><a href={`${base}/core/affix`}>Affix</a></li>
-					<li><a href={`${base}/core/menu`}>Menu</a></li>
-					<li><a href={`${base}/core/modal`}>Modal</a></li>
-					<li><a href={`${base}/core/overlay`}>Overlay</a></li>
-					<li><a href={`${base}/core/tooltip`}>Tooltip</a></li>
+					<li><SidebarLink link={`${base}/core/affix`} {pathname}>Affix</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/menu`} {pathname}>Menu</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/modal`} {pathname}>Modal</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/overlay`} {pathname}>Overlay</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/tooltip`} {pathname}>Tooltip</SidebarLink></li>
 				</ul>
 			</li>
 			<li>
 				<strong><LetterCaseToggle /><Space w="md" />Typography</strong>
 				<ul>
-					<li><a href={`${base}/core/blockquote`}>Blockquote</a></li>
-					<li><a href={`${base}/core/code`}>Code</a></li>
-					<li><a href={`${base}/core/mark`}>Mark</a></li>
-					<li><a href={`${base}/core/text`}>Text</a></li>
-					<li><a href={`${base}/core/title`}>Title</a></li>
-					<li><a href={`${base}/core/typography-provider`}>TypographyProvider</a></li>
+					<li><SidebarLink link={`${base}/core/blockquote`} {pathname}>Blockquote</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/code`} {pathname}>Code</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/mark`} {pathname}>Mark</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/text`} {pathname}>Text</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/title`} {pathname}>Title</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/typography-provider`} {pathname}
+							>TypographyProvider</SidebarLink
+						>
+					</li>
 				</ul>
 			</li>
 			<li>
 				<strong><BoxModel /><Space w="md" />Miscellaneous</strong>
 				<ul>
-					<li><a href={`${base}/core/box`}>Box</a></li>
-					<li><a href={`${base}/core/collapse`}>Collapse</a></li>
-					<li><a href={`${base}/core/divider`}>Divider</a></li>
-					<li><a href={`${base}/core/observer-render`}>ObserverRender</a></li>
-					<li><a href={`${base}/core/paper`}>Paper</a></li>
-					<li><a href={`${base}/core/popper`}>Popper</a></li>
-					<li><a href={`${base}/core/portal`}>Portal</a></li>
+					<li><SidebarLink link={`${base}/core/box`} {pathname}>Box</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/collapse`} {pathname}>Collapse</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/divider`} {pathname}>Divider</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/core/observer-render`} {pathname}
+							>ObserverRender</SidebarLink
+						>
+					</li>
+					<li><SidebarLink link={`${base}/core/paper`} {pathname}>Paper</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/popper`} {pathname}>Popper</SidebarLink></li>
+					<li><SidebarLink link={`${base}/core/portal`} {pathname}>Portal</SidebarLink></li>
 				</ul>
 			</li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_composables">
-		<div slot="control">
-			<NavigationTitle>SvelteUI Composables (Svelte Actions)</NavigationTitle>
-		</div>
+		{#snippet control()}
+			<div>
+				<NavigationTitle>SvelteUI Composables (Svelte Actions)</NavigationTitle>
+			</div>
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong><LightningBolt /><Space w="md" />Actions</strong>
 				<ul>
-					<li><a href={`${base}/composables/use-click-outside`}>use-click-outside</a></li>
-					<li><a href={`${base}/composables/use-clipboard`}>use-clipboard</a></li>
-					<li><a href={`${base}/composables/use-css-variable`}>use-css-variable</a></li>
-					<li><a href={`${base}/composables/use-download`}>use-download</a></li>
-					<li><a href={`${base}/composables/use-focus`}>use-focus</a></li>
-					<li><a href={`${base}/composables/use-focus-trap`}>use-focus-trap</a></li>
-					<li><a href={`${base}/composables/use-hot-key`}>use-hot-key</a></li>
-					<li><a href={`${base}/composables/use-io`}>use-io</a></li>
-					<li><a href={`${base}/composables/use-lazy`}>use-lazy</a></li>
-					<li><a href={`${base}/composables/use-lock-scroll`}>use-lock-scroll</a></li>
-					<li><a href={`${base}/composables/use-long-press`}>use-long-press</a></li>
-					<li><a href={`${base}/composables/use-move`}>use-move</a></li>
-					<li><a href={`${base}/composables/use-persistent-tab`}>use-persistent-tab</a></li>
-					<li><a href={`${base}/composables/use-portal`}>use-portal</a></li>
-					<li><a href={`${base}/composables/use-page-leave`}>use-page-leave</a></li>
-					<li><a href={`${base}/composables/use-tab-leave`}>use-tab-leave</a></li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-click-outside`} {pathname}>
+							use-click-outside
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-clipboard`} {pathname}
+							>use-clipboard</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-css-variable`} {pathname}
+							>use-css-variable</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-download`} {pathname}
+							>use-download</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-focus`} {pathname}>use-focus</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-focus-trap`} {pathname}
+							>use-focus-trap</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-hot-key`} {pathname}
+							>use-hot-key</SidebarLink
+						>
+					</li>
+					<li><SidebarLink link={`${base}/composables/use-io`} {pathname}>use-io</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-lazy`} {pathname}>use-lazy</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-lock-scroll`} {pathname}
+							>use-lock-scroll</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-long-press`} {pathname}
+							>use-long-press</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-move`} {pathname}>use-move</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-persistent-tab`} {pathname}>
+							use-persistent-tab
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-portal`} {pathname}>use-portal</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-page-leave`} {pathname}
+							>use-page-leave</SidebarLink
+						>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-tab-leave`} {pathname}
+							>use-tab-leave</SidebarLink
+						>
+					</li>
 				</ul>
 			</li>
 			<li>
 				<strong><Archive /><Space w="md" />Utilities</strong>
 				<ul>
-					<li><a href={`${base}/composables/use-browser-context`}>use-browser-context</a></li>
-					<li><a href={`${base}/composables/use-debounce`}>use-debounce</a></li>
-					<li><a href={`${base}/composables/use-element-size`}>use-element-size</a></li>
-					<li><a href={`${base}/composables/use-eye-dropper`}>use-eye-dropper</a></li>
-					<li><a href={`${base}/composables/use-focus-return`}>use-focus-return</a></li>
-					<li><a href={`${base}/composables/use-focus-within`}>use-focus-within</a></li>
-					<li><a href={`${base}/composables/use-hash`}>use-hash</a></li>
-					<li><a href={`${base}/composables/use-id`}>use-id</a></li>
-					<li><a href={`${base}/composables/use-mouse-position`}>use-mouse-position</a></li>
-					<li><a href={`${base}/composables/use-os`}>use-os</a></li>
-					<li><a href={`${base}/composables/use-raf-fn`}>use-raf-fn</a></li>
-					<li><a href={`${base}/composables/use-throttle`}>use-throttle</a></li>
-					<li><a href={`${base}/composables/use-viewport-size`}>use-viewport-size</a></li>
-					<li><a href={`${base}/composables/use-web-worker`}>use-web-worker</a></li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-browser-context`} {pathname}>
+							use-browser-context
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-debounce`} {pathname}>
+							use-debounce
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-element-size`} {pathname}>
+							use-element-size
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-eye-dropper`} {pathname}>
+							use-eye-dropper
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-focus-return`} {pathname}>
+							use-focus-return
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-focus-within`} {pathname}>
+							use-focus-within
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-hash`} {pathname}>use-hash</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/composables/use-id`} {pathname}>use-id</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-mouse-position`} {pathname}>
+							use-mouse-position
+						</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/composables/use-os`} {pathname}>use-os</SidebarLink></li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-raf-fn`} {pathname}>use-raf-fn</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-throttle`} {pathname}>
+							use-throttle
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-viewport-size`} {pathname}>
+							use-viewport-size
+						</SidebarLink>
+					</li>
+					<li>
+						<SidebarLink link={`${base}/composables/use-web-worker`} {pathname}>
+							use-web-worker
+						</SidebarLink>
+					</li>
 				</ul>
 			</li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_dates">
-		<div slot="control"><NavigationTitle>SvelteUI Dates</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>SvelteUI Dates</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
-			<li><a href={`${base}/dates/getting-started`}>Getting Started</a></li>
-			<li><a href={`${base}/dates/month`}>Month</a></li>
+			<li>
+				<SidebarLink link={`${base}/dates/getting-started`} {pathname}>Getting Started</SidebarLink>
+			</li>
+			<li><SidebarLink link={`${base}/dates/month`} {pathname}>Month</SidebarLink></li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_preprocessors">
-		<div slot="control"><NavigationTitle>SvelteUI Preprocessors</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>SvelteUI Preprocessors</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
-			<li><a href={`${base}/preprocessors/getting-started`}>Getting Started</a></li>
-			<li><a href={`${base}/preprocessors/view-source`}>view-source</a></li>
+			<li>
+				<SidebarLink link={`${base}/preprocessors/getting-started`} {pathname}>
+					Getting Started
+				</SidebarLink>
+			</li>
+			<li>
+				<SidebarLink link={`${base}/preprocessors/view-source`} {pathname}>view-source</SidebarLink>
+			</li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="svelteui_motion">
-		<div slot="control"><NavigationTitle>SvelteUI Motion</NavigationTitle></div>
+		{#snippet control()}
+			<div><NavigationTitle>SvelteUI Motion</NavigationTitle></div>
+		{/snippet}
 		<ul class="list">
 			<li>
 				<strong>Transitions</strong>
 				<ul>
-					<li><a href={`${base}/motion/typewriter`}>Typewriter</a></li>
-					<li><a href={`${base}/motion/flipboard`}>Flipboard</a></li>
+					<li>
+						<SidebarLink link={`${base}/motion/typewriter`} {pathname}>Typewriter</SidebarLink>
+					</li>
+					<li><SidebarLink link={`${base}/motion/flipboard`} {pathname}>Flipboard</SidebarLink></li>
 				</ul>
 			</li>
 		</ul>
 	</Accordion.Item>
 	<Accordion.Item value="other_packages">
-		<div slot="control">
-			<NavigationTitle>Other Packages</NavigationTitle>
-		</div>
+		{#snippet control()}
+			<div>
+				<NavigationTitle>Other Packages</NavigationTitle>
+			</div>
+		{/snippet}
 		<ul class="list">
-			<li><a href={`${base}/others/prism`}>Prism</a></li>
+			<li><SidebarLink link={`${base}/others/prism`} {pathname}>Prism</SidebarLink></li>
 		</ul>
 	</Accordion.Item>
 </Accordion>

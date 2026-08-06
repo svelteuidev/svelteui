@@ -33,12 +33,12 @@ docs: 'core/number-input'
 	import { NumberInput } from '@svelteuidev/core';
 
 	let value;
-	function onChange(e) {
-		value = e.detail;
+	function onChange(value: number) {
+		value = value;
 	}
 </script>
 
-<NumberInput {value} on:change={onChange} />
+<NumberInput {value} onchange={onChange} />
 ```
 
 ## Clamp on blur

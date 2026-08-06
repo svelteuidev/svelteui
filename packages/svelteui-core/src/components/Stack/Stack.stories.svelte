@@ -6,12 +6,14 @@
 
 <Meta title="Components/Stack" component={Stack} />
 
-<Template let:args>
-	<Stack {...args}>
-		<Button variant="outline">1</Button>
-		<Button variant="outline">2</Button>
-		<Button variant="outline">3</Button>
-	</Stack>
+<Template>
+	{#snippet children({ args })}
+		<Stack {...args}>
+			<Button variant="outline">1</Button>
+			<Button variant="outline">2</Button>
+			<Button variant="outline">3</Button>
+		</Stack>
+	{/snippet}
 </Template>
 
 <Story name="Stack" id="stackStory" />

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	import type { ConfiguratorDemoType, ConfiguratorDemoConfiguration } from '$lib/types';
 
 	const codeTemplate = (props: string, children: string) =>
@@ -10,7 +10,7 @@
 <Notification ${props}>
     ${children}
 </Notification>
-<Notification icon={Check} ${props}>
+<Notification iconComponent={Check} ${props}>
     ${children}
 </Notification>`;
 
@@ -50,16 +50,16 @@
 	import { Center, Notification, Stack } from '@svelteuidev/core';
 	import { Check } from 'radix-icons-svelte';
 
-	export let props: NotificationProps = {};
+	let { children, ...rest }: NotificationProps = $props();
 </script>
 
 <Center>
 	<Stack position="center">
-		<Notification {...props}>
-			<slot />
+		<Notification {...rest}>
+			{@render children?.()}
 		</Notification>
-		<Notification icon={Check} {...props}>
-			<slot />
+		<Notification iconComponent={Check} {...rest}>
+			{@render children?.()}
 		</Notification>
 	</Stack>
 </Center>

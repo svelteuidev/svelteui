@@ -1,7 +1,11 @@
 <script lang="ts">
-	export let size = 15;
-	export let color = '';
-	export let expanded = false;
+	interface Props {
+		size?: number;
+		color?: string;
+		expanded?: boolean;
+	}
+
+	let { size = 15, color = '', expanded = false }: Props = $props();
 </script>
 
 <svg

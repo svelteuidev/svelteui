@@ -1,47 +1,46 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+	import { onMount } from 'svelte';
+
 	import { Box } from '../Box';
 	import { Popper } from '../Popper';
 	import useStyles from './Tooltip.styles';
-	import type { TooltipProps as $$TooltipProps } from './Tooltip';
+	import type { TooltipProps } from './Tooltip';
 
-	interface $$Props extends $$TooltipProps {}
-
-	export let use: $$Props['use'] = [],
-		element: $$Props['element'] = undefined,
-		className: $$Props['className'] = '',
-		override: $$Props['override'] = {},
-		label: $$Props['label'] = undefined,
-		opened: $$Props['opened'] = null,
-		openDelay: $$Props['openDelay'] = 0,
-		closeDelay: $$Props['closeDelay'] = 0,
-		color: $$Props['color'] = 'gray',
-		radius: $$Props['radius'] = 'sm',
-		disabled: $$Props['disabled'] = false,
-		arrowSize: $$Props['arrowSize'] = 2,
-		width: $$Props['width'] = 'auto',
-		wrapLines: $$Props['wrapLines'] = false,
-		allowPointerEvents: $$Props['allowPointerEvents'] = false,
-		tooltipRef: $$Props['tooltipRef'] = null,
-		tooltipId: $$Props['tooltipId'] = null,
+	let {
+		use = [],
+		element = $bindable(null),
+		className = '',
+		override = {},
+		labelComponent = undefined,
+		opened = null,
+		openDelay = 0,
+		closeDelay = 0,
+		color = 'gray',
+		radius = 'sm',
+		disabled = false,
+		arrowSize = 2,
+		width = 'auto',
+		wrapLines = false,
+		allowPointerEvents = false,
+		tooltipRef = null,
+		tooltipId = null,
 		/** --------PopperProps--------------------------------------- */
-		zIndex: $$Props['zIndex'] = 300,
-		position: $$Props['position'] = 'top',
-		placement: $$Props['placement'] = 'center',
-		gutter: $$Props['gutter'] = 5,
-		withArrow: $$Props['withArrow'] = false,
-		transitionOptions: $$Props['transitionOptions'] = { duration: 100 };
-	export { className as class };
-
-	const dispatch = createEventDispatcher();
+		zIndex = 300,
+		position = 'top',
+		placement = 'center',
+		gutter = 5,
+		withArrow = false,
+		transitionOptions = { duration: 100 },
+		label,
+		children,
+		...rest
+	}: TooltipProps = $props();
 
 	let openTimeoutRef: number, closeTimeoutRef: number;
-	let _opened = false;
-	let tooltipRefElement = null;
+	let _opened = $state(false);
+	let tooltipRefElement = $state(null);
 
-	const handleOpen = (event) => {
-		window.clearTimeout(closeTimeoutRef);
-
+	const handleOpen = () => {
 		if (openDelay !== 0) {
 			openTimeoutRef = window.setTimeout(() => {
 				_opened = true;
@@ -49,10 +48,9 @@
 		} else {
 			_opened = true;
 		}
-		dispatch('mouseenter', event);
 	};
 
-	const handleClose = (event) => {
+	const handleClose = () => {
 		window.clearTimeout(openTimeoutRef);
 
 		if (closeDelay !== 0) {
@@ -62,7 +60,6 @@
 		} else {
 			_opened = false;
 		}
-		dispatch('mouseleave', event);
 	};
 
 	onMount(() => {
@@ -70,20 +67,22 @@
 		window.clearTimeout(closeTimeoutRef);
 	});
 
-	$: visible = (typeof opened === 'boolean' ? opened : _opened) && !disabled;
-	$: ({ cx, classes, getStyles } = useStyles({ color, radius }, { name: 'Tooltip' }));
+	let LabelComponent = $derived(typeof labelComponent === 'function' ? labelComponent : undefined);
+
+	let visible = $derived((typeof opened === 'boolean' ? opened : _opened) && !disabled);
+	let { cx, classes, getStyles } = $derived(useStyles({ color, radius }, { name: 'Tooltip' }));
 </script>
 
 <Box
 	bind:element
-	on:pointerenter={(event) => handleOpen(event)}
-	on:pointerleave={(event) => handleClose(event)}
-	on:focus!capture={handleOpen}
-	on:blur!capture={handleClose}
+	onpointerenter={handleOpen}
+	onpointerleave={handleClose}
+	onfocuscapture={handleOpen}
+	onblurcapture={handleClose}
 	class={cx(className, classes.root, getStyles({ css: override }))}
 	{use}
 	id={tooltipId}
-	{...$$restProps}
+	{...rest}
 >
 	<Popper
 		{transitionOptions}
@@ -107,20 +106,18 @@
 				width
 			}}
 		>
-			{#if typeof label === 'function'}
-				<svelte:component this={label} />
-			{:else if typeof label === 'string'}
-				{label}
-			{:else if typeof label === 'number'}
-				{label}
-			{:else if $$slots.label}
-				<slot name="label" />
-			{:else}
-				{label}
+			{#if LabelComponent !== undefined}
+				<LabelComponent />
+			{:else if typeof labelComponent === 'string'}
+				{labelComponent}
+			{:else if typeof labelComponent === 'number'}
+				{labelComponent}
+			{:else if label}
+				{@render label()}
 			{/if}
 		</Box>
 	</Popper>
 	<span bind:this={tooltipRefElement}>
-		<slot />
+		{@render children?.()}
 	</span>
 </Box>

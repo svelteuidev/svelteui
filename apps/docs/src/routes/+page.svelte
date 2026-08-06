@@ -55,7 +55,9 @@ index: true
 					size="xl"
 					color={$colorScheme === 'dark' ? 'gray' : 'dark'}
 				>
-					<GithubLogo size={25} slot="leftIcon" />
+					{#snippet leftIcon()}
+						<GithubLogo size={25} />
+					{/snippet}
 					<Text weight="bold" color="white">Source Code</Text>
 				</Button>
 			</a>
