@@ -128,14 +128,27 @@
 		let _index = _active;
 		if (event.code === nextTabCode) {
 			if (_index + 1 >= tabs.length) return;
-			_index += 1;
+			let current = _index + 1;
+			let end = tabs.length - 1;
+			while (current <= end)
+				if (tabs[current] && tabs[current]['disabled']) current++;
+				else break;
+			if (current > end) return;
+			_index = current;
 		} else if (event.code === previousTabCode) {
 			if (_index - 1 < 0) return;
-			_index -= 1;
+			let current = _index - 1;
+			let end = 0;
+			while (current >= end)
+				if (tabs[current] && tabs[current]['disabled']) current--;
+				else break;
+			if (current < end) return;
+			_index = current;
 		}
 
 		event.preventDefault();
 		const selectedTab = Array.from(tabs)[_index];
+		if (selectedTab) selectedTab['focus']();
 		const selectedKey = selectedTab.getAttribute('data-key');
 
 		dispatch('change', { index: _index, key: selectedKey });
